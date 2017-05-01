@@ -1055,17 +1055,10 @@
  <h2 id="deploying-applications"><a class="anchor" href="#deploying-applications"></a>Deploying Applications</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>Mule applications, either zipped or exploded can be dropped into <strong>$MULE_HOME/apps</strong>. If Mule is already running, the application will be deployed dynamically.</p> 
+   <p>Mule applications, either zipped or exploded can be dropped into <code>$MULE_HOME/apps</code>. If Mule is already running, the application is deployed dynamically.</p> 
   </div> 
-  <div class="admonitionblock note"> 
-   <table> 
-    <tbody> 
-     <tr> 
-      <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-      <td class="content"> All applications in Mule are unpacked at runtime and original zip removed. This means, e.g. that dropping a zip file into 'apps' dir will create a new folder with the same name (sans 'zip' extension) and delete the zip. </td> 
-     </tr> 
-    </tbody> 
-   </table> 
+  <div class="paragraph"> 
+   <p><strong>Note:</strong> All applications in Mule are unpacked at runtime and the original zip is removed. This means, for example, that dropping a zip file into 'apps' dir creates a new folder with the same name (without the 'zip' extension) and deletes the zip.</p> 
   </div> 
   <div class="paragraph"> 
    <p>A successful app deployment is confirmed by:</p> 
@@ -1102,16 +1095,22 @@
  <h2 id="undeploying-applications"><a class="anchor" href="#undeploying-applications"></a>Undeploying Applications</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>It is recommended one doesn’t delete the application folder directly, but rather an app’s anchor file only:</p> 
-  </div> 
-  <div class="olist arabic"> 
-   <ol class="arabic"> 
-    <li> <p>Prevents any interference from the hot-deployment layer and doesn’t leave room for concurrent conflicting actions.</p> </li> 
-    <li> <p>Avoids potential application jar locking issues on some operation systems and allows for clean shutdown and undeployment.</p> </li> 
-   </ol> 
+   <p>We recommend that you don’t delete the application folder directly, but rather an app’s anchor file only.</p> 
   </div> 
   <div class="paragraph"> 
-   <p>E.g. if the <code>stockTrader</code> app is running (app folder is there as well as the <code>$MULE_HOME/apps/stockTrader-anchor.txt</code> file, just delete the anchor file to have the app removed from the Mule instance at runtime. Application folder will be removed once the app terminates.</p> 
+   <p>This:</p> 
+  </div> 
+  <div class="ulist"> 
+   <ul> 
+    <li> <p>Prevents any interference from the hot-deployment layer and doesn’t leave room for concurrent conflicting actions.</p> </li> 
+    <li> <p>Avoids potential application JAR locking issues on some operation systems and allows for clean shutdown and undeployment.</p> </li> 
+   </ul> 
+  </div> 
+  <div class="paragraph"> 
+   <p>For example, if the <code>stockTrader</code> app is running (the app folder is there as well as the <code>$MULE_HOME/apps/stockTrader-anchor.txt</code> file), just delete the anchor file to have the app removed from the Mule instance at runtime. The application folder is removed after the app terminates.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p><strong>Note:</strong> After undeploying a Mule application, there is a timeout of 15 seconds until LoggerContext stops. Log files for an application only release after this timeout expires. This information is important in Windows, where you can’t remove files that are in use by other processes.</p> 
   </div> 
  </div> 
 </div> 
@@ -1119,7 +1118,7 @@
  <h2 id="updating-applications-at-runtime"><a class="anchor" href="#updating-applications-at-runtime"></a>Updating Applications at Runtime</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>Updating a Mule application at runtime can be a complex change involving class modifications, endpoint modifications (e.g. changing ports, etc), as well as reconfigured flows. As a result, any application update does a graceful app shutdown under the hood and reconfigures itself. In practice, this is pretty transparent to the user and happens within seconds.</p> 
+   <p>Updating a Mule application at runtime can be a complex change involving class modifications, endpoint modifications (for example, changing ports, etc), as well as reconfigured flows. As a result, any application update does a graceful app shutdown under the hood and reconfigures itself. In practice, this is pretty transparent to the user and happens within seconds.</p> 
   </div> 
   <div class="paragraph"> 
    <p>There are several ways an application can be updated:</p> 
@@ -1127,7 +1126,7 @@
   <div class="ulist"> 
    <ul> 
     <li> <p>By dropping the modifications over an existing exploded app folder and touching the 'master' configuration file (<code>mule-config.xml</code> in app root by default).</p> </li> 
-    <li> <p>By dropping a new <strong>zipped</strong> version of the app into <code>$MULE_HOME/apps</code> dir. Mule will detect this as an existing app update and will ensure a clean redeployment of the app. Note that any modifications to the old app folder are discarded - the new app folder is a clean exploded application from a zip.</p> </li> 
+    <li> <p>By dropping a new <strong>zipped</strong> version of the app into <code>$MULE_HOME/apps</code> dir. Mule detects this as an existing app update and ensures a clean redeployment of the app. Note that any modifications to the old app folder are discarded - the new app folder is a clean exploded application from a zip.</p> </li> 
    </ul> 
   </div> 
   <div class="paragraph"> 
@@ -1139,7 +1138,7 @@
  <h2 id="sharing-resources"><a class="anchor" href="#sharing-resources"></a>Sharing Resources</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>If you’re deploying multiple applications to the same place and those applications could share the same resources, then you can create a common <strong>domain</strong> where you can define common configurations that can then be referenced by multiple projects. This allows you to, for example, expose different services in different projects through the same HTTP host and port and be able to deploy everything without any conflicts. <a href="/mule-user-guide/v/3.8/shared-resources">Read More</a>.</p> 
+   <p>If you’re deploying multiple applications to the same place and those applications could share the same resources, then you can create a common <strong>domain</strong> where you can define common configurations that can then be referenced by multiple projects. This allows you to, for example, expose different services in different projects through the same HTTP host and port and be able to deploy everything without any conflicts. See <a href="/mule-user-guide/v/3.8/shared-resources">Shared Resources</a>.</p> 
   </div> 
  </div> 
 </div> 
@@ -1147,11 +1146,11 @@
  <h2 id="disabling-the-mule-container-mode"><a class="anchor" href="#disabling-the-mule-container-mode"></a>Disabling the Mule Container Mode</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>If you want to run Mule 3 the legacy 2.x way, edit <code>$MULE_HOME/conf/wrapper.conf</code> file and replace the following line:</p> 
+   <p>If you want to run Mule 3 in the legacy 2.x way, edit <code>$MULE_HOME/conf/wrapper.conf</code> file and replace the following line:</p> 
   </div> 
   <div class="listingblock"> 
    <div class="content"> 
-    <pre class="CodeRay highlight"><code data-lang="code">
+    <pre class="CodeRay highlight"><code data-lang="java">
          
       <table class="CodeRay"> 
        <tbody> 
@@ -1159,19 +1158,19 @@
          <td class="line-numbers"><pre>1
 2
 </pre></td> 
-         <td class="code"><pre># Java Main class
-wrapper.java.mainclass=org.mule.module.reboot.MuleContainerBootstrap</pre></td> 
+         <td class="code"><pre><span class="error">#</span> Java Main <span class="type">class</span>
+<span class="class">wrapper</span>.java.mainclass=org.mule.module.reboot.MuleContainerBootstrap</pre></td> 
         </tr> 
        </tbody> 
       </table></code></pre> 
    </div> 
   </div> 
   <div class="paragraph"> 
-   <p>with this one:</p> 
+   <p>With this one:</p> 
   </div> 
   <div class="listingblock"> 
    <div class="content"> 
-    <pre class="CodeRay highlight"><code data-lang="code">
+    <pre class="CodeRay highlight"><code data-lang="java">
          
       <table class="CodeRay"> 
        <tbody> 
@@ -1179,15 +1178,15 @@ wrapper.java.mainclass=org.mule.module.reboot.MuleContainerBootstrap</pre></td>
          <td class="line-numbers"><pre>1
 2
 </pre></td> 
-         <td class="code"><pre># Java Main class
-wrapper.java.mainclass=org.mule.module.boot.MuleBootstrap</pre></td> 
+         <td class="code"><pre><span class="error">#</span> Java Main <span class="type">class</span>
+<span class="class">wrapper</span>.java.mainclass=org.mule.module.boot.MuleBootstrap</pre></td> 
         </tr> 
        </tbody> 
       </table></code></pre> 
    </div> 
   </div> 
   <div class="paragraph"> 
-   <p><strong>When run in this legacy mode, none of the new application deployment features apply</strong></p> 
+   <p><strong>Note:</strong> When run in this legacy mode, none of the new application deployment features apply.</p> 
   </div> 
  </div> 
 </div> 
@@ -1203,7 +1202,7 @@ wrapper.java.mainclass=org.mule.module.boot.MuleBootstrap</pre></td>
  <h2 id="troubleshooting"><a class="anchor" href="#troubleshooting"></a>Troubleshooting</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>If application fails to start (e.g. broken configuration file provided), Mule will <strong>not</strong> monitor the app for changes (as there technically is no application running). To update such an app, simply redeploy the app by dropping an updated archive into the apps folder.</p> 
+   <p>If the application fails to start (for example, in the provided broken configuration file), Mule does not monitor the app for changes (as there technically is no application running). To update such an app, simply redeploy the app by dropping an updated archive into the apps folder.</p> 
   </div> 
  </div> 
 </div>
