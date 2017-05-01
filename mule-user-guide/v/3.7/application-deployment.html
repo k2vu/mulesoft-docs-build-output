@@ -1115,7 +1115,10 @@
  <h2 id="undeploying-applications"><a class="anchor" href="#undeploying-applications"></a>Undeploying Applications</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>We recommend that you not delete the application folder directly, but rather an application’s anchor file only. This:</p> 
+   <p>We recommend that you not delete the application folder directly, but rather an application’s anchor file only.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>This:</p> 
   </div> 
   <div class="ulist"> 
    <ul> 
@@ -1125,6 +1128,9 @@
   </div> 
   <div class="paragraph"> 
    <p>For example, if the <code>stockTrader</code> app is running (app folder is there as well as the <code>$MULE_HOME/apps/stockTrader-anchor.txt</code> file, just delete the anchor file to have the app removed from the Mule instance at runtime. Application folder is removed once the app terminates.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p><strong>Note:</strong> After undeploying a Mule Application, there is a timeout of 15 seconds until LoggerContext stops. Log files for an application only release after this timeout expires. This information is important in Windows, where you can’t remove files that are in use by other processes.</p> 
   </div> 
  </div> 
 </div> 
