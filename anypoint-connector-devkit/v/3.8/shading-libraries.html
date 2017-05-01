@@ -15,7 +15,7 @@
   <script src="/js/scripts.js?t=1491597550"></script>
 
   <link rel="canonical" href="https://docs.mulesoft.com/anypoint-connector-devkit/v/3.8/shading-libraries" />
-  <meta name="description" content="DevKit version 3.5.3 and later supports shading (renaming) .jar files using the Apache Maven Shade Plugin, by specifying the plugin in your project..." />
+  <meta name="description" content="DevKit version 3.5.3 and later supports creating a "shaded" .jar file (i.e. an "uber" .jar containing the classes and packages of its dependency li..." />
   <meta class="swiftype" name="title" data-type="string" content="Shading Libraries" />
   <meta class="swiftype" name="version" data-type="enum" content="3.8" />
 </head>
@@ -1029,33 +1029,50 @@
       <div id="preamble"> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>DevKit version 3.5.3 and later supports shading (renaming) .jar files using the <a href="http://maven.apache.org/plugins/maven-shade-plugin/examples/includes-excludes.html">Apache Maven Shade Plugin</a>, by specifying the plugin in your project’s <code>pom.xml</code> file.</p> 
+   <p>DevKit version 3.5.3 and later supports creating a "shaded" .jar file (i.e. an "uber" .jar containing the classes and packages of its dependency libraries with optional relocation of various packages and classes) using the <a href="http://maven.apache.org/plugins/maven-shade-plugin/examples/includes-excludes.html">Apache Maven Shade Plugin</a>.</p> 
   </div> 
   <div class="paragraph"> 
-   <p>If needed, add the "shading" plugin dependency to your <code>pom.xml</code> file so that a .jar filename does not collide with another version of the library with the same name implemented by Mule.</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>Before considering using the shading plugin to use your custom .jar without collision with a different version or antecedent of the .jar, it is advisable to take one of these approaches before considering shading.</p> 
-  </div> 
-  <div class="ulist"> 
-   <ul> 
-    <li> <p>Use the same version of the library as Mule does</p> </li> 
-    <li> <p>Use an entirely different library that doesn’t collide with one implemented by Mule</p> </li> 
-   </ul> 
+   <p>The Maven Shade plugin can be used to build your custom connector library .jar bundled with all of its library class dependencies which ensures its library class dependencies do not collide/conflict at runtime with other versions of any libraries already being used within Mule.</p> 
   </div> 
  </div> 
 </div> 
 <div class="sect1"> 
- <h2 id="add-the-shade-plugin"><a class="anchor" href="#add-the-shade-plugin"></a>Add the Shade Plugin</h2> 
+ <h2 id="before-using"><a class="anchor" href="#before-using"></a>Before Using</h2> 
  <div class="sectionbody"> 
+  <div class="paragraph"> 
+   <p>Before moving forward with the Maven Shade plugin, it is advisable to first consider one of the following approaches as an alternative to shading:</p> 
+  </div> 
   <div class="ulist"> 
    <ul> 
-    <li> <p>Add the shading plugin to&nbsp;your connector’s&nbsp;<code>pom.xml</code> file.</p> </li> 
-    <li> <p>Add the custom .jar to the connector by specifying it in the <code>pom.xml</code> file.</p> </li> 
+    <li> <p>Use the same version of the library that Mule is using</p> </li> 
+    <li> <p>Use an entirely different library with packages and classes that do not collide with ones being used by Mule</p> </li> 
    </ul> 
   </div> 
   <div class="paragraph"> 
-   <p>The following example shows <code>org.some.library</code> and an <code>artifactId</code> of&nbsp;<code>custom-artifact-id</code> as dependencies:</p> 
+   <p>When neither of the two alternate approaches above are feasible for your custom connector, use of the Maven Shade plugin may be the last viable option.</p> 
+  </div> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="what-shade-plugin-does"><a class="anchor" href="#what-shade-plugin-does"></a>What Shade Plugin Does</h2> 
+ <div class="sectionbody"> 
+  <div class="paragraph"> 
+   <p>The Maven Shade plugin takes care of renaming the packages of colliding classes. It also alters the byte code of calling classes to instead use the relocated classes in the shaded package. By doing these things, the Maven Shade plugin ensures that classes needed by your connector—​that would have collided with another version of the same classes being used by Mule—​can co-exist peacefully in the same JVM classpath, thereby preventing the appearance of "Not Found" errors for classes and methods at runtime.</p> 
+  </div> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="to-use-the-shade-plugin"><a class="anchor" href="#to-use-the-shade-plugin"></a>To Use the Shade Plugin</h2> 
+ <div class="sectionbody"> 
+  <div class="ulist"> 
+   <ul> 
+    <li> <p>Add a dependency entry to the custom connector’s <code>pom.xml</code> file for any dependency .jar which has a transitive dependency on one or more library .jars that contain classes which collide with classes in use by Mule.</p> </li> 
+    <li> <p>Add the shade plugin to&nbsp;the build plugins section of your custom connector project’s&nbsp;<code>pom.xml</code> file.</p> </li> 
+    <li> <p>(Optional) Add an explicit configuration for the "mule-devkit-maven-plugin" to ensure that the shaded connector jar is built properly for installation into Anypoint Studio</p> </li> 
+   </ul> 
+  </div> 
+  <div class="paragraph"> 
+   <p>The following example configuration is for dealing with a conflicting Apache Commons Compress library:</p> 
   </div> 
   <div class="listingblock"> 
    <div class="content"> 
@@ -1074,23 +1091,15 @@
 </pre></td> 
          <td class="code"><pre><span class="tag">&lt;dependencies&gt;</span>
    <span class="tag">&lt;dependency&gt;</span>
-       <span class="tag">&lt;groupId&gt;</span>org.some.library<span class="tag">&lt;/groupId&gt;</span>
-       <span class="tag">&lt;artifactId&gt;</span>custom-artifact-id<span class="tag">&lt;/artifactId&gt;</span>
-       <span class="tag">&lt;version&gt;</span>2.0<span class="tag">&lt;/version&gt;</span> <span class="comment">&lt;!-- version is in connector's JAR --&gt;</span>
+       <span class="tag">&lt;groupId&gt;</span>org.apache.commons<span class="tag">&lt;/groupId&gt;</span>
+       <span class="tag">&lt;artifactId&gt;</span>commons-compress<span class="tag">&lt;/artifactId&gt;</span>
+       <span class="tag">&lt;version&gt;</span>1.8.1<span class="tag">&lt;/version&gt;</span>
    <span class="tag">&lt;/dependency&gt;</span>
 <span class="tag">&lt;/dependencies&gt;</span></pre></td> 
         </tr> 
        </tbody> 
       </table></code></pre> 
    </div> 
-  </div> 
- </div> 
-</div> 
-<div class="sect1"> 
- <h2 id="shade-plugin-in-action"><a class="anchor" href="#shade-plugin-in-action"></a>Shade Plugin in Action</h2> 
- <div class="sectionbody"> 
-  <div class="paragraph"> 
-   <p>The following example shows the output after building the connector. The shading plugin takes care of renaming the artifact, which without the shading plugin, could have collided with another version of the artifact in Mule:</p> 
   </div> 
   <div class="listingblock"> 
    <div class="content"> 
@@ -1123,29 +1132,55 @@
 22
 23
 24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
 </pre></td> 
          <td class="code"><pre><span class="tag">&lt;build&gt;</span>
  <span class="tag">&lt;plugins&gt;</span>
    <span class="tag">&lt;plugin&gt;</span>
      <span class="tag">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/groupId&gt;</span>
      <span class="tag">&lt;artifactId&gt;</span>maven-shade-plugin<span class="tag">&lt;/artifactId&gt;</span>
-     <span class="tag">&lt;version&gt;</span>2.3<span class="tag">&lt;/version&gt;</span>
+     <span class="tag">&lt;version&gt;</span>3.0.0<span class="tag">&lt;/version&gt;</span>
      <span class="tag">&lt;configuration&gt;</span>
-       <span class="comment">&lt;!-- custom shade configuration --&gt;</span>
+       <span class="comment">&lt;!-- Custom shade configuration --&gt;</span>
        <span class="tag">&lt;artifactSet&gt;</span>
          <span class="tag">&lt;includes&gt;</span>
-            <span class="tag">&lt;include&gt;</span>org.some.library:custom-artifact-id<span class="tag">&lt;/include&gt;</span>
+            <span class="tag">&lt;include&gt;</span>org.apache.commons:commons-compress<span class="tag">&lt;/include&gt;</span> <span class="comment">&lt;!-- the.group.id:the-artifact-id --&gt;</span>
          <span class="tag">&lt;/includes&gt;</span>
        <span class="tag">&lt;/artifactSet&gt;</span>
        <span class="tag">&lt;relocations&gt;</span>
          <span class="tag">&lt;relocation&gt;</span>
-            <span class="tag">&lt;pattern&gt;</span>org.some.library<span class="tag">&lt;/pattern&gt;</span>
-            <span class="tag">&lt;shadedPattern&gt;</span>org.some.library.new.pakage.name.shade<span class="tag">&lt;/shadedPattern&gt;</span>
+            <span class="tag">&lt;pattern&gt;</span>org.apache.commons.compress<span class="tag">&lt;/pattern&gt;</span> <span class="tag">&lt;--</span> <span class="attribute-name">original.package.name</span> <span class="attribute-name">--</span><span class="tag">&gt;</span>
+            <span class="tag">&lt;shadedPattern&gt;</span>com.mycompany.shaded.org.apache.commons.compress<span class="tag">&lt;/shadedPattern&gt;</span> <span class="comment">&lt;!-- new.shaded.package.name --&gt;</span>
          <span class="tag">&lt;/relocation&gt;</span>
        <span class="tag">&lt;/relocations&gt;</span>
       <span class="tag">&lt;/configuration&gt;</span>
    <span class="tag">&lt;/plugin&gt;</span>
-  <span class="comment">&lt;!-- Other plugins --&gt;</span>
+
+   <span class="tag">&lt;plugin&gt;</span> <span class="comment">&lt;!-- Use this explicit plugin configuration to properly install a shaded custom connector in Anypoint Studio --&gt;</span>
+     <span class="tag">&lt;groupId&gt;</span>org.mule.tools.devkit<span class="tag">&lt;/groupId&gt;</span>
+     <span class="tag">&lt;artifactId&gt;</span>mule-devkit-maven-plugin<span class="tag">&lt;/artifactId&gt;</span>
+     <span class="tag">&lt;version&gt;</span>${mule.devkit.version}<span class="tag">&lt;/version&gt;</span>
+     <span class="tag">&lt;extensions&gt;</span>true<span class="tag">&lt;/extensions&gt;</span>
+     <span class="tag">&lt;configuration&gt;</span>
+       <span class="tag">&lt;attachShadedJar&gt;</span>true<span class="tag">&lt;/attachShadedJar&gt;</span>
+       <span class="tag">&lt;attachConnectorLibs&gt;</span>false<span class="tag">&lt;/attachConnectorLibs&gt;</span>
+       <span class="tag">&lt;skipStudioPluginPackage&gt;</span>${devkit.studio.package.skip}<span class="tag">&lt;/skipStudioPluginPackage&gt;</span>
+     <span class="tag">&lt;/configuration&gt;</span>
+   <span class="tag">&lt;/plugin&gt;</span>
+
+   <span class="comment">&lt;!-- Other plugins --&gt;</span>
  <span class="tag">&lt;/plugins&gt;</span>
 <span class="tag">&lt;/build&gt;</span></pre></td> 
         </tr> 
@@ -1159,7 +1194,7 @@
     <!-- END article-content -->
     <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
                 <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#add-the-shade-plugin">Add the Shade Plugin</a></li><li><a class="scroll-menu-link" href="#shade-plugin-in-action">Shade Plugin in Action</a></li></ul></div></div><!-- /scroll-menu -->
+                <ul><li><a class="scroll-menu-link" href="#before-using">Before Using</a></li><li><a class="scroll-menu-link" href="#what-shade-plugin-does">What Shade Plugin Does</a></li><li><a class="scroll-menu-link" href="#to-use-the-shade-plugin">To Use the Shade Plugin</a></li></ul></div></div><!-- /scroll-menu -->
   </div>
 </div>
 <!-- START footer -->
