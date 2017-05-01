@@ -1032,17 +1032,15 @@
   <div class="olist arabic"> 
    <ol class="arabic"> 
     <li> <p>Open a new text file, and define the required properties for a policy in Anypoint Platform.</p> </li> 
-    <li> <p>Add the <code>resourceLevelSupported: true</code> property if you run Mule 3.8.1 or later. This property supports resource level policies.</p> </li> 
-   </ol> 
-  </div> 
-  <div class="listingblock"> 
-   <div class="content"> 
-    <pre class="CodeRay highlight"><code data-lang="xml">
-         
-      <table class="CodeRay"> 
-       <tbody> 
-        <tr> 
-         <td class="line-numbers"><pre>1
+    <li> <p>Add the <code>resourceLevelSupported: true</code> property if you run Mule 3.8.1 or later. This property supports resource level policies.</p> 
+     <div class="listingblock"> 
+      <div class="content"> 
+       <pre class="CodeRay highlight"><code data-lang="xml">
+            
+         <table class="CodeRay"> 
+          <tbody> 
+           <tr> 
+            <td class="line-numbers"><pre>1
 2
 3
 4
@@ -1053,7 +1051,7 @@
 9
 10
 </pre></td> 
-         <td class="code"><pre>id: query-param-filter
+            <td class="code"><pre>id: query-param-filter
 name: Query Param Filter
 description: Filters query parameters
 category: Security
@@ -1063,20 +1061,49 @@ requiresConnectivity: false
 resourceLevelSupported: true
 providedCharacteristics: []
 requiredCharacteristics: []</pre></td> 
-        </tr> 
-       </tbody> 
-      </table></code></pre> 
-   </div> 
-  </div> 
-  <div class="paragraph"> 
-   <p>+ . Add a configuration element and two propertyName fields having the values regexFilter and queryParam. . Add properties to define the regular expression to filter the parameter and to name and define the query parameter that must be evaluated.</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>+</p> 
-  </div> 
-  <div class="listingblock"> 
-   <div class="content"> 
-    <pre>id: query-param-filter
+           </tr> 
+          </tbody> 
+         </table></code></pre> 
+      </div> 
+     </div> </li> 
+    <li> <p>Add a configuration element and two propertyName fields having the values regexFilter and queryParam.</p> </li> 
+    <li> <p>Add properties to define the regular expression to filter the parameter and to name and define the query parameter that must be evaluated.</p> 
+     <div class="listingblock"> 
+      <div class="content"> 
+       <pre class="CodeRay highlight"><code data-lang="xml">
+            
+         <table class="CodeRay"> 
+          <tbody> 
+           <tr> 
+            <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+</pre></td> 
+            <td class="code"><pre>id: query-param-filter
 name: Query Param Filter
 description: Filters query parameters
 category: Security
@@ -1102,11 +1129,14 @@ configuration:
     defaultValue:
     optional: false
     sensitive: false
-    allowMultiple: false</pre> 
-   </div> 
-  </div> 
-  <div class="paragraph"> 
-   <p>+ . Save the file using a .yaml extension. For example, save the file as mypolicy.yaml.</p> 
+    allowMultiple: false</pre></td> 
+           </tr> 
+          </tbody> 
+         </table></code></pre> 
+      </div> 
+     </div> </li> 
+    <li> <p>Save the file using a .yaml extension. For example, save the file as mypolicy.yaml.</p> </li> 
+   </ol> 
   </div> 
  </div> 
 </div> 
