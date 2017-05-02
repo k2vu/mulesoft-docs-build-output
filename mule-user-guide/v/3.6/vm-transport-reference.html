@@ -822,7 +822,7 @@
 <li><i></i><a href="/mule-management-console/v/3.8/managing-mule-servers-clusters-and-groups">Managing Mule Servers Clusters and Groups</a></li><li><i></i><a href="/mule-management-console/v/3.8/maintaining-the-server-application-repository">Maintaining the Server Application Repository</a></li><li><i></i><a href="/mule-management-console/v/3.8/working-with-flows">Working with Flows</a></li><li>
 <i></i>
 <a href="/mule-management-console/v/3.8/managing-mule-high-availability-ha-clusters">Managing Mule High Availability (HA) Clusters</a><ul>
-<li><i></i><a href="/mule-management-console/v/3.8/configuring-mule-ha-clustering">Configuring Mule HA Clustering</a></li><li><i></i><a href="/mule-management-console/v/3.8/creating-or-disbanding-a-cluster">Creating or Disbanding a Cluster</a></li><li><i></i><a href="/mule-management-console/v/3.8/deploying-redeploying-or-undeploying-an-application-to-or-from-a-cluster">Deploying, Redeploying, or Undeploying an Application To or From a Cluster</a></li><li><i></i><a href="/mule-management-console/v/3.8/dynamically-adding-or-removing-nodes-in-a-cluster">Dynamically Adding or Removing Nodes in a Cluster</a></li><li><i></i><a href="/mule-management-console/v/3.8/monitoring-a-cluster">Monitoring a Cluster</a></li><li><i></i><a href="/mule-management-console/v/3.8/reliability-patterns">Reliability Patterns</a></li></ul></li>
+<li><i></i><a href="/mule-management-console/v/3.8/configuring-mule-ha-clustering">Configuring Mule HA Clustering</a></li><li><i></i><a href="/mule-management-console/v/3.8/creating-or-disbanding-a-cluster">Creating or Disbanding a Cluster</a></li><li><i></i><a href="/mule-management-console/v/3.8/deploying-redeploying-or-undeploying-an-application-to-or-from-a-cluster">Deploying, Redeploying, or Undeploying an Application To or From a Cluster</a></li><li><i></i><a href="/mule-management-console/v/3.8/dynamically-adding-or-removing-nodes-in-a-cluster">Dynamically Adding or Removing Nodes in a Cluster</a></li><li><i></i><a href="/mule-management-console/v/3.8/monitoring-a-cluster">Monitoring a Cluster</a></li></ul></li>
 </ul></li>
 <li>
 <i></i>
@@ -1638,9 +1638,13 @@ http://www.mulesoft.org/schema/mule/vm/3.6/mule-vm.xsd</pre></td>
   </div> 
  </div> 
 </div> 
-<h1 id="vm-transport" class="sect0"><a class="anchor" href="#vm-transport"></a>VM Transport</h1> 
-<div class="paragraph"> 
- <p>The VM transport is used for intra-VM communication between components managed by Mule. The transport provides options for configuring VM transient or persistent queues.</p> 
+<div class="sect1"> 
+ <h2 id="vm-transport"><a class="anchor" href="#vm-transport"></a>VM Transport</h2> 
+ <div class="sectionbody"> 
+  <div class="paragraph"> 
+   <p>The VM transport is used for intra-VM communication between components managed by Mule. The transport provides options for configuring VM transient or persistent queues.</p> 
+  </div> 
+ </div> 
 </div> 
 <div class="sect1"> 
  <h2 id="connector"><a class="anchor" href="#connector"></a>Connector</h2> 
@@ -1742,23 +1746,6 @@ http://www.mulesoft.org/schema/mule/vm/3.6/mule-vm.xsd</pre></td>
     </tbody> 
    </table> 
   </div> 
-  <div class="sect2"> 
-   <h3 id="child-elements-of-inbound-endpoint"><a class="anchor" href="#child-elements-of-inbound-endpoint"></a>Child Elements of &lt;inbound-endpoint…​&gt;</h3> 
-   <table class="tableblock frame-all grid-all spread"> 
-    <colgroup> 
-     <col style="width: 34%;"> 
-     <col style="width: 33%;"> 
-     <col style="width: 33%;"> 
-    </colgroup> 
-    <thead> 
-     <tr> 
-      <th class="tableblock halign-left valign-top">Name</th> 
-      <th class="tableblock halign-left valign-top">Cardinality</th> 
-      <th class="tableblock halign-left valign-top">Description</th> 
-     </tr> 
-    </thead> 
-   </table> 
-  </div> 
  </div> 
 </div> 
 <div class="sect1"> 
@@ -1797,23 +1784,6 @@ http://www.mulesoft.org/schema/mule/vm/3.6/mule-vm.xsd</pre></td>
     </tbody> 
    </table> 
   </div> 
-  <div class="sect2"> 
-   <h3 id="child-elements-of-outbound-endpoint"><a class="anchor" href="#child-elements-of-outbound-endpoint"></a>Child Elements of &lt;outbound-endpoint…​&gt;</h3> 
-   <table class="tableblock frame-all grid-all spread"> 
-    <colgroup> 
-     <col style="width: 34%;"> 
-     <col style="width: 33%;"> 
-     <col style="width: 33%;"> 
-    </colgroup> 
-    <thead> 
-     <tr> 
-      <th class="tableblock halign-left valign-top">Name</th> 
-      <th class="tableblock halign-left valign-top">Cardinality</th> 
-      <th class="tableblock halign-left valign-top">Description</th> 
-     </tr> 
-    </thead> 
-   </table> 
-  </div> 
  </div> 
 </div> 
 <div class="sect1"> 
@@ -1850,23 +1820,6 @@ http://www.mulesoft.org/schema/mule/vm/3.6/mule-vm.xsd</pre></td>
       <td class="tableblock halign-left valign-top"><p class="tableblock">The queue path, such as dispatchInQueue to create the address vm://dispatchInQueue.</p></td> 
      </tr> 
     </tbody> 
-   </table> 
-  </div> 
-  <div class="sect2"> 
-   <h3 id="child-elements-of-endpoint"><a class="anchor" href="#child-elements-of-endpoint"></a>Child Elements of &lt;endpoint…​&gt;</h3> 
-   <table class="tableblock frame-all grid-all spread"> 
-    <colgroup> 
-     <col style="width: 34%;"> 
-     <col style="width: 33%;"> 
-     <col style="width: 33%;"> 
-    </colgroup> 
-    <thead> 
-     <tr> 
-      <th class="tableblock halign-left valign-top">Name</th> 
-      <th class="tableblock halign-left valign-top">Cardinality</th> 
-      <th class="tableblock halign-left valign-top">Description</th> 
-     </tr> 
-    </thead> 
    </table> 
   </div> 
  </div> 
@@ -1961,7 +1914,7 @@ http://www.mulesoft.org/schema/mule/vm/3.6/mule-vm.xsd</pre></td>
    <p>Be certain that inbound request-response endpoints are paired with outbound request-response endpoints and inbound one-way endpoints are paired with outbound one-way endpoints.</p> 
   </div> 
   <div class="paragraph"> 
-   <p>Consider setting up your application following a <a href="/mule-management-console/v/3.6/reliability-patterns">reliability pattern</a>.</p> 
+   <p>Consider setting up your application following a <a href="/mule-user-guide/v/3.6/reliability-patterns">reliability pattern</a>.</p> 
   </div> 
  </div> 
 </div>
@@ -1969,7 +1922,7 @@ http://www.mulesoft.org/schema/mule/vm/3.6/mule-vm.xsd</pre></td>
     <!-- END article-content -->
     <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
                 <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#transport-info">Transport Info</a></li><li><a class="scroll-menu-link" href="#namespace-and-syntax">Namespace and Syntax</a></li><li><a class="scroll-menu-link" href="#transformers">Transformers</a></li><li><a class="scroll-menu-link" href="#considerations">Considerations</a></li><li><a class="scroll-menu-link" href="#features">Features</a></li><li><a class="scroll-menu-link" href="#usage">Usage</a></li><li><a class="scroll-menu-link" href="#using-transactions">Using Transactions</a></li><li><a class="scroll-menu-link" href="#example-configurations">Example Configurations</a></li><li><a class="scroll-menu-link" href="#configuration-reference">Configuration Reference</a></li><li><a class="scroll-menu-link" href="#connector">Connector</a></li><li><a class="scroll-menu-link" href="#inbound-endpoint">Inbound endpoint</a></li><li><a class="scroll-menu-link" href="#outbound-endpoint">Outbound endpoint</a></li><li><a class="scroll-menu-link" href="#endpoint">Endpoint</a></li><li><a class="scroll-menu-link" href="#transaction">Transaction</a></li><li><a class="scroll-menu-link" href="#schema">Schema</a></li><li><a class="scroll-menu-link" href="#javadoc-api-reference">Javadoc API Reference</a></li><li><a class="scroll-menu-link" href="#maven">Maven</a></li><li><a class="scroll-menu-link" href="#best-practices">Best Practices</a></li></ul></div></div><!-- /scroll-menu -->
+                <ul><li><a class="scroll-menu-link" href="#transport-info">Transport Info</a></li><li><a class="scroll-menu-link" href="#namespace-and-syntax">Namespace and Syntax</a></li><li><a class="scroll-menu-link" href="#transformers">Transformers</a></li><li><a class="scroll-menu-link" href="#considerations">Considerations</a></li><li><a class="scroll-menu-link" href="#features">Features</a></li><li><a class="scroll-menu-link" href="#usage">Usage</a></li><li><a class="scroll-menu-link" href="#using-transactions">Using Transactions</a></li><li><a class="scroll-menu-link" href="#example-configurations">Example Configurations</a></li><li><a class="scroll-menu-link" href="#configuration-reference">Configuration Reference</a></li><li><a class="scroll-menu-link" href="#vm-transport">VM Transport</a></li><li><a class="scroll-menu-link" href="#connector">Connector</a></li><li><a class="scroll-menu-link" href="#inbound-endpoint">Inbound endpoint</a></li><li><a class="scroll-menu-link" href="#outbound-endpoint">Outbound endpoint</a></li><li><a class="scroll-menu-link" href="#endpoint">Endpoint</a></li><li><a class="scroll-menu-link" href="#transaction">Transaction</a></li><li><a class="scroll-menu-link" href="#schema">Schema</a></li><li><a class="scroll-menu-link" href="#javadoc-api-reference">Javadoc API Reference</a></li><li><a class="scroll-menu-link" href="#maven">Maven</a></li><li><a class="scroll-menu-link" href="#best-practices">Best Practices</a></li></ul></div></div><!-- /scroll-menu -->
   </div>
 </div>
 <!-- START footer -->

@@ -846,7 +846,7 @@
 <li><i></i><a href="/mule-management-console/v/3.8/managing-mule-servers-clusters-and-groups">Managing Mule Servers Clusters and Groups</a></li><li><i></i><a href="/mule-management-console/v/3.8/maintaining-the-server-application-repository">Maintaining the Server Application Repository</a></li><li><i></i><a href="/mule-management-console/v/3.8/working-with-flows">Working with Flows</a></li><li>
 <i></i>
 <a href="/mule-management-console/v/3.8/managing-mule-high-availability-ha-clusters">Managing Mule High Availability (HA) Clusters</a><ul>
-<li><i></i><a href="/mule-management-console/v/3.8/configuring-mule-ha-clustering">Configuring Mule HA Clustering</a></li><li><i></i><a href="/mule-management-console/v/3.8/creating-or-disbanding-a-cluster">Creating or Disbanding a Cluster</a></li><li><i></i><a href="/mule-management-console/v/3.8/deploying-redeploying-or-undeploying-an-application-to-or-from-a-cluster">Deploying, Redeploying, or Undeploying an Application To or From a Cluster</a></li><li><i></i><a href="/mule-management-console/v/3.8/dynamically-adding-or-removing-nodes-in-a-cluster">Dynamically Adding or Removing Nodes in a Cluster</a></li><li><i></i><a href="/mule-management-console/v/3.8/monitoring-a-cluster">Monitoring a Cluster</a></li><li><i></i><a href="/mule-management-console/v/3.8/reliability-patterns">Reliability Patterns</a></li></ul></li>
+<li><i></i><a href="/mule-management-console/v/3.8/configuring-mule-ha-clustering">Configuring Mule HA Clustering</a></li><li><i></i><a href="/mule-management-console/v/3.8/creating-or-disbanding-a-cluster">Creating or Disbanding a Cluster</a></li><li><i></i><a href="/mule-management-console/v/3.8/deploying-redeploying-or-undeploying-an-application-to-or-from-a-cluster">Deploying, Redeploying, or Undeploying an Application To or From a Cluster</a></li><li><i></i><a href="/mule-management-console/v/3.8/dynamically-adding-or-removing-nodes-in-a-cluster">Dynamically Adding or Removing Nodes in a Cluster</a></li><li><i></i><a href="/mule-management-console/v/3.8/monitoring-a-cluster">Monitoring a Cluster</a></li></ul></li>
 </ul></li>
 <li>
 <i></i>
@@ -1060,7 +1060,7 @@
  <h2 id="the-benefits-of-clustering"><a class="anchor" href="#the-benefits-of-clustering"></a>The Benefits of Clustering</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>Traditionally, clustering Mule ESB servers ensures high system availability. (If you wish to use clusters for high performance instead, see <a href="#clustering-for-high-performance">Clustering for High Performance</a> below.) If a node becomes unavailable due to failure or planned downtime, another node in the cluster can assume the workload and continue to process existing events and messages. The following figure illustrates the processing of incoming messages by a cluster of two nodes. Notice that the processing load is balanced across nodes – Node 1 processes message 1 while Node 2 simultaneously processes message 2.</p> 
+   <p>Traditionally, clustering Mule servers ensures high system availability. (If you wish to use clusters for high performance instead, see <a href="#clustering-for-high-performance">Clustering for High Performance</a> below.) If a node becomes unavailable due to failure or planned downtime, another node in the cluster can assume the workload and continue to process existing events and messages. The following figure illustrates the processing of incoming messages by a cluster of two nodes. Notice that the processing load is balanced across nodes – Node 1 processes message 1 while Node 2 simultaneously processes message 2.</p> 
   </div> 
   <div class="paragraph"> 
    <p><span class="image"><img src="./_images/FailoverNoFail.png" alt="FailoverNoFail"></span></p> 
@@ -1219,10 +1219,10 @@
  <h2 id="clustering-and-reliable-applications"><a class="anchor" href="#clustering-and-reliable-applications"></a>Clustering and Reliable Applications</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>High-reliability applications (ones that have zero tolerance for message loss) not only require the underlying ESB to be reliable, but that reliability needs to extend to individual connections. <a href="/mule-management-console/v/3.7/reliability-patterns">Reliability Patterns</a> give you the tools to build fully reliable applications in your clusters.</p> 
+   <p>High-reliability applications (ones that have zero tolerance for message loss) not only require the underlying ESB to be reliable, but that reliability needs to extend to individual connections. <a href="/mule-user-guide/v/3.7/reliability-patterns">Reliability Patterns</a> give you the tools to build fully reliable applications in your clusters.</p> 
   </div> 
   <div class="paragraph"> 
-   <p>Current Mule documentation provides <a href="/mule-management-console/v/3.7/reliability-patterns">code examples</a> that show how you can implement a reliability pattern for a number of different non-transactional transports, including HTTP, FTP, File, and IMAP. If your application uses a non-transactional transport, follow the reliability pattern. These patterns ensure that a message is accepted and successfully processed or that it generates an "unsuccessful" response allowing the client to retry.</p> 
+   <p>Current Mule documentation provides <a href="/mule-user-guide/v/3.7/reliability-patterns">code examples</a> that show how you can implement a reliability pattern for a number of different non-transactional transports, including HTTP, FTP, File, and IMAP. If your application uses a non-transactional transport, follow the reliability pattern. These patterns ensure that a message is accepted and successfully processed or that it generates an "unsuccessful" response allowing the client to retry.</p> 
   </div> 
   <div class="paragraph"> 
    <p>If your application uses transactional transports, such as JMS, VM, and JDBC, use transactions. Mule’s built-in support for transactional transports enables reliable messaging for applications that use these transports.</p> 
@@ -1389,12 +1389,12 @@
   <div class="ulist"> 
    <ul> 
     <li> <p>As much as possible, organize your application into a series of steps where each step moves the message from one transactional store to another.</p> </li> 
-    <li> <p>If your application processes messages from a non-transactional transport, use a <a href="/mule-management-console/v/3.7/reliability-patterns">reliability pattern</a> to move them to a transactional store such as a VM or JMS store.</p> </li> 
+    <li> <p>If your application processes messages from a non-transactional transport, use a <a href="/mule-user-guide/v/3.7/reliability-patterns">reliability pattern</a> to move them to a transactional store such as a VM or JMS store.</p> </li> 
     <li> <p>Use transactions to process messages from a transactional transport. This ensures that if an error is encountered, the message reprocesses.</p> </li> 
     <li> <p>Use distributed stores such as those used with the VM or JMS transport – these stores are available to an entire cluster. This is preferable to the non-distributed stores used with transports such as File, FTP, and JDBC – these stores are read by a single node at a time.</p> </li> 
     <li> <p>Use the VM transport to get optimal performance. Use the JMS transport for applications where data needs to be saved after the entire cluster exits.</p> </li> 
     <li> <p>Create the number of nodes within a cluster that best meets your needs.</p> </li> 
-    <li> <p>Implement <a href="/mule-management-console/v/3.7/reliability-patterns">reliability patterns</a> to create high reliability applications.</p> </li> 
+    <li> <p>Implement <a href="/mule-user-guide/v/3.7/reliability-patterns">reliability patterns</a> to create high reliability applications.</p> </li> 
    </ul> 
   </div> 
  </div> 
@@ -1419,8 +1419,8 @@
  <div class="sectionbody"> 
   <div class="ulist"> 
    <ul> 
-    <li> <p><a href="http://www.mulesoft.com/managing-mule-esb-enterprise">Download a trial</a>&nbsp;of Mule with the Mule Management Console to experiment with High Availability. (Download&nbsp;<strong>Runtime&nbsp;- Mule ESB Enterprise (with Management Tools)</strong>.)</p> </li> 
-    <li> <p><a href="http://www.mulesoft.org/documentation/display/current/Installing+an+Enterprise+License">Install an Enterprise License</a>&nbsp;to begin using the Mule Management Console to manage clusters in production.</p> </li> 
+    <li> <p><a href="http://www.mulesoft.com/managing-mule-esb-enterprise">Download a trial</a>&nbsp;of Mule with the Mule Management Console to experiment with High Availability. (Download&nbsp;<strong>Runtime&nbsp;- Mule Enterprise (with Management Tools)</strong>.)</p> </li> 
+    <li> <p><a href="/mule-user-guide/v/3.7/installing-an-enterprise-license">Install an Enterprise License</a>&nbsp;to begin using the Mule Management Console to manage clusters in production.</p> </li> 
    </ul> 
   </div> 
  </div> 

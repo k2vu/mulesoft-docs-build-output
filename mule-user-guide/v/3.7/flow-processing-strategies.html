@@ -846,7 +846,7 @@
 <li><i></i><a href="/mule-management-console/v/3.8/managing-mule-servers-clusters-and-groups">Managing Mule Servers Clusters and Groups</a></li><li><i></i><a href="/mule-management-console/v/3.8/maintaining-the-server-application-repository">Maintaining the Server Application Repository</a></li><li><i></i><a href="/mule-management-console/v/3.8/working-with-flows">Working with Flows</a></li><li>
 <i></i>
 <a href="/mule-management-console/v/3.8/managing-mule-high-availability-ha-clusters">Managing Mule High Availability (HA) Clusters</a><ul>
-<li><i></i><a href="/mule-management-console/v/3.8/configuring-mule-ha-clustering">Configuring Mule HA Clustering</a></li><li><i></i><a href="/mule-management-console/v/3.8/creating-or-disbanding-a-cluster">Creating or Disbanding a Cluster</a></li><li><i></i><a href="/mule-management-console/v/3.8/deploying-redeploying-or-undeploying-an-application-to-or-from-a-cluster">Deploying, Redeploying, or Undeploying an Application To or From a Cluster</a></li><li><i></i><a href="/mule-management-console/v/3.8/dynamically-adding-or-removing-nodes-in-a-cluster">Dynamically Adding or Removing Nodes in a Cluster</a></li><li><i></i><a href="/mule-management-console/v/3.8/monitoring-a-cluster">Monitoring a Cluster</a></li><li><i></i><a href="/mule-management-console/v/3.8/reliability-patterns">Reliability Patterns</a></li></ul></li>
+<li><i></i><a href="/mule-management-console/v/3.8/configuring-mule-ha-clustering">Configuring Mule HA Clustering</a></li><li><i></i><a href="/mule-management-console/v/3.8/creating-or-disbanding-a-cluster">Creating or Disbanding a Cluster</a></li><li><i></i><a href="/mule-management-console/v/3.8/deploying-redeploying-or-undeploying-an-application-to-or-from-a-cluster">Deploying, Redeploying, or Undeploying an Application To or From a Cluster</a></li><li><i></i><a href="/mule-management-console/v/3.8/dynamically-adding-or-removing-nodes-in-a-cluster">Dynamically Adding or Removing Nodes in a Cluster</a></li><li><i></i><a href="/mule-management-console/v/3.8/monitoring-a-cluster">Monitoring a Cluster</a></li></ul></li>
 </ul></li>
 <li>
 <i></i>
@@ -1169,7 +1169,7 @@
   </div> 
   <div class="ulist"> 
    <ul> 
-    <li> <p><strong>Change to Synchronous</strong> - In cases where Mule has selected queued-asynchronous processing for a flow, you can specify a synchronous flow instead. You might want to specify a synchronous flow to achieve reliability. Remember that the synchronous strategy is ideally suited for flows where the flow’s inbound endpoint must be notified of all errors that occur during the processing of the message. The&nbsp;<a href="/mule-management-console/v/3.7/reliability-patterns">Reliability Patterns</a>&nbsp;document&nbsp;discusses this situation further. Although this is not applicable to most use cases, if Mule has selected queued-asynchronous processing for a flow, you can specify another kind of asynchronous processing strategy instead. <strong>Note</strong>: You cannot force a queued-asynchronous processing strategy on a synchronous flow.&nbsp;</p> </li> 
+    <li> <p><strong>Change to Synchronous</strong> - In cases where Mule has selected queued-asynchronous processing for a flow, you can specify a synchronous flow instead. You might want to specify a synchronous flow to achieve reliability. Remember that the synchronous strategy is ideally suited for flows where the flow’s inbound endpoint must be notified of all errors that occur during the processing of the message. The&nbsp;<a href="/mule-user-guide/v/3.7/reliability-patterns">Reliability Patterns</a>&nbsp;document&nbsp;discusses this situation further. Although this is not applicable to most use cases, if Mule has selected queued-asynchronous processing for a flow, you can specify another kind of asynchronous processing strategy instead. <strong>Note</strong>: You cannot force a queued-asynchronous processing strategy on a synchronous flow.&nbsp;</p> </li> 
     <li> <p><strong>Fine Tune</strong>: You can accept Mule’s choice of the queued-asynchronous flow processing strategy, but then fine-tune the processing strategy.&nbsp;<strong>Note</strong>: You cannot fine-tune a synchronous flow.</p> </li> 
     <li> <p><strong>Wrap a Flow:</strong> You can wrap one or more message processors within your synchronous flow in an <a href="/mule-user-guide/v/3.7/async-scope-reference">asynchronous scope</a> to define a processing block that Mule processes asynchronously with the main flow. You can also create an asynchronous flow by wrapping a flow-ref in an asynchronous scope.&nbsp;</p> </li> 
     <li> <p><strong>Subflow</strong>: You can call out to a subflow (which always processes synchronously) or a synchronous&nbsp;flow from any flow, regardless of what processing strategy is applied to the triggering&nbsp;flow. The triggering flow waits until this synchronous processing block returns a message before proceeding with processing. See <a href="/mule-user-guide/v/3.7/flows-and-subflows">Flows and Subflows</a>&nbsp;for more information about subflows and synchronous flows.</p> </li> 
@@ -1678,7 +1678,7 @@
    <ul> 
     <li> <p>The sender of the message expects a response. This is known as a "request-response" exchange pattern.</p> </li> 
     <li> <p>The flow needs to meet the requirements of transactional processing. In other words, all the steps in the flow are considered a single unit, which must succeed entirely or fail entirely. Additionally, appropriate parties (such as the sender of the message or the administrator of the business process encapsulated by the flow) must be notified of the result. This means that a transactional flow must not hand off processing to other threads, where errors can occur after the transaction is completed.</p> </li> 
-    <li> <p>The flow’s inbound endpoint must be notified of all errors that occur during the processing of the message. This situation is discussed further in <a href="/mule-management-console/v/3.7/reliability-patterns">Reliability Patterns</a>.</p> </li> 
+    <li> <p>The flow’s inbound endpoint must be notified of all errors that occur during the processing of the message. This situation is discussed further in <a href="/mule-user-guide/v/3.7/reliability-patterns">Reliability Patterns</a>.</p> </li> 
    </ul> 
   </div> 
  </div> 
@@ -1853,7 +1853,7 @@
        </ul> 
       </div> </li> 
      <li> <p><strong>Components</strong>: All components are supported.</p> </li> 
-     <li> <p><strong>Transformers</strong>: All transformers including DataWeave</p> </li> 
+     <li> <p><strong>Transformers</strong>: All transformers including DataWeave.</p> </li> 
      <li> <p><strong>Filters</strong>: All filters are supported.</p> </li> 
      <li> <p><strong>Flow Control</strong>: Currently only the APIkit Router and Choice are supported.</p> </li> 
      <li> <p><strong>Error Handling</strong>: All exception strategies are supported, but currently HTTP Connector request elements cannot execute non-blocking when inside an exception strategy.</p> </li> 
@@ -1896,9 +1896,9 @@
    <ul> 
     <li> <p>Refer to the <a href="/mule-user-guide/v/3.7/async-scope-reference">Async Scope Reference</a> for information on how to embed an asynchronous processing block in an otherwise synchronous flow.</p> </li> 
     <li> <p>Review the different kinds of <a href="/mule-user-guide/v/3.7/flows-and-subflows">Flows and Subflows</a>&nbsp;in Mule.</p> </li> 
-    <li> <p>Read more about <a href="/mule-management-console/v/3.7/reliability-patterns">Reliability Patterns</a>.</p> </li> 
+    <li> <p>Read more about <a href="/mule-user-guide/v/3.7/reliability-patterns">Reliability Patterns</a>.</p> </li> 
     <li> <p>Find out how to <a href="/mule-user-guide/v/3.7/tuning-performance">tune performance</a> by analyzing and configuring threading profiles.&nbsp;</p> </li> 
-    <li> <p>Check out the Asynchronous Message Cheat Sheet on our&nbsp; <a href="http://blogs.mulesoft.org/cheat-sheet-asynchronous-message-processing/">MuleSoft Blog</a> .</p> </li> 
+    <li> <p>Check out the Asynchronous Message Cheat Sheet on our&nbsp; <a href="http://blogs.mulesoft.org/cheat-sheet-asynchronous-message-processing/">MuleSoft Blog</a>.</p> </li> 
    </ul> 
   </div> 
  </div> 
