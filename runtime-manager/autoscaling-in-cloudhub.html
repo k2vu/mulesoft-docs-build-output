@@ -15,7 +15,7 @@
   <script src="/js/scripts.js?t=1491597550"></script>
 
   <link rel="canonical" href="https://docs.mulesoft.com/runtime-manager/autoscaling-in-cloudhub" />
-  
+  <meta name="description" content=" CloudHub allows you to make the processing power behind your apps responsive to changes in their usage. You can set up policies that can respond t..." />
   <meta class="swiftype" name="title" data-type="string" content="Autoscaling in CloudHub" />
 </head>
 <body>
@@ -611,9 +611,9 @@
 <a href="/api-manager/api-gateway-runtime-archive">API Gateway Runtime—​Archive</a><ul>
 <li><i></i><a href="/api-manager/configuring-an-api-gateway">Configuring an API Gateway</a></li><li><i></i><a href="/api-manager/api-gateway-domain">API Gateway Domain</a></li><li><i></i><a href="/api-manager/configuring-proxy-access-to-an-api">Configuring Proxy Access to APIs</a></li><li><i></i><a href="/api-manager/deploy-to-api-gateway-runtime">Deploying to API Gateway Runtime</a></li></ul></li>
 </ul></li>
-<li>
+<li class="expanded">
 <i></i>
-<a href="/runtime-manager/">Runtime Manager</a><ul>
+<a href="/runtime-manager/">Runtime Manager</a><ul style="display: block;">
 <li>
 <i></i>
 <a href="/runtime-manager/tutorials">Tutorials</a><ul>
@@ -622,13 +622,13 @@
 <i></i>
 <a href="/runtime-manager/deployment-strategies">Deployment Strategies</a><ul>
 <li><i></i><a href="/runtime-manager/deploying-to-cloudhub">Deploying to CloudHub</a></li><li><i></i><a href="/runtime-manager/deploying-to-your-own-servers">Deploying to Your Own Servers</a></li><li><i></i><a href="/runtime-manager/deploying-to-pcf">Deploying to Pivotal Cloud Foundry</a></li></ul></li>
-<li>
+<li class="expanded">
 <i></i>
-<a href="/runtime-manager/managing-deployed-applications">Managing Deployed Applications</a><ul>
-<li>
+<a href="/runtime-manager/managing-deployed-applications">Managing Deployed Applications</a><ul style="display: block;">
+<li class="expanded">
 <i></i>
-<a href="/runtime-manager/managing-applications-on-cloudhub">Managing Applications on CloudHub</a><ul>
-<li><i></i><a href="/runtime-manager/managing-queues">Managing Queues</a></li><li><i></i><a href="/runtime-manager/managing-schedules">Managing Schedules</a></li><li><i></i><a href="/runtime-manager/secure-application-properties">Secure Application Properties</a></li><li><i></i><a href="/runtime-manager/managing-application-data-with-object-stores">Managing App Data using Object Stores</a></li><li><i></i><a href="/runtime-manager/virtual-private-cloud">Virtual Private Cloud</a></li><li><i></i><a href="/runtime-manager/custom-application-alerts">Custom Application Alerts</a></li></ul></li>
+<a href="/runtime-manager/managing-applications-on-cloudhub">Managing Applications on CloudHub</a><ul style="display: block;">
+<li><i></i><a href="/runtime-manager/managing-queues">Managing Queues</a></li><li><i></i><a href="/runtime-manager/managing-schedules">Managing Schedules</a></li><li><i></i><a href="/runtime-manager/secure-application-properties">Secure Application Properties</a></li><li><i></i><a href="/runtime-manager/managing-application-data-with-object-stores">Managing App Data using Object Stores</a></li><li><i></i><a href="/runtime-manager/virtual-private-cloud">Virtual Private Cloud</a></li><li><i></i><a href="/runtime-manager/custom-application-alerts">Custom Application Alerts</a></li><li class="active"><i></i><a href="/runtime-manager/autoscaling-in-cloudhub">Autoscaling in CloudHub</a></li></ul></li>
 <li>
 <i></i>
 <a href="/runtime-manager/managing-applications-on-your-own-servers">Managing Applications on Your Own Servers</a><ul>
@@ -1022,21 +1022,178 @@
     <!-- START article content -->
     <div class="article-content col-md-7 col-xs-12">
       
-      
+      <div class="breadcrumb-section" data-swiftype-index='false'><a href="./">Runtime Manager</a>/<a href="managing-deployed-applications">Managing Deployed Applications</a>/<a href="managing-applications-on-cloudhub">Managing Applications on CloudHub</a>/<a href="autoscaling-in-cloudhub" class="breadcrumb-active-link">Autoscaling in CloudHub</a></div>
       <h1>Autoscaling in CloudHub</h1>
-      <div class="admonitionblock note"> 
- <table> 
-  <tbody> 
-   <tr> 
-    <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-    <td class="content"> Autoscaling is currently not offered as a feature on any of our products. It is on CloudHub’s roadmap to eventually include this option, but not presently. </td> 
-   </tr> 
-  </tbody> 
- </table> 
+      <div id="preamble"> 
+ <div class="sectionbody"> 
+  <div class="admonitionblock note"> 
+   <table> 
+    <tbody> 
+     <tr> 
+      <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
+      <td class="content"> Autoscaling is currently only offered on select CloudHub subscriptions. </td> 
+     </tr> 
+    </tbody> 
+   </table> 
+  </div> 
+ </div> 
+</div> 
+<h1 id="autoscaling-in-cloudhub" class="sect0"><a class="anchor" href="#autoscaling-in-cloudhub"></a>Autoscaling in CloudHub</h1> 
+<div class="paragraph"> 
+ <p><span class="image"><a class="image" href="/runtime-manager/deployment-strategies"><img src="./_images/logo-cloud-active.png" alt="logo cloud active" title="CloudHub"></a></span> <span class="image"><a class="image" href="/runtime-manager/deployment-strategies"><img src="./_images/logo-hybrid-disabled.png" alt="logo hybrid disabled" title="Hybrid Deployment"></a></span> <span class="image"><a class="image" href="/runtime-manager/deployment-strategies"><img src="./_images/logo-server-disabled.png" alt="logo server disabled" title="Anypoint Platform Private Cloud Edition"></a></span> <span class="image"><a class="image" href="/runtime-manager/deployment-strategies"><img src="./_images/logo-pcf-disabled.png" alt="logo pcf disabled" title="Pivotal Cloud Foundry"></a></span></p> 
+</div> 
+<div class="sect1"> 
+ <h2 id="overview"><a class="anchor" href="#overview"></a>Overview</h2> 
+ <div class="sectionbody"> 
+  <div class="paragraph"> 
+   <p>CloudHub allows you to make the processing power behind your apps responsive to changes in their usage. You can set up <strong>policies</strong> that can respond the persistent to CPU or Memory usage thresholds by either scaling up or scaling down the processing resources used by an application.</p> 
+  </div> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="how-to-set-autoscaling"><a class="anchor" href="#how-to-set-autoscaling"></a>How to set Autoscaling</h2> 
+ <div class="sectionbody"> 
+  <div class="olist arabic"> 
+   <ol class="arabic"> 
+    <li> <p>Enter the <strong>Applications</strong> tab of the <strong>Runtime Manager</strong> in the <a href="https://anypoint.mulesoft.com">Anypoinr Platform</a>.</p> </li> 
+    <li> <p>Select an application deployed to ClodHub to open open its panel</p> </li> 
+    <li> <p>In the panel click <strong>Manage Application</strong></p> </li> 
+    <li> <p>In the <strong>Settings</strong> section, select the <strong>Properties</strong> tab. From here you can see all existing autoscaling policies, activate or deactivate them, create or delete them, and create asociated <a href="/runtime-manager/alerts-on-runtime-manager">Alerts on Runtime Manager</a>.</p> </li> 
+   </ol> 
+  </div> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="creating-a-policy"><a class="anchor" href="#creating-a-policy"></a>Creating a Policy</h2> 
+ <div class="sectionbody"> 
+  <div class="paragraph"> 
+   <p>To create a policy, simply click the <strong>Create Policy</strong> button. You will then have to configure a few fields to set your policy up.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p><span class="image"><img src="./_images/autoscale-create-policy.png" alt="policy"></span></p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>Changes in worker size or number are triggered when a policy meets its requirements. Policies can either be based upon CPU or Memory usage, and they can either modify worker numbers or worker size. All policies include a scale up and a scale down condition.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p><span class="image"><img src="./_images/policy-form.png" alt="form"></span></p> 
+  </div> 
+  <div class="olist arabic"> 
+   <ol class="arabic"> 
+    <li> <p>Provide a <strong>Name</strong> for your policy</p> </li> 
+    <li> <p>Detrmine if the scaling will be based on <strong>Memory or CPU usage</strong>.</p> 
+     <div class="admonitionblock note"> 
+      <table> 
+       <tbody> 
+        <tr> 
+         <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
+         <td class="content"> The percentage shown is the percentage of total memory or CPU allocated for the jvm that’s being used (includes the memory being consumed by jvm itself) </td> 
+        </tr> 
+       </tbody> 
+      </table> 
+     </div> </li> 
+    <li> <p>Determine the <strong>Rules</strong> for your scaling. You must provide the following values both for the upscale and the downscale conditions:</p> 
+     <div class="olist loweralpha"> 
+      <ol class="loweralpha" type="a"> 
+       <li> <p>A usage *percentage *</p> </li> 
+       <li> <p>A period of <strong>time</strong> throughout which this level must be sustained before the policy is applied</p> </li> 
+       <li> <p>A <strong>cool-down period</strong> that blocks this and other policies from affecting scaling from being applied</p> </li> 
+      </ol> 
+     </div> </li> 
+    <li> <p>Define what <strong>action</strong> will be performed when the policy is applied</p> 
+     <div class="olist loweralpha"> 
+      <ol class="loweralpha" type="a"> 
+       <li> <p>If it will affect the <strong>number</strong> of workers or the <strong>size</strong> of them</p> </li> 
+       <li> <p>Set a <strong>maximum</strong> and <strong>minimum</strong> value to fluctuate in between</p> </li> 
+      </ol> 
+     </div> </li> 
+   </ol> 
+  </div> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="scaling-considerations"><a class="anchor" href="#scaling-considerations"></a>Scaling Considerations</h2> 
+ <div class="sectionbody"> 
+  <div class="paragraph"> 
+   <p>All policies scale your application one step at a time. Keep in mind then that to scale up to meet a very pronounced spike that requires scaling various steps, each step will take CloudHub the sum of the policy evaluation time plus the cool-down period.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>You can only apply one autoscaling policy per application.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>The maximum ammount and size of workers that you have available is limited by the characteristics of your account. If multiple applications running in your account compete for limited resources, they will be handed out in a first-come first-serve manner.</p> 
+  </div> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="edit-an-existing-policy"><a class="anchor" href="#edit-an-existing-policy"></a>Edit an Existing Policy</h2> 
+ <div class="sectionbody"> 
+  <div class="paragraph"> 
+   <p>To edit an existing policy, simply open the policies tab. Click the policy name and you will access the same menu that is used to create a new policy.</p> 
+  </div> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="deactivate-a-policy"><a class="anchor" href="#deactivate-a-policy"></a>Deactivate a Policy</h2> 
+ <div class="sectionbody"> 
+  <div class="paragraph"> 
+   <p>To deactivate a running policy, simply open the policies tab and flip the switch in its corresponding <strong>Status</strong> field:</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p><span class="image"><img src="./_images/enable-policy.png" alt="enable"></span></p> 
+  </div> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="delete-a-policy"><a class="anchor" href="#delete-a-policy"></a>Delete a Policy</h2> 
+ <div class="sectionbody"> 
+  <div class="paragraph"> 
+   <p>To delete an existing policy, simply open the policies tab and click its correspoinding trash can icon:</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p><span class="image"><img src="./_images/delete-policy.png" alt="delete"></span></p> 
+  </div> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="setting-an-alert-and-looking-at-autoscaling-history"><a class="anchor" href="#setting-an-alert-and-looking-at-autoscaling-history"></a>Setting an Alert and Looking at Autoscaling History</h2> 
+ <div class="sectionbody"> 
+  <div class="paragraph"> 
+   <p>Two specific types of <a href="/runtime-manager/alerts-on-runtime-manager">Alerts</a> can be set up for applications on CloudHub that warn you whenever a worker autoscaling event occurs. One alerts you about scale ups and the other about scale downs.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>With this alert set, emails will be automatically sent to the addresses you provide whenever such an event occurs. See <a href="/runtime-manager/alerts-on-runtime-manager">Alerts on Runtime Manager</a> for more.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>You can also see a full history of all of the times that the alert has been triggered. To see this, from the <strong>Alerts</strong> page, click on an alert name to open its corresponding panel:</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p><span class="image"><img src="./_images/alerts-history-autoscale.png" alt="history"></span></p> 
+  </div> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="see-also"><a class="anchor" href="#see-also"></a>See Also</h2> 
+ <div class="sectionbody"> 
+  <div class="ulist"> 
+   <ul> 
+    <li> <p><a href="/runtime-manager/managing-deployed-applications">Managing Deployed Applications</a></p> </li> 
+    <li> <p><a href="/runtime-manager/deploying-to-cloudhub">Deploy to CloudHub</a></p> </li> 
+    <li> <p>Read more about what <a href="/runtime-manager/cloudhub">CloudHub</a> is and what features it has</p> </li> 
+    <li> <p><a href="/runtime-manager/deployment-strategies">Deployment Strategies</a></p> </li> 
+    <li> <p><a href="/runtime-manager/cloudhub-fabric">CloudHub Fabric</a></p> </li> 
+    <li> <p><a href="/runtime-manager/anypoint-platform-cli">Command Line Tools</a></p> </li> 
+    <li> <p><a href="/runtime-manager/secure-application-properties">Secure Application Properties</a></p> </li> 
+    <li> <p><a href="/runtime-manager/virtual-private-cloud">Virtual Private Cloud</a></p> </li> 
+   </ul> 
+  </div> 
+ </div> 
 </div>
     </div>
     <!-- END article-content -->
-    
+    <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
+                <h4>In this topic:</h4>
+                <ul><li><a class="scroll-menu-link" href="#overview">Overview</a></li><li><a class="scroll-menu-link" href="#how-to-set-autoscaling">How to set Autoscaling</a></li><li><a class="scroll-menu-link" href="#creating-a-policy">Creating a Policy</a></li><li><a class="scroll-menu-link" href="#scaling-considerations">Scaling Considerations</a></li><li><a class="scroll-menu-link" href="#edit-an-existing-policy">Edit an Existing Policy</a></li><li><a class="scroll-menu-link" href="#deactivate-a-policy">Deactivate a Policy</a></li><li><a class="scroll-menu-link" href="#delete-a-policy">Delete a Policy</a></li><li><a class="scroll-menu-link" href="#setting-an-alert-and-looking-at-autoscaling-history">Setting an Alert and Looking at Autoscaling History</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
   </div>
 </div>
 <!-- START footer -->
