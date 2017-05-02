@@ -1041,7 +1041,7 @@
  </div> 
 </div> 
 <div class="sect1"> 
- <h2 id="to-create-a-backup"><a class="anchor" href="#to-create-a-backup"></a>To Create a Backup</h2> 
+ <h2 id="creating-a-backup"><a class="anchor" href="#creating-a-backup"></a>Creating a Backup</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
    <p>To preserve your data in case of system failure, you must ensure that you system is automatically backed up. You should configure your backup to run at least once per day, although MuleSoft recommends that you back up your system hourly.</p> 
@@ -1105,7 +1105,7 @@
  </div> 
 </div> 
 <div class="sect1"> 
- <h2 id="to-perform-a-system-restore"><a class="anchor" href="#to-perform-a-system-restore"></a>To Perform a System Restore</h2> 
+ <h2 id="performing-a-system-restore"><a class="anchor" href="#performing-a-system-restore"></a>Performing a System Restore</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
    <p>To restore a system from your backup, use the existing cluster or create a new cluster containing the same number of servers as the cluster being restored.</p> 
@@ -1131,6 +1131,32 @@
        <pre>gravity system restore gravitational.io/anypoint:0.0.0+latest /ext/share/to-restore.tar.gz</pre> 
       </div> 
      </div> </li> 
+    <li> <p>Run the following script after the restore is complete. This script recreates each pod to ensure that it uses the restored secret.</p> 
+     <div class="listingblock"> 
+      <div class="content"> 
+       <pre>deployments=$(kubectl get deployments | awk 'NR&gt;1 {print $1}')
+now=$(date "+%Y-%m-%d-%H-%M-%S")
+
+    #Recreate stolon-keeper pods to update database's certificate
+    kubectl delete pods --selector stolon-keeper=yes
+
+    # Wait for database pods to restart
+    while kubectl get pods | grep stolon-keeper | grep -q ContainerCreating; do
+        echo "Waiting for database pods..."
+        sleep 5s
+    done
+
+    # Patching deployment's metadata will trigger redeploy of pods automatically
+    for deployment in $deployments; do
+        kubectl patch deployment $deployment -p '{"spec":{"template":{"metadata":{"labels":{"restore": "'"$now"'"}}}}}'
+        sleep 5s
+        while kubectl get pods | grep -q -e ContainerCreating -e Pending; do
+            echo "Waiting for service pods..."
+            sleep 5s
+        done
+done</pre> 
+      </div> 
+     </div> </li> 
    </ol> 
   </div> 
  </div> 
@@ -1150,7 +1176,7 @@
     <!-- END article-content -->
     <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
                 <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#to-create-a-backup">To Create a Backup</a></li><li><a class="scroll-menu-link" href="#to-perform-a-system-restore">To Perform a System Restore</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
+                <ul><li><a class="scroll-menu-link" href="#creating-a-backup">Creating a Backup</a></li><li><a class="scroll-menu-link" href="#performing-a-system-restore">Performing a System Restore</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
   </div>
 </div>
 <!-- START footer -->

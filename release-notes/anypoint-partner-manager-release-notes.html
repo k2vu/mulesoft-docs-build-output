@@ -15,7 +15,7 @@
   <script src="/js/scripts.js?t=1491597550"></script>
 
   <link rel="canonical" href="https://docs.mulesoft.com/release-notes/anypoint-partner-manager-release-notes" />
-  <meta name="description" content="Anypoint Partner Manager User Documentation Fixed: Track Errors operation not working for Partner manager Connector 5.2.0 Anypoint Partner Manage..." />
+  <meta name="description" content="Anypoint Partner Manager User Documentation Anypoint Partner Manager, as a component of Anypoint Platform, supports the following browsers: Compati..." />
   <meta class="swiftype" name="title" data-type="string" content="Anypoint Partner Manager Release Notes" />
 </head>
 <body>
@@ -1032,15 +1032,7 @@
  </div> 
 </div> 
 <div class="sect1"> 
- <h2 id="version-1-13-1-april-9-2017"><a class="anchor" href="#version-1-13-1-april-9-2017"></a>Version 1.13.1 April 9, 2017</h2> 
- <div class="sectionbody"> 
-  <div class="paragraph"> 
-   <p>Fixed: Track Errors operation not working for Partner manager Connector 5.2.0</p> 
-  </div> 
- </div> 
-</div> 
-<div class="sect1"> 
- <h2 id="version-1-13-0-april-8-2017"><a class="anchor" href="#version-1-13-0-april-8-2017"></a>Version 1.13.0 - April 8, 2017</h2> 
+ <h2 id="version-1-15-0-may-6-2017"><a class="anchor" href="#version-1-15-0-may-6-2017"></a>Version 1.15.0 - May 6, 2017</h2> 
  <div class="sectionbody"> 
   <div class="sect2"> 
    <h3 id="browser-support"><a class="anchor" href="#browser-support"></a>Browser Support</h3> 
@@ -1071,17 +1063,14 @@
   </div> 
   <div class="sect2"> 
    <h3 id="new-features"><a class="anchor" href="#new-features"></a>New Features</h3> 
+   <div class="paragraph"> 
+    <p>Ability to:</p> 
+   </div> 
    <div class="ulist"> 
     <ul> 
-     <li> <p>Ability to configure On-hold or Inactive status windows for <a href="/anypoint-b2b/transaction-monitoring">transactions</a> and <a href="/anypoint-b2b/partner-configuration">partners</a></p> </li> 
-     <li> <p>Ability to edit the following attributes for system-defined <a href="/anypoint-b2b/error-codes">Error Codes</a>:</p> 
-      <div class="ulist"> 
-       <ul> 
-        <li> <p>Severity</p> </li> 
-        <li> <p>Notification Scope</p> </li> 
-        <li> <p>Category</p> </li> 
-       </ul> 
-      </div> </li> 
+     <li> <p>Configure RosettaNet Transactions</p> </li> 
+     <li> <p>Adjust column widths in grids</p> </li> 
+     <li> <p>Edit Severity, Category, and Notification scope for system-defined error codes</p> </li> 
     </ul> 
    </div> 
   </div> 
@@ -1089,16 +1078,13 @@
    <h3 id="fixed-in-this-release"><a class="anchor" href="#fixed-in-this-release"></a>Fixed in this Release</h3> 
    <div class="ulist"> 
     <ul> 
-     <li> <p><a href="/anypoint-b2b/x12-settings">X12 Settings</a> save functionality.</p> </li> 
-     <li> <p>AS2 and FTPS <a href="/anypoint-b2b/endpoints">Endpoints</a> can now be made defaults even if they were not initially made defaults.</p> </li> 
-     <li> <p>Track errors operation (wasn’t working properly with older versions of Partner Manager Connector)</p> </li> 
+     <li> <p>Configuration validation for <a href="/anypoint-b2b/partner-conversations">Partner Conversations</a> improved</p> </li> 
+     <li> <p>Improved performance for Transaction Monitoring screen for large numbers of transactions</p> </li> 
+     <li> <p>Large message payloads no longer obscure Download button in Transaction Monitoring</p> </li> 
+     <li> <p>Retreiving DocumentMaps no longer introduces possiblity of latency or timeouts</p> </li> 
+     <li> <p>Removed many impediments to monitoring transactions</p> </li> 
+     <li> <p>Releasing now works properly when more than one channel is set on an Onhold or Inactive Status Window.</p> </li> 
     </ul> 
-   </div> 
-  </div> 
-  <div class="sect2"> 
-   <h3 id="known-issues"><a class="anchor" href="#known-issues"></a>Known Issues</h3> 
-   <div class="paragraph"> 
-    <p>Releasing doesn’t work properly when more than one channel is set on an Onhold or Inactive Status Window.</p> 
    </div> 
   </div> 
  </div> 
@@ -1116,12 +1102,20 @@
  </div> 
 </div> 
 <div class="sect1"> 
- <h2 id="version-1-12-0-march-25-2017"><a class="anchor" href="#version-1-12-0-march-25-2017"></a>Version 1.12.0 - March 25, 2017</h2> 
+ <h2 id="version-1-13-1-april-9-2017"><a class="anchor" href="#version-1-13-1-april-9-2017"></a>Version 1.13.1 April 9, 2017</h2> 
+ <div class="sectionbody"> 
+  <div class="paragraph"> 
+   <p>Fixed: Track Errors operation not working for Partner manager Connector 5.2.0</p> 
+  </div> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="version-1-13-0-april-8-2017"><a class="anchor" href="#version-1-13-0-april-8-2017"></a>Version 1.13.0 - April 8, 2017</h2> 
  <div class="sectionbody"> 
   <div class="sect2"> 
    <h3 id="browser-support-2"><a class="anchor" href="#browser-support-2"></a>Browser Support</h3> 
    <div class="paragraph"> 
-    <p>Anypoint Partner Manager, as a component of <a href="https://anypoint.mulesoft.com">Anypoint Platform</a> supports the following browsers:</p> 
+    <p>Anypoint Partner Manager, as a component of <a href="https://anypoint.mulesoft.com">Anypoint Platform</a>, supports the following browsers:</p> 
    </div> 
    <div class="ulist"> 
     <ul> 
@@ -1149,9 +1143,15 @@
    <h3 id="new-features-2"><a class="anchor" href="#new-features-2"></a>New Features</h3> 
    <div class="ulist"> 
     <ul> 
-     <li> <p>Ability to configure Document Properties harvested from searches against <a href="/anypoint-b2b/lookup-tables">Lookup Tables</a></p> </li> 
-     <li> <p>Added <strong>PingFederate OAuth - Client Credentials</strong> as a <strong>Scheme</strong> option in <a href="/anypoint-b2b/security">Security</a></p> </li> 
-     <li> <p>Extended properties of <a href="/anypoint-b2b/error-codes">Error Codes</a> to support notifications</p> </li> 
+     <li> <p>Ability to configure On-hold or Inactive status windows for <a href="/anypoint-b2b/transaction-monitoring">transactions</a> and <a href="/anypoint-b2b/partner-configuration">partners</a></p> </li> 
+     <li> <p>Ability to edit the following attributes for system-defined <a href="/anypoint-b2b/error-codes">Error Codes</a>:</p> 
+      <div class="ulist"> 
+       <ul> 
+        <li> <p>Severity</p> </li> 
+        <li> <p>Notification Scope</p> </li> 
+        <li> <p>Category</p> </li> 
+       </ul> 
+      </div> </li> 
     </ul> 
    </div> 
   </div> 
@@ -1159,15 +1159,16 @@
    <h3 id="fixed-in-this-release-2"><a class="anchor" href="#fixed-in-this-release-2"></a>Fixed in this Release</h3> 
    <div class="ulist"> 
     <ul> 
-     <li> <p>Validation for:</p> 
-      <div class="ulist"> 
-       <ul> 
-        <li> <p>Date ranges</p> </li> 
-        <li> <p>Saving new <a href="/anypoint-b2b/routes">Routes</a></p> </li> 
-       </ul> 
-      </div> </li> 
-     <li> <p>Visibility of Custom Error messages in the <a href="/anypoint-b2b/errors-view">Errors View</a></p> </li> 
+     <li> <p><a href="/anypoint-b2b/x12-settings">X12 Settings</a> save functionality.</p> </li> 
+     <li> <p>AS2 and FTPS <a href="/anypoint-b2b/endpoints">Endpoints</a> can now be made defaults even if they were not initially made defaults.</p> </li> 
+     <li> <p>Track errors operation (wasn’t working properly with older versions of Partner Manager Connector)</p> </li> 
     </ul> 
+   </div> 
+  </div> 
+  <div class="sect2"> 
+   <h3 id="known-issues"><a class="anchor" href="#known-issues"></a>Known Issues</h3> 
+   <div class="paragraph"> 
+    <p>Releasing doesn’t work properly when more than one channel is set on an Onhold or Inactive Status Window.</p> 
    </div> 
   </div> 
  </div> 
@@ -1185,7 +1186,7 @@
  </div> 
 </div> 
 <div class="sect1"> 
- <h2 id="version-1-11-0-march-11-2017"><a class="anchor" href="#version-1-11-0-march-11-2017"></a>Version 1.11.0 - March 11, 2017</h2> 
+ <h2 id="version-1-12-0-march-25-2017"><a class="anchor" href="#version-1-12-0-march-25-2017"></a>Version 1.12.0 - March 25, 2017</h2> 
  <div class="sectionbody"> 
   <div class="sect2"> 
    <h3 id="browser-support-3"><a class="anchor" href="#browser-support-3"></a>Browser Support</h3> 
@@ -1218,15 +1219,25 @@
    <h3 id="new-features-3"><a class="anchor" href="#new-features-3"></a>New Features</h3> 
    <div class="ulist"> 
     <ul> 
-     <li> <p>API Keys scoped to each environment</p> </li> 
-     <li> <p>Multiple Target Channels per Document Type within a partner allowed</p> </li> 
+     <li> <p>Ability to configure Document Properties harvested from searches against <a href="/anypoint-b2b/lookup-tables">Lookup Tables</a></p> </li> 
+     <li> <p>Added <strong>PingFederate OAuth - Client Credentials</strong> as a <strong>Scheme</strong> option in <a href="/anypoint-b2b/security">Security</a></p> </li> 
+     <li> <p>Extended properties of <a href="/anypoint-b2b/error-codes">Error Codes</a> to support notifications</p> </li> 
     </ul> 
    </div> 
   </div> 
   <div class="sect2"> 
    <h3 id="fixed-in-this-release-3"><a class="anchor" href="#fixed-in-this-release-3"></a>Fixed in this Release</h3> 
-   <div class="paragraph"> 
-    <p>Minor bug fixes</p> 
+   <div class="ulist"> 
+    <ul> 
+     <li> <p>Validation for:</p> 
+      <div class="ulist"> 
+       <ul> 
+        <li> <p>Date ranges</p> </li> 
+        <li> <p>Saving new <a href="/anypoint-b2b/routes">Routes</a></p> </li> 
+       </ul> 
+      </div> </li> 
+     <li> <p>Visibility of Custom Error messages in the <a href="/anypoint-b2b/errors-view">Errors View</a></p> </li> 
+    </ul> 
    </div> 
   </div> 
  </div> 
@@ -1244,7 +1255,7 @@
  </div> 
 </div> 
 <div class="sect1"> 
- <h2 id="version-1-10-1-february-28-2017"><a class="anchor" href="#version-1-10-1-february-28-2017"></a>Version 1.10.1 - February 28, 2017</h2> 
+ <h2 id="version-1-11-0-march-11-2017"><a class="anchor" href="#version-1-11-0-march-11-2017"></a>Version 1.11.0 - March 11, 2017</h2> 
  <div class="sectionbody"> 
   <div class="sect2"> 
    <h3 id="browser-support-4"><a class="anchor" href="#browser-support-4"></a>Browser Support</h3> 
@@ -1274,9 +1285,18 @@
    </div> 
   </div> 
   <div class="sect2"> 
+   <h3 id="new-features-4"><a class="anchor" href="#new-features-4"></a>New Features</h3> 
+   <div class="ulist"> 
+    <ul> 
+     <li> <p>API Keys scoped to each environment</p> </li> 
+     <li> <p>Multiple Target Channels per Document Type within a partner allowed</p> </li> 
+    </ul> 
+   </div> 
+  </div> 
+  <div class="sect2"> 
    <h3 id="fixed-in-this-release-4"><a class="anchor" href="#fixed-in-this-release-4"></a>Fixed in this Release</h3> 
    <div class="paragraph"> 
-    <p>Issue updating X12 settings</p> 
+    <p>Minor bug fixes</p> 
    </div> 
   </div> 
  </div> 
@@ -1294,7 +1314,7 @@
  </div> 
 </div> 
 <div class="sect1"> 
- <h2 id="version-1-10-0-february-25-2017"><a class="anchor" href="#version-1-10-0-february-25-2017"></a>Version 1.10.0 - February 25, 2017</h2> 
+ <h2 id="version-1-10-1-february-28-2017"><a class="anchor" href="#version-1-10-1-february-28-2017"></a>Version 1.10.1 - February 28, 2017</h2> 
  <div class="sectionbody"> 
   <div class="sect2"> 
    <h3 id="browser-support-5"><a class="anchor" href="#browser-support-5"></a>Browser Support</h3> 
@@ -1324,19 +1344,9 @@
    </div> 
   </div> 
   <div class="sect2"> 
-   <h3 id="new-features-4"><a class="anchor" href="#new-features-4"></a>New Features</h3> 
-   <div class="ulist"> 
-    <ul> 
-     <li> <p>Refinements to Lookup Table administration and data entry screens</p> </li> 
-    </ul> 
-   </div> 
-  </div> 
-  <div class="sect2"> 
    <h3 id="fixed-in-this-release-5"><a class="anchor" href="#fixed-in-this-release-5"></a>Fixed in this Release</h3> 
-   <div class="ulist"> 
-    <ul> 
-     <li> <p>Minor issue fixes</p> </li> 
-    </ul> 
+   <div class="paragraph"> 
+    <p>Issue updating X12 settings</p> 
    </div> 
   </div> 
  </div> 
@@ -1354,7 +1364,7 @@
  </div> 
 </div> 
 <div class="sect1"> 
- <h2 id="version-1-9-0-february-2017"><a class="anchor" href="#version-1-9-0-february-2017"></a>Version 1.9.0 - February, 2017</h2> 
+ <h2 id="version-1-10-0-february-25-2017"><a class="anchor" href="#version-1-10-0-february-25-2017"></a>Version 1.10.0 - February 25, 2017</h2> 
  <div class="sectionbody"> 
   <div class="sect2"> 
    <h3 id="browser-support-6"><a class="anchor" href="#browser-support-6"></a>Browser Support</h3> 
@@ -1387,24 +1397,16 @@
    <h3 id="new-features-5"><a class="anchor" href="#new-features-5"></a>New Features</h3> 
    <div class="ulist"> 
     <ul> 
-     <li> <p>Completely updated Partner Manager portal providing improved UI performance and many UI enhancements</p> </li> 
-     <li> <p>New Identifiers Page providing ability to configure multiple identifiers of any type for each partner</p> </li> 
-     <li> <p><em>Content-based Routing</em> - ability to define expressions based on context properties extracted during message processing, then use the expressions as filters for route resolution</p> </li> 
-     <li> <p>Improved display of large number of columns on Lookup Data Entry Page, and ability to control the order in which Lookup Table columns are displayed</p> </li> 
-     <li> <p>UI for defining <em>B2B Conversations</em> - multi-document exchanges between partners that fulfill a larger business process or transaction</p> </li> 
+     <li> <p>Refinements to Lookup Table administration and data entry screens</p> </li> 
     </ul> 
    </div> 
   </div> 
   <div class="sect2"> 
    <h3 id="fixed-in-this-release-6"><a class="anchor" href="#fixed-in-this-release-6"></a>Fixed in this Release</h3> 
-   <div class="paragraph"> 
-    <p>Lookup Table filter now correctly uses <strong>AND</strong> instead of <strong>OR</strong> for multi-field keys.</p> 
-   </div> 
-  </div> 
-  <div class="sect2"> 
-   <h3 id="known-issues-2"><a class="anchor" href="#known-issues-2"></a>Known issues</h3> 
-   <div class="paragraph"> 
-    <p>In some cases, for existing FTP transmissions, data may not appear in the <a href="/anypoint-b2b/transmissions-view#detail-pane">Transmissions Detail Pane</a>.</p> 
+   <div class="ulist"> 
+    <ul> 
+     <li> <p>Minor issue fixes</p> </li> 
+    </ul> 
    </div> 
   </div> 
  </div> 
@@ -1422,7 +1424,7 @@
  </div> 
 </div> 
 <div class="sect1"> 
- <h2 id="version-1-8-0-january-2017"><a class="anchor" href="#version-1-8-0-january-2017"></a>Version 1.8.0 - January, 2017</h2> 
+ <h2 id="version-1-9-0-february-2017"><a class="anchor" href="#version-1-9-0-february-2017"></a>Version 1.9.0 - February, 2017</h2> 
  <div class="sectionbody"> 
   <div class="sect2"> 
    <h3 id="browser-support-7"><a class="anchor" href="#browser-support-7"></a>Browser Support</h3> 
@@ -1453,17 +1455,26 @@
   </div> 
   <div class="sect2"> 
    <h3 id="new-features-6"><a class="anchor" href="#new-features-6"></a>New Features</h3> 
-   <div class="paragraph"> 
-    <p>Add support for DUNS (<a href="http://www.dnb.com/duns-number.html">Data Universal Number System</a>) number to Identifiers Page.</p> 
+   <div class="ulist"> 
+    <ul> 
+     <li> <p>Completely updated Partner Manager portal providing improved UI performance and many UI enhancements</p> </li> 
+     <li> <p>New Identifiers Page providing ability to configure multiple identifiers of any type for each partner</p> </li> 
+     <li> <p><em>Content-based Routing</em> - ability to define expressions based on context properties extracted during message processing, then use the expressions as filters for route resolution</p> </li> 
+     <li> <p>Improved display of large number of columns on Lookup Data Entry Page, and ability to control the order in which Lookup Table columns are displayed</p> </li> 
+     <li> <p>UI for defining <em>B2B Conversations</em> - multi-document exchanges between partners that fulfill a larger business process or transaction</p> </li> 
+    </ul> 
    </div> 
   </div> 
   <div class="sect2"> 
    <h3 id="fixed-in-this-release-7"><a class="anchor" href="#fixed-in-this-release-7"></a>Fixed in this Release</h3> 
-   <div class="ulist"> 
-    <ul> 
-     <li> <p>Inconsistent error popup functionality</p> </li> 
-     <li> <p>Label field in Tracking doesn’t show long values</p> </li> 
-    </ul> 
+   <div class="paragraph"> 
+    <p>Lookup Table filter now correctly uses <strong>AND</strong> instead of <strong>OR</strong> for multi-field keys.</p> 
+   </div> 
+  </div> 
+  <div class="sect2"> 
+   <h3 id="known-issues-2"><a class="anchor" href="#known-issues-2"></a>Known issues</h3> 
+   <div class="paragraph"> 
+    <p>In some cases, for existing FTP transmissions, data may not appear in the <a href="/anypoint-b2b/transmissions-view#detail-pane">Transmissions Detail Pane</a>.</p> 
    </div> 
   </div> 
  </div> 
@@ -1481,7 +1492,7 @@
  </div> 
 </div> 
 <div class="sect1"> 
- <h2 id="version-1-7-0-december-2016"><a class="anchor" href="#version-1-7-0-december-2016"></a>Version 1.7.0 - December, 2016</h2> 
+ <h2 id="version-1-8-0-january-2017"><a class="anchor" href="#version-1-8-0-january-2017"></a>Version 1.8.0 - January, 2017</h2> 
  <div class="sectionbody"> 
   <div class="sect2"> 
    <h3 id="browser-support-8"><a class="anchor" href="#browser-support-8"></a>Browser Support</h3> 
@@ -1512,27 +1523,40 @@
   </div> 
   <div class="sect2"> 
    <h3 id="new-features-7"><a class="anchor" href="#new-features-7"></a>New Features</h3> 
+   <div class="paragraph"> 
+    <p>Add support for DUNS (<a href="http://www.dnb.com/duns-number.html">Data Universal Number System</a>) number to Identifiers Page.</p> 
+   </div> 
+  </div> 
+  <div class="sect2"> 
+   <h3 id="fixed-in-this-release-8"><a class="anchor" href="#fixed-in-this-release-8"></a>Fixed in this Release</h3> 
    <div class="ulist"> 
     <ul> 
-     <li> <p>Added validation for Start and Stop dates to custom Date picker in tracking screen</p> </li> 
-     <li> <p>Added ability to enter custom message type and version for RosettaNet</p> </li> 
-     <li> <p>Added date options to Overview and Filters for all views</p> </li> 
-     <li> <p>Added Property Source Type field to Document Properties</p> </li> 
-     <li> <p>Added support for Context Properties on Endpoints</p> </li> 
-     <li> <p>Enable creation of multiple Maps for same Document Type</p> </li> 
-     <li> <p>Added auditing for Anypoint Partner Manager</p> </li> 
+     <li> <p>Inconsistent error popup functionality</p> </li> 
+     <li> <p>Label field in Tracking doesn’t show long values</p> </li> 
     </ul> 
    </div> 
   </div> 
  </div> 
 </div> 
 <div class="sect1"> 
- <h2 id="version-1-6-0-december-2016"><a class="anchor" href="#version-1-6-0-december-2016"></a>Version 1.6.0 - December, 2016</h2> 
+ <h2 id="related-information-8"><a class="anchor" href="#related-information-8"></a>Related Information</h2> 
+ <div class="sectionbody"> 
+  <div class="ulist"> 
+   <ul> 
+    <li> <p><a href="/anypoint-b2b/anypoint-partner-manager">Introduction to Anypoint Partner Manager</a></p> </li> 
+    <li> <p><a href="/anypoint-b2b/transaction-monitoring">Transaction Monitoring</a></p> </li> 
+    <li> <p><a href="/anypoint-b2b/partner-configuration">Partner Configuration</a></p> </li> 
+   </ul> 
+  </div> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="version-1-7-0-december-2016"><a class="anchor" href="#version-1-7-0-december-2016"></a>Version 1.7.0 - December, 2016</h2> 
  <div class="sectionbody"> 
   <div class="sect2"> 
    <h3 id="browser-support-9"><a class="anchor" href="#browser-support-9"></a>Browser Support</h3> 
    <div class="paragraph"> 
-    <p>Anypoint Partner Manager, as part of <a href="https://anypoint.mulesoft.com">Anypoint Platform</a> supports the following browsers:</p> 
+    <p>Anypoint Partner Manager, as a component of <a href="https://anypoint.mulesoft.com">Anypoint Platform</a> supports the following browsers:</p> 
    </div> 
    <div class="ulist"> 
     <ul> 
@@ -1560,25 +1584,20 @@
    <h3 id="new-features-8"><a class="anchor" href="#new-features-8"></a>New Features</h3> 
    <div class="ulist"> 
     <ul> 
-     <li> <p>Add support for lookup tables</p> </li> 
-    </ul> 
-   </div> 
-  </div> 
-  <div class="sect2"> 
-   <h3 id="fixed-in-this-release-8"><a class="anchor" href="#fixed-in-this-release-8"></a>Fixed in This Release</h3> 
-   <div class="ulist"> 
-    <ul> 
-     <li> <p>Fixed - Error on Channels Page while choosing map</p> </li> 
-     <li> <p>Fixed - Validation error during channel creation at partner level when using a document defined at home org level</p> </li> 
-     <li> <p>Fixed - On Document Definition page, if schema file is already uploaded for a document, the label says no file uploaded and there is no indication that a schema has already been uploaded.</p> </li> 
-     <li> <p>Fixed - B2B Transactions Overview dashboard does not show correct Transmission/Tracking/Error count</p> </li> 
+     <li> <p>Added validation for Start and Stop dates to custom Date picker in tracking screen</p> </li> 
+     <li> <p>Added ability to enter custom message type and version for RosettaNet</p> </li> 
+     <li> <p>Added date options to Overview and Filters for all views</p> </li> 
+     <li> <p>Added Property Source Type field to Document Properties</p> </li> 
+     <li> <p>Added support for Context Properties on Endpoints</p> </li> 
+     <li> <p>Enable creation of multiple Maps for same Document Type</p> </li> 
+     <li> <p>Added auditing for Anypoint Partner Manager</p> </li> 
     </ul> 
    </div> 
   </div> 
  </div> 
 </div> 
 <div class="sect1"> 
- <h2 id="version-1-5-0-november-2016"><a class="anchor" href="#version-1-5-0-november-2016"></a>Version 1.5.0 - November, 2016</h2> 
+ <h2 id="version-1-6-0-december-2016"><a class="anchor" href="#version-1-6-0-december-2016"></a>Version 1.6.0 - December, 2016</h2> 
  <div class="sectionbody"> 
   <div class="sect2"> 
    <h3 id="browser-support-10"><a class="anchor" href="#browser-support-10"></a>Browser Support</h3> 
@@ -1611,9 +1630,7 @@
    <h3 id="new-features-9"><a class="anchor" href="#new-features-9"></a>New Features</h3> 
    <div class="ulist"> 
     <ul> 
-     <li> <p>Client-side processing of documents - send metadata to Tracking API only (increases processing speed, enhances security)</p> </li> 
-     <li> <p>Caching of document property information (increases processing speed)</p> </li> 
-     <li> <p>Support for SMTP, POP3, and IMAP endpoints</p> </li> 
+     <li> <p>Add support for lookup tables</p> </li> 
     </ul> 
    </div> 
   </div> 
@@ -1621,17 +1638,17 @@
    <h3 id="fixed-in-this-release-9"><a class="anchor" href="#fixed-in-this-release-9"></a>Fixed in This Release</h3> 
    <div class="ulist"> 
     <ul> 
-     <li> <p>Fixed - Issues with creating channels across Home Org and Partners.</p> </li> 
-     <li> <p>Fixed - Display of long names jumbled in many places across APM system.</p> </li> 
-     <li> <p>Fixed - No error message if Channel information is provided incorrectly.</p> </li> 
-     <li> <p>Fixed - No validation or error message is provided preventing creating a duplicate partner.</p> </li> 
+     <li> <p>Fixed - Error on Channels Page while choosing map</p> </li> 
+     <li> <p>Fixed - Validation error during channel creation at partner level when using a document defined at home org level</p> </li> 
+     <li> <p>Fixed - On Document Definition page, if schema file is already uploaded for a document, the label says no file uploaded and there is no indication that a schema has already been uploaded.</p> </li> 
+     <li> <p>Fixed - B2B Transactions Overview dashboard does not show correct Transmission/Tracking/Error count</p> </li> 
     </ul> 
    </div> 
   </div> 
  </div> 
 </div> 
 <div class="sect1"> 
- <h2 id="version-1-4-0-october-2016"><a class="anchor" href="#version-1-4-0-october-2016"></a>Version 1.4.0 - October, 2016</h2> 
+ <h2 id="version-1-5-0-november-2016"><a class="anchor" href="#version-1-5-0-november-2016"></a>Version 1.5.0 - November, 2016</h2> 
  <div class="sectionbody"> 
   <div class="sect2"> 
    <h3 id="browser-support-11"><a class="anchor" href="#browser-support-11"></a>Browser Support</h3> 
@@ -1664,17 +1681,27 @@
    <h3 id="new-features-10"><a class="anchor" href="#new-features-10"></a>New Features</h3> 
    <div class="ulist"> 
     <ul> 
-     <li> <p>Configuration of persisted message security settings</p> </li> 
-     <li> <p>Configuration of security settings for http send endpoints</p> </li> 
-     <li> <p>Configuration of FTP Endpoints</p> </li> 
-     <li> <p>Configuration of RosettaNet document definitions</p> </li> 
+     <li> <p>Client-side processing of documents - send metadata to Tracking API only (increases processing speed, enhances security)</p> </li> 
+     <li> <p>Caching of document property information (increases processing speed)</p> </li> 
+     <li> <p>Support for SMTP, POP3, and IMAP endpoints</p> </li> 
+    </ul> 
+   </div> 
+  </div> 
+  <div class="sect2"> 
+   <h3 id="fixed-in-this-release-10"><a class="anchor" href="#fixed-in-this-release-10"></a>Fixed in This Release</h3> 
+   <div class="ulist"> 
+    <ul> 
+     <li> <p>Fixed - Issues with creating channels across Home Org and Partners.</p> </li> 
+     <li> <p>Fixed - Display of long names jumbled in many places across APM system.</p> </li> 
+     <li> <p>Fixed - No error message if Channel information is provided incorrectly.</p> </li> 
+     <li> <p>Fixed - No validation or error message is provided preventing creating a duplicate partner.</p> </li> 
     </ul> 
    </div> 
   </div> 
  </div> 
 </div> 
 <div class="sect1"> 
- <h2 id="version-1-3-0-october-2016"><a class="anchor" href="#version-1-3-0-october-2016"></a>Version 1.3.0 - October, 2016</h2> 
+ <h2 id="version-1-4-0-october-2016"><a class="anchor" href="#version-1-4-0-october-2016"></a>Version 1.4.0 - October, 2016</h2> 
  <div class="sectionbody"> 
   <div class="sect2"> 
    <h3 id="browser-support-12"><a class="anchor" href="#browser-support-12"></a>Browser Support</h3> 
@@ -1707,29 +1734,22 @@
    <h3 id="new-features-11"><a class="anchor" href="#new-features-11"></a>New Features</h3> 
    <div class="ulist"> 
     <ul> 
-     <li> <p>Configuration of SFTP endpoints</p> </li> 
-     <li> <p>Configuration of JMS endpoints</p> </li> 
-     <li> <p>Configuration of custom error codes</p> </li> 
-    </ul> 
-   </div> 
-  </div> 
-  <div class="sect2"> 
-   <h3 id="fixed-in-this-release-10"><a class="anchor" href="#fixed-in-this-release-10"></a>Fixed in this Release</h3> 
-   <div class="ulist"> 
-    <ul> 
-     <li> <p>Resolve routes not matching partner by ISA identifier</p> </li> 
+     <li> <p>Configuration of persisted message security settings</p> </li> 
+     <li> <p>Configuration of security settings for http send endpoints</p> </li> 
+     <li> <p>Configuration of FTP Endpoints</p> </li> 
+     <li> <p>Configuration of RosettaNet document definitions</p> </li> 
     </ul> 
    </div> 
   </div> 
  </div> 
 </div> 
 <div class="sect1"> 
- <h2 id="version-1-2-2"><a class="anchor" href="#version-1-2-2"></a>Version 1.2.2</h2> 
+ <h2 id="version-1-3-0-october-2016"><a class="anchor" href="#version-1-3-0-october-2016"></a>Version 1.3.0 - October, 2016</h2> 
  <div class="sectionbody"> 
   <div class="sect2"> 
    <h3 id="browser-support-13"><a class="anchor" href="#browser-support-13"></a>Browser Support</h3> 
    <div class="paragraph"> 
-    <p>Anypoint Partner Manager, as part of <a href="https://anypoint.mulesoft.com">Anypoint Platform</a>, supports the following browsers:</p> 
+    <p>Anypoint Partner Manager, as part of <a href="https://anypoint.mulesoft.com">Anypoint Platform</a> supports the following browsers:</p> 
    </div> 
    <div class="ulist"> 
     <ul> 
@@ -1757,6 +1777,56 @@
    <h3 id="new-features-12"><a class="anchor" href="#new-features-12"></a>New Features</h3> 
    <div class="ulist"> 
     <ul> 
+     <li> <p>Configuration of SFTP endpoints</p> </li> 
+     <li> <p>Configuration of JMS endpoints</p> </li> 
+     <li> <p>Configuration of custom error codes</p> </li> 
+    </ul> 
+   </div> 
+  </div> 
+  <div class="sect2"> 
+   <h3 id="fixed-in-this-release-11"><a class="anchor" href="#fixed-in-this-release-11"></a>Fixed in this Release</h3> 
+   <div class="ulist"> 
+    <ul> 
+     <li> <p>Resolve routes not matching partner by ISA identifier</p> </li> 
+    </ul> 
+   </div> 
+  </div> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="version-1-2-2"><a class="anchor" href="#version-1-2-2"></a>Version 1.2.2</h2> 
+ <div class="sectionbody"> 
+  <div class="sect2"> 
+   <h3 id="browser-support-14"><a class="anchor" href="#browser-support-14"></a>Browser Support</h3> 
+   <div class="paragraph"> 
+    <p>Anypoint Partner Manager, as part of <a href="https://anypoint.mulesoft.com">Anypoint Platform</a>, supports the following browsers:</p> 
+   </div> 
+   <div class="ulist"> 
+    <ul> 
+     <li> <p>Firefox (latest version)</p> </li> 
+     <li> <p>Chrome (latest version)</p> </li> 
+    </ul> 
+   </div> 
+  </div> 
+  <div class="sect2"> 
+   <h3 id="compatibility-14"><a class="anchor" href="#compatibility-14"></a>Compatibility</h3> 
+   <div class="paragraph"> 
+    <p>Compatible with:</p> 
+   </div> 
+   <div class="ulist"> 
+    <ul> 
+     <li> <p>X12 Module 1.2.1</p> </li> 
+     <li> <p>EDIFACT Module 1.2.1</p> </li> 
+     <li> <p>Partner Manager Connector 3.0.x</p> </li> 
+     <li> <p>FTPS Connector 1.0.8</p> </li> 
+     <li> <p>AS2 Connector 2.0.1</p> </li> 
+    </ul> 
+   </div> 
+  </div> 
+  <div class="sect2"> 
+   <h3 id="new-features-13"><a class="anchor" href="#new-features-13"></a>New Features</h3> 
+   <div class="ulist"> 
+    <ul> 
      <li> <p>Made import/export/promote jobs asyncronous in background, with update for user in UI when complete</p> </li> 
      <li> <p>Extended max length of error message to 5000 characters</p> </li> 
      <li> <p>Added an operation to Partner Manager Connector to search for a document definition</p> </li> 
@@ -1767,7 +1837,7 @@
    </div> 
   </div> 
   <div class="sect2"> 
-   <h3 id="fixed-in-this-release-11"><a class="anchor" href="#fixed-in-this-release-11"></a>Fixed in this Release</h3> 
+   <h3 id="fixed-in-this-release-12"><a class="anchor" href="#fixed-in-this-release-12"></a>Fixed in this Release</h3> 
    <div class="ulist"> 
     <ul> 
      <li> <p>Various validations and UI enhancements for maintaining Document Types, Maps, Endpoints, Channels, and Routes</p> </li> 
@@ -1801,7 +1871,7 @@
  <h2 id="version-1-2-1-release-notes"><a class="anchor" href="#version-1-2-1-release-notes"></a>Version 1.2.1 Release Notes</h2> 
  <div class="sectionbody"> 
   <div class="sect2"> 
-   <h3 id="browser-support-14"><a class="anchor" href="#browser-support-14"></a>Browser Support</h3> 
+   <h3 id="browser-support-15"><a class="anchor" href="#browser-support-15"></a>Browser Support</h3> 
    <div class="paragraph"> 
     <p>Anypoint Partner Manager, as part of <a href="https://anypoint.mulesoft.com">Anypoint Platform</a>, supports the following browsers:</p> 
    </div> 
@@ -1813,7 +1883,7 @@
    </div> 
   </div> 
   <div class="sect2"> 
-   <h3 id="compatibility-14"><a class="anchor" href="#compatibility-14"></a>Compatibility</h3> 
+   <h3 id="compatibility-15"><a class="anchor" href="#compatibility-15"></a>Compatibility</h3> 
    <div class="paragraph"> 
     <p>Compatible with:</p> 
    </div> 
@@ -1841,7 +1911,7 @@
    </div> 
   </div> 
   <div class="sect2"> 
-   <h3 id="fixed-in-this-release-12"><a class="anchor" href="#fixed-in-this-release-12"></a>Fixed in this Release</h3> 
+   <h3 id="fixed-in-this-release-13"><a class="anchor" href="#fixed-in-this-release-13"></a>Fixed in this Release</h3> 
    <div class="ulist"> 
     <ul> 
      <li> <p>Track Document operation no longer fails when you select JSON as type of document</p> </li> 
@@ -1905,7 +1975,7 @@
    </div> 
   </div> 
   <div class="sect2"> 
-   <h3 id="compatibility-15"><a class="anchor" href="#compatibility-15"></a>Compatibility</h3> 
+   <h3 id="compatibility-16"><a class="anchor" href="#compatibility-16"></a>Compatibility</h3> 
    <table class="tableblock frame-all grid-all spread"> 
     <colgroup> 
      <col style="width: 50%;"> 
@@ -1943,7 +2013,7 @@
     <!-- END article-content -->
     <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
                 <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#version-1-13-1-april-9-2017">Version 1.13.1 April 9, 2017</a></li><li><a class="scroll-menu-link" href="#version-1-13-0-april-8-2017">Version 1.13.0 - April 8, 2017</a></li><li><a class="scroll-menu-link" href="#related-information">Related Information</a></li><li><a class="scroll-menu-link" href="#version-1-12-0-march-25-2017">Version 1.12.0 - March 25, 2017</a></li><li><a class="scroll-menu-link" href="#related-information-2">Related Information</a></li><li><a class="scroll-menu-link" href="#version-1-11-0-march-11-2017">Version 1.11.0 - March 11, 2017</a></li><li><a class="scroll-menu-link" href="#related-information-3">Related Information</a></li><li><a class="scroll-menu-link" href="#version-1-10-1-february-28-2017">Version 1.10.1 - February 28, 2017</a></li><li><a class="scroll-menu-link" href="#related-information-4">Related Information</a></li><li><a class="scroll-menu-link" href="#version-1-10-0-february-25-2017">Version 1.10.0 - February 25, 2017</a></li><li><a class="scroll-menu-link" href="#related-information-5">Related Information</a></li><li><a class="scroll-menu-link" href="#version-1-9-0-february-2017">Version 1.9.0 - February, 2017</a></li><li><a class="scroll-menu-link" href="#related-information-6">Related Information</a></li><li><a class="scroll-menu-link" href="#version-1-8-0-january-2017">Version 1.8.0 - January, 2017</a></li><li><a class="scroll-menu-link" href="#related-information-7">Related Information</a></li><li><a class="scroll-menu-link" href="#version-1-7-0-december-2016">Version 1.7.0 - December, 2016</a></li><li><a class="scroll-menu-link" href="#version-1-6-0-december-2016">Version 1.6.0 - December, 2016</a></li><li><a class="scroll-menu-link" href="#version-1-5-0-november-2016">Version 1.5.0 - November, 2016</a></li><li><a class="scroll-menu-link" href="#version-1-4-0-october-2016">Version 1.4.0 - October, 2016</a></li><li><a class="scroll-menu-link" href="#version-1-3-0-october-2016">Version 1.3.0 - October, 2016</a></li><li><a class="scroll-menu-link" href="#version-1-2-2">Version 1.2.2</a></li><li><a class="scroll-menu-link" href="#version-1-2-1-release-notes">Version 1.2.1 Release Notes</a></li><li><a class="scroll-menu-link" href="#version-1-0-0-january-2016">Version 1.0.0 - January 2016</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
+                <ul><li><a class="scroll-menu-link" href="#version-1-15-0-may-6-2017">Version 1.15.0 - May 6, 2017</a></li><li><a class="scroll-menu-link" href="#related-information">Related Information</a></li><li><a class="scroll-menu-link" href="#version-1-13-1-april-9-2017">Version 1.13.1 April 9, 2017</a></li><li><a class="scroll-menu-link" href="#version-1-13-0-april-8-2017">Version 1.13.0 - April 8, 2017</a></li><li><a class="scroll-menu-link" href="#related-information-2">Related Information</a></li><li><a class="scroll-menu-link" href="#version-1-12-0-march-25-2017">Version 1.12.0 - March 25, 2017</a></li><li><a class="scroll-menu-link" href="#related-information-3">Related Information</a></li><li><a class="scroll-menu-link" href="#version-1-11-0-march-11-2017">Version 1.11.0 - March 11, 2017</a></li><li><a class="scroll-menu-link" href="#related-information-4">Related Information</a></li><li><a class="scroll-menu-link" href="#version-1-10-1-february-28-2017">Version 1.10.1 - February 28, 2017</a></li><li><a class="scroll-menu-link" href="#related-information-5">Related Information</a></li><li><a class="scroll-menu-link" href="#version-1-10-0-february-25-2017">Version 1.10.0 - February 25, 2017</a></li><li><a class="scroll-menu-link" href="#related-information-6">Related Information</a></li><li><a class="scroll-menu-link" href="#version-1-9-0-february-2017">Version 1.9.0 - February, 2017</a></li><li><a class="scroll-menu-link" href="#related-information-7">Related Information</a></li><li><a class="scroll-menu-link" href="#version-1-8-0-january-2017">Version 1.8.0 - January, 2017</a></li><li><a class="scroll-menu-link" href="#related-information-8">Related Information</a></li><li><a class="scroll-menu-link" href="#version-1-7-0-december-2016">Version 1.7.0 - December, 2016</a></li><li><a class="scroll-menu-link" href="#version-1-6-0-december-2016">Version 1.6.0 - December, 2016</a></li><li><a class="scroll-menu-link" href="#version-1-5-0-november-2016">Version 1.5.0 - November, 2016</a></li><li><a class="scroll-menu-link" href="#version-1-4-0-october-2016">Version 1.4.0 - October, 2016</a></li><li><a class="scroll-menu-link" href="#version-1-3-0-october-2016">Version 1.3.0 - October, 2016</a></li><li><a class="scroll-menu-link" href="#version-1-2-2">Version 1.2.2</a></li><li><a class="scroll-menu-link" href="#version-1-2-1-release-notes">Version 1.2.1 Release Notes</a></li><li><a class="scroll-menu-link" href="#version-1-0-0-january-2016">Version 1.0.0 - January 2016</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
   </div>
 </div>
 <!-- START footer -->
