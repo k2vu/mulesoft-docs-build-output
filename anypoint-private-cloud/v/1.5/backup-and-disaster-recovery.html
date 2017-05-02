@@ -1131,7 +1131,7 @@
        <pre>gravity system restore gravitational.io/anypoint:0.0.0+latest /ext/share/to-restore.tar.gz</pre> 
       </div> 
      </div> </li> 
-    <li> <p>Run the following script after the restore is complete. This script recreates each pod to ensure that it uses the restored secret.</p> 
+    <li> <p>Run the following script after the restore is complete. This script recreates each pod to ensure that it uses the restored secrets.</p> 
      <div class="listingblock"> 
       <div class="content"> 
        <pre>deployments=$(kubectl get deployments | awk 'NR&gt;1 {print $1}')

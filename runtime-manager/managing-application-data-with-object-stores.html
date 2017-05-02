@@ -1143,7 +1143,7 @@
        <li> <p><strong>HTTP</strong> connector - Receives the data sent by a <strong>curl</strong> command.<br> Settings: <strong>Host</strong>: <code>0.0.0.0</code>, <strong>Port</strong>: <code>8081</code>, <strong>Path</strong> (in Basic Settings) to <code>/store</code>, <strong>Allowed Methods</strong> set to <code>POST</code></p> </li> 
        <li> <p><strong>Object to String</strong> - Converts the input to a String.<br> Settings: Leave fields empty.</p> </li> 
        <li> <p><strong>JSON to Object</strong> - Converts the String to a Java Map object.<br> Settings: Set <strong>Return Class</strong> to <code>java.util.Map</code></p> </li> 
-       <li> <p><strong>ObjectStore</strong> - Stores data in the Runtime Manager Application Data area.<br> Settings: Set <strong>Connector Configuration</strong>: <code>ObjectStore_Configuration</code>, in the plus menu leave fields empty, <strong>Operation</strong>: <code>Store</code>, <strong>Key</strong>: <code>#[payload.key]</code>, <strong>Value Reference</strong>: <code>#[payload.value]</code></p> </li> 
+       <li> <p><strong>ObjectStore</strong> - Stores data in the Runtime Manager Application Data area.<br> Settings: Set <strong>Connector Configuration</strong>: <code>ObjectStore_Configuration</code>, in the plus menu, specify a Partion Name, which can be any unique name. You can leave the other fields empty. For <strong>Operation</strong>: <code>Store</code>, <strong>Key</strong>: <code>#[payload.key]</code>, and <strong>Value Reference</strong>: <code>#[payload.value]</code></p> </li> 
        <li> <p><strong>Set Payload</strong> - Displays a confirmation prompt that appears after you use the <strong>curl</strong> command.<br> Settings: Set <strong>Settings</strong> to <code>KEY: #[payload.key] AND VALUE: #[payload.value] WERE SAVED OK</code></p> 
         <div class="paragraph"> 
          <p>The source for this example is:</p> 
@@ -1176,28 +1176,54 @@
 19
 20
 21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
 </pre></td> 
                <td class="code"><pre><span class="preprocessor">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 
-<span class="tag">&lt;mule</span> <span class="attribute-name">xmlns:json</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/json</span><span class="delimiter">"</span></span>
-        <span class="attribute-name">xmlns:http</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/http</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:objectstore</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/objectstore</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/core</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:doc</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/documentation</span><span class="delimiter">"</span></span>
-        <span class="attribute-name">xmlns:spring</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.springframework.org/schema/beans</span><span class="delimiter">"</span></span>
-        <span class="attribute-name">xmlns:xsi</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.w3.org/2001/XMLSchema-instance</span><span class="delimiter">"</span></span>
-        <span class="attribute-name">xsi:schemaLocation</span>=<span class="string"><span class="delimiter">"</span>
-<span class="content">http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd</span>
-<span class="content">http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd</span>
-<span class="content">http://www.mulesoft.org/schema/mule/objectstore http://www.mulesoft.org/schema/mule/objectstore/current/mule-objectstore.xsd</span>
-<span class="content">http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
-    <span class="tag">&lt;http:listener-config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Listener_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">host</span>=<span class="string"><span class="delimiter">"</span><span class="content">0.0.0.0</span><span class="delimiter">"</span></span> <span class="attribute-name">port</span>=<span class="string"><span class="delimiter">"</span><span class="content">8081</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP Listener Configuration</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
-    <span class="tag">&lt;objectstore:config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">ObjectStore__Connector</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">ObjectStore: Connector</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
-    <span class="tag">&lt;flow</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">objstoredemoFlow</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
-        <span class="tag">&lt;http:listener</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Listener_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">"</span><span class="content">/store</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
-        <span class="tag">&lt;object-to-string-transformer</span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Object to String</span><span class="delimiter">"</span></span> <span class="tag">/&gt;</span>
-        <span class="tag">&lt;json:json-to-object-transformer</span> <span class="attribute-name">returnClass</span>=<span class="string"><span class="delimiter">"</span><span class="content">java.util.Map</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">JSON to Object</span><span class="delimiter">"</span></span> <span class="tag">/&gt;</span>
-       <span class="tag">&lt;objectstore:store</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">ObjectStore__Connector</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">ObjectStore</span><span class="delimiter">"</span></span> <span class="attribute-name">key</span>=<span class="string"><span class="delimiter">"</span><span class="content">#[payload.key]</span><span class="delimiter">"</span></span> <span class="attribute-name">value-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">#[payload.value]</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
-       <span class="tag">&lt;set-payload</span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">"</span><span class="content">KEY: #[payload.key] AND VALUE: #[payload.value] WERE SAVED OK</span><span class="delimiter">"</span></span> <span class="tag">/&gt;</span>
-    <span class="tag">&lt;/flow&gt;</span>
-<span class="tag">&lt;/mule&gt;</span></pre></td> 
+<span class="tag">&lt;mule</span> <span class="attribute-name">xmlns:objectstore</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/objectstore</span><span class="delimiter">"</span></span>
+<span class="attribute-name">xmlns:json</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/json</span><span class="delimiter">"</span></span>
+<span class="attribute-name">xmlns:http</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/http</span><span class="delimiter">"</span></span>
+<span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/core</span><span class="delimiter">"</span></span>
+<span class="attribute-name">xmlns:doc</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/documentation</span><span class="delimiter">"</span></span>
+<span class="attribute-name">xmlns:spring</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.springframework.org/schema/beans</span><span class="delimiter">"</span></span>
+<span class="attribute-name">xmlns:xsi</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.w3.org/2001/XMLSchema-instance</span><span class="delimiter">"</span></span>
+<span class="attribute-name">xsi:schemaLocation</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.springframework.org/schema/beans</span>
+<span class="content">http://www.springframework.org/schema/beans/spring-beans-current.xsd</span>
+<span class="content">http://www.mulesoft.org/schema/mule/core</span>
+<span class="content">http://www.mulesoft.org/schema/mule/core/current/mule.xsd</span>
+<span class="content">http://www.mulesoft.org/schema/mule/json</span>
+<span class="content">http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd</span>
+<span class="content">http://www.mulesoft.org/schema/mule/http</span>
+<span class="content">http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd</span>
+<span class="content">http://www.mulesoft.org/schema/mule/objectstore</span>
+<span class="content">http://www.mulesoft.org/schema/mule/objectstore/current/mule-objectstore.xsd</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;http:listener-config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Listener_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">host</span>=<span class="string"><span class="delimiter">"</span><span class="content">0.0.0.0</span><span class="delimiter">"</span></span>
+     <span class="attribute-name">port</span>=<span class="string"><span class="delimiter">"</span><span class="content">8081</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP Listener Configuration</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+    <span class="tag">&lt;objectstore:config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">ObjectStore__Connector</span><span class="delimiter">"</span></span> <span class="attribute-name">partition</span>=<span class="string"><span class="delimiter">"</span><span class="content">mypartition</span><span class="delimiter">"</span></span>
+    <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">ObjectStore: Connector</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+    <span class="tag">&lt;flow</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">objectstoreFlow</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;http:listener</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Listener_Configuration</span><span class="delimiter">"</span></span>
+        <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">"</span><span class="content">/store</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+        <span class="tag">&lt;object-to-string-transformer</span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Object to String</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+        <span class="tag">&lt;json:json-to-object-transformer</span> <span class="attribute-name">returnClass</span>=<span class="string"><span class="delimiter">"</span><span class="content">java.util.Map</span><span class="delimiter">"</span></span>
+        <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">JSON to Object</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+        <span class="tag">&lt;objectstore:store</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">ObjectStore__Connector</span><span class="delimiter">"</span></span>
+        <span class="attribute-name">key</span>=<span class="string"><span class="delimiter">"</span><span class="content">#[payload.key]</span><span class="delimiter">"</span></span> <span class="attribute-name">value-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">#[payload.value]</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">ObjectStore</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+        <span class="tag">&lt;set-payload</span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">"</span><span class="content">KEY: #[payload.key] AND VALUE: #[payload.value] WERE SAVED OK</span><span class="delimiter">"</span></span>
+        <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Set Payload</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+    <span class="tag">&lt;/flow&gt;</span></pre></td> 
               </tr> 
              </tbody> 
             </table></code></pre> 
@@ -1206,7 +1232,7 @@
       </ul> 
      </div> </li> 
     <li> <p>Run this application as a Mule application to test it. After the application works, you can stop the application.</p> </li> 
-    <li> <p>Export the application and save it as a zip file on your computer.</p> </li> 
+    <li> <p>Export the application and save it as a zip file on your computer. Right-click the project name in Package Explorer, click Export &gt; Mule &gt; Anypoint Studio Project to Mule Deployable Archive.</p> </li> 
     <li> <p>Log into <a href="https://anypoint.mulesoft.com/#/signin">Anypoint Platform</a> and click <strong>Runtime Manager</strong>. Deploy the application and use the zip file that you exported to your computer for the deployed application.</p> </li> 
     <li> <p>Start the deployed application.</p> </li> 
     <li> <p>From a command prompt, run this <strong>curl</strong> command, which sends a JSON-formatted key and value to the <code>http://objectstoredemo.cloudhub.io/store</code> example URL:</p> 
