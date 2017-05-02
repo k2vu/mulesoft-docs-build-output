@@ -1228,7 +1228,7 @@ http://www.mulesoft.org/schema/mule/vm/3.6/mule-vm.xsd</pre></td>
  <h2 id="considerations"><a class="anchor" href="#considerations"></a>Considerations</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>The VM transport has often been used to implement complex integrations made up of multiple applications. Improvements in Mule 3 obviate the need for VM in many cases.&nbsp;You can use <a href="/mule-user-guide/v/3.6/flow-reference-component-reference">Flow References</a> to directly reference one flow from another without a transport in the middle.</p> 
+   <p>The VM transport has often been used to implement complex integrations made up of multiple applications. Improvements in Mule 3 obviate the need for VM in many cases.&nbsp;You can use <a href="/mule-user-guide/v/3.5/flow-reference-component-reference">Flow References</a> to directly reference one flow from another without a transport in the middle.</p> 
   </div> 
   <div class="paragraph"> 
    <p>VM is still useful in certain situations. Suppose, for instance, that most of the parts of your solution are local, but some need to be decoupled for testing, or because some need to be made remote.</p> 
@@ -1243,7 +1243,7 @@ http://www.mulesoft.org/schema/mule/vm/3.6/mule-vm.xsd</pre></td>
         <p><strong>WARNING</strong></p> 
        </div> 
        <div class="paragraph"> 
-        <p>Each application in a Mule instance has its own, unique set of VM endpoints. Thus the VM transport can only handle communications within one same application, or between applications that share a <a href="/mule-user-guide/v/3.7/shared-resources">same domain</a>.</p> 
+        <p>Each application in a Mule instance has its own, unique set of VM endpoints. Thus the VM transport can only handle communications within one same application, or between applications that share a <a href="/mule-user-guide/v/3.5/shared-resources">same domain</a>.</p> 
        </div> </td> 
      </tr> 
     </tbody> 
@@ -1469,7 +1469,7 @@ http://www.mulesoft.org/schema/mule/vm/3.6/mule-vm.xsd</pre></td>
  <h2 id="using-transactions"><a class="anchor" href="#using-transactions"></a>Using Transactions</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p><em>One-way</em> VM queues can take part in distributed <a href="/mule-user-guide/v/3.7/xa-transactions">XA Transactions</a>. To make a VM endpoint transactional, use a configuration like the following:</p> 
+   <p><em>One-way</em> VM queues can take part in distributed <a href="/mule-user-guide/v/3.5/xa-transactions">XA Transactions</a>. To make a VM endpoint transactional, use a configuration like the following:</p> 
   </div> 
   <div class="listingblock"> 
    <div class="content"> 
@@ -1495,7 +1495,7 @@ http://www.mulesoft.org/schema/mule/vm/3.6/mule-vm.xsd</pre></td>
    </div> 
   </div> 
   <div class="paragraph"> 
-   <p>Using XA requires that you add a transaction manager to your configuration. For more information, see <a href="/mule-user-guide/v/3.6/transaction-management">Transaction Management</a>.</p> 
+   <p>Using XA requires that you add a transaction manager to your configuration. For more information, see <a href="/mule-user-guide/v/3.5/transaction-management">Transaction Management</a>.</p> 
   </div> 
   <div class="sect2"> 
    <h3 id="transactional-inbound-vm-queues"><a class="anchor" href="#transactional-inbound-vm-queues"></a>Transactional Inbound VM Queues</h3> 
@@ -1728,23 +1728,6 @@ http://www.mulesoft.org/schema/mule/vm/3.6/mule-vm.xsd</pre></td>
     </tbody> 
    </table> 
   </div> 
-  <div class="sect2"> 
-   <h3 id="child-elements-of-inbound-endpoint"><a class="anchor" href="#child-elements-of-inbound-endpoint"></a>Child Elements of &lt;inbound-endpoint…​&gt;</h3> 
-   <table class="tableblock frame-all grid-all spread"> 
-    <colgroup> 
-     <col style="width: 34%;"> 
-     <col style="width: 33%;"> 
-     <col style="width: 33%;"> 
-    </colgroup> 
-    <thead> 
-     <tr> 
-      <th class="tableblock halign-left valign-top">Name</th> 
-      <th class="tableblock halign-left valign-top">Cardinality</th> 
-      <th class="tableblock halign-left valign-top">Description</th> 
-     </tr> 
-    </thead> 
-   </table> 
-  </div> 
  </div> 
 </div> 
 <div class="sect1"> 
@@ -1781,23 +1764,6 @@ http://www.mulesoft.org/schema/mule/vm/3.6/mule-vm.xsd</pre></td>
       <td class="tableblock halign-left valign-top"><p class="tableblock">The queue path, such as dispatchInQueue to create the address vm://dispatchInQueue.</p></td> 
      </tr> 
     </tbody> 
-   </table> 
-  </div> 
-  <div class="sect2"> 
-   <h3 id="child-elements-of-outbound-endpoint"><a class="anchor" href="#child-elements-of-outbound-endpoint"></a>Child Elements of &lt;outbound-endpoint…​&gt;</h3> 
-   <table class="tableblock frame-all grid-all spread"> 
-    <colgroup> 
-     <col style="width: 34%;"> 
-     <col style="width: 33%;"> 
-     <col style="width: 33%;"> 
-    </colgroup> 
-    <thead> 
-     <tr> 
-      <th class="tableblock halign-left valign-top">Name</th> 
-      <th class="tableblock halign-left valign-top">Cardinality</th> 
-      <th class="tableblock halign-left valign-top">Description</th> 
-     </tr> 
-    </thead> 
    </table> 
   </div> 
  </div> 
@@ -1838,47 +1804,13 @@ http://www.mulesoft.org/schema/mule/vm/3.6/mule-vm.xsd</pre></td>
     </tbody> 
    </table> 
   </div> 
-  <div class="sect2"> 
-   <h3 id="child-elements-of-endpoint"><a class="anchor" href="#child-elements-of-endpoint"></a>Child Elements of &lt;endpoint…​&gt;</h3> 
-   <table class="tableblock frame-all grid-all spread"> 
-    <colgroup> 
-     <col style="width: 34%;"> 
-     <col style="width: 33%;"> 
-     <col style="width: 33%;"> 
-    </colgroup> 
-    <thead> 
-     <tr> 
-      <th class="tableblock halign-left valign-top">Name</th> 
-      <th class="tableblock halign-left valign-top">Cardinality</th> 
-      <th class="tableblock halign-left valign-top">Description</th> 
-     </tr> 
-    </thead> 
-   </table> 
-  </div> 
  </div> 
 </div> 
 <div class="sect1"> 
  <h2 id="transaction"><a class="anchor" href="#transaction"></a>Transaction</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>The transaction element configures a transaction. Transactions allow a series of operations to be grouped together so that they can be rolled back if a failure occurs. For more information, see <a href="/mule-user-guide/v/3.6/transaction-management">Transaction Management</a>.</p> 
-  </div> 
-  <div class="sect2"> 
-   <h3 id="child-elements-of-transaction"><a class="anchor" href="#child-elements-of-transaction"></a>Child Elements of &lt;transaction…​&gt;</h3> 
-   <table class="tableblock frame-all grid-all spread"> 
-    <colgroup> 
-     <col style="width: 34%;"> 
-     <col style="width: 33%;"> 
-     <col style="width: 33%;"> 
-    </colgroup> 
-    <thead> 
-     <tr> 
-      <th class="tableblock halign-left valign-top">Name</th> 
-      <th class="tableblock halign-left valign-top">Cardinality</th> 
-      <th class="tableblock halign-left valign-top">Description</th> 
-     </tr> 
-    </thead> 
-   </table> 
+   <p>The transaction element configures a transaction. Transactions allow a series of operations to be grouped together so that they can be rolled back if a failure occurs. For more information, see <a href="/mule-user-guide/v/3.5/transaction-management">Transaction Management</a>.</p> 
   </div> 
  </div> 
 </div> 
@@ -1937,7 +1869,7 @@ http://www.mulesoft.org/schema/mule/vm/3.6/mule-vm.xsd</pre></td>
    <p>Be certain that inbound request-response endpoints are paired with outbound request-response endpoints and inbound one-way endpoints are paired with outbound one-way endpoints.</p> 
   </div> 
   <div class="paragraph"> 
-   <p>Consider setting up your application following a <a href="/mule-management-console/v/3.6/reliability-patterns">reliability pattern</a>.</p> 
+   <p>Consider setting up your application following a <a href="/mule-user-guide/v/3.5/reliability-patterns">reliability pattern</a>.</p> 
   </div> 
  </div> 
 </div>

@@ -1034,7 +1034,7 @@
  <h2 id="assumptions"><a class="anchor" href="#assumptions"></a>Assumptions</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>This page assumes that you are familiar with <a href="/mule-user-guide/v/3.7/mule-concepts">Mule flows</a> and basic <a href="/mule-user-guide/v/3.6/mule-application-architecture">application architecture</a>.</p> 
+   <p>This page assumes that you are familiar with <a href="/mule-user-guide/v/3.5/mule-concepts">Mule flows</a> and basic <a href="/mule-user-guide/v/3.5/mule-application-architecture">application architecture</a>.</p> 
   </div> 
  </div> 
 </div> 
@@ -1046,8 +1046,8 @@
   </div> 
   <div class="ulist"> 
    <ul> 
-    <li> <p><strong><a href="#the-synchronous-flow-processing-strategy">The Synchronous Flow Processing Strategy</a></strong>: Mule processes messages in a single thread.</p> </li> 
-    <li> <p><strong><a href="#the-queued-asynchronous-flow-processing-strategy">The Queued-Asynchronous Flow Processing Strategy</a></strong>: Mule uses a queue to decouple the receiver thread from the rest of the flow.</p> </li> 
+    <li> <p><a href="#the-synchronous-flow-processing-strategy">The Synchronous Flow Processing Strategy</a>: Mule processes messages in a single thread.</p> </li> 
+    <li> <p><a href="#the-queued-asynchronous-flow-processing-strategy">The Queued-Asynchronous Flow Processing Strategy</a>: Mule uses a queue to decouple the receiver thread from the rest of the flow.</p> </li> 
    </ul> 
   </div> 
   <div class="paragraph"> 
@@ -1072,7 +1072,7 @@
    </div> 
    <div class="ulist"> 
     <ul> 
-     <li> <p>a&nbsp;<strong>request-response exchange pattern</strong>&nbsp;is used when the sender of the messages (i.e. the flow’s inbound endpoint) expects a response or some kind of result to return to the caller.</p> </li> 
+     <li> <p>a&nbsp;<strong>request-response exchange pattern</strong>&nbsp;is used when the sender of the messages (that is, the flow’s inbound endpoint) expects a response or some kind of result to return to the caller.</p> </li> 
      <li> <p>a&nbsp;<strong>one-way exchange pattern</strong>&nbsp;is used when no response is expected, or when the result is sent to some other flow or system and not back to the caller.</p> </li> 
     </ul> 
    </div> 
@@ -1080,7 +1080,7 @@
     <p>If the exchange pattern is request-response, Mule applies a synchronous processing strategy.&nbsp;</p> 
    </div> 
    <div class="paragraph"> 
-    <p>In addition, some inbound endpoints can be configured to operate <a href="/mule-user-guide/v/3.6/transaction-management">transactionally</a>, regardless of their exchange pattern. If a flow is transactional, Mule applies a synchronous processing strategy.</p> 
+    <p>In addition, some inbound endpoints can be configured to operate <a href="/mule-user-guide/v/3.5/transaction-management">transactionally</a>, regardless of their exchange pattern. If a flow is transactional, Mule applies a synchronous processing strategy.</p> 
    </div> 
    <div class="paragraph"> 
     <p>The following table summarizes how Mule chooses a flow processing strategy:</p> 
@@ -1131,7 +1131,7 @@
     <ul> 
      <li> <p>The sender of the message expects a response. This is known as a "request-response" exchange pattern.</p> </li> 
      <li> <p>The flow needs to meet the requirements of transactional processing. In other words, all the steps in the flow are considered a single unit, which must succeed entirely or fail entirely. Additionally, appropriate parties (such as the sender of the message or the administrator of the business process encapsulated by the flow) must be notified of the result. This means that a transactional flow must not hand off processing to other threads, where errors can occur after the transaction is completed.</p> </li> 
-     <li> <p>The flow’s inbound endpoint must be notified of all errors that occur during the processing of the message. This situation is discussed further in <a href="/mule-management-console/v/3.6/reliability-patterns">Reliability Patterns</a>.<br></p> </li> 
+     <li> <p>The flow’s inbound endpoint must be notified of all errors that occur during the processing of the message. This situation is discussed further in <a href="/mule-user-guide/v/3.5/reliability-patterns">Reliability Patterns</a>.<br></p> </li> 
     </ul> 
    </div> 
   </div> 
@@ -1189,10 +1189,10 @@
   </div> 
   <div class="ulist"> 
    <ul> 
-    <li> <p>In cases where Mule has selected queued-asynchronous processing for a flow, you can <strong>specify a synchronous flow instead</strong>. You might want to specify a synchronous flow to achieve reliability. Remember that the synchronous strategy is ideally suited for flows where the flow’s inbound endpoint must be notified of all errors that occur during the processing of the message. The&nbsp;<a href="/mule-management-console/v/3.6/reliability-patterns">Reliability Patterns</a>&nbsp;document&nbsp;discusses this situation further. Although this is not applicable to most use cases, if Mule has selected queued-asynchronous processing for a flow, you can specify another kind of asynchronous processing strategy instead.&nbsp;You cannot force a queued-asynchronous processing strategy on a synchronous flow.</p> </li> 
+    <li> <p>In cases where Mule has selected queued-asynchronous processing for a flow, you can <strong>specify a synchronous flow instead</strong>. You might want to specify a synchronous flow to achieve reliability. Remember that the synchronous strategy is ideally suited for flows where the flow’s inbound endpoint must be notified of all errors that occur during the processing of the message. The&nbsp;<a href="/mule-user-guide/v/3.5/reliability-patterns">Reliability Patterns</a>&nbsp;document&nbsp;discusses this situation further. Although this is not applicable to most use cases, if Mule has selected queued-asynchronous processing for a flow, you can specify another kind of asynchronous processing strategy instead.&nbsp;You cannot force a queued-asynchronous processing strategy on a synchronous flow.</p> </li> 
     <li> <p>You can accept Mule’s choice of the queued-asynchronous flow processing strategy, but then <strong>fine-tune the processing strategy</strong>.&nbsp;Note that you cannot do any fine-tuning for a synchronous flow.</p> </li> 
-    <li> <p>You can wrap one or more message processors within your synchronous flow in an <strong><a href="/mule-user-guide/v/3.6/async-scope-reference">asynchronous scope</a></strong> to define a processing block that Mule processes asynchronously with the main flow. You can also create an asynchronous flow by wrapping a flow-ref in an asynchronous scope.</p> </li> 
-    <li> <p>You can call out to a subflow (which always processes synchronously) or a synchronous&nbsp;flow from any flow, regardless of what processing strategy is applied to the triggering&nbsp;flow. The triggering flow waits until this synchronous processing block returns a message before proceeding with processing. See <a href="/mule-user-guide/v/3.7/flows-and-subflows">Flows and Subflows</a>&nbsp;for more information about subflows and synchronous flows.</p> </li> 
+    <li> <p>You can wrap one or more message processors within your synchronous flow in an <strong><a href="/mule-user-guide/v/3.5/async-scope-reference">asynchronous scope</a></strong> to define a processing block that Mule processes asynchronously with the main flow. You can also create an asynchronous flow by wrapping a flow-ref in an asynchronous scope.</p> </li> 
+    <li> <p>You can call out to a subflow (which always processes synchronously) or a synchronous&nbsp;flow from any flow, regardless of what processing strategy is applied to the triggering&nbsp;flow. The triggering flow waits until this synchronous processing block returns a message before proceeding with processing. See <a href="/mule-user-guide/v/3.5/flows-and-subflows">Flows and Subflows</a>&nbsp;for more information about subflows and synchronous flows.</p> </li> 
     <li> <p>You can create a <strong>custom flow processing strategy</strong> to fit your exact needs. For instance, you might prefer a queued-asynchronous flow that uses an increased number of threads to handle high peak loads.&nbsp;</p> </li> 
    </ul> 
   </div> 
@@ -1208,7 +1208,7 @@
     </colgroup> 
     <thead> 
      <tr> 
-      <th class="tableblock halign-left valign-top">Flow Processing Strategy <a href="#FlowProcessingStrategies-HowMuleSelectsaProcessingStrategy">implictly<br> applied by Mule</a></th> 
+      <th class="tableblock halign-left valign-top">Flow Processing Strategy implictly applied by Mule</th> 
       <th class="tableblock halign-left valign-top">Can you specify a different<br> processing strategy?</th> 
       <th class="tableblock halign-left valign-top">Can you fine-tune<br> the processing strategy?</th> 
       <th class="tableblock halign-left valign-top">Can you create a processing block that executes using a different processing strategy from the main flow?</th> 
@@ -1219,7 +1219,7 @@
      <tr> 
       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Synchronous</strong></p></td> 
       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>No.</strong> You cannot force a flow with a request-response exchange pattern and/or transactionality to be asynchronous.</p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>No</strong>. You cannot fine-tune the synchronous processing strategy. You can, however, customize the inbound endpoint connector receiver <a href="/mule-user-guide/v/3.6/tuning-performance">threading profile</a>.</p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>No</strong>. You cannot fine-tune the synchronous processing strategy. You can, however, customize the inbound endpoint connector receiver <a href="/mule-user-guide/v/3.5/tuning-performance">threading profile</a>.</p></td> 
       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Yes.</strong> You can use an Async Scope or an asynchronous flow to cause Mule to process a selected block of message processors asynchronously. <a href="#creating-an-asynchronous-processing-block">Creating an Asynchronous Processing Block</a>.</p></td> 
       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Yes.</strong> <a href="#creating-a-custom-processing-strategy">Creating a Custom Processing Strategy</a>.</p></td> 
      </tr> 
@@ -1227,7 +1227,7 @@
       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Queued-Asynchronous</strong></p></td> 
       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Yes.</strong> You can override an implicitly selected queued-asynchronous processing strategy by explicitly declaring a synchronous processing strategy (or, in rare use cases, a different kind of asynchronous processing strategy) instead. <a href="#specifying-a-processing-strategy">Specifying a Processing Strategy</a>.</p></td> 
       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Yes.</strong> You can fine-tune the queued-asynchronous processing strategy to meet your needs. <a href="#fine-tuning-a-queued-asynchronous-processing-strategy">Fine-Tuning a Queued-Asynchronous Processing Strategy</a>.</p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Yes.</strong> A synchronous <a href="/mule-user-guide/v/3.7/flows-and-subflows">flow or subflow</a> processes a selected block of message processors synchronously, regardless of the processing strategy of the main flow.</p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Yes.</strong> A synchronous <a href="/mule-user-guide/v/3.5/flows-and-subflows">flow or subflow</a> processes a selected block of message processors synchronously, regardless of the processing strategy of the main flow.</p></td> 
       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Yes.</strong> <a href="#creating-a-custom-processing-strategy">Creating a Custom Processing Strategy</a>.</p></td> 
      </tr> 
     </tbody> 
@@ -1315,7 +1315,7 @@
      <tbody> 
       <tr> 
        <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-       <td class="content"> Note that in addition to fine-tuning the attributes of the queued-asynchronous processing strategy, you can also <a href="/mule-user-guide/v/3.6/tuning-performance">tune performance</a> of your Mule application by analyzing and configuring thread profiles. </td> 
+       <td class="content"> Note that in addition to fine-tuning the attributes of the queued-asynchronous processing strategy, you can also <a href="/mule-user-guide/v/3.5/tuning-performance">tune performance</a> of your Mule application by analyzing and configuring thread profiles. </td> 
       </tr> 
      </tbody> 
     </table> 
@@ -1500,8 +1500,8 @@
    </div> 
    <div class="olist arabic"> 
     <ol class="arabic"> 
-     <li> <p>wrap one or more processors in an <a href="/mule-user-guide/v/3.6/async-scope-reference">async scope</a></p> </li> 
-     <li> <p>create an <a href="/mule-user-guide/v/3.7/flows-and-subflows">asynchronous flow</a> by wrapping a flow-ref element in an async scope so that the contents of the flow will be processed asynchronously with the triggering&nbsp;flow</p> </li> 
+     <li> <p>wrap one or more processors in an <a href="/mule-user-guide/v/3.5/async-scope-reference">async scope</a></p> </li> 
+     <li> <p>create an <a href="/mule-user-guide/v/3.5/flows-and-subflows">asynchronous flow</a> by wrapping a flow-ref element in an async scope so that the contents of the flow will be processed asynchronously with the triggering&nbsp;flow</p> </li> 
     </ol> 
    </div> 
    <div class="paragraph"> 
@@ -1556,7 +1556,7 @@
     </tbody> 
    </table> 
    <div class="paragraph"> 
-    <p>For more information about configuring the asynchronous scope element, refer to the <a href="/mule-user-guide/v/3.6/async-scope-reference">Async Scope reference</a>.</p> 
+    <p>For more information about configuring the asynchronous scope element, refer to the <a href="/mule-user-guide/v/3.5/async-scope-reference">Async Scope reference</a>.</p> 
    </div> 
   </div> 
   <div class="sect2"> 
@@ -1662,10 +1662,10 @@
  <div class="sectionbody"> 
   <div class="ulist"> 
    <ul> 
-    <li> <p>Refer to the <a href="/mule-user-guide/v/3.6/async-scope-reference">Async Scope Reference</a> for information on how to embed an asynchronous processing block in an otherwise synchronous flow.</p> </li> 
-    <li> <p>Review the different kinds of <a href="/mule-user-guide/v/3.7/flows-and-subflows">Flows and Subflows</a>&nbsp;in Mule.</p> </li> 
-    <li> <p>Read more about <a href="/mule-management-console/v/3.6/reliability-patterns">Reliability Patterns</a>.</p> </li> 
-    <li> <p>Find out how to <a href="/mule-user-guide/v/3.6/tuning-performance">tune performance</a> by analyzing and configuring threading profiles.&nbsp;</p> </li> 
+    <li> <p>Refer to the <a href="/mule-user-guide/v/3.5/async-scope-reference">Async Scope Reference</a> for information on how to embed an asynchronous processing block in an otherwise synchronous flow.</p> </li> 
+    <li> <p>Review the different kinds of <a href="/mule-user-guide/v/3.5/flows-and-subflows">Flows and Subflows</a>&nbsp;in Mule.</p> </li> 
+    <li> <p>Read more about <a href="/mule-management-console/v/3.5/reliability-patterns">Reliability Patterns</a>.</p> </li> 
+    <li> <p>Find out how to <a href="/mule-user-guide/v/3.5/tuning-performance">tune performance</a> by analyzing and configuring threading profiles.&nbsp;</p> </li> 
     <li> <p>Check out the Asynchronous Message Cheat Sheet on our&nbsp;http://blogs.mulesoft.org/cheat-sheet-asynchronous-message-processing/[MuleSoft Blog].</p> </li> 
    </ul> 
   </div> 
