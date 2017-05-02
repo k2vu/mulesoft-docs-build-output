@@ -2239,47 +2239,89 @@
    </div> 
    <table class="tableblock frame-all grid-all spread"> 
     <colgroup> 
-     <col> 
-     <col> 
+     <col style="width: 35%;"> 
+     <col style="width: 65%;"> 
     </colgroup> 
     <thead> 
      <tr> 
-      <th class="tableblock halign-left valign-top">Structure</th> 
+      <th class="tableblock halign-left valign-top">Expression</th> 
       <th class="tableblock halign-left valign-top">Description</th> 
      </tr> 
     </thead> 
     <tbody> 
      <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>#[regex(regularExpression)]</code></p></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p><code>#[regex(regularExpression)]</code></p> 
+        </div> 
+       </div></td> 
       <td class="tableblock halign-left valign-top"> 
        <div> 
         <div class="paragraph"> 
          <p>Applies the regular expression to the message payload.</p> 
         </div> 
         <div class="paragraph"> 
-         <p>Example:<br> <code>regex('^(To|From|Cc):')</code></p> 
+         <p>MEL processes this as follows:</p> 
+        </div> 
+        <div class="ulist"> 
+         <ul> 
+          <li> <p>Creates a java.util.regex.Matcher using a compiled version of the regular expression and a string representing the payload.</p> </li> 
+          <li> <p>Uses the <a href="https://docs.oracle.com/javase/8/docs/api/java/util/regex/Matcher.html#matches">Matcher.matches()</a> method to match the payload against the given pattern.</p> </li> 
+          <li> <p>Uses the <a href="https://docs.oracle.com/javase/8/docs/api/java/util/regex/Matcher.html#group(int)">Matcher.group()</a> method to get the match of each group defined in the regular expression (each group is delimited by parentheses).</p> </li> 
+          <li> <p>If there are no matches, return null.</p> </li> 
+          <li> <p>Else if there is only a group and It matches return the match,</p> </li> 
+          <li> <p>Else if there are many groups and every group matches returns matches in an array.</p> </li> 
+         </ul> 
         </div> 
         <div class="paragraph"> 
-         <p>MEL processes as follows:<br></p> 
-        </div> 
-        <div class="olist arabic"> 
-         <ol class="arabic"> 
-          <li> <p>Creates a <code>java.util.regex.Matcher</code> using a compiled version of the regular expression and a string representing the payload.</p> </li> 
-          <li> <p>If there are no matches, return null.<br> Else if there is one match, return the match.&nbsp;<br> Else if there are multiple matches, return matches in an array.</p> </li> 
-         </ol> 
+         <p>Examples:</p> 
         </div> 
         <div class="paragraph"> 
-         <p>The example returns all lines of the payload that begin with To:, From:, or Cc:</p> 
+         <p>With a payload of: <code>aaabbbbbbbbbbccc</code> returns an array with three elements: <code>aaa</code>, <code>bbbbbbbbbb</code>, and <code>ccc</code>:</p> 
+        </div> 
+        <div class="listingblock"> 
+         <div class="content"> 
+          <pre class="CodeRay highlight"><code>regex('(aa)(.*)(cc)')</code></pre> 
+         </div> 
+        </div> 
+        <div class="paragraph"> 
+         <p>With a payload of: <code>aaabbbbccc</code> returns null because the second group doesn’t match:</p> 
+        </div> 
+        <div class="listingblock"> 
+         <div class="content"> 
+          <pre class="CodeRay highlight"><code>regex('(aa)(bb)(cc)')</code></pre> 
+         </div> 
         </div> 
        </div></td> 
      </tr> 
      <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>#[regex(regularExpression, melExpression)]</code></p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">Applies the regular expression to the value of the MEL expression, rather than the payload. Any string-valued MEL expression can appear as the second argument, using the same process as described above.</p></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p><code>#[regex(regularExpression, melExpression)]</code></p> 
+        </div> 
+       </div></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p>Applies the regular expression to the value of the MEL expression, rather than the payload. Any string-valued MEL expression can appear as the second argument, using the same process as described above.</p> 
+        </div> 
+       </div></td> 
      </tr> 
      <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>#[regex(regularExpression, melExpression,&nbsp;matchFlags)]</code></p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">Applies the regular expression to the value of the MEL expression, but uses the&nbsp;<code>matchFlags</code>&nbsp;bit mask as described in the Java documentation for <code>java.util.regex.Pattern</code>.</p></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p><code>#[regex(regularExpression, melExpression, matchFlags)]</code></p> 
+        </div> 
+       </div></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p>Applies the regular expression to the value of the MEL expression, but uses the <code>matchFlags</code> bit mask as described in the Java documentation for <code>java.util.regex.Pattern</code></p> 
+        </div> 
+       </div></td> 
      </tr> 
     </tbody> 
    </table> 
