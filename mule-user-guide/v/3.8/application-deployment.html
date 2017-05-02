@@ -1030,7 +1030,7 @@
  <h2 id="starting-mule"><a class="anchor" href="#starting-mule"></a>Starting Mule</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>Start mule by running <code>&lt;MULE_HOME&gt;/bin/mule</code> or starting Mule as a service. By default, applications in the <code>&lt;MULE_HOME&gt;/apps</code> directory are deployed. You can also designate specific applications to start (separated by the colon - <strong>:</strong>) and Mule 3 respects the order when starting the applications. In this scenario, only the applications specified are started.</p> 
+   <p>Start mule by running <code>&lt;MULE_HOME&gt;/bin/mule</code> or starting Mule as a service. By default, applications in the <code>&lt;MULE_HOME&gt;/apps</code> directory are deployed. You can also designate specific applications to start (separated by a colon - <strong>:</strong>) and Mule 3 respects the order when starting the applications. In this scenario, only the applications specified are started.</p> 
   </div> 
   <div class="paragraph"> 
    <p>Start Mule by specifying an app to run:</p> 
@@ -1095,22 +1095,22 @@
  <h2 id="undeploying-applications"><a class="anchor" href="#undeploying-applications"></a>Undeploying Applications</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>We recommend that you don’t delete the application folder directly, but rather an app’s anchor file only.</p> 
+   <p>Don’t delete the application folder directly, but rather delete an app’s anchor file only:</p> 
   </div> 
   <div class="paragraph"> 
-   <p>This:</p> 
+   <p>Deleting only the app’s anchor file:</p> 
   </div> 
   <div class="ulist"> 
    <ul> 
     <li> <p>Prevents any interference from the hot-deployment layer and doesn’t leave room for concurrent conflicting actions.</p> </li> 
-    <li> <p>Avoids potential application JAR locking issues on some operation systems and allows for clean shutdown and undeployment.</p> </li> 
+    <li> <p>Avoids potential application jar locking issues on some operation systems and allows for clean shutdown and undeployment.</p> </li> 
    </ul> 
   </div> 
   <div class="paragraph"> 
-   <p>For example, if the <code>stockTrader</code> app is running (the app folder is there as well as the <code>$MULE_HOME/apps/stockTrader-anchor.txt</code> file), just delete the anchor file to have the app removed from the Mule instance at runtime. The application folder is removed after the app terminates.</p> 
+   <p>For example, if the <code>stockTrader</code> app is running (app folder is there as well as the <code>$MULE_HOME/apps/stockTrader-anchor.txt</code> file, just delete the anchor file to have the app removed from the Mule instance at runtime. Application folder is removed after the app terminates.</p> 
   </div> 
   <div class="paragraph"> 
-   <p><strong>Note:</strong> After undeploying a Mule application, there is a timeout of 15 seconds until LoggerContext stops. Log files for an application only release after this timeout expires. This information is important in Windows, where you can’t remove files that are in use by other processes.</p> 
+   <p><strong>Note:</strong> After undeploying a Mule Application, there is a timeout of 15 seconds until LoggerContext stops. Log files for an application only release after this timeout expires. This information is important in Windows, where you can’t remove files that are in use by other processes.</p> 
   </div> 
  </div> 
 </div> 
@@ -1146,7 +1146,7 @@
  <h2 id="disabling-the-mule-container-mode"><a class="anchor" href="#disabling-the-mule-container-mode"></a>Disabling the Mule Container Mode</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>If you want to run Mule 3 in the legacy 2.x way, edit <code>$MULE_HOME/conf/wrapper.conf</code> file and replace the following line:</p> 
+   <p>If you want to run Mule 3 in the legacy 2.x way, edit <code>$MULE_HOME/conf/wrapper.conf</code> file and replace the following lines:</p> 
   </div> 
   <div class="listingblock"> 
    <div class="content"> 
@@ -1166,7 +1166,7 @@
    </div> 
   </div> 
   <div class="paragraph"> 
-   <p>With this one:</p> 
+   <p>With:</p> 
   </div> 
   <div class="listingblock"> 
    <div class="content"> 
@@ -1186,7 +1186,7 @@
    </div> 
   </div> 
   <div class="paragraph"> 
-   <p><strong>Note:</strong> When run in this legacy mode, none of the new application deployment features apply.</p> 
+   <p>When run in this legacy mode, none of the new application deployment features apply.</p> 
   </div> 
  </div> 
 </div> 
@@ -1202,7 +1202,7 @@
  <h2 id="troubleshooting"><a class="anchor" href="#troubleshooting"></a>Troubleshooting</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>If the application fails to start (for example, in the provided broken configuration file), Mule does not monitor the app for changes (as there technically is no application running). To update such an app, simply redeploy the app by dropping an updated archive into the apps folder.</p> 
+   <p>If the application fails to start (for example, in a broken configuration file), Mule does not monitor the app for changes (as there technically is no application running). To update such an app, simply redeploy the app by dropping an updated archive into the apps folder.</p> 
   </div> 
  </div> 
 </div>

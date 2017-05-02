@@ -1115,19 +1115,19 @@
  <h2 id="undeploying-applications"><a class="anchor" href="#undeploying-applications"></a>Undeploying Applications</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>We recommend that you not delete the application folder directly, but rather an application’s anchor file only.</p> 
+   <p>Don’t delete the application folder directly, but rather delete an app’s anchor file only:</p> 
   </div> 
   <div class="paragraph"> 
-   <p>This:</p> 
+   <p>Deleting only the app’s anchor file:</p> 
   </div> 
   <div class="ulist"> 
    <ul> 
     <li> <p>Prevents any interference from the hot-deployment layer and doesn’t leave room for concurrent conflicting actions.</p> </li> 
-    <li> <p>Avoids potential application JAR locking issues on some operation systems and allows for clean shutdown and undeployment.</p> </li> 
+    <li> <p>Avoids potential application jar locking issues on some operation systems and allows for clean shutdown and undeployment.</p> </li> 
    </ul> 
   </div> 
   <div class="paragraph"> 
-   <p>For example, if the <code>stockTrader</code> app is running (app folder is there as well as the <code>$MULE_HOME/apps/stockTrader-anchor.txt</code> file, just delete the anchor file to have the app removed from the Mule instance at runtime. Application folder is removed once the app terminates.</p> 
+   <p>For example, if the <code>stockTrader</code> app is running (app folder is there as well as the <code>$MULE_HOME/apps/stockTrader-anchor.txt</code> file, just delete the anchor file to have the app removed from the Mule instance at runtime. Application folder is removed after the app terminates.</p> 
   </div> 
   <div class="paragraph"> 
    <p><strong>Note:</strong> After undeploying a Mule Application, there is a timeout of 15 seconds until LoggerContext stops. Log files for an application only release after this timeout expires. This information is important in Windows, where you can’t remove files that are in use by other processes.</p> 
@@ -1184,11 +1184,11 @@
  <h2 id="disabling-the-mule-container-mode"><a class="anchor" href="#disabling-the-mule-container-mode"></a>Disabling the Mule Container Mode</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>If you want to run Mule 3 the legacy 2.x way, edit <code>$MULE_HOME/conf/wrapper.conf</code> file and replace the following line:</p> 
+   <p>If you want to run Mule 3 the legacy 2.x way, edit <code>$MULE_HOME/conf/wrapper.conf</code> file and replace the following lines:</p> 
   </div> 
   <div class="listingblock"> 
    <div class="content"> 
-    <pre class="CodeRay highlight"><code data-lang="code">
+    <pre class="CodeRay highlight"><code data-lang="java">
          
       <table class="CodeRay"> 
        <tbody> 
@@ -1196,19 +1196,19 @@
          <td class="line-numbers"><pre>1
 2
 </pre></td> 
-         <td class="code"><pre># Java Main class
-wrapper.java.mainclass=org.mule.module.reboot.MuleContainerBootstrap</pre></td> 
+         <td class="code"><pre><span class="error">#</span> Java Main <span class="type">class</span>
+<span class="class">wrapper</span>.java.mainclass=org.mule.module.reboot.MuleContainerBootstrap</pre></td> 
         </tr> 
        </tbody> 
       </table></code></pre> 
    </div> 
   </div> 
   <div class="paragraph"> 
-   <p>With this one:</p> 
+   <p>With:</p> 
   </div> 
   <div class="listingblock"> 
    <div class="content"> 
-    <pre class="CodeRay highlight"><code data-lang="code">
+    <pre class="CodeRay highlight"><code data-lang="java">
          
       <table class="CodeRay"> 
        <tbody> 
@@ -1216,8 +1216,8 @@ wrapper.java.mainclass=org.mule.module.reboot.MuleContainerBootstrap</pre></td>
          <td class="line-numbers"><pre>1
 2
 </pre></td> 
-         <td class="code"><pre># Java Main class
-wrapper.java.mainclass=org.mule.module.boot.MuleBootstrap</pre></td> 
+         <td class="code"><pre><span class="error">#</span> Java Main <span class="type">class</span>
+<span class="class">wrapper</span>.java.mainclass=org.mule.module.boot.MuleBootstrap</pre></td> 
         </tr> 
        </tbody> 
       </table></code></pre> 

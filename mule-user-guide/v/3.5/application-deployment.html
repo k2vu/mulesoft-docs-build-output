@@ -15,7 +15,7 @@
   <script src="/js/scripts.js?t=1491597550"></script>
 
   <link rel="canonical" href="https://docs.mulesoft.com/mule-user-guide/v/3.5/application-deployment" />
-  <meta name="description" content="Start mule by running <MULE_HOME>/bin/mule or starting Mule as a service. By default, applications in the <MULE_HOME>/apps directory wi..." />
+  <meta name="description" content="Start mule by running <MULE_HOME>/bin/mule or starting Mule as a service. By default, applications in the <MULE_HOME>/apps directory ar..." />
   <meta class="swiftype" name="title" data-type="string" content="Application Deployment" />
   <meta class="swiftype" name="version" data-type="enum" content="3.5" />
 </head>
@@ -1014,18 +1014,18 @@
  <h2 id="starting-mule"><a class="anchor" href="#starting-mule"></a>Starting Mule</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>Start mule by running <code>&lt;MULE_HOME&gt;/bin/mule</code> or starting Mule as a service. By default, applications in the <code>&lt;MULE_HOME&gt;/apps</code> directory will be deployed. You can also designate specific applications to start (separated by the colon - <strong>:</strong>) and Mule 3.0 will respect the order when starting the applications. In this scenario, only the applications specified will be started.</p> 
+   <p>Start mule by running <code>&lt;MULE_HOME&gt;/bin/mule</code> or starting Mule as a service. By default, applications in the <code>&lt;MULE_HOME&gt;/apps</code> directory are deployed. You can also designate specific applications to start (separated by a colon - <strong>:</strong>) and Mule 3.0 respects the order when starting the applications. In this scenario, only the applications specified will be started.</p> 
   </div> 
   <div class="paragraph"> 
    <p>Start Mule by specifying an app to run:</p> 
   </div> 
   <div class="listingblock"> 
    <div class="content"> 
-    <pre>mule -app foo</pre> 
+    <pre class="CodeRay highlight"><code>mule -app foo</code></pre> 
    </div> 
   </div> 
   <div class="paragraph"> 
-   <p>where <code>foo</code> is a Mule app at <code>$MULE_HOME/apps/foo</code>.</p> 
+   <p>Where <code>foo</code> is a Mule app at <code>$MULE_HOME/apps/foo</code>.</p> 
   </div> 
   <div class="paragraph"> 
    <p>From this moment, Mule checks every three seconds for the <code>$MULE_HOME/apps/foo/mule-config.xml</code> updates. One can update the application jar contents and touch/modify this file to have Mule reload the config and class modifications.</p> 
@@ -1036,25 +1036,18 @@
  <h2 id="deploying-applications"><a class="anchor" href="#deploying-applications"></a>Deploying Applications</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>Mule applications, either zipped or exploded can be dropped into <strong>$MULE_HOME/apps</strong>. If Mule is already running, the application will be deployed dynamically.</p> 
+   <p>Mule applications, either zipped or exploded can be dropped into <strong>$MULE_HOME/apps</strong>. If Mule is already running, the application deploys dynamically.</p> 
   </div> 
-  <div class="admonitionblock note"> 
-   <table> 
-    <tbody> 
-     <tr> 
-      <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-      <td class="content"> All applications in Mule are unpacked at runtime and original zip removed. This means, e.g. that dropping a zip file into 'apps' dir will create a new folder with the same name (sans 'zip' extension) and delete the zip. </td> 
-     </tr> 
-    </tbody> 
-   </table> 
+  <div class="paragraph"> 
+   <p><strong>Note:</strong> All applications in Mule are unpacked at runtime and the original zip removed. This means, that if you drop a zip file into the example 'apps' dir, Mule creates a new folder with the same name (without the 'zip' extension) and deletes the zip.</p> 
   </div> 
   <div class="paragraph"> 
    <p>A successful app deployment is confirmed by:</p> 
   </div> 
   <div class="ulist"> 
    <ul> 
-    <li> <p>Having an unpacked application folder in the apps dir. E.g. for <code>stockTrader.zip</code>- <code>$MULE_HOME/apps/stockTrader</code>.</p> </li> 
-    <li> <p>An anchor file created for a running app, e.g. <code>$MULE_HOME/apps/stockTrader-anchor.txt</code></p> </li> 
+    <li> <p>Having an unpacked application folder in the apps dir, for example, for <code>stockTrader.zip</code>- <code>$MULE_HOME/apps/stockTrader</code>.</p> </li> 
+    <li> <p>An anchor file created for a running app, for example, <code>$MULE_HOME/apps/stockTrader-anchor.txt</code></p> </li> 
    </ul> 
   </div> 
   <div class="paragraph"> 
@@ -1066,16 +1059,22 @@
  <h2 id="undeploying-applications"><a class="anchor" href="#undeploying-applications"></a>Undeploying Applications</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>It is recommended one doesn’t delete the application folder directly, but rather an app’s anchor file only:</p> 
-  </div> 
-  <div class="olist arabic"> 
-   <ol class="arabic"> 
-    <li> <p>Prevents any interference from the hot-deployment layer and doesn’t leave room for concurrent conflicting actions.</p> </li> 
-    <li> <p>Avoids potential application jar locking issues on some operation systems and allows for clean shutdown and undeployment.</p> </li> 
-   </ol> 
+   <p>Don’t delete the application folder directly, but rather delete an app’s anchor file only:</p> 
   </div> 
   <div class="paragraph"> 
-   <p>E.g. if the <code>stockTrader</code> app is running (app folder is there as well as the <code>$MULE_HOME/apps/stockTrader-anchor.txt</code> file, just delete the anchor file to have the app removed from the Mule instance at runtime. Application folder will be removed once the app terminates.</p> 
+   <p>Deleting only the app’s anchor file:</p> 
+  </div> 
+  <div class="ulist"> 
+   <ul> 
+    <li> <p>Prevents any interference from the hot-deployment layer and doesn’t leave room for concurrent conflicting actions.</p> </li> 
+    <li> <p>Avoids potential application jar locking issues on some operation systems and allows for clean shutdown and undeployment.</p> </li> 
+   </ul> 
+  </div> 
+  <div class="paragraph"> 
+   <p>For example, if the <code>stockTrader</code> app is running (app folder is there as well as the <code>$MULE_HOME/apps/stockTrader-anchor.txt</code> file, just delete the anchor file to have the app removed from the Mule instance at runtime. Application folder is removed after the app terminates.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p><strong>Note:</strong> After undeploying a Mule Application, there is a timeout of 15 seconds until LoggerContext stops. Log files for an application only release after this timeout expires. This information is important in Windows, where you can’t remove files that are in use by other processes.</p> 
   </div> 
  </div> 
 </div> 
@@ -1083,7 +1082,7 @@
  <h2 id="updating-applications-at-runtime"><a class="anchor" href="#updating-applications-at-runtime"></a>Updating Applications at Runtime</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>Updating a Mule application at runtime can be a complex change involving class modifications, endpoint modifications (e.g. changing ports, etc), as well as reconfigured flows. As a result, any application update does a graceful app shutdown under the hood and reconfigures itself. In practice, this is pretty transparent to the user and happens within seconds.</p> 
+   <p>Updating a Mule application at runtime can be a complex change involving class modifications, endpoint modifications. such as when changing ports, etc, as well as reconfigured flows. As a result, any application update does a graceful app shutdown under the hood and reconfigures itself. In practice, this is pretty transparent to the user and happens within seconds.</p> 
   </div> 
   <div class="paragraph"> 
    <p>There are several ways an application can be updated:</p> 
@@ -1091,7 +1090,7 @@
   <div class="ulist"> 
    <ul> 
     <li> <p>By dropping the modifications over an existing exploded app folder and touching the 'master' configuration file (<code>mule-config.xml</code> in app root by default).</p> </li> 
-    <li> <p>By dropping a new <strong>zipped</strong> version of the app into <code>$MULE_HOME/apps</code> dir. Mule will detect this as an existing app update and will ensure a clean redeployment of the app. Note that any modifications to the old app folder are discarded - the new app folder is a clean exploded application from a zip.</p> </li> 
+    <li> <p>By dropping a new <strong>zipped</strong> version of the app into <code>$MULE_HOME/apps</code> dir. Mule detects this as an existing app update and ensures a clean redeployment of the app. Note that any modifications to the old app folder are discarded - the new app folder is a clean exploded application from a zip.</p> </li> 
    </ul> 
   </div> 
   <div class="paragraph"> 
@@ -1107,19 +1106,19 @@
   </div> 
   <div class="listingblock"> 
    <div class="content"> 
-    <pre>`#Java Main classwrapper.java.mainclass=org.mule.module.reboot.MuleContainerBootstrap`</pre> 
+    <pre class="CodeRay highlight"><code data-lang="java"><span class="error">#</span>Java Main classwrapper.java.mainclass=org.mule.module.reboot.MuleContainerBootstrap</code></pre> 
    </div> 
   </div> 
   <div class="paragraph"> 
-   <p>with this one:</p> 
+   <p>With:</p> 
   </div> 
   <div class="listingblock"> 
    <div class="content"> 
-    <pre>`#Java Main classwrapper.java.mainclass=org.mule.module.boot.MuleBootstrap`</pre> 
+    <pre class="CodeRay highlight"><code data-lang="java"><span class="error">#</span>Java Main classwrapper.java.mainclass=org.mule.module.boot.MuleBootstrap<span class="error">`</span></code></pre> 
    </div> 
   </div> 
   <div class="paragraph"> 
-   <p><strong>When run in this legacy mode, none of the new application deployment features apply</strong></p> 
+   <p>When run in this legacy mode, none of the new application deployment features apply.</p> 
   </div> 
  </div> 
 </div> 
@@ -1135,7 +1134,7 @@
  <h2 id="troubleshooting"><a class="anchor" href="#troubleshooting"></a>Troubleshooting</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>If application fails to start (e.g. broken configuration file provided), Mule will <strong>not</strong> monitor the app for changes (as there technically is no application running). To update such an app, simply redeploy the app by dropping an updated archive into the apps folder.</p> 
+   <p>If application fails to start such as when a broken configuration file provided, Mule doesn’t monitor the app for changes (as there technically is no application running). To update such an app, simply redeploy the app by dropping an updated archive into the apps folder.</p> 
   </div> 
  </div> 
 </div>
