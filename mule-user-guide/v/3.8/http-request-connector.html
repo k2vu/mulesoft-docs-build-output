@@ -1166,7 +1166,7 @@
         <p>After you have defined the request-config, to actually send an HTTP request you need to configure a flow with an <code>&lt;http:request&gt;</code> element. In the connector instance, provide a <strong>Path</strong> and a <strong>Method</strong>, as well as a reference to a global element</p> 
        </div> 
        <div class="paragraph"> 
-        <p><strong>The above configuration performs a GET request to http://www.example.com/test</strong></p> 
+        <p><strong>The above configuration performs a GET request to http://www.example.com/test.</strong></p> 
        </div> 
       </div> 
      </div> 
@@ -1634,7 +1634,7 @@
        <p><span class="image"><img src="./_images/http-request-connector-a59db.png" alt="adding parameters in http general tab"></span></p> 
       </div> 
       <div class="paragraph"> 
-       <p>The above configuration performs a GET request to <code>http://www.example.com/test?k1=v1&amp;k2=v2+</code>.</p> 
+       <p>The above configuration performs a GET request to <code>http://www.example.com/test?k1=v1&amp;amp;k2=v2</code>.</p> 
       </div> 
       <div class="admonitionblock tip"> 
        <table> 
@@ -1659,7 +1659,7 @@
        <p><code>#[{'k1':'v1', 'k2':'v2'}]</code></p> 
       </div> 
       <div class="paragraph"> 
-       <p>It generates the same request than the previous example, a GET request to <code>http://www.example.com/test?k1=v1&amp;k2=v2+</code></p> 
+       <p>It generates the same request than the previous example, a GET request to <code>http://www.example.com/test?k1=v1&amp;amp;k2=v2</code></p> 
       </div> 
       <div class="paragraph"> 
        <p>The <code>query-param</code> and <code>query-params</code> elements can be combined inside a single connector. The parameters resolve for each request (evaluating all the MEL expressions in the context of the current message), and in the order they are specified inside the request builder. This allows to override parameters if necessary. If the same parameter is defined more than once, the latest value is used.</p> 
@@ -1709,7 +1709,10 @@
        </table> 
       </div> 
       <div class="paragraph"> 
-       <p>For this example you need to <a href="/mule-user-guide/v/3.8/variable-transformer-reference">create a variable</a> named <code>customMap</code>. If you set that variable to the MEL expression <code>#[{'p1':'v1', 'p2':'v2'}]</code>, it generates a GET request to +http://www.example.com/test/v1/v2+<br> <br> Just as with query parameters, the <code>uri-param</code> and <code>uri-params</code> elements can be combined inside the connector. They are resolved for each request (evaluating all the MEL expressions in the context of the current message), and in the order they are specified inside the request builder. This allows you to override parameters, if necessary. If the same parameter is defined more than once, the latest value is used.</p> 
+       <p>For this example you need to <a href="/mule-user-guide/v/3.8/variable-transformer-reference">create a variable</a> named <code>customMap</code>. If you set that variable to the MEL expression <code>#[{'p1':'v1', 'p2':'v2'}]</code>, it generates a GET request to http://www.example.com/test/v1/v2.</p> 
+      </div> 
+      <div class="paragraph"> 
+       <p>Just as with query parameters, the <code>uri-param</code> and <code>uri-params</code> elements can be combined inside the connector. They are resolved for each request (evaluating all the MEL expressions in the context of the current message), and in the order they are specified inside the request builder. This allows you to override parameters, if necessary. If the same parameter is defined more than once, the latest value is used.</p> 
       </div> 
       <div class="paragraph"> 
        <p>In every case, all the placeholders used in the path to reference URI parameters should match the names of the URI parameters inside the request builder (after all MEL expressions were evaluated).</p> 
@@ -1795,7 +1798,7 @@ HeaderName2: HeaderValue2</code></pre>
        <p><code>#[{'key1':'value1', 'key2':'value2'}]</code></p> 
       </div> 
       <div class="paragraph"> 
-       <p>A POST request is sent to <a href="+http://www.example.com/test+"> www.example.com/test</a>, with <code>Content-Type: application/x-www-form-urlencoded</code>, and the body is “key1=value1&amp;key2=value2”; just as if a browser would have sent a request after the user submitted a form with these two values.</p> 
+       <p>A POST request is sent to <code>http://www.example.com/test</code>, with <code>Content-Type: application/x-www-form-urlencoded</code>, and the body is “key1=value1&amp;key2=value2”; just as if a browser would have sent a request after the user submitted a form with these two values.</p> 
       </div> 
      </div> 
     </div> 
@@ -1840,7 +1843,7 @@ HeaderName2: HeaderValue2</code></pre>
        </div> 
       </div> 
       <div class="paragraph"> 
-       <p>This performs a GET request to <code>http://www.example.com/test?k1=v1&amp;k2=v2+</code>.</p> 
+       <p>This performs a GET request to <code>http://www.example.com/test?k1=v1&amp;amp;k2=v2</code>.</p> 
       </div> 
       <div class="admonitionblock tip"> 
        <table> 
@@ -1893,7 +1896,7 @@ HeaderName2: HeaderValue2</code></pre>
        </div> 
       </div> 
       <div class="paragraph"> 
-       <p>This example generates the same request as the previous one, a GET request to <code>http://www.example.com/test?k1=v1&amp;k2=v2+</code>.</p> 
+       <p>This example generates the same request as the previous one, a GET request to <code>http://www.example.com/test?k1=v1&amp;amp;k2=v2</code>.</p> 
       </div> 
       <div class="paragraph"> 
        <p>The <code>query-param</code> and <code>query-params</code> elements can be combined inside the request builder. The parameters resolve for each request (evaluating all the MEL expressions in the context of the current message), and in the order they are specified inside the request builder. This allows you to override parameters, if necessary. If the same parameter is defined more than once, the latest values is used.</p> 
@@ -1941,7 +1944,7 @@ HeaderName2: HeaderValue2</code></pre>
        </div> 
       </div> 
       <div class="paragraph"> 
-       <p>In this example, the parameter k2 defined in the map overrides the k2 query-param defined earlier. The result willbe a GET request to http://www.example.com/test?k1=v1&amp;k2=new&amp;k3=v3.</p> 
+       <p>In this example, the parameter k2 defined in the map overrides the k2 query-param defined earlier. The result willbe a GET request to http://www.example.com/test?k1=v1&amp;amp;k2=new&amp;amp;k3=v3.</p> 
       </div> 
      </div> 
      <div class="sect2"> 
@@ -2039,7 +2042,7 @@ HeaderName2: HeaderValue2</code></pre>
        </div> 
       </div> 
       <div class="paragraph"> 
-       <p>This example generates a GET request to <code>+http://www.example.com/test/v1/v2+</code>.</p> 
+       <p>This example generates a GET request to <code>http://www.example.com/test/v1/v2</code>.</p> 
       </div> 
       <div class="paragraph"> 
        <p>Just as with query parameters, the <code>uri-param</code> and <code>uri-params</code> elements can be combined inside the request builder. They resolve for each request (evaluating all the MEL expressions in the context of the current message), and in the order they are specified inside the request builder. This allows to override parameters if necessary. If the same parameter is defined more than once, the latest value are used.</p> 
@@ -2085,7 +2088,7 @@ HeaderName2: HeaderValue2</code></pre>
        </div> 
       </div> 
       <div class="paragraph"> 
-       <p>In this example, the parameter p1 defined in the map overrides the p1 uri-param defined earlier. The result is a GET request to http://www.example.com/test?p1=new&amp;p2=v2+.</p> 
+       <p>In this example, the parameter p1 defined in the map overrides the p1 uri-param defined earlier. The result is a GET request to http://www.example.com/test?p1=new&amp;amp;p2=v2.</p> 
       </div> 
       <div class="admonitionblock warning"> 
        <table> 
