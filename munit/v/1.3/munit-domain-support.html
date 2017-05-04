@@ -1094,6 +1094,33 @@
     <p>When working with mavenized applications, there are a couple of considerations you need to have before running the test:</p> 
    </div> 
    <div class="sect3"> 
+    <h4 id="your-folder-must-have-the-same-name-as-your-artifact"><a class="anchor" href="#your-folder-must-have-the-same-name-as-your-artifact"></a>Your Folder Must Have the Same Name as Your Artifact</h4> 
+    <div class="paragraph"> 
+     <p>The folder in your workspace containing your Mule project (regardless if it’s a Mule application or a Mule domain) must have the same name as the artifact ID defined in your pom file.</p> 
+    </div> 
+    <div class="paragraph"> 
+     <p>If your mule project’s artifact Id is:</p> 
+    </div> 
+    <div class="listingblock"> 
+     <div class="content"> 
+      <pre class="CodeRay highlight"><code data-lang="xml">
+           
+        <table class="CodeRay"> 
+         <tbody> 
+          <tr> 
+           <td class="line-numbers"><pre>1
+</pre></td> 
+           <td class="code"><pre><span class="tag">&lt;artifactId&gt;</span>mule-project<span class="tag">&lt;/artifactId&gt;</span></pre></td> 
+          </tr> 
+         </tbody> 
+        </table></code></pre> 
+     </div> 
+    </div> 
+    <div class="paragraph"> 
+     <p>Then, the folder in your Studio workspace must be named <code>mule-project</code>.<br> This is case sensitive. If your folder is named <code>Mule-Project</code>, MUnit won’t recognize your project.</p> 
+    </div> 
+   </div> 
+   <div class="sect3"> 
     <h4 id="your-domain-needs-to-be-mavenized"><a class="anchor" href="#your-domain-needs-to-be-mavenized"></a>Your Domain Needs to be Mavenized</h4> 
     <div class="paragraph"> 
      <p>The domain is a mavenizable artifact and you can <a href="/mule-user-guide/v/3.8/enabling-maven-support-for-a-studio-project#mavenizing-an-existing-mule-project">mavenize it directly from Studio</a>.<br> If you are working on an application and choose to mavenize it, Mule checks if its associated domain is also mavanized. If not, it will prompt you to mavenize it as well.</p> 
@@ -1182,7 +1209,7 @@
 <span class="tag">&lt;artifactId&gt;</span>domain-project<span class="tag">&lt;/artifactId&gt;</span>
 <span class="tag">&lt;version&gt;</span>1.0.0-SNAPSHOT<span class="tag">&lt;/version&gt;</span>
 <span class="tag">&lt;scope&gt;</span>test<span class="tag">&lt;/scope&gt;</span>
-<span class="tag">&lt;type&gt;</span>zip<span class="tag">&lt;/type</span>
+<span class="tag">&lt;type&gt;</span>zip<span class="tag">&lt;/type&gt;</span>
 <span class="tag">&lt;/dependency&gt;</span></pre></td> 
           </tr> 
          </tbody> 
