@@ -887,6 +887,10 @@
 <li><i></i><a href="/munit/v/1.3/munit-tests-with-java">Tests With Java</a></li><li><i></i><a href="/munit/v/1.3/munit-1.3-migration-guide">MUnit 1.3 Migration Guide</a></li></ul></li>
 <li>
 <i></i>
+<a href="/object-store/">Object Store V2 - Beta</a><ul>
+<li><i></i><a href="/object-store/osv2-concepts">Concepts</a></li><li><i></i><a href="/object-store/osv2-tutorial">Tutorial</a></li><li><i></i><a href="/object-store/osv2-apis">APIs</a></li></ul></li>
+<li>
+<i></i>
 <a href="/tcat-server/v/7.1.0/">Tcat Server</a><ul>
 <li>
 <i></i>
@@ -1523,7 +1527,7 @@
         <span class="tag">&lt;/db:select&gt;</span>
         <span class="tag">&lt;foreach</span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Foreach</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
             <span class="tag">&lt;choice</span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Choice</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
-                <span class="tag">&lt;when</span> <span class="attribute-name">expression</span>=<span class="string"><span class="delimiter">"</span><span class="content">payload.'MODEL_YEAR' </span><span class="entity">&amp;lt;</span> <span class="content">2001</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+                <span class="tag">&lt;when</span> <span class="attribute-name">expression</span>=<span class="string"><span class="delimiter">"</span><span class="content">payload.'MODEL_YEAR' </span><span class="entity">&amp;#38;</span><span class="content">lt; 2001</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
                     <span class="tag">&lt;processor-chain</span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Processor Chain</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
                         <span class="tag">&lt;expression-component</span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Set payload type</span><span class="delimiter">"</span></span><span class="tag">&gt;</span><span class="inline-delimiter">&lt;![CDATA[</span>payload.'TYPE' = '20th century car'<span class="inline-delimiter">]]&gt;</span><span class="tag">&lt;/expression-component&gt;</span>
                         <span class="tag">&lt;jms:outbound-endpoint</span> <span class="attribute-name">connector-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">JMSConnector</span><span class="delimiter">"</span></span> <span class="attribute-name">queue</span>=<span class="string"><span class="delimiter">"</span><span class="content">in</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">JMS</span><span class="delimiter">"</span></span><span class="tag">&gt;</span><span class="tag">&lt;/jms:outbound-endpoint&gt;</span>
