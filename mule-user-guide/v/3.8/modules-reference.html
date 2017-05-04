@@ -1026,117 +1026,98 @@
       
       <div class="breadcrumb-section" data-swiftype-index='false'><a href="./">Mule Runtime</a>/<a href="reference">Reference</a>/<a href="modules-reference" class="breadcrumb-active-link">Modules Reference</a></div>
       <h1>Modules Reference</h1>
-      <div id="preamble"> 
- <div class="sectionbody"> 
-  <div class="paragraph"> 
-   <p>Modules are similar to <a href="/mule-user-guide/v/3.8/connecting-using-transports">transports</a> in that they provide pluggable functionality, configured via dedicated schema, but they differ in that there is no underlying transport to send or receive data. Following is a list of the default Mule modules.</p> 
-  </div> 
-  <table class="tableblock frame-all grid-all spread"> 
-   <colgroup> 
-    <col style="width: 50%;"> 
-    <col style="width: 50%;"> 
-   </colgroup> 
-   <thead> 
-    <tr> 
-     <th class="tableblock halign-left valign-top">Module</th> 
-     <th class="tableblock halign-left valign-top">Description</th> 
-    </tr> 
-   </thead> 
-   <tbody> 
-    <tr> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="/mule-user-guide/v/3.8/atom-module-reference">Atom Module</a></p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">Support for consuming and creating Atom feeds.</p></td> 
-    </tr> 
-    <tr> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="/mule-user-guide/v/3.8/bpm-module-reference">BPM</a></p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">Mule’s support for BPM allows you to send/receive messages to/from a running process. A message from Mule can start or advance a process, the message can be stored as a process variable, and a running process can send messages to any endpoint in your Mule application.</p></td> 
-    </tr> 
-    <tr> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="/mule-user-guide/v/3.8/cxf-module-reference">CXF Module</a></p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">Mule 3.0 architectural changes bring much better support for CXF, meaning it can be used just like another pipe/filter element.</p></td> 
-    </tr> 
-    <tr> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="/mule-user-guide/v/3.8/using-the-mule-client">Client Module</a></p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">MuleClient and the remote dispatcher, giving simple access to the Mule server.</p></td> 
-    </tr> 
-    <tr> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="/mule-user-guide/v/3.8/jaas-module-reference">JAAS Module</a></p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">Security via JAAS.</p></td> 
-    </tr> 
-    <tr> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="/mule-user-guide/v/3.8/jboss-transaction-manager-reference">JBoss Transaction Manager</a></p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">JBoss transaction support.</p></td> 
-    </tr> 
-    <tr> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="/mule-user-guide/v/3.8/jboss-jbpm-module-reference">jBPM Module</a></p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://www.jboss.org/jbpm">JBoss jBPM</a> is a best-of-breed open source BPMS and is well-integrated with Mule. One advantage of jBPM is that it is embedded directly in the Mule runtime, allowing for faster performance.</p></td> 
-    </tr> 
-    <tr> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="/mule-user-guide/v/3.8/jersey-module-reference">Jersey Module</a></p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">Support for RESTful web services built using Jersey.</p></td> 
-    </tr> 
-    <tr> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="/mule-user-guide/v/3.8/json-module-reference">JSON Module</a></p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">JSON data and binding support.</p></td> 
-    </tr> 
-    <tr> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="/mule-user-guide/v/3.8/mule-agents">Management Module</a></p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">Mule agents for server management using JMX.</p></td> 
-    </tr> 
-    <tr> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">OGNL Module</p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">Provides a filter using OGNL expressions.<br> <strong>Note</strong>: OGNL is deprecated in Mule 3.6 and newer and will be removed in Mule 4.0.&nbsp;</p></td> 
-    </tr> 
-    <tr> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="/mule-user-guide/v/3.8/pgp-security">PGP Module</a></p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">Security via PGP.</p></td> 
-    </tr> 
-    <tr> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="/mule-user-guide/v/3.8/saml-module">SAML Module</a> <strong>Enterprise Edition</strong></p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">Provides authentication and authorization capabilities to Mule based on the SAML standard. (As of Mule Enterprise Edition 2.2.3.)</p></td> 
-    </tr> 
-    <tr> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="/mule-user-guide/v/3.8/rss-module-reference">RSS Module</a></p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">Support for consuming RSS feeds</p></td> 
-    </tr> 
-    <tr> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="/mule-user-guide/v/3.8/scripting-module-reference">Scripting Module</a></p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">Interface between Mule and scripting languages (currently <a href="http://groovy-lang.org/">Groovy</a>).</p></td> 
-    </tr> 
-    <tr> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="/mule-user-guide/v/3.8/spring-extras-module-reference">Spring Extras Module</a></p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">Extensions for using the Spring framework with Mule.</p></td> 
-    </tr> 
-    <tr> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="/mule-user-guide/v/3.8/sxc-module-reference">SXC Module</a></p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">A very fast streaming XPath router and filter.</p></td> 
-    </tr> 
-    <tr> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="/mule-user-guide/v/3.8/xml-module-reference">XML Module</a></p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">XML based utilities (mainly filters and routers).</p></td> 
-    </tr> 
-   </tbody> 
-  </table> 
- </div> 
+      <div class="paragraph"> 
+ <p>Modules are similar to <a href="/mule-user-guide/v/3.8/connecting-using-transports">transports</a> in that they provide pluggable functionality, configured via dedicated schema, but they differ in that there is no underlying transport to send or receive data. Following is a list of the default Mule modules.</p> 
 </div> 
-<div class="sect1"> 
- <h2 id="see-also"><a class="anchor" href="#see-also"></a>See Also</h2> 
- <div class="sectionbody"> 
-  <div class="ulist"> 
-   <ul> 
-    <li> <p><a href="http://training.mulesoft.com">MuleSoft Training</a></p> </li> 
-    <li> <p><a href="https://www.mulesoft.com/webinars">MuleSoft Webinars</a></p> </li> 
-    <li> <p><a href="http://blogs.mulesoft.com">MuleSoft Blogs</a></p> </li> 
-    <li> <p><a href="http://forums.mulesoft.com">MuleSoft Forums</a></p> </li> 
-   </ul> 
-  </div> 
- </div> 
-</div>
+<table class="tableblock frame-all grid-all spread"> 
+ <colgroup> 
+  <col style="width: 50%;"> 
+  <col style="width: 50%;"> 
+ </colgroup> 
+ <thead> 
+  <tr> 
+   <th class="tableblock halign-left valign-top">Module</th> 
+   <th class="tableblock halign-left valign-top">Description</th> 
+  </tr> 
+ </thead> 
+ <tbody> 
+  <tr> 
+   <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="/mule-user-guide/v/3.8/atom-module-reference">Atom Module</a></p></td> 
+   <td class="tableblock halign-left valign-top"><p class="tableblock">Support for consuming and creating Atom feeds.</p></td> 
+  </tr> 
+  <tr> 
+   <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="/mule-user-guide/v/3.8/bpm-module-reference">BPM</a></p></td> 
+   <td class="tableblock halign-left valign-top"><p class="tableblock">Mule’s support for BPM allows you to send/receive messages to/from a running process. A message from Mule can start or advance a process, the message can be stored as a process variable, and a running process can send messages to any endpoint in your Mule application.</p></td> 
+  </tr> 
+  <tr> 
+   <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="/mule-user-guide/v/3.8/cxf-module-reference">CXF Module</a></p></td> 
+   <td class="tableblock halign-left valign-top"><p class="tableblock">Mule 3.0 architectural changes bring much better support for CXF, meaning it can be used just like another pipe/filter element.</p></td> 
+  </tr> 
+  <tr> 
+   <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="/mule-user-guide/v/3.8/using-the-mule-client">Client Module</a></p></td> 
+   <td class="tableblock halign-left valign-top"><p class="tableblock">MuleClient and the remote dispatcher, giving simple access to the Mule server.</p></td> 
+  </tr> 
+  <tr> 
+   <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="/mule-user-guide/v/3.8/jaas-module-reference">JAAS Module</a></p></td> 
+   <td class="tableblock halign-left valign-top"><p class="tableblock">Security via JAAS.</p></td> 
+  </tr> 
+  <tr> 
+   <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="/mule-user-guide/v/3.8/jboss-transaction-manager-reference">JBoss Transaction Manager</a></p></td> 
+   <td class="tableblock halign-left valign-top"><p class="tableblock">JBoss transaction support.</p></td> 
+  </tr> 
+  <tr> 
+   <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="/mule-user-guide/v/3.8/jboss-jbpm-module-reference">jBPM Module</a></p></td> 
+   <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://www.jboss.org/jbpm">JBoss jBPM</a> is a best-of-breed open source BPMS and is well-integrated with Mule. One advantage of jBPM is that it is embedded directly in the Mule runtime, allowing for faster performance.</p></td> 
+  </tr> 
+  <tr> 
+   <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="/mule-user-guide/v/3.8/jersey-module-reference">Jersey Module</a></p></td> 
+   <td class="tableblock halign-left valign-top"><p class="tableblock">Support for RESTful web services built using Jersey.</p></td> 
+  </tr> 
+  <tr> 
+   <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="/mule-user-guide/v/3.8/json-module-reference">JSON Module</a></p></td> 
+   <td class="tableblock halign-left valign-top"><p class="tableblock">JSON data and binding support.</p></td> 
+  </tr> 
+  <tr> 
+   <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="/mule-user-guide/v/3.8/mule-agents">Management Module</a></p></td> 
+   <td class="tableblock halign-left valign-top"><p class="tableblock">Mule agents for server management using JMX.</p></td> 
+  </tr> 
+  <tr> 
+   <td class="tableblock halign-left valign-top"><p class="tableblock">OGNL Module</p></td> 
+   <td class="tableblock halign-left valign-top"><p class="tableblock">Provides a filter using OGNL expressions.<br> <strong>Note</strong>: OGNL is deprecated in Mule 3.6 and newer and will be removed in Mule 4.0.&nbsp;</p></td> 
+  </tr> 
+  <tr> 
+   <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="/mule-user-guide/v/3.8/pgp-security">PGP Module</a></p></td> 
+   <td class="tableblock halign-left valign-top"><p class="tableblock">Security via PGP.</p></td> 
+  </tr> 
+  <tr> 
+   <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="/mule-user-guide/v/3.8/saml-module">SAML Module</a> <strong>Enterprise Edition</strong></p></td> 
+   <td class="tableblock halign-left valign-top"><p class="tableblock">Provides authentication and authorization capabilities to Mule based on the SAML standard. (As of Mule Enterprise Edition 2.2.3.)</p></td> 
+  </tr> 
+  <tr> 
+   <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="/mule-user-guide/v/3.8/rss-module-reference">RSS Module</a></p></td> 
+   <td class="tableblock halign-left valign-top"><p class="tableblock">Support for consuming RSS feeds</p></td> 
+  </tr> 
+  <tr> 
+   <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="/mule-user-guide/v/3.8/scripting-module-reference">Scripting Module</a></p></td> 
+   <td class="tableblock halign-left valign-top"><p class="tableblock">Interface between Mule and scripting languages (currently <a href="http://groovy-lang.org/">Groovy</a>).</p></td> 
+  </tr> 
+  <tr> 
+   <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="/mule-user-guide/v/3.8/spring-extras-module-reference">Spring Extras Module</a></p></td> 
+   <td class="tableblock halign-left valign-top"><p class="tableblock">Extensions for using the Spring framework with Mule.</p></td> 
+  </tr> 
+  <tr> 
+   <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="/mule-user-guide/v/3.8/sxc-module-reference">SXC Module</a></p></td> 
+   <td class="tableblock halign-left valign-top"><p class="tableblock">A very fast streaming XPath router and filter.</p></td> 
+  </tr> 
+  <tr> 
+   <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="/mule-user-guide/v/3.8/xml-module-reference">XML Module</a></p></td> 
+   <td class="tableblock halign-left valign-top"><p class="tableblock">XML based utilities (mainly filters and routers).</p></td> 
+  </tr> 
+ </tbody> 
+</table>
     </div>
     <!-- END article-content -->
-    <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
-                <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
+    
   </div>
 </div>
 <!-- START footer -->

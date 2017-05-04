@@ -1022,58 +1022,39 @@
       <div class="older-version-notification col-md-9" data-swiftype-index='false'>You are viewing an older version of this section. Click <a href="/mule-user-guide/v/3.8/object-to-xml-transformer-reference">here</a> to navigate to the latest version.</div>
       <div class="breadcrumb-section" data-swiftype-index='false'><a href="./">Mule Runtime</a>/<a href="developing">Developing</a>/<a href="transformers">Transformers</a>/<a href="object-to-xml-transformer-reference" class="breadcrumb-active-link">Object to XML Transformer Reference</a></div>
       <h1>Object-to-XML Transformer Reference</h1>
-      <div id="preamble"> 
- <div class="sectionbody"> 
-  <div class="paragraph"> 
-   <p>Use a Object-to-XML transformer to transform a Java Object to XML data using XStream.</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p><strong>Minimum Configuration:</strong> The name of the XStream driver class.</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>A Object-to-XML transformer transforms Java Object data to XML using the specified XStream driver class.</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p><strong>Important</strong>:&nbsp;Mule uses XStream 1.4.2. The XML-to-object transformer is vulnerable to&nbsp;<a href="http://www.securityfocus.com/bid/64760/info">CVE-2013-7285</a>. A remote attacker can send messages to an XML-to-object transformer and can achieve remote code execution (RCE).&nbsp;For more information, contact&nbsp;http://www.mulesoft.com/support-and-services/mule-esb-support-license-subscription[MuleSoft Customer Support].</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>In addition to the properties common to all transformers, you can also specify class aliases and converters, as well as whether or not to accept the Mule Message.</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>Use the General tab to specify or browse to the XStream driver class:</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p><span class="image"><img src="./_images/object+to+XML.png" alt="object+to+XML"></span></p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>Check the Accept Mule Message box to have the transformer accept the Mule Message. Accepting the Mule Message means that the transformer serializes the entire Mule Message, not just the message payload. The entire Mule Message includes the payload, message properties, correlation ID, and so forth.</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>Use the Advanced tab to optionally configure the properties standard to all transformers, plus add or change class aliases and class converters.</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>Use the Aliases pane to create, edit, or delete aliases for specific classes. Similarly, use the Converters pane to create, edit, or delete class converters.</p> 
-  </div> 
- </div> 
+      <div class="paragraph"> 
+ <p>Use a Object-to-XML transformer to transform a Java Object to XML data using XStream.</p> 
 </div> 
-<div class="sect1"> 
- <h2 id="see-also"><a class="anchor" href="#see-also"></a>See Also</h2> 
- <div class="sectionbody"> 
-  <div class="ulist"> 
-   <ul> 
-    <li> <p><a href="http://training.mulesoft.com">MuleSoft Training</a></p> </li> 
-    <li> <p><a href="https://www.mulesoft.com/webinars">MuleSoft Webinars</a></p> </li> 
-    <li> <p><a href="http://blogs.mulesoft.com">MuleSoft Blogs</a></p> </li> 
-    <li> <p><a href="http://forums.mulesoft.com">MuleSoft’s Forums</a></p> </li> 
-   </ul> 
-  </div> 
- </div> 
+<div class="paragraph"> 
+ <p><strong>Minimum Configuration:</strong> The name of the XStream driver class.</p> 
+</div> 
+<div class="paragraph"> 
+ <p>A Object-to-XML transformer transforms Java Object data to XML using the specified XStream driver class.</p> 
+</div> 
+<div class="paragraph"> 
+ <p><strong>Important</strong>:&nbsp;Mule uses XStream 1.4.2. The XML-to-object transformer is vulnerable to&nbsp;<a href="http://www.securityfocus.com/bid/64760/info">CVE-2013-7285</a>. A remote attacker can send messages to an XML-to-object transformer and can achieve remote code execution (RCE).&nbsp;For more information, contact&nbsp;http://www.mulesoft.com/support-and-services/mule-esb-support-license-subscription[MuleSoft Customer Support].</p> 
+</div> 
+<div class="paragraph"> 
+ <p>In addition to the properties common to all transformers, you can also specify class aliases and converters, as well as whether or not to accept the Mule Message.</p> 
+</div> 
+<div class="paragraph"> 
+ <p>Use the General tab to specify or browse to the XStream driver class:</p> 
+</div> 
+<div class="paragraph"> 
+ <p><span class="image"><img src="./_images/object+to+XML.png" alt="object+to+XML"></span></p> 
+</div> 
+<div class="paragraph"> 
+ <p>Check the Accept Mule Message box to have the transformer accept the Mule Message. Accepting the Mule Message means that the transformer serializes the entire Mule Message, not just the message payload. The entire Mule Message includes the payload, message properties, correlation ID, and so forth.</p> 
+</div> 
+<div class="paragraph"> 
+ <p>Use the Advanced tab to optionally configure the properties standard to all transformers, plus add or change class aliases and class converters.</p> 
+</div> 
+<div class="paragraph"> 
+ <p>Use the Aliases pane to create, edit, or delete aliases for specific classes. Similarly, use the Converters pane to create, edit, or delete class converters.</p> 
 </div>
     </div>
     <!-- END article-content -->
-    <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
-                <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
+    
   </div>
 </div>
 <!-- START footer -->

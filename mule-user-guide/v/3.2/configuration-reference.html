@@ -922,95 +922,76 @@
       <div class="older-version-notification col-md-9" data-swiftype-index='false'>You are viewing an older version of this section. Click <a href="/mule-user-guide/v/3.8">here</a> to navigate to the latest version.</div>
       <div class="breadcrumb-section" data-swiftype-index='false'><a href="./">Mule Runtime</a>/<a href="reference-materials-for-mule-esb-3">Reference Materials for Mule ESB 3</a>/<a href="configuration-reference" class="breadcrumb-active-link">Configuration Reference</a></div>
       <h1>Configuration Reference</h1>
-      <div id="preamble"> 
- <div class="sectionbody"> 
-  <div class="admonitionblock warning"> 
-   <table> 
-    <tbody> 
-     <tr> 
-      <td class="icon"> <i class="fa icon-warning" title="Warning"></i> </td> 
-      <td class="content"> <strong>This topic relates to the most recent version of Mule ESB</strong><br> To see the corresponding topic in a previous version of Mule ESB, click<a href="documentation-3.2/display/MULE2USER/Configuration+Reference">here</a> </td> 
-     </tr> 
-    </tbody> 
-   </table> 
-  </div> 
-  <div class="paragraph"> 
-   <p>NOTE: With Mule 3.0 comes a release of new Javadoc-style <a href="http://www.mulesoft.org/docs/site/3.0.0/schemadocs/">schema documentation</a>, making it easier to familiarize yourself with all the elements and attributes permissible in xml configuration files.</p> 
-  </div> 
-  <table class="tableblock frame-all grid-none spread"> 
-   <colgroup> 
-    <col style="width: 50%;"> 
-    <col style="width: 50%;"> 
-   </colgroup> 
-   <tbody> 
-    <tr> 
-     <td class="tableblock halign-left valign-top"> 
-      <div> 
-       <div class="ulist"> 
-        <ul> 
-         <li> <p><a href="/mule-user-guide/v/3.2/bpm-configuration-reference">BPM Configuration Reference</a></p> </li> 
-         <li> <p><a href="/mule-user-guide/v/3.2/global-settings-configuration-reference">Global Settings Configuration Reference</a></p> </li> 
-         <li> <p><a href="/mule-user-guide/v/3.2/model-configuration-reference">Model Configuration Reference</a></p> </li> 
-         <li> <p><a href="/mule-user-guide/v/3.2/service-configuration-reference">Service Configuration Reference</a></p> </li> 
-         <li> <p><a href="/mule-user-guide/v/3.2/endpoint-configuration-reference">Endpoint Configuration Reference</a></p> </li> 
-         <li> <p>Routers</p> 
-          <div class="ulist"> 
-           <ul> 
-            <li> <p><a href="/mule-user-guide/v/3.2/inbound-router-configuration-reference">Inbound Router Configuration Reference</a></p> </li> 
-            <li> <p><a href="/mule-user-guide/v/3.2/outbound-router-configuration-reference">Outbound Router Configuration Reference</a></p> </li> 
-            <li> <p><a href="/mule-user-guide/v/3.2/asynchronous-reply-router-configuration-reference">Asynchronous Reply Router Configuration Reference</a></p> </li> 
-            <li> <p><a href="/mule-user-guide/v/3.2/catch-all-strategy-configuration-reference">Catch-all Strategy Configuration Reference</a></p> </li> 
-           </ul> 
-          </div> </li> 
-        </ul> 
-       </div> 
-      </div></td> 
-     <td class="tableblock halign-left valign-top"> 
-      <div> 
-       <div class="ulist"> 
-        <ul> 
-         <li> <p><a href="/mule-user-guide/v/3.2/filters-configuration-reference">Filters Configuration Reference</a></p> </li> 
-         <li> <p><a href="/mule-user-guide/v/3.2/transformers-configuration-reference">Transformers Configuration Reference</a></p> </li> 
-         <li> <p><a href="/mule-user-guide/v/3.2/component-configuration-reference">Component Configuration Reference</a></p> </li> 
-         <li> <p><a href="/mule-user-guide/v/3.2/entry-point-resolver-configuration-reference">Entry Point Resolver Configuration Reference</a></p> </li> 
-         <li> <p><a href="/mule-user-guide/v/3.2/exception-strategy-configuration-reference">Exception Strategy Configuration Reference</a></p> </li> 
-         <li> <p><a href="/mule-user-guide/v/3.2/properties-configuration-reference">Properties Configuration Reference</a></p> </li> 
-         <li> <p><a href="/mule-user-guide/v/3.2/notifications-configuration-reference">Notifications Configuration Reference</a></p> </li> 
-         <li> <p><a href="/mule-user-guide/v/3.2/transactions-configuration-reference">Transactions Configuration Reference</a></p> </li> 
-         <li> <p><a href="/mule-user-guide/v/3.2/expressions-configuration-reference">Expressions Configuration Reference</a></p> </li> 
-         <li> <p><a href="/mule-user-guide/v/3.2/security-manager-configuration-reference">Security Manager Configuration Reference</a></p> </li> 
-        </ul> 
-       </div> 
-      </div></td> 
-    </tr> 
-   </tbody> 
-  </table> 
-  <div class="paragraph"> 
-   <p>For configuration reference on transports, see <a href="/mule-user-guide/v/3.2/transports-reference">Transports Reference</a>. For modules, see <a href="/mule-user-guide/v/3.2/modules-reference">Modules Reference</a>.</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>For transports and modules contributed by the community, see <a href="https://www.mulesoft.com/exchange#!/?searchTerm=community">Community Projects</a>.</p> 
-  </div> 
- </div> 
+      <div class="admonitionblock warning"> 
+ <table> 
+  <tbody> 
+   <tr> 
+    <td class="icon"> <i class="fa icon-warning" title="Warning"></i> </td> 
+    <td class="content"> <strong>This topic relates to the most recent version of Mule ESB</strong><br> To see the corresponding topic in a previous version of Mule ESB, click<a href="documentation-3.2/display/MULE2USER/Configuration+Reference">here</a> </td> 
+   </tr> 
+  </tbody> 
+ </table> 
 </div> 
-<div class="sect1"> 
- <h2 id="see-also"><a class="anchor" href="#see-also"></a>See Also</h2> 
- <div class="sectionbody"> 
-  <div class="ulist"> 
-   <ul> 
-    <li> <p><a href="http://training.mulesoft.com">MuleSoft Training</a></p> </li> 
-    <li> <p><a href="https://www.mulesoft.com/webinars">MuleSoft Webinars</a></p> </li> 
-    <li> <p><a href="http://blogs.mulesoft.com">MuleSoft Blogs</a></p> </li> 
-    <li> <p><a href="http://forums.mulesoft.com">MuleSoft Forums</a></p> </li> 
-   </ul> 
-  </div> 
- </div> 
+<div class="paragraph"> 
+ <p>NOTE: With Mule 3.0 comes a release of new Javadoc-style <a href="http://www.mulesoft.org/docs/site/3.0.0/schemadocs/">schema documentation</a>, making it easier to familiarize yourself with all the elements and attributes permissible in xml configuration files.</p> 
+</div> 
+<table class="tableblock frame-all grid-none spread"> 
+ <colgroup> 
+  <col style="width: 50%;"> 
+  <col style="width: 50%;"> 
+ </colgroup> 
+ <tbody> 
+  <tr> 
+   <td class="tableblock halign-left valign-top"> 
+    <div> 
+     <div class="ulist"> 
+      <ul> 
+       <li> <p><a href="/mule-user-guide/v/3.2/bpm-configuration-reference">BPM Configuration Reference</a></p> </li> 
+       <li> <p><a href="/mule-user-guide/v/3.2/global-settings-configuration-reference">Global Settings Configuration Reference</a></p> </li> 
+       <li> <p><a href="/mule-user-guide/v/3.2/model-configuration-reference">Model Configuration Reference</a></p> </li> 
+       <li> <p><a href="/mule-user-guide/v/3.2/service-configuration-reference">Service Configuration Reference</a></p> </li> 
+       <li> <p><a href="/mule-user-guide/v/3.2/endpoint-configuration-reference">Endpoint Configuration Reference</a></p> </li> 
+       <li> <p>Routers</p> 
+        <div class="ulist"> 
+         <ul> 
+          <li> <p><a href="/mule-user-guide/v/3.2/inbound-router-configuration-reference">Inbound Router Configuration Reference</a></p> </li> 
+          <li> <p><a href="/mule-user-guide/v/3.2/outbound-router-configuration-reference">Outbound Router Configuration Reference</a></p> </li> 
+          <li> <p><a href="/mule-user-guide/v/3.2/asynchronous-reply-router-configuration-reference">Asynchronous Reply Router Configuration Reference</a></p> </li> 
+          <li> <p><a href="/mule-user-guide/v/3.2/catch-all-strategy-configuration-reference">Catch-all Strategy Configuration Reference</a></p> </li> 
+         </ul> 
+        </div> </li> 
+      </ul> 
+     </div> 
+    </div></td> 
+   <td class="tableblock halign-left valign-top"> 
+    <div> 
+     <div class="ulist"> 
+      <ul> 
+       <li> <p><a href="/mule-user-guide/v/3.2/filters-configuration-reference">Filters Configuration Reference</a></p> </li> 
+       <li> <p><a href="/mule-user-guide/v/3.2/transformers-configuration-reference">Transformers Configuration Reference</a></p> </li> 
+       <li> <p><a href="/mule-user-guide/v/3.2/component-configuration-reference">Component Configuration Reference</a></p> </li> 
+       <li> <p><a href="/mule-user-guide/v/3.2/entry-point-resolver-configuration-reference">Entry Point Resolver Configuration Reference</a></p> </li> 
+       <li> <p><a href="/mule-user-guide/v/3.2/exception-strategy-configuration-reference">Exception Strategy Configuration Reference</a></p> </li> 
+       <li> <p><a href="/mule-user-guide/v/3.2/properties-configuration-reference">Properties Configuration Reference</a></p> </li> 
+       <li> <p><a href="/mule-user-guide/v/3.2/notifications-configuration-reference">Notifications Configuration Reference</a></p> </li> 
+       <li> <p><a href="/mule-user-guide/v/3.2/transactions-configuration-reference">Transactions Configuration Reference</a></p> </li> 
+       <li> <p><a href="/mule-user-guide/v/3.2/expressions-configuration-reference">Expressions Configuration Reference</a></p> </li> 
+       <li> <p><a href="/mule-user-guide/v/3.2/security-manager-configuration-reference">Security Manager Configuration Reference</a></p> </li> 
+      </ul> 
+     </div> 
+    </div></td> 
+  </tr> 
+ </tbody> 
+</table> 
+<div class="paragraph"> 
+ <p>For configuration reference on transports, see <a href="/mule-user-guide/v/3.2/transports-reference">Transports Reference</a>. For modules, see <a href="/mule-user-guide/v/3.2/modules-reference">Modules Reference</a>.</p> 
+</div> 
+<div class="paragraph"> 
+ <p>For transports and modules contributed by the community, see <a href="https://www.mulesoft.com/exchange#!/?searchTerm=community">Community Projects</a>.</p> 
 </div>
     </div>
     <!-- END article-content -->
-    <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
-                <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
+    
   </div>
 </div>
 <!-- START footer -->

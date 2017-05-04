@@ -1026,40 +1026,21 @@
       
       <div class="breadcrumb-section" data-swiftype-index='false'><a href="./">Mule Runtime</a>/<a href="reference">Reference</a>/<a href="transformers">Transformers</a>/<a href="creating-custom-transformers" class="breadcrumb-active-link">Creating Custom Transformers</a></div>
       <h1>Creating Custom Transformers</h1>
-      <div id="preamble"> 
- <div class="sectionbody"> 
-  <div class="paragraph"> 
-   <p>Transformers in Mule are used to convert messages from one format to another or to manipulate the message information such as headers and attachments. Mule also provides several standard transformers, including XML transformers (such as XML to Object, XSLT, and DOM to XML), encryption transformers that encrypt and decrypt data, compression transformers that compress and decompress data, and more. For a list of the standard transformers in Mule, see <a href="/mule-user-guide/v/3.8/using-transformers">Using Transformers</a>.</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>There are two ways to create a transformer.</p> 
-  </div> 
-  <div class="olist arabic"> 
-   <ol class="arabic"> 
-    <li> <p>Use a <a href="/mule-user-guide/v/3.8/transformer-annotation">Transformer Annotation</a> on a method. This transformer is automatically discovered and is available to Mule’s <a href="/mule-user-guide/v/3.8/creating-flow-objects-and-transformers-using-annotations">automatic transformation engine</a>. Transformers created this way are not usually referenced in your Mule configuration, instead it is discovered based on the current type of message payload and the required type need, that is, the parameter type of a component method parameter.</p> </li> 
-    <li> <p>The <a href="/mule-user-guide/v/3.8/creating-custom-transformer-classes">traditional Mule way of creating custom transformers</a> by extending <code>AbstractTransformer</code>.</p> </li> 
-   </ol> 
-  </div> 
- </div> 
+      <div class="paragraph"> 
+ <p>Transformers in Mule are used to convert messages from one format to another or to manipulate the message information such as headers and attachments. Mule also provides several standard transformers, including XML transformers (such as XML to Object, XSLT, and DOM to XML), encryption transformers that encrypt and decrypt data, compression transformers that compress and decompress data, and more. For a list of the standard transformers in Mule, see <a href="/mule-user-guide/v/3.8/using-transformers">Using Transformers</a>.</p> 
 </div> 
-<div class="sect1"> 
- <h2 id="see-also"><a class="anchor" href="#see-also"></a>See Also</h2> 
- <div class="sectionbody"> 
-  <div class="ulist"> 
-   <ul> 
-    <li> <p><a href="http://training.mulesoft.com">MuleSoft Training</a></p> </li> 
-    <li> <p><a href="https://www.mulesoft.com/webinars">MuleSoft Webinars</a></p> </li> 
-    <li> <p><a href="http://blogs.mulesoft.com">MuleSoft Blogs</a></p> </li> 
-    <li> <p><a href="http://forums.mulesoft.com">MuleSoft Forums</a></p> </li> 
-   </ul> 
-  </div> 
- </div> 
+<div class="paragraph"> 
+ <p>There are two ways to create a transformer.</p> 
+</div> 
+<div class="olist arabic"> 
+ <ol class="arabic"> 
+  <li> <p>Use a <a href="/mule-user-guide/v/3.8/transformer-annotation">Transformer Annotation</a> on a method. This transformer is automatically discovered and is available to Mule’s <a href="/mule-user-guide/v/3.8/creating-flow-objects-and-transformers-using-annotations">automatic transformation engine</a>. Transformers created this way are not usually referenced in your Mule configuration, instead it is discovered based on the current type of message payload and the required type need, that is, the parameter type of a component method parameter.</p> </li> 
+  <li> <p>The <a href="/mule-user-guide/v/3.8/creating-custom-transformer-classes">traditional Mule way of creating custom transformers</a> by extending <code>AbstractTransformer</code>.</p> </li> 
+ </ol> 
 </div>
     </div>
     <!-- END article-content -->
-    <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
-                <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
+    
   </div>
 </div>
 <!-- START footer -->

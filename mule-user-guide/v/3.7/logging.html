@@ -1046,36 +1046,34 @@
       <div class="older-version-notification col-md-9" data-swiftype-index='false'>You are viewing an older version of this section. Click <a href="/mule-user-guide/v/3.8/logging">here</a> to navigate to the latest version.</div>
       <div class="breadcrumb-section" data-swiftype-index='false'><a href="./">Mule Runtime</a>/<a href="debugging">Debugging</a>/<a href="logging" class="breadcrumb-active-link">Logging</a></div>
       <h1>Logging</h1>
-      <div id="preamble"> 
- <div class="sectionbody"> 
-  <div class="paragraph"> 
-   <p>The less high-tech and most popular of all debugging techniques is the usage of log statements in order to follow the evolution of an application’s state. In Mule, the state you’re interested in resides in the messages that are flowing through your configuration and, possibly, custom code.</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>If you’re running your Mule configuration from Eclipse, the log outputs are visible right in Eclipse console window. If you’re running Mule from the command line, the logs are visible in your OS console.</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>Mule’s standalone logging configuration is stored in &lt;Mule Installation Directory&gt;/conf/log4j2.xml: edit this file if you need to change the verbosity of the log output.</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p><strong>Note</strong>: If you are using Anypoint Studio, the log output appears in the <code>.mule</code> directory of your Studio workspace. For example on a Mac, for an application called <code>Basic Tutorial</code>, the log output is in this file:</p> 
-  </div> 
-  <div class="listingblock"> 
-   <div class="content"> 
-    <pre class="CodeRay highlight"><code data-lang="code">/Users/me/AnypointStudio/workspace/.mule/logs/basic_tutorial.log</code></pre> 
-   </div> 
-  </div> 
-  <div class="paragraph"> 
-   <p>The log component is a quick and easy way to log the payload of an in-flight message. Add it anywhere in a message flow you want to probe your message:</p> 
-  </div> 
-  <div class="listingblock"> 
-   <div class="content"> 
-    <pre class="CodeRay highlight"><code data-lang="xml">
-         
-      <table class="CodeRay"> 
-       <tbody> 
-        <tr> 
-         <td class="line-numbers"><pre>1
+      <div class="paragraph"> 
+ <p>The less high-tech and most popular of all debugging techniques is the usage of log statements in order to follow the evolution of an application’s state. In Mule, the state you’re interested in resides in the messages that are flowing through your configuration and, possibly, custom code.</p> 
+</div> 
+<div class="paragraph"> 
+ <p>If you’re running your Mule configuration from Eclipse, the log outputs are visible right in Eclipse console window. If you’re running Mule from the command line, the logs are visible in your OS console.</p> 
+</div> 
+<div class="paragraph"> 
+ <p>Mule’s standalone logging configuration is stored in &lt;Mule Installation Directory&gt;/conf/log4j2.xml: edit this file if you need to change the verbosity of the log output.</p> 
+</div> 
+<div class="paragraph"> 
+ <p><strong>Note</strong>: If you are using Anypoint Studio, the log output appears in the <code>.mule</code> directory of your Studio workspace. For example on a Mac, for an application called <code>Basic Tutorial</code>, the log output is in this file:</p> 
+</div> 
+<div class="listingblock"> 
+ <div class="content"> 
+  <pre class="CodeRay highlight"><code data-lang="code">/Users/me/AnypointStudio/workspace/.mule/logs/basic_tutorial.log</code></pre> 
+ </div> 
+</div> 
+<div class="paragraph"> 
+ <p>The log component is a quick and easy way to log the payload of an in-flight message. Add it anywhere in a message flow you want to probe your message:</p> 
+</div> 
+<div class="listingblock"> 
+ <div class="content"> 
+  <pre class="CodeRay highlight"><code data-lang="xml">
+       
+    <table class="CodeRay"> 
+     <tbody> 
+      <tr> 
+       <td class="line-numbers"><pre>1
 2
 3
 4
@@ -1083,50 +1081,50 @@
 6
 7
 </pre></td> 
-         <td class="code"><pre><span class="tag">&lt;flow</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">FlowWithLoggers</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+       <td class="code"><pre><span class="tag">&lt;flow</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">FlowWithLoggers</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
   <span class="tag">&lt;http:listener</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Listener_Configuration1</span><span class="delimiter">"</span></span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">"</span><span class="content">hello</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
   <span class="tag">&lt;logger</span> <span class="attribute-name">level</span>=<span class="string"><span class="delimiter">"</span><span class="content">INFO</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Logger-before</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
   <span class="tag">&lt;base64-encoder-transformer</span><span class="tag">/&gt;</span>
   <span class="tag">&lt;logger</span> <span class="attribute-name">level</span>=<span class="string"><span class="delimiter">"</span><span class="content">INFO</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Logger-after</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
   <span class="tag">&lt;vm:outbound-endpoint</span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">"</span><span class="content">next.in.line</span><span class="delimiter">"</span></span> <span class="tag">/&gt;</span>
 <span class="tag">&lt;/flow&gt;</span></pre></td> 
-        </tr> 
-       </tbody> 
-      </table></code></pre> 
-   </div> 
-  </div> 
-  <div class="paragraph"> 
-   <p>If you need more details about the message, a simple scripted logging component like the following can come handy:</p> 
-  </div> 
-  <div class="listingblock"> 
-   <div class="content"> 
-    <pre class="CodeRay highlight"><code data-lang="xml">
-         
-      <table class="CodeRay"> 
-       <tbody> 
-        <tr> 
-         <td class="line-numbers"><pre>1
+      </tr> 
+     </tbody> 
+    </table></code></pre> 
+ </div> 
+</div> 
+<div class="paragraph"> 
+ <p>If you need more details about the message, a simple scripted logging component like the following can come handy:</p> 
+</div> 
+<div class="listingblock"> 
+ <div class="content"> 
+  <pre class="CodeRay highlight"><code data-lang="xml">
+       
+    <table class="CodeRay"> 
+     <tbody> 
+      <tr> 
+       <td class="line-numbers"><pre>1
 2
 3
 </pre></td> 
-         <td class="code"><pre><span class="tag">&lt;script</span><span class="attribute-name">ing:script</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Logger</span><span class="delimiter">"</span></span> <span class="attribute-name">engine</span>=<span class="string"><span class="delimiter">"</span><span class="content">groovy</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+       <td class="code"><pre><span class="tag">&lt;script</span><span class="attribute-name">ing:script</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Logger</span><span class="delimiter">"</span></span> <span class="attribute-name">engine</span>=<span class="string"><span class="delimiter">"</span><span class="content">groovy</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
 <span class="inline">  &lt;scripting:text&gt;log.info(message); log.info(payload); message&lt;<span class="regexp"><span class="delimiter">/</span><span class="content">scripting:text&gt; &lt;</span><span class="delimiter">/</span></span>scripting:script&gt;</span></pre></td> 
-        </tr> 
-       </tbody> 
-      </table></code></pre> 
-   </div> 
-  </div> 
-  <div class="paragraph"> 
-   <p>You can refer to it from anywhere in your flows:</p> 
-  </div> 
-  <div class="listingblock"> 
-   <div class="content"> 
-    <pre class="CodeRay highlight"><code data-lang="xml">
-         
-      <table class="CodeRay"> 
-       <tbody> 
-        <tr> 
-         <td class="line-numbers"><pre>1
+      </tr> 
+     </tbody> 
+    </table></code></pre> 
+ </div> 
+</div> 
+<div class="paragraph"> 
+ <p>You can refer to it from anywhere in your flows:</p> 
+</div> 
+<div class="listingblock"> 
+ <div class="content"> 
+  <pre class="CodeRay highlight"><code data-lang="xml">
+       
+    <table class="CodeRay"> 
+     <tbody> 
+      <tr> 
+       <td class="line-numbers"><pre>1
 2
 3
 4
@@ -1134,44 +1132,27 @@
 6
 7
 </pre></td> 
-         <td class="code"><pre><span class="tag">&lt;flow</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">FlowWithLoggers</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+       <td class="code"><pre><span class="tag">&lt;flow</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">FlowWithLoggers</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
   <span class="tag">&lt;http:listener</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Listener_Configuration1</span><span class="delimiter">"</span></span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">"</span><span class="content">hello</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
   <span class="tag">&lt;script</span><span class="attribute-name">ing:component</span> <span class="attribute-name">script-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">Logger</span><span class="delimiter">"</span></span> <span class="tag">/&gt;</span>
 <span class="inline">  <span class="tag">&lt;base64-encoder-transformer</span><span class="tag">/&gt;</span>
   <span class="tag">&lt;script</span><span class="attribute-name">ing:component</span> <span class="attribute-name">script-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">Logger</span><span class="delimiter">"</span></span> <span class="tag">/&gt;</span>
   <span class="tag">&lt;vm:outbound-endpoint</span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">"</span><span class="content">next.in.line</span><span class="delimiter">"</span></span> <span class="tag">/&gt;</span>
 &lt;<span class="regexp"><span class="delimiter">/</span><span class="content">flow&gt;</span></span></span></pre></td> 
-        </tr> 
-       </tbody> 
-      </table></code></pre> 
-   </div> 
-  </div> 
-  <div class="paragraph"> 
-   <p>For more on how to use the Logger component in Studio, see <a href="/mule-user-guide/v/3.7/logger-component-reference">Logger Component Reference</a></p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>You can configure what gets logged, where it gets logged, and how by editing a configuration file that sits in your project.&nbsp;For a description of what you can do through this and instructions on how to set it up, see <a href="/mule-user-guide/v/3.7/logging-in-mule">Logging in Mule</a>.</p> 
-  </div> 
+      </tr> 
+     </tbody> 
+    </table></code></pre> 
  </div> 
 </div> 
-<div class="sect1"> 
- <h2 id="see-also"><a class="anchor" href="#see-also"></a>See Also</h2> 
- <div class="sectionbody"> 
-  <div class="ulist"> 
-   <ul> 
-    <li> <p><a href="http://training.mulesoft.com">MuleSoft Training</a></p> </li> 
-    <li> <p><a href="https://www.mulesoft.com/webinars">MuleSoft Webinars</a></p> </li> 
-    <li> <p><a href="http://blogs.mulesoft.com">MuleSoft Blogs</a></p> </li> 
-    <li> <p><a href="http://forums.mulesoft.com">MuleSoft’s Forums</a></p> </li> 
-   </ul> 
-  </div> 
- </div> 
+<div class="paragraph"> 
+ <p>For more on how to use the Logger component in Studio, see <a href="/mule-user-guide/v/3.7/logger-component-reference">Logger Component Reference</a></p> 
+</div> 
+<div class="paragraph"> 
+ <p>You can configure what gets logged, where it gets logged, and how by editing a configuration file that sits in your project.&nbsp;For a description of what you can do through this and instructions on how to set it up, see <a href="/mule-user-guide/v/3.7/logging-in-mule">Logging in Mule</a>.</p> 
 </div>
     </div>
     <!-- END article-content -->
-    <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
-                <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
+    
   </div>
 </div>
 <!-- START footer -->

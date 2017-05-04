@@ -1026,71 +1026,52 @@
       
       <div class="breadcrumb-section" data-swiftype-index='false'><a href="./">Anypoint Studio</a>/<a href="anypoint-studio-features">Studio Reference</a>/<a href="datamapper-user-guide-and-reference">DataMapper (Deprecated)</a>/<a href="including-the-datamapper-plugin" class="breadcrumb-active-link">Including the DataMapper Plugin</a></div>
       <h1>Including the DataMapper Plugin</h1>
-      <div id="preamble"> 
- <div class="sectionbody"> 
-  <div class="paragraph"> 
-   <p>DataMapper is deprecated as of Mule runtime 3.7.0 and superseded by <a href="/anypoint-studio/v/6/using-dataweave-in-studio">DataWeave</a>.&nbsp;</p> 
-  </div> 
-  <div class="admonitionblock note"> 
-   <table> 
-    <tbody> 
-     <tr> 
-      <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-      <td class="content"> 
-       <div class="paragraph"> 
-        <p>DataMapper continues to be fully supported in all current and future versions of Mule 3.x, however it will be removed in Mule 4.0 in favor of the <strong>Transform Message</strong> component (based on <a href="/mule-user-guide/v/3.8/dataweave">DataWeave</a> code). We recommend that if you wish to take advantage of the new capabilities of DataWeave or if you start new projects, upgrade now.</p> 
-       </div> 
-       <div class="paragraph"> 
-        <p>A <a href="/mule-user-guide/v/3.8/dataweave-migrator">migration tool</a> is now included in Anypoint Studio, which assists in converting a DataMapper map to DataWeave. From the Anypoint Studio Canvas, right-click a DataMapper building block, select <strong>Migrate to DataWeave</strong>, and follow the instructions.</p> 
-       </div> 
-       <div class="paragraph"> 
-        <p><span class="image"><img src="./_images/dw_migrator_script.png" alt="dw migrator"></span></p> 
-       </div> 
-       <div class="paragraph"> 
-        <p>If you don’t see DataMapper on your palette, you can enable it by going to <strong>Preferences</strong> &gt; <strong>Anypoint Studio</strong> &gt; <strong>Palette Profiles</strong> and clicking the checkbox <strong>Show deprecated Mule Components and Attributes</strong>.</p> 
-       </div> </td> 
-     </tr> 
-    </tbody> 
-   </table> 
-  </div> 
-  <div class="paragraph"> 
-   <p>To deploy a Mule project that contains a DataMapper transformer:</p> 
-  </div> 
-  <div class="ulist"> 
-   <ul> 
-    <li> <p>When deploying through Anypoint Studio, it should still work normally.</p> </li> 
-    <li> <p>When deploying to CloudHub, it should also work out of the box.</p> </li> 
-    <li> <p>However, when using for Mule Standalone 3.7.0 and newer, you must do the following before you can deploy your application:</p> 
-     <div class="olist arabic"> 
-      <ol class="arabic"> 
-       <li> <p>Go to the customer portal</p> </li> 
-       <li> <p>Select the Downloads tab</p> </li> 
-       <li> <p>Look in your Mule Runtime version and download the <strong>DataMapper plugin</strong> that corresponds to your Mule version</p> </li> 
-       <li> <p>Place the downloaded .zip file in the&nbsp;<code>/plugins</code>&nbsp;folder of Mule-Enterprise Standalone</p> </li> 
-      </ol> 
-     </div> </li> 
-   </ul> 
-  </div> 
- </div> 
+      <div class="paragraph"> 
+ <p>DataMapper is deprecated as of Mule runtime 3.7.0 and superseded by <a href="/anypoint-studio/v/6/using-dataweave-in-studio">DataWeave</a>.&nbsp;</p> 
 </div> 
-<div class="sect1"> 
- <h2 id="see-also"><a class="anchor" href="#see-also"></a>See Also</h2> 
- <div class="sectionbody"> 
-  <div class="ulist"> 
-   <ul> 
-    <li> <p><a href="http://training.mulesoft.com">MuleSoft Training</a></p> </li> 
-    <li> <p><a href="https://www.mulesoft.com/webinars">MuleSoft Webinars</a></p> </li> 
-    <li> <p><a href="http://blogs.mulesoft.com">MuleSoft Blogs</a></p> </li> 
-    <li> <p><a href="http://forums.mulesoft.com">MuleSoft Forums</a></p> </li> 
-   </ul> 
-  </div> 
- </div> 
+<div class="admonitionblock note"> 
+ <table> 
+  <tbody> 
+   <tr> 
+    <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
+    <td class="content"> 
+     <div class="paragraph"> 
+      <p>DataMapper continues to be fully supported in all current and future versions of Mule 3.x, however it will be removed in Mule 4.0 in favor of the <strong>Transform Message</strong> component (based on <a href="/mule-user-guide/v/3.8/dataweave">DataWeave</a> code). We recommend that if you wish to take advantage of the new capabilities of DataWeave or if you start new projects, upgrade now.</p> 
+     </div> 
+     <div class="paragraph"> 
+      <p>A <a href="/mule-user-guide/v/3.8/dataweave-migrator">migration tool</a> is now included in Anypoint Studio, which assists in converting a DataMapper map to DataWeave. From the Anypoint Studio Canvas, right-click a DataMapper building block, select <strong>Migrate to DataWeave</strong>, and follow the instructions.</p> 
+     </div> 
+     <div class="paragraph"> 
+      <p><span class="image"><img src="./_images/dw_migrator_script.png" alt="dw migrator"></span></p> 
+     </div> 
+     <div class="paragraph"> 
+      <p>If you don’t see DataMapper on your palette, you can enable it by going to <strong>Preferences</strong> &gt; <strong>Anypoint Studio</strong> &gt; <strong>Palette Profiles</strong> and clicking the checkbox <strong>Show deprecated Mule Components and Attributes</strong>.</p> 
+     </div> </td> 
+   </tr> 
+  </tbody> 
+ </table> 
+</div> 
+<div class="paragraph"> 
+ <p>To deploy a Mule project that contains a DataMapper transformer:</p> 
+</div> 
+<div class="ulist"> 
+ <ul> 
+  <li> <p>When deploying through Anypoint Studio, it should still work normally.</p> </li> 
+  <li> <p>When deploying to CloudHub, it should also work out of the box.</p> </li> 
+  <li> <p>However, when using for Mule Standalone 3.7.0 and newer, you must do the following before you can deploy your application:</p> 
+   <div class="olist arabic"> 
+    <ol class="arabic"> 
+     <li> <p>Go to the customer portal</p> </li> 
+     <li> <p>Select the Downloads tab</p> </li> 
+     <li> <p>Look in your Mule Runtime version and download the <strong>DataMapper plugin</strong> that corresponds to your Mule version</p> </li> 
+     <li> <p>Place the downloaded .zip file in the&nbsp;<code>/plugins</code>&nbsp;folder of Mule-Enterprise Standalone</p> </li> 
+    </ol> 
+   </div> </li> 
+ </ul> 
 </div>
     </div>
     <!-- END article-content -->
-    <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
-                <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
+    
   </div>
 </div>
 <!-- START footer -->

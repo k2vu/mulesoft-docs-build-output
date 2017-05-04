@@ -1022,22 +1022,20 @@
       <div class="older-version-notification col-md-9" data-swiftype-index='false'>You are viewing an older version of this section. Click <a href="/munit/v/1.3/logging-in-munit">here</a> to navigate to the latest version.</div>
       <div class="breadcrumb-section" data-swiftype-index='false'><a href="./">MUnit</a>/<a href="munit-examples">Examples</a>/<a href="logging-in-munit" class="breadcrumb-active-link">Logging</a></div>
       <h1>Logging in MUnit</h1>
-      <div id="preamble"> 
- <div class="sectionbody"> 
-  <div class="paragraph"> 
-   <p>MUnit allows you to have a log configuration specifically for your tests. In this way, you can log information differently from the way that your Mule application logs. To do this, you need a file called <code>log4j2-test.xml</code> with the desired log configuration for your tests. This file overrides any log configuration for Mule applications, but it is used only when running MUnit tests.</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>An example of a <code>log4j2-test.xml</code> file is shown below.</p> 
-  </div> 
-  <div class="listingblock"> 
-   <div class="content"> 
-    <pre class="CodeRay highlight"><code data-lang="xml">
-         
-      <table class="CodeRay"> 
-       <tbody> 
-        <tr> 
-         <td class="line-numbers"><pre>1
+      <div class="paragraph"> 
+ <p>MUnit allows you to have a log configuration specifically for your tests. In this way, you can log information differently from the way that your Mule application logs. To do this, you need a file called <code>log4j2-test.xml</code> with the desired log configuration for your tests. This file overrides any log configuration for Mule applications, but it is used only when running MUnit tests.</p> 
+</div> 
+<div class="paragraph"> 
+ <p>An example of a <code>log4j2-test.xml</code> file is shown below.</p> 
+</div> 
+<div class="listingblock"> 
+ <div class="content"> 
+  <pre class="CodeRay highlight"><code data-lang="xml">
+       
+    <table class="CodeRay"> 
+     <tbody> 
+      <tr> 
+       <td class="line-numbers"><pre>1
 2
 3
 4
@@ -1062,7 +1060,7 @@
 23
 24
 </pre></td> 
-         <td class="code"><pre><span class="preprocessor">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+       <td class="code"><pre><span class="preprocessor">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="tag">&lt;Configuration&gt;</span>
     <span class="tag">&lt;Appenders&gt;</span>
         <span class="tag">&lt;Console</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Console</span><span class="delimiter">"</span></span> <span class="attribute-name">target</span>=<span class="string"><span class="delimiter">"</span><span class="content">SYSTEM_OUT</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
@@ -1086,56 +1084,37 @@
         <span class="tag">&lt;/AsyncRoot&gt;</span>
     <span class="tag">&lt;/Loggers&gt;</span>
 <span class="tag">&lt;/Configuration&gt;</span></pre></td> 
-        </tr> 
-       </tbody> 
-      </table></code></pre> 
-   </div> 
-  </div> 
-  <div class="paragraph"> 
-   <p>This configuration disables logs like <em>cxf</em> or <em>apache commons</em>. It also sets the logger message processor to <code>DEBUG</code> mode. If you don’t specify the logging mode the default is <code>ERROR</code>.</p> 
-  </div> 
-  <div class="admonitionblock tip"> 
-   <table> 
-    <tbody> 
-     <tr> 
-      <td class="icon"> <i class="fa icon-tip" title="Tip"></i> </td> 
-      <td class="content"> The configuration file must reside in the classpath to work correctly. Preferably, the file should reside in the <code>src/test/resources</code> folder, since this a resource you use when running your tests, and the folder belongs to the classpath. </td> 
-     </tr> 
-    </tbody> 
-   </table> 
-  </div> 
-  <div class="admonitionblock note"> 
-   <table> 
-    <tbody> 
-     <tr> 
-      <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-      <td class="content"> If you don’t create a <code>log4j2-test.xml</code> file, Mule looks for a file called <code>log4j2.xml</code>. For additional information about the priority in which the log configuration files are selected, see <a href="/mule-user-guide/v/3.7/logging-in-mule">Logging in Mule</a>. </td> 
-     </tr> 
-    </tbody> 
-   </table> 
-  </div> 
+      </tr> 
+     </tbody> 
+    </table></code></pre> 
  </div> 
 </div> 
-<div class="sect1"> 
- <h2 id="see-also"><a class="anchor" href="#see-also"></a>See Also</h2> 
- <div class="sectionbody"> 
-  <div class="ulist"> 
-   <ul> 
-    <li> <p><a href="http://training.mulesoft.com">MuleSoft Training</a></p> </li> 
-    <li> <p><a href="https://www.mulesoft.com/webinars">MuleSoft Webinars</a></p> </li> 
-    <li> <p><a href="http://blogs.mulesoft.com">MuleSoft Blogs</a></p> </li> 
-    <li> <p><a href="http://forums.mulesoft.com">MuleSoft’s Forums</a></p> </li> 
-    <li> <p><a href="https://www.mulesoft.com/support-and-services/mule-esb-support-license-subscription">MuleSoft Support</a></p> </li> 
-    <li> <p><a href="mailto:support@mulesoft.com">Contact MuleSoft</a></p> </li> 
-   </ul> 
-  </div> 
- </div> 
+<div class="paragraph"> 
+ <p>This configuration disables logs like <em>cxf</em> or <em>apache commons</em>. It also sets the logger message processor to <code>DEBUG</code> mode. If you don’t specify the logging mode the default is <code>ERROR</code>.</p> 
+</div> 
+<div class="admonitionblock tip"> 
+ <table> 
+  <tbody> 
+   <tr> 
+    <td class="icon"> <i class="fa icon-tip" title="Tip"></i> </td> 
+    <td class="content"> The configuration file must reside in the classpath to work correctly. Preferably, the file should reside in the <code>src/test/resources</code> folder, since this a resource you use when running your tests, and the folder belongs to the classpath. </td> 
+   </tr> 
+  </tbody> 
+ </table> 
+</div> 
+<div class="admonitionblock note"> 
+ <table> 
+  <tbody> 
+   <tr> 
+    <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
+    <td class="content"> If you don’t create a <code>log4j2-test.xml</code> file, Mule looks for a file called <code>log4j2.xml</code>. For additional information about the priority in which the log configuration files are selected, see <a href="/mule-user-guide/v/3.7/logging-in-mule">Logging in Mule</a>. </td> 
+   </tr> 
+  </tbody> 
+ </table> 
 </div>
     </div>
     <!-- END article-content -->
-    <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
-                <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
+    
   </div>
 </div>
 <!-- START footer -->

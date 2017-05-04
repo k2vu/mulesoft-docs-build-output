@@ -1026,87 +1026,68 @@
       
       <div class="breadcrumb-section" data-swiftype-index='false'><a href="./">Anypoint Studio</a>/<a href="anypoint-studio-features">Studio Reference</a>/<a href="datamapper-user-guide-and-reference">DataMapper (Deprecated)</a>/<a href="datamapper-examples" class="breadcrumb-active-link">DataMapper Examples</a></div>
       <h1>Anypoint DataMapper Examples</h1>
-      <div id="preamble"> 
- <div class="sectionbody"> 
-  <div class="admonitionblock note"> 
-   <table> 
-    <tbody> 
-     <tr> 
-      <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-      <td class="content"> 
-       <div class="paragraph"> 
-        <p>DataMapper continues to be fully supported in all current and future versions of Mule 3.x, however it will be removed in Mule 4.0 in favor of the <strong>Transform Message</strong> component (based on <a href="/mule-user-guide/v/3.8-m1/dataweave">DataWeave</a> code). We recommend that if you wish to take advantage of the new capabilities of DataWeave or if you start new projects, upgrade now.</p> 
-       </div> 
-       <div class="paragraph"> 
-        <p>A <a href="/mule-user-guide/v/3.8/dataweave-migrator">migration tool</a> is now included in Studio, which assists in converting a DataMapper map to DataWeave. Right-click DataMapper, select <strong>Migrate to DataWeave</strong>, and follow the instructions.</p> 
-       </div> 
-       <div class="paragraph"> 
-        <p><span class="image"><img src="./_images/dw_migrator_script.png" alt="dw migrator"></span></p> 
-       </div> 
-       <div class="paragraph"> 
-        <p>If you don’t see DataMapper on your palette, you can enable it by going to <strong>Preferences</strong> &gt; <strong>Anypoint Studio</strong> &gt; <strong>Palette Profiles</strong> and ticking the checkbox <strong>Show deprecated Mule Components and Attributes</strong>.</p> 
-       </div> </td> 
-     </tr> 
-    </tbody> 
-   </table> 
-  </div> 
-  <div class="paragraph"> 
-   <p>Many of the advanced capabilities of Anypoint DataMapper are best understood through examples. This page lists examples that illustrate using DataMapper in common but complex use cases.&nbsp;</p> 
-  </div> 
-  <table class="tableblock frame-all grid-all spread"> 
-   <colgroup> 
-    <col> 
-    <col> 
-   </colgroup> 
-   <thead> 
-    <tr> 
-     <th class="tableblock halign-left valign-top">Example</th> 
-     <th class="tableblock halign-left valign-top">Description</th> 
-    </tr> 
-   </thead> 
-   <tbody> 
-    <tr> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="/anypoint-studio/v/6/datamapper-flat-to-structured-and-structured-to-flat-mapping">DataMapper Flat-to-Structured and Structured-to-Flat Mapping</a></p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">Shows how to build maps that extract from and populate complex, multiple-level nested structures.</p></td> 
-    </tr> 
-    <tr> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="/anypoint-studio/v/6/datamapper-fixed-width-input-format">DataMapper Fixed Width Input Format</a></p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">Two scenarios using DataMapper to extract data from fixed-width input files.</p></td> 
-    </tr> 
-    <tr> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.mulesoft.com/exchange#!/datamapper-with-flowref-lookup">DataMapper with FlowRef Lookup Example</a></p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">Uses DataMapper’s FlowRef Lookup Table with Salesforce, <strong>DataSense</strong> and <strong>DataMapper</strong> to map and transform data, thereby facilitating quick integration with Salesforce.</p></td> 
-    </tr> 
-    <tr> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.mulesoft.com/exchange/#!/legacy-modernization">Legacy Modernization Example</a></p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">Makes extensive use of rules for extracting data from nested structures, and translates requests from a SOAP web service for a file-based legacy application.</p></td> 
-    </tr> 
-    <tr> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.mulesoft.com/exchange/#!/xml-only-soap-web-service">XML-Only SOAP Web Service Example</a></p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">Demonstrates service orchestration and content-based routing. Based on the use case of patient admission into a hospital. Accepts SOAP requests, then orchestrates several Web services&nbsp; to complete a business process. &nbsp;Uses a&nbsp;DataMapper to map data from the responses from several internal hospital Web services to a response to send to the end user.</p></td> 
-    </tr> 
-   </tbody> 
-  </table> 
- </div> 
+      <div class="admonitionblock note"> 
+ <table> 
+  <tbody> 
+   <tr> 
+    <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
+    <td class="content"> 
+     <div class="paragraph"> 
+      <p>DataMapper continues to be fully supported in all current and future versions of Mule 3.x, however it will be removed in Mule 4.0 in favor of the <strong>Transform Message</strong> component (based on <a href="/mule-user-guide/v/3.8-m1/dataweave">DataWeave</a> code). We recommend that if you wish to take advantage of the new capabilities of DataWeave or if you start new projects, upgrade now.</p> 
+     </div> 
+     <div class="paragraph"> 
+      <p>A <a href="/mule-user-guide/v/3.8/dataweave-migrator">migration tool</a> is now included in Studio, which assists in converting a DataMapper map to DataWeave. Right-click DataMapper, select <strong>Migrate to DataWeave</strong>, and follow the instructions.</p> 
+     </div> 
+     <div class="paragraph"> 
+      <p><span class="image"><img src="./_images/dw_migrator_script.png" alt="dw migrator"></span></p> 
+     </div> 
+     <div class="paragraph"> 
+      <p>If you don’t see DataMapper on your palette, you can enable it by going to <strong>Preferences</strong> &gt; <strong>Anypoint Studio</strong> &gt; <strong>Palette Profiles</strong> and ticking the checkbox <strong>Show deprecated Mule Components and Attributes</strong>.</p> 
+     </div> </td> 
+   </tr> 
+  </tbody> 
+ </table> 
 </div> 
-<div class="sect1"> 
- <h2 id="see-also"><a class="anchor" href="#see-also"></a>See Also</h2> 
- <div class="sectionbody"> 
-  <div class="ulist"> 
-   <ul> 
-    <li> <p><a href="http://training.mulesoft.com">MuleSoft Training</a></p> </li> 
-    <li> <p><a href="https://www.mulesoft.com/webinars">MuleSoft Webinars</a></p> </li> 
-    <li> <p><a href="http://blogs.mulesoft.com">MuleSoft Blogs</a></p> </li> 
-    <li> <p><a href="http://forums.mulesoft.com">MuleSoft Forums</a></p> </li> 
-   </ul> 
-  </div> 
- </div> 
-</div>
+<div class="paragraph"> 
+ <p>Many of the advanced capabilities of Anypoint DataMapper are best understood through examples. This page lists examples that illustrate using DataMapper in common but complex use cases.&nbsp;</p> 
+</div> 
+<table class="tableblock frame-all grid-all spread"> 
+ <colgroup> 
+  <col> 
+  <col> 
+ </colgroup> 
+ <thead> 
+  <tr> 
+   <th class="tableblock halign-left valign-top">Example</th> 
+   <th class="tableblock halign-left valign-top">Description</th> 
+  </tr> 
+ </thead> 
+ <tbody> 
+  <tr> 
+   <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="/anypoint-studio/v/6/datamapper-flat-to-structured-and-structured-to-flat-mapping">DataMapper Flat-to-Structured and Structured-to-Flat Mapping</a></p></td> 
+   <td class="tableblock halign-left valign-top"><p class="tableblock">Shows how to build maps that extract from and populate complex, multiple-level nested structures.</p></td> 
+  </tr> 
+  <tr> 
+   <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="/anypoint-studio/v/6/datamapper-fixed-width-input-format">DataMapper Fixed Width Input Format</a></p></td> 
+   <td class="tableblock halign-left valign-top"><p class="tableblock">Two scenarios using DataMapper to extract data from fixed-width input files.</p></td> 
+  </tr> 
+  <tr> 
+   <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.mulesoft.com/exchange#!/datamapper-with-flowref-lookup">DataMapper with FlowRef Lookup Example</a></p></td> 
+   <td class="tableblock halign-left valign-top"><p class="tableblock">Uses DataMapper’s FlowRef Lookup Table with Salesforce, <strong>DataSense</strong> and <strong>DataMapper</strong> to map and transform data, thereby facilitating quick integration with Salesforce.</p></td> 
+  </tr> 
+  <tr> 
+   <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.mulesoft.com/exchange/#!/legacy-modernization">Legacy Modernization Example</a></p></td> 
+   <td class="tableblock halign-left valign-top"><p class="tableblock">Makes extensive use of rules for extracting data from nested structures, and translates requests from a SOAP web service for a file-based legacy application.</p></td> 
+  </tr> 
+  <tr> 
+   <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.mulesoft.com/exchange/#!/xml-only-soap-web-service">XML-Only SOAP Web Service Example</a></p></td> 
+   <td class="tableblock halign-left valign-top"><p class="tableblock">Demonstrates service orchestration and content-based routing. Based on the use case of patient admission into a hospital. Accepts SOAP requests, then orchestrates several Web services&nbsp; to complete a business process. &nbsp;Uses a&nbsp;DataMapper to map data from the responses from several internal hospital Web services to a response to send to the end user.</p></td> 
+  </tr> 
+ </tbody> 
+</table>
     </div>
     <!-- END article-content -->
-    <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
-                <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
+    
   </div>
 </div>
 <!-- START footer -->
