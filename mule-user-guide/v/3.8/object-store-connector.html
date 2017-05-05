@@ -1045,9 +1045,13 @@
      </ul> </li> 
     <li><a href="#compatibility">Compatibility</a></li> 
     <li><a href="#install">Installing the Object Store Connector</a></li> 
-    <li><a href="#config">Configuring the Object Store Connector</a> 
+    <li><a href="#springbeans">About the Object Store Spring Bean Instances</a> 
      <ul class="sectlevel2"> 
-      <li><a href="#config-global">Setting up the Global Configuration</a></li> 
+      <li><a href="#persistingdata">About Persisting Object Stores in Runtime Manager</a></li> 
+     </ul> </li> 
+    <li><a href="#config-global">Setting up the Global Configuration Using Studio Visual Editor</a></li> 
+    <li><a href="#setting-up-the-global-configuration-using-xml">Setting up the Global Configuration Using XML</a> 
+     <ul class="sectlevel2"> 
       <li><a href="#upgrading">Updating from an Older Version</a></li> 
      </ul> </li> 
     <li><a href="#using-the-connector">Using This Connector</a> 
@@ -1227,13 +1231,10 @@
  </div> 
 </div> 
 <div class="sect1"> 
- <h2 id="config"><a class="anchor" href="#config"></a>Configuring the Object Store Connector</h2> 
+ <h2 id="springbeans"><a class="anchor" href="#springbeans"></a>About the Object Store Spring Bean Instances</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>To use the connector in your Mule application, you must configure&nbsp;a global Object Store element that can be used by all the Object Store connectors in the application.</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>By default, Mule includes three default object stores instantiated every time you run Mule ESB both on premises and on Runtime Manager.</p> 
+   <p>By default, Mule includes three default object stores instantiated every time you run Mule both on premises and on Runtime Manager.</p> 
   </div> 
   <div class="paragraph"> 
    <p>Each Mule runtime includes these three spring bean instances:</p> 
@@ -1248,360 +1249,450 @@
   <div class="paragraph"> 
    <p>You can also code your own object store Java class, then include an instance in your application as a Spring bean. You can then reference your custom object store when you define a new Object Store global element.</p> 
   </div> 
+  <div class="paragraph"> 
+   <p><strong>Important:</strong> If you want your Object Store data to display in Runtime Manager’s Application Data user interface, you must include the <code>objectStore-ref="_defaultUserObjectStore"</code> parameter in your Object Store connector configuration.</p> 
+  </div> 
+  <div class="sect2"> 
+   <h3 id="persistingdata"><a class="anchor" href="#persistingdata"></a>About Persisting Object Stores in Runtime Manager</h3> 
+   <div class="paragraph"> 
+    <p>The Persistent option persists data for Private Cloud Edition (on premise) applications; however to persist data in Runtime Manager, you need to use the <code>_defaultUserObjectStore</code> spring bean instance in your ObjectStore configuration.</p> 
+   </div> 
+   <div class="paragraph"> 
+    <p>The <code>_defaultUserObjectStore</code> spring bean instance ensures that an Object Store in a Runtime Manager application survives across redeployments. When you use this bean instance, data persists outside the Runtime Manager worker (but in the cloud), which is why the data is available after restarts.</p> 
+   </div> 
+   <div class="paragraph"> 
+    <p>Reference the spring bean instance using the Object Store Reference field.</p> 
+   </div> 
+   <div class="paragraph"> 
+    <p>For XML or standalone use, add the <code>objectStore-ref="_defaultUserObjectStore"</code> parameter, for example:</p> 
+   </div> 
+   <div class="listingblock"> 
+    <div class="content"> 
+     <pre class="CodeRay highlight"><code data-lang="xml">
+          
+       <table class="CodeRay"> 
+        <tbody> 
+         <tr> 
+          <td class="line-numbers"><pre>1
+2
+3
+</pre></td> 
+          <td class="code"><pre><span class="tag">&lt;objectstore:config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">ObjectStore__Connector</span><span class="delimiter">"</span></span> <span class="attribute-name">partition</span>=<span class="string"><span class="delimiter">"</span><span class="content">mypartition</span><span class="delimiter">"</span></span>
+<span class="attribute-name">entryTtl</span>=<span class="string"><span class="delimiter">"</span><span class="content">0</span><span class="delimiter">"</span></span> <span class="attribute-name">expirationInterval</span>=<span class="string"><span class="delimiter">"</span><span class="content">42</span><span class="delimiter">"</span></span> <span class="attribute-name">maxEntries</span>=<span class="string"><span class="delimiter">"</span><span class="content">42</span><span class="delimiter">"</span></span>
+<span class="attribute-name">objectStore-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">_defaultUserObjectStore</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">ObjectStore: Connector</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></pre></td> 
+         </tr> 
+        </tbody> 
+       </table></code></pre> 
+    </div> 
+   </div> 
+   <div class="paragraph"> 
+    <p>The use of <code>_defaultUserObjectStore</code> makes entries visible in Runtime Manager through Application Data.</p> 
+   </div> 
+   <div class="paragraph"> 
+    <p>Differences between using the Persistent parameter and <code>_defaultUserObjectStore</code>:</p> 
+   </div> 
+   <table class="tableblock frame-all grid-all spread"> 
+    <colgroup> 
+     <col style="width: 10%;"> 
+     <col style="width: 45%;"> 
+     <col style="width: 45%;"> 
+    </colgroup> 
+    <thead> 
+     <tr> 
+      <th class="tableblock halign-left valign-top">Site</th> 
+      <th class="tableblock halign-left valign-top">Attribute "persistent":</th> 
+      <th class="tableblock halign-left valign-top">Using <code>_defaultUserObjectStore</code></th> 
+     </tr> 
+    </thead> 
+    <tbody> 
+     <tr> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p>Private Cloud Edition</p> 
+        </div> 
+       </div></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="ulist"> 
+         <ul> 
+          <li> <p>Survives redeployments</p> </li> 
+          <li> <p>Data persists in a local file</p> </li> 
+         </ul> 
+        </div> 
+       </div></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="ulist"> 
+         <ul> 
+          <li> <p>Survives redeployments</p> </li> 
+          <li> <p>Data persists in a local file</p> </li> 
+         </ul> 
+        </div> 
+       </div></td> 
+     </tr> 
+     <tr> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p>In Runtime Manager</p> 
+        </div> 
+       </div></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="ulist"> 
+         <ul> 
+          <li> <p>Does not survive redeployments</p> </li> 
+          <li> <p>Data persists in a local file</p> </li> 
+         </ul> 
+        </div> 
+       </div></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="ulist"> 
+         <ul> 
+          <li> <p>Survives redeployments</p> </li> 
+          <li> <p>Data persists externally</p> </li> 
+         </ul> 
+        </div> 
+       </div></td> 
+     </tr> 
+    </tbody> 
+   </table> 
+  </div> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="config-global"><a class="anchor" href="#config-global"></a>Setting up the Global Configuration Using Studio Visual Editor</h2> 
+ <div class="sectionbody"> 
+  <div class="paragraph"> 
+   <p>Configure&nbsp;a global Object Store element that can be used by all instances of the Object Store connector in your application.</p> 
+  </div> 
+  <div class="olist arabic"> 
+   <ol class="arabic"> 
+    <li> <p>If you haven’t already, read about <a href="/mule-user-guide/v/3.8/global-elements">Global Elements</a> before proceeding further.</p> </li> 
+    <li> <p>Click the <strong>Global Elements</strong> tab at the base of the canvas.</p> </li> 
+    <li> <p>On the <strong>Global Mule Configuration Elements</strong> screen, click <strong>Create</strong>.</p> </li> 
+    <li> <p>In the <strong>Choose Global Type</strong> wizard, expand <strong>Connector Configuration</strong> and select <strong>ObjectStore: Configuration</strong> and click <strong>Ok.</strong></p> 
+     <div class="paragraph center text-center"> 
+      <p><span class="image"><img src="./_images/objectstore_config_global_wizard.png" alt="Global Element Configuration Wizard"></span></p> 
+     </div> </li> 
+    <li> <p>Configure the parameters according to your needs. This is the screen you configure the connector global element from:</p> 
+     <div class="paragraph center text-center"> 
+      <p><span class="image"><img src="./_images/objectstore_config_global.png" alt="Global Element Configuration"></span></p> 
+     </div> 
+     <table class="tableblock frame-all grid-all" style="width: 80%;"> 
+      <colgroup> 
+       <col style="width: 30%;"> 
+       <col style="width: 70%;"> 
+      </colgroup> 
+      <thead> 
+       <tr> 
+        <th class="tableblock halign-left valign-top">Parameter</th> 
+        <th class="tableblock halign-left valign-top">Description</th> 
+       </tr> 
+      </thead> 
+      <tbody> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"> 
+         <div> 
+          <div class="paragraph"> 
+           <p><strong>Name</strong></p> 
+          </div> 
+         </div></td> 
+        <td class="tableblock halign-left valign-top"> 
+         <div> 
+          <div class="paragraph"> 
+           <p>(Required) Enter a name for the configuration to reference it.</p> 
+          </div> 
+         </div></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"> 
+         <div> 
+          <div class="paragraph"> 
+           <p><strong>Partition</strong></p> 
+          </div> 
+         </div></td> 
+        <td class="tableblock halign-left valign-top"> 
+         <div> 
+          <div class="paragraph"> 
+           <p>(Required) Name of the partition in the default in-memory or persistent object stores. <strong>Important:</strong> You must specify a partition name in your configuration.</p> 
+          </div> 
+         </div></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"> 
+         <div> 
+          <div class="paragraph"> 
+           <p><strong>Object Store Reference</strong></p> 
+          </div> 
+         </div></td> 
+        <td class="tableblock halign-left valign-top"> 
+         <div> 
+          <div class="paragraph"> 
+           <p>Specify the Object Store spring bean instance. This is optional and if not specified, the default in-memory or persistent store is used. See <a href="#springbeans">About the Object Store Spring Bean Instances</a>.</p> 
+          </div> 
+         </div></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"> 
+         <div> 
+          <div class="paragraph"> 
+           <p><strong>Entry Ttl</strong></p> 
+          </div> 
+         </div></td> 
+        <td class="tableblock halign-left valign-top"> 
+         <div> 
+          <div class="paragraph"> 
+           <p>TimeToLive for stored values in milliseconds. "Max Entries" and "Expiration Interval" are mandatory for using this param. You must either provide all Entry TTL, Max Entries, and Expiration Interval, or none of them.</p> 
+          </div> 
+         </div></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"> 
+         <div> 
+          <div class="paragraph"> 
+           <p><strong>Expiration Interval</strong></p> 
+          </div> 
+         </div></td> 
+        <td class="tableblock halign-left valign-top"> 
+         <div> 
+          <div class="paragraph"> 
+           <p>Specifies the expiration check interval in milliseconds.</p> 
+          </div> 
+         </div></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"> 
+         <div> 
+          <div class="paragraph"> 
+           <p><strong>Max Entries</strong></p> 
+          </div> 
+         </div></td> 
+        <td class="tableblock halign-left valign-top"> 
+         <div> 
+          <div class="paragraph"> 
+           <p>Specifies the maximum number of entries.</p> 
+          </div> 
+         </div></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"> 
+         <div> 
+          <div class="paragraph"> 
+           <p><strong>Persistent</strong></p> 
+          </div> 
+         </div></td> 
+        <td class="tableblock halign-left valign-top"> 
+         <div> 
+          <div class="paragraph"> 
+           <p>Specified whenever the required store needs to be persistent or not. See <a href="#persistingdata">About Persisting Object Stores in Runtime Manager</a>.</p> 
+          </div> 
+         </div></td> 
+       </tr> 
+      </tbody> 
+     </table> 
+     <div class="paragraph"> 
+      <p><strong>Note:</strong> In the image above, the placeholder values refer to a configuration file placed in the <code>src</code> folder of your project. See <a href="/mule-user-guide/v/3.8/configuring-properties">Learn how to configure properties</a>.</p> 
+     </div> 
+     <div class="paragraph"> 
+      <p>You can either enter your credentials into the global configuration properties, or reference a configuration file that contains these values. For simpler maintenance and better re-usability of your project, Mule recommends that you use a configuration file. Keeping these values in a separate file is useful if you need to deploy to different environments, such as production, development, and QA, where your access credentials differ. See <a href="/mule-user-guide/v/3.8/deploying-to-multiple-environments">Deploying to Multiple Environments</a> for instructions on how to manage this.</p> 
+     </div> </li> 
+    <li> <p>Click <strong>OK</strong> to save the global connector configurations.</p> </li> 
+   </ol> 
+  </div> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="setting-up-the-global-configuration-using-xml"><a class="anchor" href="#setting-up-the-global-configuration-using-xml"></a>Setting up the Global Configuration Using XML</h2> 
+ <div class="sectionbody"> 
+  <div class="paragraph"> 
+   <p>Follow these steps to configure the connector in your application: Create a global Object Store configuration outside and above your flows, using the following global configuration code.</p> 
+  </div> 
+  <div class="listingblock"> 
+   <div class="content"> 
+    <pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;objectstore:config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">ObjectStore__Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">partition</span>=<span class="string"><span class="delimiter">"</span><span class="content">${objectstore.partition.counter}</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">ObjectStore: Configuration</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></code></pre> 
+   </div> 
+  </div> 
   <div class="admonitionblock tip"> 
    <table> 
     <tbody> 
      <tr> 
       <td class="icon"> <i class="fa icon-tip" title="Tip"></i> </td> 
-      <td class="content"> If you haven’t already, read about <a href="/mule-user-guide/v/3.8/global-elements">Global Elements</a> before proceeding further. </td> 
+      <td class="content"> When you manually code the Mule application in Studio’s XML editor or another text editor, paste these into the header of your <strong>Configuration XML</strong> inside the <code>&lt;mule&gt;</code> tag as in the example below. </td> 
      </tr> 
     </tbody> 
    </table> 
   </div> 
-  <div class="sect2"> 
-   <h3 id="config-global"><a class="anchor" href="#config-global"></a>Setting up the Global Configuration</h3> 
-   <div class="panel panel-default no-padding"> 
-    <div class="panel-heading no-padding"> 
-     <!-- Nav tabs --> 
-     <ul class="nav nav-tabs" role="tablist"> 
-      <li class="active"><a href="#tab-1_1" role="tab" data-toggle="tab">Studio Visual Editor</a></li> 
-      <li><a href="#tab-1_2" role="tab" data-toggle="tab">XML Editor</a></li> 
-     </ul> 
-    </div> 
-    <div class="panel-body tab-content no-padding"> 
-     <div class="tab-pane in active fade no-padding" id="tab-1_1"> 
-      <div class="olist arabic"> 
-       <ol class="arabic"> 
-        <li> <p>Click the <strong>Global Elements</strong> tab at the base of the canvas.</p> </li> 
-        <li> <p>On the <strong>Global Mule Configuration Elements</strong> screen, click <strong>Create</strong>.</p> </li> 
-        <li> <p>In the <strong>Choose Global Type</strong> wizard, expand <strong>Connector Configuration</strong> and select <strong>ObjectStore: Configuration</strong> and click <strong>Ok.</strong></p> 
-         <div class="paragraph center text-center"> 
-          <p><span class="image"><img src="./_images/objectstore_config_global_wizard.png" alt="Global Element Configuration Wizard"></span></p> 
-         </div> </li> 
-        <li> <p>Configure the parameters according to your needs. This is the screen you configure the connector global element from:</p> 
-         <div class="paragraph center text-center"> 
-          <p><span class="image"><img src="./_images/objectstore_config_global.png" alt="Global Element Configuration"></span></p> 
-         </div> 
-         <table class="tableblock frame-all grid-all" style="width: 80%;"> 
-          <colgroup> 
-           <col style="width: 30%;"> 
-           <col style="width: 70%;"> 
-          </colgroup> 
-          <thead> 
-           <tr> 
-            <th class="tableblock halign-left valign-top">Parameter</th> 
-            <th class="tableblock halign-left valign-top">Description</th> 
-           </tr> 
-          </thead> 
-          <tbody> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"> 
-             <div> 
-              <div class="paragraph"> 
-               <p><strong>Name</strong></p> 
-              </div> 
-             </div></td> 
-            <td class="tableblock halign-left valign-top"> 
-             <div> 
-              <div class="paragraph"> 
-               <p>Enter a name for the configuration to reference it.</p> 
-              </div> 
-             </div></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"> 
-             <div> 
-              <div class="paragraph"> 
-               <p><strong>Partition</strong></p> 
-              </div> 
-             </div></td> 
-            <td class="tableblock halign-left valign-top"> 
-             <div> 
-              <div class="paragraph"> 
-               <p>Name of the partition in the default in-memory or persistent object stores.</p> 
-              </div> 
-             </div></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"> 
-             <div> 
-              <div class="paragraph"> 
-               <p><strong>Object Store Reference</strong></p> 
-              </div> 
-             </div></td> 
-            <td class="tableblock halign-left valign-top"> 
-             <div> 
-              <div class="paragraph"> 
-               <p>Reference to an Object Store bean. This is optional and if not specified, the default in-memory or persistent store is used.</p> 
-              </div> 
-             </div></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"> 
-             <div> 
-              <div class="paragraph"> 
-               <p><strong>Entry Ttl</strong></p> 
-              </div> 
-             </div></td> 
-            <td class="tableblock halign-left valign-top"> 
-             <div> 
-              <div class="paragraph"> 
-               <p>TimeToLive for stored values in milliseconds. "Max Entries" and "Expiration Interval" are mandatory for using this param.</p> 
-              </div> 
-             </div></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"> 
-             <div> 
-              <div class="paragraph"> 
-               <p><strong>Expiration Interval</strong></p> 
-              </div> 
-             </div></td> 
-            <td class="tableblock halign-left valign-top"> 
-             <div> 
-              <div class="paragraph"> 
-               <p>Specifies the expiration check interval in milliseconds.</p> 
-              </div> 
-             </div></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"> 
-             <div> 
-              <div class="paragraph"> 
-               <p><strong>Max Entries</strong></p> 
-              </div> 
-             </div></td> 
-            <td class="tableblock halign-left valign-top"> 
-             <div> 
-              <div class="paragraph"> 
-               <p>Specifies the maximum number of entries.</p> 
-              </div> 
-             </div></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"> 
-             <div> 
-              <div class="paragraph"> 
-               <p><strong>Persistent</strong></p> 
-              </div> 
-             </div></td> 
-            <td class="tableblock halign-left valign-top"> 
-             <div> 
-              <div class="paragraph"> 
-               <p>Specified whenever the required store needs to be persistent or not.</p> 
-              </div> 
-             </div></td> 
-           </tr> 
-          </tbody> 
-         </table> 
-         <div class="admonitionblock note"> 
-          <table> 
-           <tbody> 
-            <tr> 
-             <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-             <td class="content"> In the image above, the placeholder values refer to a configuration file placed in the <code>src</code> folder of your project. See <a href="/mule-user-guide/v/3.8/configuring-properties">Learn how to configure properties</a>. </td> 
-            </tr> 
-           </tbody> 
-          </table> 
-         </div> 
-         <div class="paragraph"> 
-          <p>You can either enter your credentials into the global configuration properties, or reference a configuration file that contains these values. For simpler maintenance and better re-usability of your project, Mule recommends that you use a configuration file. Keeping these values in a separate file is useful if you need to deploy to different environments, such as production, development, and QA, where your access credentials differ. See <a href="/mule-user-guide/v/3.8/deploying-to-multiple-environments">Deploying to Multiple Environments</a> for instructions on how to manage this.</p> 
-         </div> </li> 
-        <li> <p>Click <strong>OK</strong> to save the global connector configurations.</p> </li> 
-       </ol> 
-      </div> 
-     </div> 
-     <div class="tab-pane fade no-padding" id="tab-1_2"> 
-      <div class="paragraph"> 
-       <p>Follow these steps to configure the connector in your application: Create a global Object Store configuration outside and above your flows, using the following global configuration code.</p> 
-      </div> 
-      <div class="listingblock"> 
-       <div class="content"> 
-        <pre class="CodeRay highlight"><code data-lang="xml"><span class="entity">&amp;lt;</span>objectstore:config name="ObjectStore__Configuration" partition="${objectstore.partition.counter}" doc:name="ObjectStore: Configuration"/<span class="entity">&amp;gt;</span></code></pre> 
+  <table class="tableblock frame-all grid-all spread"> 
+   <colgroup> 
+    <col style="width: 25%;"> 
+    <col style="width: 75%;"> 
+   </colgroup> 
+   <thead> 
+    <tr> 
+     <th class="tableblock halign-left valign-top">Name</th> 
+     <th class="tableblock halign-left valign-top">Description</th> 
+    </tr> 
+   </thead> 
+   <tbody> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>name</p> 
        </div> 
-      </div> 
-      <div class="admonitionblock tip"> 
-       <table> 
-        <tbody> 
-         <tr> 
-          <td class="icon"> <i class="fa icon-tip" title="Tip"></i> </td> 
-          <td class="content"> When you manually code the Mule application in Studio’s XML editor or another text editor, paste these into the header of your <strong>Configuration XML</strong> inside the <code>&lt;mule&gt;</code> tag as in the example below. </td> 
-         </tr> 
-        </tbody> 
-       </table> 
-      </div> 
-      <table class="tableblock frame-all grid-all spread"> 
-       <colgroup> 
-        <col style="width: 25%;"> 
-        <col style="width: 75%;"> 
-       </colgroup> 
-       <thead> 
-        <tr> 
-         <th class="tableblock halign-left valign-top">Name</th> 
-         <th class="tableblock halign-left valign-top">Description</th> 
-        </tr> 
-       </thead> 
-       <tbody> 
-        <tr> 
-         <td class="tableblock halign-left valign-top"> 
-          <div> 
-           <div class="paragraph"> 
-            <p>name</p> 
-           </div> 
-          </div></td> 
-         <td class="tableblock halign-left valign-top"> 
-          <div> 
-           <div class="paragraph"> 
-            <p>The identifier of the object store configuration. Other components must reference this configuration via this name.</p> 
-           </div> 
-           <div class="paragraph"> 
-            <p><strong>Studio Field:</strong> Name<br> <strong>Default:</strong> none<br> <strong>Java Type:</strong> String<br> <strong>MIME Type:</strong> <strong>/</strong><br> <strong>Encoding:</strong> UTF-8</p> 
-           </div> 
-          </div></td> 
-        </tr> 
-        <tr> 
-         <td class="tableblock halign-left valign-top"> 
-          <div> 
-           <div class="paragraph"> 
-            <p>doc:name</p> 
-           </div> 
-          </div></td> 
-         <td class="tableblock halign-left valign-top"> 
-          <div> 
-           <div class="paragraph"> 
-            <p>The string displayed in Anypoint Studio.</p> 
-           </div> 
-           <div class="paragraph"> 
-            <p><strong>Studio Field:</strong> Name<br> <strong>Default:</strong> none<br> <strong>Java Type:</strong> String<br> <strong>MIME Type:</strong> <strong>/</strong><br> <strong>Encoding:</strong> UTF-8</p> 
-           </div> 
-          </div></td> 
-        </tr> 
-        <tr> 
-         <td class="tableblock halign-left valign-top"> 
-          <div> 
-           <div class="paragraph"> 
-            <p>partition</p> 
-           </div> 
-          </div></td> 
-         <td class="tableblock halign-left valign-top"> 
-          <div> 
-           <div class="paragraph"> 
-            <p>Name of the partition in the default in-memory or persistent object store. This attribute is ignored if the object store is specified in an objectstore-ref attribute.</p> 
-           </div> 
-           <div class="paragraph"> 
-            <p><strong>Studio Field:</strong> Partition<br> <strong>Default:</strong> none<br> <strong>Java Type:</strong> String<br> <strong>MIME Type:</strong> <strong>/</strong><br> <strong>Encoding:</strong> UTF-8</p> 
-           </div> 
-          </div></td> 
-        </tr> 
-        <tr> 
-         <td class="tableblock halign-left valign-top"> 
-          <div> 
-           <div class="paragraph"> 
-            <p>objectStore-ref</p> 
-           </div> 
-          </div></td> 
-         <td class="tableblock halign-left valign-top"> 
-          <div> 
-           <div class="paragraph"> 
-            <p>Optional. Reference to an object store bean. If not specified, one of the defaults is used depending on the context (stand-alone Mule runtime, Mule runtime cluster, or CloudHub cluster). You can also specify one of the default object stores by name <code>_defaultInMemoryObjectStore</code>, <code>_defaultUserObjectStore</code>, or <code>_defaultTransientUserObjectStore</code>.</p> 
-           </div> 
-           <div class="paragraph"> 
-            <p><strong>Studio Field:</strong> Object Store Reference<br> <strong>Default:</strong> none<br> <strong>Java Type:</strong> String<br> <strong>MIME Type:</strong> none<br> <strong>Encoding:</strong> none</p> 
-           </div> 
-          </div></td> 
-        </tr> 
-        <tr> 
-         <td class="tableblock halign-left valign-top"> 
-          <div> 
-           <div class="paragraph"> 
-            <p>entryTtl</p> 
-           </div> 
-          </div></td> 
-         <td class="tableblock halign-left valign-top"> 
-          <div> 
-           <div class="paragraph"> 
-            <p>Time To Live for stored values in milliseconds. If using this parameter, maxEntries and expirationInterval are mandatory.</p> 
-           </div> 
-           <div class="paragraph"> 
-            <p><strong>Studio Field:</strong> Entry Ttl<br> <strong>Default:</strong> none<br> <strong>Java Type:</strong> Int<br> <strong>MIME Type:</strong> <strong>/</strong><br> <strong>Encoding:</strong> UTF-8</p> 
-           </div> 
-          </div></td> 
-        </tr> 
-        <tr> 
-         <td class="tableblock halign-left valign-top"> 
-          <div> 
-           <div class="paragraph"> 
-            <p>expirationInterval</p> 
-           </div> 
-          </div></td> 
-         <td class="tableblock halign-left valign-top"> 
-          <div> 
-           <div class="paragraph"> 
-            <p>Specifies the expiration check interval in milliseconds.</p> 
-           </div> 
-           <div class="paragraph"> 
-            <p><strong>Studio Field:</strong> Expiration Interval<br> <strong>Default:</strong> none<br> <strong>Java Type:</strong> Int<br> <strong>MIME Type:</strong> <strong>/</strong><br> <strong>Encoding:</strong> none</p> 
-           </div> 
-          </div></td> 
-        </tr> 
-        <tr> 
-         <td class="tableblock halign-left valign-top"> 
-          <div> 
-           <div class="paragraph"> 
-            <p>maxEntries</p> 
-           </div> 
-          </div></td> 
-         <td class="tableblock halign-left valign-top"> 
-          <div> 
-           <div class="paragraph"> 
-            <p>Specifies the maximum number of entries.</p> 
-           </div> 
-           <div class="paragraph"> 
-            <p><strong>Studio Field:</strong> Max Entries<br> <strong>Default:</strong> none<br> <strong>Java Type:</strong> Int<br> <strong>MIME Type:</strong> <strong>/</strong><br> <strong>Encoding:</strong> none</p> 
-           </div> 
-          </div></td> 
-        </tr> 
-        <tr> 
-         <td class="tableblock halign-left valign-top"> 
-          <div> 
-           <div class="paragraph"> 
-            <p>persistent</p> 
-           </div> 
-          </div></td> 
-         <td class="tableblock halign-left valign-top"> 
-          <div> 
-           <div class="paragraph"> 
-            <p>Specifies if the required store needs to be persistent or not (this argument is ignored if the object store is passed by ref using the objectStore-ref attribute, or if no partition name is defined). If persistent is <code>false</code>, then data may be lost when a Mule runtime restarts.</p> 
-           </div> 
-           <div class="paragraph"> 
-            <p><strong>Studio Field:</strong> Persistent (checkbox)<br> <strong>Default:</strong> <code>false</code><br> <strong>Java Type:</strong> boolean<br> <strong>MIME Type:</strong> <strong>/</strong><br> <strong>Encoding:</strong> none</p> 
-           </div> 
-          </div></td> 
-        </tr> 
-       </tbody> 
-      </table> 
-      <div class="paragraph"> 
-       <p>The following is an example objectstore configuration that specifies a partition named <code>customers</code> within the <code>defaultUserObjectStore</code>, and specifying that the object store should be persistent.</p> 
-      </div> 
-      <div class="listingblock"> 
-       <div class="content"> 
-        <pre class="CodeRay highlight"><code data-lang="xml"><span class="entity">&amp;lt;</span>objectstore:config name="ObjectStore__Configuration" partition="customer"  persistent="true"/<span class="entity">&amp;gt;</span></code></pre> 
+      </div></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>The identifier of the object store configuration. Other components must reference this configuration via this name.</p> 
        </div> 
-      </div> 
-      <div class="paragraph"> 
-       <p>If you do not specify a value for the objectstore-ref, the <code>_defaultUserObjectStore</code> is used, which is equivalent to this configuration:</p> 
-      </div> 
-      <div class="listingblock"> 
-       <div class="content"> 
-        <pre class="CodeRay highlight"><code data-lang="xml"><span class="entity">&amp;lt;</span>objectstore:config name="ObjectStore__Configuration" objectstore-ref="_defaultUserObjectStore"  persistent="true"/<span class="entity">&amp;gt;</span></code></pre> 
+       <div class="paragraph"> 
+        <p><strong>Studio Field:</strong> Name<br> <strong>Default:</strong> none<br> <strong>Java Type:</strong> String<br> <strong>MIME Type:</strong> <strong>/</strong><br> <strong>Encoding:</strong> UTF-8</p> 
        </div> 
-      </div> 
-      <div class="paragraph"> 
-       <p>If you don’t want to use one of the default object stores, you can define your own Java bean and reference it instead in the objectstore-ref attribute.</p> 
-      </div> 
-     </div> 
-    </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>doc:name</p> 
+       </div> 
+      </div></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>The string displayed in Anypoint Studio.</p> 
+       </div> 
+       <div class="paragraph"> 
+        <p><strong>Studio Field:</strong> Name<br> <strong>Default:</strong> none<br> <strong>Java Type:</strong> String<br> <strong>MIME Type:</strong> <strong>/</strong><br> <strong>Encoding:</strong> UTF-8</p> 
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>partition</p> 
+       </div> 
+      </div></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Unique name of the partition in the default in-memory or persistent object store. <strong>Important:</strong> You must specify a partition name in your configuration.</p> 
+       </div> 
+       <div class="paragraph"> 
+        <p><strong>Studio Field:</strong> Partition<br> <strong>Default:</strong> none<br> <strong>Java Type:</strong> String<br> <strong>MIME Type:</strong> <strong>/</strong><br> <strong>Encoding:</strong> UTF-8</p> 
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>objectStore-ref</p> 
+       </div> 
+      </div></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Optional. Reference to an object store spring bean instance. Use an instance depending on the context (stand-alone Mule runtime, Mule runtime cluster, or CloudHub cluster). You can also specify one of the default object stores by name <code>_defaultInMemoryObjectStore</code>, <code>_defaultUserObjectStore</code>, or <code>_defaultTransientUserObjectStore</code>. See <a href="#springbeans">About the Object Store Spring Bean Instances</a>. <strong>Note:</strong> You must specify <code>_defaultUserObjectStore</code> to get data to display in Runtime Manager’s Application Data user interface.</p> 
+       </div> 
+       <div class="paragraph"> 
+        <p><strong>Studio Field:</strong> Object Store Reference<br> <strong>Default:</strong> none<br> <strong>Java Type:</strong> String<br> <strong>MIME Type:</strong> none<br> <strong>Encoding:</strong> none</p> 
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>entryTtl</p> 
+       </div> 
+      </div></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Time To Live for stored values in milliseconds. If using this parameter, maxEntries, and expirationInterval are mandatory.</p> 
+       </div> 
+       <div class="paragraph"> 
+        <p><strong>Studio Field:</strong> Entry Ttl<br> <strong>Default:</strong> none<br> <strong>Java Type:</strong> Int<br> <strong>MIME Type:</strong> <strong>/</strong><br> <strong>Encoding:</strong> UTF-8</p> 
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>expirationInterval</p> 
+       </div> 
+      </div></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Specifies the expiration check interval in milliseconds.</p> 
+       </div> 
+       <div class="paragraph"> 
+        <p><strong>Studio Field:</strong> Expiration Interval<br> <strong>Default:</strong> none<br> <strong>Java Type:</strong> Int<br> <strong>MIME Type:</strong> <strong>/</strong><br> <strong>Encoding:</strong> none</p> 
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>maxEntries</p> 
+       </div> 
+      </div></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Specifies the maximum number of entries.</p> 
+       </div> 
+       <div class="paragraph"> 
+        <p><strong>Studio Field:</strong> Max Entries<br> <strong>Default:</strong> none<br> <strong>Java Type:</strong> Int<br> <strong>MIME Type:</strong> <strong>/</strong><br> <strong>Encoding:</strong> none</p> 
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>persistent</p> 
+       </div> 
+      </div></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Specifies if the required store needs to be persistent or not (this argument is ignored if the object store is passed by reference using the objectStore-ref attribute, or if no partition name is defined). If persistent is <code>false</code>, then data may be lost when a Mule runtime restarts. See <a href="#persistingdata">About Persisting Object Stores in Runtime Manager</a>.</p> 
+       </div> 
+       <div class="paragraph"> 
+        <p><strong>Studio Field:</strong> Persistent (checkbox)<br> <strong>Default:</strong> <code>false</code><br> <strong>Java Type:</strong> boolean<br> <strong>MIME Type:</strong> <strong>/</strong><br> <strong>Encoding:</strong> none</p> 
+       </div> 
+      </div></td> 
+    </tr> 
+   </tbody> 
+  </table> 
+  <div class="paragraph"> 
+   <p>The following is an example objectstore configuration that specifies a partition named <code>customers</code> within the <code>defaultUserObjectStore</code>, and specifying that the object store should be persistent.</p> 
+  </div> 
+  <div class="listingblock"> 
+   <div class="content"> 
+    <pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;objectstore:config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">ObjectStore__Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">partition</span>=<span class="string"><span class="delimiter">"</span><span class="content">customer</span><span class="delimiter">"</span></span>  <span class="attribute-name">persistent</span>=<span class="string"><span class="delimiter">"</span><span class="content">true</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></code></pre> 
    </div> 
+  </div> 
+  <div class="paragraph"> 
+   <p>If you do not specify a value for the objectstore-ref, the <code>_defaultUserObjectStore</code> is used, which is equivalent to this configuration:</p> 
+  </div> 
+  <div class="listingblock"> 
+   <div class="content"> 
+    <pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;objectstore:config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">ObjectStore__Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">objectstore-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">_defaultUserObjectStore</span><span class="delimiter">"</span></span>  <span class="attribute-name">persistent</span>=<span class="string"><span class="delimiter">"</span><span class="content">true</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></code></pre> 
+   </div> 
+  </div> 
+  <div class="paragraph"> 
+   <p>If you don’t want to use one of the default object stores, you can define your own Java bean and reference it instead in the objectstore-ref attribute.</p> 
   </div> 
   <div class="sect2"> 
    <h3 id="upgrading"><a class="anchor" href="#upgrading"></a>Updating from an Older Version</h3> 
@@ -2270,7 +2361,7 @@
     <!-- END article-content -->
     <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
                 <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#intro">Introduction</a></li><li><a class="scroll-menu-link" href="#prerequisites">Prerequisites</a></li><li><a class="scroll-menu-link" href="#namespace-and-schema">Namespace and Schema</a></li><li><a class="scroll-menu-link" href="#compatibility">Compatibility</a></li><li><a class="scroll-menu-link" href="#install">Installing the Object Store Connector</a></li><li><a class="scroll-menu-link" href="#config">Configuring the Object Store Connector</a></li><li><a class="scroll-menu-link" href="#using-the-connector">Using This Connector</a></li><li><a class="scroll-menu-link" href="#example-use-case">Example Use Case</a></li><li><a class="scroll-menu-link" href="#using-the-connector-in-a-mavenized-mule-app">Using the Connector in a Mavenized Mule App</a></li></ul></div></div><!-- /scroll-menu -->
+                <ul><li><a class="scroll-menu-link" href="#intro">Introduction</a></li><li><a class="scroll-menu-link" href="#prerequisites">Prerequisites</a></li><li><a class="scroll-menu-link" href="#namespace-and-schema">Namespace and Schema</a></li><li><a class="scroll-menu-link" href="#compatibility">Compatibility</a></li><li><a class="scroll-menu-link" href="#install">Installing the Object Store Connector</a></li><li><a class="scroll-menu-link" href="#springbeans">About the Object Store Spring Bean Instances</a></li><li><a class="scroll-menu-link" href="#config-global">Setting up the Global Configuration Using Studio Visual Editor</a></li><li><a class="scroll-menu-link" href="#setting-up-the-global-configuration-using-xml">Setting up the Global Configuration Using XML</a></li><li><a class="scroll-menu-link" href="#using-the-connector">Using This Connector</a></li><li><a class="scroll-menu-link" href="#example-use-case">Example Use Case</a></li><li><a class="scroll-menu-link" href="#using-the-connector-in-a-mavenized-mule-app">Using the Connector in a Mavenized Mule App</a></li></ul></div></div><!-- /scroll-menu -->
   </div>
 </div>
 <!-- START footer -->
