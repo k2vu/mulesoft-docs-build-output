@@ -1439,6 +1439,40 @@
     <li> <p>From the console, you can simulate API calls by submitting requests through the Web user interface.</p> </li> 
    </ol> 
   </div> 
+  <div class="sect2"> 
+   <h3 id="routing-logic"><a class="anchor" href="#routing-logic"></a>Routing Logic</h3> 
+   <div class="olist arabic"> 
+    <ol class="arabic"> 
+     <li> <p>If two sibling resources match a request, and one of them is static and the other parameterized, the static one is used.</p> 
+      <div class="paragraph"> 
+       <p>For example:</p> 
+      </div> </li> 
+    </ol> 
+   </div> 
+   <div class="listingblock"> 
+    <div class="content"> 
+     <pre>        /users:
+            /me:
+                get:
+            /{id}:
+                put:
+
+        get /users/me -&gt; 200 OK
+        put /users/me -&gt; 405 Method not allowed
+        put /users/it -&gt; 200 OK
+        get /users/it -&gt; 405 Method not allowed</pre> 
+    </div> 
+   </div> 
+   <div class="paragraph"> 
+    <p>+ . If there’s more than one parameterized resource at the same level (siblings) the behavior is nondeterministic. . The routing algorithm takes into account all resources even if they don’t have methods defined.</p> 
+   </div> 
+   <div class="paragraph"> 
+    <p>+ For example, based on definition of item 1:</p> 
+   </div> 
+   <div class="paragraph"> 
+    <p>+ <code>get /users → 405 Method not allowed</code></p> 
+   </div> 
+  </div> 
  </div> 
 </div>
     </div>
