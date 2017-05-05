@@ -1041,25 +1041,14 @@
   <div class="paragraph"> 
    <p>Your application can also store custom integration data as well, within the limits outlined below.</p> 
   </div> 
-  <div class="admonitionblock note"> 
-   <table> 
-    <tbody> 
-     <tr> 
-      <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-      <td class="content"> Object stores are handled in the way described in this document only for applications deployed to CloudHub workers. For applications that you deploy via the Runtime Manager to local servers, you must handle the storage of data in your own repository. See <a href="/runtime-manager/deployment-strategies">Deployment Strategies</a> for more details. </td> 
-     </tr> 
-    </tbody> 
-   </table> 
+  <div class="paragraph"> 
+   <p><strong>Notes:</strong></p> 
   </div> 
-  <div class="admonitionblock warning"> 
-   <table> 
-    <tbody> 
-     <tr> 
-      <td class="icon"> <i class="fa icon-warning" title="Warning"></i> </td> 
-      <td class="content"> Currently, all data in an object store is handled by servers in the <strong>US-East zone</strong>, regardless of what zone your application is deployed to. This may impact performance. </td> 
-     </tr> 
-    </tbody> 
-   </table> 
+  <div class="ulist"> 
+   <ul> 
+    <li> <p>Object stores are handled in the way described in this document only for applications deployed to CloudHub workers. For applications that you deploy via the Runtime Manager to local servers, you must handle the storage of data in your own repository. See <a href="/runtime-manager/deployment-strategies">Deployment Strategies</a> for more details.</p> </li> 
+    <li> <p>All data in an object store is handled by servers in the <strong>US-East zone</strong>, regardless of what zone your application is deployed to. This may impact performance.</p> </li> 
+   </ul> 
   </div> 
  </div> 
 </div> 
@@ -1067,7 +1056,19 @@
  <h2 id="storing-and-retrieving-data"><a class="anchor" href="#storing-and-retrieving-data"></a>Storing and Retrieving Data</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>To work with application data inside a Mule flow, use the <a href="https://anypoint.mulesoft.com/exchange/anypoint-platform/#!/object-store-integration-connector">Object Store connector</a>. The connector provides operations to store, retrieve, list, and remove data from a CloudHub Object Store.</p> 
+   <p>To work with application data inside a Mule flow, use the Object Store connector. The connector provides operations to store, retrieve, list, and remove data from a Runtime Manager Object Store.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p><strong>Note:</strong> You must specify a unique Partition name in the connector, and to view information in Runtime Manager &gt; Application Data, your connector project must contain an Object Store Reference to the <code>_defaultUserObjectStore</code> Spring bean instance.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>See:</p> 
+  </div> 
+  <div class="ulist"> 
+   <ul> 
+    <li> <p><a href="https://anypoint.mulesoft.com/exchange/anypoint-platform/#!/object-store-integration-connector">Object Store connector in Anypoint Exchange</a>.</p> </li> 
+    <li> <p><a href="/mule-user-guide/v/3.8/object-store-connector#springbeans">About the Object Store Spring Bean Instances</a>.</p> </li> 
+   </ul> 
   </div> 
   <div class="sect2"> 
    <h3 id="storing-oauth-data"><a class="anchor" href="#storing-oauth-data"></a>Storing OAuth Data</h3> 
@@ -1086,15 +1087,8 @@
   <div class="paragraph"> 
    <p><span class="image"><img src="./_images/applicationdata.png" alt="applicationdata"></span></p> 
   </div> 
-  <div class="admonitionblock tip"> 
-   <table> 
-    <tbody> 
-     <tr> 
-      <td class="icon"> <i class="fa icon-tip" title="Tip"></i> </td> 
-      <td class="content"> To make properties secure so that they’re not visible using the Runtime Manager UI or anywhere else, see <a href="/runtime-manager/secure-application-properties">Secure Application Policies</a>. </td> 
-     </tr> 
-    </tbody> 
-   </table> 
+  <div class="paragraph"> 
+   <p><strong>Tip:</strong> To make properties secure so that they’re not visible using the Runtime Manager UI or anywhere else, see <a href="/runtime-manager/secure-application-properties">Secure Application Policies</a>.</p> 
   </div> 
  </div> 
 </div> 
@@ -1102,10 +1096,10 @@
  <h2 id="semantics-and-storage-limits"><a class="anchor" href="#semantics-and-storage-limits"></a>Semantics and Storage Limits</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>The CloudHub object store provides read-after-write consistency and the last write wins in terms of updates.&nbsp;</p> 
+   <p>The Runtime Manager object store provides read-after-write consistency and the last write wins in terms of updates.&nbsp;</p> 
   </div> 
   <div class="paragraph"> 
-   <p>Additionally, CloudHub object store places these limits on your data:</p> 
+   <p>Additionally, Runtime Manager object store places these limits on your data:</p> 
   </div> 
   <div class="ulist"> 
    <ul> 
@@ -1121,7 +1115,7 @@
  <h2 id="advanced-information"><a class="anchor" href="#advanced-information"></a>Advanced Information</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>Internally, Mule has several different types of object stores. CloudHub provides an implementation of the user defined object store. This is for runtime information about your application, such as those use cases mentioned above. If you wish to access this object store directly, it can be found internally in the Mule Registry under the <code>_defaultUserObjectStore</code>. The Object Store module and connectors use this store to store all their data by default.</p> 
+   <p>Internally, Mule has several different types of object stores. Runtime Manager provides an implementation of the user defined object store. This is for runtime information about your application, such as those use cases mentioned above. If you wish to access this object store directly, it can be found internally in the Mule Registry under the <code>_defaultUserObjectStore</code>. The Object Store module and connectors use this store to store all their data by default.</p> 
   </div> 
  </div> 
 </div> 
@@ -1129,7 +1123,7 @@
  <h2 id="object-store-example"><a class="anchor" href="#object-store-example"></a>Object Store Example</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>To write data to the Runtime Manager’s Application Data object store:</p> 
+   <p>To write data to the Runtime Manager &gt; Application Data object store:</p> 
   </div> 
   <div class="olist arabic"> 
    <ol class="arabic"> 
@@ -1143,7 +1137,20 @@
        <li> <p><strong>HTTP</strong> connector - Receives the data sent by a <strong>curl</strong> command.<br> Settings: <strong>Host</strong>: <code>0.0.0.0</code>, <strong>Port</strong>: <code>8081</code>, <strong>Path</strong> (in Basic Settings) to <code>/store</code>, <strong>Allowed Methods</strong> set to <code>POST</code></p> </li> 
        <li> <p><strong>Object to String</strong> - Converts the input to a String.<br> Settings: Leave fields empty.</p> </li> 
        <li> <p><strong>JSON to Object</strong> - Converts the String to a Java Map object.<br> Settings: Set <strong>Return Class</strong> to <code>java.util.Map</code></p> </li> 
-       <li> <p><strong>ObjectStore</strong> - Stores data in the Runtime Manager Application Data area.<br> Settings: Set <strong>Connector Configuration</strong>: <code>ObjectStore_Configuration</code>, in the plus menu, specify a Partion Name, which can be any unique name. You can leave the other fields empty — If you specify a value for entryTtl, values for expirationInterval and maxEntries are also required. You can set entryTtl to 0 for never expire. For <strong>Operation</strong>: <code>Store</code>, <strong>Key</strong>: <code>#[payload.key]</code>, and <strong>Value Reference</strong>: <code>#[payload.value]</code></p> </li> 
+       <li> <p><strong>ObjectStore</strong> - Stores data in the Runtime Manager Application Data area.</p> 
+        <div class="paragraph"> 
+         <p>Settings:</p> 
+        </div> 
+        <div class="paragraph"> 
+         <p>In the plus menu:</p> 
+        </div> 
+        <div class="ulist"> 
+         <ul> 
+          <li> <p>You must specify a Partion Name, which can be any unique name.</p> </li> 
+          <li> <p>You must set the Object Store Reference to the <code>_defaultUserObjectStore</code> value.</p> </li> 
+          <li> <p>If you specify a value for entryTtl, values for expirationInterval and maxEntries are also required. You can set entryTtl to 0 for never expire. For <strong>Operation</strong>: <code>Store</code>, <strong>Key</strong>: <code>#[payload.key]</code>, and <strong>Value Reference</strong>: <code>#[payload.value]</code></p> </li> 
+         </ul> 
+        </div> </li> 
        <li> <p><strong>Set Payload</strong> - Displays a confirmation prompt that appears after you use the <strong>curl</strong> command.<br> Settings: Set <strong>Settings</strong> to <code>KEY: #[payload.key] AND VALUE: #[payload.value] WERE SAVED OK</code></p> 
         <div class="paragraph"> 
          <p>The source for this example is:</p> 
@@ -1189,6 +1196,8 @@
 32
 33
 34
+35
+36
 </pre></td> 
                <td class="code"><pre><span class="preprocessor">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 
@@ -1211,7 +1220,9 @@
 <span class="content">http://www.mulesoft.org/schema/mule/objectstore/current/mule-objectstore.xsd</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
     <span class="tag">&lt;http:listener-config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Listener_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">host</span>=<span class="string"><span class="delimiter">"</span><span class="content">0.0.0.0</span><span class="delimiter">"</span></span>
      <span class="attribute-name">port</span>=<span class="string"><span class="delimiter">"</span><span class="content">8081</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP Listener Configuration</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
-    <span class="tag">&lt;objectstore:config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">ObjectStore__Connector</span><span class="delimiter">"</span></span> <span class="attribute-name">partition</span>=<span class="string"><span class="delimiter">"</span><span class="content">mypartition</span><span class="delimiter">"</span></span> <span class="attribute-name">entryTtl</span>=<span class="string"><span class="delimiter">"</span><span class="content">0</span><span class="delimiter">"</span></span> <span class="attribute-name">expirationInterval</span>=<span class="string"><span class="delimiter">"</span><span class="content">42</span><span class="delimiter">"</span></span> <span class="attribute-name">maxEntries</span>=<span class="string"><span class="delimiter">"</span><span class="content">42</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">ObjectStore: Connector</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+    <span class="tag">&lt;objectstore:config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">ObjectStore__Connector</span><span class="delimiter">"</span></span> <span class="attribute-name">partition</span>=<span class="string"><span class="delimiter">"</span><span class="content">mypartition</span><span class="delimiter">"</span></span>
+    <span class="attribute-name">entryTtl</span>=<span class="string"><span class="delimiter">"</span><span class="content">0</span><span class="delimiter">"</span></span> <span class="attribute-name">expirationInterval</span>=<span class="string"><span class="delimiter">"</span><span class="content">42</span><span class="delimiter">"</span></span> <span class="attribute-name">maxEntries</span>=<span class="string"><span class="delimiter">"</span><span class="content">42</span><span class="delimiter">"</span></span>
+    <span class="attribute-name">objectStore-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">_defaultUserObjectStore</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">ObjectStore: Connector</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
     <span class="tag">&lt;flow</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">objectstoreFlow</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
         <span class="tag">&lt;http:listener</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Listener_Configuration</span><span class="delimiter">"</span></span>
         <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">"</span><span class="content">/store</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
@@ -1233,71 +1244,22 @@
      </div> </li> 
     <li> <p>Run this application as a Mule application to test it. After the application works, you can stop the application.</p> </li> 
     <li> <p>Export the application and save it as a zip file on your computer. Right-click the project name in Package Explorer, click Export &gt; Mule &gt; Anypoint Studio Project to Mule Deployable Archive.</p> </li> 
-    <li> <p>Log into <a href="https://anypoint.mulesoft.com/#/signin">Anypoint Platform</a> and click <strong>Runtime Manager</strong>. Deploy the application and use the zip file that you exported to your computer for the deployed application.</p> </li> 
+    <li> <p>Log into Anypoint Platform and click Runtime Manager. Deploy the application and use the zip file that you exported to your computer for the deployed application.</p> </li> 
     <li> <p>Start the deployed application.</p> </li> 
     <li> <p>From a command prompt, run this <strong>curl</strong> command, which sends a JSON-formatted key and value to the <code>http://objectstoredemo.cloudhub.io/store</code> example URL:</p> 
      <div class="listingblock"> 
       <div class="content"> 
        <pre class="CodeRay highlight"><code>curl -X POST -H "Content-Type: application/json" -d '{
     "key": "Test",
-    "value": "This text sent to the object store"
+    "value": "Test sent to the object store"
 }' "http://objectstoredemo.cloudhub.io/store"</code></pre> 
       </div> 
-     </div> 
-     <div class="paragraph"> 
-      <p>The JSON for the payload to send in this example is the same as specifying:</p> 
-     </div> 
-     <div class="listingblock"> 
-      <div class="content"> 
-       <pre class="CodeRay highlight"><code data-lang="code">
-            
-         <table class="CodeRay"> 
-          <tbody> 
-           <tr> 
-            <td class="line-numbers"><pre>1
-2
-3
-4
-</pre></td> 
-            <td class="code"><pre>{
-  “key”:”Test”,
-  “value”:"Test sent to the object store”
-}</pre></td> 
-           </tr> 
-          </tbody> 
-         </table></code></pre> 
-      </div> 
      </div> </li> 
-    <li> <p>In Runtime Manager, click the app name and click <strong>Application Data</strong>. The data from the curl command is now in the Application Data page:</p> 
+    <li> <p>In Runtime Manager, click the application’s name and click <strong>Application Data</strong>. The data from the curl command displays in the Application Data page:</p> 
      <div class="paragraph"> 
       <p><span class="image"><img src="./_images/objectstore-application-data.png" alt="objectstore-application-data"></span></p> 
      </div> </li> 
    </ol> 
-  </div> 
- </div> 
-</div> 
-<div class="sect1"> 
- <h2 id="see-also"><a class="anchor" href="#see-also"></a>See Also</h2> 
- <div class="sectionbody"> 
-  <div class="ulist"> 
-   <ul> 
-    <li> <p><a href="/runtime-manager/deploying-to-cloudhub">Deploy to CloudHub</a></p> </li> 
-    <li> <p><a href="/runtime-manager/managing-deployed-applications">Managing Deployed Applications</a></p> </li> 
-    <li> <p><a href="/runtime-manager/managing-applications-on-cloudhub">Managing Applications on CloudHub</a></p> </li> 
-    <li> <p>Read more about what <a href="/runtime-manager/cloudhub">CloudHub</a> is and what features it has</p> </li> 
-    <li> <p><a href="/runtime-manager/developing-applications-for-cloudhub">Developing Applications for CloudHub</a></p> </li> 
-    <li> <p><a href="/runtime-manager/deployment-strategies">Deployment Strategies</a></p> </li> 
-    <li> <p><a href="/runtime-manager/cloudhub-architecture">CloudHub architecture</a></p> </li> 
-    <li> <p><a href="/runtime-manager/monitoring">Monitoring Applications</a></p> </li> 
-    <li> <p><a href="/runtime-manager/cloudhub-fabric">CloudHub Fabric</a></p> </li> 
-    <li> <p><a href="/runtime-manager/managing-queues">Managing Queues</a></p> </li> 
-    <li> <p><a href="/runtime-manager/managing-schedules">Managing Schedules</a></p> </li> 
-    <li> <p><a href="/runtime-manager/managing-application-data-with-object-stores">Managing Application Data with Object Stores</a></p> </li> 
-    <li> <p><a href="/runtime-manager/anypoint-platform-cli">Command Line Tools</a></p> </li> 
-    <li> <p><a href="/runtime-manager/secure-application-properties">Secure Application Properties</a></p> </li> 
-    <li> <p><a href="/runtime-manager/virtual-private-cloud">Virtual Private Cloud</a></p> </li> 
-    <li> <p><a href="/runtime-manager/penetration-testing-policies">Penetration Testing Policies</a></p> </li> 
-   </ul> 
   </div> 
  </div> 
 </div>
@@ -1305,7 +1267,7 @@
     <!-- END article-content -->
     <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
                 <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#storing-and-retrieving-data">Storing and Retrieving Data</a></li><li><a class="scroll-menu-link" href="#viewing-application-data">Viewing Application Data</a></li><li><a class="scroll-menu-link" href="#semantics-and-storage-limits">Semantics and Storage Limits</a></li><li><a class="scroll-menu-link" href="#advanced-information">Advanced Information</a></li><li><a class="scroll-menu-link" href="#object-store-example">Object Store Example</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
+                <ul><li><a class="scroll-menu-link" href="#storing-and-retrieving-data">Storing and Retrieving Data</a></li><li><a class="scroll-menu-link" href="#viewing-application-data">Viewing Application Data</a></li><li><a class="scroll-menu-link" href="#semantics-and-storage-limits">Semantics and Storage Limits</a></li><li><a class="scroll-menu-link" href="#advanced-information">Advanced Information</a></li><li><a class="scroll-menu-link" href="#object-store-example">Object Store Example</a></li></ul></div></div><!-- /scroll-menu -->
   </div>
 </div>
 <!-- START footer -->
