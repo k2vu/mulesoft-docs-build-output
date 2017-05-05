@@ -15,7 +15,7 @@
   <script src="/js/scripts.js?t=1491597550"></script>
 
   <link rel="canonical" href="https://docs.mulesoft.com/mule-user-guide/v/3.8/deployment-scenarios" />
-  <meta name="description" content="The table below lists the standalone ways in which you can deploy a Mule runtime on premises, and some of the characteristics of each method.&nbs..." />
+  <meta name="description" content="This document covers the ways in which Mule runtime can be used to deploy applications in a standalone way. To take full advantage of the available..." />
   <meta class="swiftype" name="title" data-type="string" content="Embedded Mule Deployment Scenarios" />
   <meta class="swiftype" name="version" data-type="enum" content="3.8" />
 </head>
@@ -1028,15 +1028,8 @@
       <h1>Embedded Mule Deployment Scenarios</h1>
       <div id="preamble"> 
  <div class="sectionbody"> 
-  <div class="admonitionblock important"> 
-   <table> 
-    <tbody> 
-     <tr> 
-      <td class="icon"> <i class="fa icon-important" title="Important"></i> </td> 
-      <td class="content"> This document covers the ways in which Mule runtime can be used to deploy applications in a standalone way. To take full advantage of the available management and monitoring features, you should <a href="/runtime-manager/deploying-to-your-own-servers">deploy to your runtimes</a> via the <a href="anypoint.mulesoft.com">Anypoint Platform</a>. Read how this and other deployment strategies work <a href="/runtime-manager/deployment-strategies">here</a>. </td> 
-     </tr> 
-    </tbody> 
-   </table> 
+  <div class="paragraph"> 
+   <p>This document covers the ways in which Mule runtime can be used to deploy applications in a standalone way. To take full advantage of the available management and monitoring features, you should <a href="/runtime-manager/deploying-to-your-own-servers">deploy to your runtimes</a> via the <a href="anypoint.mulesoft.com">Anypoint Platform</a>. Read how this and other deployment strategies work <a href="/runtime-manager/deployment-strategies">here</a>.</p> 
   </div> 
   <div class="paragraph"> 
    <p>The table below lists the standalone ways in which you can deploy a Mule runtime on premises, and some of the characteristics of each method.&nbsp;</p> 
@@ -1136,7 +1129,7 @@
    </tbody> 
   </table> 
   <div class="paragraph"> 
-   <p>*When Mule is embedded in another container, the <a href="/mule-management-console/v/3.7">Mule Management Console</a>&nbsp;cannot perform auto-discovery or server restarts.</p> 
+   <p>*When Mule is embedded in another container, the <a href="/mule-management-console/v/3.8/">Mule Management Console</a>&nbsp;cannot perform auto-discovery or server restarts.</p> 
   </div> 
   <div class="admonitionblock tip"> 
    <table> 
@@ -1151,45 +1144,37 @@
  </div> 
 </div> 
 <div class="sect1"> 
- <h2 id="running-mule-in-standalone-mode"><a class="anchor" href="#running-mule-in-standalone-mode"></a>Running Mule in Standalone Mode</h2> 
+ <h2 id="about-running-mule-in-standalone-mode"><a class="anchor" href="#about-running-mule-in-standalone-mode"></a>About Running Mule in Standalone Mode</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
    <p>The most minimal approach is to run Mule Standalone from the command prompt, as a service or daemon, or from a script. As the simplest architecture, it reduces the number of points where errors can occur. It’s typically best for performance as well, since it reduces the number of layers and eliminates the inherent performance impact of an application server on the overall solution.</p> 
   </div> 
   <div class="paragraph"> 
-   <p>You can also run multiple applications side-by-side in a Mule instance using the Mule Deployment Model. This model supports live deployment and hot redeployment of applications. &nbsp;Further, Mule Standalone fully support for&nbsp;<a href="/mule-user-guide/v/3.8/mule-high-availability-ha-clusters">Mule High Availability</a> module and use of the <a href="/mule-management-console/v/3.7">Mule management console</a>.</p> 
+   <p>You can also run multiple applications side-by-side in a Mule instance using the Mule Deployment Model. This model supports live deployment and hot redeployment of applications. &nbsp;Further, Mule Standalone fully support for&nbsp;<a href="/mule-user-guide/v/3.8/mule-high-availability-ha-clusters">Mule High Availability</a> module and use of the <a href="/mule-management-console/v/3.8/">Mule management console</a>.</p> 
   </div> 
   <div class="paragraph"> 
    <p>For more information on deploing Mule apps, see <a href="/mule-user-guide/v/3.8/mule-deployment-model">Mule App Deployment Model</a>.</p> 
   </div> 
-  <div class="admonitionblock note"> 
-   <table> 
-    <tbody> 
-     <tr> 
-      <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-      <td class="content"> 
-       <div class="paragraph"> 
-        <p><strong>Mule Standalone vs. Application Server</strong></p> 
-       </div> 
-       <div class="paragraph"> 
-        <p>Listed below are some of the advantages of running Mule standalone vs running it as a web application deployed in an application server (Tomcat, WebSphere, JBoss, etc.)</p> 
-       </div> 
-       <div class="ulist"> 
-        <ul> 
-         <li> <p><strong>Wrapper control</strong>: Mule Standalone makes use of a Java Service Wrapper which controls the JVM from your operating system and starts Mule. The wrapper can handle system signals and provides better interaction between the JVM and the underlying operating system.&nbsp;</p> </li> 
-         <li> <p><strong>Smaller memory footprint</strong>: Mule standalone loads only the required resources for an application; an application server adds its own resources.</p> </li> 
-         <li> <p><strong>Anypoint DataMapper support</strong>: DataMapper is supported only on a Mule Enterprise Standalone runtime; other application servers do not support DataMapper.</p> </li> 
-         <li> <p><strong>Deployment and Application Management</strong>: Through the Mule Management Console, you have full control of the applications running on Mule Standalone, allowing you to deploy/undeploy applications and restart/stop the server. Other application servers do not support this visibility.</p> </li> 
-        </ul> 
-       </div> </td> 
-     </tr> 
-    </tbody> 
-   </table> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="about-mule-standalone-versus-application-server"><a class="anchor" href="#about-mule-standalone-versus-application-server"></a>About Mule Standalone Versus Application Server</h2> 
+ <div class="sectionbody"> 
+  <div class="paragraph"> 
+   <p>The following are some of the advantages of running Mule standalone vs running it as a web application deployed in an application server (Tomcat, WebSphere, JBoss, etc.).</p> 
+  </div> 
+  <div class="ulist"> 
+   <ul> 
+    <li> <p><strong>Wrapper control</strong>: Mule Standalone makes use of a Java Service Wrapper which controls the JVM from your operating system and starts Mule. The wrapper can handle system signals and provides better interaction between the JVM and the underlying operating system.&nbsp;</p> </li> 
+    <li> <p><strong>Smaller memory footprint</strong>: Mule standalone loads only the required resources for an application; an application server adds its own resources.</p> </li> 
+    <li> <p><strong>Anypoint DataMapper support</strong>: DataMapper is supported only on a Mule Enterprise Standalone runtime; other application servers do not support DataMapper.</p> </li> 
+    <li> <p><strong>Deployment and Application Management</strong>: Through the Mule Management Console, you have full control of the applications running on Mule Standalone, allowing you to deploy/undeploy applications and restart/stop the server. Other application servers do not support this visibility.</p> </li> 
+   </ul> 
   </div> 
  </div> 
 </div> 
 <div class="sect1"> 
- <h2 id="embedding-mule-in-a-java-application-or-webapp"><a class="anchor" href="#embedding-mule-in-a-java-application-or-webapp"></a>Embedding Mule in a Java Application or Webapp</h2> 
+ <h2 id="about-embedding-mule-in-a-java-application-or-webapp"><a class="anchor" href="#about-embedding-mule-in-a-java-application-or-webapp"></a>About Embedding Mule in a Java Application or Webapp</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
    <p>You can start and stop Mule from a Java application or embed it in a Webapp (such as a JSP or servlet). For general instructions, see <a href="/mule-user-guide/v/3.8/embedding-mule-in-a-java-application-or-webapp">Embedding Mule in a Java Application or Webapp</a>. Listed below are links to documentation which offer application server-specifc information regarding Mule application deployment.</p> 
@@ -1212,7 +1197,7 @@
  </div> 
 </div> 
 <div class="sect1"> 
- <h2 id="using-spring"><a class="anchor" href="#using-spring"></a>Using Spring</h2> 
+ <h2 id="about-using-spring"><a class="anchor" href="#about-using-spring"></a>About Using Spring</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
    <p>Mule fully integrates with Spring, allowing you to take advantage of Spring’s many features, including JNDI and EJB session beans. You can also use Spring remoting to access Mule from an external application. For details, see <a href="/mule-user-guide/v/3.8/using-mule-with-spring">Using Mule with Spring</a>.</p> 
@@ -1220,7 +1205,7 @@
  </div> 
 </div> 
 <div class="sect1"> 
- <h2 id="sharing-resources"><a class="anchor" href="#sharing-resources"></a>Sharing Resources</h2> 
+ <h2 id="about-sharing-resources"><a class="anchor" href="#about-sharing-resources"></a>About Sharing Resources</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
    <p>If you’re deploying multiple applications to the same place, in whichever of the ways explained above, and those applications could share the same resources, then you can create a common <strong>domain</strong> where you can define common configurations that can then be referenced by multiple projects. This allows you to, for example, expose different services in different projects through the same HTTP host and port and be able to deploy everything without any conflicts. <a href="/mule-user-guide/v/3.8/shared-resources">Read More</a>.</p> 
@@ -1228,7 +1213,7 @@
  </div> 
 </div> 
 <div class="sect1"> 
- <h2 id="defining-the-classpath-for-shared-resources"><a class="anchor" href="#defining-the-classpath-for-shared-resources"></a>Defining the Classpath for Shared Resources</h2> 
+ <h2 id="about-the-classpath-for-shared-resources"><a class="anchor" href="#about-the-classpath-for-shared-resources"></a>About the Classpath for Shared Resources</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
    <p>You can define where shared resources reside by editing the classpath statements in each Mule runtime’s wrapper.conf file. These statements indicate the order that folders are searched for files such as jars, property placeholder files, etc. The wrapper.conf file resides in the <code>mule-enterprise-MuleVersion</code> &gt; <strong>conf</strong> folder.</p> 
@@ -1261,7 +1246,7 @@ wrapper.java.classpath<span class="float">.3</span>=%MULE_HOME%/lib/boot<span cl
     <!-- END article-content -->
     <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
                 <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#running-mule-in-standalone-mode">Running Mule in Standalone Mode</a></li><li><a class="scroll-menu-link" href="#embedding-mule-in-a-java-application-or-webapp">Embedding Mule in a Java Application or Webapp</a></li><li><a class="scroll-menu-link" href="#using-spring">Using Spring</a></li><li><a class="scroll-menu-link" href="#sharing-resources">Sharing Resources</a></li><li><a class="scroll-menu-link" href="#defining-the-classpath-for-shared-resources">Defining the Classpath for Shared Resources</a></li></ul></div></div><!-- /scroll-menu -->
+                <ul><li><a class="scroll-menu-link" href="#about-running-mule-in-standalone-mode">About Running Mule in Standalone Mode</a></li><li><a class="scroll-menu-link" href="#about-mule-standalone-versus-application-server">About Mule Standalone Versus Application Server</a></li><li><a class="scroll-menu-link" href="#about-embedding-mule-in-a-java-application-or-webapp">About Embedding Mule in a Java Application or Webapp</a></li><li><a class="scroll-menu-link" href="#about-using-spring">About Using Spring</a></li><li><a class="scroll-menu-link" href="#about-sharing-resources">About Sharing Resources</a></li><li><a class="scroll-menu-link" href="#about-the-classpath-for-shared-resources">About the Classpath for Shared Resources</a></li></ul></div></div><!-- /scroll-menu -->
   </div>
 </div>
 <!-- START footer -->

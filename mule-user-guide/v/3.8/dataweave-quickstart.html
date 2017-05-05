@@ -1314,7 +1314,7 @@
   <div class="sect2"> 
    <h3 id="optional-create-a-mock-service-from-raml-file"><a class="anchor" href="#optional-create-a-mock-service-from-raml-file"></a>Optional: Create a Mock Service from RAML File</h3> 
    <div class="paragraph"> 
-    <p>Using the same RAML definition that you assigned to the second HTTP connector, you can easily build an API and a mock backend for it with <a href="/anypoint-platform-for-apis/apikit">APIKit</a>. In this way, when you run your application, your HTTP connector will be targeting this service and receiving an actual response without any errors being raised.</p> 
+    <p>Using the same RAML definition that you assigned to the second HTTP connector, you can easily build an API and a mock backend for it with <a href="/apikit">APIkit</a>. In this way, when you run your application, your HTTP connector will be targeting this service and receiving an actual response without any errors being raised.</p> 
    </div> 
    <div class="paragraph"> 
     <p>You can create your DataWeave mapping without going through any of this, just keep in mind that if you deploy your mule project and call its endpoint, you won’t get any response from it.</p> 
@@ -1338,36 +1338,27 @@
 <div class="sect1"> 
  <h2 id="phase-2-map-input-fields-to-output-fields"><a class="anchor" href="#phase-2-map-input-fields-to-output-fields"></a>Phase 2 - Map Input Fields to Output Fields</h2> 
  <div class="sectionbody"> 
-  <div class="olist arabic"> 
-   <ol class="arabic"> 
-    <li> <p>Use the <a href="/anypoint-studio/v/6/using-dataweave-in-studio#the-graphical-ui">DataWeave GUI</a> to create the actual mapping between the input and output fields. Simply click and drag a field in the input side to a field in the output side. The most obvious task is to match similarly named fields together, thus helping to validate the output data:</p> 
-     <div class="ulist"> 
-      <ul> 
-       <li> <p><code>address</code> and <code>address1</code></p> </li> 
-       <li> <p><code>city</code> and <code>city</code></p> </li> 
-       <li> <p><code>nationality</code> and <code>country</code>.</p> </li> 
-       <li> <p><code>email</code> and <code>email</code></p> </li> 
-       <li> <p><code>name</code> and <code>name</code></p> </li> 
-       <li> <p><code>postalCode</code> and <code>postCode</code></p> </li> 
-       <li> <p><code>state</code> and <code>stateOrProvince</code></p> 
-        <div class="admonitionblock note"> 
-         <table> 
-          <tbody> 
-           <tr> 
-            <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-            <td class="content"> The <code>address2</code> and <code>size</code> fields in the output side should remain unassigned. </td> 
-           </tr> 
-          </tbody> 
-         </table> 
-        </div> </li> 
-      </ul> 
-     </div> 
-     <div class="imageblock"> 
-      <div class="content"> 
-       <img src="./_images/dataweave-quickstart-1984d.png" alt="map"> 
-      </div> 
-     </div> </li> 
-   </ol> 
+  <div class="paragraph"> 
+   <p>Use the <a href="/anypoint-studio/v/6/using-dataweave-in-studio#the-graphical-ui">DataWeave GUI</a> to create the actual mapping between the input and output fields. Simply click and drag a field in the input side to a field in the output side. The most obvious task is to match similarly named fields together, thus helping to validate the output data:</p> 
+  </div> 
+  <div class="ulist"> 
+   <ul> 
+    <li> <p><code>address</code> and <code>address1</code></p> </li> 
+    <li> <p><code>city</code> and <code>city</code></p> </li> 
+    <li> <p><code>nationality</code> and <code>country</code>.</p> </li> 
+    <li> <p><code>email</code> and <code>email</code></p> </li> 
+    <li> <p><code>name</code> and <code>name</code></p> </li> 
+    <li> <p><code>postalCode</code> and <code>postCode</code></p> </li> 
+    <li> <p><code>state</code> and <code>stateOrProvince</code></p> </li> 
+   </ul> 
+  </div> 
+  <div class="paragraph"> 
+   <p><strong>Note:</strong> The <code>address2</code> and <code>size</code> fields in the output side should remain unassigned.</p> 
+  </div> 
+  <div class="imageblock"> 
+   <div class="content"> 
+    <img src="./_images/dataweave-quickstart-1984d.png" alt="map"> 
+   </div> 
   </div> 
   <div class="paragraph"> 
    <p>Each of these actions draws a connection in the UI and generates DataWeave code in the text editor. At this point your DataWeave code should look like this:</p> 
@@ -1493,15 +1484,8 @@
   <div class="paragraph"> 
    <p>The Transform Message component provides realtime feedback in the editor; a preview of what your output data would look like at <em>run time</em>, which is responsive to changes in the metadata structure in <em>design time</em>.</p> 
   </div> 
-  <div class="admonitionblock note"> 
-   <table> 
-    <tbody> 
-     <tr> 
-      <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-      <td class="content"> The <strong>Preview</strong> can only show an output preview when given valid input sample data. </td> 
-     </tr> 
-    </tbody> 
-   </table> 
+  <div class="paragraph"> 
+   <p><strong>NOte:</strong> The <strong>Preview</strong> can only show an output preview when given valid input sample data.</p> 
   </div> 
   <div class="olist arabic"> 
    <ol class="arabic"> 
@@ -1524,7 +1508,7 @@
       </div> 
      </div> </li> 
     <li> <p>Try populating the "state" field in the input sample with TX and note how the "size" field in the output sample is updated in real time.</p> </li> 
-    <li> <p>Save your Mule project and Deploy it to Studio’s virtual server to try it out by right-clicking on the project and selecting <code>Run As → Mule Application</code>.</p> </li> 
+    <li> <p>Save your Mule project and Deploy it to Studio’s virtual server to try it out by right-clicking on the project and selecting <code>Run As &gt; Mule Application</code>.</p> </li> 
     <li> <p>Using a tool like Postman (chrome extension), send an HTTP POST request to <a href="http://localhost:8081/place-order" class="bare">http://localhost:8081/place-order</a> with a XML body like the one below:</p> </li> 
    </ol> 
   </div> 
@@ -1605,17 +1589,17 @@
        <img src="./_images/dataweave-quickstart-e4466.png" alt="dataweave quickstart e4466"> 
       </div> 
      </div> </li> 
-    <li> <p>Click on the first HTTP Connector to open its properties editor, then in the <strong>Connector Configuration</strong> select the one that you have already created in prior steps.</p> </li> 
+    <li> <p>Click the first HTTP Connector to open its properties editor, then in the <strong>Connector Configuration</strong> select the one that you have already created in prior steps.</p> </li> 
     <li> <p>In the <strong>Path</strong> field enter <code>get-products</code>. Once deployed, this generates a reachable endpoint at <code>0.0.0.0:8081/get-products</code></p> </li> 
-    <li> <p>Click on the second HTTP connector to open its properties editor, then in the <strong>Connector Configuration</strong> select the one that you have already created in prior steps, which is linked to the RAML file you downloaded.</p> </li> 
+    <li> <p>Click the second HTTP connector to open its properties editor, then in the <strong>Connector Configuration</strong> select the one that you have already created in prior steps, which is linked to the RAML file you downloaded.</p> </li> 
     <li> <p>Set the Path to <strong>/products</strong> and the Method to <strong>GET</strong>.</p> </li> 
-    <li> <p>If you go and click on the Transform Message component, note that its input has been populated with the appropriate data structure to send, via a GET request to /products.</p> 
+    <li> <p>If you go and click the Transform Message component, note that its input has been populated with the appropriate data structure to send, via a GET request to /products.</p> 
      <div class="imageblock"> 
       <div class="content"> 
        <img src="./_images/dataweave-quickstart-2196b.png" alt="dataweave quickstart 2196b"> 
       </div> 
      </div> </li> 
-    <li> <p>Click on the <strong>Preview</strong> button to open the output preview. As there is no sample data available, you will be prompted to provide a sample.</p> 
+    <li> <p>Click the <strong>Preview</strong> button to open the output preview. As there is no sample data available, you will be prompted to provide a sample.</p> 
      <div class="imageblock"> 
       <div class="content"> 
        <img src="./_images/dataweave-quickstart-be7fd.png" alt="dataweave quickstart be7fd"> 
@@ -1698,7 +1682,7 @@
    <p>As with the other Transform Message component used in the first example of this Quickstart guide, in the <strong>input section</strong> you can see a tree that describes the data structure. As there’s no metadata about the desired output, there isn’t anything specified in the output section though. In this example we will write the DataWeave code <strong>manually</strong> to access more advanced features than are offered through the UI.</p> 
   </div> 
   <div class="paragraph"> 
-   <p>Click on your Transform Message component. In the <a href="/anypoint-studio/v/6/using-dataweave-in-studio#the-dataweave-text-editor">DataWeave text editor</a> replace the curly brackets '{}' for 'payload'.</p> 
+   <p>Click your Transform Message component. In the <a href="/anypoint-studio/v/6/using-dataweave-in-studio#the-dataweave-text-editor">DataWeave text editor</a> replace the curly brackets '{}' for 'payload'.</p> 
   </div> 
   <div class="imageblock"> 
    <div class="content"> 
