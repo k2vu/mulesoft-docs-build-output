@@ -1038,7 +1038,7 @@
    <p>Up to Mule 3.3.x, all file poll requests sent to a cluster were channeled through a single node in that cluster. This ensured file consistency by avoiding the possibility of file system sync issues, but had the disadvantage of introducing a bottleneck, reducing the performance of the cluster.</p> 
   </div> 
   <div class="paragraph"> 
-   <p>Mule 3.4 introduces file polling for clusters' distributed file systems, which makes it possible to poll files in all cluster nodes. Enabled by default, this feature is used by the following endpoints:</p> 
+   <p>In the current version file polling for clusters' distributed file systems makes it possible to poll files in all cluster nodes. Enabled by default, this feature is used by the following endpoints:</p> 
   </div> 
   <div class="ulist"> 
    <ul> 
@@ -1054,18 +1054,8 @@
  <div class="paragraph"> 
   <p>To use distributed file polling, the flow’s <a href="/mule-user-guide/v/3.8/flow-processing-strategies">Processing Strategy</a> must be synchronous. If the processing strategy is asynchronous, Mule will automatically disable distributed file polling, and revert to the old behavior.</p> 
  </div> 
- <div class="admonitionblock tip"> 
-  <table> 
-   <tbody> 
-    <tr> 
-     <td class="icon"> <i class="fa icon-tip" title="Tip"></i> </td> 
-     <td class="content"> 
-      <div class="paragraph"> 
-       <p>You can create and configure clusters with the graphical interface available in the <a href="/mule-management-console/v/3.3">Mule Management Console</a>, or manually by <a href="/mule-management-console/v/3.8/creating-or-disbanding-a-cluster">editing the cluster configuration file.</a> For additional configuration options, including cluster network parameters, see <a href="/mule-user-guide/v/3.8/creating-and-managing-a-cluster-manually">Creating and Managing a Cluster Manually</a>.</p> 
-      </div> </td> 
-    </tr> 
-   </tbody> 
-  </table> 
+ <div class="paragraph"> 
+  <p>You can create and configure clusters with the graphical interface available in the <a href="/mule-management-console/v/3.8/">Mule Management Console</a>, or manually by <a href="/mule-management-console/v/3.8/creating-or-disbanding-a-cluster">editing the cluster configuration file.</a> For additional configuration options, including cluster network parameters, see <a href="/mule-user-guide/v/3.8/creating-and-managing-a-cluster-manually">Creating and Managing a Cluster Manually</a>.</p> 
  </div> 
 </div>
     </div>
