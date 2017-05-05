@@ -1446,12 +1446,10 @@
      <li> <p>If two sibling resources match a request, and one of them is static and the other parameterized, the static one is used.</p> 
       <div class="paragraph"> 
        <p>For example:</p> 
-      </div> </li> 
-    </ol> 
-   </div> 
-   <div class="listingblock"> 
-    <div class="content"> 
-     <pre>        /users:
+      </div> 
+      <div class="listingblock"> 
+       <div class="content"> 
+        <pre>        /users:
             /me:
                 get:
             /{id}:
@@ -1461,16 +1459,17 @@
         put /users/me -&gt; 405 Method not allowed
         put /users/it -&gt; 200 OK
         get /users/it -&gt; 405 Method not allowed</pre> 
-    </div> 
-   </div> 
-   <div class="paragraph"> 
-    <p>+ . If there’s more than one parameterized resource at the same level (siblings) the behavior is nondeterministic. . The routing algorithm takes into account all resources even if they don’t have methods defined.</p> 
-   </div> 
-   <div class="paragraph"> 
-    <p>+ For example, based on definition of item 1:</p> 
-   </div> 
-   <div class="paragraph"> 
-    <p>+ <code>get /users → 405 Method not allowed</code></p> 
+       </div> 
+      </div> </li> 
+     <li> <p>If there’s more than one parameterized resource at the same level (siblings) the behavior is nondeterministic.</p> </li> 
+     <li> <p>The routing algorithm takes into account all resources even if they don’t have methods defined.</p> 
+      <div class="paragraph"> 
+       <p>For example, based on definition of item 1:</p> 
+      </div> 
+      <div class="paragraph"> 
+       <p><code>get /users → 405 Method not allowed</code></p> 
+      </div> </li> 
+    </ol> 
    </div> 
   </div> 
  </div> 
