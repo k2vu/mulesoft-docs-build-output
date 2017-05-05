@@ -212,7 +212,7 @@
 <i></i>
 <a href="/getting-started/anypoint-exchange">Anypoint Exchange</a><ul>
 <li><i></i><a href="/getting-started/exchange-faq">Anypoint Exchange FAQ</a></li></ul></li>
-<li><i></i><a href="/getting-started/build-a-hello-world-application">How to Create a Mule App</a></li><li><i></i><a href="/getting-started/anypoint-connector">Anypoint Connector Tutorial</a></li><li><i></i><a href="/getting-started/mule-message">How to Work with a Mule Message</a></li><li><i></i><a href="/getting-started/content-based-routing">How to Route Mule Messages Using a Switch Statement</a></li><li><i></i><a href="/getting-started/deploy-to-cloudhub">Deploy to CloudHub</a></li></ul></li>
+<li><i></i><a href="/getting-started/build-a-hello-world-application">Tutorial: Creating a Mule App</a></li><li><i></i><a href="/getting-started/anypoint-connector">Anypoint Connector Tutorial</a></li><li><i></i><a href="/getting-started/mule-message">How to Work with a Mule Message</a></li><li><i></i><a href="/getting-started/content-based-routing">How to Route Mule Messages Using a Switch Statement</a></li><li><i></i><a href="/getting-started/deploy-to-cloudhub">Deploy to CloudHub</a></li></ul></li>
 <li class="expanded">
 <i></i>
 <a href="/mule-user-guide/v/3.8/">Mule Runtime</a><ul style="display: block;">
@@ -1045,7 +1045,7 @@
  <h2 id="configuring-auto-paging"><a class="anchor" href="#configuring-auto-paging"></a>Configuring Auto-Paging</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>The table below lists the&nbsp;<a href="/mule-user-guide/v/3.8/anypoint-connectors">Anypoint Connectors</a>&nbsp;which support auto-paging functionality. (Additionally, you can use auto-paging with any custom-built connector which supports auto-paging functionality.)</p> 
+   <p>The table below lists the&nbsp;<a href="/mule-user-guide/v/3.8/anypoint-connectors">Anypoint Connectors</a>&nbsp;which support auto-paging functionality. Additionally, you can use auto-paging with any custom-built connector which supports auto-paging functionality.</p> 
   </div> 
   <div class="sect2"> 
    <h3 id="connectors-with-auto-paging"><a class="anchor" href="#connectors-with-auto-paging"></a>Connectors with Auto-Paging</h3> 
@@ -1059,291 +1059,228 @@
      <li> <p>Google Spreadsheets</p> </li> 
      <li> <p>Google Tasks</p> </li> 
      <li> <p>Marketo</p> </li> 
-     <li> <p>Microsoft Dynamics CRM (on Demand)</p> </li> 
-     <li> <p>Microsoft Dynamics CRM (on Premise)</p> </li> 
+     <li> <p>Microsoft Dynamics CRM (On Demand)</p> </li> 
+     <li> <p>Microsoft Dynamics CRM (On Premise)</p> </li> 
      <li> <p>NetSuite</p> </li> 
      <li> <p>QuickBooks</p> </li> 
      <li> <p>Salesforce <em>(bundled with Studio)</em></p> </li> 
     </ul> 
    </div> 
    <div class="paragraph"> 
-    <p>Learn how to <a href="/anypoint-studio/v/6/installing-extensions">add connectors</a>&nbsp;to your instance of Anypoint Studio.</p> 
-   </div> 
-   <div class="panel panel-default no-padding"> 
-    <div class="panel-heading no-padding"> 
-     <!-- Nav tabs --> 
-     <ul class="nav nav-tabs" role="tablist"> 
-      <li class="active"><a href="#tab-1_1" role="tab" data-toggle="tab">Studio Visual Editor</a></li> 
-      <li><a href="#tab-1_2" role="tab" data-toggle="tab">XML Editor</a></li> 
-     </ul> 
-    </div> 
-    <div class="panel-body tab-content no-padding"> 
-     <div class="tab-pane in active fade no-padding" id="tab-1_1"> 
-      <div class="olist arabic"> 
-       <ol class="arabic"> 
-        <li> <p>To make the <strong>Paging</strong> section visible in a connector, you must first select an <strong>Operation</strong> which outputs a collection, for example <code>Get calendar list</code>. Otherwise, Studio does not display the Paging section in the properties editor.</p> </li> 
-        <li> <p>Enter an integer in the <strong>Fetch Size</strong> field to indicate the batch size of objects in a "page". For example, set the Fetch Size to <code>50</code> to return information in batches of 50 objects.<br></p> 
-         <div class="paragraph"> 
-          <p><span class="image"><img src="./_images/googlecalendarpagingex.png" alt="googlecalendarpagingex"></span></p> 
-         </div> 
-         <table class="tableblock frame-all grid-all spread"> 
-          <colgroup> 
-           <col> 
-           <col> 
-           <col> 
-          </colgroup> 
-          <thead> 
-           <tr> 
-            <th class="tableblock halign-left valign-top">Attribute</th> 
-            <th class="tableblock halign-left valign-top">Default Value</th> 
-            <th class="tableblock halign-left valign-top">Description</th> 
-           </tr> 
-          </thead> 
-          <tbody> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Fetch Size</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">100</p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">Specify the number of objects that Mule returns in each page.</p></td> 
-           </tr> 
-          </tbody> 
-         </table> </li> 
-       </ol> 
-      </div> 
-     </div> 
-     <div class="tab-pane fade no-padding" id="tab-1_2"> 
-      <div class="olist arabic"> 
-       <ol class="arabic"> 
-        <li> <p>To the connector in your flow, add a <code>fetchSize</code> attribute.</p> </li> 
-        <li> <p>Set the value of the attribute to an integer to indicate the batch size of objects in a "page". For example, set <code>fetchSize</code> to <code>50</code> to return information in batches of 50 objects.</p> 
-         <div class="listingblock"> 
-          <div class="content"> 
-           <pre class="CodeRay highlight"><code data-lang="xml">
-       
-                
-             <table class="CodeRay"> 
-              <tbody> 
-               <tr> 
-                <td class="line-numbers"><pre>1
-2
-3
-</pre></td> 
-                <td class="code"><pre><span class="entity">&amp;lt;</span>flow name="for-screenshotsFlow"<span class="entity">&amp;gt;</span>
-    <span class="entity">&amp;lt;</span>google-calendars:get-calendar-list config-ref="Google_Calendars" doc:name="Google Calendars Paging Example" fetchSize="50"/<span class="entity">&amp;gt;</span>
-<span class="entity">&amp;lt;</span>/flow<span class="entity">&amp;gt;</span></pre></td> 
-               </tr> 
-              </tbody> 
-             </table></code></pre> 
-          </div> 
-         </div> 
-         <table class="tableblock frame-all grid-all spread"> 
-          <colgroup> 
-           <col> 
-           <col> 
-           <col> 
-          </colgroup> 
-          <thead> 
-           <tr> 
-            <th class="tableblock halign-left valign-top">Property</th> 
-            <th class="tableblock halign-left valign-top">Default Value</th> 
-            <th class="tableblock halign-left valign-top">Description</th> 
-           </tr> 
-          </thead> 
-          <tbody> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><code>fetchSize</code></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">100</p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">Specify the number of objects that Mule returns in each page.</p></td> 
-           </tr> 
-          </tbody> 
-         </table> </li> 
-       </ol> 
-      </div> 
-     </div> 
-    </div> 
+    <p>Learn how to <a href="/getting-started/anypoint-exchange#installing-a-connector-from-anypoint-exchange">add connectors</a>&nbsp;to your instance of Anypoint Studio.</p> 
    </div> 
   </div> 
-  <div class="sect2"> 
-   <h3 id="handling-auto-paged-output"><a class="anchor" href="#handling-auto-paged-output"></a>Handling Auto-Paged Output</h3> 
-   <div class="paragraph"> 
-    <p>When you use a connector that employs paging, Mule creates an iterator object that splits the payload into manageable pages. Regardless of the page-size, the iterator pushes out objects one at a time, then fetches the next pages on demand. To process the paginated output, you must use elements in your flow that can handle collections, such as a <a href="/mule-user-guide/v/3.8/foreach">Foreach scope</a>, a collection splitter, a <a href="/mule-user-guide/v/3.8/dataweave">Transform Message component</a>, etc. Because Mule processes the set of pages one page at a time, it prevents memory usage from exceeding its limits.</p> 
-   </div> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="to-configure-using-studio-visual-editor"><a class="anchor" href="#to-configure-using-studio-visual-editor"></a>To Configure Using Studio Visual Editor</h2> 
+ <div class="sectionbody"> 
+  <div class="olist arabic"> 
+   <ol class="arabic"> 
+    <li> <p>To make the <strong>Paging</strong> section visible in a connector, you must first select an <strong>Operation</strong> which outputs a collection, for example <code>Get calendar list</code>. Otherwise, Studio does not display the Paging section in the properties editor.</p> </li> 
+    <li> <p>Enter an integer in the <strong>Fetch Size</strong> field to indicate the batch size of objects in a "page". For example, set the Fetch Size to <code>50</code> to return information in batches of 50 objects.</p> 
+     <div class="paragraph"> 
+      <p><span class="image"><img src="./_images/googlecalendarpagingex.png" alt="googlecalendarpagingex"></span></p> 
+     </div> 
+     <table class="tableblock frame-all grid-all spread"> 
+      <colgroup> 
+       <col> 
+       <col> 
+       <col> 
+      </colgroup> 
+      <thead> 
+       <tr> 
+        <th class="tableblock halign-left valign-top">Attribute</th> 
+        <th class="tableblock halign-left valign-top">Default Value</th> 
+        <th class="tableblock halign-left valign-top">Description</th> 
+       </tr> 
+      </thead> 
+      <tbody> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Fetch Size</strong></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">100</p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Specify the number of objects that Mule returns in each page.</p></td> 
+       </tr> 
+      </tbody> 
+     </table> </li> 
+   </ol> 
   </div> 
-  <div class="sect2"> 
-   <h3 id="example"><a class="anchor" href="#example"></a>Example</h3> 
-   <div class="panel panel-default no-padding"> 
-    <div class="panel-heading no-padding"> 
-     <!-- Nav tabs --> 
-     <ul class="nav nav-tabs" role="tablist"> 
-      <li class="active"><a href="#tab-2_1" role="tab" data-toggle="tab">Studio Visual Editor</a></li> 
-      <li><a href="#tab-2_2" role="tab" data-toggle="tab">XML Editor</a></li> 
-     </ul> 
-    </div> 
-    <div class="panel-body tab-content no-padding"> 
-     <div class="tab-pane in active fade no-padding" id="tab-2_1"> 
-      <div class="olist arabic"> 
-       <ol class="arabic"> 
-        <li> <p>Drag an <strong>HTTP</strong> endpoint onto the canvas.</p> </li> 
-        <li> <p>Set its <strong>Path</strong> to <code>authenticate</code>.</p> </li> 
-        <li> <p>Create a <strong>Connector Configuration</strong> element for the HTTP endpoint. Set its <strong>Host</strong> to <code>localhost</code> and its <strong>Port</strong> to <strong>8081</strong></p> </li> 
-        <li> <p>Add a <strong>Google Calendars</strong> connector to the flow, then set its <strong>Operation</strong> to <code>Authorize.</code></p> </li> 
-        <li> <p>Create a <strong>Google Calendars</strong> <strong>Global Element,</strong> then configure its <strong>Consumer Key</strong> and <strong>Consumer secret</strong>.</p> </li> 
-        <li> <p>Create a new flow dragging in a new <strong>HTTP</strong> endpoint.</p> </li> 
-        <li> <p>Set its <strong>Path</strong> to <code>get_events</code>.</p> </li> 
-        <li> <p>Add a new <strong>Google Calendars</strong> connector to the new flow.</p> </li> 
-        <li> <p>Set its <strong>Operation</strong> to <code>Get Events</code> and its <strong>Fetch Size</strong> to <code>50</code>.</p> </li> 
-        <li> <p>Add a <strong>Foreach</strong> <strong>scope</strong> after the Google Contacts connector, and a <strong>Logger</strong> inside the Foreach scope.</p> 
-         <div class="paragraph"> 
-          <p><span class="image"><img src="./_images/autopaging-with-google-calendars.png" alt="autopaging google cal flow"></span></p> 
-         </div> </li> 
-       </ol> 
-      </div> 
-      <div class="paragraph"> 
-       <p>When a message reaches the Google Calendar connector, the Logger outputs a separate message for each object. If there are more than 50 objects, Mule paginates the output.</p> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="to-configure-using-the-xml-editor"><a class="anchor" href="#to-configure-using-the-xml-editor"></a>To Configure Using the XML Editor</h2> 
+ <div class="sectionbody"> 
+  <div class="olist arabic"> 
+   <ol class="arabic"> 
+    <li> <p>To the connector in your flow, add a <code>fetchSize</code> attribute.</p> </li> 
+    <li> <p>Set the value of the attribute to an integer to indicate the batch size of objects in a "page". For example, set <code>fetchSize</code> to <code>50</code> to return information in batches of 50 objects.</p> 
+     <div class="listingblock"> 
+      <div class="content"> 
+       <pre class="CodeRay highlight"><code data-lang="xml">
+            
+         <table class="CodeRay"> 
+          <tbody> 
+           <tr> 
+            <td class="line-numbers"><pre>1
+2
+3
+</pre></td> 
+            <td class="code"><pre><span class="tag">&lt;flow</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">for-screenshotsFlow</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;google-calendars:get-calendar-list</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">Google_Calendars</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Google Calendars Paging Example</span><span class="delimiter">"</span></span> <span class="attribute-name">fetchSize</span>=<span class="string"><span class="delimiter">"</span><span class="content">50</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+<span class="tag">&lt;/flow&gt;</span></pre></td> 
+           </tr> 
+          </tbody> 
+         </table></code></pre> 
       </div> 
      </div> 
-     <div class="tab-pane fade no-padding" id="tab-2_2"> 
-      <div class="olist arabic"> 
-       <ol class="arabic"> 
-        <li> <p>Create a <strong>google-contacts</strong> <strong>Global Element,</strong> then define its <strong>Consumer Key</strong> and <strong>Consumer secret</strong>.</p> 
-         <div class="listingblock"> 
-          <div class="content"> 
-           <pre class="CodeRay highlight"><code data-lang="xml">
-       
-                
-             <table class="CodeRay"> 
-              <tbody> 
-               <tr> 
-                <td class="line-numbers"><pre>1
+     <table class="tableblock frame-all grid-all spread"> 
+      <colgroup> 
+       <col> 
+       <col> 
+       <col> 
+      </colgroup> 
+      <thead> 
+       <tr> 
+        <th class="tableblock halign-left valign-top">Property</th> 
+        <th class="tableblock halign-left valign-top">Default Value</th> 
+        <th class="tableblock halign-left valign-top">Description</th> 
+       </tr> 
+      </thead> 
+      <tbody> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>fetchSize</code></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">100</p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Specify the number of objects that Mule returns in each page.</p></td> 
+       </tr> 
+      </tbody> 
+     </table> </li> 
+   </ol> 
+  </div> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="handling-auto-paged-output"><a class="anchor" href="#handling-auto-paged-output"></a>Handling Auto-Paged Output</h2> 
+ <div class="sectionbody"> 
+  <div class="paragraph"> 
+   <p>When you use a connector that employs paging, Mule creates an iterator object that splits the payload into manageable pages. Regardless of the page-size, the iterator pushes out objects one at a time, then fetches the next pages on demand. To process the paginated output, you must use elements in your flow that can handle collections, such as a <a href="/mule-user-guide/v/3.8/foreach">Foreach scope</a>, a collection splitter, a <a href="/mule-user-guide/v/3.8/dataweave">Transform Message component</a>, etc. Because Mule processes the set of pages one page at a time, it prevents memory usage from exceeding its limits.</p> 
+  </div> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="example-using-studio-visual-editor"><a class="anchor" href="#example-using-studio-visual-editor"></a>Example Using Studio Visual Editor</h2> 
+ <div class="sectionbody"> 
+  <div class="olist arabic"> 
+   <ol class="arabic"> 
+    <li> <p>Drag an <strong>HTTP</strong> endpoint onto the canvas.</p> </li> 
+    <li> <p>Set its <strong>Path</strong> to <code>authenticate</code>.</p> </li> 
+    <li> <p>Create a <strong>Connector Configuration</strong> element for the HTTP endpoint. Set its <strong>Host</strong> to <code>localhost</code> and its <strong>Port</strong> to <strong>8081</strong></p> </li> 
+    <li> <p>Add a <strong>Google Calendars</strong> connector to the flow, then set its <strong>Operation</strong> to <code>Authorize.</code></p> </li> 
+    <li> <p>Create a <strong>Google Calendars</strong> <strong>Global Element,</strong> then configure its <strong>Consumer Key</strong> and <strong>Consumer secret</strong>.</p> </li> 
+    <li> <p>Create a new flow dragging in a new <strong>HTTP</strong> endpoint.</p> </li> 
+    <li> <p>Set its <strong>Path</strong> to <code>get_events</code>.</p> </li> 
+    <li> <p>Add a new <strong>Google Calendars</strong> connector to the new flow.</p> </li> 
+    <li> <p>Set its <strong>Operation</strong> to <code>Get Events</code> and its <strong>Fetch Size</strong> to <code>50</code>.</p> </li> 
+    <li> <p>Add a <strong>Foreach</strong> <strong>scope</strong> after the Google Contacts connector, and a <strong>Logger</strong> inside the Foreach scope.</p> 
+     <div class="paragraph"> 
+      <p><span class="image"><img src="./_images/autopaging-with-google-calendars.png" alt="autopaging google cal flow"></span></p> 
+     </div> </li> 
+   </ol> 
+  </div> 
+  <div class="paragraph"> 
+   <p>When a message reaches the Google Calendar connector, the Logger outputs a separate message for each object. If there are more than 50 objects, Mule paginates the output.</p> 
+  </div> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="example-using-xml"><a class="anchor" href="#example-using-xml"></a>Example Using XML</h2> 
+ <div class="sectionbody"> 
+  <div class="olist arabic"> 
+   <ol class="arabic"> 
+    <li> <p>Create a <strong>google-contacts</strong> <strong>Global Element,</strong> then define its <strong>Consumer Key</strong> and <strong>Consumer secret</strong>.</p> 
+     <div class="listingblock"> 
+      <div class="content"> 
+       <pre class="CodeRay highlight"><code data-lang="xml">
+            
+         <table class="CodeRay"> 
+          <tbody> 
+           <tr> 
+            <td class="line-numbers"><pre>1
 2
 3
 </pre></td> 
-                <td class="code"><pre><span class="entity">&amp;lt;</span>google-contacts:config-with-oauth name="Google_Contacts" consumerKey="" consumerSecret="" doc:name="Google Contacts" applicationName="Mule-GoogleContactsConnector"<span class="entity">&amp;gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="entity">&amp;lt;</span>google-contacts:oauth-callback-config domain="localhost" path="auth" remotePort="8081"/<span class="entity">&amp;gt;</span>
-<span class="entity">&amp;lt;</span>/google-contacts:config-with-oauth<span class="entity">&amp;gt;</span></pre></td> 
-               </tr> 
-              </tbody> 
-             </table></code></pre> 
-          </div> 
-         </div> </li> 
-        <li> <p>Create an <strong>HTTP</strong> connector and set the value of its <strong>Path</strong> to <code>authenticate</code>.</p> 
-         <div class="listingblock"> 
-          <div class="content"> 
-           <pre class="CodeRay highlight"><code data-lang="xml">
-       
-                
-             <table class="CodeRay"> 
-              <tbody> 
-               <tr> 
-                <td class="line-numbers"><pre>1
-</pre></td> 
-                <td class="code"><pre><span class="entity">&amp;lt;</span>http:listener config-ref="HTTP_Listener_Configuration" path="authenticate" doc:name="HTTP"/<span class="entity">&amp;gt;</span></pre></td> 
-               </tr> 
-              </tbody> 
-             </table></code></pre> 
-          </div> 
-         </div> </li> 
-        <li> <p>Outside the flow, create a configuration element that matches the name referenced by the connector. Set the host to <strong>localhost</strong> and the port to <strong>8081</strong>.</p> 
-         <div class="listingblock"> 
-          <div class="content"> 
-           <pre class="CodeRay highlight"><code data-lang="xml">
-       
-                
-             <table class="CodeRay"> 
-              <tbody> 
-               <tr> 
-                <td class="line-numbers"><pre>1
-</pre></td> 
-                <td class="code"><pre><span class="entity">&amp;lt;</span>http:listener-config name="HTTP_Listener_Configuration" host="localhost" port="8081" doc:name="HTTP Listener Configuration"/<span class="entity">&amp;gt;</span></pre></td> 
-               </tr> 
-              </tbody> 
-             </table></code></pre> 
-          </div> 
-         </div> </li> 
-        <li> <p>Add a <strong>Google Calendars connector</strong> setting its <strong>operation</strong> to <code>authorize</code>.</p> 
-         <div class="listingblock"> 
-          <div class="content"> 
-           <pre class="CodeRay highlight"><code data-lang="xml">
-       
-                
-             <table class="CodeRay"> 
-              <tbody> 
-               <tr> 
-                <td class="line-numbers"><pre>1
-</pre></td> 
-                <td class="code"><pre><span class="entity">&amp;lt;</span>google-contacts:authorize config-ref="Google_Contacts" doc:name="Google Contacts"/<span class="entity">&amp;gt;</span>&nbsp;</pre></td> 
-               </tr> 
-              </tbody> 
-             </table></code></pre> 
-          </div> 
-         </div> </li> 
-        <li> <p>Create a new flow with a new <strong>HTTP</strong> endpoint. Set the value of its <strong>Path</strong> to <code>get_events</code>, and reference the same configuration element as the other connector.</p> 
-         <div class="listingblock"> 
-          <div class="content"> 
-           <pre class="CodeRay highlight"><code data-lang="xml">
-       
-                
-             <table class="CodeRay"> 
-              <tbody> 
-               <tr> 
-                <td class="line-numbers"><pre>1
-</pre></td> 
-                <td class="code"><pre><span class="entity">&amp;lt;</span>http:listener config-ref="HTTP_Listener_Configuration" path="get_events" doc:name="HTTP Connector"/<span class="entity">&amp;gt;</span></pre></td> 
-               </tr> 
-              </tbody> 
-             </table></code></pre> 
-          </div> 
-         </div> </li> 
-        <li> <p>Add a new <strong>Google Contacts connector</strong> in the new flow setting its <strong>operation</strong> to <code>get-events</code> and <strong>fetchSize</strong> to <code>50</code>.</p> 
-         <div class="listingblock"> 
-          <div class="content"> 
-           <pre class="CodeRay highlight"><code data-lang="xml">
-       
-                
-             <table class="CodeRay"> 
-              <tbody> 
-               <tr> 
-                <td class="line-numbers"><pre>1
-</pre></td> 
-                <td class="code"><pre><span class="entity">&amp;lt;</span>google-calendars:get-events config-ref="Google_Calendars1" doc:name="Google Calendars Paging Example" fetchSize="50" calendarId="myCal"/<span class="entity">&amp;gt;</span></pre></td> 
-               </tr> 
-              </tbody> 
-             </table></code></pre> 
-          </div> 
-         </div> </li> 
-        <li> <p>After the Google Calendars connector, add a <strong>Foreach</strong> to the flow, then add a <strong>Logger</strong> as a child element inside Foreach element.</p> 
-         <div class="listingblock"> 
-          <div class="content"> 
-           <pre class="CodeRay highlight"><code data-lang="xml">
-       
-                
-             <table class="CodeRay"> 
-              <tbody> 
-               <tr> 
-                <td class="line-numbers"><pre>1
-2
-3
-</pre></td> 
-                <td class="code"><pre><span class="entity">&amp;lt;</span>foreach doc:name="For Each"<span class="entity">&amp;gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="entity">&amp;lt;</span>logger message="#[message.payload.getEmailAddresses()]" level="INFO" doc:name="Logger"/<span class="entity">&amp;gt;</span>
-<span class="entity">&amp;lt;</span>/foreach<span class="entity">&amp;gt;</span></pre></td> 
-               </tr> 
-              </tbody> 
-             </table></code></pre> 
-          </div> 
-         </div> </li> 
-       </ol> 
+            <td class="code"><pre><span class="tag">&lt;google-contacts:config-with-oauth</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Google_Contacts</span><span class="delimiter">"</span></span> <span class="attribute-name">consumerKey</span>=<span class="string"><span class="delimiter">"</span><span class="delimiter">"</span></span> <span class="attribute-name">consumerSecret</span>=<span class="string"><span class="delimiter">"</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Google Contacts</span><span class="delimiter">"</span></span> <span class="attribute-name">applicationName</span>=<span class="string"><span class="delimiter">"</span><span class="content">Mule-GoogleContactsConnector</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;google-contacts:oauth-callback-config</span> <span class="attribute-name">domain</span>=<span class="string"><span class="delimiter">"</span><span class="content">localhost</span><span class="delimiter">"</span></span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">"</span><span class="content">auth</span><span class="delimiter">"</span></span> <span class="attribute-name">remotePort</span>=<span class="string"><span class="delimiter">"</span><span class="content">8081</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+<span class="tag">&lt;/google-contacts:config-with-oauth&gt;</span></pre></td> 
+           </tr> 
+          </tbody> 
+         </table></code></pre> 
       </div> 
-      <div class="sect2"> 
-       <h3 id="final-flows"><a class="anchor" href="#final-flows"></a>Final Flows</h3> 
-       <div class="listingblock"> 
-        <div class="content"> 
-         <pre class="CodeRay highlight"><code data-lang="xml">
-     
-              
-           <table class="CodeRay"> 
-            <tbody> 
-             <tr> 
-              <td class="line-numbers"><pre>1
+     </div> </li> 
+    <li> <p>Create an <strong>HTTP</strong> connector and set the value of its <strong>Path</strong> to <code>authenticate</code>.</p> 
+     <div class="listingblock"> 
+      <div class="content"> 
+       <pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;http:listener</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Listener_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">"</span><span class="content">authenticate</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></code></pre> 
+      </div> 
+     </div> </li> 
+    <li> <p>Outside the flow, create a configuration element that matches the name referenced by the connector. Set the host to <strong>localhost</strong> and the port to <strong>8081</strong>.</p> 
+     <div class="listingblock"> 
+      <div class="content"> 
+       <pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;http:listener-config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Listener_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">host</span>=<span class="string"><span class="delimiter">"</span><span class="content">localhost</span><span class="delimiter">"</span></span> <span class="attribute-name">port</span>=<span class="string"><span class="delimiter">"</span><span class="content">8081</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP Listener Configuration</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></code></pre> 
+      </div> 
+     </div> </li> 
+    <li> <p>Add a <strong>Google Calendars connector</strong> setting its <strong>operation</strong> to <code>authorize</code>.</p> 
+     <div class="listingblock"> 
+      <div class="content"> 
+       <pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;google-contacts:authorize</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">Google_Contacts</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Google Contacts</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>&nbsp;</code></pre> 
+      </div> 
+     </div> </li> 
+    <li> <p>Create a new flow with a new <strong>HTTP</strong> endpoint. Set the value of its <strong>Path</strong> to <code>get_events</code>, and reference the same configuration element as the other connector.</p> 
+     <div class="listingblock"> 
+      <div class="content"> 
+       <pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;http:listener</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Listener_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">"</span><span class="content">get_events</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP Connector</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></code></pre> 
+      </div> 
+     </div> </li> 
+    <li> <p>Add a new <strong>Google Contacts connector</strong> in the new flow setting its <strong>operation</strong> to <code>get-events</code> and <strong>fetchSize</strong> to <code>50</code>.</p> 
+     <div class="listingblock"> 
+      <div class="content"> 
+       <pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;google-calendars:get-events</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">Google_Calendars1</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Google Calendars Paging Example</span><span class="delimiter">"</span></span> <span class="attribute-name">fetchSize</span>=<span class="string"><span class="delimiter">"</span><span class="content">50</span><span class="delimiter">"</span></span> <span class="attribute-name">calendarId</span>=<span class="string"><span class="delimiter">"</span><span class="content">myCal</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></code></pre> 
+      </div> 
+     </div> </li> 
+    <li> <p>After the Google Calendars connector, add a <strong>Foreach</strong> to the flow, then add a <strong>Logger</strong> as a child element inside Foreach element.</p> 
+     <div class="listingblock"> 
+      <div class="content"> 
+       <pre class="CodeRay highlight"><code data-lang="xml">
+            
+         <table class="CodeRay"> 
+          <tbody> 
+           <tr> 
+            <td class="line-numbers"><pre>1
+2
+3
+</pre></td> 
+            <td class="code"><pre><span class="tag">&lt;foreach</span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">For Each</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;logger</span> <span class="attribute-name">message</span>=<span class="string"><span class="delimiter">"</span><span class="content">#[message.payload.getEmailAddresses()]</span><span class="delimiter">"</span></span> <span class="attribute-name">level</span>=<span class="string"><span class="delimiter">"</span><span class="content">INFO</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Logger</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+<span class="tag">&lt;/foreach&gt;</span></pre></td> 
+           </tr> 
+          </tbody> 
+         </table></code></pre> 
+      </div> 
+     </div> </li> 
+   </ol> 
+  </div> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="example-final-flows"><a class="anchor" href="#example-final-flows"></a>Example Final Flows</h2> 
+ <div class="sectionbody"> 
+  <div class="listingblock"> 
+   <div class="content"> 
+    <pre class="CodeRay highlight"><code data-lang="xml">
+         
+      <table class="CodeRay"> 
+       <tbody> 
+        <tr> 
+         <td class="line-numbers"><pre>1
 2
 3
 4
@@ -1355,29 +1292,24 @@
 10
 11
 </pre></td> 
-              <td class="code"><pre><span class="entity">&amp;lt;</span>flow name="authorizeAndAuthenticate"<span class="entity">&amp;gt;</span>
-    <span class="entity">&amp;lt;</span>http:listener config-ref="HTTP_Listener_Configuration" path="authenticate" doc:name="HTTP"/<span class="entity">&amp;gt;</span>
-    <span class="entity">&amp;lt;</span>google-calendars:authorize config-ref="Google_Calendars" doc:name="Google Calendars"/<span class="entity">&amp;gt;</span>
-<span class="entity">&amp;lt;</span>/flow<span class="entity">&amp;gt;</span>
-<span class="entity">&amp;lt;</span>flow name="GoogleCalAutoPage"<span class="entity">&amp;gt;</span>
-    <span class="entity">&amp;lt;</span>http:listener config-ref="HTTP_Listener_Configuration" path="get_events" doc:name="HTTP"/<span class="entity">&amp;gt;</span>
-    <span class="entity">&amp;lt;</span>google-calendars:get-events config-ref="Google_Calendars" doc:name="Google Calendars Paging Example" fetchSize="50" calendarId="myCal"/<span class="entity">&amp;gt;</span>
-    <span class="entity">&amp;lt;</span>foreach doc:name="For Each"<span class="entity">&amp;gt;</span>
-        <span class="entity">&amp;lt;</span>logger level="INFO" doc:name="Logger"/<span class="entity">&amp;gt;</span>
-    <span class="entity">&amp;lt;</span>/foreach<span class="entity">&amp;gt;</span>
-<span class="entity">&amp;lt;</span>/flow<span class="entity">&amp;gt;</span></pre></td> 
-             </tr> 
-            </tbody> 
-           </table></code></pre> 
-        </div> 
-       </div> 
-       <div class="paragraph"> 
-        <p>When a message reaches the Google Contacts connector, the Logger outputs a separate message for each object. If there are more than 50 objects, Mule paginates the output. See below for a complete example.</p> 
-       </div> 
-      </div> 
-     </div> 
-    </div> 
+         <td class="code"><pre><span class="tag">&lt;flow</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">authorizeAndAuthenticate</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;http:listener</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Listener_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">"</span><span class="content">authenticate</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+    <span class="tag">&lt;google-calendars:authorize</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">Google_Calendars</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Google Calendars</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+<span class="tag">&lt;/flow&gt;</span>
+<span class="tag">&lt;flow</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">GoogleCalAutoPage</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;http:listener</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Listener_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">"</span><span class="content">get_events</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+    <span class="tag">&lt;google-calendars:get-events</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">Google_Calendars</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Google Calendars Paging Example</span><span class="delimiter">"</span></span> <span class="attribute-name">fetchSize</span>=<span class="string"><span class="delimiter">"</span><span class="content">50</span><span class="delimiter">"</span></span> <span class="attribute-name">calendarId</span>=<span class="string"><span class="delimiter">"</span><span class="content">myCal</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+    <span class="tag">&lt;foreach</span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">For Each</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;logger</span> <span class="attribute-name">level</span>=<span class="string"><span class="delimiter">"</span><span class="content">INFO</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Logger</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+    <span class="tag">&lt;/foreach&gt;</span>
+<span class="tag">&lt;/flow&gt;</span></pre></td> 
+        </tr> 
+       </tbody> 
+      </table></code></pre> 
    </div> 
+  </div> 
+  <div class="paragraph"> 
+   <p>When a message reaches the Google Contacts connector, the Logger outputs a separate message for each object. If there are more than 50 objects, Mule paginates the output. See below for a complete example.</p> 
   </div> 
  </div> 
 </div> 
@@ -1506,7 +1438,7 @@
     <!-- END article-content -->
     <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
                 <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#prerequisites">Prerequisites</a></li><li><a class="scroll-menu-link" href="#configuring-auto-paging">Configuring Auto-Paging</a></li><li><a class="scroll-menu-link" href="#additional-mel-expressions">Additional MEL Expressions</a></li><li><a class="scroll-menu-link" href="#another-paging-example">Another Paging Example</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
+                <ul><li><a class="scroll-menu-link" href="#prerequisites">Prerequisites</a></li><li><a class="scroll-menu-link" href="#configuring-auto-paging">Configuring Auto-Paging</a></li><li><a class="scroll-menu-link" href="#to-configure-using-studio-visual-editor">To Configure Using Studio Visual Editor</a></li><li><a class="scroll-menu-link" href="#to-configure-using-the-xml-editor">To Configure Using the XML Editor</a></li><li><a class="scroll-menu-link" href="#handling-auto-paged-output">Handling Auto-Paged Output</a></li><li><a class="scroll-menu-link" href="#example-using-studio-visual-editor">Example Using Studio Visual Editor</a></li><li><a class="scroll-menu-link" href="#example-using-xml">Example Using XML</a></li><li><a class="scroll-menu-link" href="#example-final-flows">Example Final Flows</a></li><li><a class="scroll-menu-link" href="#additional-mel-expressions">Additional MEL Expressions</a></li><li><a class="scroll-menu-link" href="#another-paging-example">Another Paging Example</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
   </div>
 </div>
 <!-- START footer -->
