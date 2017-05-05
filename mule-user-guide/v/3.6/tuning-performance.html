@@ -1141,11 +1141,24 @@
   <div class="paragraph"> 
    <p>Where <code>maxThreadsActive</code> is the number of threads that run concurrently and <code>maxBufferSize</code> is the number of requests that can wait in the queue for threads to be released.</p> 
   </div> 
-  <div class="paragraph"> 
-   <p><strong>Note</strong>: &nbsp;<code>maxBufferSize</code> defines the maximum number of requests that are buffered instead of requesting a new thread. New threads create until reaching <code>minThreads</code>. After that, a request is buffered until <code>maxBufferSize</code> requests are queued. Then new threads create until <code>maxThreads</code> is reached.</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>In other words, if you configure a threading profile with <code>poolExhaustedAction=WAIT</code> with a <code>maxBufferSize</code> greater than zero, the thread pool does not grow from <code>minThreads</code> towards <code>maxThreads</code> until the queue completely fills up.</p> 
+  <div class="admonitionblock warning"> 
+   <table> 
+    <tbody> 
+     <tr> 
+      <td class="icon"> <i class="fa icon-warning" title="Warning"></i> </td> 
+      <td class="content"> 
+       <div class="paragraph"> 
+        <p><code>maxBufferSize</code> defines the maximum number of requests that are buffered instead of requesting a new thread. New threads create until reaching <code>minThreads</code>. After that, a request is buffered until <code>maxBufferSize</code> requests are queued. Then new threads create until <code>maxThreads</code> is reached.</p> 
+       </div> 
+       <div class="paragraph"> 
+        <p>In other words, if you configure a threading profile with <code>poolExhaustedAction=WAIT</code> with a <code>maxBufferSize</code> greater than zero, the thread pool does not grow from <code>minThreads</code> towards <code>maxThreads</code> until the queue completely fills up.</p> 
+       </div> 
+       <div class="paragraph"> 
+        <p>Incorrect combinations of thread configurations and maxBufferSize values can cause difficulties to identify outages with no apparent cause.<br> Stress should be used to find and validate appropriate configurations.</p> 
+       </div> </td> 
+     </tr> 
+    </tbody> 
+   </table> 
   </div> 
   <div class="sect2"> 
    <h3 id="calculating-the-flow-threads"><a class="anchor" href="#calculating-the-flow-threads"></a>Calculating the Flow Threads</h3> 
