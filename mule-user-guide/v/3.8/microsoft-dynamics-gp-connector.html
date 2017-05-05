@@ -1070,7 +1070,7 @@
    <p>The Microsoft Dynamics GP connector enables Mule applications to interact with the Microsoft Dynamics Great Plains (GP) Web Services.</p> 
   </div> 
   <div class="paragraph"> 
-   <p>Read through this user guide to understand how to set up and configure a basic flow using the connector. Track feature additions, compatibility, limitations and API version updates with each release of the connector using the <a href="/release-notes/microsoft-dynamics-gp-connector-release-notes">Connector Release Notes</a>. Review the connector operations and functionality using the <a href="https://mulesoft.github.io/ms-dynamics-gp-connector/">Technical Reference</a> alongside the <a href="https://www.mulesoft.com/exchange#!/?types=example&amp;searchTerm=dynamics%20gp">demo applications</a>.</p> 
+   <p>Read through this user guide to understand how to set up and configure a basic flow using the connector. Track feature additions, compatibility, limitations and API version updates with each release of the connector using the <a href="/release-notes/microsoft-dynamics-gp-connector-release-notes">Connector Release Notes</a>. Review the connector operations and functionality using the <a href="https://mulesoft.github.io/ms-dynamics-gp-connector/">Technical Reference</a> alongside the <a href="https://www.mulesoft.com/exchange#!/import-contacts-msdynamics">demo applications</a>.</p> 
   </div> 
   <div class="paragraph"> 
    <p>MuleSoft maintains this connector under the <a href="/mule-user-guide/v/3.8/anypoint-connectors#connector-categories"><em>Select</em></a> support policy.</p> 
@@ -1081,22 +1081,18 @@
  <h2 id="prerequisites"><a class="anchor" href="#prerequisites"></a>Prerequisites</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>This document assumes that you are familiar with Mule, <a href="/mule-user-guide/v/3.8/anypoint-connectors">Anypoint Connectors</a>, and <a href="/mule-fundamentals/v/3.8/anypoint-studio-essentials">Anypoint Studio Essentials</a>. To increase your familiarity with Studio, consider completing a <a href="/mule-fundamentals/v/3.8/basic-studio-tutorial">Anypoint Studio Tutorial</a>. This page requires some basic knowledge of <a href="/mule-fundamentals/v/3.8/mule-concepts">Mule Concepts</a>, <a href="/mule-fundamentals/v/3.8/elements-in-a-mule-flow">Elements in a Mule Flow</a>, and <a href="/mule-fundamentals/v/3.8/global-elements">Global Elements</a>.</p> 
+   <p>This document assumes that you are familiar with Mule, <a href="/mule-user-guide/v/3.8/anypoint-connectors">Anypoint Connectors</a>, and <a href="/anypoint-studio/v/6/">Studio Essentials</a>. To increase your familiarity with Studio, consider completing the <a href="/anypoint-studio/v/6/basic-studio-tutorial">Basic Studio Tutorial</a>. This page requires some basic knowledge of <a href="/mule-user-guide/v/3.8/mule-concepts">Key Concepts</a>, <a href="/mule-user-guide/v/3.8/elements-in-a-mule-flow">Elements in a Mule Flow</a>, and <a href="/mule-user-guide/v/3.8/global-elements">Global Elements</a>.</p> 
   </div> 
   <div class="sect2"> 
    <h3 id="hardware-and-software-requirements"><a class="anchor" href="#hardware-and-software-requirements"></a>Hardware and Software Requirements</h3> 
    <div class="paragraph"> 
-    <p>For hardware and software requirements, please visit the <a href="/mule-user-guide/v/3.8/hardware-and-software-requirements">Hardware and Software Requirements</a> page.<br> The connector interacts with <strong>Dynamics GP web service</strong>. In order to make the integration with Mule Platform the Dynamics GP instance must be exposed through the Dynamics GP web service. Information about web service configuration can be found in <a href="http://download.microsoft.com/download/3/8/D/38D2BF76-1A06-46BA-B9CD-4283FEDD7447/WSInstallAdminGuide.pdf">Web Services Installation and Administration Guide</a>.</p> 
+    <p>For hardware and software requirements, please visit the <a href="/mule-user-guide/v/3.8/hardware-and-software-requirements">Hardware and Software Requirements</a> page.</p> 
    </div> 
-   <div class="admonitionblock important"> 
-    <table> 
-     <tbody> 
-      <tr> 
-       <td class="icon"> <i class="fa icon-important" title="Important"></i> </td> 
-       <td class="content"> Java Cryptography Extension (JCE) is <strong>required</strong> for the authentication process. JCE-7 can be downloaded from <a href="http://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html">Java Cryptography Extension (JCE)</a>. </td> 
-      </tr> 
-     </tbody> 
-    </table> 
+   <div class="paragraph"> 
+    <p>The connector interacts with <strong>Dynamics GP web service</strong>. In order to make the integration with Mule Platform the Dynamics GP instance must be exposed through the Dynamics GP web service. Information about web service configuration can be found in <a href="http://download.microsoft.com/download/3/8/D/38D2BF76-1A06-46BA-B9CD-4283FEDD7447/WSInstallAdminGuide.pdf">Web Services Installation and Administration Guide</a>.</p> 
+   </div> 
+   <div class="paragraph"> 
+    <p>Java Cryptography Extension (JCE) is <strong>required</strong> for the authentication process. JCE-7 can be downloaded from <a href="http://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html">Java Cryptography Extension (JCE)</a>.</p> 
    </div> 
   </div> 
   <div class="sect2"> 
@@ -1137,7 +1133,7 @@
  <h2 id="installing-the-connector"><a class="anchor" href="#installing-the-connector"></a>Installing the Connector</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>You can install the connector in Anypoint Studio using the instructions in <a href="/mule-fundamentals/v/3.8/anypoint-exchange#installing-a-connector-from-anypoint-exchange">Installing a Connector from Anypoint Exchange</a>.</p> 
+   <p>You can install the connector in Anypoint Studio using the instructions in <a href="/getting-started/anypoint-exchange#installing-a-connector-from-anypoint-exchange">Installing a Connector from Anypoint Exchange</a>.</p> 
   </div> 
  </div> 
 </div> 
@@ -1149,41 +1145,20 @@
   </div> 
   <div class="olist arabic"> 
    <ol class="arabic"> 
-    <li> <p><em>Kerberos Authentication</em>: establishes a connection with Microsoft Dynamics GP on-premises using the native Kerberos authentication.</p> 
-     <div class="admonitionblock note"> 
-      <table> 
-       <tbody> 
-        <tr> 
-         <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-         <td class="content"> The Kerberos protocol defines how clients interact with a network authentication service. Clients obtain tickets from the Kerberos Key Distribution Center (KDC), and they present these tickets to servers when connections are established. Kerberos tickets represent the client’s network credentials. </td> 
-        </tr> 
-       </tbody> 
-      </table> 
+    <li> <p><em>Kerberos Authentication</em>: Establishes a connection with Microsoft Dynamics GP on-premises using the native Kerberos authentication.</p> 
+     <div class="paragraph"> 
+      <p>The Kerberos protocol defines how clients interact with a network authentication service. Clients obtain tickets from the Kerberos Key Distribution Center (KDC), and they present these tickets to servers when connections are established. Kerberos tickets represent the client’s network credentials.</p> 
      </div> </li> 
-    <li> <p><em>NTLM Authentication</em>: establishes a connection with Microsoft Dynamics GP on-premises using the legacy NTLM authentication.</p> 
-     <div class="admonitionblock note"> 
-      <table> 
-       <tbody> 
-        <tr> 
-         <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-         <td class="content"> Windows Challenge/Response (NTLM) is the authentication protocol used on networks that include systems running the Windows operating system and on stand-alone systems. NTLM credentials are based on data obtained during the interactive logon process and consist of a domain name, a user name, and a one-way hash of the user’s password. </td> 
-        </tr> 
-       </tbody> 
-      </table> 
+    <li> <p><em>NTLM Authentication</em>: Establishes a connection with Microsoft Dynamics GP on-premises using the legacy NTLM authentication.</p> 
+     <div class="paragraph"> 
+      <p>Windows Challenge/Response (NTLM) is the authentication protocol used on networks that include systems running the Windows operating system and on stand-alone systems. NTLM credentials are based on data obtained during the interactive logon process and consist of a domain name, a user name, and a one-way hash of the user’s password.</p> 
      </div> </li> 
    </ol> 
   </div> 
   <div class="sect2"> 
    <h3 id="kerberos-authentication"><a class="anchor" href="#kerberos-authentication"></a>Kerberos Authentication</h3> 
-   <div class="admonitionblock important"> 
-    <table> 
-     <tbody> 
-      <tr> 
-       <td class="icon"> <i class="fa icon-important" title="Important"></i> </td> 
-       <td class="content"> For Kerberos configuration make sure that the server is configured to use Kerberos authentication. More information can be found in <a href="http://download.microsoft.com/download/3/8/D/38D2BF76-1A06-46BA-B9CD-4283FEDD7447/WSInstallAdminGuide.pdf">Web Services Installation and Administration Guide</a> chapter 8. </td> 
-      </tr> 
-     </tbody> 
-    </table> 
+   <div class="paragraph"> 
+    <p>For Kerberos configuration, make sure that the server is configured to use Kerberos authentication. More information can be found in <a href="http://download.microsoft.com/download/3/8/D/38D2BF76-1A06-46BA-B9CD-4283FEDD7447/WSInstallAdminGuide.pdf">Web Services Installation and Administration Guide</a> chapter 8.</p> 
    </div> 
    <div class="olist arabic"> 
     <ol class="arabic"> 
@@ -1210,28 +1185,98 @@
     </thead> 
     <tbody> 
      <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Username</strong></p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">The Windows username to connect to Dynamics GP.</p></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p><strong>Username</strong></p> 
+        </div> 
+       </div></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p>The Windows username to connect to Dynamics GP.</p> 
+        </div> 
+       </div></td> 
      </tr> 
      <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Password</strong></p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">The password for the user to connect to Dynamics GP.</p></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p><strong>Password</strong></p> 
+        </div> 
+       </div></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p>The password for the user to connect to Dynamics GP.</p> 
+        </div> 
+       </div></td> 
      </tr> 
      <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Endpoint URL</strong></p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">Base URL where the SOAP services are exposed in the form <em><a href="http://<Server>:<WebServicePort>/Dynamics/GPService/GPService" class="bare">http://&lt;Server&gt;:&lt;WebServicePort&gt;/Dynamics/GPService/GPService</a></em>.<br> </p><p class="tableblock"> Example: <a href="http://hostname:7047/Dynamics/GPService/GPService" class="bare">http://hostname:7047/Dynamics/GPService/GPService</a></p></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p><strong>Endpoint URL</strong></p> 
+        </div> 
+       </div></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p>Base URL where the SOAP services are exposed in the form <em><a href="http://<Server>:<WebServicePort>/Dynamics/GPService/GPService" class="bare">http://&lt;Server&gt;:&lt;WebServicePort&gt;/Dynamics/GPService/GPService</a></em>.<br></p> 
+        </div> 
+        <div class="literalblock"> 
+         <div class="content"> 
+          <pre>Example: http://hostname:7047/Dynamics/GPService/GPService</pre> 
+         </div> 
+        </div> 
+       </div></td> 
      </tr> 
      <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>SPN</strong></p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">The service principal name that identifies the service instance</p></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p><strong>SPN</strong></p> 
+        </div> 
+       </div></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p>The service principal name that identifies the service instance</p> 
+        </div> 
+       </div></td> 
      </tr> 
      <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Login Conf. Location</strong></p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">Path to the Kerberos login module. Example: C:\kerberos\login.conf</p></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p><strong>Login Conf. Location</strong></p> 
+        </div> 
+       </div></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p>Path to the Kerberos login module. Example: C:\kerberos\login.conf</p> 
+        </div> 
+       </div></td> 
      </tr> 
      <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Krb5 Conf. Location</strong></p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">Path to the Kerberos configuration file. </p><p class="tableblock"> Example: C\kerberos\krb5.conf</p></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p><strong>Krb5 Conf. Location</strong></p> 
+        </div> 
+       </div></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p>Path to the Kerberos configuration file.</p> 
+        </div> 
+        <div class="literalblock"> 
+         <div class="content"> 
+          <pre>Example: C\kerberos\krb5.conf</pre> 
+         </div> 
+        </div> 
+       </div></td> 
      </tr> 
     </tbody> 
    </table> 
@@ -1254,18 +1299,11 @@ MYREALM.COM = {
 myrealm.com = MYREALM.COM</pre> 
     </div> 
    </div> 
-   <div class="admonitionblock note"> 
-    <table> 
-     <tbody> 
-      <tr> 
-       <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-       <td class="content"> The realm / default_domain are case-sensitive and must be specified exactly as defined in Active Directory. Receiving an error during Test Connection stating “Message stream modified (41)” then this is an indication that the domain name is not correctly formed. </td> 
-      </tr> 
-     </tbody> 
-    </table> 
+   <div class="paragraph"> 
+    <p>The realm / default_domain are case-sensitive and must be specified exactly as defined in Active Directory. Receiving an error during Test Connection stating “Message stream modified (41)” then this is an indication that the domain name is not correctly formed.</p> 
    </div> 
    <div class="paragraph"> 
-    <p>More information on how to create the Kerberos configuration file can be found at <em><a href="http://web.mit.edu/kerberos/krb5-devel/doc/admin/conf_files/krb5_conf.html" class="bare">http://web.mit.edu/kerberos/krb5-devel/doc/admin/conf_files/krb5_conf.html</a></em>.</p> 
+    <p>More information on how to create the Kerberos configuration file can be found in the <a href="http://web.mit.edu/kerberos/krb5-devel/doc/admin/conf_files/krb5_conf.html">MIT Kerberos Documentation</a>.</p> 
    </div> 
    <div class="paragraph"> 
     <p>The Kerberos login module (Krb5LoginModule) can be tuned with scenario-specific configurations by defining a JAAS login configuration file. Following is a sample of the JAAS login configuration file for the Kerberos login module:</p> 
@@ -1280,7 +1318,7 @@ myrealm.com = MYREALM.COM</pre>
     </div> 
    </div> 
    <div class="paragraph"> 
-    <p>More information on how to create the JAAS login configuration file for the Kerberos login module can be found at <em><a href="http://docs.oracle.com/javase/7/docs/jre/api/security/jaas/spec/com/sun/security/auth/module/Krb5LoginModule.html" class="bare">http://docs.oracle.com/javase/7/docs/jre/api/security/jaas/spec/com/sun/security/auth/module/Krb5LoginModule.html</a></em>.</p> 
+    <p>More information on how to create the JAAS login configuration file for the Kerberos login module can be found at <a href="http://docs.oracle.com/javase/7/docs/jre/api/security/jaas/spec/com/sun/security/auth/module/Krb5LoginModule.html">Krb5LoginModule</a>.</p> 
    </div> 
   </div> 
   <div class="sect2"> 
@@ -1319,7 +1357,7 @@ myrealm.com = MYREALM.COM</pre>
      </tr> 
      <tr> 
       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Endpoint</strong></p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">Base URL where the SOAP services are exposed in the form <em><a href="http://<Server>:<WebServicePort>/DynamicsGPWebServices/DynamicsGPService.asmx" class="bare">http://&lt;Server&gt;:&lt;WebServicePort&gt;/DynamicsGPWebServices/DynamicsGPService.asmx</a></em>. </p><p class="tableblock"> Example: <a href="http://hostname:7047/DynamicsGPWebServices/DynamicsGPService.asmx" class="bare">http://hostname:7047/DynamicsGPWebServices/DynamicsGPService.asmx</a></p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">Base URL where the SOAP services are exposed in the form:<br> <code>http://&lt;Server&gt;:&lt;WebServicePort&gt;/DynamicsGPWebServices/DynamicsGPService.asmx</code> </p><p class="tableblock">Example: <code>http://hostname:7047/DynamicsGPWebServices/DynamicsGPService.asmx</code></p></td> 
      </tr> 
      <tr> 
       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Domain</strong></p></td> 
@@ -1333,15 +1371,8 @@ myrealm.com = MYREALM.COM</pre>
 <div class="sect1"> 
  <h2 id="using-the-connector"><a class="anchor" href="#using-the-connector"></a>Using the Connector</h2> 
  <div class="sectionbody"> 
-  <div class="admonitionblock note"> 
-   <table> 
-    <tbody> 
-     <tr> 
-      <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-      <td class="content"> See a full list of operations for any version of the connector <a href="https://msdn.microsoft.com/en-us/library/cc508424.aspx">here</a>. </td> 
-     </tr> 
-    </tbody> 
-   </table> 
+  <div class="paragraph"> 
+   <p>See a full list of operations for any version of the connector, see the <a href="https://msdn.microsoft.com/en-us/library/cc508424.aspx">Microsoft Method Reference</a>.</p> 
   </div> 
   <div class="sect2"> 
    <h3 id="connector-namespace-and-schema"><a class="anchor" href="#connector-namespace-and-schema"></a>Connector Namespace and Schema</h3> 
@@ -1350,8 +1381,8 @@ myrealm.com = MYREALM.COM</pre>
    </div> 
    <div class="ulist"> 
     <ul> 
-     <li> <p><strong>Namespace:</strong> <code><a href="http://www.mulesoft.org/schema/mule/dynamicsgp" class="bare">http://www.mulesoft.org/schema/mule/dynamicsgp</a></code></p> </li> 
-     <li> <p><strong>Schema Location:</strong> <code><a href="http://www.mulesoft.org/schema/mule/dynamicsgp/current/mule-dynamicsgp.xsd" class="bare">http://www.mulesoft.org/schema/mule/dynamicsgp/current/mule-dynamicsgp.xsd</a></code></p> </li> 
+     <li> <p><strong>Namespace:</strong> <code>http://www.mulesoft.org/schema/mule/dynamicsgp</code></p> </li> 
+     <li> <p><strong>Schema Location:</strong> <code>http://www.mulesoft.org/schema/mule/dynamicsgp/current/mule-dynamicsgp.xsd</code></p> </li> 
     </ul> 
    </div> 
    <div class="admonitionblock tip"> 
@@ -1430,18 +1461,8 @@ myrealm.com = MYREALM.COM</pre>
        </table></code></pre> 
     </div> 
    </div> 
-   <div class="admonitionblock tip"> 
-    <table> 
-     <tbody> 
-      <tr> 
-       <td class="icon"> <i class="fa icon-tip" title="Tip"></i> </td> 
-       <td class="content"> 
-        <div class="paragraph"> 
-         <p>Inside the <code>&lt;version&gt;</code> tags, put the desired version number, the word <code>RELEASE</code> for the latest release, or <code>SNAPSHOT</code> for the latest available version.</p> 
-        </div> </td> 
-      </tr> 
-     </tbody> 
-    </table> 
+   <div class="paragraph"> 
+    <p>Inside the <code>&lt;version&gt;</code> tags, put the desired version number, the word <code>RELEASE</code> for the latest release, or <code>SNAPSHOT</code> for the latest available version.</p> 
    </div> 
   </div> 
  </div> 
@@ -1462,7 +1483,7 @@ myrealm.com = MYREALM.COM</pre>
     <div class="olist arabic"> 
      <ol class="arabic"> 
       <li> <p>Drag from the Mule Palette a <strong>HTTP Listener</strong> element to the canvas and use the default configuration but with the path set to <strong>/createCustomer</strong>.</p> </li> 
-      <li> <p>Drag a <strong>Transform Message</strong> element next to the HTTP Listener an write:</p> 
+      <li> <p>Drag a <strong>Transform Message</strong> element next to the HTTP Listener, and enter:</p> 
        <div class="listingblock"> 
         <div class="content"> 
          <pre class="CodeRay highlight"><code data-lang="dataweave">
@@ -1519,7 +1540,7 @@ myrealm.com = MYREALM.COM</pre>
       <li> <p>Drag a <strong>Microsoft Dynamics GP</strong> connector next to the Transform Message.</p> 
        <div class="olist loweralpha"> 
         <ol class="loweralpha" type="a"> 
-         <li> <p>Set it’s configuration to <strong>NTLM</strong> or <strong>Kerberos</strong> Connection and fill the required fields, this will apply to all the other Dynamics GP connectors that are dragged into the flows.</p> </li> 
+         <li> <p>Set it’s configuration to <strong>NTLM</strong> or <strong>Kerberos</strong> Connection and fill the required fields, this applies to all the other Dynamics GP connectors that are dragged into the flows.</p> </li> 
          <li> <p>Select the operation <strong>Create Customer</strong>. Leave the Entity Reference as it is.</p> </li> 
         </ol> 
        </div> </li> 
@@ -1597,7 +1618,7 @@ myrealm.com = MYREALM.COM</pre>
     <div class="olist arabic"> 
      <ol class="arabic"> 
       <li> <p>Drag from the Mule Palette a <strong>HTTP Listener</strong> element to the canvas and use the default configuration but with the path set to <strong>/updateCustomer</strong></p> </li> 
-      <li> <p>Drag a <strong>Transform Message</strong> element next to the HTTP Listener and write:</p> 
+      <li> <p>Drag a <strong>Transform Message</strong> element next to the HTTP Listener, and enter:</p> 
        <div class="listingblock"> 
         <div class="content"> 
          <pre class="CodeRay highlight"><code data-lang="dataweave">
@@ -1651,17 +1672,15 @@ myrealm.com = MYREALM.COM</pre>
          <li> <p>Select the <strong>Get Customer By Key</strong> operation. Leave the Entity Reference as it is.</p> </li> 
         </ol> 
        </div> </li> 
-      <li> <p>Drag a <strong>Transform Message</strong> element next to the Connector and write:</p> </li> 
-     </ol> 
-    </div> 
-    <div class="listingblock"> 
-     <div class="content"> 
-      <pre class="CodeRay highlight"><code data-lang="dataweave">
-           
-        <table class="CodeRay"> 
-         <tbody> 
-          <tr> 
-           <td class="line-numbers"><pre>1
+      <li> <p>Drag a <strong>Transform Message</strong> element next to the Connector, and enter:</p> 
+       <div class="listingblock"> 
+        <div class="content"> 
+         <pre class="CodeRay highlight"><code data-lang="dataweave">
+              
+           <table class="CodeRay"> 
+            <tbody> 
+             <tr> 
+              <td class="line-numbers"><pre>1
 2
 3
 4
@@ -1683,7 +1702,7 @@ myrealm.com = MYREALM.COM</pre>
 20
 21
 </pre></td> 
-           <td class="code"><pre>%dw 1.0
+              <td class="code"><pre>%dw 1.0
 %output application/java
 ---
 {
@@ -1704,13 +1723,11 @@ myrealm.com = MYREALM.COM</pre>
 } as :object {
         class : "org.mule.modules.dynamics.gp.api.param.UpdateCustomerParams"
 }</pre></td> 
-          </tr> 
-         </tbody> 
-        </table></code></pre> 
-     </div> 
-    </div> 
-    <div class="olist arabic"> 
-     <ol class="arabic"> 
+             </tr> 
+            </tbody> 
+           </table></code></pre> 
+        </div> 
+       </div> </li> 
       <li> <p>Drag a <strong>Microsoft Dynamics GP</strong> connector next to the Transform Message.</p> 
        <div class="olist loweralpha"> 
         <ol class="loweralpha" type="a"> 
@@ -1726,7 +1743,7 @@ myrealm.com = MYREALM.COM</pre>
     <div class="olist arabic"> 
      <ol class="arabic"> 
       <li> <p>Drag from the Mule Palette a <strong>HTTP Listener</strong> element to the canvas and use the default configuration but with the path set to <strong>/deleteCustomer</strong>.</p> </li> 
-      <li> <p>Drag a <strong>Transform Message</strong> element next to the HTTP Listener and write:</p> 
+      <li> <p>Drag a <strong>Transform Message</strong> element next to the HTTP Listener, and enter:</p> 
        <div class="listingblock"> 
         <div class="content"> 
          <pre class="CodeRay highlight"><code data-lang="dataweave">
@@ -1789,7 +1806,7 @@ myrealm.com = MYREALM.COM</pre>
     <div class="olist arabic"> 
      <ol class="arabic"> 
       <li> <p>Drag from the Mule Palette a <strong>HTTP Listener</strong> element to the canvas and use the default configuration but with the path set to <strong>/getCustomerList</strong>.</p> </li> 
-      <li> <p>Drag a <strong>Transform Message</strong> element next to the HTTP Listener and write:</p> 
+      <li> <p>Drag a <strong>Transform Message</strong> element next to the HTTP Listener, and enter:</p> 
        <div class="listingblock"> 
         <div class="content"> 
          <pre class="CodeRay highlight"><code data-lang="dataweave">
@@ -2244,8 +2261,8 @@ myrealm.com = MYREALM.COM</pre>
    <ul> 
     <li> <p>Access the <a href="/release-notes/microsoft-dynamics-gp-connector-release-notes">Microsoft Dynamics GP Connector Release Notes</a>.</p> </li> 
     <li> <p>Learn how to <a href="/getting-started/anypoint-exchange">Install Anypoint Connectors</a> using Anypoint Exchange.</p> </li> 
-    <li> <p>Access MuleSoft’s <a href="http://forum.mulesoft.org/mulesoft">Forum</a> to pose questions and get help from Mule’s broad community of users.</p> </li> 
-    <li> <p>To access MuleSoft’s expert support team, <a href="http://www.mulesoft.com/mule-esb-subscription">subscribe</a> to Mule ESB Enterprise and log in to MuleSoft’s <a href="http://www.mulesoft.com/support-login">Customer Portal</a>.</p> </li> 
+    <li> <p>Access the MuleSoft <a href="http://forums.mulesoft.com/">Forum</a> to pose questions and get help from the community of users.</p> </li> 
+    <li> <p>To access expert Support team, <a href="http://www.mulesoft.com/mule-esb-subscription">subscribe</a> to Mule Enterprise and log in to the <a href="http://www.mulesoft.com/support-login">Customer Portal</a>.</p> </li> 
    </ul> 
   </div> 
  </div> 
