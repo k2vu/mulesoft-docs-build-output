@@ -1032,20 +1032,10 @@
    <p>An&nbsp;<strong>object store</strong> is a facility for storing objects in or across Mule applications. Mule uses object stores to persist data for eventual retrieval. Internally, Mule uses object stores in various filters, routers, and other message processors that need to store state between messages. In most cases, Mule creates and manages object stores automatically.</p> 
   </div> 
   <div class="paragraph"> 
-   <p>To learn about Object Store management in CloudHub, see <a href="/runtime-manager/managing-application-data-with-object-stores">Managing Application Data with Object Stores</a> or more generally, <a href="/mule-user-guide/v/3.8/cache-scope#configobjstore">Configuring an Object Store for Cache</a>.</p> 
+   <p>To learn about Object Store management in Runtime Manager, see <a href="/runtime-manager/managing-application-data-with-object-stores">Managing Application Data with Object Stores</a> or more generally, <a href="/mule-user-guide/v/3.8/cache-scope#configobjstore">Configuring an Object Store for Cache</a>.</p> 
   </div> 
-  <div class="admonitionblock note"> 
-   <table> 
-    <tbody> 
-     <tr> 
-      <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-      <td class="content"> 
-       <div class="paragraph"> 
-        <p>To access and manipulate object stores in Mule applications, download the <a href="https://anypoint.mulesoft.com/exchange/anypoint-platform/#!/object-store-integration-connector?searchTerm=object%20store&amp;sortBy=rank">Object Store connector</a> in Anypoint Studio.</p> 
-       </div> </td> 
-     </tr> 
-    </tbody> 
-   </table> 
+  <div class="paragraph"> 
+   <p><strong>Note:</strong> To access and manipulate object stores in Mule applications, download the <a href="https://anypoint.mulesoft.com/exchange/anypoint-platform/#!/object-store-integration-connector">Object Store connector</a> in Anypoint Studio.</p> 
   </div> 
  </div> 
 </div> 
@@ -1057,11 +1047,11 @@
   </div> 
   <div class="ulist"> 
    <ul> 
-    <li> <p>an <a href="/mule-user-guide/v/3.8/idempotent-filter">idempotent message filter</a> or until a successful scope occurs</p> </li> 
-    <li> <p>the <a href="/mule-user-guide/v/3.8/endpoint-configuration-reference#redelivery-policy">idempotent redelivery policy</a> of a custom endpoint</p> </li> 
-    <li> <p>an <a href="/mule-user-guide/v/3.8/splitter-flow-control-reference#aggregator-configuration">aggregator</a>, you can either use the two default built-in object stores or create a reference of your own</p> </li> 
-    <li> <p>a custom component that must use an object store to persist information, and</p> </li> 
-    <li> <p>when storing or retrieving information from a Mule flow through the object store connector, <a href="https://anypoint.mulesoft.com/exchange/anypoint-platform/#!/object-store-integration-connector?searchTerm=object%20store&amp;sortBy=rank">available for installation</a></p> </li> 
+    <li> <p>An <a href="/mule-user-guide/v/3.8/idempotent-filter">idempotent message filter</a> or until a successful scope occurs.</p> </li> 
+    <li> <p>The <a href="/mule-user-guide/v/3.8/endpoint-configuration-reference#redelivery-policy">idempotent redelivery policy</a> of a custom endpoint.</p> </li> 
+    <li> <p>An <a href="/mule-user-guide/v/3.8/splitter-flow-control-reference#aggregator-configuration">aggregator</a>, you can either use the two default built-in object stores or create a reference of your own.</p> </li> 
+    <li> <p>A custom component that must use an object store to persist information.</p> </li> 
+    <li> <p>When storing or retrieving information from a Mule flow through the object store connector, <a href="https://anypoint.mulesoft.com/exchange/anypoint-platform/#!/object-store-integration-connector">available for installation</a></p> </li> 
    </ul> 
   </div> 
   <div class="paragraph"> 
@@ -1069,8 +1059,8 @@
   </div> 
   <div class="ulist"> 
    <ul> 
-    <li> <p><strong>In-memory store</strong> – stores objects in local Mule runtime memory. Objects are lost on shutdown of Mule runtime.</p> </li> 
-    <li> <p><strong>Persistent store</strong> – Mule persists data when an object store is <em>explicitly</em> configured to be persistent. In a standalone Mule runtime, Mule creates a <em>default</em> persistent store in the file system.</p> </li> 
+    <li> <p><strong>In-memory store</strong> – stores objects in local Mule runtime memory. Objects are lost on shutdown of the Mule runtime.</p> </li> 
+    <li> <p><strong>Persistent store</strong> – Mule persists data when an object store is <em>explicitly</em> configured to be persistent. In a standalone Mule runtime, Mule creates a <em>default</em> persistent store in the file system. See also: <a href="/mule-user-guide/v/3.8/object-store-connector#persistingdata">About Persisting Object Stores in Runtime Manager</a></p> </li> 
    </ul> 
   </div> 
   <div class="paragraph"> 
@@ -1079,15 +1069,8 @@
   <div class="paragraph"> 
    <p>For more information, see the <a href="/mule-user-guide/v/3.8/cache-scope#object-stores-and-clustering">Object Stores and Clustering</a> section of the <a href="/mule-user-guide/v/3.8/cache-scope">Cache Scope</a> document.</p> 
   </div> 
-  <div class="admonitionblock tip"> 
-   <table> 
-    <tbody> 
-     <tr> 
-      <td class="icon"> <i class="fa icon-tip" title="Tip"></i> </td> 
-      <td class="content"> The <em>default</em> object store created for all new caching strategies supports cluster mode out of the box, with the exception of the cache scope which uses the old default caching strategy. </td> 
-     </tr> 
-    </tbody> 
-   </table> 
+  <div class="paragraph"> 
+   <p><strong>Tip:</strong> The <em>default</em> object store created for all new caching strategies supports cluster mode out of the box, with the exception of the cache scope which uses the old default caching strategy.</p> 
   </div> 
  </div> 
 </div> 
@@ -1254,9 +1237,9 @@
  <div class="sectionbody"> 
   <div class="ulist"> 
    <ul> 
-    <li> <p>Install the <a href="https://anypoint.mulesoft.com/exchange/anypoint-platform/#!/object-store-integration-connector">Object Store connector in Anypoint Exchange</a></p> </li> 
-    <li> <p><a href="https://mulesoft.github.io/objectstore-connector/">Object Store Connector in github.io</a></p> </li> 
-    <li> <p>Learn about the <a href="/runtime-manager/managing-application-data-with-object-stores">CloudHub implementation of object stores</a></p> </li> 
+    <li> <p>Install the <a href="https://anypoint.mulesoft.com/exchange/anypoint-platform/#!/object-store-integration-connector">Object Store connector in Anypoint Exchange</a>.</p> </li> 
+    <li> <p><a href="https://mulesoft.github.io/objectstore-connector/">Object Store Connector in github.io</a>.</p> </li> 
+    <li> <p>Learn about the <a href="/runtime-manager/managing-application-data-with-object-stores">Runtime Manager implementation of object stores</a>.</p> </li> 
    </ul> 
   </div> 
  </div> 
