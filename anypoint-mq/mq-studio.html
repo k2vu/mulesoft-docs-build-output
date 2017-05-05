@@ -1296,6 +1296,33 @@
          <p>Define threading profile behavior or use default worker threading profile. See <a href="/mule-user-guide/v/3.8/tuning-performance">Tuning Performance</a>. The threading profile options let you optimize connector performance for use with Anypoint MQ.</p> 
         </div> 
         <div class="paragraph"> 
+         <p><strong>Note:</strong> After setting the threading profile fields, save your project, click Configuration XML, change the name of the threading profile statement to start with anypoint-mq, and switch the order of the statement with the anypoint-mq:provider statement in the anypoint-mq:config block.</p> 
+        </div> 
+        <div class="paragraph"> 
+         <p>This example shows how the finished statements should appear:</p> 
+        </div> 
+        <div class="listingblock"> 
+         <div class="content"> 
+          <pre class="CodeRay highlight"><code data-lang="xml">
+               
+            <table class="CodeRay"> 
+             <tbody> 
+              <tr> 
+               <td class="line-numbers"><pre>1
+2
+3
+4
+</pre></td> 
+               <td class="code"><pre><span class="tag">&lt;anypoint-mq:config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Anypoint_MQ_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Anypoint MQ Configuration</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+  <span class="tag">&lt;anypoint-mq:provider</span> <span class="attribute-name">url</span>=<span class="string"><span class="delimiter">"</span><span class="content">https://mq-us-east-1.anypoint.mulesoft.com/api/v1</span><span class="delimiter">"</span></span> <span class="attribute-name">clientId</span>=<span class="string"><span class="delimiter">"</span><span class="content">ID</span><span class="delimiter">"</span></span> <span class="attribute-name">clientSecret</span>=<span class="string"><span class="delimiter">"</span><span class="content">SECRET</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+  <span class="tag">&lt;anypoint-mq:worker-threading-profile</span> <span class="attribute-name">maxThreadsActive</span>=<span class="string"><span class="delimiter">"</span><span class="content">42</span><span class="delimiter">"</span></span> <span class="attribute-name">maxThreadsIdle</span>=<span class="string"><span class="delimiter">"</span><span class="content">42</span><span class="delimiter">"</span></span> <span class="attribute-name">threadTTL</span>=<span class="string"><span class="delimiter">"</span><span class="content">4200</span><span class="delimiter">"</span></span> <span class="attribute-name">threadWaitTimeout</span>=<span class="string"><span class="delimiter">"</span><span class="content">-1</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+<span class="tag">&lt;/anypoint-mq:config&gt;</span></pre></td> 
+              </tr> 
+             </tbody> 
+            </table></code></pre> 
+         </div> 
+        </div> 
+        <div class="paragraph"> 
          <p><strong>Required:</strong> No<br> <strong>Default:</strong> None</p> 
         </div> 
        </div></td> 
@@ -2040,6 +2067,33 @@
        <div> 
         <div class="paragraph"> 
          <p>Define threading profile behavior or use default worker threading profile. See <a href="/mule-user-guide/v/3.8/tuning-performance">Tuning Performance</a>. The threading profile options let you optimize connector performance for use with Anypoint MQ.</p> 
+        </div> 
+        <div class="paragraph"> 
+         <p><strong>Note:</strong> After configuring worker-threading-profile, change the name of the statement to start with anypoint-mq, and switch the order of the statement with the anypoint-mq:provider statement in the anypoint-mq:config block.</p> 
+        </div> 
+        <div class="paragraph"> 
+         <p>This example shows how the finished statements should appear:</p> 
+        </div> 
+        <div class="listingblock"> 
+         <div class="content"> 
+          <pre class="CodeRay highlight"><code data-lang="xml">
+               
+            <table class="CodeRay"> 
+             <tbody> 
+              <tr> 
+               <td class="line-numbers"><pre>1
+2
+3
+4
+</pre></td> 
+               <td class="code"><pre><span class="tag">&lt;anypoint-mq:config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Anypoint_MQ_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Anypoint MQ Configuration</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+  <span class="tag">&lt;anypoint-mq:provider</span> <span class="attribute-name">url</span>=<span class="string"><span class="delimiter">"</span><span class="content">https://mq-us-east-1.anypoint.mulesoft.com/api/v1</span><span class="delimiter">"</span></span> <span class="attribute-name">clientId</span>=<span class="string"><span class="delimiter">"</span><span class="content">ID</span><span class="delimiter">"</span></span> <span class="attribute-name">clientSecret</span>=<span class="string"><span class="delimiter">"</span><span class="content">SECRET</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+  <span class="tag">&lt;anypoint-mq:worker-threading-profile</span> <span class="attribute-name">maxThreadsActive</span>=<span class="string"><span class="delimiter">"</span><span class="content">42</span><span class="delimiter">"</span></span> <span class="attribute-name">maxThreadsIdle</span>=<span class="string"><span class="delimiter">"</span><span class="content">42</span><span class="delimiter">"</span></span> <span class="attribute-name">threadTTL</span>=<span class="string"><span class="delimiter">"</span><span class="content">4200</span><span class="delimiter">"</span></span> <span class="attribute-name">threadWaitTimeout</span>=<span class="string"><span class="delimiter">"</span><span class="content">-1</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+<span class="tag">&lt;/anypoint-mq:config&gt;</span></pre></td> 
+              </tr> 
+             </tbody> 
+            </table></code></pre> 
+         </div> 
         </div> 
         <div class="paragraph"> 
          <p><strong>Required:</strong> No<br> <strong>Default:</strong> None<br> <strong>XML Example:</strong></p> 
