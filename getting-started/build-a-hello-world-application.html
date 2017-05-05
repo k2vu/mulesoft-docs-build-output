@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>How to Create a Mule App // MuleSoft Documentation </title>
+  <title>Tutorial: Creating a Mule App // MuleSoft Documentation </title>
   <link rel="shortcut icon" href="/favicon.ico"/>
   <link rel="stylesheet" type="text/css" href="/css/vendor.min.css?t=1491597550">
   <link rel="stylesheet" type="text/css" href="/css/mulesoft.min.css?t=1491597550">
@@ -15,8 +15,8 @@
   <script src="/js/scripts.js?t=1491597550"></script>
 
   <link rel="canonical" href="https://docs.mulesoft.com/getting-started/build-a-hello-world-application" />
-  <meta name="description" content="Learn to create a "Hello World" Mule project, then deploy it as a Mule application through Anypoint Studio’s embedded Mule server. Finally, test it..." />
-  <meta class="swiftype" name="title" data-type="string" content="How to Create a Mule App" />
+  <meta name="description" content="Learn to create a "Hello World" Mule project, then deploy it as a Mule application through Anypoint Studio’s embedded Mule server. Finally, test yo..." />
+  <meta class="swiftype" name="title" data-type="string" content="Tutorial: Creating a Mule App" />
 </head>
 <body>
 <!-- START Swiftype -->
@@ -1023,29 +1023,22 @@
     <div class="article-content col-md-7 col-xs-12">
       
       <div class="breadcrumb-section" data-swiftype-index='false'><a href="./">Getting Started with Anypoint Platform</a>/<a href="build-a-hello-world-application" class="breadcrumb-active-link">How to Create a Mule App</a></div>
-      <h1>How to Create a Mule App</h1>
+      <h1>Tutorial: Creating a Mule App</h1>
       <div id="preamble"> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>Learn to create a "Hello World" Mule project, then deploy it as a Mule application through Anypoint Studio’s embedded Mule server. Finally, test it by interacting with the application using a web browser.</p> 
+   <p>Learn to create a "Hello World" Mule project, then deploy it as a Mule application through Anypoint Studio’s embedded Mule server. Finally, test your app by interacting with it using a web browser.</p> 
   </div> 
  </div> 
 </div> 
 <div class="sect1"> 
  <h2 id="prerequisites"><a class="anchor" href="#prerequisites"></a>Prerequisites</h2> 
  <div class="sectionbody"> 
-  <div class="paragraph"> 
-   <p>This tutorial assumes that you have&nbsp;<a href="/anypoint-studio/v/6/download-and-launch-anypoint-studio">downloaded, installed, and launched Anypoint Studio</a>, which comes with an embedded Mule runtime instance.</p> 
-  </div> 
-  <div class="admonitionblock important"> 
-   <table> 
-    <tbody> 
-     <tr> 
-      <td class="icon"> <i class="fa icon-important" title="Important"></i> </td> 
-      <td class="content"> As the objective of this quick tutorial is to get something built and running fast, this document doesn’t spend much time explaining Mule concepts or components. For more background on Mule see the section on <a href="/mule-user-guide/v/3.8/">Mule Runtime</a> and for a more thorough look into Mule app design, see the example in the <a href="https://docs.mulesoft.com/anypoint-studio/v/6/basic-studio-tutorial">Basic Studio Tutorial</a>. </td> 
-     </tr> 
-    </tbody> 
-   </table> 
+  <div class="ulist"> 
+   <ul> 
+    <li> <p>You should have already downloaded, installed, and launched Anypoint Studio, which comes with an embedded Mule runtime instance.</p> </li> 
+    <li> <p>You should understand the concepts of Mule Runtime and Mule application design.</p> </li> 
+   </ul> 
   </div> 
  </div> 
 </div> 
@@ -1054,35 +1047,37 @@
  <div class="sectionbody"> 
   <div class="olist arabic"> 
    <ol class="arabic"> 
-    <li> <p>In Anypoint Studio, click&nbsp;<strong>File</strong>&nbsp;and&nbsp;<strong>New</strong>&nbsp;&gt;&nbsp;<strong>Mule Project</strong>.</p> </li> 
-    <li> <p>Studio opens the&nbsp;<strong>New Mule Project</strong>&nbsp;wizard. In the&nbsp;<strong>Name</strong>&nbsp;field, enter the value <code>Basic Tutorial</code>, then click <strong>Finish</strong>.</p> 
+    <li> <p>In Anypoint Studio, choose&nbsp;File &gt; New&nbsp;&gt;&nbsp;Mule Project.</p> </li> 
+    <li> <p>Studio opens the&nbsp;New Mule Project&nbsp;wizard. In the&nbsp;Name&nbsp;field, enter the value <strong>Basic Tutorial</strong>, then click Finish.</p> 
      <div class="paragraph"> 
       <p><span class="image"><img src="./_images/new.png" alt="new"></span></p> 
-     </div> </li> 
-    <li> <p>Studio opens a new blank project. The following quick reference explains the different views you use to build a Mule project:</p> 
+     </div> 
+     <div class="paragraph"> 
+      <p>Studio opens a new blank project. The following quick reference explains the different views you use to build a Mule project:</p> 
+     </div> 
      <div class="paragraph"> 
       <p><span class="image"><img src="./_images/blank+canvas.png" alt="blank+canvas"></span></p> 
      </div> </li> 
-    <li> <p>Begin designing your project by dragging and dropping an <strong>HTTP Connector</strong> from the <strong>palette</strong> onto the <strong>canvas</strong>. Notice that Studio automatically wraps the connector with a <strong>flow</strong>,&nbsp;thus saving you the step of manually creating one. There will be a red error dot overlaid on the <strong>HTTP Connector</strong> because it has not yet been configured.</p> 
+    <li> <p>To begin your project, drag an HTTP Connector from the palette to the canvas.</p> 
      <div class="paragraph"> 
       <p><span class="image"><img src="./_images/add-http.png" alt="add+http"></span></p> 
+     </div> 
+     <div class="paragraph"> 
+      <p>Studio automatically wraps the connector with a flow,&nbsp;thus saving you the step of manually creating one. There will be a red error dot overlaid on the HTTP connector because you have not configured it yet.</p> 
      </div> </li> 
-    <li> <p>Add a <strong>Set Payload Component</strong> to your flow, by dragging it and releasing it just to the right of the HTTP Endpoint as shown below.</p> 
+    <li> <p>Add a Set Payload component to the flow by dragging it to the right of the HTTP connector, as shown here.</p> 
      <div class="paragraph"> 
       <p><span class="image"><img src="./_images/set+payload.png" alt="set+payload"></span></p> 
      </div> 
      <div class="paragraph"> 
-      <p>When you release your mouse, Anypoint Studio positions the Set Payload transformer next to the HTTP Connector with a series of arrows. The arrows signify the direction in which the Mule messages transition through the different components of the flow.</p> 
-     </div> </li> 
-    <li> <p>Click <strong>Message Flow</strong> (Visual Editor) and then <strong>Configuration XML</strong> (XML Editor) tabs below the canvas to alternate between the editors so that you can see how Studio provides both a visual and code representation of your project.</p> 
+      <p>Anypoint Studio positions the Set Payload component next to the HTTP connector. The arrows signify the direction in which the Mule messages transition through the flow components.</p> 
+     </div> 
      <div class="paragraph"> 
-      <p><span class="image"><img src="./_images/xml+code.png" alt="xml+code"></span></p> 
+      <p>The Set Payload component sets the message payload to a value you define.</p> 
      </div> </li> 
-    <li> <p>Click the <strong>Message Flow</strong> tab to return to the graphical editor.</p> </li> 
-    <li> <p>Click&nbsp;the <strong>Save</strong> icon or press Ctrl+S (Windows and Linux) or CMD+S (Mac) to save your project:</p> 
-     <div class="paragraph"> 
-      <p><span class="image"><img src="./_images/studio-save-button.png" alt="studio-save-button"></span></p> 
-     </div> </li> 
+    <li> <p>Click Message Flow (Visual Editor) and then Configuration XML (XML Editor) tabs below the canvas to alternate between the editors so that you can see how Studio provides both a visual and code representation of your project.</p> </li> 
+    <li> <p>Click the Message Flow tab to return to the graphical editor.</p> </li> 
+    <li> <p>Click Save <span class="image"><img src="./_images/save_icon.png" alt="studio-save-button"></span>.</p> </li> 
    </ol> 
   </div> 
  </div> 
@@ -1091,58 +1086,42 @@
  <h2 id="configure-the-flow-elements"><a class="anchor" href="#configure-the-flow-elements"></a>Configure the Flow Elements</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>Now that you’ve created a basic application in Studio, you can take the steps to configure each individual element.&nbsp;The first element to configure is the <strong>HTTP Connector</strong>. The HTTP Connector&nbsp;allows your Mule application to connect to Web resources through the HTTP or HTTPS protocol. The HTTP Connector needs to be given basic information before it can work. The following HTTP connector properties must be set to a value:</p> 
+   <p>Now that you’ve created a basic application in Studio, you are ready to configure your flow elements.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>You need to provide the HTTP connector with a connector configuration that includes:</p> 
   </div> 
   <div class="ulist"> 
    <ul> 
-    <li> <p>Path</p> </li> 
-    <li> <p>Connector Configuration</p> </li> 
     <li> <p>Name</p> </li> 
     <li> <p>Host</p> </li> 
     <li> <p>Port</p> </li> 
    </ul> 
   </div> 
   <div class="paragraph"> 
-   <p>You also create a <strong>global element</strong> for the HTTP Connector to reference. The global element encapsulates some reusable configuration properties. Multiple connectors can reuse the global element.</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>To configure the HTTP connector:</p> 
+   <p>The HTTP connector&nbsp;allows your Mule application to connect to Web resources through the HTTP or HTTPS protocol.</p> 
   </div> 
   <div class="olist arabic"> 
    <ol class="arabic"> 
-    <li> <p>Click the <strong>HTTP Connector</strong> on the canvas to open its&nbsp;<strong>Properties Editor</strong>, and click the green plus sign to configure the host and port number:</p> 
-     <div class="paragraph"> 
-      <p><span class="image"><img src="./_images/http+pelado.png" alt="http+pelado"></span></p> 
-     </div> 
-     <div class="admonitionblock tip"> 
-      <table> 
-       <tbody> 
-        <tr> 
-         <td class="icon"> <i class="fa icon-tip" title="Tip"></i> </td> 
-         <td class="content"> This dialog defines the properties for a Global Element. A single global element can be referenced by multiple HTTP Connectors, saving you from having to specify these properties on each. </td> 
-        </tr> 
-       </tbody> 
-      </table> 
-     </div> </li> 
-    <li> <p>For this example, set the host to <code>localhost</code> and accept the default port <code>8081</code>:</p> 
+    <li> <p>In the canvas, click the HTTP connector to open its&nbsp;Properties Editor.</p> </li> 
+    <li> <p>Click the plus sign <span class="image"><img src="./_images/plus-1.png" alt="plus"></span> to add a Connector Configuration with a host and port number.</p> </li> 
+    <li> <p>In the Global Element Properties dialog, set Host to <strong>localhost</strong>, accept the default port <strong>8081</strong>, click OK.</p> 
      <div class="paragraph"> 
       <p><span class="image"><img src="./_images/http-global-config.png" alt="http-global-config"></span></p> 
-     </div> </li> 
-    <li> <p>Click <strong>OK</strong>. This returns you to the properties window.</p> </li> 
-    <li> <p><strong>Path</strong> is already populated by the default value, slash <code>/</code>.</p> 
+     </div> 
      <div class="paragraph"> 
-      <p>The <strong>Connector Configuration</strong> field is now populated with a reference to the element you just created.</p> 
+      <p>The properties window opens, with Path populated with " / " and Connector Configuration populated with a reference to the global element you just created.</p> 
      </div> </li> 
-    <li> <p>Click the connector in the Canvas, and the red warning marks disappear from the properties editor and the representation for the connector on the canvas.</p> </li> 
-    <li> <p>Click&nbsp;the <strong>Set Payload Component</strong> on the canvas to open its&nbsp;properties editor&nbsp;in the console.</p> 
+    <li> <p>In the canvas, click the HTTP connector.</p> 
      <div class="paragraph"> 
-      <p>The Set Payload Component simply sets the message payload to a value you define.</p> 
+      <p>The red warning marks disappear from the properties editor and the connector on the canvas.</p> 
      </div> </li> 
-    <li> <p>Set the <strong>Value</strong> field to&nbsp;<code>Hello World!</code> for example.</p> 
+    <li> <p>Click&nbsp;the Set Payload component on the canvas to open its&nbsp;properties editor&nbsp;in the console.</p> </li> 
+    <li> <p>Set the Value field to&nbsp;<strong>Hello World!</strong> for example.</p> 
      <div class="paragraph"> 
       <p><span class="image"><img src="./_images/set+payload+hello+world.png" alt="set+payload+hello+world"></span></p> 
      </div> </li> 
-    <li> <p>Once again, click the <strong>Configuration XML</strong> to view your changes in the XML configuration tab:</p> 
+    <li> <p>Click the Configuration XML to view your changes in XML:</p> 
      <div class="listingblock"> 
       <div class="content"> 
        <pre class="CodeRay highlight"><code data-lang="xml">
@@ -1202,59 +1181,44 @@
    </ol> 
   </div> 
   <div class="paragraph"> 
-   <p>You have now built a working Mule application! Although a simple application, this demonstrates with only two components how Anypoint Studio leverages a wealth of technology with simple drag-and-drop placement.</p> 
+   <p>You have now built a simple Mule application.</p> 
   </div> 
  </div> 
 </div> 
 <div class="sect1"> 
- <h2 id="deploy-the-project-locally-via-studio"><a class="anchor" href="#deploy-the-project-locally-via-studio"></a>Deploy the Project Locally via Studio</h2> 
+ <h2 id="deploy-and-test-your-project-locally"><a class="anchor" href="#deploy-and-test-your-project-locally"></a>Deploy and Test Your Project Locally</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>Anypoint Studio embeds a server that you use for testing deployments as you code. You can deploy your application on the embedded server to see it working and perform any debugging activities before deploying to a production environment, such as an <a href="/runtime-manager/deploying-to-your-own-servers">on-premise server</a> or <a href="/runtime-manager/deploying-to-cloudhub">Runtime Manager</a>.</p> 
+   <p>Anypoint Studio has an embedded Mule runtime that you use to test deployments. You can deploy your application on the embedded server to see it working and perform any debugging activities before deploying to a production environment, such as an on-prem server or Runtime Manager.</p> 
   </div> 
   <div class="olist arabic"> 
    <ol class="arabic"> 
-    <li> <p>In the <strong>Package Explorer</strong>, right-click the project name, then select <strong>Run As</strong> &gt; <strong>Mule Application</strong>.</p> 
+    <li> <p>In the Package Explorer, right-click the project name, then select Run As &gt; Mule Application.</p> 
      <div class="paragraph"> 
-      <p><span class="image"><img src="./_images/run+as.png" alt="run+as"></span></p> 
+      <p>Studio launches the application on the embedded server, displaying its actions in the console. When complete, the console message reads:</p> 
      </div> 
      <div class="paragraph"> 
-      <p>You can also run your application from the Studio <strong>Run</strong> menu. Click your project name in Package Explorer and then click <strong>Run</strong> &gt; <strong>Run As</strong> &gt; <strong>Mule Application</strong>:</p> 
-     </div> 
-     <div class="paragraph"> 
-      <p><span class="image"><img src="./_images/run-as2.png" alt="run-as2"></span></p> 
-     </div> </li> 
-    <li> <p>Studio launches the application on the embedded server, displaying its actions in the console. When complete, the console message reads:</p> 
-     <div class="paragraph"> 
-      <p><code>Started app 'basic_tutorial'</code></p> 
+      <p>"Started app 'basic_tutorial'"</p> 
      </div> 
      <div class="paragraph"> 
       <p><span class="image"><img src="./_images/console1.png" alt="console output"></span></p> 
      </div> </li> 
+    <li> <p>Open your favorite Web browser.&nbsp;</p> </li> 
+    <li> <p>Navigate to the URL of your application.</p> 
+     <div class="paragraph"> 
+      <p>This address is the result of the default settings of the HTTP connector:</p> 
+     </div> 
+     <div class="paragraph"> 
+      <p><code>http://localhost:8081</code></p> 
+     </div> 
+     <div class="paragraph"> 
+      <p>The application accepts the request via its HTTP endpoint, then the Set Payload component sets the payload to "Hello World!", and then HTTP connector returns the payload as the response you see in your browser.</p> 
+     </div> 
+     <div class="paragraph"> 
+      <p><span class="image"><img src="./_images/hello+world.png" alt="hello+world"></span></p> 
+     </div> </li> 
+    <li> <p>In Studio, stop the application from running by clicking Terminate <span class="image"><img src="./_images/stop.icon.png" alt="stop.icon"></span> above the console.</p> </li> 
    </ol> 
-  </div> 
-  <div class="sect2"> 
-   <h3 id="interacting-with-the-locally-deployed-app"><a class="anchor" href="#interacting-with-the-locally-deployed-app"></a>Interacting with the Locally Deployed App</h3> 
-   <div class="paragraph"> 
-    <p>If you deployed your app locally via Studio on your local Mule runtime server, follow along here.</p> 
-   </div> 
-   <div class="olist arabic"> 
-    <ol class="arabic"> 
-     <li> <p>Open your favorite Web browser.&nbsp;</p> </li> 
-     <li> <p>Navigate to the URL of your application (this address is the result of the default settings of the HTTP Connector):</p> 
-      <div class="paragraph"> 
-       <p><code><a href="http://localhost:8081" class="bare">http://localhost:8081</a></code></p> 
-      </div> </li> 
-     <li> <p>The application accepts the request via its HTTP endpoint, then the <strong>Set Payload</strong> component sets the payload to "Hello World!", and finally the HTTP connector returns this payload as the response you see in your browser.</p> 
-      <div class="paragraph"> 
-       <p><span class="image"><img src="./_images/hello+world.png" alt="hello+world"></span></p> 
-      </div> </li> 
-     <li> <p>In Studio, stop the application from running using the <strong>Terminate</strong> icon in the console:</p> 
-      <div class="paragraph"> 
-       <p><span class="image"><img src="./_images/console2.png" alt="console2"></span></p> 
-      </div> </li> 
-    </ol> 
-   </div> 
   </div> 
  </div> 
 </div> 
@@ -1263,12 +1227,12 @@
  <div class="sectionbody"> 
   <div class="ulist"> 
    <ul> 
-    <li> <p>Learn the basics of Mule by memorizing the <a href="/mule-user-guide/v/3.8/mule-concepts">Mule Concepts</a>.</p> </li> 
-    <li> <p>Pick up a few more skills, like how to implement logging in the <a href="/anypoint-studio/v/6/basic-studio-tutorial">Anypoint Studio Tutorial</a>.</p> </li> 
+    <li> <p><a href="/mule-user-guide/v/3.8/mule-concepts">Mule Concepts</a></p> </li> 
+    <li> <p><a href="/anypoint-studio/v/6/basic-studio-tutorial">Anypoint Studio Tutorial</a></p> </li> 
     <li> <p><a href="/mule-user-guide/v/3.8/global-elements">Global Elements</a></p> </li> 
-    <li> <p>Go through the <a href="/mule-user-guide/v/3.8/dataweave-quickstart">DataWeave Quickstart</a> to learn Mule message and data transformation</p> </li> 
-    <li> <p>Happier using the command line to run applications? Learn more about <a href="/mule-user-guide/v/3.8/starting-and-stopping-mule-esb">Starting and stopping Mule</a>.</p> </li> 
-    <li> <p>Learn about the <a href="/mule-user-guide/v/3.8/about-the-xml-configuration-file">XML Configuration File</a>.</p> </li> 
+    <li> <p><a href="/mule-user-guide/v/3.8/dataweave-quickstart">DataWeave Quickstart</a></p> </li> 
+    <li> <p><a href="/mule-user-guide/v/3.8/starting-and-stopping-mule-esb">Starting and Stopping Mule</a></p> </li> 
+    <li> <p><a href="/mule-user-guide/v/3.8/about-the-xml-configuration-file">XML Configuration File</a></p> </li> 
    </ul> 
   </div> 
  </div> 
@@ -1277,7 +1241,7 @@
     <!-- END article-content -->
     <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
                 <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#prerequisites">Prerequisites</a></li><li><a class="scroll-menu-link" href="#create-a-new-project">Create a New Project</a></li><li><a class="scroll-menu-link" href="#configure-the-flow-elements">Configure the Flow Elements</a></li><li><a class="scroll-menu-link" href="#deploy-the-project-locally-via-studio">Deploy the Project Locally via Studio</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
+                <ul><li><a class="scroll-menu-link" href="#prerequisites">Prerequisites</a></li><li><a class="scroll-menu-link" href="#create-a-new-project">Create a New Project</a></li><li><a class="scroll-menu-link" href="#configure-the-flow-elements">Configure the Flow Elements</a></li><li><a class="scroll-menu-link" href="#deploy-and-test-your-project-locally">Deploy and Test Your Project Locally</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
   </div>
 </div>
 <!-- START footer -->
