@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>External Identity // MuleSoft Documentation </title>
+  <title>About Identity Management // MuleSoft Documentation </title>
   <link rel="shortcut icon" href="/favicon.ico"/>
   <link rel="stylesheet" type="text/css" href="/css/vendor.min.css?t=1491597550">
   <link rel="stylesheet" type="text/css" href="/css/mulesoft.min.css?t=1491597550">
@@ -15,8 +15,8 @@
   <script src="/js/scripts.js?t=1491597550"></script>
 
   <link rel="canonical" href="https://docs.mulesoft.com/access-management/external-identity" />
-  <meta name="description" content="Setting up external identity means that you configure an identity provider (IdP) to authenticate an acting agent (either an user, a client, or both..." />
-  <meta class="swiftype" name="title" data-type="string" content="External Identity" />
+  <meta name="description" content="As the Anypoint Platform administrator, you set up users for single sign-on (SSO) by configuring identity management in Anypoint Platform using one..." />
+  <meta class="swiftype" name="title" data-type="string" content="About Identity Management" />
 </head>
 <body>
 <!-- START Swiftype -->
@@ -680,8 +680,12 @@
 <a href="/access-management/">Access Management</a><ul style="display: block;">
 <li><i></i><a href="/access-management/managing-your-account">Managing Your Account</a></li><li><i></i><a href="/access-management/organization">Organization</a></li><li><i></i><a href="/access-management/users">Users</a></li><li><i></i><a href="/access-management/roles">Roles</a></li><li><i></i><a href="/access-management/environments">Environments</a></li><li class="active expanded">
 <i></i>
-<a href="/access-management/external-identity">External Identity</a><ul style="display: block;">
-<li><i></i><a href="/access-management/managing-users">Managing Users</a></li><li><i></i><a href="/access-management/managing-api-clients">Managing API Clients</a></li></ul></li>
+<a href="/access-management/external-identity">About Identity Management</a><ul style="display: block;">
+<li><i></i><a href="/access-management/sso-prerequisites-about">About SSO Prerequisites and Limitations</a></li><li><i></i><a href="/access-management/managing-users">To Configure SAML</a></li><li><i></i><a href="/access-management/conf-openid-connect-task">To Configure OpenID Connect</a></li><li><i></i><a href="/access-management/changing-id-mgmt-conf-about">About Changing an Identity Management Configuration</a></li><li><i></i><a href="/access-management/verify-saml-info-task">To Verify SAML Information</a></li><li><i></i><a href="/access-management/troubleshoot-saml-assertions-task">To Troubleshoot SAML Assertions</a></li><li><i></i><a href="/access-management/single-log-out-task">To Perform Single Log Out</a></li><li><i></i><a href="/access-management/map-users-roles-ldap-task">To Map Users to Roles in an LDAP Group</a></li><li><i></i><a href="/access-management/conf-ldap-private-cloud-task">To Configure LDAP in Anypoint Platform Private Cloud</a></li></ul></li>
+<li>
+<i></i>
+<a href="/access-management/managing-api-clients">About Client Management</a><ul>
+<li><i></i><a href="/access-management/conf-client-mgmt-openam-task">To Configure Client Management by OpenAM</a></li><li><i></i><a href="/access-management/conf-client-mgmt-pf-task">To Configure Client Management by PingFederate</a></li></ul></li>
 <li><i></i><a href="/access-management/audit-logging">Audit Logging</a></li><li><i></i><a href="/access-management/managing-permissions">Managing Permissions</a></li><li><i></i><a href="/access-management/private-cloud-edition-features">Private Cloud Edition Features</a></li><li><i></i><a href="/access-management/troubleshooting-anypoint-platform-access">Troubleshooting Anypoint Platform Access</a></li></ul></li>
 <li>
 <i></i>
@@ -1022,136 +1026,96 @@
     <!-- START article content -->
     <div class="article-content col-md-7 col-xs-12">
       
-      <div class="breadcrumb-section" data-swiftype-index='false'><a href="./">Access Management</a>/<a href="external-identity" class="breadcrumb-active-link">External Identity</a></div>
-      <h1>External Identity</h1>
+      <div class="breadcrumb-section" data-swiftype-index='false'><a href="./">Access Management</a>/<a href="external-identity" class="breadcrumb-active-link">About Identity Management</a></div>
+      <h1>About Identity Management</h1>
       <div id="preamble"> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>Setting up <em>external identity</em> means that you configure an identity provider (IdP) to authenticate an acting agent (either an user, a client, or both) and then assert to Anypoint Platform that said agent has been validated by it and should be trusted.</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>This means that you can set up:</p> 
+   <p>As the Anypoint Platform administrator, you set up users for single sign-on (SSO) by configuring identity management in Anypoint Platform using one of the following single sign-on standards:</p> 
   </div> 
   <div class="ulist"> 
    <ul> 
-    <li> <p>External identities for <strong>user management</strong> using <a href="/access-management/managing-users#instructions-for-saml-configuration">SAML 2.0</a> or <a href="/access-management/managing-users#configure-ldap">LDAP</a> (LDAP for Private Cloud Edition users only)</p> </li> 
-    <li> <p>External identities for <strong>client management</strong> using <a href="/access-management/managing-api-clients">OAuth 2.0</a></p> </li> 
-    <li> <p>External identities for both <strong>user and client management</strong></p> </li> 
+    <li> <p>OpenID Connect</p> 
+     <div class="paragraph"> 
+      <p>End-User identity verification by an authorization server including SSO</p> 
+     </div> </li> 
+    <li> <p>SAML 2.0</p> 
+     <div class="paragraph"> 
+      <p>Web-based authorization including cross-domain SSO</p> 
+     </div> </li> 
    </ul> 
   </div> 
-  <div class="admonitionblock caution"> 
-   <table> 
-    <tbody> 
-     <tr> 
-      <td class="icon"> <i class="fa icon-caution" title="Caution"></i> </td> 
-      <td class="content"> External identity applies to the entire organization and all business groups.<br> User management and client management can not be set different for different business groups; the settings are global to your organization. </td> 
-     </tr> 
-    </tbody> 
-   </table> 
+  <div class="paragraph"> 
+   <p>Service initiated-SSO is not supported.</p> 
   </div> 
   <div class="paragraph"> 
-   <p>Check the overview below for a detailed example of these use cases.</p> 
-  </div> 
-  <div class="admonitionblock note"> 
-   <table> 
-    <tbody> 
-     <tr> 
-      <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-      <td class="content"> 
-       <div class="paragraph"> 
-        <p>In order to set external identities, you need to own the proper entitlements. If you don’t have the <em>External Identity</em> option in your <em>Access Management</em> menu please contact your sales representative or customer success manager.</p> 
-       </div> </td> 
-     </tr> 
-    </tbody> 
-   </table> 
-  </div> 
- </div> 
-</div> 
-<div class="sect1"> 
- <h2 id="user-management"><a class="anchor" href="#user-management"></a>User Management</h2> 
- <div class="sectionbody"> 
-  <div class="paragraph"> 
-   <p>End users within your organization might need to access certain services hosted in the Anypoint Platform. As end users, they might expect to log in only once to your system (usually an authorization server of your federated identity provider), and access the resources in the Anypoint Platform without having to remember a new pair of username and password.</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>The Anypoint Platform can be integrated with your organization’s external federated identity system allowing your users to have single sign-on (SSO) access to your <a href="/access-management/organization">Anypoint Platform organization</a>.</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>The process flow below describes how this works:</p> 
+   <p>The following diagram shows the SAML identity management process:</p> 
   </div> 
   <div class="paragraph"> 
    <p><span class="image"><img src="./_images/external-identity-decbd.png" alt="external-identity-decbd"></span></p> 
   </div> 
-  <div class="admonitionblock note"> 
-   <table> 
-    <tbody> 
-     <tr> 
-      <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-      <td class="content"> 
-       <div class="paragraph"> 
-        <p>The Anypoint Platform only supports SSO that’s been initiated by the Identity Provider.<br> Service initiated SSO is not supported.</p> 
-       </div> </td> 
-     </tr> 
-    </tbody> 
-   </table> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="selecting-an-identity-management-provider"><a class="anchor" href="#selecting-an-identity-management-provider"></a>Selecting an Identity Management Provider</h2> 
+ <div class="sectionbody"> 
+  <div class="paragraph"> 
+   <p>Before configuring OpenID Connect or SAML 2.0, you need to select an identity management provider (IdP). If you intend to use OpenID Connect, choose an OpenID Connect-compliant provider, such as Okta; otherwise, choose any SAML 2.0 compliant provider. The following SAML IdPs have been successfully tested with Anypoint Platform:</p> 
+  </div> 
+  <div class="ulist"> 
+   <ul> 
+    <li> <p>Ping Federate</p> </li> 
+    <li> <p>OpenAM</p> </li> 
+    <li> <p>Okta</p> </li> 
+    <li> <p>Shibboleth</p> </li> 
+    <li> <p>ADFS</p> </li> 
+    <li> <p>onelogin</p> </li> 
+    <li> <p>CA SiteMinder</p> </li> 
+   </ul> 
+  </div> 
+  <div class="paragraph"> 
+   <p>Before configuring OpenID Connect or SAML 2.0, set up your Anypoint Platform organization as your audience in your IdP configuration.</p> 
   </div> 
  </div> 
 </div> 
 <div class="sect1"> 
- <h2 id="client-management"><a class="anchor" href="#client-management"></a>Client Management</h2> 
+ <h2 id="configuring-openid-connect-or-saml-2-0"><a class="anchor" href="#configuring-openid-connect-or-saml-2-0"></a>Configuring OpenID Connect or SAML 2.0</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>APIs are essential to grant self-service access to your resources to your different API consumers.<br> From your application point of view, said consumers are <em>clients</em>.</p> 
+   <p>You configure identity management in the Anypoint Platform master organization. The IdP you are set up to use, and your configuration of the authorization system, is effective for the entire organization and all business groups. Familiarize yourself with your IdP documentation. All attribute names you configure must match on both the IdP and Anypoint Platform side.</p> 
   </div> 
   <div class="paragraph"> 
-   <p>Managing API clients allows you to leverage the platform client management capability to:</p> 
+   <p>Follow the procedures to configure OpenID Connect or SAML 2.0 in this documentation.</p> 
   </div> 
-  <div class="olist arabic"> 
-   <ol class="arabic"> 
-    <li> <p>Grant a client permission to use the API</p> </li> 
-    <li> <p>Apply specific policies to your clients</p> </li> 
-    <li> <p>Revoke a client’s credentials</p> </li> 
-   </ol> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="ldap-in-anypoint-platform-private-cloud-edition"><a class="anchor" href="#ldap-in-anypoint-platform-private-cloud-edition"></a>LDAP in Anypoint Platform Private Cloud Edition</h2> 
+ <div class="sectionbody"> 
+  <div class="paragraph"> 
+   <p>As the Anypoint Platform Private Cloud Edition administrator, you set up LDAP for single sign-on. Follow the procedure to configure LDAP in Anypoint Private Cloud in this documentation.</p> 
   </div> 
   <div class="paragraph"> 
-   <p><span class="image"><img src="./_images/external-identity-b0a95.png" alt="external identity b0a95"></span></p> 
+   <p>Identity management might not be available to you, depending on the license you purchased. Contact your account representative to obtain the required license.</p> 
   </div> 
-  <div class="paragraph"> 
-   <p>A client application must first be registered in the platform, so it has its own pair of client Id and secret to obtain the OAuth tokens.<br> An OAuth client application would then interact with your authorization server and obtain access tokens to send authenticated requests to your resource server.</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>Anypoint Platform allows you to store the client id and secret in an external IdP server.<br> The platform generates both client id and secret and stores them in the external IdP.</p> 
-  </div> 
-  <div class="admonitionblock note"> 
-   <table> 
-    <tbody> 
-     <tr> 
-      <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-      <td class="content"> The only OAuth 2.0 supported IdPs that work with Anypoint Platform are <a href="/access-management/managing-api-clients#openam">OpenAM</a> and <a href="/access-management/managing-api-clients#ping-federate">Ping Federate</a>. </td> 
-     </tr> 
-    </tbody> 
-   </table> 
-  </div> 
-  <div class="sect2"> 
-   <h3 id="user-and-client-management"><a class="anchor" href="#user-and-client-management"></a>User and Client Management</h3> 
-   <div class="paragraph"> 
-    <p>Users might be expected to interact with a client application (for example a third party mobile app) that consumes some resource (for example, an exposed API) published on the Anypoint Platform.<br></p> 
-   </div> 
-   <div class="paragraph"> 
-    <p>Said users might expect to log in to the service in their third party mobile app and automatically inform the service provider that said client is acting on their behalf.<br></p> 
-   </div> 
-   <div class="paragraph"> 
-    <p>It is possible for you to verify your user’s identity and authorize a client application to access restricted user’s data in your resource server using tokens issued by an authorization server in response to the user’s explicit authorization.</p> 
-   </div> 
-   <div class="paragraph"> 
-    <p><span class="image"><img src="./_images/external-identity-09ab8.png" alt="external identity 09ab8"></span></p> 
-   </div> 
-   <div class="paragraph"> 
-    <p>Currently OpenAM and PingFederate are the only supported IdPs to manage users and client management simultaneously.<br> Follow the <a href="/access-management/managing-api-clients#openam">OpenAM for client management</a> or the <a href="/access-management/managing-api-clients#ping-federate">PingFederate for client management</a> instructions respectively to configure this.</p> 
-   </div> 
-   <div class="paragraph"> 
-    <p>Optionally, you can configure an <a href="/access-management/managing-api-clients#external-oauth-2-0-provider">External Oauth 2.0 service provider</a> to delegate authorization for third-party applications.</p> 
-   </div> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="see-also"><a class="anchor" href="#see-also"></a>See Also</h2> 
+ <div class="sectionbody"> 
+  <div class="ulist"> 
+   <ul> 
+    <li> <p><a href="/access-management/managing-users">To Configure OpenID Connect</a></p> </li> 
+    <li> <p><a href="/access-management/managing-users">To Configure SAML</a></p> </li> 
+    <li> <p><a href="/access-management/conf-ldap-private-cloud-task">To Configure LDAP in Anypoint Platform Private Cloud</a></p> </li> 
+    <li> <p><a href="https://www.pingidentity.com/en/products/pingfederate.html">Ping Federate</a></p> </li> 
+    <li> <p><a href="https://forgerock.org/openam/">OpenAM</a></p> </li> 
+    <li> <p><a href="https://www.okta.com/">Okta</a></p> </li> 
+    <li> <p><a href="https://shibboleth.net/">Shibboleth</a></p> </li> 
+    <li> <p><a href="https://msdn.microsoft.com/en-us/library/bb897402.aspx?f=255&amp;MSPPError=-2147217396">ADFS</a></p> </li> 
+    <li> <p><a href="https://www.onelogin.com/">onelogin</a></p> </li> 
+    <li> <p><a href="http://www.ca.com/us/products/ca-single-sign-on.html">CA SiteMinder</a></p> </li> 
+   </ul> 
   </div> 
  </div> 
 </div>
@@ -1159,7 +1123,7 @@
     <!-- END article-content -->
     <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
                 <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#user-management">User Management</a></li><li><a class="scroll-menu-link" href="#client-management">Client Management</a></li></ul></div></div><!-- /scroll-menu -->
+                <ul><li><a class="scroll-menu-link" href="#selecting-an-identity-management-provider">Selecting an Identity Management Provider</a></li><li><a class="scroll-menu-link" href="#configuring-openid-connect-or-saml-2-0">Configuring OpenID Connect or SAML 2.0</a></li><li><a class="scroll-menu-link" href="#ldap-in-anypoint-platform-private-cloud-edition">LDAP in Anypoint Platform Private Cloud Edition</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
   </div>
 </div>
 <!-- START footer -->
