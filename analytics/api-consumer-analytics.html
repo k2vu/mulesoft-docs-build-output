@@ -1037,24 +1037,46 @@
 <div class="sect1"> 
  <h2 id="to-view-api-consumer-analytics"><a class="anchor" href="#to-view-api-consumer-analytics"></a>To View API Consumer Analytics</h2> 
  <div class="sectionbody"> 
-  <div class="olist arabic"> 
-   <ol class="arabic"> 
-    <li> <p>Sign into Anypoint Platform and from API Manager, choose Developer portal &gt; My applications.</p> </li> 
-    <li> <p>Move the cursor over the Requests, Performance, or Blocked to view the plotted data for periods of time.</p> 
-     <div class="paragraph"> 
-      <p>On Developer portal &gt; My applications, line graphs of these metrics appear:</p> 
-     </div> 
-     <div class="ulist"> 
-      <ul> 
-       <li> <p>Number of requests made to an API</p> </li> 
-       <li> <p>The average latency to service a request</p> </li> 
-       <li> <p>Blocked and successful calls</p> </li> 
-      </ul> 
-     </div> </li> 
-   </ol> 
+  <div class="paragraph"> 
+   <p>Sign into Anypoint Platform and from API Manager, choose Developer portal &gt; My applications.</p> 
   </div> 
   <div class="paragraph"> 
-   <p><span class="image"><img src="./_images/consumer-api-graphs.png" alt="api-consumer-graphs"></span></p> 
+   <p>By default, when you land on the page, you can view the API metrics associated with all APIs called by your application.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p><span class="image"><img src="./_images/consumer-api-requests.png" alt="Total Requests - Requests By Status Code"></span></p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>The following metrics appear by default on the dashboard:</p> 
+  </div> 
+  <div class="ulist"> 
+   <ul> 
+    <li> <p>Number of requests made to an API</p> </li> 
+    <li> <p>The average latency to service a request</p> </li> 
+    <li> <p>The percentage error rate</p> </li> 
+    <li> <p>Breakdown of API calls by status code returned</p> </li> 
+   </ul> 
+  </div> 
+  <div class="paragraph"> 
+   <p>A summary of the total request count, average latency and error percentage for the selected APIs for the chosen time period are computed and displayed above the charts as shown below:</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p><span class="image"><img src="./_images/consumer-api-metrics.png" alt="131723 total requests 2655ms average latency 3756 percent error"></span></p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>You can selectively view the API metrics, the contract details between the API and the application including the SLA tier, and description and limits by selecting a single API of interest on the left side panel.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p><span class="image"><img src="./_images/consumer-api-single.png" alt="analytics about a single api"></span></p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>You can selectively compare the API metrics by selecting multiple APIs of interest on the left side panel.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>You can toggle between list and grid view to the right of date/time picker to view either one or two charts per row.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p><span class="image"><img src="./_images/consumer-api-date.png" alt="the dates of the analytics reported"></span></p> 
   </div> 
  </div> 
 </div> 
@@ -1062,27 +1084,293 @@
  <h2 id="consumer-metrics-reference"><a class="anchor" href="#consumer-metrics-reference"></a>Consumer Metrics Reference</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>Graphs of API consumer data show aggregations over the following periods of time: 1 hour, 1 day, 7 days, 1 month (default), or 3 months. A zero value for a time period indicates insufficient data.</p> 
+   <p>Graphs of API consumer data show aggregations over the following periods of time: 3 days, 7 days, 14 days, 30 days, 60 days, 90 days and any custom date range.</p> 
   </div> 
   <div class="paragraph"> 
    <p>API Analytics groups metrics into these categories:</p> 
   </div> 
   <div class="ulist"> 
    <ul> 
-    <li> <p>Requests</p> 
-     <div class="paragraph"> 
-      <p>Requests (Y axis) to your API over time (X axis).</p> 
-     </div> </li> 
-    <li> <p>Performance</p> 
-     <div class="paragraph"> 
-      <p>Milliseconds (Y axis) on the average to receive and successfully complete a request over time (X axis). Requests return an HTTP code 200 or 201.</p> 
-     </div> </li> 
-    <li> <p>Blocked</p> 
-     <div class="paragraph"> 
-      <p>The number of requests (Y axis) blocked due to networking issues over time (X axis). Requests return an HTTP error code 4xx or 5xx.</p> 
-     </div> </li> 
+    <li> <p>Number of requests made to an API</p> </li> 
+    <li> <p>The average latency in milliseconds to service a request</p> </li> 
+    <li> <p>The percentage error rate (computed as a percentage of number of calls that returned 4xx and 5xx out of total API calls placed)</p> </li> 
+    <li> <p>Breakdown of API calls by status code returned</p> </li> 
    </ul> 
   </div> 
+  <div class="paragraph"> 
+   <p>All chart datasets can be downloaded in csv format.</p> 
+  </div> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="api-consumer-analytics-fields"><a class="anchor" href="#api-consumer-analytics-fields"></a>API Consumer Analytics Fields</h2> 
+ <div class="sectionbody"> 
+  <table class="tableblock frame-all grid-all spread"> 
+   <colgroup> 
+    <col style="width: 30%;"> 
+    <col style="width: 70%;"> 
+   </colgroup> 
+   <thead> 
+    <tr> 
+     <th class="tableblock halign-left valign-top">Field</th> 
+     <th class="tableblock halign-left valign-top">Description</th> 
+    </tr> 
+   </thead> 
+   <tbody> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Edit</p> 
+       </div> 
+      </div></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Edit the information for the current API such as the API name, version, SLA tier, and status.</p> 
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Reset Client Secret</p> 
+       </div> 
+      </div></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Get a new client secret for the current API.</p> 
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Delete Application</p> 
+       </div> 
+      </div></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Delete the current application. The interface prompts to ensure you really want to complete this action.</p> 
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Application URL</p> 
+       </div> 
+      </div></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>URL for accessing the application.</p> 
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Redirect URIs</p> 
+       </div> 
+      </div></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Alternate redirected URL to the API (if any).</p> 
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Client ID</p> 
+       </div> 
+      </div></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>A unique 64-bit identifier for the current API.</p> 
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Client Secret</p> 
+       </div> 
+      </div></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>A unique 64-bit secret value for the current API.</p> 
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>API Name</p> 
+       </div> 
+      </div></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>The name of the API.</p> 
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>API Version</p> 
+       </div> 
+      </div></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>The version of the API.</p> 
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>SLA Tier</p> 
+       </div> 
+      </div></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>The current tier level for your software licensing agreement.</p> 
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Status</p> 
+       </div> 
+      </div></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Indicates whether or not the SLA tier has been approved by the application’s owner. For more information on SLA tier status, see <a href="/api-manager/defining-sla-tiers">Defining SLA Tiers</a> and <a href="/api-manager/tutorial-manage-an-api#adding-an-sla-tier">Adding an SLA Tier</a>.</p> 
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Request Tier Change</p> 
+       </div> 
+      </div></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Button that enables you to request a different SLA tier level. You may consider raising the SLA tier level if the API performance is consistently too low.</p> 
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Total Requests</p> 
+       </div> 
+      </div></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Indicates the number of requests that occur each duration depending on what duration range you click.</p> 
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Average Latency</p> 
+       </div> 
+      </div></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Indicates the average latency of the successful requests. It is measured by the how many milliseconds it takes to receive and successfully complete a request.</p> 
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Error Percentage</p> 
+       </div> 
+      </div></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Indicates how many requests returned an error code of 4xx or 5xx such as 404 and 500.</p> 
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Tier</p> 
+       </div> 
+      </div></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>The current SLA tier for the API.</p> 
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Description</p> 
+       </div> 
+      </div></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Description of the SLA Tier.</p> 
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Limits</p> 
+       </div> 
+      </div></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Any limits placed on the API.</p> 
+       </div> 
+      </div></td> 
+    </tr> 
+   </tbody> 
+  </table> 
  </div> 
 </div> 
 <div class="sect1"> 
@@ -1092,6 +1380,7 @@
    <ul> 
     <li> <p><a href="https://anypoint.mulesoft.com/login/#/signin">Anypoint Platform sign in page</a></p> </li> 
     <li> <p><a href="/api-manager/defining-sla-tiers">Defining SLA Tiers</a></p> </li> 
+    <li> <p><a href="/api-manager/tutorial-manage-an-api#adding-an-sla-tier">Adding an SLA Tier</a></p> </li> 
    </ul> 
   </div> 
  </div> 
@@ -1100,7 +1389,7 @@
     <!-- END article-content -->
     <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
                 <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#to-view-api-consumer-analytics">To View API Consumer Analytics</a></li><li><a class="scroll-menu-link" href="#consumer-metrics-reference">Consumer Metrics Reference</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
+                <ul><li><a class="scroll-menu-link" href="#to-view-api-consumer-analytics">To View API Consumer Analytics</a></li><li><a class="scroll-menu-link" href="#consumer-metrics-reference">Consumer Metrics Reference</a></li><li><a class="scroll-menu-link" href="#api-consumer-analytics-fields">API Consumer Analytics Fields</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
   </div>
 </div>
 <!-- START footer -->
