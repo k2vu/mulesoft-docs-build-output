@@ -1083,82 +1083,126 @@
     <li> <p>A <strong>reliable</strong> transport <em>does not consume</em> a message as it travels through the flow until it can ascertain that the message has successfully reached the end of the flow. When a message using a reliable transport throws an exception, the rollback exception strategy discards the partially processed message and instructs the flow to attempt processing the original message again.</p> </li> 
    </ul> 
   </div> 
-  <div class="admonitionblock warning"> 
-   <table> 
-    <tbody> 
-     <tr> 
-      <td class="icon"> <i class="fa icon-warning" title="Warning"></i> </td> 
-      <td class="content"> 
-       <div class="paragraph"> 
-        <p>If your flow involves a <strong>reliable</strong> transport and a rollback exception strategy, you must set the flow’s Processing Strategy to "synchronous". (Configure the Processing Strategy in the Flow Properties panel.) This is because <strong>reliable</strong> transports do not consume messages, they wait for messages to successfully complete a flow before consuming the messages; therefore, the flow must process synchronously.</p> 
-       </div> 
-       <div class="paragraph"> 
-        <p>If you deploy a Mule application that contains a flow with an asynchronous processing strategy and a rollback exception strategy configured for message redelivery, the application fails!</p> 
-       </div> </td> 
-     </tr> 
-    </tbody> 
-   </table> 
+  <div class="paragraph"> 
+   <p><strong>Important:</strong> If your flow involves a <strong>reliable</strong> transport and a rollback exception strategy, you must set the flow’s Processing Strategy to "synchronous". (Configure the Processing Strategy in the Flow Properties panel.) This is because <strong>reliable</strong> transports do not consume messages, they wait for messages to successfully complete a flow before consuming the messages; therefore, the flow must process synchronously.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>If you deploy a Mule application that contains a flow with an asynchronous processing strategy and a rollback exception strategy configured for message redelivery, the application fails!</p> 
   </div> 
   <table class="tableblock frame-all grid-all spread"> 
    <colgroup> 
-    <col> 
-    <col> 
-    <col> 
+    <col style="width: 15%;"> 
+    <col style="width: 85%;"> 
    </colgroup> 
    <thead> 
     <tr> 
      <th class="tableblock halign-left valign-top">Transport</th> 
-     <th class="tableblock halign-left valign-top">Type</th> 
      <th class="tableblock halign-left valign-top">When an exception occurs…​</th> 
     </tr> 
    </thead> 
    <tbody> 
     <tr> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">VM</p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">transactional</p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">The message rolls back to its original state for reprocessing.</p></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>VM</p> 
+       </div> 
+      </div></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>(Transactional Type) The message rolls back to its original state for reprocessing.</p> 
+       </div> 
+      </div></td> 
     </tr> 
     <tr> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">JDBC</p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">transactional</p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">The message rolls back to its original state for reprocessing.</p></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>JDBC</p> 
+       </div> 
+      </div></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>(Transactional Type) The message rolls back to its original state for reprocessing.</p> 
+       </div> 
+      </div></td> 
     </tr> 
     <tr> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">JMS</p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">transactional</p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">The message rolls back to its original state for reprocessing.</p></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>JMS</p> 
+       </div> 
+      </div></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>(Transactional Type) The message rolls back to its original state for reprocessing.</p> 
+       </div> 
+      </div></td> 
     </tr> 
     <tr> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">JMS</p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">reliable</p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">The session recovers, that is, Mule discards the copy of the source file and attempts reprocessing the message using a fresh copy.</p></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>JMS</p> 
+       </div> 
+      </div></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>(Reliable Type) The session recovers, that is, Mule discards the copy of the source file and attempts reprocessing the message using a fresh copy.</p> 
+       </div> 
+      </div></td> 
     </tr> 
     <tr> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">FTP</p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">reliable</p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">Mule discards the copy of the source file and attempts reprocessing the message using a fresh copy.</p></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>FTP</p> 
+       </div> 
+      </div></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>(Reliable Type) Mule discards the copy of the source file and attempts reprocessing the message using a fresh copy.</p> 
+       </div> 
+      </div></td> 
     </tr> 
     <tr> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">File</p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">reliable</p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">Mule discards the copy of the source file and attempts reprocessing the message using a fresh copy.</p></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>File</p> 
+       </div> 
+      </div></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>(Reliable Type) Mule discards the copy of the source file and attempts reprocessing the message using a fresh copy.</p> 
+       </div> 
+      </div></td> 
     </tr> 
     <tr> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">IMAP</p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">reliable</p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">Mule does not move the message from the mailbox and attempts reprocessing the message using a fresh copy of the original.</p></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>IMAP</p> 
+       </div> 
+      </div></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>(Reliable Type) Mule does not move the message from the mailbox and attempts reprocessing the message using a fresh copy of the original.</p> 
+       </div> 
+      </div></td> 
     </tr> 
    </tbody> 
   </table> 
-  <div class="admonitionblock note"> 
-   <table> 
-    <tbody> 
-     <tr> 
-      <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-      <td class="content"> A JMS redelivery configuration takes precedence over the rollback exception strategy. </td> 
-     </tr> 
-    </tbody> 
-   </table> 
+  <div class="paragraph"> 
+   <p><strong>Note:</strong> A JMS redelivery configuration takes precedence over the rollback exception strategy.</p> 
   </div> 
  </div> 
 </div> 
@@ -1211,130 +1255,109 @@
  </div> 
 </div> 
 <div class="sect1"> 
- <h2 id="cares"><a class="anchor" href="#cares"></a>Configuring a Rollback Exception Strategy</h2> 
+ <h2 id="cares"><a class="anchor" href="#cares"></a>Configuring a Rollback Exception Strategy Using Studio Visual Editor</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
    <p>Whether your flow involves transactional or reliable transports, you can configure its rollback exception strategy in Mule.</p> 
   </div> 
-  <div class="panel panel-default no-padding"> 
-   <div class="panel-heading no-padding"> 
-    <!-- Nav tabs --> 
-    <ul class="nav nav-tabs" role="tablist"> 
-     <li class="active"><a href="#tab-1_1" role="tab" data-toggle="tab">Studio Visual Editor</a></li> 
-     <li><a href="#tab-1_2" role="tab" data-toggle="tab">XML Editor or Standalone</a></li> 
-    </ul> 
-   </div> 
-   <div class="panel-body tab-content no-padding"> 
-    <div class="tab-pane in active fade no-padding" id="tab-1_1"> 
-     <div class="olist arabic"> 
-      <ol class="arabic"> 
-       <li> <p>Search for and drag and drop the&nbsp;<strong>Rollback Exception Strategy</strong>&nbsp;icon to put into the footer bar of a flow.</p> </li> 
-       <li> <p>Open the&nbsp;Rollback Exception Strategy’s <strong>Properties Editor</strong>, then configure the attributes according to the table below.</p> 
-        <div class="paragraph"> 
-         <p><span class="image"><img src="./_images/rollback_ES.png" alt="rollback_ES"></span></p> 
-        </div> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col style="width: 20%;"> 
-          <col style="width: 80%;"> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Field</th> 
-           <th class="tableblock halign-left valign-top">Value</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"> 
-            <div> 
-             <div class="paragraph"> 
-              <p>(Required) A unique name for the rollback exception strategy in your application.</p> 
-             </div> 
-            </div></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Max redelivery attempts</strong></p></td> 
-           <td class="tableblock halign-left valign-top"> 
-            <div> 
-             <div class="paragraph"> 
-              <p>(Required) Enter an integer&nbsp;to define the number of times you want the rollback exception strategy to roll back a message for reprocessing. If you set the default value to&nbsp;<code>0</code>, the rollback exception strategy does&nbsp;_*not*&nbsp;_attempt to redeliver the message and throws a <code>MessageRedeliveredException</code> upon the first processing failure.<br></p> 
-             </div> 
-             <div class="admonitionblock warning"> 
-              <table> 
-               <tbody> 
-                <tr> 
-                 <td class="icon"> <i class="fa icon-warning" title="Warning"></i> </td> 
-                 <td class="content"> 
-                  <div class="paragraph"> 
-                   <p>If you enter nothing in the <strong>Max redelivery attempts</strong> field (leave the field blank), the rollback exception strategy redelivers the message over and over again, creating an infinite loop. Refer to <a href="#craijgc">Configuring Redelivery Attempts in JMS Global Connector</a> below to learn more about setting this value to <code>0</code>.</p> 
-                  </div> </td> 
-                </tr> 
-               </tbody> 
-              </table> 
-             </div> 
-            </div></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>When</strong></p></td> 
-           <td class="tableblock halign-left valign-top"> 
-            <div> 
-             <div class="paragraph"> 
-              <p>Enter an expression to indicate the kind of exception the rollback exception should handle.</p> 
-             </div> 
-             <div class="paragraph"> 
-              <p>Conditions for this field:</p> 
-             </div> 
-             <div class="ulist"> 
-              <ul> 
-               <li> <p><strong>Expression <em>not</em> defined:</strong> All messages in this flow that throw exceptions are handled by this rollback exception strategy.</p> </li> 
-               <li> <p><strong>Expression defined:</strong> &nbsp;When Mule evaluates the expression against the message being processed and returns <code>true</code>, Mule executes the exception strategy. For example, if you enter the following, only those messages which throw an <code>org.mule.example.AlreadyProcessedException</code> exception are handled by this exception strategy:<br> <code>#[exception.causedBy(org.mule.example.AlreadyProcessedException)]</code></p> </li> 
-              </ul> 
-             </div> 
-             <div class="paragraph"> 
-              <p>Mule’s default exception strategy implicitly handles all exceptions which do not match the expression you have defined in the <strong>When</strong> field.</p> 
-             </div> 
-            </div></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Enable Notifications</strong></p></td> 
-           <td class="tableblock halign-left valign-top"> 
-            <div> 
-             <div class="paragraph"> 
-              <p>Checked (default). When checked, instructs Mule to send an exception notification to a registered listener — for example, the Mule Management Console — whenever a message throws an exception in this flow.</p> 
-             </div> 
-            </div></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Log Exceptions</strong></p></td> 
-           <td class="tableblock halign-left valign-top"> 
-            <div> 
-             <div class="paragraph"> 
-              <p>Checked (default). When checked, instructs Mule to log the exceptions.</p> 
-             </div> 
-            </div></td> 
-          </tr> 
-         </tbody> 
-        </table> 
-        <div class="admonitionblock tip"> 
-         <table> 
+  <div class="olist arabic"> 
+   <ol class="arabic"> 
+    <li> <p>Search for and drag and drop the&nbsp;<strong>Rollback Exception Strategy</strong>&nbsp;icon to put into the footer bar of a flow.</p> </li> 
+    <li> <p>Open the&nbsp;Rollback Exception Strategy’s <strong>Properties Editor</strong>, then configure the attributes according to the table below.</p> 
+     <div class="paragraph"> 
+      <p><span class="image"><img src="./_images/rollback_ES.png" alt="rollback_ES"></span></p> 
+     </div> 
+     <table class="tableblock frame-all grid-all spread"> 
+      <colgroup> 
+       <col style="width: 20%;"> 
+       <col style="width: 80%;"> 
+      </colgroup> 
+      <thead> 
+       <tr> 
+        <th class="tableblock halign-left valign-top">Field</th> 
+        <th class="tableblock halign-left valign-top">Value</th> 
+       </tr> 
+      </thead> 
+      <tbody> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
+        <td class="tableblock halign-left valign-top"> 
+         <div> 
+          <div class="paragraph"> 
+           <p>(Required) A unique name for the rollback exception strategy in your application.</p> 
+          </div> 
+         </div></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Max redelivery attempts</strong></p></td> 
+        <td class="tableblock halign-left valign-top"> 
+         <div> 
+          <div class="paragraph"> 
+           <p>(Required) Enter an integer&nbsp;to define the number of times you want the rollback exception strategy to roll back a message for reprocessing. If you set the default value to&nbsp;<code>0</code>, the rollback exception strategy does&nbsp;_*not*&nbsp;_attempt to redeliver the message and throws a <code>MessageRedeliveredException</code> upon the first processing failure.<br></p> 
+          </div> 
+          <div class="paragraph"> 
+           <p><strong>Notes:</strong></p> 
+          </div> 
+          <div class="ulist"> 
+           <ul> 
+            <li> <p>If you enter nothing in the <strong>Max redelivery attempts</strong> field (leave the field blank), the rollback exception strategy redelivers the message over and over again, creating an infinite loop. Refer to <a href="#craijgc">Configuring Redelivery Attempts in JMS Global Connector</a> below to learn more about setting this value to <code>0</code>.</p> </li> 
+            <li> <p>All rollback exception strategies in a catch exception strategy should have the same Max Redelivery Attempts setting, otherwise the value of the first one with an explicit setting (not empty) is used.</p> </li> 
+           </ul> 
+          </div> 
+         </div></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>When</strong></p></td> 
+        <td class="tableblock halign-left valign-top"> 
+         <div> 
+          <div class="paragraph"> 
+           <p>Enter an expression to indicate the kind of exception the rollback exception should handle.</p> 
+          </div> 
+          <div class="paragraph"> 
+           <p>Conditions for this field:</p> 
+          </div> 
+          <div class="ulist"> 
+           <ul> 
+            <li> <p><strong>Expression <em>not</em> defined:</strong> All messages in this flow that throw exceptions are handled by this rollback exception strategy.</p> </li> 
+            <li> <p><strong>Expression defined:</strong> &nbsp;When Mule evaluates the expression against the message being processed and returns <code>true</code>, Mule executes the exception strategy. For example, if you enter the following, only those messages which throw an <code>org.mule.example.AlreadyProcessedException</code> exception are handled by this exception strategy:<br> <code>#[exception.causedBy(org.mule.example.AlreadyProcessedException)]</code></p> </li> 
+           </ul> 
+          </div> 
+          <div class="paragraph"> 
+           <p>Mule’s default exception strategy implicitly handles all exceptions which do not match the expression you have defined in the <strong>When</strong> field.</p> 
+          </div> 
+         </div></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Enable Notifications</strong></p></td> 
+        <td class="tableblock halign-left valign-top"> 
+         <div> 
+          <div class="paragraph"> 
+           <p>Checked (default). When checked, instructs Mule to send an exception notification to a registered listener — for example, the Mule Management Console — whenever a message throws an exception in this flow.</p> 
+          </div> 
+         </div></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Log Exceptions</strong></p></td> 
+        <td class="tableblock halign-left valign-top"> 
+         <div> 
+          <div class="paragraph"> 
+           <p>Checked (default). When checked, instructs Mule to log the exceptions.</p> 
+          </div> 
+         </div></td> 
+       </tr> 
+      </tbody> 
+     </table> 
+     <div class="paragraph"> 
+      <p>Here are examples of expressions that you can enter in the <strong>When</strong> field:</p> 
+     </div> 
+     <div class="listingblock"> 
+      <div class="content"> 
+       <pre class="CodeRay highlight"><code data-lang="xml">
+            
+         <table class="CodeRay"> 
           <tbody> 
            <tr> 
-            <td class="icon"> <i class="fa icon-tip" title="Tip"></i> </td> 
-            <td class="content"> 
-             <div class="paragraph"> 
-              <p>Here are examples of expressions that you can enter in the <strong>When</strong> field:</p> 
-             </div> 
-             <div class="listingblock"> 
-              <div class="content"> 
-               <pre class="CodeRay highlight"><code data-lang="xml">
-            
-                    
-                 <table class="CodeRay"> 
-                  <tbody> 
-                   <tr> 
-                    <td class="line-numbers"><pre>1
+            <td class="line-numbers"><pre>1
 2
 3
 4
@@ -1342,170 +1365,144 @@
 6
 7
 </pre></td> 
-                    <td class="code"><pre>#[exception.causedBy(org.mule.example.ExceptionType)]
+            <td class="code"><pre>#[exception.causedBy(org.mule.example.ExceptionType)]
 #[exception.causedExactlyBy(org.mule.example.ExceptionType)]
 #[exception.causeMatches(org.mule.example.*)]
 
-#[exception.causeMatches(*) <span class="entity">&amp;amp;</span><span class="entity">&amp;amp;</span> +
-!exception.causedBy(java.lang.ArithmeticException) <span class="entity">&amp;amp;</span><span class="entity">&amp;amp;</span> +
+#[exception.causeMatches(*) <span class="error">&amp;</span><span class="error">&amp;</span> +
+!exception.causedBy(java.lang.ArithmeticException) <span class="error">&amp;</span><span class="error">&amp;</span> +
 !exception.causedBy(org.mule.api.registry.ResolverException)]</pre></td> 
-                   </tr> 
-                  </tbody> 
-                 </table></code></pre> 
-              </div> 
-             </div> </td> 
            </tr> 
           </tbody> 
-         </table> 
-        </div> </li> 
-       <li> <p>Drag building blocks from the palette into the&nbsp;<strong>Rollback Exception Strategy</strong>&nbsp;box to build a flow that processes messages that throw exceptions in the parent flow. A rollback exception strategy can contain any number of message processors.</p> 
-        <div class="admonitionblock note"> 
-         <table> 
-          <tbody> 
-           <tr> 
-            <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-            <td class="content"> 
-             <div class="paragraph"> 
-              <p>If your flow uses a <strong>reliable</strong> transport, you can stop at this point and <em>not</em> configure a <strong>redelivery exhausted</strong> sub flow. If you choose not to configure a redelivery exhausted sub flow:</p> 
-             </div> 
-             <div class="olist loweralpha"> 
-              <ol class="loweralpha" type="a"> 
-               <li> <p>A message that exceeds its redelivery attempts (called "a poisoned message") throws a MessageRedeliveredException.</p> </li> 
-               <li> <p>The exception strategy commits the transaction.</p> </li> 
-               <li> <p>The exception strategy consumes the message.</p> </li> 
-              </ol> 
-             </div> </td> 
-           </tr> 
-          </tbody> 
-         </table> 
-        </div> </li> 
-       <li> <p>Drag building blocks from the palette into the&nbsp;<strong>redelivery exhausted</strong>&nbsp;box to build a flow that processes messages which exceed the maximum number of redelivery attempts. For example, you may wish to use redelivery exhausted to direct all “poisoned messages” to a dead letter queue. A redelivery exhausted flow can contain any number of message processors.</p> </li> 
+         </table></code></pre> 
+      </div> 
+     </div> </li> 
+    <li> <p>Drag building blocks from the palette into the&nbsp;<strong>Rollback Exception Strategy</strong>&nbsp;box to build a flow that processes messages that throw exceptions in the parent flow. A rollback exception strategy can contain any number of message processors.</p> 
+     <div class="paragraph"> 
+      <p>If your flow uses a <strong>reliable</strong> transport, you can stop at this point and <em>not</em> configure a <strong>redelivery exhausted</strong> sub flow. If you choose not to configure a redelivery exhausted sub flow:</p> 
+     </div> 
+     <div class="olist loweralpha"> 
+      <ol class="loweralpha" type="a"> 
+       <li> <p>A message that exceeds its redelivery attempts (called "a poisoned message") throws a MessageRedeliveredException.</p> </li> 
+       <li> <p>The exception strategy commits the transaction.</p> </li> 
+       <li> <p>The exception strategy consumes the message.</p> </li> 
       </ol> 
-     </div> 
-     <div class="admonitionblock warning"> 
-      <table> 
-       <tbody> 
-        <tr> 
-         <td class="icon"> <i class="fa icon-warning" title="Warning"></i> </td> 
-         <td class="content"> 
+     </div> </li> 
+    <li> <p>Drag building blocks from the palette into the&nbsp;<strong>redelivery exhausted</strong>&nbsp;box to build a flow that processes messages which exceed the maximum number of redelivery attempts. For example, you may wish to use redelivery exhausted to direct all “poisoned messages” to a dead letter queue. A redelivery exhausted flow can contain any number of message processors.</p> </li> 
+   </ol> 
+  </div> 
+  <div class="paragraph"> 
+   <p><strong>Note:</strong> You can define <em>only one</em> exception strategy for each flow. If you need to design a more complex error handling strategy that involves more than one way of handling exceptions, consider using a <a href="/mule-user-guide/v/3.8/choice-exception-strategy">Choice Exception Strategy</a>.</p> 
+  </div> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="configuring-a-rollback-exception-strategy-using-xml-editor-or-standalone"><a class="anchor" href="#configuring-a-rollback-exception-strategy-using-xml-editor-or-standalone"></a>Configuring a Rollback Exception Strategy Using XML Editor or Standalone</h2> 
+ <div class="sectionbody"> 
+  <div class="olist arabic"> 
+   <ol class="arabic"> 
+    <li> <p>In your flow, below all the message processors, add a&nbsp;<strong><code>rollback-exception-strategy</code></strong>&nbsp;element. Refer to code below.</p> </li> 
+    <li> <p>Configure attributes of the exception strategy according to the table below.</p> 
+     <table class="tableblock frame-all grid-all spread"> 
+      <colgroup> 
+       <col style="width: 20%;"> 
+       <col style="width: 80%;"> 
+      </colgroup> 
+      <thead> 
+       <tr> 
+        <th class="tableblock halign-left valign-top">Attribute</th> 
+        <th class="tableblock halign-left valign-top">Value</th> 
+       </tr> 
+      </thead> 
+      <tbody> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
+        <td class="tableblock halign-left valign-top"> 
+         <div> 
           <div class="paragraph"> 
-           <p>You can define <em>only one</em> exception strategy for each flow. If you need to design a more complex error handling strategy that involves more than one way of handling exceptions, consider using a <a href="/mule-user-guide/v/3.8/choice-exception-strategy">Choice Exception Strategy</a>.</p> 
-          </div> </td> 
-        </tr> 
-       </tbody> 
-      </table> 
-     </div> 
-    </div> 
-    <div class="tab-pane fade no-padding" id="tab-1_2"> 
-     <div class="olist arabic"> 
-      <ol class="arabic"> 
-       <li> <p>In your flow, below all the message processors, add a&nbsp;<strong><code>rollback-exception-strategy</code></strong>&nbsp;element. Refer to code below.</p> </li> 
-       <li> <p>Configure attributes of the exception strategy according to the table below.</p> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col style="width: 20%;"> 
-          <col style="width: 80%;"> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Attribute</th> 
-           <th class="tableblock halign-left valign-top">Value</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"> 
-            <div> 
-             <div class="paragraph"> 
-              <p>(Required) A unique name for the rollback exception strategy in your application.<br> Not required in Standalone.&nbsp;</p> 
-             </div> 
-            </div></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>maxRedeliveryAttempts</strong></p></td> 
-           <td class="tableblock halign-left valign-top"> 
-            <div> 
-             <div class="paragraph"> 
-              <p>(Required) Use an integer&nbsp;to define the number of times you want the rollback exception strategy to rollback a message for reprocessing. If you set the default value to&nbsp;<code>0</code>, which means the rollback exception strategy does&nbsp;<em>not</em> attempt to redeliver the message and throws a MessageRedeliveredException upon the first processing failure. Refer to <a href="#craijgc">Configuring Redelivery Attempts in JMS Global Connector</a> below to learn more about setting this value to <code>0</code>.</p> 
-             </div> 
-            </div></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>when</strong></p></td> 
-           <td class="tableblock halign-left valign-top"> 
-            <div> 
-             <div class="paragraph"> 
-              <p>Define an expression to indicate the kind of exception the rollback exception should handle.</p> 
-             </div> 
-             <div class="paragraph"> 
-              <p>Conditions for this field:</p> 
-             </div> 
-             <div class="ulist"> 
-              <ul> 
-               <li> <p><strong>Expression <em>not</em> defined:</strong> all messages in this flow that throw exceptions will be handled by this rollback exception strategy.&nbsp;</p> </li> 
-               <li> <p><strong>Expression defined:</strong> &nbsp;when Mule evaluates the expression against the message being processed and returns true, Mule executes the exception strategy.</p> </li> 
-              </ul> 
-             </div> 
-             <div class="paragraph"> 
-              <p>For example, if you enter the following, only those messages which throw an <code>org.mule.example.AlreadyProcessedException</code> exception are handled by this exception strategy: <code>#[exception.causedBy(org.mule.example.AlreadyProcessedException)]</code>, Mule’s default exception strategy implicitly handles all exceptions which do not match the expression you have defined in the when attribute.</p> 
-             </div> 
-            </div></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>enableNotifications</strong></p></td> 
-           <td class="tableblock halign-left valign-top"> 
-            <div> 
-             <div class="paragraph"> 
-              <p>Checked (default). When checked, instructs Mule to send an exception notification to a registered listener — for example, the Mule Management Console — whenever a message throws an exception in this flow.</p> 
-             </div> 
-            </div></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>logExceptions</strong></p></td> 
-           <td class="tableblock halign-left valign-top"> 
-            <div> 
-             <div class="paragraph"> 
-              <p>Checked (default). When checked, instructs Mule to log the exceptions.</p> 
-             </div> 
-            </div></td> 
-          </tr> 
-         </tbody> 
-        </table> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-       
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
-</pre></td> 
-               <td class="code"><pre><span class="entity">&amp;lt;</span>rollback-exception-strategy maxRedeliveryAttempts="0" doc:name="My Rollback Exception Strategy" when="exception.causedBy(org.mule.example.ExceptionType)" enableNotifications="true"/<span class="entity">&amp;gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
-        </div> 
-        <div class="admonitionblock tip"> 
-         <table> 
+           <p>(Required) A unique name for the rollback exception strategy in your application.<br> Not required in Standalone.&nbsp;</p> 
+          </div> 
+         </div></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>maxRedeliveryAttempts</strong></p></td> 
+        <td class="tableblock halign-left valign-top"> 
+         <div> 
+          <div class="paragraph"> 
+           <p>(Required) Use an integer&nbsp;to define the number of times you want the rollback exception strategy to rollback a message for reprocessing. If you set the default value to&nbsp;<code>0</code>, which means the rollback exception strategy does&nbsp;<em>not</em> attempt to redeliver the message and throws a MessageRedeliveredException upon the first processing failure. Refer to <a href="#craijgc">Configuring Redelivery Attempts in JMS Global Connector</a> below to learn more about setting this value to <code>0</code>.</p> 
+          </div> 
+          <div class="paragraph"> 
+           <p><strong>Note:</strong> All rollback exception strategies in a catch exception strategy should have the same maxRedeliveryAttempts setting, otherwise the value of the first one with an explicit setting (not empty) is used. Also, the table instructs to set Max Redelivery to 0 and Max Redelivery in JMS to -1 for infinite loop, but the actual result is that the message is not redelivered.</p> 
+          </div> 
+         </div></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>when</strong></p></td> 
+        <td class="tableblock halign-left valign-top"> 
+         <div> 
+          <div class="paragraph"> 
+           <p>Define an expression to indicate the kind of exception the rollback exception should handle.</p> 
+          </div> 
+          <div class="paragraph"> 
+           <p>Conditions for this field:</p> 
+          </div> 
+          <div class="ulist"> 
+           <ul> 
+            <li> <p><strong>Expression <em>not</em> defined:</strong> All messages in this flow that throw exceptions is handled by this rollback exception strategy.&nbsp;</p> </li> 
+            <li> <p><strong>Expression defined:</strong> &nbsp;When Mule evaluates the expression against the message being processed and returns true, Mule executes the exception strategy.</p> </li> 
+           </ul> 
+          </div> 
+          <div class="paragraph"> 
+           <p>For example, if you enter the following, only those messages which throw an <code>org.mule.example.AlreadyProcessedException</code> exception are handled by this exception strategy: <code>#[exception.causedBy(org.mule.example.AlreadyProcessedException)]</code>, Mule’s default exception strategy implicitly handles all exceptions which do not match the expression you have defined in the when attribute.</p> 
+          </div> 
+         </div></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>enableNotifications</strong></p></td> 
+        <td class="tableblock halign-left valign-top"> 
+         <div> 
+          <div class="paragraph"> 
+           <p>Checked (default). When checked, instructs Mule to send an exception notification to a registered listener — for example, the Mule Management Console — whenever a message throws an exception in this flow.</p> 
+          </div> 
+         </div></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>logExceptions</strong></p></td> 
+        <td class="tableblock halign-left valign-top"> 
+         <div> 
+          <div class="paragraph"> 
+           <p>Checked (default). When checked, instructs Mule to log the exceptions.</p> 
+          </div> 
+         </div></td> 
+       </tr> 
+      </tbody> 
+     </table> 
+     <div class="listingblock"> 
+      <div class="content"> 
+       <pre class="CodeRay highlight"><code data-lang="xml">
+            
+         <table class="CodeRay"> 
           <tbody> 
            <tr> 
-            <td class="icon"> <i class="fa icon-tip" title="Tip"></i> </td> 
-            <td class="content"> 
-             <div class="paragraph"> 
-              <p>The following are examples of expressions that you can enter in the <strong>When</strong> field:</p> 
-             </div> 
-             <div class="listingblock"> 
-              <div class="content"> 
-               <pre class="CodeRay highlight"><code data-lang="xml">
+            <td class="line-numbers"><pre>1
+</pre></td> 
+            <td class="code"><pre><span class="tag">&lt;rollback-exception-strategy</span> <span class="attribute-name">maxRedeliveryAttempts</span>=<span class="string"><span class="delimiter">"</span><span class="content">0</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">My Rollback Exception Strategy</span><span class="delimiter">"</span></span> <span class="attribute-name">when</span>=<span class="string"><span class="delimiter">"</span><span class="content">exception.causedBy(org.mule.example.ExceptionType)</span><span class="delimiter">"</span></span> <span class="attribute-name">enableNotifications</span>=<span class="string"><span class="delimiter">"</span><span class="content">true</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></pre></td> 
+           </tr> 
+          </tbody> 
+         </table></code></pre> 
+      </div> 
+     </div> 
+     <div class="paragraph"> 
+      <p>The following are examples of expressions that you can enter in the <strong>When</strong> field:</p> 
+     </div> 
+     <div class="listingblock"> 
+      <div class="content"> 
+       <pre class="CodeRay highlight"><code data-lang="xml">
             
-                    
-                 <table class="CodeRay"> 
-                  <tbody> 
-                   <tr> 
-                    <td class="line-numbers"><pre>1
+         <table class="CodeRay"> 
+          <tbody> 
+           <tr> 
+            <td class="line-numbers"><pre>1
 2
 3
 4
@@ -1513,62 +1510,35 @@
 6
 7
 </pre></td> 
-                    <td class="code"><pre>#[exception.causedBy(org.mule.example.ExceptionType)]
+            <td class="code"><pre>#[exception.causedBy(org.mule.example.ExceptionType)]
 #[exception.causedExactlyBy(org.mule.example.ExceptionType)]
 #[exception.causeMatches(org.mule.example.*)]
 
-#[exception.causeMatches(*) <span class="entity">&amp;amp;</span><span class="entity">&amp;amp;</span> +
-!exception.causedBy(java.lang.ArithmeticException) <span class="entity">&amp;amp;</span><span class="entity">&amp;amp;</span> +
+#[exception.causeMatches(*) <span class="error">&amp;</span><span class="error">&amp;</span> +
+!exception.causedBy(java.lang.ArithmeticException) <span class="error">&amp;</span><span class="error">&amp;</span> +
 !exception.causedBy(org.mule.api.registry.ResolverException)]</pre></td> 
-                   </tr> 
-                  </tbody> 
-                 </table></code></pre> 
-              </div> 
-             </div> </td> 
            </tr> 
           </tbody> 
-         </table> 
-        </div> </li> 
-       <li> <p>Add child elements to your <code>rollback-exception-strategy</code>&nbsp;to build a flow that processes messages that throw exceptions in the parent flow. A rollback exception strategy can contain any number of message processors.</p> 
-        <div class="admonitionblock note"> 
-         <table> 
-          <tbody> 
-           <tr> 
-            <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-            <td class="content"> 
-             <div class="paragraph"> 
-              <p>If your flow uses a <strong>reliable</strong> transport, you can stop at this point and <em>not</em> configure a <strong>redelivery exhausted</strong> sub flow. If you choose not to configure a redelivery exhausted sub flow:</p> 
-             </div> 
-             <div class="ulist"> 
-              <ul> 
-               <li> <p>A message that exceeds its redelivery attempts (a.k.a. “a poisoned message”) throws a <code>MessageRedeliveredException</code>.</p> </li> 
-               <li> <p>The exception strategy commits the transaction.</p> </li> 
-               <li> <p>The exception strategy consumes the message.</p> </li> 
-              </ul> 
-             </div> </td> 
-           </tr> 
-          </tbody> 
-         </table> 
-        </div> </li> 
-       <li> <p>Add an <code>on-redelivery-attempts-exceeded</code> child element to your <code>rollback-exception-strategy</code> element at the bottom, below all the message processors included in the exception strategy.</p> </li> 
-       <li> <p>Add child elements to your <code>on-redelivery-attempts-exceeded</code>&nbsp;child element to build a flow that processes messages which exceed the maximum number of redelivery attempts. For example, you may wish to use redelivery exhausted to direct all “poisoned messages” to a dead letter queue. A redelivery exhausted flow can contain any number of message processors.</p> </li> 
-      </ol> 
+         </table></code></pre> 
+      </div> 
+     </div> </li> 
+    <li> <p>Add child elements to your <code>rollback-exception-strategy</code>&nbsp;to build a flow that processes messages that throw exceptions in the parent flow. A rollback exception strategy can contain any number of message processors.</p> 
+     <div class="paragraph"> 
+      <p><strong>Note:</strong> If your flow uses a <strong>reliable</strong> transport, you can stop at this point and <em>not</em> configure a <strong>redelivery exhausted</strong> sub flow. If you choose not to configure a redelivery exhausted sub flow:</p> 
      </div> 
-     <div class="admonitionblock warning"> 
-      <table> 
-       <tbody> 
-        <tr> 
-         <td class="icon"> <i class="fa icon-warning" title="Warning"></i> </td> 
-         <td class="content"> 
-          <div class="paragraph"> 
-           <p>You can define <em>only one</em> exception strategy for each flow. If you need to design a more complex error handling strategy that involves more than one way of handling exceptions, consider using a <a href="/mule-user-guide/v/3.8/choice-exception-strategy">Choice Exception Strategy</a>.</p> 
-          </div> </td> 
-        </tr> 
-       </tbody> 
-      </table> 
-     </div> 
-    </div> 
-   </div> 
+     <div class="ulist"> 
+      <ul> 
+       <li> <p>A message that exceeds its redelivery attempts (a.k.a. “a poisoned message”) throws a <code>MessageRedeliveredException</code>.</p> </li> 
+       <li> <p>The exception strategy commits the transaction.</p> </li> 
+       <li> <p>The exception strategy consumes the message.</p> </li> 
+      </ul> 
+     </div> </li> 
+    <li> <p>Add an <code>on-redelivery-attempts-exceeded</code> child element to your <code>rollback-exception-strategy</code> element at the bottom, below all the message processors included in the exception strategy.</p> </li> 
+    <li> <p>Add child elements to your <code>on-redelivery-attempts-exceeded</code>&nbsp;child element to build a flow that processes messages which exceed the maximum number of redelivery attempts. For example, you may wish to use redelivery exhausted to direct all “poisoned messages” to a dead letter queue. A redelivery exhausted flow can contain any number of message processors.</p> </li> 
+   </ol> 
+  </div> 
+  <div class="paragraph"> 
+   <p><strong>Note:</strong> You can define <em>only one</em> exception strategy for each flow. If you need to design a more complex error handling strategy that involves more than one way of handling exceptions, consider using a <a href="/mule-user-guide/v/3.8/choice-exception-strategy">Choice Exception Strategy</a>.</p> 
   </div> 
  </div> 
 </div> 
@@ -1584,308 +1554,250 @@
   <div class="paragraph"> 
    <p>If your flow uses a JMS global connector, you can configure it to manage the redelivery policy by defining its <strong>Max Redelivery</strong>.</p> 
   </div> 
-  <div class="panel panel-default no-padding"> 
-   <div class="panel-heading no-padding"> 
-    <!-- Nav tabs --> 
-    <ul class="nav nav-tabs" role="tablist"> 
-     <li class="active"><a href="#tab-2_1" role="tab" data-toggle="tab">Studio Visual Editor</a></li> 
-     <li><a href="#tab-2_2" role="tab" data-toggle="tab">XML Editor or Standalone</a></li> 
-    </ul> 
-   </div> 
-   <div class="panel-body tab-content no-padding"> 
-    <div class="tab-pane in active fade no-padding" id="tab-2_1"> 
-     <div class="olist arabic"> 
-      <ol class="arabic"> 
-       <li> <p>Search for "jms" and drag the <strong>JMS</strong> connector to the Canvas.</p> </li> 
-       <li> <p>Click the green plus sign to the right of the <strong>Connector Configuration</strong> field.</p> </li> 
-       <li> <p>In the <strong>Choose Global Type</strong> field, expand the <strong>JMS</strong> entry, click <strong>JMS</strong>, and click <strong>OK</strong>.</p> </li> 
-       <li> <p>Click the <strong>Advanced</strong> tab. Scroll down to the <strong>JMS Advanced</strong> section of the menu.</p> </li> 
-       <li> <p>Enter an integer in the&nbsp;<strong>Max Redelivery</strong>&nbsp;field to define the number of times you want the rollback exception strategy to rollback a message for reprocessing, and click&nbsp;<strong>OK</strong>&nbsp;to save your changes. Note that the default value of this field is set to&nbsp;<code>-1</code>; this ensures that the JMS global connector’s redelivery policy defers to your rollback exception strategy’s redelivery policy by default.</p> 
-        <div class="paragraph"> 
-         <p><span class="image"><img src="./_images/max_redelivery_JMS.png" alt="max_redelivery_JMS"></span></p> 
-        </div> </li> 
-       <li> <p>Click the&nbsp;<strong>Message Flow</strong>&nbsp;tab, then double-click title bar of your rollback exception strategy.</p> </li> 
-       <li> <p>In the Rollback Exception Strategy Properties panel that appears, enter a <code>0</code> in the&nbsp;<strong>Max redelivery attempts</strong>&nbsp;field and click&nbsp;<strong>OK</strong> to save your changes.</p> </li> 
-       <li> <p>Refer to the table below to learn more about entering a value in the maxRedelivery fields.</p> </li> 
-      </ol> 
-     </div> 
-    </div> 
-    <div class="tab-pane fade no-padding" id="tab-2_2"> 
-     <div class="olist arabic"> 
-      <ol class="arabic"> 
-       <li> <p>To your global <code>jms:connector</code> element set above all the flows in your Mule project, add a <code>maxRedelivery</code> attribute and set the value to an integer to define the number of times you want the rollback exception strategy to rollback a message for reprocessing (see the code below). Note that if you set the value of the attribute to&nbsp;<code>-1</code>, the JMS global connector’s redelivery policy defers to your rollback exception strategy’s redelivery policy by default.</p> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml"><span class="entity">&amp;lt;</span>jms:connector name="JMS" validateConnections="true" maxRedelivery="1" doc:name="JMS"/<span class="entity">&amp;gt;</span></code></pre> 
-         </div> 
-        </div> </li> 
-       <li> <p>To the <code>rollback-exception-strategy</code> element in your flow, set the value of the <code>maxRedeliveryAttempts</code> attribute to <code>0</code>. Setting to <code>0</code> instructs Mule to use the value of <code>maxRedelivery</code> in the global JMS connector’s configuration.</p> </li> 
-       <li> <p>Refer to the table below to learn more about the setting the value of the <code>maxDelivery</code> attributes.</p> </li> 
-      </ol> 
-     </div> 
-    </div> 
+  <div class="sect2"> 
+   <h3 id="configuring-redelivery-attempts-studio-visual-editor"><a class="anchor" href="#configuring-redelivery-attempts-studio-visual-editor"></a>Configuring Redelivery Attempts Studio Visual Editor</h3> 
+   <div class="olist arabic"> 
+    <ol class="arabic"> 
+     <li> <p>Search for "jms" and drag the <strong>JMS</strong> connector to the Canvas.</p> </li> 
+     <li> <p>Click the green plus sign to the right of the <strong>Connector Configuration</strong> field.</p> </li> 
+     <li> <p>In the <strong>Choose Global Type</strong> field, expand the <strong>JMS</strong> entry, click <strong>JMS</strong>, and click <strong>OK</strong>.</p> </li> 
+     <li> <p>Click the <strong>Advanced</strong> tab. Scroll down to the <strong>JMS Advanced</strong> section of the menu.</p> </li> 
+     <li> <p>Enter an integer in the&nbsp;<strong>Max Redelivery</strong>&nbsp;field to define the number of times you want the rollback exception strategy to rollback a message for reprocessing, and click&nbsp;<strong>OK</strong>&nbsp;to save your changes. Note that the default value of this field is set to&nbsp;<code>-1</code>; this ensures that the JMS global connector’s redelivery policy defers to your rollback exception strategy’s redelivery policy by default.</p> 
+      <div class="paragraph"> 
+       <p><span class="image"><img src="./_images/max_redelivery_JMS.png" alt="max_redelivery_JMS"></span></p> 
+      </div> </li> 
+     <li> <p>Click the&nbsp;<strong>Message Flow</strong>&nbsp;tab, then double-click title bar of your rollback exception strategy.</p> </li> 
+     <li> <p>In the Rollback Exception Strategy Properties panel that appears, enter a <code>0</code> in the&nbsp;<strong>Max redelivery attempts</strong>&nbsp;field and click&nbsp;<strong>OK</strong> to save your changes.</p> </li> 
+     <li> <p>Refer to the table below to learn more about entering a value in the maxRedelivery fields.</p> </li> 
+    </ol> 
    </div> 
   </div> 
-  <div class="admonitionblock warning"> 
-   <table> 
+  <div class="sect2"> 
+   <h3 id="configuring-redelivery-attempts-xml-editor-or-standalone"><a class="anchor" href="#configuring-redelivery-attempts-xml-editor-or-standalone"></a>Configuring Redelivery Attempts XML Editor or Standalone</h3> 
+   <div class="olist arabic"> 
+    <ol class="arabic"> 
+     <li> <p>To your global <code>jms:connector</code> element set above all the flows in your Mule project, add a <code>maxRedelivery</code> attribute and set the value to an integer to define the number of times you want the rollback exception strategy to rollback a message for reprocessing (see the code below). Note that if you set the value of the attribute to&nbsp;<code>-1</code>, the JMS global connector’s redelivery policy defers to your rollback exception strategy’s redelivery policy by default.</p> 
+      <div class="listingblock"> 
+       <div class="content"> 
+        <pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;jms:connector</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">JMS</span><span class="delimiter">"</span></span> <span class="attribute-name">validateConnections</span>=<span class="string"><span class="delimiter">"</span><span class="content">true</span><span class="delimiter">"</span></span> <span class="attribute-name">maxRedelivery</span>=<span class="string"><span class="delimiter">"</span><span class="content">1</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">JMS</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></code></pre> 
+       </div> 
+      </div> </li> 
+     <li> <p>To the <code>rollback-exception-strategy</code> element in your flow, set the value of the <code>maxRedeliveryAttempts</code> attribute to <code>0</code>. Setting to <code>0</code> instructs Mule to use the value of <code>maxRedelivery</code> in the global JMS connector’s configuration.</p> 
+      <div class="paragraph"> 
+       <p><strong>Note:</strong> All rollback exception strategies in a catch exception strategy should have the same maxRedeliveryAttempts setting, otherwise the value of the first one with an explicit setting (not empty) is used.</p> 
+      </div> </li> 
+     <li> <p>Refer to the table below to learn more about the setting the value of the <code>maxDelivery</code> attributes.</p> </li> 
+    </ol> 
+   </div> 
+   <div class="paragraph"> 
+    <p><strong>Note:</strong> If your flow uses a JMS global connector and you <em>do not</em> want the connector to manage your rollback strategy’s redelivery policy, then be sure to set the connector’s max redelivery value to <code>-1</code>. This ensures that the JMS global connector’s redelivery policy defers to your rollback exception strategy’s redelivery policy by default.</p> 
+   </div> 
+   <table class="tableblock frame-all grid-all spread"> 
+    <colgroup> 
+     <col style="width: 25%;"> 
+     <col style="width: 75%;"> 
+    </colgroup> 
+    <thead> 
+     <tr> 
+      <th class="tableblock halign-left valign-top">Rollback Exception Strategy configured in flow?</th> 
+      <th class="tableblock halign-left valign-top">Results If</th> 
+     </tr> 
+    </thead> 
     <tbody> 
      <tr> 
-      <td class="icon"> <i class="fa icon-warning" title="Warning"></i> </td> 
-      <td class="content"> 
-       <div class="paragraph"> 
-        <p>If your flow uses a JMS global connector and you <em>do not</em> want the connector to manage your rollback strategy’s redelivery policy, then be sure to set the connector’s max redelivery value to <code>-1</code>. This ensures that the JMS global connector’s redelivery policy defers to your rollback exception strategy’s redelivery policy by default.</p> 
-       </div> </td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p><code>yes</code></p> 
+        </div> 
+       </div></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p>If <strong>Max Redelivery Set in Rollback ES in the flow</strong> = <code>3</code><br> And if <strong>Max Redelivery Set in JMS Global Connector</strong> = <code>-1</code><br> And if <strong>Redelivery Exhausted Configured?</strong> = <code>yes</code></p> 
+        </div> 
+        <div class="paragraph"> 
+         <p><strong>Then:</strong> Rollback exception strategy redelivers the message to parent flow 3 times. After 3 failures, message throws a <code>MessageRedeliveredException</code>. The rollback exception strategy routes the message to redelivery exhausted for processing before committing the transaction and consuming the message.</p> 
+        </div> 
+       </div></td> 
+     </tr> 
+     <tr> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p><code>yes</code></p> 
+        </div> 
+       </div></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p>If <strong>Max Redelivery Set in Rollback ES in the flow</strong> = <code>3</code><br> And if <strong>Max Redelivery Set in JMS Global Connector</strong> = <code>-1</code><br> And if <strong>Redelivery Exhausted Configured?</strong> = <code>no</code></p> 
+        </div> 
+        <div class="paragraph"> 
+         <p><strong>Then:</strong> Rollback exception strategy redelivers the message to parent flow 3 times. After 3 failures, message throws a <code>MessageRedeliveredException</code>. Rollback exception strategy commits the transaction and consumes the message.</p> 
+        </div> 
+       </div></td> 
+     </tr> 
+     <tr> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p><code>yes</code></p> 
+        </div> 
+       </div></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p>If <strong>Max Redelivery Set in Rollback ES in the flow</strong> = <code>0</code><br> And if <strong>Max Redelivery Set in JMS Global Connector</strong> = <code>-1</code><br> And if <strong>Redelivery Exhausted Configured?</strong> = <code>no</code></p> 
+        </div> 
+        <div class="paragraph"> 
+         <p><strong>Then:</strong> Rollback exception strategy causes the message to not be redelivered.</p> 
+        </div> 
+       </div></td> 
+     </tr> 
+     <tr> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p><code>yes</code></p> 
+        </div> 
+       </div></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p>If <strong>Max Redelivery Set in Rollback ES in the flow</strong> = <code>0</code><br> And if <strong>Max Redelivery Set in JMS Global Connector</strong> = <code>-1</code><br> And if <strong>Redelivery Exhausted Configured?</strong> = <code>yes</code></p> 
+        </div> 
+        <div class="paragraph"> 
+         <p><strong>Then:</strong> Rollback exception strategy causes the message to not be redelivered.</p> 
+        </div> 
+       </div></td> 
+     </tr> 
+     <tr> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p><code>yes</code></p> 
+        </div> 
+       </div></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p>If <strong>Max Redelivery Set in Rollback ES in the flow</strong> = <code>0</code><br> And if <strong>Max Redelivery Set in JMS Global Connector</strong> = <code>4</code><br> And if <strong>Redelivery Exhausted Configured?</strong> = <code>no</code></p> 
+        </div> 
+        <div class="paragraph"> 
+         <p><strong>Then:</strong> Rollback exception strategy redelivers the message to parent flow 4 times, as per the JMS global connector redelivery policy. After 4 failures, the message throws a <code>MessageRedeliveredException</code>. The rollback exception strategy routes the message to redelivery exhausted for processing before committing the transaction and consuming the message.</p> 
+        </div> 
+       </div></td> 
      </tr> 
     </tbody> 
    </table> 
   </div> 
-  <table class="tableblock frame-all grid-all spread"> 
-   <colgroup> 
-    <col style="width: 25%;"> 
-    <col style="width: 75%;"> 
-   </colgroup> 
-   <thead> 
-    <tr> 
-     <th class="tableblock halign-left valign-top">Rollback Exception Strategy configured in flow?</th> 
-     <th class="tableblock halign-left valign-top">Results If</th> 
-    </tr> 
-   </thead> 
-   <tbody> 
-    <tr> 
-     <td class="tableblock halign-left valign-top"> 
-      <div> 
-       <div class="paragraph"> 
-        <p><code>yes</code></p> 
-       </div> 
-      </div></td> 
-     <td class="tableblock halign-left valign-top"> 
-      <div> 
-       <div class="paragraph"> 
-        <p>If <strong>Max Redelivery Set in Rollback ES in the flow</strong> = <code>3</code><br> And if <strong>Max Redelivery Set in JMS Global Connector</strong> = <code>-1</code><br> And if <strong>Redelivery Exhausted Configured?</strong> = <code>yes</code></p> 
-       </div> 
-       <div class="paragraph"> 
-        <p><strong>Then:</strong> Rollback exception strategy redelivers the message to parent flow 3 times. After 3 failures, message throws a <code>MessageRedeliveredException</code>. The rollback exception strategy routes the message to redelivery exhausted for processing before committing the transaction and consuming the message.</p> 
-       </div> 
-      </div></td> 
-    </tr> 
-    <tr> 
-     <td class="tableblock halign-left valign-top"> 
-      <div> 
-       <div class="paragraph"> 
-        <p><code>yes</code></p> 
-       </div> 
-      </div></td> 
-     <td class="tableblock halign-left valign-top"> 
-      <div> 
-       <div class="paragraph"> 
-        <p>If <strong>Max Redelivery Set in Rollback ES in the flow</strong> = <code>3</code><br> And if <strong>Max Redelivery Set in JMS Global Connector</strong> = <code>-1</code><br> And if <strong>Redelivery Exhausted Configured?</strong> = <code>no</code></p> 
-       </div> 
-       <div class="paragraph"> 
-        <p><strong>Then:</strong> Rollback exception strategy redelivers the message to parent flow 3 times. After 3 failures, message throws a <code>MessageRedeliveredException</code>. Rollback exception strategy commits the transaction and consumes the message.</p> 
-       </div> 
-      </div></td> 
-    </tr> 
-    <tr> 
-     <td class="tableblock halign-left valign-top"> 
-      <div> 
-       <div class="paragraph"> 
-        <p><code>yes</code></p> 
-       </div> 
-      </div></td> 
-     <td class="tableblock halign-left valign-top"> 
-      <div> 
-       <div class="paragraph"> 
-        <p>If <strong>Max Redelivery Set in Rollback ES in the flow</strong> = <code>0</code><br> And if <strong>Max Redelivery Set in JMS Global Connector</strong> = <code>-1</code><br> And if <strong>Redelivery Exhausted Configured?</strong> = <code>no</code></p> 
-       </div> 
-       <div class="paragraph"> 
-        <p><strong>Then:</strong> Rollback exception strategy redelivers the message over and over again, creating an infinite loop.</p> 
-       </div> 
-      </div></td> 
-    </tr> 
-    <tr> 
-     <td class="tableblock halign-left valign-top"> 
-      <div> 
-       <div class="paragraph"> 
-        <p><code>yes</code></p> 
-       </div> 
-      </div></td> 
-     <td class="tableblock halign-left valign-top"> 
-      <div> 
-       <div class="paragraph"> 
-        <p>If <strong>Max Redelivery Set in Rollback ES in the flow</strong> = <code>0</code><br> And if <strong>Max Redelivery Set in JMS Global Connector</strong> = <code>-1</code><br> And if <strong>Redelivery Exhausted Configured?</strong> = <code>yes</code></p> 
-       </div> 
-       <div class="paragraph"> 
-        <p><strong>Then:</strong> Rollback exception strategy redelivers the message over and over again, creating an infinite loop.</p> 
-       </div> 
-      </div></td> 
-    </tr> 
-    <tr> 
-     <td class="tableblock halign-left valign-top"> 
-      <div> 
-       <div class="paragraph"> 
-        <p><code>yes</code></p> 
-       </div> 
-      </div></td> 
-     <td class="tableblock halign-left valign-top"> 
-      <div> 
-       <div class="paragraph"> 
-        <p>If <strong>Max Redelivery Set in Rollback ES in the flow</strong> = <code>0</code><br> And if <strong>Max Redelivery Set in JMS Global Connector</strong> = <code>4</code><br> And if <strong>Redelivery Exhausted Configured?</strong> = <code>no</code></p> 
-       </div> 
-       <div class="paragraph"> 
-        <p><strong>Then:</strong> Rollback exception strategy redelivers the message to parent flow 4 times, as per the JMS global connector redelivery policy. After 4 failures, the message throws a <code>MessageRedeliveredException</code>. The rollback exception strategy routes the message to redelivery exhausted for processing before committing the transaction and consuming the message.</p> 
-       </div> 
-      </div></td> 
-    </tr> 
-   </tbody> 
-  </table> 
  </div> 
 </div> 
 <div class="sect1"> 
- <h2 id="creating-a-global-rollback-exception-strategy"><a class="anchor" href="#creating-a-global-rollback-exception-strategy"></a>Creating a Global Rollback Exception Strategy</h2> 
+ <h2 id="creating-a-global-rollback-exception-strategy-in-visual-editor"><a class="anchor" href="#creating-a-global-rollback-exception-strategy-in-visual-editor"></a>Creating a Global Rollback Exception Strategy in Visual Editor</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
    <p>You can create one or more <a href="/mule-user-guide/v/3.8/error-handling">global exception strategies</a> to reuse in flows throughout your entire Mule application. First, create a Mule Configuration File and add to it your global rollback exception strategy. Then add a <a href="/mule-user-guide/v/3.8/reference-exception-strategy">Reference Exception Strategy</a> to a flow to apply the error handling behavior of your new global rollback exception strategy.</p> 
   </div> 
-  <div class="panel panel-default no-padding"> 
-   <div class="panel-heading no-padding"> 
-    <!-- Nav tabs --> 
-    <ul class="nav nav-tabs" role="tablist"> 
-     <li class="active"><a href="#tab-3_1" role="tab" data-toggle="tab">Studio Visual Editor</a></li> 
-     <li><a href="#tab-3_2" role="tab" data-toggle="tab">XML Editor or Standalone</a></li> 
-    </ul> 
-   </div> 
-   <div class="panel-body tab-content no-padding"> 
-    <div class="tab-pane in active fade no-padding" id="tab-3_1"> 
-     <div class="olist arabic"> 
-      <ol class="arabic"> 
-       <li> <p>From <strong>File</strong> &gt; <strong>New</strong> &gt; <strong>Mule Configuration File</strong>, create a&nbsp;global configuration file to contain your <strong>Rollack Exception Strategy</strong>.</p> </li> 
-       <li> <p>Refer to step 2&nbsp;<a href="#cares">Configuring a Rollback Exception Strategy</a>&nbsp;to configure your global rollback exception strategy in your configuration file.</p> </li> 
-       <li> <p>Click the&nbsp;<strong>Message Flow</strong>&nbsp;tab below the canvas and add building blocks to your configuration file.</p> </li> 
-       <li> <p>Follow steps 3 - 5&nbsp;<a href="#cares">Configuring a Rollback Exception Strategy</a>&nbsp;to build your global rollback exception strategy flow in your configuration file and to set the redelivery exhausted flow.</p> </li> 
-      </ol> 
-     </div> 
-    </div> 
-    <div class="tab-pane fade no-padding" id="tab-3_2"> 
-     <div class="olist arabic"> 
-      <ol class="arabic"> 
-       <li> <p>Create a Mule Configuration File as a text file that you add to your project. This file needs to have the same format as a Mule project file. In this file, add the XML elements that you want to share with the flows in your project.</p> </li> 
-       <li> <p>Above all the flows in your application, create a&nbsp;<code>rollback-exception-strategy</code>&nbsp;element.</p> </li> 
-       <li> <p>To the <code>rollback-exception-strategy</code>&nbsp;element, add the attributes according to step 2 <a href="#Configuring a Rollback Exception Strategy">[Configuring a Rollback Exception Strategy]</a>.</p> </li> 
-       <li> <p>Follow steps 3 - 5&nbsp;<a href="#Configuring a Rollback Exception Strategy">[Configuring a Rollback Exception Strategy]</a>&nbsp;to build your rollback exception strategy flow and the redelivery exhausted flow.</p> </li> 
-      </ol> 
-     </div> 
-    </div> 
-   </div> 
+  <div class="olist arabic"> 
+   <ol class="arabic"> 
+    <li> <p>From <strong>File</strong> &gt; <strong>New</strong> &gt; <strong>Mule Configuration File</strong>, create a&nbsp;global configuration file to contain your <strong>Rollack Exception Strategy</strong>.</p> </li> 
+    <li> <p>Refer to step 2&nbsp;<a href="#cares">Configuring a Rollback Exception Strategy</a>&nbsp;to configure your global rollback exception strategy in your configuration file.</p> </li> 
+    <li> <p>Click the&nbsp;<strong>Message Flow</strong>&nbsp;tab below the canvas and add building blocks to your configuration file.</p> </li> 
+    <li> <p>Follow steps 3 - 5&nbsp;<a href="#cares">Configuring a Rollback Exception Strategy</a>&nbsp;to build your global rollback exception strategy flow in your configuration file and to set the redelivery exhausted flow.</p> </li> 
+   </ol> 
+  </div> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="creating-a-global-rollback-exception-strategy-in-xml-editor-or-standalone"><a class="anchor" href="#creating-a-global-rollback-exception-strategy-in-xml-editor-or-standalone"></a>Creating a Global Rollback Exception Strategy in XML Editor or Standalone</h2> 
+ <div class="sectionbody"> 
+  <div class="olist arabic"> 
+   <ol class="arabic"> 
+    <li> <p>Create a Mule Configuration File as a text file that you add to your project. This file needs to have the same format as a Mule project file. In this file, add the XML elements that you want to share with the flows in your project.</p> </li> 
+    <li> <p>Above all the flows in your application, create a&nbsp;<code>rollback-exception-strategy</code>&nbsp;element.</p> </li> 
+    <li> <p>To the <code>rollback-exception-strategy</code>&nbsp;element, add the attributes according to step 2 <a href="#Configuring a Rollback Exception Strategy">[Configuring a Rollback Exception Strategy]</a>.</p> </li> 
+    <li> <p>Follow steps 3 - 5&nbsp;<a href="#Configuring a Rollback Exception Strategy">[Configuring a Rollback Exception Strategy]</a>&nbsp;to build your rollback exception strategy flow and the redelivery exhausted flow.</p> </li> 
+   </ol> 
   </div> 
   <div class="sect2"> 
-   <h3 id="applying-a-global-rollback-exception-strategy-to-a-flow"><a class="anchor" href="#applying-a-global-rollback-exception-strategy-to-a-flow"></a>Applying a Global Rollback Exception Strategy to a Flow</h3> 
+   <h3 id="applying-a-global-rollback-exception-strategy-to-a-flow-in-studio"><a class="anchor" href="#applying-a-global-rollback-exception-strategy-to-a-flow-in-studio"></a>Applying a Global Rollback Exception Strategy to a Flow in Studio</h3> 
    <div class="paragraph"> 
     <p>Use a <a href="/mule-user-guide/v/3.8/reference-exception-strategy">reference exception strategy</a> to instruct a flow to employ the error handling behavior defined by your global rollback exception strategy in your Mule configuration file. In other words, you must ask your flow to refer to the global rollback exception strategy in the configuration file for instructions on how to handle errors.</p> 
    </div> 
-   <div class="panel panel-default no-padding"> 
-    <div class="panel-heading no-padding"> 
-     <!-- Nav tabs --> 
-     <ul class="nav nav-tabs" role="tablist"> 
-      <li class="active"><a href="#tab-4_1" role="tab" data-toggle="tab">Studio Visual Editor</a></li> 
-      <li><a href="#tab-4_2" role="tab" data-toggle="tab">XML Editor or Standalone</a></li> 
-     </ul> 
-    </div> 
-    <div class="panel-body tab-content no-padding"> 
-     <div class="tab-pane in active fade no-padding" id="tab-4_1"> 
-      <div class="olist arabic"> 
-       <ol class="arabic"> 
-        <li> <p>From the&nbsp;<strong>Error Handling</strong>&nbsp;palette group, drag and drop the&nbsp;<strong>Reference Exception Strategy</strong>&nbsp;icon into the footer bar of a flow.</p> </li> 
-        <li> <p>Open the&nbsp;Reference Exception Strategy’s&nbsp;<strong>Properties Editor</strong>.</p> 
-         <div class="paragraph"> 
-          <p><span class="image"><img src="./_images/ref_global_rollback.png" alt="ref_global_rollback"></span></p> 
-         </div> </li> 
-        <li> <p>Use the drop-down to select your&nbsp;<strong>Global Exception Strategy</strong>.</p> </li> 
-        <li> <p>Click anywhere in the canvas to save your changes.</p> 
-         <div class="admonitionblock note"> 
-          <table> 
-           <tbody> 
-            <tr> 
-             <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-             <td class="content"> 
-              <div class="paragraph"> 
-               <p>You can create a global rollback exception strategy (that is access the Choose Global Type panel) from the reference exception strategy’s pattern properties panel. Click the <span class="image"><img src="./_images/add.png" alt="(plus)"></span> button next to the <strong>Global Exception Strategy</strong> drop-down and follow the steps above to create a global choice exception strategy.</p> 
-              </div> </td> 
-            </tr> 
-           </tbody> 
-          </table> 
-         </div> </li> 
-       </ol> 
-      </div> 
-     </div> 
-     <div class="tab-pane fade no-padding" id="tab-4_2"> 
-      <div class="olist arabic"> 
-       <ol class="arabic"> 
-        <li> <p>In your flow, below all the message processors, add a&nbsp;<code>reference-exception-strategy</code> element. Refer to the code below.</p> </li> 
-        <li> <p>Configure attributes of the exception strategy according to the table below.</p> 
-         <table class="tableblock frame-all grid-all spread"> 
-          <colgroup> 
-           <col style="width: 20%;"> 
-           <col style="width: 80%;"> 
-          </colgroup> 
-          <thead> 
-           <tr> 
-            <th class="tableblock halign-left valign-top">Attribute</th> 
-            <th class="tableblock halign-left valign-top">Value</th> 
-           </tr> 
-          </thead> 
-          <tbody> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"> 
-             <div> 
-              <div class="paragraph"> 
-               <p><strong>ref</strong></p> 
-              </div> 
-             </div></td> 
-            <td class="tableblock halign-left valign-top"> 
-             <div> 
-              <div class="paragraph"> 
-               <p>(Required) The name of the global exception strategy to which your flow should refer to handle exceptions.</p> 
-              </div> 
-             </div></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"> 
-             <div> 
-              <div class="paragraph"> 
-               <p><strong>doc:name</strong></p> 
-              </div> 
-             </div></td> 
-            <td class="tableblock halign-left valign-top"> 
-             <div> 
-              <div class="paragraph"> 
-               <p>(Required) A unique name for the rollback exception strategy in your application. Not required in Standalone.&nbsp;</p> 
-              </div> 
-             </div></td> 
-           </tr> 
-          </tbody> 
-         </table> 
-         <div class="listingblock"> 
-          <div class="content"> 
-           <pre class="CodeRay highlight"><code data-lang="xml"><span class="entity">&amp;lt;</span>exception-strategy ref="Global_Rollback_Exception_Strategy" doc:name="Reference Exception Strategy"/<span class="entity">&amp;gt;</span></code></pre> 
-          </div> 
-         </div> </li> 
-       </ol> 
-      </div> 
-     </div> 
-    </div> 
+   <div class="olist arabic"> 
+    <ol class="arabic"> 
+     <li> <p>From the&nbsp;<strong>Error Handling</strong>&nbsp;palette group, drag and drop the&nbsp;<strong>Reference Exception Strategy</strong>&nbsp;icon into the footer bar of a flow.</p> </li> 
+     <li> <p>Open the&nbsp;Reference Exception Strategy’s&nbsp;<strong>Properties Editor</strong>.</p> 
+      <div class="paragraph"> 
+       <p><span class="image"><img src="./_images/ref_global_rollback.png" alt="ref_global_rollback"></span></p> 
+      </div> </li> 
+     <li> <p>Use the drop-down to select your&nbsp;<strong>Global Exception Strategy</strong>.</p> </li> 
+     <li> <p>Click anywhere in the canvas to save your changes.</p> 
+      <div class="paragraph"> 
+       <p><strong>Note:</strong> You can create a global rollback exception strategy (that is access the Choose Global Type panel) from the reference exception strategy’s pattern properties panel. Click the <span class="image"><img src="./_images/add.png" alt="(plus)"></span> button next to the <strong>Global Exception Strategy</strong> drop-down and follow the steps above to create a global choice exception strategy.</p> 
+      </div> </li> 
+    </ol> 
    </div> 
-   <div class="admonitionblock tip"> 
-    <table> 
-     <tbody> 
-      <tr> 
-       <td class="icon"> <i class="fa icon-tip" title="Tip"></i> </td> 
-       <td class="content"> 
-        <div class="paragraph"> 
-         <p>You can append a <strong>Reference Exception Strategy</strong> to any number of flows in your Mule application and instruct them to refer to any of the global catch, rollback or choice exception strategies you have created. You can direct any number of reference exception strategies to refer to the same global exception strategy.</p> 
-        </div> </td> 
-      </tr> 
-     </tbody> 
-    </table> 
+  </div> 
+  <div class="sect2"> 
+   <h3 id="applying-a-global-rollback-exception-strategy-to-a-flow-in-xml-editor-or-standalone"><a class="anchor" href="#applying-a-global-rollback-exception-strategy-to-a-flow-in-xml-editor-or-standalone"></a>Applying a Global Rollback Exception Strategy to a Flow in XML Editor or Standalone</h3> 
+   <div class="olist arabic"> 
+    <ol class="arabic"> 
+     <li> <p>In your flow, below all the message processors, add a&nbsp;<code>reference-exception-strategy</code> element. Refer to the code below.</p> </li> 
+     <li> <p>Configure attributes of the exception strategy according to the table below.</p> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col style="width: 20%;"> 
+        <col style="width: 80%;"> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Attribute</th> 
+         <th class="tableblock halign-left valign-top">Value</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"> 
+          <div> 
+           <div class="paragraph"> 
+            <p><strong>ref</strong></p> 
+           </div> 
+          </div></td> 
+         <td class="tableblock halign-left valign-top"> 
+          <div> 
+           <div class="paragraph"> 
+            <p>(Required) The name of the global exception strategy to which your flow should refer to handle exceptions.</p> 
+           </div> 
+          </div></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"> 
+          <div> 
+           <div class="paragraph"> 
+            <p><strong>doc:name</strong></p> 
+           </div> 
+          </div></td> 
+         <td class="tableblock halign-left valign-top"> 
+          <div> 
+           <div class="paragraph"> 
+            <p>(Required) A unique name for the rollback exception strategy in your application. Not required in Standalone.&nbsp;</p> 
+           </div> 
+          </div></td> 
+        </tr> 
+       </tbody> 
+      </table> 
+      <div class="listingblock"> 
+       <div class="content"> 
+        <pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;exception-strategy</span> <span class="attribute-name">ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">Global_Rollback_Exception_Strategy</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Reference Exception Strategy</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></code></pre> 
+       </div> 
+      </div> </li> 
+    </ol> 
+   </div> 
+   <div class="paragraph"> 
+    <p><strong>Note:</strong> You can append a <strong>Reference Exception Strategy</strong> to any number of flows in your Mule application and instruct them to refer to any of the global catch, rollback or choice exception strategies you have created. You can direct any number of reference exception strategies to refer to the same global exception strategy.</p> 
    </div> 
   </div> 
  </div> 
@@ -1905,7 +1817,7 @@
     <!-- END article-content -->
     <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
                 <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#use-rollback-exception-strategy-for-transactions">Use Rollback Exception Strategy for Transactions</a></li><li><a class="scroll-menu-link" href="#use-rollback-exception-strategy-for-unhandled-exceptions">Use Rollback Exception Strategy for Unhandled Exceptions</a></li><li><a class="scroll-menu-link" href="#cares">Configuring a Rollback Exception Strategy</a></li><li><a class="scroll-menu-link" href="#craijgc">Configuring Redelivery Attempts in the JMS Global Connector</a></li><li><a class="scroll-menu-link" href="#creating-a-global-rollback-exception-strategy">Creating a Global Rollback Exception Strategy</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
+                <ul><li><a class="scroll-menu-link" href="#use-rollback-exception-strategy-for-transactions">Use Rollback Exception Strategy for Transactions</a></li><li><a class="scroll-menu-link" href="#use-rollback-exception-strategy-for-unhandled-exceptions">Use Rollback Exception Strategy for Unhandled Exceptions</a></li><li><a class="scroll-menu-link" href="#cares">Configuring a Rollback Exception Strategy Using Studio Visual Editor</a></li><li><a class="scroll-menu-link" href="#configuring-a-rollback-exception-strategy-using-xml-editor-or-standalone">Configuring a Rollback Exception Strategy Using XML Editor or Standalone</a></li><li><a class="scroll-menu-link" href="#craijgc">Configuring Redelivery Attempts in the JMS Global Connector</a></li><li><a class="scroll-menu-link" href="#creating-a-global-rollback-exception-strategy-in-visual-editor">Creating a Global Rollback Exception Strategy in Visual Editor</a></li><li><a class="scroll-menu-link" href="#creating-a-global-rollback-exception-strategy-in-xml-editor-or-standalone">Creating a Global Rollback Exception Strategy in XML Editor or Standalone</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
   </div>
 </div>
 <!-- START footer -->
