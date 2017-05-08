@@ -1105,7 +1105,7 @@
  <div class="sectionbody"> 
   <div class="ulist"> 
    <ul> 
-    <li> <p><a href="/anypoint-connector-devkit/v/3.8/certified-connector-license-management">License management for MuleSoft Certified Connectors</a></p> 
+    <li> <p><a href="/anypoint-connector-devkit/v/3.8/certified-connector-license-management">License management for MuleSoft Certified Connectors</a>.</p> 
      <div class="ulist"> 
       <ul> 
        <li> <p>Developers can allow customers to try their connector in design time, yet ensure their connector only works with a valid license in deployment.</p> </li> 
@@ -1114,31 +1114,45 @@
     <li> <p><a href="/anypoint-connector-devkit/v/3.8/soap-connect-session-management">SOAP Session Management</a> for SOAP Connect enabling developers to inject session tokens in HTTP cookies/headers, or SOAP headers.</p> 
      <div class="ulist"> 
       <ul> 
-       <li> <p>Further DevKit SOAP Connect functionality includes <a href="/anypoint-connector-devkit/v/3.8/soap-connect-session-management#enriching-soap-body-with-session-token">SOAP message body enrichment</a> with the session token</p> </li> 
-       <li> <p><a href="/anypoint-connector-devkit/v/3.8/creating-a-soap-connector#operation-filtering">Operation Filtering</a> to hide operations specified in the WSDL such as login/logout, which is necessary in order to exclude operations from the operations dropdown exposed to the application developer</p> </li> 
+       <li> <p>Further DevKit SOAP Connect functionality includes <a href="/anypoint-connector-devkit/v/3.8/soap-connect-session-management#enriching-soap-body-with-session-token">SOAP message body enrichment</a> with the session token.</p> </li> 
+       <li> <p><a href="/anypoint-connector-devkit/v/3.8/creating-a-soap-connector#operation-filtering">Operation Filtering</a> to hide operations specified in the WSDL such as login/logout, which is necessary in order to exclude operations from the operations dropdown exposed to the application developer.</p> </li> 
       </ul> 
      </div> </li> 
-    <li> <p><a href="/anypoint-connector-devkit/v/3.8/adding-datasense#caching-metadata">Caching metadata</a> improves fetching of metadata during application design, and decreases the wait time for connector users</p> </li> 
+    <li> <p><a href="/anypoint-connector-devkit/v/3.8/adding-datasense#caching-metadata">Caching metadata</a> improves fetching of metadata during application design, and decreases the wait time for connector users.</p> </li> 
     <li> <p>Connector APIDoc documentation is provided intelligently at design time, serving as a contextual help feature</p> </li> 
-    <li> <p>Improved APIDoc documentation generator creates documentation for multiple connection configurations automatically and covers filters and transformers too. In addition, it does <strong>not require or support</strong> code snippets referencing the <code>xml.sample</code> file such as <code>&lt;@sample.xml …​ &gt;</code>. See <a href="/anypoint-connector-devkit/v/3.8/connector-reference-documentation">Creating Connector Reference Documentation</a></p> 
+    <li> <p>Improved APIDoc documentation generator creates documentation for multiple connection configurations automatically and covers filters and transformers too. In addition, it does <strong>not require or support</strong> code snippets referencing the <code>xml.sample</code> file such as <code>&lt;@sample.xml …​ &gt;</code>. See <a href="/anypoint-connector-devkit/v/3.8/connector-reference-documentation">Creating Connector Reference Documentation</a>.</p> 
      <div class="ulist"> 
       <ul> 
        <li> <p>In migrating a connector project to DevKit 3.8, all the <code>@sample</code> tags referencing the sample files must be removed</p> </li> 
       </ul> 
      </div> </li> 
-    <li> <p>A simple Maven command is available for the DevKit user to run connector functional tests (CTF) on CloudHub. Read through the <a href="http://mulesoft.github.io/connector-certification-docs/advanced/index.html#_test_execution">Test Execution section</a> of the connector certification information for details</p> </li> 
+    <li> <p>A simple Maven command is available for the DevKit user to run connector functional tests (CTF) on CloudHub. Read through the <a href="http://mulesoft.github.io/connector-certification-docs/advanced/index.html#_test_execution">Test Execution section</a> of the connector certification information for details.</p> </li> 
     <li> <p>Functional test framework supports @Source tests.</p> </li> 
-    <li> <p>JDK 8 support for DevKit and connector project creation. To use JDK 8, please add the following property in your pom.xml</p> 
-     <div class="literalblock"> 
-      <div class="content"> 
-       <pre>&lt;properties&gt;
- …..
- &lt;jdk.version&gt;1.8&lt;/jdk.version&gt;
- ….
-&lt;/properties&gt;</pre> 
-      </div> 
-     </div> </li> 
+    <li> <p>JDK 8 support for DevKit and connector project creation. To use JDK 8, please add the following property in your pom.xml file.</p> </li> 
    </ul> 
+  </div> 
+  <div class="listingblock"> 
+   <div class="content"> 
+    <pre class="CodeRay highlight"><code data-lang="xml">
+         
+      <table class="CodeRay"> 
+       <tbody> 
+        <tr> 
+         <td class="line-numbers"><pre>1
+2
+3
+4
+5
+</pre></td> 
+         <td class="code"><pre><span class="tag">&lt;properties&gt;</span>
+  ...
+   <span class="tag">&lt;jdk.version&gt;</span>1.8<span class="tag">&lt;/jdk.version&gt;</span>
+  ...
+<span class="tag">&lt;/properties&gt;</span></pre></td> 
+        </tr> 
+       </tbody> 
+      </table></code></pre> 
+   </div> 
   </div> 
  </div> 
 </div> 
@@ -1147,17 +1161,7 @@
  <div class="sectionbody"> 
   <div class="ulist"> 
    <ul> 
-    <li> <p>@RestCall deprecated with the release of DevKit 3.8.0.</p> 
-     <div class="admonitionblock note"> 
-      <table> 
-       <tbody> 
-        <tr> 
-         <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-         <td class="content"> Follow <a href="/anypoint-connector-devkit/v/3.6/creating-a-connector-for-a-restful-api-using-jersey">Creating a Connector for a RESTful API Using Jersey</a> to migrate any @RestCall-based connector. </td> 
-        </tr> 
-       </tbody> 
-      </table> 
-     </div> </li> 
+    <li> <p>@RestCall deprecated with the release of DevKit 3.8.0.</p> </li> 
    </ul> 
   </div> 
  </div> 
