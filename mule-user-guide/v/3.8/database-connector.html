@@ -2914,9 +2914,13 @@
       <ul> 
        <li> <p>The result iterator is consumed.</p> </li> 
        <li> <p>There is an exception during the processing of the message (when the result iterator is in the payload of the current message).</p> </li> 
+       <li> <p>You enclose the select operation, and the message processors using the iterator, inside a transactional scope. The transactional scrope closes the transaction and there is no need to consume the iterator.</p> </li> 
       </ul> 
      </div> </li> 
    </ul> 
+  </div> 
+  <div class="paragraph"> 
+   <p>Trying to consume the iterator after closing the transaction causes an error.</p> 
   </div> 
  </div> 
 </div> 
