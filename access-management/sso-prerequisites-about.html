@@ -1044,6 +1044,7 @@
    <ul> 
     <li> <p>Configure your IdP to send the your user name and email in your assertion.</p> </li> 
     <li> <p>Configure Anypoint Platform to map the user name and email to the expected attribute name. Otherwise, the login fails with a 403 unauthorized error message.</p> </li> 
+    <li> <p>The identity provider (IdP) issues the SAML assertion as an XML file. Ensure that this assertion is signed, but unencrypted, for verification of its integrity because the assertion itself is POSTed through HTTPS.</p> </li> 
     <li> <p>Prepare users for the following changes.</p> 
      <div class="ulist"> 
       <ul> 
@@ -1069,6 +1070,7 @@
    <ul> 
     <li> <p>Federated users cannot use platform APIs.</p> </li> 
     <li> <p>OpenID Connect does not support single logout.</p> </li> 
+    <li> <p>Anypoint Platform does not generate the SAML assertion for the single sign on. Your IdP generates the Sign On URL that you configure.</p> </li> 
    </ul> 
   </div> 
  </div> 
