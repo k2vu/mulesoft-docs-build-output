@@ -1084,7 +1084,7 @@
  </div> 
 </div> 
 <div class="sect1"> 
- <h2 id="assumptions"><a class="anchor" href="#assumptions"></a>Assumptions</h2> 
+ <h2 id="prerequisites"><a class="anchor" href="#prerequisites"></a>Prerequisites</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
    <p>This document assumes you are familiar with working with <a href="/mule-user-guide/v/3.7/shared-resources">Shared Resources</a> in Mule.</p> 
@@ -1236,7 +1236,13 @@
    <p>Bitronix integration provides a JMS caching connection factory, which you must use whenever you want to implement resource pooling in JMS. The example&nbsp;<code>mule-domain-config.xml</code>&nbsp;file below demonstrates how to declare a Bitronix transaction manager in conjunction with a JMS connection factory.</p> 
   </div> 
   <div class="paragraph"> 
-   <p><strong>Note</strong>: In the following example, the&nbsp;<strong>specification="1.1"</strong> value is mandatory because Bitronix only supports version 1.1.</p> 
+   <p>*Notes:</p> 
+  </div> 
+  <div class="ulist"> 
+   <ul> 
+    <li> <p>Bitronix and JMS do not honor the caching connection factory and TCP connections are recreated regardless of how this factory is set.</p> </li> 
+    <li> <p>In the following example, the&nbsp;<strong>specification="1.1"</strong> value is mandatory because Bitronix only supports version 1.1.</p> </li> 
+   </ul> 
   </div> 
   <div class="listingblock"> 
    <div class="content"> 
@@ -1450,7 +1456,7 @@
     <!-- END article-content -->
     <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
                 <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#assumptions">Assumptions</a></li><li><a class="scroll-menu-link" href="#using-bitronix-in-mule">Using Bitronix in Mule</a></li><li><a class="scroll-menu-link" href="#bitronix-and-jms">Bitronix and JMS</a></li><li><a class="scroll-menu-link" href="#bitronix-and-the-database-connector">Bitronix and the Database Connector</a></li><li><a class="scroll-menu-link" href="#transaction-recovery">Transaction Recovery</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
+                <ul><li><a class="scroll-menu-link" href="#prerequisites">Prerequisites</a></li><li><a class="scroll-menu-link" href="#using-bitronix-in-mule">Using Bitronix in Mule</a></li><li><a class="scroll-menu-link" href="#bitronix-and-jms">Bitronix and JMS</a></li><li><a class="scroll-menu-link" href="#bitronix-and-the-database-connector">Bitronix and the Database Connector</a></li><li><a class="scroll-menu-link" href="#transaction-recovery">Transaction Recovery</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
   </div>
 </div>
 <!-- START footer -->

@@ -1216,7 +1216,13 @@
    <p>Bitronix integration provides a JMS caching connection factory, which you must use whenever you want to implement resource pooling in JMS. The example&nbsp;<code>mule-domain-config.xml</code>&nbsp;file below demonstrates how to declare a Bitronix transaction manager in conjunction with a JMS connection factory.</p> 
   </div> 
   <div class="paragraph"> 
-   <p><strong>Note</strong>: In the following example, the&nbsp;<strong>specification="1.1"</strong> value is mandatory because Bitronix only supports version 1.1.</p> 
+   <p>*Notes:</p> 
+  </div> 
+  <div class="ulist"> 
+   <ul> 
+    <li> <p>Bitronix and JMS do not honor the caching connection factory and TCP connections are recreated regardless of how this factory is set.</p> </li> 
+    <li> <p>In the following example, the&nbsp;<strong>specification="1.1"</strong> value is mandatory because Bitronix only supports version 1.1.</p> </li> 
+   </ul> 
   </div> 
   <div class="listingblock"> 
    <div class="content"> 
