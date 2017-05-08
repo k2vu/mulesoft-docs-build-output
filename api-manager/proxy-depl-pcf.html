@@ -5,17 +5,17 @@
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>To Deploy a Proxy to Pivotal Cloud Foundry // MuleSoft Documentation </title>
   <link rel="shortcut icon" href="/favicon.ico"/>
-  <link rel="stylesheet" type="text/css" href="/css/vendor.min.css?t=1491597550">
-  <link rel="stylesheet" type="text/css" href="/css/mulesoft.min.css?t=1491597550">
+  <link rel="stylesheet" type="text/css" href="/css/vendor.min.css?t=1494272147">
+  <link rel="stylesheet" type="text/css" href="/css/mulesoft.min.css?t=1494272147">
   <script src="/js/jquery-1.11.2.min.js"></script>
   <script src="/js/bootstrap.min.js"></script>
   <script src="/js/jquery.fancybox.pack.js"></script>
   <script src="/js/last-campaign.min.js"></script>
   <script src="/js/trafficSource.js"></script>
-  <script src="/js/scripts.js?t=1491597550"></script>
+  <script src="/js/scripts.js?t=1494272147"></script>
 
   <link rel="canonical" href="https://docs.mulesoft.com/api-manager/proxy-depl-pcf" />
-  <meta name="description" content="If you are using Anypoint Platform for PCF, you can deploy a proxy to a Mule runtime in your PCF installation. Also, the API’s backend application ..." />
+  <meta name="description" content="If you are using Anypoint Platform for PCF, you can deploy a proxy to a Mule runtime using the Cloud Foundry command line interface (cf CLI). Befor..." />
   <meta class="swiftype" name="title" data-type="string" content="To Deploy a Proxy to Pivotal Cloud Foundry" />
 </head>
 <body>
@@ -49,7 +49,8 @@
 <!-- START header -->
 <header class="header" data-swiftype-index="false">
   <div class="container-fluid">
-     <a href="/" title="Home" rel="home" class="header__logo">
+
+    <a href="/" title="Home" rel="home" class="header__logo">
       <img src="/img/mulesoft-dev-logo.svg" alt="Home">
     </a>
 
@@ -91,6 +92,7 @@
                 <li class="menu__item"><a href="https://developer.mulesoft.com/getting-started/studio" class="menu__link">Studio</a></li>
               </ul>
             </li>
+            <li class="menu__item"><a href="https://training.mulesoft.com/" class="menu__link">Training</a></li>
             <li class="menu__item"><a href="https://docs.mulesoft.com/" class="menu__link">Documentation</a></li>
             <li class="menu__item"><a href="https://developer.mulesoft.com/tutorials-and-howtos" class="menu__link">Tutorials &amp; HowTos</a></li>
             <li class="menu__item"><a href="https://developer.mulesoft.com/webinars-and-videos" class="menu__link">Webinars &amp; Videos</a></li>
@@ -100,7 +102,7 @@
             <li class="menu__item"><a href="http://training.mulesoft.com/" class="menu__link">Certification</a></li>
             <li class="menu__item"><a href="https://developer.mulesoft.com/champions" class="menu__link">Champions</a></li>
             <li class="menu__item"><a href="https://support.mulesoft.com/s/" class="menu__link">Support</a></li>
-            <li class="menu__item"><a href="https://blogs.mulesoft.com" class="menu__link">Blogs</a></li>
+            <li class="menu__item"><a href="http://blogs.mulesoft.com" class="menu__link">Blogs</a></li>
           </ul>
         </li>
         <li class="menu__item">
@@ -126,7 +128,7 @@
             </li>
             <li class="menu__item"><a href="https://www.mulesoft.org/jira/browse/MULE" class="menu__link">Issue Tracker</a></li>
             <li class="menu__item"><a href="https://developer.mulesoft.com/champions" class="menu__link">Champions</a></li>
-            <li class="menu__item"><a href="https://blogs.mulesoft.com" class="menu__link">Blogs</a></li>
+            <li class="menu__item"><a href="http://blogs.mulesoft.com" class="menu__link">Blogs</a></li>
             <li class="menu__item"><a href="http://s2.developer.mulesoft.com/jobs.html" class="menu__link">Jobs</a></li>
           </ul>
         </li>
@@ -197,8 +199,8 @@
       
     </div>
   </div>
-  <div class="row row-flex">
-    <div class="sidebar-nav col-md-3 col-xs-12" data-swiftype-index="false">
+  <div class="row">
+    <div class="sidebar-nav col-md-3" data-swiftype-index="false">
       <nav>
         <div class="marker"></div>
         <div class="active-marker"></div>
@@ -567,9 +569,9 @@
 <li><i></i><a href="/anypoint-studio/v/6/including-the-datamapper-plugin">Including the DataMapper Plugin</a></li></ul></li>
 </ul></li>
 </ul></li>
-<li>
+<li class="expanded">
 <i></i>
-<a href="/api-manager/">API Manager</a><ul>
+<a href="/api-manager/">API Manager</a><ul style="display: block;">
 <li>
 <i></i>
 <a href="/api-manager/tutorials">About the API Life Cycle</a><ul>
@@ -577,7 +579,7 @@
 <li>
 <i></i>
 <a href="/api-manager/manage-api-reference">API Management Reference</a><ul>
-<li><i></i><a href="/api-manager/designing-your-api">API Designer Reference</a></li><li><i></i><a href="/api-manager/configuring-endpoint-reference">Endpoint Configuration Reference</a></li><li><i></i><a href="/api-manager/setting-up-an-api-proxy">Proxy Deployment Reference</a></li><li><i></i><a href="/api-manager/proxy-modification-reference">Proxy Modification Reference</a></li><li><i></i><a href="/api-manager/https-reference">HTTPS Reference</a></li><li><i></i><a href="/api-manager/browsing-and-accessing-apis">Consuming an API Reference</a></li><li><i></i><a href="/api-manager/engaging-users-of-your-api">Portal Creation Reference</a></li><li><i></i><a href="/api-manager/creating-an-api-notebook">API Notebook Reference</a></li><li><i></i><a href="/api-manager/accessing-your-api-behind-a-firewall">Firewall Access Reference</a></li><li><i></i><a href="/api-manager/gatekeeper">Gatekeeper Enhanced Security Reference</a></li></ul></li>
+<li><i></i><a href="/api-manager/designing-your-api">API Designer Reference</a></li><li><i></i><a href="/api-manager/configuring-endpoint-reference">Endpoint Configuration Reference</a></li><li><i></i><a href="/api-manager/https-reference">HTTPS Reference</a></li><li><i></i><a href="/api-manager/browsing-and-accessing-apis">Consuming an API Reference</a></li><li><i></i><a href="/api-manager/engaging-users-of-your-api">Portal Creation Reference</a></li><li><i></i><a href="/api-manager/creating-an-api-notebook">API Notebook Reference</a></li><li><i></i><a href="/api-manager/accessing-your-api-behind-a-firewall">Firewall Access Reference</a></li><li><i></i><a href="/api-manager/gatekeeper">Gatekeeper Enhanced Security Reference</a></li></ul></li>
 <li>
 <i></i>
 <a href="/api-manager/using-policies">About Policies</a><ul>
@@ -597,7 +599,11 @@
 <li>
 <i></i>
 <a href="/api-manager/applying-custom-policies">About Custom Policies</a><ul>
-<li><i></i><a href="/api-manager/creating-a-policy-walkthrough">Workflow: Create a Custom Policy</a></li><li><i></i><a href="/api-manager/create-policy-config-task">To Create the Custom Policy Configuration File</a></li><li><i></i><a href="/api-manager/create-policy-definition-task">To Create the Custom Policy Definition File</a></li><li><i></i><a href="/api-manager/add-custom-policy-task">To Add a Custom Policy to API Manager</a></li><li><i></i><a href="/api-manager/add-rlp-support-task">To Add Resource Level Policy Support to a Custom Policy</a></li><li><i></i><a href="/api-manager/custom-policy-reference">Custom Policy Reference</a></li></ul></li>
+<li><i></i><a href="/api-manager/creating-a-policy-walkthrough">Workflow: Create a Custom Policy</a></li><li><i></i><a href="/api-manager/create-policy-config-task">To Create the Custom Policy Configuration File</a></li><li><i></i><a href="/api-manager/create-policy-definition-task">To Create the Custom Policy Definition File</a></li><li><i></i><a href="/api-manager/add-custom-policy-task">To Add a Custom Policy to API Manager</a></li><li><i></i><a href="/api-manager/add-rlp-support-task">To Add Resource Level Policy Support to a Custom Policy</a></li><li><i></i><a href="/api-manager/create-policy-pcf">About Custom Policies in Pivotal Cloud Foundry</a></li><li><i></i><a href="/api-manager/custom-policy-reference">Custom Policy Reference</a></li></ul></li>
+<li class="expanded">
+<i></i>
+<a href="/api-manager/proxy-about">About Proxies</a><ul style="display: block;">
+<li><i></i><a href="/api-manager/proxy-depl-cloudhub">To Deploy a Proxy to CloudHub</a></li><li><i></i><a href="/api-manager/proxy-depl-hosted">To Deploy a Proxy to a Hosted Runtime</a></li><li class="active"><i></i><a href="/api-manager/proxy-depl-pcf">To Deploy a Proxy to Pivotal Cloud Foundry</a></li><li><i></i><a href="/api-manager/proxy-depl-api-gate">To Deploy a Proxy to API Gateway 2.x</a></li><li><i></i><a href="/api-manager/proxy-modify">To Modify a Proxy</a></li></ul></li>
 <li>
 <i></i>
 <a href="/api-manager/using-api-alerts">About API Alerts</a><ul>
@@ -1022,22 +1028,81 @@
     <!-- END sidebar-nav -->
     <!-- START version notification -->
 
+    
+
     <!-- END older version notification -->
     <!-- START article content -->
-    <div class="article-content col-md-7 col-xs-12">
-      
-      
+    <div class="article-content col-md-7">
+      <div class="breadcrumb-section" data-swiftype-index='false'><a href="./">API Manager</a>/<a href="proxy-about">About Proxies</a>/<a href="proxy-depl-pcf" class="breadcrumb-active-link">To Deploy a Proxy to Pivotal Cloud Foundry</a></div>
       <h1>To Deploy a Proxy to Pivotal Cloud Foundry</h1>
       <div id="preamble"> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>If you are using Anypoint Platform for PCF, you can deploy a proxy to a Mule runtime in your PCF installation.</p> 
+   <p>If you are using Anypoint Platform for PCF, you can deploy a proxy to a Mule runtime using the Cloud Foundry command line interface (cf CLI). Before deploying a proxy, the corresponding backend API application must already be deployed on PCF.</p> 
   </div> 
-  <div class="paragraph"> 
-   <p>Also, the API’s backend application needs to be deployed on the PCF platform before you can run the command that executes the deployment.</p> 
+  <div class="olist arabic"> 
+   <ol class="arabic"> 
+    <li> <p>Create a parameters file, as described below.</p> </li> 
+    <li> <p>Run the following command:</p> 
+     <div class="listingblock"> 
+      <div class="content"> 
+       <pre>cf bind-route-service &lt;domain_name&gt; &lt;service_instance&gt; -f --hostname &lt;hostname&gt; --c file.json</pre> 
+      </div> 
+     </div> 
+     <div class="paragraph"> 
+      <p>Using the following parameters</p> 
+     </div> 
+     <table class="tableblock frame-all grid-all spread"> 
+      <colgroup> 
+       <col> 
+       <col> 
+      </colgroup> 
+      <thead> 
+       <tr> 
+        <th class="tableblock halign-left valign-top">Property</th> 
+        <th class="tableblock halign-left valign-top">Description</th> 
+       </tr> 
+      </thead> 
+      <tbody> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">domain_name</p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">The domain where you want to host your proxy application</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">service_instance</p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">The proxy service. This services is different from the service name used when deploying your Mule application to PCF. You can have multiple instances of this proxy service in different PCF organizations and environments.</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-f</code> (optional)</p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Forces the command to avoid any message prompts.</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>--hostname</code></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">The host name of your proxy application.</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-c &lt;file&gt;.json</code></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">A JSON file containing PCF properties.</p></td> 
+       </tr> 
+      </tbody> 
+     </table> 
+     <div class="paragraph"> 
+      <p>The command you run should be similar to the following example:</p> 
+     </div> 
+     <div class="listingblock"> 
+      <div class="content"> 
+       <pre>$ cf bind-route-service apps.pcf.mulesoft.com api_gateway_service --hostname myapp -c &lt;file&gt;.json</pre> 
+      </div> 
+     </div> </li> 
+   </ol> 
   </div> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="the-proxy-service-parameters-file"><a class="anchor" href="#the-proxy-service-parameters-file"></a>The Proxy Service Parameters File</h2> 
+ <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>Currently, this modality is only available on the command line. To instruct PCF to create and deploy a proxy, you must run the command <code>cf bind-route-service</code>. This command must include the following arguments:</p> 
+   <p>When deploying a proxy to PCF, the <code>cf bind-route-service</code> command uses a parameters file that contains information about your installation. This file contains the following:</p> 
   </div> 
   <table class="tableblock frame-all grid-all spread"> 
    <colgroup> 
@@ -1052,91 +1117,37 @@
    </thead> 
    <tbody> 
     <tr> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Domain</strong> name</p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">Domain where you want to host your proxy application</p></td> 
-    </tr> 
-    <tr> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>service instance</strong> name</p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">Refers to the <a href="http://docs.pivotal.io/mulesoft/installing.html">proxy service</a>, which is different from the service used when <a href="/runtime-manager/deploying-to-pcf">deploying Mule applications to PCF</a>. You might have multiple instances of this proxy service, as you’d have one per every <a href="/access-management/organization">organization</a> and <a href="/access-management/environments">environment</a> you own.</p></td> 
-    </tr> 
-    <tr> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-f</code></p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>(optional)</strong> Force command to avoid any message prompts.</p></td> 
-    </tr> 
-    <tr> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock"><code>--hostname</code></p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">The host name under which your proxy app is deployed. If <code>nodejs-app.apps.pcf.com</code> is the URL to reach your proxy, then <code>nodejs-app</code> is the hostname and <code>apps.pcf.com</code> is the domain.</p></td> 
-    </tr> 
-    <tr> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-c parameters.json</code></p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">Reference to a .JSON file that contains more information. Its required structure is explained below.</p></td> 
-    </tr> 
-   </tbody> 
-  </table> 
-  <div class="paragraph"> 
-   <p>Your command should look like this:</p> 
-  </div> 
-  <div class="listingblock"> 
-   <div class="content"> 
-    <pre>$ cf bind-route-service apps.pcf.mulesoft.com api_gateway_service --hostname myapp -c input.json</pre> 
-   </div> 
-  </div> 
- </div> 
-</div> 
-<div class="sect1"> 
- <h2 id="parameters-file"><a class="anchor" href="#parameters-file"></a>Parameters File</h2> 
- <div class="sectionbody"> 
-  <div class="paragraph"> 
-   <p>One of your properties should be a link to a JSON parameters file. This file should include the following information:</p> 
-  </div> 
-  <table class="tableblock frame-all grid-all spread"> 
-   <colgroup> 
-    <col> 
-    <col> 
-   </colgroup> 
-   <thead> 
-    <tr> 
-     <th class="tableblock halign-left valign-top">Parameter</th> 
-     <th class="tableblock halign-left valign-top">Description</th> 
-    </tr> 
-   </thead> 
-   <tbody> 
-    <tr> 
      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>orgId</code></p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">The Anypoint Platform <a href="/access-management/organization">organization</a> in which to deploy the proxy application</p></td> 
+     <td class="tableblock halign-left valign-top"><p class="tableblock">The Anypoint Platform organization where the proxy application is deployed.</p></td> 
     </tr> 
     <tr> 
      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>envId</code></p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">The Runtime Manager <a href="/access-management/environments">environment</a> in which to deploy the proxy application</p></td> 
+     <td class="tableblock halign-left valign-top"><p class="tableblock">The Runtime Manager environment where the proxy application is deployed</p></td> 
     </tr> 
     <tr> 
      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>appName</code></p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">The name with which you want your proxy application to be registered on Runtime Manager. It will also register an API on API Manager under this same name. You will also see the proxy listed under this name if you execute the command <code>cf apps</code>.</p></td> 
+     <td class="tableblock halign-left valign-top"><p class="tableblock">The name of the application used in Runtime Manager. This is also the name of the API in API Manager.</p></td> 
     </tr> 
     <tr> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock"><code>--hostname</code></p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">The host name under which your proxy app is deployed. If <code>nodejs-app.apps.pcf.com</code> is the URL to reach your proxy, then <code>nodejs-app</code> is the hostname and <code>apps.pcf.com</code> is the domain.</p></td> 
+     <td class="tableblock halign-left valign-top"><p class="tableblock"><code>apiversion</code></p></td> 
+     <td class="tableblock halign-left valign-top"><p class="tableblock">The version of the API. The default value is <code>1.0</code>. This parameter is optional.</p></td> 
     </tr> 
     <tr> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">'domain`</p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">The domain name where you want to host your application. It should match the domain that you provided as properties on the command.</p></td> 
+     <td class="tableblock halign-left valign-top"><p class="tableblock"><code>hostname</code></p></td> 
+     <td class="tableblock halign-left valign-top"><p class="tableblock">The host name of your proxy application.</p></td> 
     </tr> 
     <tr> 
      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>muleRuntimeVersion</code></p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">Mule Runtime version with which to run the deployment of the proxy</p></td> 
+     <td class="tableblock halign-left valign-top"><p class="tableblock">The version of the Mule runtime where you are deploying the proxy.</p></td> 
     </tr> 
     <tr> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock"><code>anypointServiceName</code></p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">The name of the PCF service that you registered in the Space configuration tool</p></td> 
-    </tr> 
-    <tr> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock"><code>repFactor</code></p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">(optional) In case you want your proxy to be deployed on multiple PCF instances.</p></td> 
+     <td class="tableblock halign-left valign-top"><p class="tableblock"><code>repFactor</code> (optional)</p></td> 
+     <td class="tableblock halign-left valign-top"><p class="tableblock">Enables you to deploy the proxy on multiple PCF instances.</p></td> 
     </tr> 
    </tbody> 
   </table> 
   <div class="paragraph"> 
-   <p>Your file should hence resemble the following example:</p> 
+   <p>The following shows an example properties file:</p> 
   </div> 
   <div class="listingblock"> 
    <div class="content"> 
@@ -1153,16 +1164,14 @@
 6
 7
 8
-9
 </pre></td> 
          <td class="code"><pre>{
     <span class="key"><span class="delimiter">"</span><span class="content">orgId</span><span class="delimiter">"</span></span>: <span class="string"><span class="delimiter">"</span><span class="content">e2ccc210-95a3-4740-b9cf-1f2d9e693168</span><span class="delimiter">"</span></span>,
     <span class="key"><span class="delimiter">"</span><span class="content">envId</span><span class="delimiter">"</span></span>: <span class="string"><span class="delimiter">"</span><span class="content">26ad04b9-422c-45f2-8ee0-caeb73e6c9a9</span><span class="delimiter">"</span></span>,
     <span class="key"><span class="delimiter">"</span><span class="content">appName</span><span class="delimiter">"</span></span>: <span class="string"><span class="delimiter">"</span><span class="content">proxyApp</span><span class="delimiter">"</span></span>,
+    <span class="key"><span class="delimiter">"</span><span class="content">apiversion</span><span class="delimiter">"</span></span>: <span class="string"><span class="delimiter">"</span><span class="content">1.0</span><span class="delimiter">"</span></span>,
     <span class="key"><span class="delimiter">"</span><span class="content">hostname</span><span class="delimiter">"</span></span>: <span class="string"><span class="delimiter">"</span><span class="content">myapp</span><span class="delimiter">"</span></span>,
-    <span class="key"><span class="delimiter">"</span><span class="content">muleRuntimeVersion</span><span class="delimiter">"</span></span>: <span class="string"><span class="delimiter">"</span><span class="content">3.8.1</span><span class="delimiter">"</span></span>,
-   <span class="key"><span class="delimiter">"</span><span class="content">anypointServiceName</span><span class="delimiter">"</span></span>: <span class="string"><span class="delimiter">"</span><span class="content">runtime-manager-service</span><span class="delimiter">"</span></span>,
-    <span class="key"><span class="delimiter">"</span><span class="content">domain</span><span class="delimiter">"</span></span>:<span class="string"><span class="delimiter">"</span><span class="content">apps.pcf.mulesoft.com</span><span class="delimiter">"</span></span>
+    <span class="key"><span class="delimiter">"</span><span class="content">muleRuntimeVersion</span><span class="delimiter">"</span></span>: <span class="string"><span class="delimiter">"</span><span class="content">3.8.1</span><span class="delimiter">"</span></span>
 }</pre></td> 
         </tr> 
        </tbody> 
@@ -1170,12 +1179,23 @@
    </div> 
   </div> 
  </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="see-also"><a class="anchor" href="#see-also"></a>See Also</h2> 
+ <div class="sectionbody"> 
+  <div class="ulist"> 
+   <ul> 
+    <li> <p><a href="create-policy-pcf">About Custom Policies in Pivotal Cloud Foundry</a></p> </li> 
+    <li> <p><a href="https://docs.pivotal.io/pivotalcf/1-10/services/route-services.html">Route Services (on Pivotal website)</a></p> </li> 
+   </ul> 
+  </div> 
+ </div> 
 </div>
     </div>
     <!-- END article-content -->
     <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
                 <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#parameters-file">Parameters File</a></li></ul></div></div><!-- /scroll-menu -->
+                <ul><li><a class="scroll-menu-link" href="#the-proxy-service-parameters-file">The Proxy Service Parameters File</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
   </div>
 </div>
 <!-- START footer -->
@@ -1200,14 +1220,10 @@
       <div class="footer__menu-tac">
         <ul class="footer__menu">
           <li class="footer__menu-item"><a href="https://www.mulesoft.com/">Mulesoft.com</a></li>
-          <li class="footer__menu-item"><a href="https://blogs.mulesoft.com/">Blog</a></li>
-	  <li class="footer__menu-item"><a href="https://www.mulesoft.com/content/terms-service">Terms</a></li>
-	  <li class="footer__menu-item"><a href="https://www.mulesoft.com/privacy-policy">Privacy</a></li>
-	  <li class="footer__menu-item"><a href="https://www.mulesoft.com/contact">Contact</a></li>
-	</ul>
+          <li class="footer__menu-item"><a href="http:/blogs.mulesoft.com/">Blog</a></li>
         </ul>
         <div class="footer__tac">
-MuleSoft provides a widely used <a href="https://www.mulesoft.com/platform/enterprise-integration">integration platform</a> for connecting SaaS and enterprise applications in the cloud and on-premise. Delivered as a unified integration experience, <a href="https://www.mulesoft.com/platform/saas/cloudhub-ipaas-cloud-based-integration">CloudHub&#8482</a> and <a href="https://www.mulesoft.com/platform/soa/mule-esb-open-source-esb">Mule ESB&#8482</a> (Enterprise Service Bus) are built on proven open source technology for fast and reliable on-premise and cloud integration without vendor lock-in.
+          MuleSoft provides the most widely used integration platform for connecting <a href = "https://www.mulesoft.com/platform/saas">SaaS</a> and enterprise applications in the cloud and on-premise. Delivered as a packaged integration experience, <a href= "https://www.mulesoft.com/platform/saas/cloudhub-ipaas-cloud-based-integration">CloudHub™</a> and Mule ESB™ (<a href = "https://www.mulesoft.com/platform/soa/mule-esb-open-source-esb">Enterprise Service Bus</a>) are built on proven open source technology for the fastest, most reliable on-premise and cloud integration without vendor lock-in.
         </div>
       </div>
     </div>
@@ -1221,7 +1237,7 @@ MuleSoft provides a widely used <a href="https://www.mulesoft.com/platform/enter
         <li class="social-item"><a href="https://twitter.com/muledev" target="_blank" class="social-link social-link-twitter"></a></li>
         <li class="social-item"><a href="https://www.facebook.com/MuleSoft" target="_blank" class="social-link social-link-facebook"></a></li>
         <li class="social-item"><a href="mailto:devrel@mulesoft.com" target="_blank" class="social-link social-link-email"></a></li>
-        <li class="social-item"><a href="https://videos.mulesoft.com" target="_blank" class="social-link social-link-youtube"></a></li>
+        <li class="social-item"><a href="https://videos.mulesoft.com/" target="_blank" class="social-link social-link-youtube"></a></li>
       </ul>
       <div class="footer__copyright"><span>©2017</span> MuleSoft, INC.</div>
     </div>
@@ -1369,6 +1385,6 @@ MuleSoft provides a widely used <a href="https://www.mulesoft.com/platform/enter
     document.getElementsByTagName('head')[0].appendChild(s);
   })();
 </script>
-<script src="/js/header-menu.js?t=1491597550"></script>
+<script src="/js/header-menu.js?t=1494272147"></script>
 </body>
 </html>
