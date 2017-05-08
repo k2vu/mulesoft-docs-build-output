@@ -1266,8 +1266,8 @@
         </div> 
         <div class="ulist"> 
          <ul> 
-          <li> <p>endpoints that do not use the request-response exchange-pattern.</p> </li> 
-          <li> <p>the <code>&lt;async/&gt;</code> flow construct.</p> </li> 
+          <li> <p>Endpoints that do not use the request-response exchange-pattern.</p> </li> 
+          <li> <p>The <code>&lt;async/&gt;</code> flow construct.</p> </li> 
          </ul> 
         </div> </td> 
       </tr> 
@@ -1320,17 +1320,7 @@
    </div> 
    <div class="listingblock"> 
     <div class="content"> 
-     <pre class="CodeRay highlight"><code data-lang="xml">
-          
-       <table class="CodeRay"> 
-        <tbody> 
-         <tr> 
-          <td class="line-numbers"><pre>1
-</pre></td> 
-          <td class="code"><pre><span class="tag">&lt;cxf:jaxws-service</span> <span class="attribute-name">address</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://localhost:63081/hello</span><span class="delimiter">"</span></span> <span class="attribute-name">wsdlLocation</span>=<span class="string"><span class="delimiter">"</span><span class="content">foo/bar/hello.wsdl</span><span class="delimiter">"</span></span> <span class="tag">/&gt;</span></pre></td> 
-         </tr> 
-        </tbody> 
-       </table></code></pre> 
+     <pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;cxf:jaxws-service</span> <span class="attribute-name">wsdlLocation</span>=<span class="string"><span class="delimiter">"</span><span class="content">foo/bar/hello.wsdl</span><span class="delimiter">"</span></span> <span class="tag">/&gt;</span></code></pre> 
     </div> 
    </div> 
    <div class="paragraph"> 
@@ -1532,7 +1522,7 @@
     </div> 
    </div> 
    <div class="paragraph"> 
-    <p>The <strong>&lt;<a href="http://cxfdatabinding">cxf:databinding</a>&gt;</strong> element can be used with any CXF front end.</p> 
+    <p>The <code>&lt;http://cxfdatabinding[cxf:databinding]&gt;</code> element can be used with any CXF front end.</p> 
    </div> 
   </div> 
   <div class="sect2"> 
@@ -1542,17 +1532,7 @@
    </div> 
    <div class="listingblock"> 
     <div class="content"> 
-     <pre class="CodeRay highlight"><code data-lang="xml">
-          
-       <table class="CodeRay"> 
-        <tbody> 
-         <tr> 
-          <td class="line-numbers"><pre>1
-</pre></td> 
-          <td class="code"><pre><span class="tag">&lt;cxf:jaxws-service</span> <span class="attribute-name">serviceClass</span>=<span class="string"><span class="delimiter">"</span><span class="content">com.acme.MyService</span><span class="delimiter">"</span></span> <span class="attribute-name">bindingUri</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.w3.org/2003/05/soap/bindings/HTTP/</span><span class="delimiter">"</span></span> <span class="tag">/&gt;</span></pre></td> 
-         </tr> 
-        </tbody> 
-       </table></code></pre> 
+     <pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;cxf:jaxws-service</span> <span class="attribute-name">serviceClass</span>=<span class="string"><span class="delimiter">"</span><span class="content">com.acme.MyService</span><span class="delimiter">"</span></span> <span class="attribute-name">bindingUri</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.w3.org/2003/05/soap/bindings/HTTP/</span><span class="delimiter">"</span></span> <span class="tag">/&gt;</span></code></pre> 
     </div> 
    </div> 
   </div> 
