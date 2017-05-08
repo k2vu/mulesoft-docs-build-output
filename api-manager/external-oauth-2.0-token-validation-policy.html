@@ -1073,6 +1073,35 @@
  </div> 
 </div> 
 <div class="sect1"> 
+ <h2 id="configuring-the-proxy-connection-to-external-authentication-provider"><a class="anchor" href="#configuring-the-proxy-connection-to-external-authentication-provider"></a>Configuring the Proxy Connection to External Authentication Provider</h2> 
+ <div class="sectionbody"> 
+  <div class="paragraph"> 
+   <p>In Mule 3.8.x, you optionally enable or disable the proxy network connection between the API and External Authentication Provider by setting the following parameter:</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p><code>external_authentication_provider_enable_proxy_setting</code></p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>This parameter is located in the following wrapper configuration file: <code>$MULE_HOME/conf/wrapper.conf</code></p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>Set the parameter to true or false. For example:</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p><code>wrapper.java.additional.&lt;n&gt;=-Dexternal_authentication_provider_enable_proxy_setting=true</code></p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>By default, the parameter is false, so the proxy connection between the API and External Authentication Provider is disabled because the following proxy settings are ignored:</p> 
+  </div> 
+  <div class="listingblock"> 
+   <div class="content"> 
+    <pre>wrapper.java.additional.&lt;n&gt;=-Danypoint.platform.proxy_host=localhost
+wrapper.java.additional.&lt;n&gt;=-Danypoint.platform.proxy_port=8080</pre> 
+   </div> 
+  </div> 
+ </div> 
+</div> 
+<div class="sect1"> 
  <h2 id="obtaining-api-user-information"><a class="anchor" href="#obtaining-api-user-information"></a>Obtaining API User Information</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
@@ -1117,7 +1146,7 @@
     <!-- END article-content -->
     <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
                 <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#applying-the-oauth-2-0-token-validation-policy">Applying the OAuth 2.0 Token Validation Policy</a></li><li><a class="scroll-menu-link" href="#obtaining-api-user-information">Obtaining API User Information</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
+                <ul><li><a class="scroll-menu-link" href="#applying-the-oauth-2-0-token-validation-policy">Applying the OAuth 2.0 Token Validation Policy</a></li><li><a class="scroll-menu-link" href="#configuring-the-proxy-connection-to-external-authentication-provider">Configuring the Proxy Connection to External Authentication Provider</a></li><li><a class="scroll-menu-link" href="#obtaining-api-user-information">Obtaining API User Information</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
   </div>
 </div>
 <!-- START footer -->
