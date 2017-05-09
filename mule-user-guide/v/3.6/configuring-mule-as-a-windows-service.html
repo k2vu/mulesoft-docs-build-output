@@ -15,7 +15,7 @@
   <script src="/js/scripts.js?t=1494272147"></script>
 
   <link rel="canonical" href="https://docs.mulesoft.com/mule-user-guide/v/3.6/configuring-mule-as-a-windows-service" />
-  <meta name="description" content="If you want to install Mule as a Windows NT Service, type Likewise, to remove Mule from your services, type: Once you have installed Mule as a serv..." />
+  <meta name="description" content="To install Mule as a Windows NT Service, type: To remove Mule from your server, type: After you install Mule as a service, you can start, stop, and..." />
   <meta class="swiftype" name="title" data-type="string" content="Configuring Mule as a Windows NT Service" />
   <meta class="swiftype" name="version" data-type="enum" content="3.6" />
 </head>
@@ -1034,75 +1034,38 @@
       <div class="breadcrumb-section" data-swiftype-index='false'><a href="./">Mule Runtime</a>/<a href="deploying">Deploying</a>/<a href="configuring-mule-for-different-deployment-scenarios">Configuring Mule for Different Deployment Scenarios</a>/<a href="configuring-mule-as-a-windows-service" class="breadcrumb-active-link">Configuring Mule as a Windows Service</a></div>
       <h1>Configuring Mule as a Windows NT Service</h1>
       <div class="paragraph"> 
- <p>If you want to install Mule as a Windows NT Service, type</p> 
+ <p>To install Mule as a Windows NT Service, type:</p> 
 </div> 
 <div class="listingblock"> 
  <div class="content"> 
-  <pre class="CodeRay highlight"><code data-lang="code">
-       
-    <table class="CodeRay"> 
-     <tbody> 
-      <tr> 
-       <td class="line-numbers"><pre>1
-</pre></td> 
-       <td class="code"><pre>mule install</pre></td> 
-      </tr> 
-     </tbody> 
-    </table></code></pre> 
+  <pre class="CodeRay highlight"><code>mule install</code></pre> 
  </div> 
 </div> 
 <div class="paragraph"> 
- <p>Likewise, to remove Mule from your services, type:</p> 
+ <p>To remove Mule from your server, type:</p> 
 </div> 
 <div class="listingblock"> 
  <div class="content"> 
-  <pre class="CodeRay highlight"><code data-lang="code">
-       
-    <table class="CodeRay"> 
-     <tbody> 
-      <tr> 
-       <td class="line-numbers"><pre>1
-</pre></td> 
-       <td class="code"><pre>mule remove</pre></td> 
-      </tr> 
-     </tbody> 
-    </table></code></pre> 
+  <pre class="CodeRay highlight"><code>mule remove</code></pre> 
  </div> 
 </div> 
 <div class="paragraph"> 
- <p>Once you have installed Mule as a service, you can invoke the service exactly as you did before, but with an additional parameter:</p> 
+ <p>After you install Mule as a service, you can start, stop, and restart Mule:</p> 
 </div> 
 <div class="listingblock"> 
  <div class="content"> 
-  <pre class="CodeRay highlight"><code data-lang="code">
-       
-    <table class="CodeRay"> 
-     <tbody> 
-      <tr> 
-       <td class="line-numbers"><pre>1
-</pre></td> 
-       <td class="code"><pre>mule [start|stop|restart]</pre></td> 
-      </tr> 
-     </tbody> 
-    </table></code></pre> 
+  <pre class="CodeRay highlight"><code>mule [start|stop|restart]</code></pre> 
  </div> 
+</div> 
+<div class="paragraph"> 
+ <p><strong>Note:</strong> When windows restarts, the Mule service stops the same way as using the <code>mule stop</code> command. The only situation that this could be different is if Windows kills the process due to a timeout.</p> 
 </div> 
 <div class="paragraph"> 
  <p>You can also use the Windows <code>net</code> utility:</p> 
 </div> 
 <div class="listingblock"> 
  <div class="content"> 
-  <pre class="CodeRay highlight"><code data-lang="code">
-       
-    <table class="CodeRay"> 
-     <tbody> 
-      <tr> 
-       <td class="line-numbers"><pre>1
-</pre></td> 
-       <td class="code"><pre>net [start|stop] mule</pre></td> 
-      </tr> 
-     </tbody> 
-    </table></code></pre> 
+  <pre class="CodeRay highlight"><code>net [start|stop] mule</code></pre> 
  </div> 
 </div>
     </div>
