@@ -1271,10 +1271,10 @@ Transfer-Encoding: chunked
  </div> 
 </div> 
 <div class="sect1"> 
- <h2 id="configuring-the-proxy-connection-to-pingfederate"><a class="anchor" href="#configuring-the-proxy-connection-to-pingfederate"></a>Configuring the Proxy Connection to PingFederate</h2> 
+ <h2 id="configuring-the-proxy-connection"><a class="anchor" href="#configuring-the-proxy-connection"></a>Configuring the Proxy Connection</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>In Mule 3.8.x, you optionally enable or disable the proxy network connection between the API and PingFederate by setting the following parameter:</p> 
+   <p>In Mule 3.8.x, you optionally enable or disable the proxy network connection between the API and PingFederate or OpenAM by setting the following parameter:</p> 
   </div> 
   <div class="paragraph"> 
    <p><code>external_authentication_provider_enable_proxy_setting</code></p> 
@@ -1289,13 +1289,13 @@ Transfer-Encoding: chunked
    <p><code>wrapper.java.additional.&lt;n&gt;=-Dexternal_authentication_provider_enable_proxy_setting=true</code></p> 
   </div> 
   <div class="paragraph"> 
-   <p>In earlier versions of Mule, use the following parameter:</p> 
+   <p>In Mule 3.7.x, use the parameter in the wrapper configuration file. For example:</p> 
   </div> 
   <div class="paragraph"> 
    <p><code>anypoint.platform.ping_federate_enable_proxy_setting</code></p> 
   </div> 
   <div class="paragraph"> 
-   <p>This parameter is located in the following wrapper configuration file for API Gateway Runtime 2.1.x and 2.2.x: <code>/conf/wrapper.conf</code> file from the API Gateway software distribution.</p> 
+   <p>In API Gateway Runtime 2.1.x and 2.2.x, the wrapper configuration file is in <code>/conf/wrapper.conf</code>.</p> 
   </div> 
   <div class="paragraph"> 
    <p>By default, the parameter is false, so the proxy connection between the API and PingFederate is disabled because the following proxy settings are ignored:</p> 
@@ -1327,7 +1327,7 @@ wrapper.java.additional.&lt;n&gt;=-Danypoint.platform.proxy_port=8080</pre>
     <!-- END article-content -->
     <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
                 <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#prerequisites">Prerequisites</a></li><li><a class="scroll-menu-link" href="#policy-implementation">Policy Implementation</a></li><li><a class="scroll-menu-link" href="#configuring-scope-of-access">Configuring Scope of Access</a></li><li><a class="scroll-menu-link" href="#configuring-oauth-clients">Configuring OAuth Clients</a></li><li><a class="scroll-menu-link" href="#user-verification">User Verification</a></li><li><a class="scroll-menu-link" href="#obtaining-user-credentials">Obtaining User Credentials</a></li><li><a class="scroll-menu-link" href="#configuring-the-proxy-connection-to-pingfederate">Configuring the Proxy Connection to PingFederate</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
+                <ul><li><a class="scroll-menu-link" href="#prerequisites">Prerequisites</a></li><li><a class="scroll-menu-link" href="#policy-implementation">Policy Implementation</a></li><li><a class="scroll-menu-link" href="#configuring-scope-of-access">Configuring Scope of Access</a></li><li><a class="scroll-menu-link" href="#configuring-oauth-clients">Configuring OAuth Clients</a></li><li><a class="scroll-menu-link" href="#user-verification">User Verification</a></li><li><a class="scroll-menu-link" href="#obtaining-user-credentials">Obtaining User Credentials</a></li><li><a class="scroll-menu-link" href="#configuring-the-proxy-connection">Configuring the Proxy Connection</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
   </div>
 </div>
 <!-- START footer -->
