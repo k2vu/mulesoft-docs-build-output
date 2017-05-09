@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Starting and Stopping Mule ESB // MuleSoft Documentation </title>
+  <title>Starting and Stopping Mule // MuleSoft Documentation </title>
   <link rel="shortcut icon" href="/favicon.ico"/>
   <link rel="stylesheet" type="text/css" href="/css/vendor.min.css?t=1494272147">
   <link rel="stylesheet" type="text/css" href="/css/mulesoft.min.css?t=1494272147">
@@ -16,7 +16,7 @@
 
   <link rel="canonical" href="https://docs.mulesoft.com/mule-user-guide/v/3.7/starting-and-stopping-mule-esb" />
   <meta name="description" content="Mule uses the Java Service Wrapper to control the Java Virtual Machine (JVM) from your native OS. The wrapper provides many options ..." />
-  <meta class="swiftype" name="title" data-type="string" content="Starting and Stopping Mule ESB" />
+  <meta class="swiftype" name="title" data-type="string" content="Starting and Stopping Mule" />
   <meta class="swiftype" name="version" data-type="enum" content="3.7" />
 </head>
 <body>
@@ -1056,7 +1056,7 @@
     <!-- START article content -->
     <div class="article-content col-md-7">
       <div class="breadcrumb-section" data-swiftype-index='false'><a href="./">Mule Runtime</a>/<a href="deploying">Deploying</a>/<a href="starting-and-stopping-mule-esb" class="breadcrumb-active-link">Starting and Stopping Mule ESB</a></div>
-      <h1>Starting and Stopping Mule ESB</h1>
+      <h1>Starting and Stopping Mule</h1>
       <div id="preamble"> 
  <div class="sectionbody"> 
   <div id="toc" class="toc"> 
@@ -1113,6 +1113,9 @@
    <p><strong>Windows</strong>: <code>$MULE_HOME\bin\mule.bat</code></p> 
   </div> 
   <div class="paragraph"> 
+   <p><strong>Note:</strong> When windows restarts, the Mule service stops the same way as using the <code>mule stop</code> command. The only situation that this could be different is if Windows kills the process due to a timeout.</p> 
+  </div> 
+  <div class="paragraph"> 
    <p>The table below lists all the parameters that the script accepts.</p> 
   </div> 
   <table class="tableblock frame-all grid-all spread"> 
@@ -1137,7 +1140,7 @@
      <td class="tableblock halign-left valign-top"> 
       <div> 
        <div class="paragraph"> 
-        <p>Starts the Mule ESB server in the terminal background.</p> 
+        <p>Starts the Mule server in the terminal background.</p> 
        </div> 
       </div></td> 
     </tr> 
@@ -1151,7 +1154,7 @@
      <td class="tableblock halign-left valign-top"> 
       <div> 
        <div class="paragraph"> 
-        <p>Stops the Mule ESB server.</p> 
+        <p>Stops the Mule server.</p> 
        </div> 
       </div></td> 
     </tr> 
@@ -1165,7 +1168,7 @@
      <td class="tableblock halign-left valign-top"> 
       <div> 
        <div class="paragraph"> 
-        <p>Restarts the Mule ESB server.</p> 
+        <p>Restarts the Mule server.</p> 
        </div> 
       </div></td> 
     </tr> 
@@ -1179,7 +1182,7 @@
      <td class="tableblock halign-left valign-top"> 
       <div> 
        <div class="paragraph"> 
-        <p>Displays the status of the Mule ESB server (<code>running</code> or&nbsp;<code>not running</code>) and the process PID if running.</p> 
+        <p>Displays the status of the Mule server (<code>running</code> or&nbsp;<code>not running</code>) and the process PID if running.</p> 
        </div> 
       </div></td> 
     </tr> 
@@ -1207,7 +1210,7 @@
      <td class="tableblock halign-left valign-top"> 
       <div> 
        <div class="paragraph"> 
-        <p>Start Mule ESB in the terminal foreground (console mode). Same as running&nbsp;<code>mule</code> with no parameters.</p> 
+        <p>Start Mule in the terminal foreground (console mode). Same as running&nbsp;<code>mule</code> with no parameters.</p> 
        </div> 
       </div></td> 
     </tr> 

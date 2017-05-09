@@ -15,7 +15,7 @@
   <script src="/js/scripts.js?t=1494272147"></script>
 
   <link rel="canonical" href="https://docs.mulesoft.com/mule-user-guide/v/3.5/starting-and-stopping-mule-esb" />
-  <meta name="description" content="Quick Tip: Run Mule on Unix Run Mule on Windows Mule uses the http://wrapper.tanukisoftware.org/[Java Service Wrapper] to control th..." />
+  <meta name="description" content="Quick Tip: Run Mule on Unix Run Mule on Windows Mule uses the Java Service Wrapper to control the Java Virtual Machine (JVM) from yo..." />
   <meta class="swiftype" name="title" data-type="string" content="Starting and Stopping Mule ESB" />
   <meta class="swiftype" name="version" data-type="enum" content="3.5" />
 </head>
@@ -1073,10 +1073,10 @@
    </table> 
   </div> 
   <div class="paragraph"> 
-   <p>Mule uses the&nbsp;http://wrapper.tanukisoftware.org/[Java Service Wrapper]&nbsp;to control&nbsp;the Java Virtual Machine (JVM) from your native OS. The wrapper provides many options and features, including the ability to run Mule as a Unix daemon or install/remove Mule as a Windows Service. The wrapper can handle system signals and start parameters, and overall provides much better interaction between the JVM and the underlying OS.</p> 
+   <p>Mule uses the&nbsp;<a href="http://wrapper.tanukisoftware.org/">Java Service Wrapper</a>&nbsp;to control&nbsp;the Java Virtual Machine (JVM) from your native OS. The wrapper provides many options and features, including the ability to run Mule as a Unix daemon or install/remove Mule as a Windows Service. The wrapper can handle system signals and start parameters, and overall provides much better interaction between the JVM and the underlying OS.</p> 
   </div> 
   <div class="paragraph"> 
-   <p>For more information about the Java Service Wrapper, consult the&nbsp;http://wrapper.tanukisoftware.com/doc/english/introduction.html[online documentation].</p> 
+   <p>For more information about the Java Service Wrapper, consult the&nbsp;<a href="http://wrapper.tanukisoftware.com/doc/english/introduction.html">online documentation</a>.</p> 
   </div> 
  </div> 
 </div> 
@@ -1091,6 +1091,9 @@
   </div> 
   <div class="paragraph"> 
    <p><strong>Windows</strong>: <code>$MULE_HOME\bin\mule.bat</code></p> 
+  </div> 
+  <div class="paragraph"> 
+   <p><strong>Note:</strong> When windows restarts, the Mule service stops the same way as using the <code>mule stop</code> command. The only situation that this could be different is if Windows kills the process due to a timeout.</p> 
   </div> 
   <div class="paragraph"> 
    <p>The table below lists all the parameters that the script accepts.</p> 
