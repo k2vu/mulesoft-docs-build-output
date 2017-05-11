@@ -1145,7 +1145,7 @@
    <p><span class="image"><img src="./_images/dw-code-side.png" alt="code"></span></p> 
   </div> 
   <div class="paragraph"> 
-   <p>In this section, you write the actual <a href="/mule-user-guide/v/3.8/dataweave-language-introduction">DataWeave</a> code that carries out the transform. Sometimes, all you need to do can be automatically built by dragging elements in the GUI, but other times you may want to carry out more complex operations that involve aggregation, filtering, calculations, defining custom functions, etc…​ and for that you must write DataWeave code.</p> 
+   <p>In this pane, you write the actual <a href="/mule-user-guide/v/3.8/dataweave-language-introduction">DataWeave</a> code that carries out the transform. Sometimes, all you need to do can be automatically built by dragging elements in the GUI, but other times you may want to carry out more complex operations that involve aggregation, filtering, calculations, defining custom functions, etc…​ and for that you must write DataWeave code.</p> 
   </div> 
   <div class="sect2"> 
    <h3 id="directives-in-studio"><a class="anchor" href="#directives-in-studio"></a>Directives in Studio</h3> 
@@ -1185,7 +1185,7 @@
    <p>Many elements you can use in Studio expose metadata about their input and output to the rest of the flow. For example, when a connector is configured to carry out a specific operation, its output structure is known, and this is expected to be the input received by following component in the flow. When this information is available to the <strong>Transform Message</strong> component, it is interpreted as the expected input or the required output, depending on where each are placed relative to each other on the flow. This metadata is then displayed in the input or output structures in the UI.</p> 
   </div> 
   <div class="paragraph"> 
-   <p>Ideally you should have both the known input and the expected output as already defined. If the metadata definition is missing for the input or output, a notification on the corresponding section of the Graphical UI will advise you to provide it. There are several ways you can deal with this:</p> 
+   <p>Ideally you should have both the known input and the expected output as already defined. If the metadata definition is missing for the input or output, a notification on the corresponding pane of the Graphical UI will advise you to provide it. There are several ways you can deal with this:</p> 
   </div> 
   <div class="ulist"> 
    <ul> 
@@ -1197,7 +1197,7 @@
        <tbody> 
         <tr> 
          <td class="icon"> <i class="fa icon-tip" title="Tip"></i> </td> 
-         <td class="content"> This same menu can also be accessed by opening the <a href="#the-preview-section">preview section</a>, which will display a shortcut to set this up in case it’s still not configured. </td> 
+         <td class="content"> This same menu can also be accessed by opening the <a href="#the-preview-pane">preview pane</a>, which will display a shortcut to set this up in case it’s still not configured. </td> 
         </tr> 
        </tbody> 
       </table> 
@@ -1205,7 +1205,7 @@
    </ul> 
   </div> 
   <div class="paragraph"> 
-   <p>To edit the already defined metadata on the input of the Transform Message component, simply right-click on the root of the corresponding section of the Graphical Ui and select <strong>Set Metadata</strong> to access the same options.</p> 
+   <p>To edit the already defined metadata on the input of the Transform Message component, simply right-click on the root of the corresponding pane of the Graphical Ui and select <strong>Set Metadata</strong> to access the same options.</p> 
   </div> 
   <div class="admonitionblock tip"> 
    <table> 
@@ -1214,7 +1214,7 @@
       <td class="icon"> <i class="fa icon-tip" title="Tip"></i> </td> 
       <td class="content"> 
        <div class="paragraph"> 
-        <p>If you plan to create your transform entirely via the <a href="#The DataWeave Text Editor">text editor section</a>, you can skip specifying the metadata definition and reference elements directly. You can set the output type in the <a href="/mule-user-guide/v/3.8/dataweave-language-introduction#output-directive">output directive</a> of your DataWeave code.</p> 
+        <p>If you plan to create your transform entirely via the <a href="#The DataWeave Text Editor">text editor pane</a>, you can skip specifying the metadata definition and reference elements directly. You can set the output type in the <a href="/mule-user-guide/v/3.8/dataweave-language-introduction#output-directive">output directive</a> of your DataWeave code.</p> 
        </div> 
        <div class="paragraph"> 
         <p>To define your metadata via XML, see <a href="/mule-user-guide/v/3.8/dataweave-xml-reference#defining-metadata-via-xml">DataWeave XML Reference</a>.</p> 
@@ -1234,7 +1234,7 @@
   <div class="ulist"> 
    <ul> 
     <li> <p>Configure the component that actually brings this information into your flow, by accessing its <a href="/mule-user-guide/v/3.8/custom-metadata-tab"><strong>Metadata</strong> tab</a>.</p> </li> 
-    <li> <p>On the Transform Message component itself, right clicking on the root of the input section and selecting <strong>Reader Configuration</strong> to access a menu</p> 
+    <li> <p>On the Transform Message component itself, right clicking on the root of the input pane and selecting <strong>Reader Configuration</strong> to access a menu</p> 
      <div class="paragraph"> 
       <p><span class="image"><img src="./_images/dw_reader_configuration_select.png" alt="reader conf"></span></p> 
      </div> 
@@ -1291,10 +1291,10 @@
  <h2 id="providing-input-sample-data"><a class="anchor" href="#providing-input-sample-data"></a>Providing Input Sample Data</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>The sample data tab allows you to test out examples of what your input might look like. This sample data is used together with your&nbsp;DataWeave code to produce a sample output in <a href="#the-preview-section">The Preview Section</a>, which gets updated in real time as you make changes. Through this, you can make sure that your transformation deals well with different use cases, special characters, etc.</p> 
+   <p>The sample data tab allows you to test out examples of what your input might look like. This sample data is used together with your&nbsp;DataWeave code to produce a sample output in <a href="#the-preview-pane">The Preview Pane</a>, which gets updated in real time as you make changes. Through this, you can make sure that your transformation deals well with different use cases, special characters, etc.</p> 
   </div> 
   <div class="paragraph"> 
-   <p>You can access this tab by right clicking on the root of the input section and selecting <strong>Edit Sample Data</strong>.</p> 
+   <p>You can access this tab by right clicking on the root of the input pane and selecting <strong>Edit Sample Data</strong>.</p> 
   </div> 
   <div class="paragraph"> 
    <p><span class="image"><img src="./_images/dataweave-edit-sample-data.png" alt="sample data"></span></p> 
@@ -1304,7 +1304,7 @@
     <tbody> 
      <tr> 
       <td class="icon"> <i class="fa icon-tip" title="Tip"></i> </td> 
-      <td class="content"> This same menu can also be accessed by opening <a href="#the-preview-section">the preview section</a>, which will display a shortcut to set this up in case it’s still not provided. </td> 
+      <td class="content"> This same menu can also be accessed by opening <a href="#the-preview-pane">the preview pane</a>, which will display a shortcut to set this up in case it’s still not provided. </td> 
      </tr> 
     </tbody> 
    </table> 
@@ -1320,7 +1320,7 @@
    </table> 
   </div> 
   <div class="paragraph"> 
-   <p>Selecting this option opens a new tab in the input section with an empty scaffolding of your input structure, in which values are populated with the string <code>????</code>. You can replace these values with more useful sample values to see how they are mapped out to the preview section.</p> 
+   <p>Selecting this option opens a new tab in the input pane with an empty scaffolding of your input structure, in which values are populated with the string <code>????</code>. You can replace these values with more useful sample values to see how they are mapped out to the preview pane.</p> 
   </div> 
   <div class="paragraph"> 
    <p><span class="image"><img src="./_images/dw-popupalte-sample-data.png" alt="sample data"></span></p> 
@@ -1344,16 +1344,16 @@
  </div> 
 </div> 
 <div class="sect1"> 
- <h2 id="the-preview-section"><a class="anchor" href="#the-preview-section"></a>The Preview Section</h2> 
+ <h2 id="the-preview-pane"><a class="anchor" href="#the-preview-pane"></a>The Preview Pane</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>You can enable the preview section by clicking on the <strong>Preview</strong> button on the top-right of the editor.</p> 
+   <p>You can enable the preview pane by clicking on the <strong>Preview</strong> button on the top-right of the editor.</p> 
   </div> 
   <div class="paragraph"> 
    <p><span class="image"><img src="./_images/dw_buttons.png" alt="buttons"></span></p> 
   </div> 
   <div class="paragraph"> 
-   <p>This section presents a sample output, built by taking the sample input you provide and transforming it through the DataWeave transform. As you make changes in the DataWeave code, notice how the output data structure changes. &nbsp;If your transformer has <a href="#handling-multiple-outputs">multiple outputs</a>, the&nbsp;<strong>Preview</strong> section will display the one corresponding to the currently selected transform.</p> 
+   <p>This pane presents a sample output, built by taking the sample input you provide and transforming it through the DataWeave transform. As you make changes in the DataWeave code, notice how the output data structure changes. &nbsp;If your transformer has <a href="#handling-multiple-outputs">multiple outputs</a>, the&nbsp;<strong>Preview</strong> pane will display the one corresponding to the currently selected transform.</p> 
   </div> 
   <div class="paragraph"> 
    <p><span class="image"><img src="./_images/dw-sample-preview.png" alt="preview"></span></p> 
@@ -1363,13 +1363,13 @@
     <tbody> 
      <tr> 
       <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-      <td class="content"> Note that samples defined in this section work within the scope of the <strong>Transform Message</strong> component, they don’t alter the metadata that’s propagated to other elements in the flow, and their values aren’t propagated onwards. They aren’t used in run time in any way, not as default values nor anything else, they’re only used in design time. </td> 
+      <td class="content"> Note that samples defined in this pane work within the scope of the <strong>Transform Message</strong> component, they don’t alter the metadata that’s propagated to other elements in the flow, and their values aren’t propagated onwards. They aren’t used in run time in any way, not as default values nor anything else, they’re only used in design time. </td> 
      </tr> 
     </tbody> 
    </table> 
   </div> 
   <div class="paragraph"> 
-   <p>If no sample is provided yet, this section features a shortcut that you can click to open the <a href="#provide input sample data"><strong>Edit Sample</strong></a> window and provide an input sample to construct the preview.</p> 
+   <p>If no sample is provided yet, this pane features a shortcut that you can click to open the <a href="#provide input sample data"><strong>Edit Sample</strong></a> window and provide an input sample to construct the preview.</p> 
   </div> 
   <div class="paragraph"> 
    <p><span class="image"><img src="./_images/dw-create-sample-shortcut.png" alt="shortuct"></span></p> 
@@ -1383,7 +1383,7 @@
  <h2 id="viewing-errors"><a class="anchor" href="#viewing-errors"></a>Viewing Errors</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>For your DataWeave code’s syntax to be evaluated, you must have the <strong>Preview Section</strong> enabled. With this enabled, any syntax errors are marked. Above your DataWeave code, an additional error notification can be opened to display further detail.</p> 
+   <p>For your DataWeave code’s syntax to be evaluated, you must have the <strong>Preview Pane</strong> enabled. With this enabled, any syntax errors are marked. Above your DataWeave code, an additional error notification can be opened to display further detail.</p> 
   </div> 
   <div class="paragraph"> 
    <p><span class="image"><img src="./_images/dw_errors.png" alt="errors"></span> If you click this notification, a window opens detailing each error in your code and its cause.</p> 
@@ -1397,10 +1397,10 @@
  <h2 id="handling-multiple-outputs"><a class="anchor" href="#handling-multiple-outputs"></a>Handling Multiple Outputs</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>A single&nbsp;Transform Message element can give shape to several different components of the output Mule message. Each of these output components must be defined in a separate&nbsp;<code>.dwl</code> file, written out in a separate tab of the Transform section. For example in one tab you may be defining the payload contents, in another those of an outbound property, and these will both be parts of the same output Mule message.</p> 
+   <p>A single&nbsp;Transform Message element can give shape to several different components of the output Mule message. Each of these output components must be defined in a separate&nbsp;<code>.dwl</code> file, written out in a separate tab of the Transform pane. For example in one tab you may be defining the payload contents, in another those of an outbound property, and these will both be parts of the same output Mule message.</p> 
   </div> 
   <div class="paragraph"> 
-   <p>To add a new output, simply click the <strong>Add new target</strong> button at the top of the DataWeave code section.</p> 
+   <p>To add a new output, simply click the <strong>Add new target</strong> button at the top of the DataWeave code pane.</p> 
   </div> 
   <div class="paragraph"> 
    <p><span class="image"><img src="./_images/dw_multiple_outputs_first.png" alt="multiple outputs"></span></p> 
@@ -1482,7 +1482,7 @@
     <!-- END article-content -->
     <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
                 <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#overview">Overview</a></li><li><a class="scroll-menu-link" href="#the-graphical-ui">The Graphical UI</a></li><li><a class="scroll-menu-link" href="#the-dataweave-text-editor">The DataWeave Text Editor</a></li><li><a class="scroll-menu-link" href="#defining-input-and-output-structure">Defining Input and Output Structure</a></li><li><a class="scroll-menu-link" href="#reader-configuration">Reader Configuration</a></li><li><a class="scroll-menu-link" href="#writer-configuration">Writer Configuration</a></li><li><a class="scroll-menu-link" href="#providing-input-sample-data">Providing Input Sample Data</a></li><li><a class="scroll-menu-link" href="#the-preview-section">The Preview Section</a></li><li><a class="scroll-menu-link" href="#viewing-errors">Viewing Errors</a></li><li><a class="scroll-menu-link" href="#handling-multiple-outputs">Handling Multiple Outputs</a></li><li><a class="scroll-menu-link" href="#keeping-dataweave-code-in-separate-files">Keeping DataWeave code in separate files</a></li><li><a class="scroll-menu-link" href="#memory-management">Memory Management</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
+                <ul><li><a class="scroll-menu-link" href="#overview">Overview</a></li><li><a class="scroll-menu-link" href="#the-graphical-ui">The Graphical UI</a></li><li><a class="scroll-menu-link" href="#the-dataweave-text-editor">The DataWeave Text Editor</a></li><li><a class="scroll-menu-link" href="#defining-input-and-output-structure">Defining Input and Output Structure</a></li><li><a class="scroll-menu-link" href="#reader-configuration">Reader Configuration</a></li><li><a class="scroll-menu-link" href="#writer-configuration">Writer Configuration</a></li><li><a class="scroll-menu-link" href="#providing-input-sample-data">Providing Input Sample Data</a></li><li><a class="scroll-menu-link" href="#the-preview-pane">The Preview Pane</a></li><li><a class="scroll-menu-link" href="#viewing-errors">Viewing Errors</a></li><li><a class="scroll-menu-link" href="#handling-multiple-outputs">Handling Multiple Outputs</a></li><li><a class="scroll-menu-link" href="#keeping-dataweave-code-in-separate-files">Keeping DataWeave code in separate files</a></li><li><a class="scroll-menu-link" href="#memory-management">Memory Management</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
   </div>
 </div>
 <!-- START footer -->
