@@ -1063,8 +1063,7 @@
   </div> 
   <div class="olist arabic"> 
    <ol class="arabic"> 
-    <li> <p>Log into <a href="https://anypoint.mulesoft.com/#/signin">Anypoint Platform</a>.</p> </li> 
-    <li> <p>Click MQ from the initial Anypoint Platform screen or from the left navigation bar.</p> </li> 
+    <li> <p>Log into <a href="https://anypoint.mulesoft.com/#/signin">Anypoint Platform</a> and click MQ.</p> </li> 
     <li> <p>Click Destinations:</p> 
      <div class="paragraph"> 
       <p><span class="image"><img src="./_images/mq-destinations-option.png" alt="mq-destinations-option"></span></p> 
@@ -1099,8 +1098,7 @@
  <div class="sectionbody"> 
   <div class="olist arabic"> 
    <ol class="arabic"> 
-    <li> <p>Log into <a href="https://anypoint.mulesoft.com/#/signin">Anypoint Platform</a>.</p> </li> 
-    <li> <p>In the drop-down left navigation bar, click MQ.</p> </li> 
+    <li> <p>Log into Anypoint Platform and click MQ.</p> </li> 
     <li> <p>Click Destinations.</p> </li> 
     <li> <p>Click the MyDemoQueue entry in Destinations to view details about the queue.</p> </li> 
     <li> <p>Click the left side of the queue entry to open the Messaging feature, or click the right side of the queue entry and click the arrow to the right of the queue name:</p> 
@@ -1125,10 +1123,7 @@
  <div class="sectionbody"> 
   <div class="olist arabic"> 
    <ol class="arabic"> 
-    <li> <p>Click Destinations:</p> 
-     <div class="paragraph"> 
-      <p><span class="image"><img src="./_images/mq-destinations-option.png" alt="mq-destinations-option"></span></p> 
-     </div> </li> 
+    <li> <p>Click Destinations.</p> </li> 
     <li> <p>Click the right side of the queue entry to view details and see the number of messages in the queue:</p> 
      <div class="paragraph"> 
       <p><span class="image"><img src="./_images/mq-num-queued-msgs.png" alt="mq-num-queued-msgs"></span></p> 
@@ -1233,32 +1228,18 @@
  <div class="sectionbody"> 
   <div class="olist arabic"> 
    <ol class="arabic"> 
-    <li> <p>Log into Anypoint Platform and click MQ.</p> 
-     <div class="paragraph"> 
-      <p><span class="image"><img src="./_images/mq-ap-access.png" alt="mq-ap-access"></span></p> 
-     </div> </li> 
-    <li> <p>Click Client App*:</p> 
+    <li> <p>Log into Anypoint Platform and click MQ.</p> </li> 
+    <li> <p>Click Client App:</p> 
      <div class="paragraph"> 
       <p><span class="image"><img src="./_images/mq-click-client-apps.png" alt="mq-click-client-apps"></span></p> 
      </div> </li> 
-    <li> <p>Click the blue plus <strong>+</strong> button:</p> 
-     <div class="paragraph"> 
-      <p><span class="image"><img src="./_images/mq-create-client-app-values.png" alt="mq-create-client-app-values"></span></p> 
-     </div> </li> 
-    <li> <p>Specify an application name such as <code>DemoClientApp</code> and click <strong>Save Changes</strong>.</p> 
+    <li> <p>Click the blue plus icon <span class="image"><img src="./_images/mq-blue-plus-icon.png" alt="mq-blue-plus-icon"></span>.</p> </li> 
+    <li> <p>Specify an application name such as <code>DemoClientApp</code> and click Save Changes.</p> 
      <div class="paragraph"> 
       <p><span class="image"><img src="./_images/mq-create-client-app-name.png" alt="mq-create-client-app-name"></span></p> 
      </div> </li> 
+    <li> <p>Leave the Client Apps window open as you need to copy and paste the Client ID and Client Secret into the configuration for Anypoint Studio in <a href="#to-create-an-application">To Create an Application</a>.</p> </li> 
    </ol> 
-  </div> 
-  <div class="paragraph"> 
-   <p>Leave the Client Apps window open. We need to copy and paste the Client ID and Client Secret into the configuration for Anypoint Studio in <a href="#to-create-an-application">To Create an Application</a>.</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>You can copy the ID and Secret values by clicking each Copy button:</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p><span class="image"><img src="./_images/mq-client-id-and-secret-values.png" alt="mq-client-id-and-secret-values"></span></p> 
   </div> 
  </div> 
 </div> 
@@ -1267,11 +1248,8 @@
  <div class="sectionbody"> 
   <div class="olist arabic"> 
    <ol class="arabic"> 
-    <li> <p>In Studio, click Help &gt; Install New Software:</p> 
-     <div class="paragraph"> 
-      <p><span class="image"><img src="./_images/mq-tutorial-help-install-new-sw.png" alt="mq-tutorial-help-install-new-sw"></span></p> 
-     </div> </li> 
-    <li> <p>Click the drop-down menu for <strong>Work with</strong> and select <strong>Anypoint Connectors Update Site</strong>:</p> 
+    <li> <p>In Studio, click Help &gt; Install New Software:</p> </li> 
+    <li> <p>Click the drop-down menu for Work With and select Anypoint Connectors Update Site:</p> 
      <div class="paragraph"> 
       <p><span class="image"><img src="./_images/mq-connector-install-from-studio.png" alt="mq-connector-install-from-studio"></span></p> 
      </div> </li> 
@@ -1290,7 +1268,7 @@
     <li> <p>Create a new Mule Project. Click File &gt; New &gt; Mule Project. Name the project "mqdemo".</p> </li> 
     <li> <p>Search for "http" and drag the HTTP Connector to the Studio Canvas.</p> 
      <div class="paragraph"> 
-      <p>Here’s how the Canvas appears after pulling all the building blocks to the Canvas:</p> 
+      <p>Here’s what we want to construct:</p> 
      </div> 
      <div class="paragraph"> 
       <p><span class="image"><img src="./_images/mq-connector-visual-flow.png" alt="mq-connector-visual-flow"></span></p> 
@@ -1302,19 +1280,13 @@
        <li> <p>Search for "logger" and drag <strong>Logger</strong> to the Canvas.</p> </li> 
       </ol> 
      </div> </li> 
-    <li> <p>Click the HTTP Connector and click the green plus sign to the right of <strong>Connector Configuration</strong>:</p> 
-     <div class="paragraph"> 
-      <p><span class="image"><img src="./_images/mq-http-connector.png" alt="mq-http-connector"></span></p> 
-     </div> </li> 
-    <li> <p>In the HTTP Connector’s Global Element Properties, set the host to <strong>0.0.0.0</strong> and the port to <strong>8081</strong>. Click <strong>OK</strong>.</p> 
-     <div class="paragraph"> 
-      <p><span class="image"><img src="./_images/mq-http-connector-globals.png" alt="mq-http-connector-globals"></span></p> 
-     </div> </li> 
-    <li> <p>Set the <strong>Path</strong> to <code>/mq/{messageId}</code>:</p> 
+    <li> <p>Click the HTTP Connector and click the green plus sign to the right of <strong>Connector Configuration</strong>:</p> </li> 
+    <li> <p>In the HTTP Connector’s Global Element Properties accept the defaults, and click OK.</p> </li> 
+    <li> <p>Set the Path to <code>/mq/{messageId}</code>:</p> 
      <div class="paragraph"> 
       <p><span class="image"><img src="./_images/mq-http-path.png" alt="mq-http-path"></span></p> 
      </div> </li> 
-    <li> <p>Click <strong>Set Payload</strong> in the Canvas and set the <strong>Value</strong> to:</p> 
+    <li> <p>Click Set Payload in the Canvas and set the Value to:</p> 
      <div class="listingblock"> 
       <div class="content"> 
        <pre class="CodeRay highlight"><code>#[message.inboundProperties.'http.uri.params'.messageId]</code></pre> 
@@ -1323,18 +1295,18 @@
      <div class="paragraph"> 
       <p><span class="image"><img src="./_images/mq-set-payload.png" alt="mq-set-payload"></span></p> 
      </div> </li> 
-    <li> <p>Click the <strong>Anypoint MQ</strong> connector, and click the green plus sign to the right of <strong>Connector Configuration</strong>:</p> 
-     <div class="paragraph"> 
-      <p><span class="image"><img src="./_images/mq-green-plus-sign.png" alt="Connector Configuration access link - green plus sign"></span></p> 
-     </div> </li> 
+    <li> <p>Click the Anypoint MQ connector, and click the green plus sign to the right of Connector Configuration:</p> </li> 
     <li> <p>In the MQ Connector’s Global Element Properties window, add the information from Anypoint Platform:</p> 
      <div class="paragraph"> 
       <p><span class="image"><img src="./_images/mq-connector-properties.png" alt="mq-connector-properties"></span></p> 
      </div> 
      <div class="olist loweralpha"> 
       <ol class="loweralpha" type="a"> 
-       <li> <p>Copy the Anypoint Platform’s <strong>Client App</strong> &gt; <strong>Client App ID</strong> value to Studio’s <strong>Client ID</strong> field.</p> </li> 
-       <li> <p>Copy the Anypoint Platform’s <strong>Client App</strong> &gt; <strong>Client Secret</strong> value to Studio’s <strong>Client Secret</strong> field.</p> 
+       <li> <p>Copy the Anypoint Platform’s <strong>Client App</strong> &gt; <strong>Client App ID</strong> value to the Studio <strong>Client ID</strong> field.</p> 
+        <div class="paragraph"> 
+         <p><span class="image"><img src="./_images/mq-client-id-and-secret-values.png" alt="mq-client-id-and-secret-values"></span></p> 
+        </div> </li> 
+       <li> <p>Copy the Anypoint Platform’s <strong>Client App</strong> &gt; <strong>Client Secret</strong> value to the Studio <strong>Client Secret</strong> field.</p> 
         <div class="paragraph"> 
          <p>For more information on other options and tabs, see <a href="/anypoint-mq/mq-studio#advanced-global-element-properties">Advanced Global Element Properties</a> in <a href="/anypoint-mq/mq-studio">Configuring MQ in Anypoint Studio</a>.</p> 
         </div> </li> 
@@ -1426,7 +1398,7 @@
  </div> 
 </div> 
 <div class="sect1"> 
- <h2 id="run-the-studio-application"><a class="anchor" href="#run-the-studio-application"></a>Run the Studio Application</h2> 
+ <h2 id="to-run-the-studio-application"><a class="anchor" href="#to-run-the-studio-application"></a>To Run the Studio Application</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
    <p>In Anypoint Studio, click the project name in Package Explorer, and click Run &gt; Run As &gt; Mule Application.</p> 
@@ -1563,7 +1535,7 @@ INFO  &lt;date_and_time&gt; [main] org.mule.module.launcher.StartupSummaryDeploy
    <ol class="arabic"> 
     <li> <p>Log into Anypoint Platform and click MQ.</p> </li> 
     <li> <p>Click Destinations.</p> </li> 
-    <li> <p>Click the blue plus circle.</p> </li> 
+    <li> <p>Click the blue plus icon <span class="image"><img src="./_images/mq-blue-plus-icon.png" alt="mq-blue-plus-icon"></span>.</p> </li> 
     <li> <p>Click Exchange.</p> </li> 
     <li> <p>Specify the name <code>MyDemoExchange</code>.</p> </li> 
     <li> <p>Click the checkbox to bind MyDemoQueue to this message exchange.</p> </li> 
@@ -1645,7 +1617,7 @@ INFO  &lt;date_and_time&gt; [main] org.mule.module.launcher.StartupSummaryDeploy
     <!-- END article-content -->
     <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
                 <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#prerequisites">Prerequisites</a></li><li><a class="scroll-menu-link" href="#to-create-a-queue">To Create a Queue</a></li><li><a class="scroll-menu-link" href="#to-send-a-message-to-a-queue">To Send a Message to a Queue</a></li><li><a class="scroll-menu-link" href="#to-verify-the-message-in-a-queue">To Verify the Message in a Queue</a></li><li><a class="scroll-menu-link" href="#to-get-a-message-from-a-queue">To Get a Message From a Queue</a></li><li><a class="scroll-menu-link" href="#to-send-a-csv-or-json-message">To Send a CSV or JSON Message</a></li><li><a class="scroll-menu-link" href="#to-register-a-client-application">To Register a Client Application</a></li><li><a class="scroll-menu-link" href="#to-configure-studio-for-the-anypoint-mq-connector-plugin">To Configure Studio for the Anypoint MQ Connector Plugin</a></li><li><a class="scroll-menu-link" href="#to-create-an-application">To Create an Application</a></li><li><a class="scroll-menu-link" href="#to-verify-xml">To Verify XML</a></li><li><a class="scroll-menu-link" href="#run-the-studio-application">Run the Studio Application</a></li><li><a class="scroll-menu-link" href="#to-test-your-application">To Test Your Application</a></li><li><a class="scroll-menu-link" href="#to-view-your-message-in-anypoint-mq">To View Your Message in Anypoint MQ</a></li><li><a class="scroll-menu-link" href="#advancedmq">To Create a Message Exchange</a></li><li><a class="scroll-menu-link" href="#to-bind-a-queue-to-a-message-exchange">To Bind a Queue to a Message Exchange</a></li><li><a class="scroll-menu-link" href="#to-send-a-message-to-a-message-exchange">To Send a Message to a Message Exchange</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
+                <ul><li><a class="scroll-menu-link" href="#prerequisites">Prerequisites</a></li><li><a class="scroll-menu-link" href="#to-create-a-queue">To Create a Queue</a></li><li><a class="scroll-menu-link" href="#to-send-a-message-to-a-queue">To Send a Message to a Queue</a></li><li><a class="scroll-menu-link" href="#to-verify-the-message-in-a-queue">To Verify the Message in a Queue</a></li><li><a class="scroll-menu-link" href="#to-get-a-message-from-a-queue">To Get a Message From a Queue</a></li><li><a class="scroll-menu-link" href="#to-send-a-csv-or-json-message">To Send a CSV or JSON Message</a></li><li><a class="scroll-menu-link" href="#to-register-a-client-application">To Register a Client Application</a></li><li><a class="scroll-menu-link" href="#to-configure-studio-for-the-anypoint-mq-connector-plugin">To Configure Studio for the Anypoint MQ Connector Plugin</a></li><li><a class="scroll-menu-link" href="#to-create-an-application">To Create an Application</a></li><li><a class="scroll-menu-link" href="#to-verify-xml">To Verify XML</a></li><li><a class="scroll-menu-link" href="#to-run-the-studio-application">To Run the Studio Application</a></li><li><a class="scroll-menu-link" href="#to-test-your-application">To Test Your Application</a></li><li><a class="scroll-menu-link" href="#to-view-your-message-in-anypoint-mq">To View Your Message in Anypoint MQ</a></li><li><a class="scroll-menu-link" href="#advancedmq">To Create a Message Exchange</a></li><li><a class="scroll-menu-link" href="#to-bind-a-queue-to-a-message-exchange">To Bind a Queue to a Message Exchange</a></li><li><a class="scroll-menu-link" href="#to-send-a-message-to-a-message-exchange">To Send a Message to a Message Exchange</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
   </div>
 </div>
 <!-- START footer -->
