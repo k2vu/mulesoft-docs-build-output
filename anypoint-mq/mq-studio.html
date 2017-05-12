@@ -1672,7 +1672,25 @@
      <td class="tableblock halign-left valign-top"> 
       <div> 
        <div class="paragraph"> 
-        <p>Duration in milliseconds that the MQ connector polls the queue or message exchange for messages. <strong>Note:</strong> This value overrides the <strong>Pooling Time</strong> field in the Global Elements Properties Basic Settings.</p> 
+        <p>Duration in milliseconds that the MQ connector polls the queue or message exchange for messages. <strong>Note:</strong> This value overrides the <strong>Polling Time</strong> field in the Global Elements Properties Basic Settings. The default is 10000 milliseconds (10 seconds).</p> 
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Reconnection Wait Time</strong></p></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Duration in milliseconds for how long to wait before MQ attempts to re-establish a connection to the MQ backend server. The default is 3000 milliseconds (3 seconds).</p> 
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Reconnection Attempts</strong></p></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Number of times MQ should attempt to re-establish a connection to the MQ backend server. -1 means try forever.</p> 
        </div> 
       </div></td> 
     </tr> 
@@ -1747,11 +1765,20 @@
       </div></td> 
     </tr> 
     <tr> 
+     <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Reconnection Wait Time</strong></p></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Duration in milliseconds for how long to wait before MQ attempts to re-establish a connection to the MQ backend server. The default is 3000 milliseconds (3 seconds).</p> 
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Reconnection Attempts</strong></p></td> 
      <td class="tableblock halign-left valign-top"> 
       <div> 
        <div class="paragraph"> 
-        <p>Number of times MQ should attempt to re-establish a connection. -1 means try forever.</p> 
+        <p>Number of times MQ should attempt to re-establish a connection to the MQ backend server. -1 means try forever.</p> 
        </div> 
       </div></td> 
     </tr> 
