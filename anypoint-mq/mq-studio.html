@@ -1260,7 +1260,7 @@
       </div></td> 
     </tr> 
     <tr> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pooling Time</strong></p></td> 
+     <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Polling Time</strong></p></td> 
      <td class="tableblock halign-left valign-top"> 
       <div> 
        <div class="paragraph"> 
@@ -1417,7 +1417,7 @@
   <div class="sect2"> 
    <h3 id="about-the-studio-prefetch-tab"><a class="anchor" href="#about-the-studio-prefetch-tab"></a>About the Studio Prefetch Tab</h3> 
    <div class="paragraph"> 
-    <p>Lets you set the number of messages to receive at once when asking for messages. The response can contain fewer messages than this number depending on the <code>Pooling Time</code> (<code>pollingTime</code> in XML) setting.</p> 
+    <p>Lets you set the number of messages to receive at once when asking for messages. The response can contain fewer messages than this number depending on the <code>Polling Time</code> (<code>pollingTime</code> in XML) setting.</p> 
    </div> 
    <div class="paragraph"> 
     <p>When you subscribe a flow to an Anypoint MQ queue, the flow pool regularly polls the queue looking for messages. This operation can be very time consuming. In order to avoid delays, prefetch was introduced. This is a component placed between the flow and the Anypoint MQ queue that polls the queue regularly, but without processing the pooled messages. You can change these values depending on your site’s performance and use case needs.</p> 
@@ -1470,7 +1470,7 @@
     </tbody> 
    </table> 
    <div class="paragraph"> 
-    <p><strong>Note</strong>: For best performance, set <code>Fetch Size</code> to 10 (maximum value) and reduce <code>Frequency</code> to increase the pooling time and the resulting dequeuing of transactions per second (TPS). You can increase <code>Fetch Timeout</code> if message processing is slow. For example, if processing takes 5 seconds, set the <code>Fetch Timeout</code> to at least double this time (10000 milliseconds).</p> 
+    <p><strong>Note</strong>: For best performance, set <code>Fetch Size</code> to 10 (maximum value) and reduce <code>Frequency</code> to increase the polling time and the resulting dequeuing of transactions per second (TPS). You can increase <code>Fetch Timeout</code> if message processing is slow. For example, if processing takes 5 seconds, set the <code>Fetch Timeout</code> to at least double this time (10000 milliseconds).</p> 
    </div> 
    <div class="paragraph"> 
     <p>Apart from these performance-related parameters, it is important to properly configure the <a href="#am">Acknowledgement Mode</a>.</p> 
@@ -1760,7 +1760,7 @@
      <td class="tableblock halign-left valign-top"> 
       <div> 
        <div class="paragraph"> 
-        <p>Duration in milliseconds that the MQ connector polls the queue or message exchange for messages. <strong>Note:</strong> This value overrides the <strong>Pooling Time</strong> field in the Global Elements Properties Basic Settings.</p> 
+        <p>Duration in milliseconds that the MQ connector polls the queue or message exchange for messages. <strong>Note:</strong> This value overrides the Polling Time field in the Global Elements Properties Basic Settings.</p> 
        </div> 
       </div></td> 
     </tr> 
@@ -1796,7 +1796,7 @@
    <ul> 
     <li> <p><a href="#example-1-mq-and-dataweave">Example 1: MQ and DataWeave</a></p> </li> 
     <li> <p><a href="#example-2-mq-and-object-store">Example 2: MQ and Object Store</a></p> </li> 
-    <li> <p><a href="#all-xml-fields-with-examples">All XML Fields With Examples</a></p> </li> 
+    <li> <p><a href="#All XML Fields With Examples">[All XML Fields With Examples]</a></p> </li> 
    </ul> 
   </div> 
   <div class="sect2"> 
@@ -1975,573 +1975,608 @@
     </div> 
    </div> 
   </div> 
-  <div class="sect2"> 
-   <h3 id="all-xml-fields-with-examples"><a class="anchor" href="#all-xml-fields-with-examples"></a>All XML Fields With Examples</h3> 
-   <div class="paragraph"> 
-    <p>This section provides information about all the XML elements you can add to your application.</p> 
-   </div> 
-   <div class="paragraph"> 
-    <p>The General tab fields are:</p> 
-   </div> 
-   <table class="tableblock frame-all grid-all spread"> 
-    <colgroup> 
-     <col style="width: 25%;"> 
-     <col style="width: 75%;"> 
-    </colgroup> 
-    <thead> 
-     <tr> 
-      <th class="tableblock halign-left valign-top">XML Element</th> 
-      <th class="tableblock halign-left valign-top">Description</th> 
-     </tr> 
-    </thead> 
-    <tbody> 
-     <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
-      <td class="tableblock halign-left valign-top"> 
-       <div> 
-        <div class="paragraph"> 
-         <p>Configuration name.</p> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="about-common-xml-elements"><a class="anchor" href="#about-common-xml-elements"></a>About Common XML Elements</h2> 
+ <div class="sectionbody"> 
+  <table class="tableblock frame-all grid-all spread"> 
+   <colgroup> 
+    <col style="width: 25%;"> 
+    <col style="width: 75%;"> 
+   </colgroup> 
+   <thead> 
+    <tr> 
+     <th class="tableblock halign-left valign-top">XML Element</th> 
+     <th class="tableblock halign-left valign-top">Description</th> 
+    </tr> 
+   </thead> 
+   <tbody> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Configuration name.</p> 
+       </div> 
+       <div class="paragraph"> 
+        <p><strong>Required:</strong> Yes<br> <strong>Default:</strong> None<br> <strong>XML Example:</strong></p> 
+       </div> 
+       <div class="listingblock"> 
+        <div class="content"> 
+         <pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;anypoint-mq:config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Anypoint_MQ_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Anypoint MQ Configuration</span><span class="delimiter">"</span></span><span class="tag">&gt;</span></code></pre> 
         </div> 
-        <div class="paragraph"> 
-         <p><strong>Required:</strong> Yes<br> <strong>Default:</strong> None<br> <strong>XML Example:</strong></p> 
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>clientMode</strong></p></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Specifies whether the Anypoint MQ connector uses an improved HTTP client (SYNC, the default) or a deprecated HTTP client provided by the Mule Runtime (MULE). The improved HTTP client can be either synchronous or asynchronous.</p> 
+       </div> 
+       <div class="paragraph"> 
+        <p>Possible values:</p> 
+       </div> 
+       <div class="ulist"> 
+        <ul> 
+         <li> <p><code>ASYNC</code> - Require the MQ client to use an asynchronous HTTP client library.</p> </li> 
+         <li> <p><code>SYNC</code>(Default) - Require the MQ client to use a synchronous HTTP client library. This value is recommended when using MQ threading profiles.</p> </li> 
+         <li> <p><code>MULE</code> (Deprecated) - The HTTP connector used to communicate with MQ is the Grizzly library provided by the Mule Runtime.</p> </li> 
+        </ul> 
+       </div> 
+       <div class="paragraph"> 
+        <p><strong>Required:</strong> No<br> <strong>Default:</strong> <code>SYNC</code> <strong>XML Example:</strong></p> 
+       </div> 
+       <div class="listingblock"> 
+        <div class="content"> 
+         <pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;anypoint-mq:config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Anypoint_MQ_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">clientMode</span>=<span class="string"><span class="delimiter">"</span><span class="content">SYNC</span><span class="delimiter">"</span></span> <span class="attribute-name">...</span> <span class="tag">/&gt;</span></code></pre> 
         </div> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;anypoint-mq:config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Anypoint_MQ_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Anypoint MQ Configuration</span><span class="delimiter">"</span></span><span class="tag">&gt;</span></code></pre> 
-         </div> 
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>provider</strong></p></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Sets a provider configuration for the current app consisting of the URL, Client App ID, and Client Secret.</p> 
+       </div> 
+       <div class="paragraph"> 
+        <p><strong>Required:</strong> Yes<br> <strong>Default:</strong> None<br> <strong>XML Example:</strong></p> 
+       </div> 
+       <div class="listingblock"> 
+        <div class="content"> 
+         <pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;anypoint-mq:provider</span> <span class="attribute-name">url</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span> <span class="attribute-name">clientId</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span> <span class="attribute-name">clientSecret</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></code></pre> 
         </div> 
-       </div></td> 
-     </tr> 
-     <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>clientMode</strong></p></td> 
-      <td class="tableblock halign-left valign-top"> 
-       <div> 
-        <div class="paragraph"> 
-         <p>Specifies whether the Anypoint MQ connector uses an improved HTTP client (SYNC, the default) or a deprecated HTTP client provided by the Mule Runtime (MULE). The improved HTTP client can be either synchronous or asynchronous.</p> 
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>url</strong></p></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>URL shown in Anypoint Platform &gt; MQ.</p> 
+       </div> 
+       <div class="paragraph"> 
+        <p><strong>Required:</strong> Yes<br> <strong>Default:</strong> None</p> 
+       </div> 
+       <div class="paragraph"> 
+        <p><span class="image"><img src="./_images/mq-ap-url.png" alt="URL in MQ near top of UI"></span></p> 
+       </div> 
+       <div class="paragraph"> 
+        <p><strong>XML Example:</strong></p> 
+       </div> 
+       <div class="listingblock"> 
+        <div class="content"> 
+         <pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;anypoint-mq:provider</span> <span class="attribute-name">url</span>=<span class="string"><span class="delimiter">"</span><span class="content">https://mq-us-east-1.anypoint.mulesoft.com/api/v1</span><span class="delimiter">"</span></span> <span class="attribute-name">...</span><span class="tag">/&gt;</span></code></pre> 
         </div> 
-        <div class="paragraph"> 
-         <p>Possible values:</p> 
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>clientId</strong></p></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>From Anypoint Platform &gt; MQ &gt; Client Apps. Click the app and copy the Client App ID value.</p> 
+       </div> 
+       <div class="paragraph"> 
+        <p><strong>Required:</strong> Yes<br> <strong>Default:</strong> None<br> <strong>XML Example:</strong></p> 
+       </div> 
+       <div class="listingblock"> 
+        <div class="content"> 
+         <pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;anypoint-mq:provider</span> <span class="attribute-name">url</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span> <span class="attribute-name">clientId</span>=<span class="string"><span class="delimiter">"</span><span class="content">&lt;id</span></span><span class="error">&gt;</span>" clientSecret="..."/<span class="error">&gt;</span></code></pre> 
         </div> 
-        <div class="ulist"> 
-         <ul> 
-          <li> <p><code>ASYNC</code> - Require the MQ client to use an asynchronous HTTP client library.</p> </li> 
-          <li> <p><code>SYNC</code>(Default) - Require the MQ client to use a synchronous HTTP client library. This value is recommended when using MQ threading profiles.</p> </li> 
-          <li> <p><code>MULE</code> (Deprecated) - The HTTP connector used to communicate with MQ is the Grizzly library provided by the Mule Runtime.</p> </li> 
-         </ul> 
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>clientSecret</strong></p></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>From Anypoint Platform &gt; MQ &gt; Client Apps. Click the app and copy the Client Secret value.</p> 
+       </div> 
+       <div class="paragraph"> 
+        <p><strong>Required:</strong> Yes<br> <strong>Default:</strong> None<br> <strong>XML Example:</strong></p> 
+       </div> 
+       <div class="listingblock"> 
+        <div class="content"> 
+         <pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;anypoint-mq:provider</span> <span class="attribute-name">url</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span> <span class="attribute-name">clientId</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span> <span class="attribute-name">clientSecret</span>=<span class="string"><span class="delimiter">"</span><span class="content">&lt;secret</span></span><span class="error">&gt;</span>"/<span class="error">&gt;</span></code></pre> 
         </div> 
-        <div class="paragraph"> 
-         <p><strong>Required:</strong> No<br> <strong>Default:</strong> <code>SYNC</code> <strong>XML Example:</strong></p> 
-        </div> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;anypoint-mq:config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Anypoint_MQ_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">clientMode</span>=<span class="string"><span class="delimiter">"</span><span class="content">SYNC</span><span class="delimiter">"</span></span> <span class="attribute-name">...</span> <span class="tag">/&gt;</span></code></pre> 
-         </div> 
-        </div> 
-       </div></td> 
-     </tr> 
-     <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>provider</strong></p></td> 
-      <td class="tableblock halign-left valign-top"> 
-       <div> 
-        <div class="paragraph"> 
-         <p>Sets a provider configuration for the current app consisting of the URL, Client App ID, and Client Secret.</p> 
-        </div> 
-        <div class="paragraph"> 
-         <p><strong>Required:</strong> Yes<br> <strong>Default:</strong> None<br> <strong>XML Example:</strong></p> 
-        </div> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;anypoint-mq:provider</span> <span class="attribute-name">url</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span> <span class="attribute-name">clientId</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span> <span class="attribute-name">clientSecret</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></code></pre> 
-         </div> 
-        </div> 
-       </div></td> 
-     </tr> 
-     <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>url</strong></p></td> 
-      <td class="tableblock halign-left valign-top"> 
-       <div> 
-        <div class="paragraph"> 
-         <p>URL shown in Anypoint Platform &gt; MQ.</p> 
-        </div> 
-        <div class="paragraph"> 
-         <p><strong>Required:</strong> Yes<br> <strong>Default:</strong> None</p> 
-        </div> 
-        <div class="paragraph"> 
-         <p><span class="image"><img src="./_images/mq-ap-url.png" alt="URL in MQ near top of UI"></span></p> 
-        </div> 
-        <div class="paragraph"> 
-         <p><strong>XML Example:</strong></p> 
-        </div> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;anypoint-mq:provider</span> <span class="attribute-name">url</span>=<span class="string"><span class="delimiter">"</span><span class="content">https://mq-us-east-1.anypoint.mulesoft.com/api/v1</span><span class="delimiter">"</span></span> <span class="attribute-name">...</span><span class="tag">/&gt;</span></code></pre> 
-         </div> 
-        </div> 
-       </div></td> 
-     </tr> 
-     <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>clientId</strong></p></td> 
-      <td class="tableblock halign-left valign-top"> 
-       <div> 
-        <div class="paragraph"> 
-         <p>From Anypoint Platform &gt; MQ &gt; Client Apps. Click the app and copy the Client App ID value.</p> 
-        </div> 
-        <div class="paragraph"> 
-         <p><strong>Required:</strong> Yes<br> <strong>Default:</strong> None<br> <strong>XML Example:</strong></p> 
-        </div> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;anypoint-mq:provider</span> <span class="attribute-name">url</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span> <span class="attribute-name">clientId</span>=<span class="string"><span class="delimiter">"</span><span class="content">&lt;id</span></span><span class="error">&gt;</span>" clientSecret="..."/<span class="error">&gt;</span></code></pre> 
-         </div> 
-        </div> 
-       </div></td> 
-     </tr> 
-     <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>clientSecret</strong></p></td> 
-      <td class="tableblock halign-left valign-top"> 
-       <div> 
-        <div class="paragraph"> 
-         <p>From Anypoint Platform &gt; MQ &gt; Client Apps. Click the app and copy the Client Secret value.</p> 
-        </div> 
-        <div class="paragraph"> 
-         <p><strong>Required:</strong> Yes<br> <strong>Default:</strong> None<br> <strong>XML Example:</strong></p> 
-        </div> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;anypoint-mq:provider</span> <span class="attribute-name">url</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span> <span class="attribute-name">clientId</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span> <span class="attribute-name">clientSecret</span>=<span class="string"><span class="delimiter">"</span><span class="content">&lt;secret</span></span><span class="error">&gt;</span>"/<span class="error">&gt;</span></code></pre> 
-         </div> 
-        </div> 
-       </div></td> 
-     </tr> 
-     <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>provider-ref</strong></p></td> 
-      <td class="tableblock halign-left valign-top"> 
-       <div> 
-        <div class="paragraph"> 
-         <p>Sets the URL, Client App ID, and Client Secret for all apps.</p> 
-        </div> 
-        <div class="paragraph"> 
-         <p><strong>Required:</strong> No<br> <strong>Default:</strong> None<br> <strong>XML Example:</strong></p> 
-        </div> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>provider-ref</strong></p></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Sets the URL, Client App ID, and Client Secret for all apps.</p> 
+       </div> 
+       <div class="paragraph"> 
+        <p><strong>Required:</strong> No<br> <strong>Default:</strong> None<br> <strong>XML Example:</strong></p> 
+       </div> 
+       <div class="listingblock"> 
+        <div class="content"> 
+         <pre class="CodeRay highlight"><code data-lang="xml">
+              
+           <table class="CodeRay"> 
+            <tbody> 
+             <tr> 
+              <td class="line-numbers"><pre>1
 2
 </pre></td> 
-               <td class="code"><pre><span class="tag">&lt;anypoint-mq:config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span> <span class="attribute-name">maxRedelivery</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span> <span class="attribute-name">acknowledgementMode</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span>
+              <td class="code"><pre><span class="tag">&lt;anypoint-mq:config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span> <span class="attribute-name">maxRedelivery</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span> <span class="attribute-name">acknowledgementMode</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span>
  <span class="attribute-name">acknowledgementTimeout</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span> <span class="attribute-name">pollingTime</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span> <span class="attribute-name">provider-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">Provider_Settings</span><span class="delimiter">"</span></span><span class="tag">&gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
+             </tr> 
+            </tbody> 
+           </table></code></pre> 
         </div> 
-       </div></td> 
-     </tr> 
-     <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>maxRedelivery</strong></p></td> 
-      <td class="tableblock halign-left valign-top"> 
-       <div> 
-        <div class="paragraph"> 
-         <p>Number of redeliveries to try in case a message fails. -1 indicates that Anypoint MQ retry indefinitely. If set to the default value of -1, this parameter does not appear in the XML flow.</p> 
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>maxRedelivery</strong></p></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Number of redeliveries to try in case a message fails. -1 indicates that Anypoint MQ retry indefinitely. If set to the default value of -1, this parameter does not appear in the XML flow.</p> 
+       </div> 
+       <div class="paragraph"> 
+        <p><strong>Required:</strong> No<br> <strong>Default:</strong> -1<br> <strong>XML Example:</strong></p> 
+       </div> 
+       <div class="listingblock"> 
+        <div class="content"> 
+         <pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;anypoint-mq:config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span> <span class="attribute-name">maxRedelivery</span>=<span class="string"><span class="delimiter">"</span><span class="content">10</span><span class="delimiter">"</span></span> <span class="attribute-name">...</span> <span class="tag">&gt;</span></code></pre> 
         </div> 
-        <div class="paragraph"> 
-         <p><strong>Required:</strong> No<br> <strong>Default:</strong> -1<br> <strong>XML Example:</strong></p> 
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>acknowledgementMode</strong></p></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Defines how the Anypoint MQ messages are acknowledged when the message are removed from being inflight messages. If set to the default value of AUTO, this parameter does not appear in the XML flow.</p> 
+       </div> 
+       <div class="paragraph"> 
+        <p>Possible values are:</p> 
+       </div> 
+       <div class="ulist"> 
+        <ul> 
+         <li> <p><code>AUTO</code> (Default)- Messages are acknowledged or negatively acknowledged depending on whether or not exceptions occur. See <a href="/anypoint-mq/mq-ack-mode">Acknowledgement Mode</a> for more information.</p> </li> 
+         <li> <p><code>MANUAL</code> - Messages are acknowledged using a custom ACK message processor.</p> </li> 
+         <li> <p><code>NONE</code> - Messages are acknowledged and removed as soon as they are received.</p> </li> 
+        </ul> 
+       </div> 
+       <div class="paragraph"> 
+        <p><strong>Required:</strong> No<br> <strong>Default:</strong> <code>AUTO</code><br> <strong>XML Example:</strong></p> 
+       </div> 
+       <div class="listingblock"> 
+        <div class="content"> 
+         <pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;anypoint-mq:config</span> <span class="attribute-name">...</span> <span class="attribute-name">acknowledgementMode</span>=<span class="string"><span class="delimiter">"</span><span class="content">NONE</span><span class="delimiter">"</span></span> <span class="attribute-name">acknowledgementTimeout</span>=<span class="string"><span class="delimiter">"</span><span class="content">42</span><span class="delimiter">"</span></span> <span class="attribute-name">...</span><span class="tag">&gt;</span></code></pre> 
         </div> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;anypoint-mq:config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span> <span class="attribute-name">maxRedelivery</span>=<span class="string"><span class="delimiter">"</span><span class="content">10</span><span class="delimiter">"</span></span> <span class="attribute-name">...</span> <span class="tag">&gt;</span></code></pre> 
-         </div> 
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>acknowledgementTimeout</strong></p></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>When you take an Anypoint MQ message from a queue, the broker puts it in flight, and the message remains in that state until the ACK is performed (application reads the message and Anypoint MQ deletes it), or the Acknowledgement Timeout is reached. If ACK is performed, then the message is removed from the queue, if Acknowledgement Timeout is reached, the message returns to the queue. If set to the default value of <code>0</code>, this parameter does not appear in the XML flow.</p> 
+       </div> 
+       <div class="paragraph"> 
+        <p><strong>Required:</strong> No<br> <strong>Default:</strong> <code>0</code><br> <strong>XML Example:</strong></p> 
+       </div> 
+       <div class="listingblock"> 
+        <div class="content"> 
+         <pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;anypoint-mq:config</span> <span class="attribute-name">...</span> <span class="attribute-name">acknowledgementMode</span>=<span class="string"><span class="delimiter">"</span><span class="content">NONE</span><span class="delimiter">"</span></span> <span class="attribute-name">acknowledgementTimeout</span>=<span class="string"><span class="delimiter">"</span><span class="content">42</span><span class="delimiter">"</span></span> <span class="attribute-name">...</span><span class="tag">&gt;</span></code></pre> 
         </div> 
-       </div></td> 
-     </tr> 
-     <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>acknowledgementMode</strong></p></td> 
-      <td class="tableblock halign-left valign-top"> 
-       <div> 
-        <div class="paragraph"> 
-         <p>Defines how the Anypoint MQ messages are acknowledged when the message are removed from being inflight messages. If set to the default value of AUTO, this parameter does not appear in the XML flow.</p> 
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>pollingTime</strong></p></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Maximum time in milliseconds to wait for the expected message or messages. If set to the default value of <code>10000</code> (10 seconds), this parameter does not appear in the XML flow.</p> 
+       </div> 
+       <div class="paragraph"> 
+        <p><strong>Required:</strong> No<br> <strong>Default:</strong> <code>10000</code> (10 seconds)<br> <strong>XML Example:</strong></p> 
+       </div> 
+       <div class="listingblock"> 
+        <div class="content"> 
+         <pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;anypoint-mq:config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span> <span class="attribute-name">pollingTime</span>=<span class="string"><span class="delimiter">"</span><span class="content">99000</span><span class="delimiter">"</span></span><span class="tag">&gt;</span></code></pre> 
         </div> 
-        <div class="paragraph"> 
-         <p>Possible values are:</p> 
-        </div> 
-        <div class="ulist"> 
-         <ul> 
-          <li> <p><code>AUTO</code> (Default)- Messages are acknowledged or negatively acknowledged depending on whether or not exceptions occur. See <a href="/anypoint-mq/mq-ack-mode">Acknowledgement Mode</a> for more information.</p> </li> 
-          <li> <p><code>MANUAL</code> - Messages are acknowledged using a custom ACK message processor.</p> </li> 
-          <li> <p><code>NONE</code> - Messages are acknowledged and removed as soon as they are received.</p> </li> 
-         </ul> 
-        </div> 
-        <div class="paragraph"> 
-         <p><strong>Required:</strong> No<br> <strong>Default:</strong> <code>AUTO</code><br> <strong>XML Example:</strong></p> 
-        </div> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;anypoint-mq:config</span> <span class="attribute-name">...</span> <span class="attribute-name">acknowledgementMode</span>=<span class="string"><span class="delimiter">"</span><span class="content">NONE</span><span class="delimiter">"</span></span> <span class="attribute-name">acknowledgementTimeout</span>=<span class="string"><span class="delimiter">"</span><span class="content">42</span><span class="delimiter">"</span></span> <span class="attribute-name">...</span><span class="tag">&gt;</span></code></pre> 
-         </div> 
-        </div> 
-       </div></td> 
-     </tr> 
-     <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>acknowledgementTimeout</strong></p></td> 
-      <td class="tableblock halign-left valign-top"> 
-       <div> 
-        <div class="paragraph"> 
-         <p>When you take an Anypoint MQ message from a queue, the broker puts it in flight, and the message remains in that state until the ACK is performed (application reads the message and Anypoint MQ deletes it), or the Acknowledgement Timeout is reached. If ACK is performed, then the message is removed from the queue, if Acknowledgement Timeout is reached, the message returns to the queue. If set to the default value of <code>0</code>, this parameter does not appear in the XML flow.</p> 
-        </div> 
-        <div class="paragraph"> 
-         <p><strong>Required:</strong> No<br> <strong>Default:</strong> <code>0</code><br> <strong>XML Example:</strong></p> 
-        </div> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;anypoint-mq:config</span> <span class="attribute-name">...</span> <span class="attribute-name">acknowledgementMode</span>=<span class="string"><span class="delimiter">"</span><span class="content">NONE</span><span class="delimiter">"</span></span> <span class="attribute-name">acknowledgementTimeout</span>=<span class="string"><span class="delimiter">"</span><span class="content">42</span><span class="delimiter">"</span></span> <span class="attribute-name">...</span><span class="tag">&gt;</span></code></pre> 
-         </div> 
-        </div> 
-       </div></td> 
-     </tr> 
-     <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>pollingTime</strong></p></td> 
-      <td class="tableblock halign-left valign-top"> 
-       <div> 
-        <div class="paragraph"> 
-         <p>Maximum time in milliseconds to wait for the expected message or messages. If set to the default value of <code>10000</code> (10 seconds), this parameter does not appear in the XML flow.</p> 
-        </div> 
-        <div class="paragraph"> 
-         <p><strong>Required:</strong> No<br> <strong>Default:</strong> <code>10000</code> (10 seconds)<br> <strong>XML Example:</strong></p> 
-        </div> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;anypoint-mq:config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span> <span class="attribute-name">pollingTime</span>=<span class="string"><span class="delimiter">"</span><span class="content">99000</span><span class="delimiter">"</span></span><span class="tag">&gt;</span></code></pre> 
-         </div> 
-        </div> 
-       </div></td> 
-     </tr> 
-     <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>worker-threading-profile</strong></p></td> 
-      <td class="tableblock halign-left valign-top"> 
-       <div> 
-        <div class="paragraph"> 
-         <p>Define threading profile behavior or use default worker threading profile. See <a href="/mule-user-guide/v/3.8/tuning-performance">Tuning Performance</a>. The threading profile options let you optimize connector performance for use with Anypoint MQ.</p> 
-        </div> 
-        <div class="paragraph"> 
-         <p><strong>Note:</strong> After configuring worker-threading-profile, change the name of the statement to start with anypoint-mq, and switch the order of the statement with the anypoint-mq:provider statement in the anypoint-mq:config block.</p> 
-        </div> 
-        <div class="paragraph"> 
-         <p>This example shows how the finished statements should appear:</p> 
-        </div> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>worker-threading-profile</strong></p></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Define threading profile behavior or use default worker threading profile. See <a href="/mule-user-guide/v/3.8/tuning-performance">Tuning Performance</a>. The threading profile options let you optimize connector performance for use with Anypoint MQ.</p> 
+       </div> 
+       <div class="paragraph"> 
+        <p><strong>Note:</strong> After configuring worker-threading-profile, change the name of the statement to start with anypoint-mq, and switch the order of the statement with the anypoint-mq:provider statement in the anypoint-mq:config block.</p> 
+       </div> 
+       <div class="paragraph"> 
+        <p>This example shows how the finished statements should appear:</p> 
+       </div> 
+       <div class="listingblock"> 
+        <div class="content"> 
+         <pre class="CodeRay highlight"><code data-lang="xml">
+              
+           <table class="CodeRay"> 
+            <tbody> 
+             <tr> 
+              <td class="line-numbers"><pre>1
 2
 3
 4
 </pre></td> 
-               <td class="code"><pre><span class="tag">&lt;anypoint-mq:config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Anypoint_MQ_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Anypoint MQ Configuration</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+              <td class="code"><pre><span class="tag">&lt;anypoint-mq:config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Anypoint_MQ_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Anypoint MQ Configuration</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
   <span class="tag">&lt;anypoint-mq:provider</span> <span class="attribute-name">url</span>=<span class="string"><span class="delimiter">"</span><span class="content">https://mq-us-east-1.anypoint.mulesoft.com/api/v1</span><span class="delimiter">"</span></span> <span class="attribute-name">clientId</span>=<span class="string"><span class="delimiter">"</span><span class="content">ID</span><span class="delimiter">"</span></span> <span class="attribute-name">clientSecret</span>=<span class="string"><span class="delimiter">"</span><span class="content">SECRET</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
   <span class="tag">&lt;anypoint-mq:worker-threading-profile</span> <span class="attribute-name">maxThreadsActive</span>=<span class="string"><span class="delimiter">"</span><span class="content">42</span><span class="delimiter">"</span></span> <span class="attribute-name">maxThreadsIdle</span>=<span class="string"><span class="delimiter">"</span><span class="content">42</span><span class="delimiter">"</span></span> <span class="attribute-name">threadTTL</span>=<span class="string"><span class="delimiter">"</span><span class="content">4200</span><span class="delimiter">"</span></span> <span class="attribute-name">threadWaitTimeout</span>=<span class="string"><span class="delimiter">"</span><span class="content">-1</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
 <span class="tag">&lt;/anypoint-mq:config&gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
+             </tr> 
+            </tbody> 
+           </table></code></pre> 
         </div> 
-        <div class="paragraph"> 
-         <p><strong>Required:</strong> No<br> <strong>Default:</strong> None<br> <strong>XML Example:</strong></p> 
-        </div> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
+       </div> 
+       <div class="paragraph"> 
+        <p><strong>Required:</strong> No<br> <strong>Default:</strong> None<br> <strong>XML Example:</strong></p> 
+       </div> 
+       <div class="listingblock"> 
+        <div class="content"> 
+         <pre class="CodeRay highlight"><code data-lang="xml">
+              
+           <table class="CodeRay"> 
+            <tbody> 
+             <tr> 
+              <td class="line-numbers"><pre>1
 2
 3
 </pre></td> 
-               <td class="code"><pre><span class="tag">&lt;http:worker-threading-profile</span> <span class="attribute-name">maxThreadsActive</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span> <span class="attribute-name">maxThreadsIdle</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span>
+              <td class="code"><pre><span class="tag">&lt;http:worker-threading-profile</span> <span class="attribute-name">maxThreadsActive</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span> <span class="attribute-name">maxThreadsIdle</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span>
 <span class="attribute-name">threadTTL</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span> <span class="attribute-name">poolExhaustedAction</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span> <span class="attribute-name">threadWaitTimeout</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span>
 <span class="attribute-name">maxBufferSize</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
+             </tr> 
+            </tbody> 
+           </table></code></pre> 
         </div> 
-       </div></td> 
-     </tr> 
-     <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>maxThreadsActive</strong></p></td> 
-      <td class="tableblock halign-left valign-top"> 
-       <div> 
-        <div class="paragraph"> 
-         <p>The maximum number of threads to use. See <a href="/mule-user-guide/v/3.8/tuning-performance">Tuning Performance</a>.</p> 
-        </div> 
-        <div class="paragraph"> 
-         <p><strong>Required:</strong> No<br> <strong>Default:</strong> None<br> <strong>XML Example:</strong></p> 
-        </div> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>maxThreadsActive</strong></p></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>The maximum number of threads to use. See <a href="/mule-user-guide/v/3.8/tuning-performance">Tuning Performance</a>.</p> 
+       </div> 
+       <div class="paragraph"> 
+        <p><strong>Required:</strong> No<br> <strong>Default:</strong> None<br> <strong>XML Example:</strong></p> 
+       </div> 
+       <div class="listingblock"> 
+        <div class="content"> 
+         <pre class="CodeRay highlight"><code data-lang="xml">
+              
+           <table class="CodeRay"> 
+            <tbody> 
+             <tr> 
+              <td class="line-numbers"><pre>1
 2
 3
 </pre></td> 
-               <td class="code"><pre><span class="tag">&lt;http:worker-threading-profile</span> <span class="attribute-name">maxThreadsActive</span>=<span class="string"><span class="delimiter">"</span><span class="content">42</span><span class="delimiter">"</span></span> <span class="attribute-name">maxThreadsIdle</span>=<span class="string"><span class="delimiter">"</span><span class="content">42</span><span class="delimiter">"</span></span>
+              <td class="code"><pre><span class="tag">&lt;http:worker-threading-profile</span> <span class="attribute-name">maxThreadsActive</span>=<span class="string"><span class="delimiter">"</span><span class="content">42</span><span class="delimiter">"</span></span> <span class="attribute-name">maxThreadsIdle</span>=<span class="string"><span class="delimiter">"</span><span class="content">42</span><span class="delimiter">"</span></span>
 <span class="attribute-name">threadTTL</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span> <span class="attribute-name">poolExhaustedAction</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span> <span class="attribute-name">threadWaitTimeout</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span>
 <span class="attribute-name">maxBufferSize</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
+             </tr> 
+            </tbody> 
+           </table></code></pre> 
         </div> 
-       </div></td> 
-     </tr> 
-     <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>maxThreadsIdle</strong></p></td> 
-      <td class="tableblock halign-left valign-top"> 
-       <div> 
-        <div class="paragraph"> 
-         <p>The maximum number of idle or inactive threads that can be in the pool before they are destroyed. See <a href="/mule-user-guide/v/3.8/tuning-performance">Tuning Performance</a>. The thread pool does not grow from Max Idle Threads towards Max Active Threads unless the queue is completely filled up.</p> 
-        </div> 
-        <div class="paragraph"> 
-         <p><strong>Required:</strong> No<br> <strong>Default:</strong> None<br> <strong>XML Example:</strong></p> 
-        </div> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>maxThreadsIdle</strong></p></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>The maximum number of idle or inactive threads that can be in the pool before they are destroyed. See <a href="/mule-user-guide/v/3.8/tuning-performance">Tuning Performance</a>. The thread pool does not grow from Max Idle Threads towards Max Active Threads unless the queue is completely filled up.</p> 
+       </div> 
+       <div class="paragraph"> 
+        <p><strong>Required:</strong> No<br> <strong>Default:</strong> None<br> <strong>XML Example:</strong></p> 
+       </div> 
+       <div class="listingblock"> 
+        <div class="content"> 
+         <pre class="CodeRay highlight"><code data-lang="xml">
+              
+           <table class="CodeRay"> 
+            <tbody> 
+             <tr> 
+              <td class="line-numbers"><pre>1
 2
 3
 </pre></td> 
-               <td class="code"><pre><span class="tag">&lt;http:worker-threading-profile</span> <span class="attribute-name">maxThreadsActive</span>=<span class="string"><span class="delimiter">"</span><span class="content">42</span><span class="delimiter">"</span></span> <span class="attribute-name">maxThreadsIdle</span>=<span class="string"><span class="delimiter">"</span><span class="content">42</span><span class="delimiter">"</span></span>
+              <td class="code"><pre><span class="tag">&lt;http:worker-threading-profile</span> <span class="attribute-name">maxThreadsActive</span>=<span class="string"><span class="delimiter">"</span><span class="content">42</span><span class="delimiter">"</span></span> <span class="attribute-name">maxThreadsIdle</span>=<span class="string"><span class="delimiter">"</span><span class="content">42</span><span class="delimiter">"</span></span>
 <span class="attribute-name">threadTTL</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span> <span class="attribute-name">poolExhaustedAction</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span> <span class="attribute-name">threadWaitTimeout</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span>
 <span class="attribute-name">maxBufferSize</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
+             </tr> 
+            </tbody> 
+           </table></code></pre> 
         </div> 
-       </div></td> 
-     </tr> 
-     <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>threadTTL</strong></p></td> 
-      <td class="tableblock halign-left valign-top"> 
-       <div> 
-        <div class="paragraph"> 
-         <p>Thread time to live duration in milliseconds.</p> 
-        </div> 
-        <div class="paragraph"> 
-         <p><strong>Required:</strong> No<br> <strong>Default:</strong> None<br> <strong>XML Example:</strong></p> 
-        </div> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>threadTTL</strong></p></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Thread time to live duration in milliseconds.</p> 
+       </div> 
+       <div class="paragraph"> 
+        <p><strong>Required:</strong> No<br> <strong>Default:</strong> None<br> <strong>XML Example:</strong></p> 
+       </div> 
+       <div class="listingblock"> 
+        <div class="content"> 
+         <pre class="CodeRay highlight"><code data-lang="xml">
+              
+           <table class="CodeRay"> 
+            <tbody> 
+             <tr> 
+              <td class="line-numbers"><pre>1
 2
 3
 </pre></td> 
-               <td class="code"><pre><span class="tag">&lt;http:worker-threading-profile</span> <span class="attribute-name">maxThreadsActive</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span> <span class="attribute-name">maxThreadsIdle</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span>
+              <td class="code"><pre><span class="tag">&lt;http:worker-threading-profile</span> <span class="attribute-name">maxThreadsActive</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span> <span class="attribute-name">maxThreadsIdle</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span>
 <span class="attribute-name">threadTTL</span>=<span class="string"><span class="delimiter">"</span><span class="content">1000</span><span class="delimiter">"</span></span> <span class="attribute-name">poolExhaustedAction</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span> <span class="attribute-name">threadWaitTimeout</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span>
 <span class="attribute-name">maxBufferSize</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
+             </tr> 
+            </tbody> 
+           </table></code></pre> 
         </div> 
-       </div></td> 
-     </tr> 
-     <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>poolExhaustedAction</strong></p></td> 
-      <td class="tableblock halign-left valign-top"> 
-       <div> 
-        <div class="paragraph"> 
-         <p>When the maximum pool size or queue size is bounded, this value determines how to handle incoming tasks.</p> 
-        </div> 
-        <div class="paragraph"> 
-         <p>Possible values are:</p> 
-        </div> 
-        <div class="ulist"> 
-         <ul> 
-          <li> <p><code>WAIT</code> - Wait until a thread becomes available; don’t use this value if the minimum number of threads is zero, in which case a thread may never become available.</p> </li> 
-          <li> <p><code>DISCARD</code> - Throw away the current request and return.</p> </li> 
-          <li> <p><code>DISCARD_OLDEST</code> - Throw away the oldest request and return.</p> </li> 
-          <li> <p><code>ABORT</code> - Throw a RuntimeException.</p> </li> 
-          <li> <p><code>RUN</code> - The default; the thread making the execute request runs the task itself, which helps guard against lockup.</p> </li> 
-         </ul> 
-        </div> 
-        <div class="paragraph"> 
-         <p><strong>Required:</strong> No<br> <strong>Default:</strong> <code>RUN</code><br> <strong>XML Example:</strong></p> 
-        </div> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>poolExhaustedAction</strong></p></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>When the maximum pool size or queue size is bounded, this value determines how to handle incoming tasks.</p> 
+       </div> 
+       <div class="paragraph"> 
+        <p>Possible values are:</p> 
+       </div> 
+       <div class="ulist"> 
+        <ul> 
+         <li> <p><code>WAIT</code> - Wait until a thread becomes available; don’t use this value if the minimum number of threads is zero, in which case a thread may never become available.</p> </li> 
+         <li> <p><code>DISCARD</code> - Throw away the current request and return.</p> </li> 
+         <li> <p><code>DISCARD_OLDEST</code> - Throw away the oldest request and return.</p> </li> 
+         <li> <p><code>ABORT</code> - Throw a RuntimeException.</p> </li> 
+         <li> <p><code>RUN</code> - The default; the thread making the execute request runs the task itself, which helps guard against lockup.</p> </li> 
+        </ul> 
+       </div> 
+       <div class="paragraph"> 
+        <p><strong>Required:</strong> No<br> <strong>Default:</strong> <code>RUN</code><br> <strong>XML Example:</strong></p> 
+       </div> 
+       <div class="listingblock"> 
+        <div class="content"> 
+         <pre class="CodeRay highlight"><code data-lang="xml">
+              
+           <table class="CodeRay"> 
+            <tbody> 
+             <tr> 
+              <td class="line-numbers"><pre>1
 2
 3
 </pre></td> 
-               <td class="code"><pre><span class="tag">&lt;http:worker-threading-profile</span> <span class="attribute-name">maxThreadsActive</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span> <span class="attribute-name">maxThreadsIdle</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span>
+              <td class="code"><pre><span class="tag">&lt;http:worker-threading-profile</span> <span class="attribute-name">maxThreadsActive</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span> <span class="attribute-name">maxThreadsIdle</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span>
 <span class="attribute-name">threadTTL</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span> <span class="attribute-name">poolExhaustedAction</span>=<span class="string"><span class="delimiter">"</span><span class="content">DISCARD_OLDEST</span><span class="delimiter">"</span></span> <span class="attribute-name">threadWaitTimeout</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span>
 <span class="attribute-name">maxBufferSize</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
+             </tr> 
+            </tbody> 
+           </table></code></pre> 
         </div> 
-       </div></td> 
-     </tr> 
-     <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>threadWaitTimeout</strong></p></td> 
-      <td class="tableblock halign-left valign-top"> 
-       <div> 
-        <div class="paragraph"> 
-         <p>Thread wait timeout in milliseconds.</p> 
-        </div> 
-        <div class="paragraph"> 
-         <p><strong>Type:</strong> Long<br> <strong>Required:</strong> No<br> <strong>Default:</strong> None<br> <strong>XML Example:</strong></p> 
-        </div> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>threadWaitTimeout</strong></p></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Thread wait timeout in milliseconds.</p> 
+       </div> 
+       <div class="paragraph"> 
+        <p><strong>Type:</strong> Long<br> <strong>Required:</strong> No<br> <strong>Default:</strong> None<br> <strong>XML Example:</strong></p> 
+       </div> 
+       <div class="listingblock"> 
+        <div class="content"> 
+         <pre class="CodeRay highlight"><code data-lang="xml">
+              
+           <table class="CodeRay"> 
+            <tbody> 
+             <tr> 
+              <td class="line-numbers"><pre>1
 2
 3
 </pre></td> 
-               <td class="code"><pre><span class="tag">&lt;http:worker-threading-profile</span> <span class="attribute-name">maxThreadsActive</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span> <span class="attribute-name">maxThreadsIdle</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span>
+              <td class="code"><pre><span class="tag">&lt;http:worker-threading-profile</span> <span class="attribute-name">maxThreadsActive</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span> <span class="attribute-name">maxThreadsIdle</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span>
 <span class="attribute-name">threadTTL</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span> <span class="attribute-name">poolExhaustedAction</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span> <span class="attribute-name">threadWaitTimeout</span>=<span class="string"><span class="delimiter">"</span><span class="content">1000</span><span class="delimiter">"</span></span>
 <span class="attribute-name">maxBufferSize</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
+             </tr> 
+            </tbody> 
+           </table></code></pre> 
         </div> 
-       </div></td> 
-     </tr> 
-     <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>maxBufferSize</strong></p></td> 
-      <td class="tableblock halign-left valign-top"> 
-       <div> 
-        <div class="paragraph"> 
-         <p>Max buffer size.</p> 
-        </div> 
-        <div class="paragraph"> 
-         <p><strong>Type:</strong> Integer<br> <strong>Required:</strong> No<br> <strong>Default:</strong> None<br> <strong>XML Example:</strong></p> 
-        </div> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>maxBufferSize</strong></p></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Max buffer size.</p> 
+       </div> 
+       <div class="paragraph"> 
+        <p><strong>Type:</strong> Integer<br> <strong>Required:</strong> No<br> <strong>Default:</strong> None<br> <strong>XML Example:</strong></p> 
+       </div> 
+       <div class="listingblock"> 
+        <div class="content"> 
+         <pre class="CodeRay highlight"><code data-lang="xml">
+              
+           <table class="CodeRay"> 
+            <tbody> 
+             <tr> 
+              <td class="line-numbers"><pre>1
 2
 3
 </pre></td> 
-               <td class="code"><pre><span class="tag">&lt;http:worker-threading-profile</span> <span class="attribute-name">maxThreadsActive</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span> <span class="attribute-name">maxThreadsIdle</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span>
+              <td class="code"><pre><span class="tag">&lt;http:worker-threading-profile</span> <span class="attribute-name">maxThreadsActive</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span> <span class="attribute-name">maxThreadsIdle</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span>
 <span class="attribute-name">threadTTL</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span> <span class="attribute-name">poolExhaustedAction</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span> <span class="attribute-name">threadWaitTimeout</span>=<span class="string"><span class="delimiter">"</span><span class="content">...</span><span class="delimiter">"</span></span>
 <span class="attribute-name">maxBufferSize</span>=<span class="string"><span class="delimiter">"</span><span class="content">1000</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
+             </tr> 
+            </tbody> 
+           </table></code></pre> 
         </div> 
-       </div></td> 
-     </tr> 
-     <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>anypoint-mq:&lt;operation&gt;</strong></p></td> 
-      <td class="tableblock halign-left valign-top"> 
-       <div> 
-        <div class="paragraph"> 
-         <p>Operation that this connector instance performs.</p> 
-        </div> 
-        <div class="paragraph"> 
-         <p>Possible values:</p> 
-        </div> 
-        <div class="ulist"> 
-         <ul> 
-          <li> <p><code>publish</code> - Send a message to a queue or message exchange.</p> </li> 
-          <li> <p><code>consume</code> - Consume a message from a queue.</p> </li> 
-          <li> <p><code>ack</code> - Acknowledge a message, that is, accept a message and delete the message.</p> </li> 
-          <li> <p><code>nack</code> - Negatively acknowledge a message, that is, do not accept a message and return the message to the queue.</p> </li> 
-         </ul> 
-        </div> 
-        <div class="paragraph"> 
-         <p><strong>Required:</strong> Yes<br> <strong>Default:</strong> None<br> <strong>XML Example:</strong></p> 
-        </div> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
+       </div> 
+      </div></td> 
+    </tr> 
+   </tbody> 
+  </table> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="about-basic-xml-elements"><a class="anchor" href="#about-basic-xml-elements"></a>About Basic XML Elements</h2> 
+ <div class="sectionbody"> 
+  <table class="tableblock frame-all grid-all spread"> 
+   <colgroup> 
+    <col style="width: 25%;"> 
+    <col style="width: 75%;"> 
+   </colgroup> 
+   <thead> 
+    <tr> 
+     <th class="tableblock halign-left valign-top">XML Element</th> 
+     <th class="tableblock halign-left valign-top">Description</th> 
+    </tr> 
+   </thead> 
+   <tbody> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>anypoint-mq:&lt;operation&gt;</strong></p></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Operation that this connector instance performs.</p> 
+       </div> 
+       <div class="paragraph"> 
+        <p>Possible values:</p> 
+       </div> 
+       <div class="ulist"> 
+        <ul> 
+         <li> <p><code>publish</code> - Send a message to a queue or message exchange.</p> </li> 
+         <li> <p><code>consume</code> - Consume a message from a queue.</p> </li> 
+         <li> <p><code>ack</code> - Acknowledge a message, that is, accept a message and delete the message.</p> </li> 
+         <li> <p><code>nack</code> - Negatively acknowledge a message, that is, do not accept a message and return the message to the queue.</p> </li> 
+        </ul> 
+       </div> 
+       <div class="paragraph"> 
+        <p><strong>Required:</strong> Yes<br> <strong>Default:</strong> None<br> <strong>XML Example:</strong></p> 
+       </div> 
+       <div class="listingblock"> 
+        <div class="content"> 
+         <pre class="CodeRay highlight"><code data-lang="xml">
+              
+           <table class="CodeRay"> 
+            <tbody> 
+             <tr> 
+              <td class="line-numbers"><pre>1
 2
 3
 4
 5
 6
 </pre></td> 
-               <td class="code"><pre><span class="tag">&lt;flow</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">demoFlow</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+              <td class="code"><pre><span class="tag">&lt;flow</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">demoFlow</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
     <span class="tag">&lt;http:listener</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Listener_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">"</span><span class="content">/</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
     <span class="tag">&lt;anypoint-mq:consume</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">Anypoint_MQ_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Anypoint MQ</span><span class="delimiter">"</span></span>
     <span class="attribute-name">destination</span>=<span class="string"><span class="delimiter">"</span><span class="content">MyQ</span><span class="delimiter">"</span></span> <span class="attribute-name">acknowledgementMode</span>=<span class="string"><span class="delimiter">"</span><span class="content">NONE</span><span class="delimiter">"</span></span> <span class="attribute-name">acknowledgementTimeout</span>=<span class="string"><span class="delimiter">"</span><span class="content">42</span><span class="delimiter">"</span></span> <span class="attribute-name">pollingTime</span>=<span class="string"><span class="delimiter">"</span><span class="content">99000</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
     <span class="tag">&lt;/anypoint-mq:consume&gt;</span>
 <span class="tag">&lt;/flow&gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
+             </tr> 
+            </tbody> 
+           </table></code></pre> 
         </div> 
-       </div></td> 
-     </tr> 
-     <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>destination</strong></p></td> 
-      <td class="tableblock halign-left valign-top"> 
-       <div> 
-        <div class="paragraph"> 
-         <p>Queue or message exchange name.</p> 
-        </div> 
-        <div class="paragraph"> 
-         <p><strong>Required:</strong> Yes<br> <strong>Default:</strong> None<br> <strong>XML Example:</strong></p> 
-        </div> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
+       </div> 
+      </div></td> 
+    </tr> 
+   </tbody> 
+  </table> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="about-publish-xml-elements"><a class="anchor" href="#about-publish-xml-elements"></a>About Publish XML Elements</h2> 
+ <div class="sectionbody"> 
+  <table class="tableblock frame-all grid-all spread"> 
+   <colgroup> 
+    <col style="width: 25%;"> 
+    <col style="width: 75%;"> 
+   </colgroup> 
+   <thead> 
+    <tr> 
+     <th class="tableblock halign-left valign-top">XML Element</th> 
+     <th class="tableblock halign-left valign-top">Description</th> 
+    </tr> 
+   </thead> 
+   <tbody> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>destination</strong></p></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Queue or message exchange name.</p> 
+       </div> 
+       <div class="paragraph"> 
+        <p><strong>Required:</strong> Yes<br> <strong>Default:</strong> None<br> <strong>XML Example:</strong></p> 
+       </div> 
+       <div class="listingblock"> 
+        <div class="content"> 
+         <pre class="CodeRay highlight"><code data-lang="xml">
+              
+           <table class="CodeRay"> 
+            <tbody> 
+             <tr> 
+              <td class="line-numbers"><pre>1
 2
 3
 4
@@ -2550,7 +2585,7 @@
 7
 8
 </pre></td> 
-               <td class="code"><pre><span class="tag">&lt;flow</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">demoFlow</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+              <td class="code"><pre><span class="tag">&lt;flow</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">demoFlow</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
     <span class="tag">&lt;http:listener</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Listener_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">"</span><span class="content">/</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
     <span class="tag">&lt;anypoint-mq:consume</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">Anypoint_MQ_Configuration</span><span class="delimiter">"</span></span>
      <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Anypoint MQ</span><span class="delimiter">"</span></span> <span class="attribute-name">destination</span>=<span class="string"><span class="delimiter">"</span><span class="content">MyQ</span><span class="delimiter">"</span></span>
@@ -2558,31 +2593,31 @@
      <span class="attribute-name">pollingTime</span>=<span class="string"><span class="delimiter">"</span><span class="content">99000</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
     <span class="tag">&lt;/anypoint-mq:consume&gt;</span>
 <span class="tag">&lt;/flow&gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
+             </tr> 
+            </tbody> 
+           </table></code></pre> 
         </div> 
-       </div></td> 
-     </tr> 
-     <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>messageId</strong></p></td> 
-      <td class="tableblock halign-left valign-top"> 
-       <div> 
-        <div class="paragraph"> 
-         <p>(Publish operation only) Optional ID of a message to publish. When publishing to FIFO queues, if you specify a custom Message ID and the Message ID is the same on multiple messages, the messages with the same Message ID will not be redelivered. For applications such as those used in transactional use cases where messages need to be processed exactly once, Anypoint MQ supports exactly once delivery of messages when messages are published to FIFO queues. FIFO queues supports deduplication of messages. For example, if you retry sending a message with the same message ID within the 5-minute deduplication interval to a FIFO queue, Anypoint MQ guarantees the messages with the same message ID are retrieved and processed exactly once by the subscriber. When building applications requiring this feature on Anypoint Studio, you can set the message ID in publisher settings inside Anypoint MQ connector. If a message ID is not explicitly set, MQ auto generates a unique message ID for each message that’s sent to a queue.</p> 
-        </div> 
-        <div class="paragraph"> 
-         <p><strong>Required:</strong> No<br> <strong>Default:</strong> None<br> <strong>XML Example:</strong></p> 
-        </div> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>messageId</strong></p></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Optional ID of a message to publish. When publishing to FIFO queues, if you specify a custom Message ID and the Message ID is the same on multiple messages, the messages with the same Message ID will not be redelivered. For applications such as those used in transactional use cases where messages need to be processed exactly once, Anypoint MQ supports exactly once delivery of messages when messages are published to FIFO queues. FIFO queues supports deduplication of messages. For example, if you retry sending a message with the same message ID within the 5-minute deduplication interval to a FIFO queue, Anypoint MQ guarantees the messages with the same message ID are retrieved and processed exactly once by the subscriber. When building applications requiring this feature on Anypoint Studio, you can set the message ID in publisher settings inside Anypoint MQ connector. If a message ID is not explicitly set, MQ auto generates a unique message ID for each message that’s sent to a queue.</p> 
+       </div> 
+       <div class="paragraph"> 
+        <p><strong>Required:</strong> No<br> <strong>Default:</strong> None<br> <strong>XML Example:</strong></p> 
+       </div> 
+       <div class="listingblock"> 
+        <div class="content"> 
+         <pre class="CodeRay highlight"><code data-lang="xml">
+              
+           <table class="CodeRay"> 
+            <tbody> 
+             <tr> 
+              <td class="line-numbers"><pre>1
 2
 3
 4
@@ -2594,7 +2629,7 @@
 10
 11
 </pre></td> 
-               <td class="code"><pre><span class="tag">&lt;flow</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">demoFlow</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+              <td class="code"><pre><span class="tag">&lt;flow</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">demoFlow</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
   <span class="tag">&lt;http:listener</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Listener_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">"</span><span class="content">/</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
   <span class="tag">&lt;anypoint-mq:publish</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">Anypoint_MQ_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Anypoint MQ</span><span class="delimiter">"</span></span> <span class="attribute-name">destination</span>=<span class="string"><span class="delimiter">"</span><span class="content">QUEUEorMsgEx</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
       <span class="tag">&lt;anypoint-mq:message-builder</span> <span class="attribute-name">messageId</span>=<span class="string"><span class="delimiter">"</span><span class="content">4254a4254b4254c4254</span><span class="delimiter">"</span></span>
@@ -2605,31 +2640,31 @@
       <span class="tag">&lt;/anypoint-mq:message-builder&gt;</span>
   <span class="tag">&lt;/anypoint-mq:publish&gt;</span>
 <span class="tag">&lt;/flow&gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
+             </tr> 
+            </tbody> 
+           </table></code></pre> 
         </div> 
-       </div></td> 
-     </tr> 
-     <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>sendOutboundProperties</strong></p></td> 
-      <td class="tableblock halign-left valign-top"> 
-       <div> 
-        <div class="paragraph"> 
-         <p>(Publish operation only) Send properties when publishing.</p> 
-        </div> 
-        <div class="paragraph"> 
-         <p><strong>Required:</strong> Yes<br> <strong>Default:</strong> Checked<br> <strong>XML Example:</strong></p> 
-        </div> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>sendOutboundProperties</strong></p></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Send properties when publishing.</p> 
+       </div> 
+       <div class="paragraph"> 
+        <p><strong>Required:</strong> Yes<br> <strong>Default:</strong> Checked<br> <strong>XML Example:</strong></p> 
+       </div> 
+       <div class="listingblock"> 
+        <div class="content"> 
+         <pre class="CodeRay highlight"><code data-lang="xml">
+              
+           <table class="CodeRay"> 
+            <tbody> 
+             <tr> 
+              <td class="line-numbers"><pre>1
 2
 3
 4
@@ -2640,7 +2675,7 @@
 9
 10
 </pre></td> 
-               <td class="code"><pre><span class="tag">&lt;flow</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">demoFlow</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+              <td class="code"><pre><span class="tag">&lt;flow</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">demoFlow</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
   <span class="tag">&lt;http:listener</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Listener_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">"</span><span class="content">/</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
   <span class="tag">&lt;anypoint-mq:publish</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">Anypoint_MQ_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Anypoint MQ</span><span class="delimiter">"</span></span>
   <span class="attribute-name">destination</span>=<span class="string"><span class="delimiter">"</span><span class="content">QUEUEorMsgEx</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
@@ -2650,31 +2685,31 @@
     <span class="tag">&lt;/anypoint-mq:message-builder&gt;</span>
   <span class="tag">&lt;/anypoint-mq:publish&gt;</span>
 <span class="tag">&lt;/flow&gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
+             </tr> 
+            </tbody> 
+           </table></code></pre> 
         </div> 
-       </div></td> 
-     </tr> 
-     <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>sendContentType</strong></p></td> 
-      <td class="tableblock halign-left valign-top"> 
-       <div> 
-        <div class="paragraph"> 
-         <p>(Publish operation only) Send content type when publishing.</p> 
-        </div> 
-        <div class="paragraph"> 
-         <p><strong>Required:</strong> Yes<br> <strong>Default:</strong> Checked<br> <strong>XML Example:</strong></p> 
-        </div> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>sendContentType</strong></p></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Send content type when publishing.</p> 
+       </div> 
+       <div class="paragraph"> 
+        <p><strong>Required:</strong> Yes<br> <strong>Default:</strong> Checked<br> <strong>XML Example:</strong></p> 
+       </div> 
+       <div class="listingblock"> 
+        <div class="content"> 
+         <pre class="CodeRay highlight"><code data-lang="xml">
+              
+           <table class="CodeRay"> 
+            <tbody> 
+             <tr> 
+              <td class="line-numbers"><pre>1
 2
 3
 4
@@ -2685,7 +2720,7 @@
 9
 10
 </pre></td> 
-               <td class="code"><pre><span class="tag">&lt;flow</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">demoFlow</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+              <td class="code"><pre><span class="tag">&lt;flow</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">demoFlow</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
   <span class="tag">&lt;http:listener</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Listener_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">"</span><span class="content">/</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
   <span class="tag">&lt;anypoint-mq:publish</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">Anypoint_MQ_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Anypoint MQ</span><span class="delimiter">"</span></span>
   <span class="attribute-name">destination</span>=<span class="string"><span class="delimiter">"</span><span class="content">QUEUEorMsgEx</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
@@ -2695,84 +2730,144 @@
     <span class="tag">&lt;/anypoint-mq:message-builder&gt;</span>
   <span class="tag">&lt;/anypoint-mq:publish&gt;</span>
 <span class="tag">&lt;/flow&gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
+             </tr> 
+            </tbody> 
+           </table></code></pre> 
         </div> 
-       </div></td> 
-     </tr> 
-     <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>propertyName</strong></p></td> 
-      <td class="tableblock halign-left valign-top"> 
-       <div> 
-        <div class="paragraph"> 
-         <p>(Publish operation only) Optional property content to set for publish.</p> 
-        </div> 
-        <div class="paragraph"> 
-         <p><strong>Required:</strong> No<br> <strong>Default:</strong> None<br> <strong>XML Example:</strong></p> 
-        </div> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>propertyName</strong></p></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Optional property content to set for publish.</p> 
+       </div> 
+       <div class="paragraph"> 
+        <p><strong>Required:</strong> No<br> <strong>Default:</strong> None<br> <strong>XML Example:</strong></p> 
+       </div> 
+       <div class="listingblock"> 
+        <div class="content"> 
+         <pre class="CodeRay highlight"><code data-lang="xml">
+              
+           <table class="CodeRay"> 
+            <tbody> 
+             <tr> 
+              <td class="line-numbers"><pre>1
 2
 3
 </pre></td> 
-               <td class="code"><pre><span class="tag">&lt;anypoint-mq:properties&gt;</span>
+              <td class="code"><pre><span class="tag">&lt;anypoint-mq:properties&gt;</span>
     <span class="tag">&lt;anypoint-mq:property</span> <span class="attribute-name">propertyName</span>=<span class="string"><span class="delimiter">"</span><span class="content">THisisAProperty</span><span class="delimiter">"</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">"</span><span class="content">4254</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
 <span class="tag">&lt;/anypoint-mq:properties&gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
+             </tr> 
+            </tbody> 
+           </table></code></pre> 
         </div> 
-       </div></td> 
-     </tr> 
-     <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value</strong></p></td> 
-      <td class="tableblock halign-left valign-top"> 
-       <div> 
-        <div class="paragraph"> 
-         <p>(Publish operation only) Optional value content to set for publish.</p> 
-        </div> 
-        <div class="paragraph"> 
-         <p><strong>Required:</strong> No<br> <strong>Default:</strong> None<br> <strong>XML Example:</strong></p> 
-        </div> 
-        <div class="paragraph"> 
-         <p>source,xml,linenums]</p> 
-        </div> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre>&lt;anypoint-mq:properties&gt;
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value</strong></p></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Optional value content to set for publish.</p> 
+       </div> 
+       <div class="paragraph"> 
+        <p><strong>Required:</strong> No<br> <strong>Default:</strong> None<br> <strong>XML Example:</strong></p> 
+       </div> 
+       <div class="paragraph"> 
+        <p>source,xml,linenums]</p> 
+       </div> 
+       <div class="listingblock"> 
+        <div class="content"> 
+         <pre>&lt;anypoint-mq:properties&gt;
     &lt;anypoint-mq:property propertyName="THisisAProperty" value="4254"/&gt;
 &lt;/anypoint-mq:properties&gt;</pre> 
-         </div> 
         </div> 
-       </div></td> 
-     </tr> 
-     <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>acknowledgementMode</strong></p></td> 
-      <td class="tableblock halign-left valign-top"> 
-       <div> 
-        <div class="paragraph"> 
-         <p>(Consume operation only - Consumer Settings menu in Studio) If you use the Anypoint MQ connector as a message processor, the operations are <code>MANUAL (default)</code> or <code>NONE</code>. If the MQ connector is used as an entry point, the mode options are <code>From configuration (Default)</code>, <code>AUTO</code>, <code>MANUAL</code>, or <code>NONE</code>. For more information, see <a href="/anypoint-mq/mq-ack-mode">Anypoint MQ Acknowledgement Mode</a>.</p> 
+       </div> 
+      </div></td> 
+    </tr> 
+   </tbody> 
+  </table> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="about-consume-xml-elements"><a class="anchor" href="#about-consume-xml-elements"></a>About Consume XML Elements</h2> 
+ <div class="sectionbody"> 
+  <table class="tableblock frame-all grid-all spread"> 
+   <colgroup> 
+    <col style="width: 25%;"> 
+    <col style="width: 75%;"> 
+   </colgroup> 
+   <thead> 
+    <tr> 
+     <th class="tableblock halign-left valign-top">XML Element</th> 
+     <th class="tableblock halign-left valign-top">Description</th> 
+    </tr> 
+   </thead> 
+   <tbody> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>destination</strong></p></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Queue or message exchange name.</p> 
+       </div> 
+       <div class="paragraph"> 
+        <p><strong>Required:</strong> Yes<br> <strong>Default:</strong> None<br> <strong>XML Example:</strong></p> 
+       </div> 
+       <div class="listingblock"> 
+        <div class="content"> 
+         <pre class="CodeRay highlight"><code data-lang="xml">
+              
+           <table class="CodeRay"> 
+            <tbody> 
+             <tr> 
+              <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+</pre></td> 
+              <td class="code"><pre><span class="tag">&lt;flow</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">demoFlow</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;http:listener</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Listener_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">"</span><span class="content">/</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+    <span class="tag">&lt;anypoint-mq:consume</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">Anypoint_MQ_Configuration</span><span class="delimiter">"</span></span>
+     <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Anypoint MQ</span><span class="delimiter">"</span></span> <span class="attribute-name">destination</span>=<span class="string"><span class="delimiter">"</span><span class="content">MyQ</span><span class="delimiter">"</span></span>
+     <span class="attribute-name">acknowledgementMode</span>=<span class="string"><span class="delimiter">"</span><span class="content">NONE</span><span class="delimiter">"</span></span> <span class="attribute-name">acknowledgementTimeout</span>=<span class="string"><span class="delimiter">"</span><span class="content">42</span><span class="delimiter">"</span></span>
+     <span class="attribute-name">pollingTime</span>=<span class="string"><span class="delimiter">"</span><span class="content">99000</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;/anypoint-mq:consume&gt;</span>
+<span class="tag">&lt;/flow&gt;</span></pre></td> 
+             </tr> 
+            </tbody> 
+           </table></code></pre> 
         </div> 
-        <div class="paragraph"> 
-         <p><strong>Required:</strong> No<br> <strong>Default:</strong> MANUAL if connector is a message processor, or From configuration if connector is an entry point<br> <strong>XML Example:</strong></p> 
-        </div> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>acknowledgementMode</strong></p></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>The modes are <code>MANUAL (default)</code> or <code>NONE</code>. For more information, see <a href="/anypoint-mq/mq-ack-mode">Anypoint MQ Acknowledgement Mode</a>.</p> 
+       </div> 
+       <div class="paragraph"> 
+        <p><strong>Required:</strong> No<br> <strong>Default:</strong> MANUAL if connector is a message processor, or From configuration if connector is an entry point<br> <strong>XML Example:</strong></p> 
+       </div> 
+       <div class="listingblock"> 
+        <div class="content"> 
+         <pre class="CodeRay highlight"><code data-lang="xml">
+              
+           <table class="CodeRay"> 
+            <tbody> 
+             <tr> 
+              <td class="line-numbers"><pre>1
 2
 3
 4
@@ -2780,38 +2875,38 @@
 6
 7
 </pre></td> 
-               <td class="code"><pre><span class="tag">&lt;flow</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">demoFlow</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+              <td class="code"><pre><span class="tag">&lt;flow</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">demoFlow</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
     <span class="tag">&lt;http:listener</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Listener_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">"</span><span class="content">/</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
     <span class="tag">&lt;anypoint-mq:consume</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">Anypoint_MQ_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Anypoint MQ</span><span class="delimiter">"</span></span>
      <span class="attribute-name">destination</span>=<span class="string"><span class="delimiter">"</span><span class="content">ImaQ</span><span class="delimiter">"</span></span> <span class="attribute-name">acknowledgementMode</span>=<span class="string"><span class="delimiter">"</span><span class="content">NONE</span><span class="delimiter">"</span></span> <span class="attribute-name">acknowledgementTimeout</span>=<span class="string"><span class="delimiter">"</span><span class="content">42</span><span class="delimiter">"</span></span>
      <span class="attribute-name">pollingTime</span>=<span class="string"><span class="delimiter">"</span><span class="content">99000</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
     <span class="tag">&lt;/anypoint-mq:consume&gt;</span>
 <span class="tag">&lt;/flow&gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
+             </tr> 
+            </tbody> 
+           </table></code></pre> 
         </div> 
-       </div></td> 
-     </tr> 
-     <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>acknowledgementTimeout</strong></p></td> 
-      <td class="tableblock halign-left valign-top"> 
-       <div> 
-        <div class="paragraph"> 
-         <p>(Consume operation only - Consumer Settings menu in Studio) Duration in milliseconds until the acknowledgement mode times out.</p> 
-        </div> 
-        <div class="paragraph"> 
-         <p><strong>Required:</strong> No<br> <strong>Default:</strong> None<br> <strong>XML Example:</strong></p> 
-        </div> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>acknowledgementTimeout</strong></p></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Duration in milliseconds until the acknowledgement mode times out.</p> 
+       </div> 
+       <div class="paragraph"> 
+        <p><strong>Required:</strong> No<br> <strong>Default:</strong> None<br> <strong>XML Example:</strong></p> 
+       </div> 
+       <div class="listingblock"> 
+        <div class="content"> 
+         <pre class="CodeRay highlight"><code data-lang="xml">
+              
+           <table class="CodeRay"> 
+            <tbody> 
+             <tr> 
+              <td class="line-numbers"><pre>1
 2
 3
 4
@@ -2819,38 +2914,38 @@
 6
 7
 </pre></td> 
-               <td class="code"><pre><span class="tag">&lt;flow</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">demoFlow</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+              <td class="code"><pre><span class="tag">&lt;flow</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">demoFlow</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
     <span class="tag">&lt;http:listener</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Listener_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">"</span><span class="content">/</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
     <span class="tag">&lt;anypoint-mq:consume</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">Anypoint_MQ_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Anypoint MQ</span><span class="delimiter">"</span></span>
      <span class="attribute-name">destination</span>=<span class="string"><span class="delimiter">"</span><span class="content">ImaQ</span><span class="delimiter">"</span></span> <span class="attribute-name">acknowledgementMode</span>=<span class="string"><span class="delimiter">"</span><span class="content">NONE</span><span class="delimiter">"</span></span> <span class="attribute-name">acknowledgementTimeout</span>=<span class="string"><span class="delimiter">"</span><span class="content">42</span><span class="delimiter">"</span></span>
      <span class="attribute-name">pollingTime</span>=<span class="string"><span class="delimiter">"</span><span class="content">99000</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
     <span class="tag">&lt;/anypoint-mq:consume&gt;</span>
 <span class="tag">&lt;/flow&gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
+             </tr> 
+            </tbody> 
+           </table></code></pre> 
         </div> 
-       </div></td> 
-     </tr> 
-     <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>pollingTime</strong></p></td> 
-      <td class="tableblock halign-left valign-top"> 
-       <div> 
-        <div class="paragraph"> 
-         <p>(Consume operation only - Consumer Settings menu in Studio) Duration in milliseconds that the MQ connector polls the queue or message exchange for messages.</p> 
-        </div> 
-        <div class="paragraph"> 
-         <p><strong>Required:</strong> No<br> <strong>Default:</strong> None<br> <strong>XML Example:</strong></p> 
-        </div> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>pollingTime</strong></p></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Duration in milliseconds that the MQ connector polls the queue or message exchange for messages.</p> 
+       </div> 
+       <div class="paragraph"> 
+        <p><strong>Required:</strong> No<br> <strong>Default:</strong> None<br> <strong>XML Example:</strong></p> 
+       </div> 
+       <div class="listingblock"> 
+        <div class="content"> 
+         <pre class="CodeRay highlight"><code data-lang="xml">
+              
+           <table class="CodeRay"> 
+            <tbody> 
+             <tr> 
+              <td class="line-numbers"><pre>1
 2
 3
 4
@@ -2858,23 +2953,339 @@
 6
 7
 </pre></td> 
-               <td class="code"><pre><span class="tag">&lt;flow</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">demoFlow</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+              <td class="code"><pre><span class="tag">&lt;flow</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">demoFlow</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
     <span class="tag">&lt;http:listener</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Listener_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">"</span><span class="content">/</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
     <span class="tag">&lt;anypoint-mq:consume</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">Anypoint_MQ_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Anypoint MQ</span><span class="delimiter">"</span></span>
      <span class="attribute-name">destination</span>=<span class="string"><span class="delimiter">"</span><span class="content">ImaQ</span><span class="delimiter">"</span></span> <span class="attribute-name">acknowledgementMode</span>=<span class="string"><span class="delimiter">"</span><span class="content">NONE</span><span class="delimiter">"</span></span> <span class="attribute-name">acknowledgementTimeout</span>=<span class="string"><span class="delimiter">"</span><span class="content">42</span><span class="delimiter">"</span></span>
      <span class="attribute-name">pollingTime</span>=<span class="string"><span class="delimiter">"</span><span class="content">99000</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
     <span class="tag">&lt;/anypoint-mq:consume&gt;</span>
 <span class="tag">&lt;/flow&gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
+             </tr> 
+            </tbody> 
+           </table></code></pre> 
         </div> 
-       </div></td> 
-     </tr> 
-    </tbody> 
-   </table> 
-  </div> 
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>reconnectionWaitTime</strong></p></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Duration in milliseconds to wait before attempting to reconnect to the MQ backend server.</p> 
+       </div> 
+       <div class="paragraph"> 
+        <p><strong>Required:</strong> No<br> <strong>Default:</strong> 3000 milliseconds (3 seconds)<br> <strong>XML Example:</strong></p> 
+       </div> 
+       <div class="listingblock"> 
+        <div class="content"> 
+         <pre class="CodeRay highlight"><code data-lang="xml">
+              
+           <table class="CodeRay"> 
+            <tbody> 
+             <tr> 
+              <td class="line-numbers"><pre>1
+2
+3
+4
+5
+</pre></td> 
+              <td class="code"><pre><span class="tag">&lt;flow</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">mqAsEndpointFlow</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;anypoint-mq:subscriber</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">Anypoint_MQ_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">destination</span>=<span class="string"><span class="delimiter">"</span><span class="content">Q1</span><span class="delimiter">"</span></span>
+    <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Anypoint MQ</span><span class="delimiter">"</span></span> <span class="attribute-name">reconnectionAttempts</span>=<span class="string"><span class="delimiter">"</span><span class="content">-1</span><span class="delimiter">"</span></span> <span class="attribute-name">reconnectionWaitTime</span>=<span class="string"><span class="delimiter">"</span><span class="content">3000</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+    <span class="tag">&lt;logger</span> <span class="attribute-name">message</span>=<span class="string"><span class="delimiter">"</span><span class="content">#[payload]</span><span class="delimiter">"</span></span> <span class="attribute-name">level</span>=<span class="string"><span class="delimiter">"</span><span class="content">INFO</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Logger</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+<span class="tag">&lt;/flow&gt;</span></pre></td> 
+             </tr> 
+            </tbody> 
+           </table></code></pre> 
+        </div> 
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>reconnectionAttempts</strong></p></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Number of attempts to make to re-establish a connection to the MQ backend server. The -1 default value indicates to retry forever.</p> 
+       </div> 
+       <div class="paragraph"> 
+        <p><strong>Required:</strong> No<br> <strong>Default:</strong> -1<br> <strong>XML Example:</strong></p> 
+       </div> 
+       <div class="listingblock"> 
+        <div class="content"> 
+         <pre class="CodeRay highlight"><code data-lang="xml">
+              
+           <table class="CodeRay"> 
+            <tbody> 
+             <tr> 
+              <td class="line-numbers"><pre>1
+2
+3
+4
+5
+</pre></td> 
+              <td class="code"><pre><span class="tag">&lt;flow</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">mqAsEndpointFlow</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;anypoint-mq:subscriber</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">Anypoint_MQ_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">destination</span>=<span class="string"><span class="delimiter">"</span><span class="content">Q1</span><span class="delimiter">"</span></span>
+    <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Anypoint MQ</span><span class="delimiter">"</span></span> <span class="attribute-name">reconnectionAttempts</span>=<span class="string"><span class="delimiter">"</span><span class="content">-1</span><span class="delimiter">"</span></span> <span class="attribute-name">reconnectionWaitTime</span>=<span class="string"><span class="delimiter">"</span><span class="content">3000</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+    <span class="tag">&lt;logger</span> <span class="attribute-name">message</span>=<span class="string"><span class="delimiter">"</span><span class="content">#[payload]</span><span class="delimiter">"</span></span> <span class="attribute-name">level</span>=<span class="string"><span class="delimiter">"</span><span class="content">INFO</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Logger</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+<span class="tag">&lt;/flow&gt;</span></pre></td> 
+             </tr> 
+            </tbody> 
+           </table></code></pre> 
+        </div> 
+       </div> 
+      </div></td> 
+    </tr> 
+   </tbody> 
+  </table> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="about-subscribe-xml-elements"><a class="anchor" href="#about-subscribe-xml-elements"></a>About Subscribe XML Elements</h2> 
+ <div class="sectionbody"> 
+  <table class="tableblock frame-all grid-all spread"> 
+   <colgroup> 
+    <col style="width: 25%;"> 
+    <col style="width: 75%;"> 
+   </colgroup> 
+   <thead> 
+    <tr> 
+     <th class="tableblock halign-left valign-top">XML Element</th> 
+     <th class="tableblock halign-left valign-top">Description</th> 
+    </tr> 
+   </thead> 
+   <tbody> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>destination</strong></p></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Queue or message exchange name.</p> 
+       </div> 
+       <div class="paragraph"> 
+        <p><strong>Required:</strong> Yes<br> <strong>Default:</strong> None<br> <strong>XML Example:</strong></p> 
+       </div> 
+       <div class="listingblock"> 
+        <div class="content"> 
+         <pre class="CodeRay highlight"><code data-lang="xml">
+              
+           <table class="CodeRay"> 
+            <tbody> 
+             <tr> 
+              <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+</pre></td> 
+              <td class="code"><pre><span class="tag">&lt;flow</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">demoFlow</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;http:listener</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Listener_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">"</span><span class="content">/</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+    <span class="tag">&lt;anypoint-mq:consume</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">Anypoint_MQ_Configuration</span><span class="delimiter">"</span></span>
+     <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Anypoint MQ</span><span class="delimiter">"</span></span> <span class="attribute-name">destination</span>=<span class="string"><span class="delimiter">"</span><span class="content">MyQ</span><span class="delimiter">"</span></span>
+     <span class="attribute-name">acknowledgementMode</span>=<span class="string"><span class="delimiter">"</span><span class="content">NONE</span><span class="delimiter">"</span></span> <span class="attribute-name">acknowledgementTimeout</span>=<span class="string"><span class="delimiter">"</span><span class="content">42</span><span class="delimiter">"</span></span>
+     <span class="attribute-name">pollingTime</span>=<span class="string"><span class="delimiter">"</span><span class="content">99000</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;/anypoint-mq:consume&gt;</span>
+<span class="tag">&lt;/flow&gt;</span></pre></td> 
+             </tr> 
+            </tbody> 
+           </table></code></pre> 
+        </div> 
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>acknowledgementMode</strong></p></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>The mode options are <code>From configuration (Default)</code>, <code>AUTO</code>, <code>MANUAL</code>, or <code>NONE</code>. For more information, see <a href="/anypoint-mq/mq-ack-mode">Anypoint MQ Acknowledgement Mode</a>. The default mode automatically ACKs each message sent to the destination queue.</p> 
+       </div> 
+       <div class="paragraph"> 
+        <p><strong>Required:</strong> No<br> <strong>Default:</strong> MANUAL if connector is a message processor, or From configuration if connector is an entry point<br> <strong>XML Example:</strong></p> 
+       </div> 
+       <div class="listingblock"> 
+        <div class="content"> 
+         <pre class="CodeRay highlight"><code data-lang="xml">
+              
+           <table class="CodeRay"> 
+            <tbody> 
+             <tr> 
+              <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td> 
+              <td class="code"><pre><span class="tag">&lt;flow</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">demoFlow</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;http:listener</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Listener_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">"</span><span class="content">/</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+    <span class="tag">&lt;anypoint-mq:consume</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">Anypoint_MQ_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Anypoint MQ</span><span class="delimiter">"</span></span>
+     <span class="attribute-name">destination</span>=<span class="string"><span class="delimiter">"</span><span class="content">ImaQ</span><span class="delimiter">"</span></span> <span class="attribute-name">acknowledgementMode</span>=<span class="string"><span class="delimiter">"</span><span class="content">NONE</span><span class="delimiter">"</span></span> <span class="attribute-name">acknowledgementTimeout</span>=<span class="string"><span class="delimiter">"</span><span class="content">42</span><span class="delimiter">"</span></span>
+     <span class="attribute-name">pollingTime</span>=<span class="string"><span class="delimiter">"</span><span class="content">99000</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;/anypoint-mq:consume&gt;</span>
+<span class="tag">&lt;/flow&gt;</span></pre></td> 
+             </tr> 
+            </tbody> 
+           </table></code></pre> 
+        </div> 
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>acknowledgementTimeout</strong></p></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Duration in milliseconds until the acknowledgement mode times out.</p> 
+       </div> 
+       <div class="paragraph"> 
+        <p><strong>Required:</strong> No<br> <strong>Default:</strong> None<br> <strong>XML Example:</strong></p> 
+       </div> 
+       <div class="listingblock"> 
+        <div class="content"> 
+         <pre class="CodeRay highlight"><code data-lang="xml">
+              
+           <table class="CodeRay"> 
+            <tbody> 
+             <tr> 
+              <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td> 
+              <td class="code"><pre><span class="tag">&lt;flow</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">demoFlow</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;http:listener</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Listener_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">"</span><span class="content">/</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+    <span class="tag">&lt;anypoint-mq:consume</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">Anypoint_MQ_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Anypoint MQ</span><span class="delimiter">"</span></span>
+     <span class="attribute-name">destination</span>=<span class="string"><span class="delimiter">"</span><span class="content">ImaQ</span><span class="delimiter">"</span></span> <span class="attribute-name">acknowledgementMode</span>=<span class="string"><span class="delimiter">"</span><span class="content">NONE</span><span class="delimiter">"</span></span> <span class="attribute-name">acknowledgementTimeout</span>=<span class="string"><span class="delimiter">"</span><span class="content">42</span><span class="delimiter">"</span></span>
+     <span class="attribute-name">pollingTime</span>=<span class="string"><span class="delimiter">"</span><span class="content">99000</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;/anypoint-mq:consume&gt;</span>
+<span class="tag">&lt;/flow&gt;</span></pre></td> 
+             </tr> 
+            </tbody> 
+           </table></code></pre> 
+        </div> 
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>pollingTime</strong></p></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Duration in milliseconds that the MQ connector polls the queue or message exchange for messages.</p> 
+       </div> 
+       <div class="paragraph"> 
+        <p><strong>Required:</strong> No<br> <strong>Default:</strong> None<br> <strong>XML Example:</strong></p> 
+       </div> 
+       <div class="listingblock"> 
+        <div class="content"> 
+         <pre class="CodeRay highlight"><code data-lang="xml">
+              
+           <table class="CodeRay"> 
+            <tbody> 
+             <tr> 
+              <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td> 
+              <td class="code"><pre><span class="tag">&lt;flow</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">demoFlow</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;http:listener</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Listener_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">"</span><span class="content">/</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+    <span class="tag">&lt;anypoint-mq:consume</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">Anypoint_MQ_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Anypoint MQ</span><span class="delimiter">"</span></span>
+     <span class="attribute-name">destination</span>=<span class="string"><span class="delimiter">"</span><span class="content">ImaQ</span><span class="delimiter">"</span></span> <span class="attribute-name">acknowledgementMode</span>=<span class="string"><span class="delimiter">"</span><span class="content">NONE</span><span class="delimiter">"</span></span> <span class="attribute-name">acknowledgementTimeout</span>=<span class="string"><span class="delimiter">"</span><span class="content">42</span><span class="delimiter">"</span></span>
+     <span class="attribute-name">pollingTime</span>=<span class="string"><span class="delimiter">"</span><span class="content">99000</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;/anypoint-mq:consume&gt;</span>
+<span class="tag">&lt;/flow&gt;</span></pre></td> 
+             </tr> 
+            </tbody> 
+           </table></code></pre> 
+        </div> 
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>reconnectionWaitTime</strong></p></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Duration in milliseconds to wait before attempting to reconnect to the MQ backend server.</p> 
+       </div> 
+       <div class="paragraph"> 
+        <p><strong>Required:</strong> No<br> <strong>Default:</strong> 3000 milliseconds (3 seconds)<br> <strong>XML Example:</strong></p> 
+       </div> 
+       <div class="listingblock"> 
+        <div class="content"> 
+         <pre class="CodeRay highlight"><code data-lang="xml">
+              
+           <table class="CodeRay"> 
+            <tbody> 
+             <tr> 
+              <td class="line-numbers"><pre>1
+2
+3
+4
+5
+</pre></td> 
+              <td class="code"><pre><span class="tag">&lt;flow</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">mqAsEndpointFlow</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;anypoint-mq:subscriber</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">Anypoint_MQ_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">destination</span>=<span class="string"><span class="delimiter">"</span><span class="content">Q1</span><span class="delimiter">"</span></span>
+    <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Anypoint MQ</span><span class="delimiter">"</span></span> <span class="attribute-name">reconnectionAttempts</span>=<span class="string"><span class="delimiter">"</span><span class="content">-1</span><span class="delimiter">"</span></span> <span class="attribute-name">reconnectionWaitTime</span>=<span class="string"><span class="delimiter">"</span><span class="content">3000</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+    <span class="tag">&lt;logger</span> <span class="attribute-name">message</span>=<span class="string"><span class="delimiter">"</span><span class="content">#[payload]</span><span class="delimiter">"</span></span> <span class="attribute-name">level</span>=<span class="string"><span class="delimiter">"</span><span class="content">INFO</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Logger</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+<span class="tag">&lt;/flow&gt;</span></pre></td> 
+             </tr> 
+            </tbody> 
+           </table></code></pre> 
+        </div> 
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>reconnectionAttempts</strong></p></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Number of attempts to make to re-establish a connection to the MQ backend server. The -1 default value indicates to retry forever.</p> 
+       </div> 
+       <div class="paragraph"> 
+        <p><strong>Required:</strong> No<br> <strong>Default:</strong> -1<br> <strong>XML Example:</strong></p> 
+       </div> 
+       <div class="listingblock"> 
+        <div class="content"> 
+         <pre class="CodeRay highlight"><code data-lang="xml">
+              
+           <table class="CodeRay"> 
+            <tbody> 
+             <tr> 
+              <td class="line-numbers"><pre>1
+2
+3
+4
+5
+</pre></td> 
+              <td class="code"><pre><span class="tag">&lt;flow</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">mqAsEndpointFlow</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;anypoint-mq:subscriber</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">Anypoint_MQ_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">destination</span>=<span class="string"><span class="delimiter">"</span><span class="content">Q1</span><span class="delimiter">"</span></span>
+    <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Anypoint MQ</span><span class="delimiter">"</span></span> <span class="attribute-name">reconnectionAttempts</span>=<span class="string"><span class="delimiter">"</span><span class="content">-1</span><span class="delimiter">"</span></span> <span class="attribute-name">reconnectionWaitTime</span>=<span class="string"><span class="delimiter">"</span><span class="content">3000</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+    <span class="tag">&lt;logger</span> <span class="attribute-name">message</span>=<span class="string"><span class="delimiter">"</span><span class="content">#[payload]</span><span class="delimiter">"</span></span> <span class="attribute-name">level</span>=<span class="string"><span class="delimiter">"</span><span class="content">INFO</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Logger</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+<span class="tag">&lt;/flow&gt;</span></pre></td> 
+             </tr> 
+            </tbody> 
+           </table></code></pre> 
+        </div> 
+       </div> 
+      </div></td> 
+    </tr> 
+   </tbody> 
+  </table> 
  </div> 
 </div> 
 <div class="sect1"> 
@@ -2894,7 +3305,7 @@
     <!-- END article-content -->
     <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
                 <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#to-install-the-anypoint-mq-connector-in-studio">To Install the Anypoint MQ Connector in Studio</a></li><li><a class="scroll-menu-link" href="#to-add-a-client-app-to-studio">To Add a Client App to Studio</a></li><li><a class="scroll-menu-link" href="#to-configure-with-the-visual-editor">To Configure with the Visual Editor</a></li><li><a class="scroll-menu-link" href="#about-global-element-properties">About Global Element Properties</a></li><li><a class="scroll-menu-link" href="#about-basic-settings">About Basic Settings</a></li><li><a class="scroll-menu-link" href="#about-publisher-settings">About Publisher Settings</a></li><li><a class="scroll-menu-link" href="#about-consumer-settings">About Consumer Settings</a></li><li><a class="scroll-menu-link" href="#about-subscriber-settings">About Subscriber Settings</a></li><li><a class="scroll-menu-link" href="#anypoint-mq-xml-examples">Anypoint MQ XML Examples</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
+                <ul><li><a class="scroll-menu-link" href="#to-install-the-anypoint-mq-connector-in-studio">To Install the Anypoint MQ Connector in Studio</a></li><li><a class="scroll-menu-link" href="#to-add-a-client-app-to-studio">To Add a Client App to Studio</a></li><li><a class="scroll-menu-link" href="#to-configure-with-the-visual-editor">To Configure with the Visual Editor</a></li><li><a class="scroll-menu-link" href="#about-global-element-properties">About Global Element Properties</a></li><li><a class="scroll-menu-link" href="#about-basic-settings">About Basic Settings</a></li><li><a class="scroll-menu-link" href="#about-publisher-settings">About Publisher Settings</a></li><li><a class="scroll-menu-link" href="#about-consumer-settings">About Consumer Settings</a></li><li><a class="scroll-menu-link" href="#about-subscriber-settings">About Subscriber Settings</a></li><li><a class="scroll-menu-link" href="#anypoint-mq-xml-examples">Anypoint MQ XML Examples</a></li><li><a class="scroll-menu-link" href="#about-common-xml-elements">About Common XML Elements</a></li><li><a class="scroll-menu-link" href="#about-basic-xml-elements">About Basic XML Elements</a></li><li><a class="scroll-menu-link" href="#about-publish-xml-elements">About Publish XML Elements</a></li><li><a class="scroll-menu-link" href="#about-consume-xml-elements">About Consume XML Elements</a></li><li><a class="scroll-menu-link" href="#about-subscribe-xml-elements">About Subscribe XML Elements</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
   </div>
 </div>
 <!-- START footer -->
