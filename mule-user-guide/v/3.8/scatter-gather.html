@@ -1040,7 +1040,7 @@
    <p>The routing message processor&nbsp;<strong>Scatter-Gather</strong>&nbsp;sends a request message to multiple targets concurrently. It collects the responses from all routes, and aggregates them into a single message.</p> 
   </div> 
   <div class="paragraph"> 
-   <p>Scatter-Gather replaced the&nbsp;<a href="http://www.mulesoft.org/documentation/display/current/Routing+Message+Processors#RoutingMessageProcessors-All">All</a>&nbsp;message processor, which was deprecated in Mule 3.5.0. Note that, unlike All, Scatter-Gather&nbsp;executes routes concurrently instead of sequentially. Parallel execution of routes greatly increases the efficiency of your application and provides more information than sequential processing. Refer to&nbsp;<a href="#migrating-to-scatter-gather-from-the-all-message-router">Migrating to Scatter-Gather from the All Message Router</a> below for more information about the differences you can expect.</p> 
+   <p>Scatter-Gather replaced the&nbsp;<a href="/mule-user-guide/v/3.8/routers#All">All</a>&nbsp;message processor, which was deprecated in Mule 3.5.0. Note that, unlike All, Scatter-Gather&nbsp;executes routes concurrently instead of sequentially. Parallel execution of routes greatly increases the efficiency of your application and provides more information than sequential processing. Refer to&nbsp;<a href="#migrating-to-scatter-gather-from-the-all-message-router">Migrating to Scatter-Gather from the All Message Router</a> below for more information about the differences you can expect.</p> 
   </div> 
  </div> 
 </div> 
@@ -1567,12 +1567,12 @@ http://www.mulesoft.org/schema/mule/jms http://www.mulesoft.org/schema/mule/jms/
  <h2 id="migrating-to-scatter-gather-from-the-all-message-router"><a class="anchor" href="#migrating-to-scatter-gather-from-the-all-message-router"></a>Migrating to Scatter-Gather from the All Message Router</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>If you are currently using <a href="http://www.mulesoft.org/documentation/display/current/Routing+Message+Processors#RoutingMessageProcessors-All">All</a> routers in your application, you may wish to replace them with Scatter-Gather routers. This section details the differences you need to be aware of when considering migration.</p> 
+   <p>If you are currently using <a href="/mule-user-guide/v/3.8/routers#All">All</a> routers in your application, you may wish to replace them with Scatter-Gather routers. This section details the differences you need to be aware of when considering migration.</p> 
   </div> 
   <div class="sect2"> 
    <h3 id="why-migrate"><a class="anchor" href="#why-migrate"></a>Why Migrate?</h3> 
    <div class="paragraph"> 
-    <p>Support for the&nbsp;<a href="http://www.mulesoft.org/documentation/display/current/Routing+Message+Processors#RoutingMessageProcessors-All">All</a> router continues throughout the Mule 3.x series. However, MuleSoft recommends migrating to Scatter-Gather, mainly for two reasons:</p> 
+    <p>Support for the&nbsp;<a href="/mule-user-guide/v/3.8/routers#All">All</a> router continues throughout the Mule 3.x series. However, MuleSoft recommends migrating to Scatter-Gather, mainly for two reasons:</p> 
    </div> 
    <div class="ulist"> 
     <ul> 
@@ -1584,7 +1584,7 @@ http://www.mulesoft.org/schema/mule/jms http://www.mulesoft.org/schema/mule/jms/
   <div class="sect2"> 
    <h3 id="differences-between-scatter-gather-and-the-all-router"><a class="anchor" href="#differences-between-scatter-gather-and-the-all-router"></a>Differences Between Scatter-Gather and the All Router</h3> 
    <div class="paragraph"> 
-    <p>The&nbsp;<a href="http://www.mulesoft.org/documentation/display/current/Routing+Message+Processors#RoutingMessageProcessors-All">All</a>&nbsp;router&nbsp;implements sequential multicasting to send a message through the specified routes. This works well in some situations, such as the following:</p> 
+    <p>The&nbsp;<a href="/mule-user-guide/v/3.8/routers#All">All</a>&nbsp;router&nbsp;implements sequential multicasting to send a message through the specified routes. This works well in some situations, such as the following:</p> 
    </div> 
    <div class="ulist"> 
     <ul> 

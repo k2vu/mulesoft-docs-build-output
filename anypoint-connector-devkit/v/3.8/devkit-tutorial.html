@@ -2992,23 +2992,23 @@ git clone https://github.com/mulesoft/mule-cookbook.git</pre></td>
     <div class="panel-heading no-padding"> 
      <!-- Nav tabs --> 
      <ul class="nav nav-tabs" role="tablist"> 
-      <li class="active"><a href="#page-view" role="tab" data-toggle="tab">Mule App</a></li> 
-      <li><a href="#page-xml" role="tab" data-toggle="tab">XML</a></li> 
+      <li class="active"><a href="#tab-1_1" role="tab" data-toggle="tab">Mule App</a></li> 
+      <li><a href="#tab-1_2" role="tab" data-toggle="tab">XML</a></li> 
      </ul> 
     </div> 
-    <!-- Tab panes + Panel body --> 
     <div class="panel-body tab-content no-padding"> 
-     <div class="tab-pane in active fade no-padding" id="page-view"> 
+     <div class="tab-pane in active fade no-padding" id="tab-1_1"> 
       <div class="imageblock"> 
        <div class="content"> 
         <img src="./_images/pagination-example.png" alt="pagination example" width="600"> 
        </div> 
       </div> 
      </div> 
-     <div class="tab-pane fade no-padding" id="page-xml"> 
+     <div class="tab-pane fade no-padding" id="tab-1_2"> 
       <div class="listingblock"> 
        <div class="content"> 
         <pre class="CodeRay highlight"><code data-lang="xml">
+    
              
           <table class="CodeRay"> 
            <tbody> 
@@ -3037,29 +3037,29 @@ git clone https://github.com/mulesoft/mule-cookbook.git</pre></td>
 22
 23
 </pre></td> 
-             <td class="code"><pre><span class="preprocessor">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+             <td class="code"><pre><span class="entity">&amp;lt;</span>?xml version="1.0" encoding="UTF-8"?<span class="entity">&amp;gt;</span>
 
-<span class="tag">&lt;mule</span> <span class="attribute-name">xmlns:json</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/json</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:cookbook</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/cookbook</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:http</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/http</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/core</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:doc</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/documentation</span><span class="delimiter">"</span></span>
-      <span class="attribute-name">xmlns:spring</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.springframework.org/schema/beans</span><span class="delimiter">"</span></span> <span class="attribute-name">version</span>=<span class="string"><span class="delimiter">"</span><span class="content">EE-3.6.1</span><span class="delimiter">"</span></span>
-      <span class="attribute-name">xmlns:xsi</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.w3.org/2001/XMLSchema-instance</span><span class="delimiter">"</span></span>
-      <span class="attribute-name">xsi:schemaLocation</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd</span>
-<span class="content">http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd</span>
-<span class="content">http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd</span>
-<span class="content">http://www.mulesoft.org/schema/mule/cookbook http://www.mulesoft.org/schema/mule/cookbook/current/mule-cookbook.xsd</span>
-<span class="content">http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
-    <span class="tag">&lt;cookbook:config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">CookBook__Connection_Management_Config</span><span class="delimiter">"</span></span> <span class="attribute-name">username</span>=<span class="string"><span class="delimiter">"</span><span class="content">admin</span><span class="delimiter">"</span></span> <span class="attribute-name">password</span>=<span class="string"><span class="delimiter">"</span><span class="content">admin</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">CookBook: Connection Management Config</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
-        <span class="tag">&lt;reconnect</span><span class="tag">/&gt;</span>
-    <span class="tag">&lt;/cookbook:config&gt;</span>
-    <span class="tag">&lt;http:listener-config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Listener_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">host</span>=<span class="string"><span class="delimiter">"</span><span class="content">0.0.0.0</span><span class="delimiter">"</span></span> <span class="attribute-name">port</span>=<span class="string"><span class="delimiter">"</span><span class="content">8081</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP Listener Configuration</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
-    <span class="tag">&lt;flow</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">mule-appFlow1</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
-        <span class="tag">&lt;http:listener</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Listener_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">"</span><span class="content">/page</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
-        <span class="tag">&lt;cookbook:query-paginated</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">CookBook__Connection_Management_Config</span><span class="delimiter">"</span></span> <span class="attribute-name">query</span>=<span class="string"><span class="delimiter">"</span><span class="content">GET ALL FROM INGREDIENT</span><span class="delimiter">"</span></span> <span class="attribute-name">fetchSize</span>=<span class="string"><span class="delimiter">"</span><span class="content">5</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">CookBook</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
-        <span class="tag">&lt;foreach</span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">For Each</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
-            <span class="tag">&lt;logger</span> <span class="attribute-name">message</span>=<span class="string"><span class="delimiter">"</span><span class="content">#[payload]</span><span class="delimiter">"</span></span> <span class="attribute-name">level</span>=<span class="string"><span class="delimiter">"</span><span class="content">INFO</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Logger</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
-        <span class="tag">&lt;/foreach&gt;</span>
-        <span class="tag">&lt;set-payload</span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">"</span><span class="content">Finished Processing</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Set Payload</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
-    <span class="tag">&lt;/flow&gt;</span>
-<span class="tag">&lt;/mule&gt;</span></pre></td> 
+<span class="entity">&amp;lt;</span>mule xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:cookbook="http://www.mulesoft.org/schema/mule/cookbook" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+      xmlns:spring="http://www.springframework.org/schema/beans" version="EE-3.6.1"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/cookbook http://www.mulesoft.org/schema/mule/cookbook/current/mule-cookbook.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd"<span class="entity">&amp;gt;</span>
+    <span class="entity">&amp;lt;</span>cookbook:config name="CookBook__Connection_Management_Config" username="admin" password="admin" doc:name="CookBook: Connection Management Config"<span class="entity">&amp;gt;</span>
+        <span class="entity">&amp;lt;</span>reconnect/<span class="entity">&amp;gt;</span>
+    <span class="entity">&amp;lt;</span>/cookbook:config<span class="entity">&amp;gt;</span>
+    <span class="entity">&amp;lt;</span>http:listener-config name="HTTP_Listener_Configuration" host="0.0.0.0" port="8081" doc:name="HTTP Listener Configuration"/<span class="entity">&amp;gt;</span>
+    <span class="entity">&amp;lt;</span>flow name="mule-appFlow1"<span class="entity">&amp;gt;</span>
+        <span class="entity">&amp;lt;</span>http:listener config-ref="HTTP_Listener_Configuration" path="/page" doc:name="HTTP"/<span class="entity">&amp;gt;</span>
+        <span class="entity">&amp;lt;</span>cookbook:query-paginated config-ref="CookBook__Connection_Management_Config" query="GET ALL FROM INGREDIENT" fetchSize="5" doc:name="CookBook"/<span class="entity">&amp;gt;</span>
+        <span class="entity">&amp;lt;</span>foreach doc:name="For Each"<span class="entity">&amp;gt;</span>
+            <span class="entity">&amp;lt;</span>logger message="#[payload]" level="INFO" doc:name="Logger"/<span class="entity">&amp;gt;</span>
+        <span class="entity">&amp;lt;</span>/foreach<span class="entity">&amp;gt;</span>
+        <span class="entity">&amp;lt;</span>set-payload value="Finished Processing" doc:name="Set Payload"/<span class="entity">&amp;gt;</span>
+    <span class="entity">&amp;lt;</span>/flow<span class="entity">&amp;gt;</span>
+<span class="entity">&amp;lt;</span>/mule<span class="entity">&amp;gt;</span></pre></td> 
             </tr> 
            </tbody> 
           </table></code></pre> 
@@ -3845,35 +3845,33 @@ git clone https://github.com/mulesoft/mule-cookbook.git</pre></td>
        <img src="./_images/source/source-example.png" alt="source example" width="600"> 
       </div> 
      </div> </li> 
-    <li> <p>Add a logger and debug to see that the payload now has your recipes.</p> </li> 
-   </ol> 
-  </div> 
-  <div class="panel panel-default no-padding"> 
-   <div class="panel-heading no-padding"> 
-    <!-- Nav tabs --> 
-    <ul class="nav nav-tabs" role="tablist"> 
-     <li class="active"><a href="#source-view" role="tab" data-toggle="tab">Mule App</a></li> 
-     <li><a href="#source-xml" role="tab" data-toggle="tab">XML</a></li> 
-    </ul> 
-   </div> 
-   <!-- Tab panes + Panel body --> 
-   <div class="panel-body tab-content no-padding"> 
-    <div class="tab-pane in active fade no-padding" id="source-view"> 
-     <div class="imageblock"> 
-      <div class="content"> 
-       <img src="./_images/source/source-debug.png" alt="source debug" width="600"> 
+    <li> <p>Add a logger and debug to see that the payload now has your recipes.</p> 
+     <div class="panel panel-default no-padding"> 
+      <div class="panel-heading no-padding"> 
+       <!-- Nav tabs --> 
+       <ul class="nav nav-tabs" role="tablist"> 
+        <li class="active"><a href="#tab-2_1" role="tab" data-toggle="tab">Mule App</a></li> 
+        <li><a href="#tab-2_2" role="tab" data-toggle="tab">XML</a></li> 
+       </ul> 
       </div> 
-     </div> 
-    </div> 
-    <div class="tab-pane fade no-padding" id="source-xml"> 
-     <div class="listingblock"> 
-      <div class="content"> 
-       <pre class="CodeRay highlight"><code data-lang="xml">
-            
-         <table class="CodeRay"> 
-          <tbody> 
-           <tr> 
-            <td class="line-numbers"><pre>1
+      <div class="panel-body tab-content no-padding"> 
+       <div class="tab-pane in active fade no-padding" id="tab-2_1"> 
+        <div class="imageblock"> 
+         <div class="content"> 
+          <img src="./_images/source/source-debug.png" alt="source debug" width="600"> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="tab-pane fade no-padding" id="tab-2_2"> 
+        <div class="listingblock"> 
+         <div class="content"> 
+          <pre class="CodeRay highlight"><code data-lang="xml">
+    
+               
+            <table class="CodeRay"> 
+             <tbody> 
+              <tr> 
+               <td class="line-numbers"><pre>1
 2
 3
 4
@@ -3890,29 +3888,31 @@ git clone https://github.com/mulesoft/mule-cookbook.git</pre></td>
 15
 16
 </pre></td> 
-            <td class="code"><pre><span class="preprocessor">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+               <td class="code"><pre><span class="entity">&amp;lt;</span>?xml version="1.0" encoding="UTF-8"?<span class="entity">&amp;gt;</span>
 
-<span class="tag">&lt;mule</span> <span class="attribute-name">xmlns:tracking</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/ee/tracking</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:cookbook</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/cookbook</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:json</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/json</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/core</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:doc</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/documentation</span><span class="delimiter">"</span></span>
-      <span class="attribute-name">xmlns:spring</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.springframework.org/schema/beans</span><span class="delimiter">"</span></span> <span class="attribute-name">version</span>=<span class="string"><span class="delimiter">"</span><span class="content">EE-3.6.1</span><span class="delimiter">"</span></span>
-      <span class="attribute-name">xmlns:xsi</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.w3.org/2001/XMLSchema-instance</span><span class="delimiter">"</span></span>
-      <span class="attribute-name">xsi:schemaLocation</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd</span>
-<span class="content">http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd</span>
-<span class="content">http://www.mulesoft.org/schema/mule/cookbook http://www.mulesoft.org/schema/mule/cookbook/current/mule-cookbook.xsd</span>
-<span class="content">http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd</span>
-<span class="content">http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
-    <span class="tag">&lt;cookbook:config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">CookBook__Connection_Management_Config</span><span class="delimiter">"</span></span> <span class="attribute-name">username</span>=<span class="string"><span class="delimiter">"</span><span class="content">admin</span><span class="delimiter">"</span></span> <span class="attribute-name">password</span>=<span class="string"><span class="delimiter">"</span><span class="content">admin</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">CookBook: Connection Management Config</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
-    <span class="tag">&lt;flow</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">source-get-recently-added</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
-        <span class="tag">&lt;cookbook:get-recently-added-source</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">CookBook__Connection_Management_Config</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">CookBook (Streaming)</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
-        <span class="tag">&lt;logger</span> <span class="attribute-name">message</span>=<span class="string"><span class="delimiter">"</span><span class="content">#[payload]</span><span class="delimiter">"</span></span> <span class="attribute-name">level</span>=<span class="string"><span class="delimiter">"</span><span class="content">INFO</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Logger</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
-    <span class="tag">&lt;/flow&gt;</span>
-<span class="tag">&lt;/mule&gt;</span></pre></td> 
-           </tr> 
-          </tbody> 
-         </table></code></pre> 
+<span class="entity">&amp;lt;</span>mule xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:cookbook="http://www.mulesoft.org/schema/mule/cookbook" xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+      xmlns:spring="http://www.springframework.org/schema/beans" version="EE-3.6.1"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/cookbook http://www.mulesoft.org/schema/mule/cookbook/current/mule-cookbook.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd"<span class="entity">&amp;gt;</span>
+    <span class="entity">&amp;lt;</span>cookbook:config name="CookBook__Connection_Management_Config" username="admin" password="admin" doc:name="CookBook: Connection Management Config"/<span class="entity">&amp;gt;</span>
+    <span class="entity">&amp;lt;</span>flow name="source-get-recently-added"<span class="entity">&amp;gt;</span>
+        <span class="entity">&amp;lt;</span>cookbook:get-recently-added-source config-ref="CookBook__Connection_Management_Config" doc:name="CookBook (Streaming)"/<span class="entity">&amp;gt;</span>
+        <span class="entity">&amp;lt;</span>logger message="#[payload]" level="INFO" doc:name="Logger"/<span class="entity">&amp;gt;</span>
+    <span class="entity">&amp;lt;</span>/flow<span class="entity">&amp;gt;</span>
+<span class="entity">&amp;lt;</span>/mule<span class="entity">&amp;gt;</span></pre></td> 
+              </tr> 
+             </tbody> 
+            </table></code></pre> 
+         </div> 
+        </div> 
+       </div> 
       </div> 
-     </div> 
-    </div> 
-   </div> 
+     </div> </li> 
+   </ol> 
   </div> 
  </div> 
 </div> 
@@ -3981,35 +3981,33 @@ git clone https://github.com/mulesoft/mule-cookbook.git</pre></td>
    </div> 
    <div class="ulist"> 
     <ul> 
-     <li> <p>Here we are using it explicitly to map transform the recipes into a Map.</p> </li> 
-    </ul> 
-   </div> 
-   <div class="panel panel-default no-padding"> 
-    <div class="panel-heading no-padding"> 
-     <!-- Nav tabs --> 
-     <ul class="nav nav-tabs" role="tablist"> 
-      <li class="active"><a href="#transformer-view" role="tab" data-toggle="tab">Mule App</a></li> 
-      <li><a href="#transformer-xml" role="tab" data-toggle="tab">XML</a></li> 
-     </ul> 
-    </div> 
-    <!-- Tab panes + Panel body --> 
-    <div class="panel-body tab-content no-padding"> 
-     <div class="tab-pane in active fade no-padding" id="transformer-view"> 
-      <div class="imageblock"> 
-       <div class="content"> 
-        <img src="./_images/transformer/transformer-explicit.png" alt="transformer explicit" width="600"> 
+     <li> <p>Here we are using it explicitly to map transform the recipes into a Map.</p> 
+      <div class="panel panel-default no-padding"> 
+       <div class="panel-heading no-padding"> 
+        <!-- Nav tabs --> 
+        <ul class="nav nav-tabs" role="tablist"> 
+         <li class="active"><a href="#tab-3_1" role="tab" data-toggle="tab">Mule App</a></li> 
+         <li><a href="#tab-3_2" role="tab" data-toggle="tab">XML</a></li> 
+        </ul> 
        </div> 
-      </div> 
-     </div> 
-     <div class="tab-pane fade no-padding" id="transformer-xml"> 
-      <div class="listingblock"> 
-       <div class="content"> 
-        <pre class="CodeRay highlight"><code data-lang="xml">
-             
-          <table class="CodeRay"> 
-           <tbody> 
-            <tr> 
-             <td class="line-numbers"><pre>1
+       <div class="panel-body tab-content no-padding"> 
+        <div class="tab-pane in active fade no-padding" id="tab-3_1"> 
+         <div class="imageblock"> 
+          <div class="content"> 
+           <img src="./_images/transformer/transformer-explicit.png" alt="transformer explicit" width="600"> 
+          </div> 
+         </div> 
+        </div> 
+        <div class="tab-pane fade no-padding" id="tab-3_2"> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre class="CodeRay highlight"><code data-lang="xml">
+    
+                
+             <table class="CodeRay"> 
+              <tbody> 
+               <tr> 
+                <td class="line-numbers"><pre>1
 2
 3
 4
@@ -4032,38 +4030,36 @@ git clone https://github.com/mulesoft/mule-cookbook.git</pre></td>
 21
 22
 </pre></td> 
-             <td class="code"><pre><span class="preprocessor">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+                <td class="code"><pre><span class="entity">&amp;lt;</span>?xml version="1.0" encoding="UTF-8"?<span class="entity">&amp;gt;</span>
 
-<span class="tag">&lt;mule</span> <span class="attribute-name">xmlns:json</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/json</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:cookbook</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/cookbook</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:http</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/http</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/core</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:doc</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/documentation</span><span class="delimiter">"</span></span>
-      <span class="attribute-name">xmlns:spring</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.springframework.org/schema/beans</span><span class="delimiter">"</span></span> <span class="attribute-name">version</span>=<span class="string"><span class="delimiter">"</span><span class="content">EE-3.6.1</span><span class="delimiter">"</span></span>
-      <span class="attribute-name">xmlns:xsi</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.w3.org/2001/XMLSchema-instance</span><span class="delimiter">"</span></span>
-      <span class="attribute-name">xsi:schemaLocation</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd</span>
-<span class="content">http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd</span>
-<span class="content">http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd</span>
-<span class="content">http://www.mulesoft.org/schema/mule/cookbook http://www.mulesoft.org/schema/mule/cookbook/current/mule-cookbook.xsd</span>
-<span class="content">http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
-    <span class="tag">&lt;cookbook:config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">CookBook__Connection_Management_Config</span><span class="delimiter">"</span></span> <span class="attribute-name">username</span>=<span class="string"><span class="delimiter">"</span><span class="content">admin</span><span class="delimiter">"</span></span> <span class="attribute-name">password</span>=<span class="string"><span class="delimiter">"</span><span class="content">admin</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">CookBook: Connection Management Config</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
-        <span class="tag">&lt;reconnect</span><span class="tag">/&gt;</span>
-    <span class="tag">&lt;/cookbook:config&gt;</span>
-    <span class="tag">&lt;http:listener-config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Listener_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">host</span>=<span class="string"><span class="delimiter">"</span><span class="content">0.0.0.0</span><span class="delimiter">"</span></span> <span class="attribute-name">port</span>=<span class="string"><span class="delimiter">"</span><span class="content">8081</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP Listener Configuration</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+<span class="entity">&amp;lt;</span>mule xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:cookbook="http://www.mulesoft.org/schema/mule/cookbook" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+      xmlns:spring="http://www.springframework.org/schema/beans" version="EE-3.6.1"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/cookbook http://www.mulesoft.org/schema/mule/cookbook/current/mule-cookbook.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd"<span class="entity">&amp;gt;</span>
+    <span class="entity">&amp;lt;</span>cookbook:config name="CookBook__Connection_Management_Config" username="admin" password="admin" doc:name="CookBook: Connection Management Config"<span class="entity">&amp;gt;</span>
+        <span class="entity">&amp;lt;</span>reconnect/<span class="entity">&amp;gt;</span>
+    <span class="entity">&amp;lt;</span>/cookbook:config<span class="entity">&amp;gt;</span>
+    <span class="entity">&amp;lt;</span>http:listener-config name="HTTP_Listener_Configuration" host="0.0.0.0" port="8081" doc:name="HTTP Listener Configuration"/<span class="entity">&amp;gt;</span>
 
-    <span class="tag">&lt;flow</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">mule-appFlow</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
-        <span class="tag">&lt;http:listener</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Listener_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">"</span><span class="content">/transform</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
-        <span class="tag">&lt;cookbook:get-recently-added</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">CookBook__Connection_Management_Config</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">CookBook</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
-        <span class="tag">&lt;cookbook:recipes-to-maps</span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">CookBook</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
-        <span class="tag">&lt;json:object-to-json-transformer</span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Object to JSON</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
-    <span class="tag">&lt;/flow&gt;</span>
-<span class="tag">&lt;/mule&gt;</span></pre></td> 
-            </tr> 
-           </tbody> 
-          </table></code></pre> 
+    <span class="entity">&amp;lt;</span>flow name="mule-appFlow"<span class="entity">&amp;gt;</span>
+        <span class="entity">&amp;lt;</span>http:listener config-ref="HTTP_Listener_Configuration" path="/transform" doc:name="HTTP"/<span class="entity">&amp;gt;</span>
+        <span class="entity">&amp;lt;</span>cookbook:get-recently-added config-ref="CookBook__Connection_Management_Config" doc:name="CookBook"/<span class="entity">&amp;gt;</span>
+        <span class="entity">&amp;lt;</span>cookbook:recipes-to-maps doc:name="CookBook"/<span class="entity">&amp;gt;</span>
+        <span class="entity">&amp;lt;</span>json:object-to-json-transformer doc:name="Object to JSON"/<span class="entity">&amp;gt;</span>
+    <span class="entity">&amp;lt;</span>/flow<span class="entity">&amp;gt;</span>
+<span class="entity">&amp;lt;</span>/mule<span class="entity">&amp;gt;</span></pre></td> 
+               </tr> 
+              </tbody> 
+             </table></code></pre> 
+          </div> 
+         </div> 
+        </div> 
        </div> 
-      </div> 
-     </div> 
-    </div> 
-   </div> 
-   <div class="ulist"> 
-    <ul> 
+      </div> </li> 
      <li> <p>Transformers can also be used implicitly as long as only one transformer is found to resolve the type.</p> 
       <div class="olist arabic"> 
        <ol class="arabic"> 
@@ -4101,23 +4097,23 @@ git clone https://github.com/mulesoft/mule-cookbook.git</pre></td>
           <div class="panel-heading no-padding"> 
            <!-- Nav tabs --> 
            <ul class="nav nav-tabs" role="tablist"> 
-            <li class="active"><a href="#transformer2-view" role="tab" data-toggle="tab">Mule App</a></li> 
-            <li><a href="#transformer2-xml" role="tab" data-toggle="tab">XML</a></li> 
+            <li class="active"><a href="#tab-4_1" role="tab" data-toggle="tab">Mule App</a></li> 
+            <li><a href="#tab-4_2" role="tab" data-toggle="tab">XML</a></li> 
            </ul> 
           </div> 
-          <!-- Tab panes + Panel body --> 
           <div class="panel-body tab-content no-padding"> 
-           <div class="tab-pane in active fade no-padding" id="transformer2-view"> 
+           <div class="tab-pane in active fade no-padding" id="tab-4_1"> 
             <div class="imageblock"> 
              <div class="content"> 
               <img src="./_images/transformer/transformer-implicitly.png" alt="transformer implicitly" width="600"> 
              </div> 
             </div> 
            </div> 
-           <div class="tab-pane fade no-padding" id="transformer2-xml"> 
+           <div class="tab-pane fade no-padding" id="tab-4_2"> 
             <div class="listingblock"> 
              <div class="content"> 
               <pre class="CodeRay highlight"><code data-lang="xml">
+    
                    
                 <table class="CodeRay"> 
                  <tbody> 
@@ -4151,34 +4147,34 @@ git clone https://github.com/mulesoft/mule-cookbook.git</pre></td>
 27
 28
 </pre></td> 
-                   <td class="code"><pre><span class="preprocessor">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+                   <td class="code"><pre><span class="entity">&amp;lt;</span>?xml version="1.0" encoding="UTF-8"?<span class="entity">&amp;gt;</span>
 
-<span class="tag">&lt;mule</span> <span class="attribute-name">xmlns:json</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/json</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:cookbook</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/cookbook</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:http</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/http</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/core</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:doc</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/documentation</span><span class="delimiter">"</span></span>
-      <span class="attribute-name">xmlns:spring</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.springframework.org/schema/beans</span><span class="delimiter">"</span></span> <span class="attribute-name">version</span>=<span class="string"><span class="delimiter">"</span><span class="content">EE-3.6.1</span><span class="delimiter">"</span></span>
-      <span class="attribute-name">xmlns:xsi</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.w3.org/2001/XMLSchema-instance</span><span class="delimiter">"</span></span>
-      <span class="attribute-name">xsi:schemaLocation</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd</span>
-<span class="content">http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd</span>
-<span class="content">http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd</span>
-<span class="content">http://www.mulesoft.org/schema/mule/cookbook http://www.mulesoft.org/schema/mule/cookbook/current/mule-cookbook.xsd</span>
-<span class="content">http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
-    <span class="tag">&lt;cookbook:config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">CookBook__Connection_Management_Config</span><span class="delimiter">"</span></span> <span class="attribute-name">username</span>=<span class="string"><span class="delimiter">"</span><span class="content">admin</span><span class="delimiter">"</span></span> <span class="attribute-name">password</span>=<span class="string"><span class="delimiter">"</span><span class="content">admin</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">CookBook: Connection Management Config</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
-        <span class="tag">&lt;reconnect</span><span class="tag">/&gt;</span>
-    <span class="tag">&lt;/cookbook:config&gt;</span>
-    <span class="tag">&lt;http:listener-config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Listener_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">host</span>=<span class="string"><span class="delimiter">"</span><span class="content">0.0.0.0</span><span class="delimiter">"</span></span> <span class="attribute-name">port</span>=<span class="string"><span class="delimiter">"</span><span class="content">8081</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP Listener Configuration</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+<span class="entity">&amp;lt;</span>mule xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:cookbook="http://www.mulesoft.org/schema/mule/cookbook" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+      xmlns:spring="http://www.springframework.org/schema/beans" version="EE-3.6.1"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/cookbook http://www.mulesoft.org/schema/mule/cookbook/current/mule-cookbook.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd"<span class="entity">&amp;gt;</span>
+    <span class="entity">&amp;lt;</span>cookbook:config name="CookBook__Connection_Management_Config" username="admin" password="admin" doc:name="CookBook: Connection Management Config"<span class="entity">&amp;gt;</span>
+        <span class="entity">&amp;lt;</span>reconnect/<span class="entity">&amp;gt;</span>
+    <span class="entity">&amp;lt;</span>/cookbook:config<span class="entity">&amp;gt;</span>
+    <span class="entity">&amp;lt;</span>http:listener-config name="HTTP_Listener_Configuration" host="0.0.0.0" port="8081" doc:name="HTTP Listener Configuration"/<span class="entity">&amp;gt;</span>
 
-    <span class="tag">&lt;flow</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">mule-appFlow</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
-        <span class="tag">&lt;http:listener</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Listener_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">"</span><span class="content">/transform</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
-        <span class="tag">&lt;cookbook:get-recently-added</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">CookBook__Connection_Management_Config</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">CookBook</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
-        <span class="comment">&lt;!-- Get the first item of the list --&gt;</span>
-        <span class="tag">&lt;set-payload</span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">"</span><span class="content">#[payload.get(0)]</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Set Payload</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
-        <span class="comment">&lt;!-- This operation is expecting a Map. Not a Recipe, but we are not using the transformer in the flow. The transformer will be called automatically --&gt;</span>
-        <span class="tag">&lt;cookbook:update</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">CookBook__Connection_Management_Config</span><span class="delimiter">"</span></span> <span class="attribute-name">type</span>=<span class="string"><span class="delimiter">"</span><span class="content">com.cookbook.tutorial.service.Recipe#0</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">CookBook</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
-            <span class="comment">&lt;!-- Take the payload as input for the connector --&gt;</span>
-            <span class="tag">&lt;cookbook:entity</span> <span class="attribute-name">ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">#[payload]</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
-        <span class="tag">&lt;/cookbook:update&gt;</span>
-        <span class="tag">&lt;json:object-to-json-transformer</span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Object to JSON</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
-    <span class="tag">&lt;/flow&gt;</span>
-<span class="tag">&lt;/mule&gt;</span></pre></td> 
+    <span class="entity">&amp;lt;</span>flow name="mule-appFlow"<span class="entity">&amp;gt;</span>
+        <span class="entity">&amp;lt;</span>http:listener config-ref="HTTP_Listener_Configuration" path="/transform" doc:name="HTTP"/<span class="entity">&amp;gt;</span>
+        <span class="entity">&amp;lt;</span>cookbook:get-recently-added config-ref="CookBook__Connection_Management_Config" doc:name="CookBook"/<span class="entity">&amp;gt;</span>
+        <span class="entity">&amp;lt;</span>!-- Get the first item of the list --<span class="entity">&amp;gt;</span>
+        <span class="entity">&amp;lt;</span>set-payload value="#[payload.get(0)]" doc:name="Set Payload"/<span class="entity">&amp;gt;</span>
+        <span class="entity">&amp;lt;</span>!-- This operation is expecting a Map. Not a Recipe, but we are not using the transformer in the flow. The transformer will be called automatically --<span class="entity">&amp;gt;</span>
+        <span class="entity">&amp;lt;</span>cookbook:update config-ref="CookBook__Connection_Management_Config" type="com.cookbook.tutorial.service.Recipe#0" doc:name="CookBook"<span class="entity">&amp;gt;</span>
+            <span class="entity">&amp;lt;</span>!-- Take the payload as input for the connector --<span class="entity">&amp;gt;</span>
+            <span class="entity">&amp;lt;</span>cookbook:entity ref="#[payload]"/<span class="entity">&amp;gt;</span>
+        <span class="entity">&amp;lt;</span>/cookbook:update<span class="entity">&amp;gt;</span>
+        <span class="entity">&amp;lt;</span>json:object-to-json-transformer doc:name="Object to JSON"/<span class="entity">&amp;gt;</span>
+    <span class="entity">&amp;lt;</span>/flow<span class="entity">&amp;gt;</span>
+<span class="entity">&amp;lt;</span>/mule<span class="entity">&amp;gt;</span></pre></td> 
                   </tr> 
                  </tbody> 
                 </table></code></pre> 
