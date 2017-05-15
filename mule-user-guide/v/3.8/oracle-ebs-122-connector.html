@@ -1036,48 +1036,6 @@
       <h1>Oracle E-Business Suite 12.2 Connector</h1>
       <div id="preamble"> 
  <div class="sectionbody"> 
-  <div id="toc" class="toc"> 
-   <div id="toctitle" class="title">
-     Table of Contents 
-   </div> 
-   <ul class="sectlevel1"> 
-    <li><a href="#introduction">Introduction</a> 
-     <ul class="sectlevel2"> 
-      <li><a href="#connector-architecture">Connector Architecture</a></li> 
-     </ul> </li> 
-    <li><a href="#prerequisites">Prerequisites</a> 
-     <ul class="sectlevel2"> 
-      <li><a href="#hardware-and-software-requirements">Hardware and Software Requirements</a></li> 
-      <li><a href="#compatibility">Compatibility</a></li> 
-     </ul> </li> 
-    <li><a href="#installing-the-connector">Installing the Connector</a> 
-     <ul class="sectlevel2"> 
-      <li><a href="#upgrading-from-an-older-version">Upgrading from an Older Version</a></li> 
-     </ul> </li> 
-    <li><a href="#before-using-the-connector">Before Using the Connector</a> 
-     <ul class="sectlevel2"> 
-      <li><a href="#deploy-the-rest-service-locator">Deploy the REST Service Locator</a></li> 
-      <li><a href="#deploy-a-pl-sql-api-as-a-rest-service-wadl">Deploy a PL/SQL API as a REST Service (WADL)</a></li> 
-     </ul> </li> 
-    <li><a href="#configuring-the-connector-global-element">Configuring the Connector Global Element</a></li> 
-    <li><a href="#using-the-connector">Using the Connector</a> 
-     <ul class="sectlevel2"> 
-      <li><a href="#connector-namespace-and-schema">Connector Namespace and Schema</a></li> 
-      <li><a href="#using-the-connector-in-a-mavenized-mule-app">Using the Connector in a Mavenized Mule App</a></li> 
-     </ul> </li> 
-    <li><a href="#demo-mule-applications-using-connector">Demo Mule Applications Using Connector</a> 
-     <ul class="sectlevel2"> 
-      <li><a href="#example-use-case">Example Use Case</a></li> 
-      <li><a href="#example-use-case-xml">Example Use Case - XML</a></li> 
-     </ul> </li> 
-    <li><a href="#resources">Resources</a></li> 
-   </ul> 
-  </div> 
- </div> 
-</div> 
-<div class="sect1"> 
- <h2 id="introduction"><a class="anchor" href="#introduction"></a>Introduction</h2> 
- <div class="sectionbody"> 
   <div class="paragraph"> 
    <p>The Anypoint Connector for <strong>Oracle E-Business Suite (EBS) 12.2</strong> provides real-time connectivity to query and update Oracle EBS using <strong>REST web services</strong>. The connector has been <strong>developed for the Oracle EBS v12.2.x</strong>. For more information about Oracle EBS, visit the <a href="http://www.oracle.com/us/products/applications/ebusiness/overview/index.html">Oracle’s official</a>.</p> 
   </div> 
@@ -1097,34 +1055,34 @@
   <div class="paragraph"> 
    <p>MuleSoft maintains this connector under the <a href="/mule-user-guide/v/3.8/anypoint-connectors#connector-categories"><em>Premium</em></a> support policy.</p> 
   </div> 
-  <div class="sect2"> 
-   <h3 id="connector-architecture"><a class="anchor" href="#connector-architecture"></a>Connector Architecture</h3> 
-   <div class="paragraph"> 
-    <p>Oracle EBS offers different technologies or products to address various types of integrations. Listed below are the most widely used for integration with enterprise applications:</p> 
-   </div> 
-   <div class="olist arabic"> 
-    <ol class="arabic"> 
-     <li> <p>Data-centric integration.</p> </li> 
-     <li> <p>Integration through Web Services using Integrated SOA gateway.</p> </li> 
-    </ol> 
-   </div> 
-   <div class="paragraph"> 
-    <p>The following illustration shows the integration architecture of the MuleSoft Oracle EBS connector:</p> 
-   </div> 
-   <div class="paragraph"> 
-    <p><span class="image"><img src="./_images/oec122-architecture.png" alt="Oracle EBS 12.2 - Connector Architecture"></span></p> 
-   </div> 
-   <div class="admonitionblock note"> 
-    <table> 
-     <tbody> 
-      <tr> 
-       <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-       <td class="content"> For further information, refer to <a href="http://docs.oracle.com/cd/E26401_01/index.htm">Oracle E-Business Suite Documentation Web Library</a>. </td> 
-      </tr> 
-     </tbody> 
-    </table> 
-   </div> 
-  </div> 
+ </div> 
+</div> 
+<div class="sect2"> 
+ <h3 id="connector-architecture"><a class="anchor" href="#connector-architecture"></a>Connector Architecture</h3> 
+ <div class="paragraph"> 
+  <p>Oracle EBS offers different technologies or products to address various types of integrations. Listed below are the most widely used for integration with enterprise applications:</p> 
+ </div> 
+ <div class="olist arabic"> 
+  <ol class="arabic"> 
+   <li> <p>Data-centric integration.</p> </li> 
+   <li> <p>Integration through Web Services using Integrated SOA gateway.</p> </li> 
+  </ol> 
+ </div> 
+ <div class="paragraph"> 
+  <p>The following illustration shows the integration architecture of the MuleSoft Oracle EBS connector:</p> 
+ </div> 
+ <div class="paragraph"> 
+  <p><span class="image"><img src="./_images/oec122-architecture.png" alt="Oracle EBS 12.2 - Connector Architecture"></span></p> 
+ </div> 
+ <div class="admonitionblock note"> 
+  <table> 
+   <tbody> 
+    <tr> 
+     <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
+     <td class="content"> For further information, refer to <a href="http://docs.oracle.com/cd/E26401_01/index.htm">Oracle E-Business Suite Documentation Web Library</a>. </td> 
+    </tr> 
+   </tbody> 
+  </table> 
  </div> 
 </div> 
 <div class="sect1"> 
@@ -2361,7 +2319,7 @@ oracle122.orgId=</pre></td>
     <!-- END article-content -->
     <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
                 <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#introduction">Introduction</a></li><li><a class="scroll-menu-link" href="#prerequisites">Prerequisites</a></li><li><a class="scroll-menu-link" href="#installing-the-connector">Installing the Connector</a></li><li><a class="scroll-menu-link" href="#before-using-the-connector">Before Using the Connector</a></li><li><a class="scroll-menu-link" href="#configuring-the-connector-global-element">Configuring the Connector Global Element</a></li><li><a class="scroll-menu-link" href="#using-the-connector">Using the Connector</a></li><li><a class="scroll-menu-link" href="#demo-mule-applications-using-connector">Demo Mule Applications Using Connector</a></li><li><a class="scroll-menu-link" href="#resources">Resources</a></li></ul></div></div><!-- /scroll-menu -->
+                <ul><li><a class="scroll-menu-link" href="#prerequisites">Prerequisites</a></li><li><a class="scroll-menu-link" href="#installing-the-connector">Installing the Connector</a></li><li><a class="scroll-menu-link" href="#before-using-the-connector">Before Using the Connector</a></li><li><a class="scroll-menu-link" href="#configuring-the-connector-global-element">Configuring the Connector Global Element</a></li><li><a class="scroll-menu-link" href="#using-the-connector">Using the Connector</a></li><li><a class="scroll-menu-link" href="#demo-mule-applications-using-connector">Demo Mule Applications Using Connector</a></li><li><a class="scroll-menu-link" href="#resources">Resources</a></li></ul></div></div><!-- /scroll-menu -->
   </div>
 </div>
 <!-- START footer -->

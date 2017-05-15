@@ -15,7 +15,7 @@
   <script src="/js/scripts.js?t=1491597550"></script>
 
   <link rel="canonical" href="https://docs.mulesoft.com/mule-user-guide/v/3.8/quartz-connector" />
-  <meta name="description" content=" Quartz connector is deprecated. When scheduling tasks, it’s recommended that you instead resort to the Poll Scope The Quartz Connector supports th..." />
+  <meta name="description" content="Quartz connector is deprecated. When scheduling tasks, it’s recommended that you instead use the Poll Scope. The Quartz Connector supports the sche..." />
   <meta class="swiftype" name="title" data-type="string" content="Quartz Connector" />
   <meta class="swiftype" name="version" data-type="enum" content="3.8" />
 </head>
@@ -1037,10 +1037,7 @@
       <div id="preamble"> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p><span class="image"><img src="./_images/quartz-connector-icon.png" alt="[quartz connector icon"></span></p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>Quartz connector is deprecated. When scheduling tasks, it’s recommended that you instead resort to the <a href="/mule-user-guide/v/3.8/poll-reference">Poll Scope</a></p> 
+   <p>Quartz connector is deprecated. When scheduling tasks, it’s recommended that you instead use the <a href="/mule-user-guide/v/3.8/poll-reference">Poll Scope</a>.</p> 
   </div> 
   <div class="paragraph"> 
    <p>The Quartz Connector supports the scheduling of programmatic events, both inside and outside your Mule flow. Through a quartz endpoint, you can trigger flows that don’t depend on receiving any external input to execute at scheduled times.</p> 
@@ -1051,21 +1048,11 @@
   <div class="paragraph"> 
    <p>Outbound Quartz endpoints can delay otherwise imminent events. For example, you can prevent outgoing email from being sent as soon as it has completed processing in your Mule flow. Instead, you can use Quartz to delay sending it until the top of the next hour.</p> 
   </div> 
-  <div class="admonitionblock note"> 
-   <table> 
-    <tbody> 
-     <tr> 
-      <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-      <td class="content"> 
-       <div class="paragraph"> 
-        <p><strong>Polling</strong><br></p> 
-       </div> 
-       <div class="paragraph"> 
-        <p>Note that you also have the option to use a Poll scope at the beginning of a flow, which also supports Cron expressions and watermarks. Read more about the <a href="/mule-user-guide/v/3.8/poll-reference">Poll scope</a>.</p> 
-       </div> </td> 
-     </tr> 
-    </tbody> 
-   </table> 
+  <div class="paragraph"> 
+   <p><strong>Polling</strong></p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>Note that you also have the option to use a Poll scope at the beginning of a flow, which also supports Cron expressions and watermarks. Read more about the <a href="/mule-user-guide/v/3.8/poll-reference">Poll scope</a>.</p> 
   </div> 
  </div> 
 </div> 

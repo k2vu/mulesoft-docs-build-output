@@ -15,7 +15,7 @@
   <script src="/js/scripts.js?t=1491597550"></script>
 
   <link rel="canonical" href="https://docs.mulesoft.com/mule-user-guide/v/3.8/sap-connector-troubleshooting" />
-  <meta name="description" content="This page contains some common troubleshooting suggestions for the SAP Connector. Mule stores log files (on a per application basis) in the $MULE_H..." />
+  <meta name="description" content="This page contains common troubleshooting suggestions for the SAP Connector. Mule stores log files (on a per application basis) in the $MULE_HOME\l..." />
   <meta class="swiftype" name="title" data-type="string" content="SAP Connector Troubleshooting" />
   <meta class="swiftype" name="version" data-type="enum" content="3.8" />
 </head>
@@ -1037,71 +1037,8 @@
       <div id="preamble"> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>This page contains some common troubleshooting suggestions for the <a href="/mule-user-guide/v/3.8/mulesoft-enterprise-java-connector-for-sap-reference">SAP Connector</a>.</p> 
+   <p>This page contains common troubleshooting suggestions for the <a href="/mule-user-guide/v/3.8/mulesoft-enterprise-java-connector-for-sap-reference">SAP Connector</a>.</p> 
   </div> 
-  <div id="toc" class="toc"> 
-   <div id="toctitle" class="title">
-     Contents 
-   </div> 
-   <ul class="sectlevel1"> 
-    <li><a href="#checking-log-files">Checking Log Files</a></li> 
-    <li><a href="#enabling-jco-trace">Enabling JCo Trace</a></li> 
-    <li><a href="#common-errors">Common Errors</a> 
-     <ul class="sectlevel2"> 
-      <li><a href="#error-jco-missing-libs">JCo Missing Libraries</a> 
-       <ul class="sectlevel3"> 
-        <li><a href="#problem">Problem</a></li> 
-        <li><a href="#solution">Solution</a></li> 
-       </ul> </li> 
-      <li><a href="#error-jco-classloader-conflicts">JCo Classloader Conflicts</a> 
-       <ul class="sectlevel3"> 
-        <li><a href="#problem-2">Problem</a></li> 
-        <li><a href="#solution-2">Solution</a></li> 
-       </ul> </li> 
-      <li><a href="#error-jco-version-conflicts">JCo Version Conflicts</a> 
-       <ul class="sectlevel3"> 
-        <li><a href="#problem-3">Problem</a></li> 
-        <li><a href="#solution-3">Solution</a></li> 
-       </ul> </li> 
-      <li><a href="#error-jco-renaming-conflicts">JCo Renaming Conflicts</a> 
-       <ul class="sectlevel3"> 
-        <li><a href="#problem-4">Problem</a></li> 
-        <li><a href="#solution-4">Solution</a></li> 
-       </ul> </li> 
-      <li><a href="#error-transformer-needs-a-valid-endpoint">Transformer Needs a Valid Endpoint</a> 
-       <ul class="sectlevel3"> 
-        <li><a href="#problem-5">Problem</a></li> 
-        <li><a href="#solution-5">Solution</a></li> 
-       </ul> </li> 
-      <li><a href="#error-message-not-a-sap-object">Message Not a SAP Object</a> 
-       <ul class="sectlevel3"> 
-        <li><a href="#problem-6">Problem</a></li> 
-        <li><a href="#solution-6">Solution</a></li> 
-       </ul> </li> 
-      <li><a href="#error-icoc-metadata-unavailable">IDoc Metadata Unavailable</a> 
-       <ul class="sectlevel3"> 
-        <li><a href="#problem-7">Problem</a></li> 
-        <li><a href="#solution-7">Solution</a></li> 
-       </ul> </li> 
-      <li><a href="#error-cannot-join-a-transaction">Cannot Join a Transaction</a></li> 
-      <li><a href="#error-missing-tid-handler">Missing TID Handler</a> 
-       <ul class="sectlevel3"> 
-        <li><a href="#problem-8">Problem</a></li> 
-        <li><a href="#solution-8">Solution</a></li> 
-       </ul> </li> 
-      <li><a href="#error-parameter-not-supported">Parameter Not Supported</a> 
-       <ul class="sectlevel3"> 
-        <li><a href="#problem-9">Problem</a></li> 
-        <li><a href="#solution-9">Solution</a></li> 
-        <li><a href="#error-multiple-jco-servers">Multiple JCo Servers Running</a></li> 
-        <li><a href="#problem-10">Problem</a></li> 
-        <li><a href="#solution-10">Solution</a></li> 
-       </ul> </li> 
-     </ul> </li> 
-    <li><a href="#see-also">See Also</a></li> 
-   </ul> 
-  </div> 
-  <hr> 
  </div> 
 </div> 
 <div class="sect1"> 
@@ -1164,12 +1101,12 @@
        <tr> 
         <td class="tableblock halign-center valign-top"><p class="tableblock"><code>2</code></p></td> 
         <td class="tableblock halign-center valign-top"><p class="tableblock"><code>WARNING</code></p></td> 
-        <td class="tableblock halign-left valign-top"><p class="tableblock">JCo warning messages (e.g. non-ABAP system exceptions).</p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">JCo warning messages (for example, non-ABAP system exceptions).</p></td> 
        </tr> 
        <tr> 
         <td class="tableblock halign-center valign-top"><p class="tableblock"><code>3</code></p></td> 
         <td class="tableblock halign-center valign-top"><p class="tableblock"><code>INFO</code></p></td> 
-        <td class="tableblock halign-left valign-top"><p class="tableblock">JCo information messages (e.g. ABAP exceptions).</p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">JCo information messages (for example, ABAP exceptions).</p></td> 
        </tr> 
        <tr> 
         <td class="tableblock halign-center valign-top"><p class="tableblock"><code>4</code></p></td> 
@@ -1194,7 +1131,7 @@
        <tr> 
         <td class="tableblock halign-center valign-top"><p class="tableblock"><code>8</code></p></td> 
         <td class="tableblock halign-center valign-top"><p class="tableblock"><code>DEBUG</code></p></td> 
-        <td class="tableblock halign-left valign-top"><p class="tableblock">Full content data dump (no character or row limits).<br> Caller stack trace information (e.g. for getClient() - identifies application).</p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Full content data dump (no character or row limits).<br> Caller stack trace information (for example, for getClient() - identifies application).</p></td> 
        </tr> 
        <tr> 
         <td class="tableblock halign-center valign-top"><p class="tableblock"><code>9</code></p></td> 
@@ -1295,17 +1232,7 @@
    <h3 id="error-jco-classloader-conflicts"><a class="anchor" href="#error-jco-classloader-conflicts"></a>JCo Classloader Conflicts</h3> 
    <div class="listingblock"> 
     <div class="content"> 
-     <pre class="CodeRay highlight"><code data-lang="code">
-          
-       <table class="CodeRay"> 
-        <tbody> 
-         <tr> 
-          <td class="line-numbers"><pre>1
-</pre></td> 
-          <td class="code"><pre>java.lang.ExceptionInInitializerError: JCo initialization failed with java.lang.UnsatisfiedLinkError: Native Library /home/mule/sap-errors/lib/jco/libsapjco3.so already loaded in another classloader</pre></td> 
-         </tr> 
-        </tbody> 
-       </table></code></pre> 
+     <pre class="CodeRay highlight"><code>java.lang.ExceptionInInitializerError: JCo initialization failed with java.lang.UnsatisfiedLinkError: Native Library /home/mule/sap-errors/lib/jco/libsapjco3.so already loaded in another classloader</code></pre> 
     </div> 
    </div> 
    <div class="sect3"> 
