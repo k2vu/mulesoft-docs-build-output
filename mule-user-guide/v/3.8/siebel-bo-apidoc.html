@@ -1071,145 +1071,141 @@
  </div> 
 </div> 
 <div class="sect1"> 
- <h2 id="configs"><a class="anchor" href="#configs"></a>Configs</h2> 
+ <h2 id="configuration"><a class="anchor" href="#configuration"></a>Configuration</h2> 
  <div class="sectionbody"> 
-  <hr> 
+  <div class="paragraph"> 
+   <p><code>&lt;siebel:config&gt;</code></p> 
+  </div> 
+  <div class="paragraph"> 
+   <p><code>Connection Management</code></p> 
+  </div> 
   <div class="sect2"> 
-   <h3 id="configuration"><a class="anchor" href="#configuration"></a>Configuration</h3> 
-   <div class="paragraph"> 
-    <p><code>&lt;siebel:config&gt;</code></p> 
-   </div> 
-   <div class="paragraph"> 
-    <p><code>Connection Management</code></p> 
-   </div> 
-   <div class="sect3"> 
-    <h4 id="attributes"><a class="anchor" href="#attributes"></a>Attributes</h4> 
-    <table class="tableblock frame-all grid-all spread"> 
-     <colgroup> 
-      <col> 
-      <col> 
-      <col> 
-      <col> 
-      <col> 
-     </colgroup> 
-     <thead> 
-      <tr> 
-       <th class="tableblock halign-left valign-top">Name</th> 
-       <th class="tableblock halign-left valign-top">Java Type</th> 
-       <th class="tableblock halign-left valign-top">Description</th> 
-       <th class="tableblock halign-left valign-top">Default Value</th> 
-       <th class="tableblock halign-left valign-top">Required</th> 
-      </tr> 
-     </thead> 
-     <tbody> 
-      <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html">String</a></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">The name of this configuration. With this name can be later referenced.</p></td> 
-       <td class="tableblock halign-left valign-top"></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>x</strong>&nbsp;</p></td> 
-      </tr> 
-      <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html">String</a></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">Siebel username</p></td> 
-       <td class="tableblock halign-left valign-top"></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>x</strong>&nbsp;</p></td> 
-      </tr> 
-      <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">rsaEnabled</p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">Siebel encryption type. Make sure your server is configured to support RSA encryption. By default it is set to false.</p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">&nbsp;</p></td> 
-      </tr> 
-      <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">password</p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html">String</a></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">Siebel password</p></td> 
-       <td class="tableblock halign-left valign-top"></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>x</strong>&nbsp;</p></td> 
-      </tr> 
-      <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">server</p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html">String</a></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">Siebel server. The server IP.</p></td> 
-       <td class="tableblock halign-left valign-top"></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>x</strong>&nbsp;</p></td> 
-      </tr> 
-      <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">port</p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html">String</a></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">Siebel port. The server port used for the connection. By default it is 2321.</p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">2321</p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">&nbsp;</p></td> 
-      </tr> 
-      <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">serverName</p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html">String</a></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">Siebel Enterprise server name</p></td> 
-       <td class="tableblock halign-left valign-top"></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>x</strong>&nbsp;</p></td> 
-      </tr> 
-      <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">objectManager</p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html">String</a></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">Siebel Object Manager</p></td> 
-       <td class="tableblock halign-left valign-top"></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>x</strong>&nbsp;</p></td> 
-      </tr> 
-      <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">language</p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html">String</a></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">connection language</p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">ENU</p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">&nbsp;</p></td> 
-      </tr> 
-      <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">encoding</p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html">String</a></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">connection file encoding. It specifies the character encoding of the Siebel client. By default it is utf8.</p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">utf8</p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">&nbsp;</p></td> 
-      </tr> 
-      <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">defaultViewModeBusComp</p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">int</p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">Default view mode for DataSense purposes. By default it is set to '3' which means it will go through all the records for which there is a valid owner.</p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">&nbsp;</p></td> 
-      </tr> 
-      <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">dataSenseFilterQueryBusComp</p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html">String</a></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">Query for filtering DataSense Business Components results.</p></td> 
-       <td class="tableblock halign-left valign-top"></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">&nbsp;</p></td> 
-      </tr> 
-      <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">defaultViewModeBusObjects</p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">int</p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">Default view mode for Business Objects discovery. By default it is set to '3' which means it will go through all the records for which there is a valid owner.</p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">&nbsp;</p></td> 
-      </tr> 
-      <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">dataSenseFilterQueryBusObjects</p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html">String</a></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">Query for filtering DataSense Business Objects results</p></td> 
-       <td class="tableblock halign-left valign-top"></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">&nbsp;</p></td> 
-      </tr> 
-      <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">dataSenseHierarchicalDiscovery</p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Boolean.html">Boolean</a></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">Indicates if the fields discovery will recreate hierarchical objects within business components. By default it is set to false.</p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">&nbsp;</p></td> 
-      </tr> 
-     </tbody> 
-    </table> 
-   </div> 
+   <h3 id="attributes"><a class="anchor" href="#attributes"></a>Attributes</h3> 
+   <table class="tableblock frame-all grid-all spread"> 
+    <colgroup> 
+     <col> 
+     <col> 
+     <col> 
+     <col> 
+     <col> 
+    </colgroup> 
+    <thead> 
+     <tr> 
+      <th class="tableblock halign-left valign-top">Name</th> 
+      <th class="tableblock halign-left valign-top">Java Type</th> 
+      <th class="tableblock halign-left valign-top">Description</th> 
+      <th class="tableblock halign-left valign-top">Default Value</th> 
+      <th class="tableblock halign-left valign-top">Required</th> 
+     </tr> 
+    </thead> 
+    <tbody> 
+     <tr> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html">String</a></p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">The name of this configuration. With this name can be later referenced.</p></td> 
+      <td class="tableblock halign-left valign-top"></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>x</strong>&nbsp;</p></td> 
+     </tr> 
+     <tr> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html">String</a></p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">Siebel username</p></td> 
+      <td class="tableblock halign-left valign-top"></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>x</strong>&nbsp;</p></td> 
+     </tr> 
+     <tr> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">rsaEnabled</p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">Siebel encryption type. Make sure your server is configured to support RSA encryption. By default it is set to false.</p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">&nbsp;</p></td> 
+     </tr> 
+     <tr> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">password</p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html">String</a></p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">Siebel password</p></td> 
+      <td class="tableblock halign-left valign-top"></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>x</strong>&nbsp;</p></td> 
+     </tr> 
+     <tr> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">server</p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html">String</a></p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">Siebel server. The server IP.</p></td> 
+      <td class="tableblock halign-left valign-top"></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>x</strong>&nbsp;</p></td> 
+     </tr> 
+     <tr> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">port</p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html">String</a></p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">Siebel port. The server port used for the connection. By default it is 2321.</p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">2321</p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">&nbsp;</p></td> 
+     </tr> 
+     <tr> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">serverName</p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html">String</a></p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">Siebel Enterprise server name</p></td> 
+      <td class="tableblock halign-left valign-top"></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>x</strong>&nbsp;</p></td> 
+     </tr> 
+     <tr> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">objectManager</p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html">String</a></p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">Siebel Object Manager</p></td> 
+      <td class="tableblock halign-left valign-top"></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>x</strong>&nbsp;</p></td> 
+     </tr> 
+     <tr> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">language</p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html">String</a></p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">connection language</p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">ENU</p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">&nbsp;</p></td> 
+     </tr> 
+     <tr> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">encoding</p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html">String</a></p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">connection file encoding. It specifies the character encoding of the Siebel client. By default it is utf8.</p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">utf8</p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">&nbsp;</p></td> 
+     </tr> 
+     <tr> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">defaultViewModeBusComp</p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">int</p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">Default view mode for DataSense purposes. By default it is set to '3' which means it will go through all the records for which there is a valid owner.</p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">&nbsp;</p></td> 
+     </tr> 
+     <tr> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">dataSenseFilterQueryBusComp</p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html">String</a></p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">Query for filtering DataSense Business Components results.</p></td> 
+      <td class="tableblock halign-left valign-top"></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">&nbsp;</p></td> 
+     </tr> 
+     <tr> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">defaultViewModeBusObjects</p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">int</p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">Default view mode for Business Objects discovery. By default it is set to '3' which means it will go through all the records for which there is a valid owner.</p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">&nbsp;</p></td> 
+     </tr> 
+     <tr> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">dataSenseFilterQueryBusObjects</p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html">String</a></p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">Query for filtering DataSense Business Objects results</p></td> 
+      <td class="tableblock halign-left valign-top"></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">&nbsp;</p></td> 
+     </tr> 
+     <tr> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">dataSenseHierarchicalDiscovery</p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Boolean.html">Boolean</a></p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">Indicates if the fields discovery recreates hierarchical objects within business components. By default it is set to false.</p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">&nbsp;</p></td> 
+     </tr> 
+    </tbody> 
+   </table> 
   </div> 
  </div> 
 </div> 
@@ -1981,7 +1977,7 @@
     <!-- END article-content -->
     <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
                 <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#configs">Configs</a></li><li><a class="scroll-menu-link" href="#processors">Processors</a></li></ul></div></div><!-- /scroll-menu -->
+                <ul><li><a class="scroll-menu-link" href="#configuration">Configuration</a></li><li><a class="scroll-menu-link" href="#processors">Processors</a></li></ul></div></div><!-- /scroll-menu -->
   </div>
 </div>
 <!-- START footer -->

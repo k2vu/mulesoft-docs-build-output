@@ -15,7 +15,7 @@
   <script src="/js/scripts.js?t=1491597550"></script>
 
   <link rel="canonical" href="https://docs.mulesoft.com/mule-user-guide/v/3.8/sap-connector" />
-  <meta name="description" content=" The SAP connector enables the integration of data to and from SAP NetWeaver-based and external systems. Release Notes: SAP Connector Release Notes..." />
+  <meta name="description" content="The SAP connector enables the integration of data to and from SAP NetWeaver-based and external systems. Release Notes: SAP Connector Release Notes ..." />
   <meta class="swiftype" name="title" data-type="string" content="SAP Connector User Guide" />
   <meta class="swiftype" name="version" data-type="enum" content="3.8" />
 </head>
@@ -1037,84 +1037,13 @@
       <div id="preamble"> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p><span class="image"><img src="./_images/sap-connector-icon.png" alt="icon"></span></p> 
-  </div> 
-  <div id="toc" class="toc"> 
-   <div id="toctitle" class="title">
-     Contents 
-   </div> 
-   <ul class="sectlevel1"> 
-    <li><a href="#intro">Introduction</a> 
-     <ul class="sectlevel2"> 
-      <li><a href="#sap-jco-architecture">SAP JCo Architecture</a></li> 
-      <li><a href="#prerequisites">Prerequisites</a></li> 
-     </ul> </li> 
-    <li><a href="#namespace-and-schema">Namespace and Schema</a> 
-     <ul class="sectlevel2"> 
-      <li><a href="#requirements">Requirements</a></li> 
-      <li><a href="#dependencies">Dependencies</a></li> 
-      <li><a href="#compatibility-matrix">Compatibility Matrix</a></li> 
-     </ul> </li> 
-    <li><a href="#install-and-config">Installing and Configuring</a> 
-     <ul class="sectlevel2"> 
-      <li><a href="#install">Installing</a></li> 
-      <li><a href="#config">Configuring</a></li> 
-      <li><a href="#upgrading">Upgrading from an Older Version</a></li> 
-     </ul> </li> 
-    <li><a href="#using-the-connector">Using the Connector</a> 
-     <ul class="sectlevel2"> 
-      <li><a href="#syntax">Syntax</a></li> 
-      <li><a href="#configurable-properties">Configurable Properties</a></li> 
-      <li><a href="#sap-transformers">SAP Transformers</a></li> 
-      <li><a href="#xml-definitions">XML Definitions</a></li> 
-      <li><a href="#use-cases-and-demos">Use Cases and Demos</a></li> 
-     </ul> </li> 
-    <li><a href="#inbound-use-cases-and-demos">Inbound Use Cases and Demos</a> 
-     <ul class="sectlevel2"> 
-      <li><a href="#inbound-scenario-idoc">1. Inbound Scenario (IDoc)</a></li> 
-      <li><a href="#inbound-scenario-bapi">2. Inbound Scenario (BAPI)</a></li> 
-     </ul> </li> 
-    <li><a href="#outbound-use-cases-and-demos">Outbound Use Cases and Demos</a> 
-     <ul class="sectlevel2"> 
-      <li><a href="#outbound-scenario-idoc">1. Outbound Scenario (IDoc)</a></li> 
-      <li><a href="#outbound-scenario-bapi">2. Outbound Scenario (BAPI)</a></li> 
-     </ul> </li> 
-    <li><a href="#best-practices">Best Practices</a> 
-     <ul class="sectlevel2"> 
-      <li><a href="#design-tips">Design Tips</a></li> 
-      <li><a href="#use-datasense">Use DataSense</a></li> 
-      <li><a href="#share-jco-dependencies-between-several-applications">Share JCo Dependencies Between Several Applications</a></li> 
-     </ul> </li> 
-    <li><a href="#tips">Tips</a> 
-     <ul class="sectlevel2"> 
-      <li><a href="#finding-the-sap-object">Finding the SAP object</a></li> 
-     </ul> </li> 
-    <li><a href="#example-code">Example Code</a></li> 
-    <li><a href="#demo">Demo</a></li> 
-    <li><a href="#see-also">See Also</a></li> 
-   </ul> 
-  </div> 
-  <hr> 
- </div> 
-</div> 
-<div class="sect1"> 
- <h2 id="intro"><a class="anchor" href="#intro"></a>Introduction</h2> 
- <div class="sectionbody"> 
-  <div class="paragraph"> 
-   <p>The SAP connector enables the integration of data to and from <strong>SAP NetWeaver-based</strong> and <strong>external</strong> systems.</p> 
+   <p>The SAP connector enables the integration of data to and from SAP NetWeaver-based and external systems.</p> 
   </div> 
   <div class="paragraph"> 
    <p><strong>Release Notes:</strong> <a href="/release-notes/sap-connector-release-notes">SAP Connector Release Notes</a></p> 
   </div> 
-  <div class="admonitionblock note"> 
-   <table> 
-    <tbody> 
-     <tr> 
-      <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-      <td class="content"> MuleSoft maintains this connector under the <a href="/mule-user-guide/v/3.8/anypoint-connectors#connector-categories"><em>Premium</em></a> support policy, therefore it requires a separate license. Contact <a href="mailto:sales@mulesoft.com">MuleSoft</a> to evaluate or use this connector in production. </td> 
-     </tr> 
-    </tbody> 
-   </table> 
+  <div class="paragraph"> 
+   <p>MuleSoft maintains this connector under the <a href="/mule-user-guide/v/3.8/anypoint-connectors#connector-categories"><em>Premium</em></a> support policy, therefore it requires a separate license. Contact <a href="mailto:sales@mulesoft.com">MuleSoft</a> to evaluate or use this connector in production.</p> 
   </div> 
   <div class="paragraph"> 
    <p>Mule runtime supports SAP integration through our Anypoint Connector for SAP, an <strong>SAP-certified Java connector</strong> that leverages the <strong>SAP Java Connector (JCo) libraries</strong>, thus allowing Mule applications to:</p> 
@@ -1135,80 +1064,80 @@
     <li> <p><strong>Transform</strong> SAP objects (JCo Function/BAPI &amp; IDocs) to and from XML.</p> </li> 
    </ol> 
   </div> 
-  <div class="sect2"> 
-   <h3 id="sap-jco-architecture"><a class="anchor" href="#sap-jco-architecture"></a>SAP JCo Architecture</h3> 
-   <div class="paragraph"> 
-    <p><strong>SAP JCo</strong> facilitates communication between an SAP backend system and a Java application. It allows Java programs to connect to SAP systems and invoke Remote Function Modules. It also allows parsing of IDocs (SAP Intermediate Documents), among other object types. Both inbound and outbound communications are supported.</p> 
-   </div> 
-   <div class="ulist"> 
-    <ul> 
-     <li> <p><strong>Java API:</strong> handles dynamic metadata lookup and caching. It implements <code>JCO.Function</code>, which is the container for parameters and/or tables for the SAP Function Module (BAPI) in Java. Java apps are built on top of the Java API.</p> </li> 
-     <li> <p><strong>JNI (Java Native Interface):</strong> originally, SAP created libraries in C language to allow direct RFC calls to SAP, to manipulate data. JCo wraps C libraries in Java to provide platform-native access into the SAP system. RFC Middleware uses RFC Library through (JNI) Layer.</p> </li> 
-     <li> <p><strong>RFC (Remote Function Call):</strong> communication with the SAP system is performed over the RFC protocol. RFC means calling BAPI or triggering IDoc processing that runs in another system as calling program. The RFC interface enables function calls between two SAP systems or between the SAP and external system.</p> </li> 
-     <li> <p><strong>RFC Library:</strong> libraries of C language-based functions to access the SAP system. RFC library is addressed by JNI.</p> </li> 
-     <li> <p><strong>RFC Layer:</strong> SAP component that processes RFC calls.</p> </li> 
-     <li> <p><strong>SAP Java IDoc Class Library:</strong> provides structured, high-level interpretation and navigation of SAP IDocs in Java. It consists of the following add-on packages:</p> 
-      <div class="ulist"> 
-       <ul> 
-        <li> <p><strong>SAP Java Base IDoc Class Library:</strong> a middleware-independent library that provides a set of general base classes and interfaces for middleware dependent Java IDoc Class Library implementations.</p> </li> 
-        <li> <p><strong>SAP Java Connector IDoc Class Library:</strong> a middleware-independent library for creating, sending, and receiving IDocs.</p> </li> 
-       </ul> 
-      </div> </li> 
-     <li> <p><strong>FM (Function Module):</strong> Function modules are procedures that are defined in the ABAP language of SAP. It allows the encapsulation and reuse of global functions in the SAP System.</p> </li> 
-     <li> <p><strong>BAPI (Business Application Programming Interface):</strong> is the Function Module that fulfills certain design criteria, such as:</p> 
-      <div class="ulist"> 
-       <ul> 
-        <li> <p>Implements a method of a SAP Business Object.</p> </li> 
-        <li> <p>Maintains a static interface through different versions of the SAP system.</p> </li> 
-        <li> <p>Is remote-enabled.</p> </li> 
-        <li> <p>Runs to completion with or without user interaction.</p> </li> 
-        <li> <p>Handles errors.</p> </li> 
-       </ul> 
-      </div> </li> 
-     <li> <p><strong>IDoc (Intermediate Document):</strong> standard SAP format for electronic data interchange between SAP systems. Different messages types (such as delivery notes or purchase orders) generally correspond to different special formats, known as IDoc types. Multiple message types with related content can, however, be assigned to a single IDoc type.</p> </li> 
-     <li> <p><strong>ALE (Application Link Enabling):</strong> technology for setting up and operating distributed applications. ALE facilitates distributed, yet integrated, installation of SAP systems. This involves business-driven message exchange using consistent data across loosely linked SAP applications. Applications are integrated through synchronous and asynchronous communication, rather than by use of a central database.</p> </li> 
-     <li> <p><strong>SAP NetWeaver:</strong> one of the main technologies and application platforms used by SAP solutions. Its main component is the <strong>SAP Web Application Server (WebAS)</strong>, which provides the runtime environment for SAP applications like ERP, CRM, SCM, PLM, SRM, BI. Other components include enterprise portal, exchange infrastructure, master data management and mobile infrastructure. SAP NetWeaver is an umbrella term for these technical components.</p> </li> 
-    </ul> 
-   </div> 
-   <div class="admonitionblock note"> 
-    <table> 
-     <tbody> 
-      <tr> 
-       <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-       <td class="content"> The SAP connector uses the RFC protocol to connect to NetWeaver Application Servers (NWAS). <a href="http://www.cipherbsc.com/solutions/sap-erp-central-component-erp-ecc/">ECC</a> and <a href="https://help.sap.com/crm">CRM</a> run on top of NWAS, as other SAP solutions do, hence any customer using the connector may access those systems. </td> 
-      </tr> 
-     </tbody> 
-    </table> 
-   </div> 
-   <div class="admonitionblock note"> 
-    <table> 
-     <tbody> 
-      <tr> 
-       <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-       <td class="content"> SAP NetWeaver runs on both Java and ABAP stacks. </td> 
-      </tr> 
-     </tbody> 
-    </table> 
-   </div> 
-   <div class="ulist"> 
-    <ul> 
-     <li> <p><strong>ABAP (Advanced Business Application Programming):</strong> this is SAP’s proprietary programming language and part of the NetWeaver platform for building business applications.</p> </li> 
-    </ul> 
-   </div> 
-  </div> 
-  <div class="sect2"> 
-   <h3 id="prerequisites"><a class="anchor" href="#prerequisites"></a>Prerequisites</h3> 
-   <div class="paragraph"> 
-    <p>This document assumes you have:</p> 
-   </div> 
-   <div class="ulist"> 
-    <ul> 
-     <li> <p>A working knowledge of the <strong>SAP business context</strong> and in particular, the <strong>SAP R/3 Business Suite</strong>.</p> </li> 
-     <li> <p>A basic understanding of the <strong>SAP NetWeaver Platform</strong> from an administration point of view.</p> </li> 
-     <li> <p>Some fundamental knowledge of the <strong>ABAP</strong> language.</p> </li> 
-    </ul> 
-   </div> 
-  </div> 
+ </div> 
+</div> 
+<div class="sect2"> 
+ <h3 id="sap-jco-architecture"><a class="anchor" href="#sap-jco-architecture"></a>SAP JCo Architecture</h3> 
+ <div class="paragraph"> 
+  <p><strong>SAP JCo</strong> facilitates communication between an SAP backend system and a Java application. It allows Java programs to connect to SAP systems and invoke Remote Function Modules. It also allows parsing of IDocs (SAP Intermediate Documents), among other object types. Both inbound and outbound communications are supported.</p> 
+ </div> 
+ <div class="ulist"> 
+  <ul> 
+   <li> <p><strong>Java API:</strong> handles dynamic metadata lookup and caching. It implements <code>JCO.Function</code>, which is the container for parameters and/or tables for the SAP Function Module (BAPI) in Java. Java apps are built on top of the Java API.</p> </li> 
+   <li> <p><strong>JNI (Java Native Interface):</strong> originally, SAP created libraries in C language to allow direct RFC calls to SAP, to manipulate data. JCo wraps C libraries in Java to provide platform-native access into the SAP system. RFC Middleware uses RFC Library through (JNI) Layer.</p> </li> 
+   <li> <p><strong>RFC (Remote Function Call):</strong> communication with the SAP system is performed over the RFC protocol. RFC means calling BAPI or triggering IDoc processing that runs in another system as calling program. The RFC interface enables function calls between two SAP systems or between the SAP and external system.</p> </li> 
+   <li> <p><strong>RFC Library:</strong> libraries of C language-based functions to access the SAP system. RFC library is addressed by JNI.</p> </li> 
+   <li> <p><strong>RFC Layer:</strong> SAP component that processes RFC calls.</p> </li> 
+   <li> <p><strong>SAP Java IDoc Class Library:</strong> provides structured, high-level interpretation and navigation of SAP IDocs in Java. It consists of the following add-on packages:</p> 
+    <div class="ulist"> 
+     <ul> 
+      <li> <p><strong>SAP Java Base IDoc Class Library:</strong> a middleware-independent library that provides a set of general base classes and interfaces for middleware dependent Java IDoc Class Library implementations.</p> </li> 
+      <li> <p><strong>SAP Java Connector IDoc Class Library:</strong> a middleware-independent library for creating, sending, and receiving IDocs.</p> </li> 
+     </ul> 
+    </div> </li> 
+   <li> <p><strong>FM (Function Module):</strong> Function modules are procedures that are defined in the ABAP language of SAP. It allows the encapsulation and reuse of global functions in the SAP System.</p> </li> 
+   <li> <p><strong>BAPI (Business Application Programming Interface):</strong> is the Function Module that fulfills certain design criteria, such as:</p> 
+    <div class="ulist"> 
+     <ul> 
+      <li> <p>Implements a method of a SAP Business Object.</p> </li> 
+      <li> <p>Maintains a static interface through different versions of the SAP system.</p> </li> 
+      <li> <p>Is remote-enabled.</p> </li> 
+      <li> <p>Runs to completion with or without user interaction.</p> </li> 
+      <li> <p>Handles errors.</p> </li> 
+     </ul> 
+    </div> </li> 
+   <li> <p><strong>IDoc (Intermediate Document):</strong> standard SAP format for electronic data interchange between SAP systems. Different messages types (such as delivery notes or purchase orders) generally correspond to different special formats, known as IDoc types. Multiple message types with related content can, however, be assigned to a single IDoc type.</p> </li> 
+   <li> <p><strong>ALE (Application Link Enabling):</strong> technology for setting up and operating distributed applications. ALE facilitates distributed, yet integrated, installation of SAP systems. This involves business-driven message exchange using consistent data across loosely linked SAP applications. Applications are integrated through synchronous and asynchronous communication, rather than by use of a central database.</p> </li> 
+   <li> <p><strong>SAP NetWeaver:</strong> one of the main technologies and application platforms used by SAP solutions. Its main component is the <strong>SAP Web Application Server (WebAS)</strong>, which provides the runtime environment for SAP applications like ERP, CRM, SCM, PLM, SRM, BI. Other components include enterprise portal, exchange infrastructure, master data management and mobile infrastructure. SAP NetWeaver is an umbrella term for these technical components.</p> </li> 
+  </ul> 
+ </div> 
+ <div class="admonitionblock note"> 
+  <table> 
+   <tbody> 
+    <tr> 
+     <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
+     <td class="content"> The SAP connector uses the RFC protocol to connect to NetWeaver Application Servers (NWAS). <a href="http://www.cipherbsc.com/solutions/sap-erp-central-component-erp-ecc/">ECC</a> and <a href="https://help.sap.com/crm">CRM</a> run on top of NWAS, as other SAP solutions do, hence any customer using the connector may access those systems. </td> 
+    </tr> 
+   </tbody> 
+  </table> 
+ </div> 
+ <div class="admonitionblock note"> 
+  <table> 
+   <tbody> 
+    <tr> 
+     <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
+     <td class="content"> SAP NetWeaver runs on both Java and ABAP stacks. </td> 
+    </tr> 
+   </tbody> 
+  </table> 
+ </div> 
+ <div class="ulist"> 
+  <ul> 
+   <li> <p><strong>ABAP (Advanced Business Application Programming):</strong> this is SAP’s proprietary programming language and part of the NetWeaver platform for building business applications.</p> </li> 
+  </ul> 
+ </div> 
+</div> 
+<div class="sect2"> 
+ <h3 id="prerequisites"><a class="anchor" href="#prerequisites"></a>Prerequisites</h3> 
+ <div class="paragraph"> 
+  <p>This document assumes you have:</p> 
+ </div> 
+ <div class="ulist"> 
+  <ul> 
+   <li> <p>A working knowledge of the <strong>SAP business context</strong> and in particular, the <strong>SAP R/3 Business Suite</strong>.</p> </li> 
+   <li> <p>A basic understanding of the <strong>SAP NetWeaver Platform</strong> from an administration point of view.</p> </li> 
+   <li> <p>Some fundamental knowledge of the <strong>ABAP</strong> language.</p> </li> 
+  </ul> 
  </div> 
 </div> 
 <div class="sect1"> 
@@ -4340,7 +4269,7 @@
     <!-- END article-content -->
     <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
                 <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#intro">Introduction</a></li><li><a class="scroll-menu-link" href="#namespace-and-schema">Namespace and Schema</a></li><li><a class="scroll-menu-link" href="#install-and-config">Installing and Configuring</a></li><li><a class="scroll-menu-link" href="#using-the-connector">Using the Connector</a></li><li><a class="scroll-menu-link" href="#inbound-use-cases-and-demos">Inbound Use Cases and Demos</a></li><li><a class="scroll-menu-link" href="#outbound-use-cases-and-demos">Outbound Use Cases and Demos</a></li><li><a class="scroll-menu-link" href="#best-practices">Best Practices</a></li><li><a class="scroll-menu-link" href="#tips">Tips</a></li><li><a class="scroll-menu-link" href="#example-code">Example Code</a></li><li><a class="scroll-menu-link" href="#demo">Demo</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
+                <ul><li><a class="scroll-menu-link" href="#namespace-and-schema">Namespace and Schema</a></li><li><a class="scroll-menu-link" href="#install-and-config">Installing and Configuring</a></li><li><a class="scroll-menu-link" href="#using-the-connector">Using the Connector</a></li><li><a class="scroll-menu-link" href="#inbound-use-cases-and-demos">Inbound Use Cases and Demos</a></li><li><a class="scroll-menu-link" href="#outbound-use-cases-and-demos">Outbound Use Cases and Demos</a></li><li><a class="scroll-menu-link" href="#best-practices">Best Practices</a></li><li><a class="scroll-menu-link" href="#tips">Tips</a></li><li><a class="scroll-menu-link" href="#example-code">Example Code</a></li><li><a class="scroll-menu-link" href="#demo">Demo</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
   </div>
 </div>
 <!-- START footer -->
