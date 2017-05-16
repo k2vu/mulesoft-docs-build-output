@@ -1036,30 +1036,6 @@
       <h1>Connection Management</h1>
       <div id="preamble"> 
  <div class="sectionbody"> 
-  <div id="toc" class="toc"> 
-   <div id="toctitle" class="title">
-     Page Contents 
-   </div> 
-   <ul class="sectlevel1"> 
-    <li><a href="#prerequisites">Prerequisites</a></li> 
-    <li><a href="#about-connection-management">About Connection Management</a> 
-     <ul class="sectlevel2"> 
-      <li><a href="#connection-management-framework-and-authentication-protocols">Connection Management Framework and Authentication Protocols</a></li> 
-     </ul> </li> 
-    <li><a href="#connection-management-annotation">Connection Management Annotation</a></li> 
-    <li><a href="#connection-management-devkit-annotations">Connection Management DevKit Annotations</a> 
-     <ul class="sectlevel2"> 
-      <li><a href="#adding-connectionmanagement-annotation-to-the-connector-class">Adding @ConnectionManagement Annotation to the @Connector Class</a></li> 
-      <li><a href="#connect-method">@Connect Method</a></li> 
-      <li><a href="#testconnectivity">@TestConnectivity</a></li> 
-      <li><a href="#connectionkey-and-connection-pooling">@ConnectionKey and Connection Pooling</a></li> 
-      <li><a href="#disconnect-method">@Disconnect Method</a></li> 
-      <li><a href="#validateconnection-method">@ValidateConnection Method</a></li> 
-      <li><a href="#connectionidentifier-method">@ConnectionIdentifier Method</a></li> 
-      <li><a href="#reconnecton-annotation">@ReconnectOn Annotation</a></li> 
-     </ul> </li> 
-   </ul> 
-  </div> 
   <div class="paragraph"> 
    <p>The Connection Management framework provides multi-tenancy capabilities for a connector (managing multiple simultaneous connections with different credentials for each connector within your application), as well as connection pooling and instance pooling. These benefits are available for most authentication schemes other than OAuth, and for APIs that do not require authentication. Basic Authentication is designated in a connector with the&nbsp;<code>@ConnectionManagement</code> attribute.</p> 
   </div> 
