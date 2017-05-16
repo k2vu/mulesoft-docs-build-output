@@ -15,7 +15,7 @@
   <script src="/js/scripts.js?t=1491597550"></script>
 
   <link rel="canonical" href="https://docs.mulesoft.com/mule-user-guide/v/3.8/salesforce-marketing-cloud-connector" />
-  <meta name="description" content="Release Notes: Salesforce Marketing Cloud Connector Release Notes Demos and Technical Reference: See Anypoint Exchange The Anypoint™ Conn..." />
+  <meta name="description" content="Release Notes: Salesforce Marketing Cloud Connector Release Notes Demos and Technical Reference: See Anypoint Exchange The Anypoint Conne..." />
   <meta class="swiftype" name="title" data-type="string" content="Salesforce Marketing Cloud Connector" />
   <meta class="swiftype" name="version" data-type="enum" content="3.8" />
 </head>
@@ -1042,84 +1042,81 @@
   <div class="paragraph"> 
    <p><strong>Demos and Technical Reference</strong>:&nbsp;See <a href="https://www.mulesoft.com/exchange#!/?filters=Salesforce&amp;sortBy=rank">Anypoint Exchange</a></p> 
   </div> 
- </div> 
-</div> 
-<div class="sect1"> 
- <h2 id="introduction"><a class="anchor" href="#introduction"></a>Introduction</h2> 
- <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>The Anypoint™ Connector for Salesforce Marketing Cloud lets you connect to the ExactTarget web services (a.k.a Salesforce Marketing Cloud). The connector exposes convenient methods for exploiting the capabilities of Salesforce Marketing Cloud.</p> 
+   <p>The Anypoint Connector for Salesforce Marketing Cloud lets you connect to the ExactTarget web services (a.k.a Salesforce Marketing Cloud). The connector exposes convenient methods for exploiting the capabilities of Salesforce Marketing Cloud.</p> 
   </div> 
   <div class="paragraph"> 
-   <p>Read through this User Guide to understand how to set up and configure a basic flow using the connector. Read through the <a href="http://mulesoft.github.io/salesforce-marketing-cloud-connector/">Technical Reference</a> to understand how the connector operations interact with Salesforce. You will also find <strong>demo applications</strong> here that illustrate how to use the connector operations. <a href="/release-notes/salesforce-marketing-cloud-connector-Release+Notes">Release Notes</a> are a good way to track feature additions, compatibility limitations and API version updates with each release of the connector version.</p> 
+   <p>Read this document to understand how to set up and configure a basic flow using the connector. Read through the <a href="http://mulesoft.github.io/salesforce-marketing-cloud-connector/">Technical Reference</a> to understand how the connector operations interact with Salesforce. You also find demo applications that illustrate how to use the connector operations. <a href="/release-notes/salesforce-marketing-cloud-connector-Release+Notes">Release Notes</a> are a good way to track feature additions, compatibility limitations and API version updates with each release of the connector version.</p> 
   </div> 
   <div class="paragraph"> 
    <p>MuleSoft maintains this connector under the <a href="/mule-user-guide/v/3.8/anypoint-connectors#connector-categories"><em>Select</em></a> support policy.</p> 
   </div> 
-  <div class="sect2"> 
-   <h3 id="prerequisites"><a class="anchor" href="#prerequisites"></a>Prerequisites</h3> 
-   <div class="paragraph"> 
-    <p>This document assumes that you are familiar with Mule, the&nbsp;<a href="/anypoint-studio/v/6/">Anypoint&nbsp;Studio interface</a>,&nbsp;<a href="/mule-user-guide/v/3.8/global-elements">Global Elements</a>, <a href="/anypoint-studio/v/6/datasense">DataSense</a>, and <a href="/mule-user-guide/v/3.8/batch-processing">batch processing</a> in Mule. Further, it assumes you are familiar with Salesforce Marketing Cloud.</p> 
-   </div> 
+ </div> 
+</div> 
+<div class="sect2"> 
+ <h3 id="prerequisites"><a class="anchor" href="#prerequisites"></a>Prerequisites</h3> 
+ <div class="paragraph"> 
+  <p>This document assumes that you are familiar with Mule, the&nbsp;<a href="/anypoint-studio/v/6/">Anypoint&nbsp;Studio interface</a>,&nbsp;<a href="/mule-user-guide/v/3.8/global-elements">Global Elements</a>, <a href="/anypoint-studio/v/6/datasense">DataSense</a>, and <a href="/mule-user-guide/v/3.8/batch-processing">batch processing</a> in Mule. Further, it assumes you are familiar with Salesforce Marketing Cloud.</p> 
+ </div> 
+</div> 
+<div class="sect2"> 
+ <h3 id="requirements"><a class="anchor" href="#requirements"></a>Requirements</h3> 
+ <div class="paragraph"> 
+  <p>To use the Salesforce Marketing Cloud connector, you need:</p> 
+ </div> 
+ <div class="ulist"> 
+  <ul> 
+   <li> <p><strong>Maven dependencies</strong> - If you don’t use <a href="https://www.mulesoft.com/lp/dl/mule-esb-enterprise">Anypoint&nbsp;Studio</a> for development, follow the instructions to install <a href="#dependencies">Salesforce Marketing Cloud Maven dependencies</a> from your&nbsp;<code>pom.xml</code> file.</p> </li> 
+   <li> <p><strong>Salesforce&nbsp;Marketing Cloud developer account</strong> - Sign up for one at&nbsp;<a href="http://www.exacttarget.com/">Salesforce Marketing Cloud</a>.</p> </li> 
+  </ul> 
+ </div> 
+ <div class="paragraph"> 
+  <p>To use a Salesforce Marketing Cloud connector in your Mule application, be sure to include the namespace and schema location.</p> 
+ </div> 
+</div> 
+<div class="sect2"> 
+ <h3 id="compatibility"><a class="anchor" href="#compatibility"></a>Compatibility</h3> 
+ <table class="tableblock frame-all grid-all spread"> 
+  <colgroup> 
+   <col style="width: 50%;"> 
+   <col style="width: 50%;"> 
+  </colgroup> 
+  <thead> 
+   <tr> 
+    <th class="tableblock halign-left valign-top">Application/Service</th> 
+    <th class="tableblock halign-left valign-top">Version</th> 
+   </tr> 
+  </thead> 
+  <tbody> 
+   <tr> 
+    <td class="tableblock halign-left valign-top"><p class="tableblock">Mule Runtime</p></td> 
+    <td class="tableblock halign-left valign-top"><p class="tableblock">3.5.2 and higher</p></td> 
+   </tr> 
+   <tr> 
+    <td class="tableblock halign-left valign-top"><p class="tableblock">Exact Target API</p></td> 
+    <td class="tableblock halign-left valign-top"><p class="tableblock">v145.3</p></td> 
+   </tr> 
+  </tbody> 
+ </table> 
+</div> 
+<div class="sect2"> 
+ <h3 id="dependencies"><a class="anchor" href="#dependencies"></a>Dependencies</h3> 
+ <div class="sect3"> 
+  <h4 id="configuring-maven-dependencies"><a class="anchor" href="#configuring-maven-dependencies"></a>Configuring Maven Dependencies</h4> 
+  <div class="paragraph"> 
+   <p>After you download and install the connector, use the following steps to make the Salesforce Marketing Cloud connector available to inside a Mule application for use and packaging.</p> 
   </div> 
-  <div class="sect2"> 
-   <h3 id="requirements"><a class="anchor" href="#requirements"></a>Requirements</h3> 
-   <div class="paragraph"> 
-    <p>To use the Salesforce Marketing Cloud connector, you need:</p> 
-   </div> 
-   <div class="ulist"> 
-    <ul> 
-     <li> <p><strong>Maven dependencies</strong> - If you don’t use <a href="https://www.mulesoft.com/lp/dl/mule-esb-enterprise">Anypoint&nbsp;Studio</a> for development, follow the instructions to install <a href="#dependencies">Salesforce Marketing Cloud Maven dependencies</a> from your&nbsp;<code>pom.xml</code> file.</p> </li> 
-     <li> <p><strong>Salesforce&nbsp;Marketing Cloud developer account</strong> - Sign up for one at&nbsp;<a href="http://www.exacttarget.com/">Salesforce Marketing Cloud</a>.</p> </li> 
-    </ul> 
-   </div> 
-   <div class="paragraph"> 
-    <p>To use a Salesforce Marketing Cloud connector in your Mule application, be sure to include the namespace and schema location.</p> 
-   </div> 
-  </div> 
-  <div class="sect2"> 
-   <h3 id="compatibility"><a class="anchor" href="#compatibility"></a>Compatibility</h3> 
-   <table class="tableblock frame-all grid-all spread"> 
-    <colgroup> 
-     <col style="width: 50%;"> 
-     <col style="width: 50%;"> 
-    </colgroup> 
-    <thead> 
-     <tr> 
-      <th class="tableblock halign-left valign-top">Application/Service</th> 
-      <th class="tableblock halign-left valign-top">Version</th> 
-     </tr> 
-    </thead> 
-    <tbody> 
-     <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">Mule Runtime</p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">3.5.2 and higher</p></td> 
-     </tr> 
-     <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">Exact Target API</p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">v145.3</p></td> 
-     </tr> 
-    </tbody> 
-   </table> 
-  </div> 
-  <div class="sect2"> 
-   <h3 id="dependencies"><a class="anchor" href="#dependencies"></a>Dependencies</h3> 
-   <div class="sect3"> 
-    <h4 id="configuring-maven-dependencies"><a class="anchor" href="#configuring-maven-dependencies"></a>Configuring Maven Dependencies</h4> 
-    <div class="paragraph"> 
-     <p>After you download and install the connector, use the following steps to make the Salesforce Marketing Cloud connector available to inside a Mule application for use and packaging.</p> 
-    </div> 
-    <div class="olist arabic"> 
-     <ol class="arabic"> 
-      <li> <p>Add the repository information to your project’s pom.xml file:</p> 
-       <div class="listingblock"> 
-        <div class="content"> 
-         <pre class="CodeRay highlight"><code data-lang="xml">
-              
-           <table class="CodeRay"> 
-            <tbody> 
-             <tr> 
-              <td class="line-numbers"><pre>1
+  <div class="olist arabic"> 
+   <ol class="arabic"> 
+    <li> <p>Add the repository information to your project’s pom.xml file:</p> 
+     <div class="listingblock"> 
+      <div class="content"> 
+       <pre class="CodeRay highlight"><code data-lang="xml">
+            
+         <table class="CodeRay"> 
+          <tbody> 
+           <tr> 
+            <td class="line-numbers"><pre>1
 2
 3
 4
@@ -1127,77 +1124,77 @@
 6
 7
 </pre></td> 
-              <td class="code"><pre><span class="tag">&lt;repositories&gt;</span>
+            <td class="code"><pre><span class="tag">&lt;repositories&gt;</span>
     <span class="tag">&lt;repository&gt;</span>
         <span class="tag">&lt;id&gt;</span>mule-ee-releases<span class="tag">&lt;/id&gt;</span>
         <span class="tag">&lt;name&gt;</span>MuleEE Releases Repository<span class="tag">&lt;/name&gt;</span>
         <span class="tag">&lt;url&gt;</span>https://repository-master.mulesoft.org/nexus/content/repositories/releases-ee/<span class="tag">&lt;/url&gt;</span>
     <span class="tag">&lt;/repository&gt;</span>
 <span class="tag">&lt;/repositories&gt;</span></pre></td> 
-             </tr> 
-            </tbody> 
-           </table></code></pre> 
-        </div> 
-       </div> </li> 
-      <li> <p>Add the module as a dependency to your project using the release version:</p> 
-       <div class="listingblock"> 
-        <div class="content"> 
-         <pre class="CodeRay highlight"><code data-lang="xml">
-              
-           <table class="CodeRay"> 
-            <tbody> 
-             <tr> 
-              <td class="line-numbers"><pre>1
+           </tr> 
+          </tbody> 
+         </table></code></pre> 
+      </div> 
+     </div> </li> 
+    <li> <p>Add the module as a dependency to your project using the release version:</p> 
+     <div class="listingblock"> 
+      <div class="content"> 
+       <pre class="CodeRay highlight"><code data-lang="xml">
+            
+         <table class="CodeRay"> 
+          <tbody> 
+           <tr> 
+            <td class="line-numbers"><pre>1
 2
 3
 4
 5
 </pre></td> 
-              <td class="code"><pre><span class="tag">&lt;dependency&gt;</span>
+            <td class="code"><pre><span class="tag">&lt;dependency&gt;</span>
     <span class="tag">&lt;groupId&gt;</span>org.mule.modules<span class="tag">&lt;/groupId&gt;</span>
         <span class="tag">&lt;artifactId&gt;</span>mule-module-sfdc-marketing-cloud-connector<span class="tag">&lt;/artifactId&gt;</span>
     <span class="tag">&lt;version&gt;</span>RELEASE<span class="tag">&lt;/version&gt;</span>
 <span class="tag">&lt;/dependency&gt;</span></pre></td> 
-             </tr> 
-            </tbody> 
-           </table></code></pre> 
-        </div> 
-       </div> 
-       <div class="paragraph"> 
-        <p>Or for the latest:</p> 
-       </div> 
-       <div class="listingblock"> 
-        <div class="content"> 
-         <pre class="CodeRay highlight"><code data-lang="xml">
-              
-           <table class="CodeRay"> 
-            <tbody> 
-             <tr> 
-              <td class="line-numbers"><pre>1
+           </tr> 
+          </tbody> 
+         </table></code></pre> 
+      </div> 
+     </div> 
+     <div class="paragraph"> 
+      <p>Or for the latest:</p> 
+     </div> 
+     <div class="listingblock"> 
+      <div class="content"> 
+       <pre class="CodeRay highlight"><code data-lang="xml">
+            
+         <table class="CodeRay"> 
+          <tbody> 
+           <tr> 
+            <td class="line-numbers"><pre>1
 2
 3
 4
 5
 </pre></td> 
-              <td class="code"><pre><span class="tag">&lt;dependency&gt;</span>
+            <td class="code"><pre><span class="tag">&lt;dependency&gt;</span>
     <span class="tag">&lt;groupId&gt;</span>org.mule.modules<span class="tag">&lt;/groupId&gt;</span>
         <span class="tag">&lt;artifactId&gt;</span>mule-module-sfdc-marketing-cloud-connector<span class="tag">&lt;/artifactId&gt;</span>
     <span class="tag">&lt;version&gt;</span>LATEST<span class="tag">&lt;/version&gt;</span>
 <span class="tag">&lt;/dependency&gt;</span></pre></td> 
-             </tr> 
-            </tbody> 
-           </table></code></pre> 
-        </div> 
-       </div> </li> 
-      <li> <p>If you plan to use this module inside a Mule application, you need to add it to the packaging process. That way the final zip file which contains your flows and Java code also contains this module and its dependencies. Add a special inclusion to the configuration of the Mule Maven plugin for this module as follows:</p> 
-       <div class="listingblock"> 
-        <div class="content"> 
-         <pre class="CodeRay highlight"><code data-lang="xml">
-              
-           <table class="CodeRay"> 
-            <tbody> 
-             <tr> 
-              <td class="line-numbers"><pre>1
+           </tr> 
+          </tbody> 
+         </table></code></pre> 
+      </div> 
+     </div> </li> 
+    <li> <p>If you plan to use this module inside a Mule application, you need to add it to the packaging process. That way the final zip file which contains your flows and Java code also contains this module and its dependencies. Add a special inclusion to the configuration of the Mule Maven plugin for this module as follows:</p> 
+     <div class="listingblock"> 
+      <div class="content"> 
+       <pre class="CodeRay highlight"><code data-lang="xml">
+            
+         <table class="CodeRay"> 
+          <tbody> 
+           <tr> 
+            <td class="line-numbers"><pre>1
 2
 3
 4
@@ -1212,7 +1209,7 @@
 13
 14
 </pre></td> 
-              <td class="code"><pre><span class="tag">&lt;plugin&gt;</span>
+            <td class="code"><pre><span class="tag">&lt;plugin&gt;</span>
     <span class="tag">&lt;groupId&gt;</span>org.mule.tools<span class="tag">&lt;/groupId&gt;</span>
     <span class="tag">&lt;artifactId&gt;</span>maven-mule-plugin<span class="tag">&lt;/artifactId&gt;</span>
     <span class="tag">&lt;extensions&gt;</span>true<span class="tag">&lt;/extensions&gt;</span>
@@ -1226,14 +1223,12 @@
         <span class="tag">&lt;/inclusions&gt;</span>
     <span class="tag">&lt;/configuration&gt;</span>
 <span class="tag">&lt;/plugin&gt;</span></pre></td> 
-             </tr> 
-            </tbody> 
-           </table></code></pre> 
-        </div> 
-       </div> </li> 
-     </ol> 
-    </div> 
-   </div> 
+           </tr> 
+          </tbody> 
+         </table></code></pre> 
+      </div> 
+     </div> </li> 
+   </ol> 
   </div> 
  </div> 
 </div> 
@@ -1843,7 +1838,7 @@
     <!-- END article-content -->
     <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
                 <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#introduction">Introduction</a></li><li><a class="scroll-menu-link" href="#installing-and-configuring">Installing and Configuring</a></li><li><a class="scroll-menu-link" href="#using-the-connector">Using the Connector</a></li><li><a class="scroll-menu-link" href="#known-issues-and-limitations">Known Issues and Limitations</a></li><li><a class="scroll-menu-link" href="#common-use-cases">Common Use Cases</a></li><li><a class="scroll-menu-link" href="#example-use-case-creating-an-object">Example Use Case - Creating an Object</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
+                <ul><li><a class="scroll-menu-link" href="#installing-and-configuring">Installing and Configuring</a></li><li><a class="scroll-menu-link" href="#using-the-connector">Using the Connector</a></li><li><a class="scroll-menu-link" href="#known-issues-and-limitations">Known Issues and Limitations</a></li><li><a class="scroll-menu-link" href="#common-use-cases">Common Use Cases</a></li><li><a class="scroll-menu-link" href="#example-use-case-creating-an-object">Example Use Case - Creating an Object</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
   </div>
 </div>
 <!-- START footer -->
