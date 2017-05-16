@@ -1062,265 +1062,208 @@
   <div class="paragraph"> 
    <p><strong>Release Notes:</strong> <a href="/release-notes/peoplesoft-connector-release-notes">PeopleSoft Connector Release Notes</a></p> 
   </div> 
-  <div id="toc" class="toc"> 
-   <div id="toctitle" class="title">
-     Contents 
-   </div> 
-   <ul class="sectlevel1"> 
-    <li><a href="#intro">Introduction</a> 
-     <ul class="sectlevel2"> 
-      <li><a href="#prerequisites">Prerequisites</a></li> 
-      <li><a href="#component-interfaces-ci">Component Interfaces (CI)</a> 
-       <ul class="sectlevel3"> 
-        <li><a href="#attributes-and-architecture">Attributes and Architecture</a></li> 
-       </ul> </li> 
-      <li><a href="#requirements">Requirements</a></li> 
-      <li><a href="#dependencies">Dependencies</a></li> 
-     </ul> </li> 
-    <li><a href="#install-and-config">Installing and Configuring</a> 
-     <ul class="sectlevel2"> 
-      <li><a href="#install">Installing</a></li> 
-      <li><a href="#config">Configuring</a> 
-       <ul class="sectlevel3"> 
-        <li><a href="#config-global">Setting up the Global Configuration</a></li> 
-       </ul> </li> 
-      <li><a href="#upgrading">Upgrading From an Older Version</a> 
-       <ul class="sectlevel3"> 
-        <li><a href="#from-1-x-x-to-2-0-0">From 1.x.x to 2.0.0</a></li> 
-       </ul> </li> 
-     </ul> </li> 
-    <li><a href="#using-the-connector">Using The Connector</a> 
-     <ul class="sectlevel2"> 
-      <li><a href="#use-cases-and-demos">Use Cases and Demos</a></li> 
-      <li><a href="#tips">Tips</a> 
-       <ul class="sectlevel3"> 
-        <li><a href="#test-the-connection">Test the Connection</a></li> 
-        <li><a href="#avoid-datasense-timeout">Avoid DataSense Timeout</a></li> 
-       </ul> </li> 
-      <li><a href="#adding-to-a-flow">Adding to a Flow</a></li> 
-     </ul> </li> 
-    <li><a href="#example-use-case">Example Use Case</a> 
-     <ul class="sectlevel2"> 
-      <li><a href="#run-time">Run Time</a></li> 
-      <li><a href="#demo">Demo</a></li> 
-      <li><a href="#see-also">See Also</a></li> 
-     </ul> </li> 
-   </ul> 
+  <div class="paragraph"> 
+   <p>The PeopleSoft Connector is a closed source connector that uses the Component Interface (CI) to communicate in real-time with the service. This is a component provided by Oracle’s People Tools.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>Read more about Oracle’s <a href="http://docs.oracle.com/cd/E41633_01/pt853pbh1/eng/pt/index.html?content=i_product">PeopleTools</a>.</p> 
   </div> 
  </div> 
 </div> 
-<div class="sect1"> 
- <h2 id="intro"><a class="anchor" href="#intro"></a>Introduction</h2> 
- <div class="sectionbody"> 
+<div class="sect2"> 
+ <h3 id="prerequisites"><a class="anchor" href="#prerequisites"></a>Prerequisites</h3> 
+ <div class="paragraph"> 
+  <p>Because of how closely the connector is coupled with PeopleSoft, this document assumes you have:</p> 
+ </div> 
+ <div class="ulist"> 
+  <ul> 
+   <li> <p>A working knowledge of PeopleSoft.</p> </li> 
+   <li> <p>Read the relevant documentation on <a href="#component-interfaces-ci">Component Interfaces</a> and Integration Scenarios for your PeopleTools version.</p> </li> 
+  </ul> 
+ </div> 
+ <div class="admonitionblock note"> 
+  <table> 
+   <tbody> 
+    <tr> 
+     <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
+     <td class="content"> The definition and detailed explanation of the PeopleSoft terms and concepts used here are freely available in the PeopleBooks documentation set of your PeopleSoft installation. </td> 
+    </tr> 
+   </tbody> 
+  </table> 
+ </div> 
+ <div class="paragraph"> 
+  <p>This document assumes you are familiar with Mule, <a href="https://developer.mulesoft.com/docs/display/current/Anypoint+Connectors">Anypoint Connectors</a>, and <a href="https://developer.mulesoft.com/docs/display/current/Anypoint+Studio+Essentials">Anypoint Studio Essentials</a>. To increase your familiarity with Studio, consider completing one or more <a href="https://developer.mulesoft.com/docs/display/current/Anypoint+Connector+Tutorial">Anypoint Studio Tutorials</a>. Further, this page assumes that you have a basic understanding of <a href="https://developer.mulesoft.com/docs/display/current/Elements+in+a+Mule+Flow">Mule flows</a> and <a href="https://developer.mulesoft.com/docs/display/current/Global+Elements">Mule Global Elements</a>.</p> 
+ </div> 
+ <div class="paragraph"> 
+  <p>To use the PeopleSoft connector, you must have the following:</p> 
+ </div> 
+ <div class="ulist"> 
+  <ul> 
+   <li> <p><strong>Anypoint Studio:</strong> if you don’t use Anypoint Studio for development, follow the instructions to install the PeopleSoft Maven dependencies into your pom.xml file .</p> </li> 
+   <li> <p><strong>Java 7:</strong> PeopleSoft connector does not work unless you are using JRE 1.7. <a href="http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase7-521261.html">Download JRE 1.7</a>.</p> </li> 
+   <li> <p><strong>Component Interface:</strong> at least one Component Interface must be created and exposed within the PeopleSoft instance using the Application Designer.</p> </li> 
+   <li> <p><strong>PeopleSoft Java Object Adapter JAR File:</strong> the <code>psjoa.jar</code> library is compiled and provided by a PeopleSoft administrator, and is unique to each installation of PeopleSoft.</p> </li> 
+  </ul> 
+ </div> 
+</div> 
+<div class="sect2"> 
+ <h3 id="component-interfaces-ci"><a class="anchor" href="#component-interfaces-ci"></a>Component Interfaces (CI)</h3> 
+ <div class="paragraph"> 
+  <p>PeopleSoft’s Component Interfaces are a “one-way”, real-time interface to your PeopleSoft database instance. A component in PeopleSoft is a logical grouping of PeopleSoft pages representing a complete business transaction, such as Employee Onboarding. Component Interfaces expose the underlying APIs used by PeopleSoft Components and, therefore, ensure that validations, defaults, and business logic are preserved from the original definition of those components.</p> 
+ </div> 
+ <div class="paragraph"> 
+  <p>The Component Interfaces allow you to query PeopleSoft for specific records, update data, and create new instances of the records.</p> 
+ </div> 
+ <div class="sect3"> 
+  <h4 id="attributes-and-architecture"><a class="anchor" href="#attributes-and-architecture"></a>Attributes and Architecture</h4> 
   <div class="paragraph"> 
-   <p>The PeopleSoft Connector is a closed source connector that uses the Component Interface (CI) to communicate in real-time with the service. This is a component provided by Oracle’s People Tools.</p> 
+   <p>A component interface has the following four main attributes:</p> 
+  </div> 
+  <div class="paragraph center text-center"> 
+   <p><span class="image"><img src="./_images/ps_ci_architecture.jpeg" alt="CI+archtecture"></span></p> 
+  </div> 
+  <div class="ulist"> 
+   <ul> 
+    <li> <p><strong>Component Interface Name</strong>: each component interface requires a unique name. The programs calling a component use the name of the component interface to access properties and methods.&nbsp;</p> </li> 
+    <li> <p><strong>Keys (Get keys, Create keys, and Find keys)</strong>: keys are special properties containing values that retrieve an instance (get keys) or a list of instances (find keys) of the component interface. You can add, remove, or change keys in PeopleSoft Application Designer. Keys are created automatically when you create a component interface.<br></p> 
+     <div class="ulist"> 
+      <ul> 
+       <li> <p><strong>Get keys:</strong> map to fields marked as search keys in the Components Search record.</p> </li> 
+       <li> <p><strong>Create keys:</strong> generated in CI when the Use tab on the Component Properties dialog allows the Add action.</p> </li> 
+       <li> <p><strong>Find keys:</strong> map to fields marked as both Alternate Search keys and Search Key in the Component Search Record.</p> </li> 
+      </ul> 
+     </div> </li> 
+    <li> <p><strong>Properties and Collections (Fields and Records):</strong> properties provide access to both component data and component interface settings. A property can correspond to a field or a scroll (collection). A component interface collection is a special type of property that corresponds to a scroll and contains fields and subordinate scrolls as defined in its underlying component. There are two types of properties:&nbsp;&nbsp;<br></p> 
+     <div class="ulist"> 
+      <ul> 
+       <li> <p><strong>Standard properties</strong> are assigned automatically when a component interface is created.&nbsp;</p> </li> 
+       <li> <p><strong>User-defined properties</strong> map to record fields on the PeopleSoft component and are displayed in the PeopleSoft Application Designer.</p> </li> 
+      </ul> 
+     </div> </li> 
+    <li> <p><strong>Methods:</strong> a method is a function that performs a specific task on a component interface at run time. There are two main types of methods: standard and user-defined.</p> 
+     <div class="ulist"> 
+      <ul> 
+       <li> <p><strong>Standard methods</strong> are those that are available for all component interfaces. The following are the standard methods that the connector supports:</p> 
+        <table class="tableblock frame-all grid-all spread"> 
+         <colgroup> 
+          <col style="width: 50%;"> 
+          <col style="width: 50%;"> 
+         </colgroup> 
+         <thead> 
+          <tr> 
+           <th class="tableblock halign-left valign-top">Method</th> 
+           <th class="tableblock halign-left valign-top">Description</th> 
+          </tr> 
+         </thead> 
+         <tbody> 
+          <tr> 
+           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Create</strong></p></td> 
+           <td class="tableblock halign-left valign-top"><p class="tableblock">Add a new instance of the Component Interface to the PeopleSoft database. This is similar to clicking Add and entering the relevant keys through the PeopleSoft Web UI.</p></td> 
+          </tr> 
+          <tr> 
+           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cancel</strong></p></td> 
+           <td class="tableblock halign-left valign-top"><p class="tableblock">Cancel an instance of the Component Interface. This is equivalent of the Cancel operation in the Web UI when working on a particular component.</p></td> 
+          </tr> 
+          <tr> 
+           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Find</strong></p></td> 
+           <td class="tableblock halign-left valign-top"><p class="tableblock">Search for any instances of the component that match the provided Search Keys. This returns a list of possible matches.</p></td> 
+          </tr> 
+          <tr> 
+           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Get</strong></p></td> 
+           <td class="tableblock halign-left valign-top"><p class="tableblock">Retrieve instances that match the specific keys you provide. This returns a single record or none at all.</p></td> 
+          </tr> 
+          <tr> 
+           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Save</strong></p></td> 
+           <td class="tableblock halign-left valign-top"> 
+            <div> 
+             <div class="paragraph"> 
+              <p>Save changes made to the component, new, or existing.</p> 
+             </div> 
+             <div class="admonitionblock warning"> 
+              <table> 
+               <tbody> 
+                <tr> 
+                 <td class="icon"> <i class="fa icon-warning" title="Warning"></i> </td> 
+                 <td class="content"> The Save operation tries to update an existing record before creating a new one. For new records, the connector automatically populates the keys with default values provided by the PeopleSoft instance, thereby reducing the need for the user to provide the default key/values pairs. </td> 
+                </tr> 
+               </tbody> 
+              </table> 
+             </div> 
+            </div></td> 
+          </tr> 
+         </tbody> 
+        </table> </li> 
+       <li> <p><strong>User-defined methods</strong> are created in PeopleSoft Application Designer to provide added functionality to the component interface.</p> </li> 
+      </ul> 
+     </div> </li> 
+   </ul> 
   </div> 
   <div class="admonitionblock note"> 
    <table> 
     <tbody> 
      <tr> 
       <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-      <td class="content"> Read more about Oracle’s <a href="http://docs.oracle.com/cd/E41633_01/pt853pbh1/eng/pt/index.html?content=i_product">PeopleTools</a>. </td> 
+      <td class="content"> Read more about Oracle’s <a href="http://docs.oracle.com/cd/E41633_01/pt853pbh1/eng/pt/tcpi/index.html">Component Interfaces</a>. </td> 
      </tr> 
     </tbody> 
    </table> 
   </div> 
-  <div class="sect2"> 
-   <h3 id="prerequisites"><a class="anchor" href="#prerequisites"></a>Prerequisites</h3> 
-   <div class="paragraph"> 
-    <p>Because of how closely the connector is coupled with PeopleSoft, this document assumes you have:</p> 
-   </div> 
-   <div class="ulist"> 
-    <ul> 
-     <li> <p>A working knowledge of PeopleSoft.</p> </li> 
-     <li> <p>Read the relevant documentation on <a href="#component-interfaces-ci">Component Interfaces</a> and Integration Scenarios for your PeopleTools version.</p> </li> 
-    </ul> 
-   </div> 
-   <div class="admonitionblock note"> 
-    <table> 
-     <tbody> 
-      <tr> 
-       <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-       <td class="content"> The definition and detailed explanation of the PeopleSoft terms and concepts used here are freely available in the PeopleBooks documentation set of your PeopleSoft installation. </td> 
-      </tr> 
-     </tbody> 
-    </table> 
-   </div> 
-   <div class="paragraph"> 
-    <p>This document assumes you are familiar with Mule, <a href="https://developer.mulesoft.com/docs/display/current/Anypoint+Connectors">Anypoint Connectors</a>, and <a href="https://developer.mulesoft.com/docs/display/current/Anypoint+Studio+Essentials">Anypoint Studio Essentials</a>. To increase your familiarity with Studio, consider completing one or more <a href="https://developer.mulesoft.com/docs/display/current/Anypoint+Connector+Tutorial">Anypoint Studio Tutorials</a>. Further, this page assumes that you have a basic understanding of <a href="https://developer.mulesoft.com/docs/display/current/Elements+in+a+Mule+Flow">Mule flows</a> and <a href="https://developer.mulesoft.com/docs/display/current/Global+Elements">Mule Global Elements</a>.</p> 
-   </div> 
-   <div class="paragraph"> 
-    <p>To use the PeopleSoft connector, you must have the following:</p> 
-   </div> 
-   <div class="ulist"> 
-    <ul> 
-     <li> <p><strong>Anypoint Studio:</strong> if you don’t use Anypoint Studio for development, follow the instructions to install the PeopleSoft Maven dependencies into your pom.xml file .</p> </li> 
-     <li> <p><strong>Java 7:</strong> PeopleSoft connector does not work unless you are using JRE 1.7. <a href="http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase7-521261.html">Download JRE 1.7</a>.</p> </li> 
-     <li> <p><strong>Component Interface:</strong> at least one Component Interface must be created and exposed within the PeopleSoft instance using the Application Designer.</p> </li> 
-     <li> <p><strong>PeopleSoft Java Object Adapter JAR File:</strong> the <code>psjoa.jar</code> library is compiled and provided by a PeopleSoft administrator, and is unique to each installation of PeopleSoft.</p> </li> 
-    </ul> 
-   </div> 
-  </div> 
-  <div class="sect2"> 
-   <h3 id="component-interfaces-ci"><a class="anchor" href="#component-interfaces-ci"></a>Component Interfaces (CI)</h3> 
-   <div class="paragraph"> 
-    <p>PeopleSoft’s Component Interfaces are a “one-way”, real-time interface to your PeopleSoft database instance. A component in PeopleSoft is a logical grouping of PeopleSoft pages representing a complete business transaction, such as Employee Onboarding. Component Interfaces expose the underlying APIs used by PeopleSoft Components and, therefore, ensure that validations, defaults, and business logic are preserved from the original definition of those components.</p> 
-   </div> 
-   <div class="paragraph"> 
-    <p>The Component Interfaces allow you to query PeopleSoft for specific records, update data, and create new instances of the records.</p> 
-   </div> 
-   <div class="sect3"> 
-    <h4 id="attributes-and-architecture"><a class="anchor" href="#attributes-and-architecture"></a>Attributes and Architecture</h4> 
-    <div class="paragraph"> 
-     <p>A component interface has the following four main attributes:</p> 
-    </div> 
-    <div class="paragraph center text-center"> 
-     <p><span class="image"><img src="./_images/ps_ci_architecture.jpeg" alt="CI+archtecture"></span></p> 
-    </div> 
-    <div class="ulist"> 
-     <ul> 
-      <li> <p><strong>Component Interface Name</strong>: each component interface requires a unique name. The programs calling a component use the name of the component interface to access properties and methods.&nbsp;</p> </li> 
-      <li> <p><strong>Keys (Get keys, Create keys, and Find keys)</strong>: keys are special properties containing values that retrieve an instance (get keys) or a list of instances (find keys) of the component interface. You can add, remove, or change keys in PeopleSoft Application Designer. Keys are created automatically when you create a component interface.<br></p> 
-       <div class="ulist"> 
-        <ul> 
-         <li> <p><strong>Get keys:</strong> map to fields marked as search keys in the Components Search record.</p> </li> 
-         <li> <p><strong>Create keys:</strong> generated in CI when the Use tab on the Component Properties dialog allows the Add action.</p> </li> 
-         <li> <p><strong>Find keys:</strong> map to fields marked as both Alternate Search keys and Search Key in the Component Search Record.</p> </li> 
-        </ul> 
-       </div> </li> 
-      <li> <p><strong>Properties and Collections (Fields and Records):</strong> properties provide access to both component data and component interface settings. A property can correspond to a field or a scroll (collection). A component interface collection is a special type of property that corresponds to a scroll and contains fields and subordinate scrolls as defined in its underlying component. There are two types of properties:&nbsp;&nbsp;<br></p> 
-       <div class="ulist"> 
-        <ul> 
-         <li> <p><strong>Standard properties</strong> are assigned automatically when a component interface is created.&nbsp;</p> </li> 
-         <li> <p><strong>User-defined properties</strong> map to record fields on the PeopleSoft component and are displayed in the PeopleSoft Application Designer.</p> </li> 
-        </ul> 
-       </div> </li> 
-      <li> <p><strong>Methods:</strong> a method is a function that performs a specific task on a component interface at run time. There are two main types of methods: standard and user-defined.</p> 
-       <div class="ulist"> 
-        <ul> 
-         <li> <p><strong>Standard methods</strong> are those that are available for all component interfaces. The following are the standard methods that the connector supports:</p> 
-          <table class="tableblock frame-all grid-all spread"> 
-           <colgroup> 
-            <col style="width: 50%;"> 
-            <col style="width: 50%;"> 
-           </colgroup> 
-           <thead> 
-            <tr> 
-             <th class="tableblock halign-left valign-top">Method</th> 
-             <th class="tableblock halign-left valign-top">Description</th> 
-            </tr> 
-           </thead> 
-           <tbody> 
-            <tr> 
-             <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Create</strong></p></td> 
-             <td class="tableblock halign-left valign-top"><p class="tableblock">Add a new instance of the Component Interface to the PeopleSoft database. This is similar to clicking Add and entering the relevant keys through the PeopleSoft Web UI.</p></td> 
-            </tr> 
-            <tr> 
-             <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cancel</strong></p></td> 
-             <td class="tableblock halign-left valign-top"><p class="tableblock">Cancel an instance of the Component Interface. This is equivalent of the Cancel operation in the Web UI when working on a particular component.</p></td> 
-            </tr> 
-            <tr> 
-             <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Find</strong></p></td> 
-             <td class="tableblock halign-left valign-top"><p class="tableblock">Search for any instances of the component that match the provided Search Keys. This returns a list of possible matches.</p></td> 
-            </tr> 
-            <tr> 
-             <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Get</strong></p></td> 
-             <td class="tableblock halign-left valign-top"><p class="tableblock">Retrieve instances that match the specific keys you provide. This returns a single record or none at all.</p></td> 
-            </tr> 
-            <tr> 
-             <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Save</strong></p></td> 
-             <td class="tableblock halign-left valign-top"> 
-              <div> 
-               <div class="paragraph"> 
-                <p>Save changes made to the component, new, or existing.</p> 
-               </div> 
-               <div class="admonitionblock warning"> 
-                <table> 
-                 <tbody> 
-                  <tr> 
-                   <td class="icon"> <i class="fa icon-warning" title="Warning"></i> </td> 
-                   <td class="content"> The Save operation tries to update an existing record before creating a new one. For new records, the connector automatically populates the keys with default values provided by the PeopleSoft instance, thereby reducing the need for the user to provide the default key/values pairs. </td> 
-                  </tr> 
-                 </tbody> 
-                </table> 
-               </div> 
-              </div></td> 
-            </tr> 
-           </tbody> 
-          </table> </li> 
-         <li> <p><strong>User-defined methods</strong> are created in PeopleSoft Application Designer to provide added functionality to the component interface.</p> </li> 
-        </ul> 
-       </div> </li> 
-     </ul> 
-    </div> 
-    <div class="admonitionblock note"> 
-     <table> 
-      <tbody> 
-       <tr> 
-        <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-        <td class="content"> Read more about Oracle’s <a href="http://docs.oracle.com/cd/E41633_01/pt853pbh1/eng/pt/tcpi/index.html">Component Interfaces</a>. </td> 
-       </tr> 
-      </tbody> 
-     </table> 
-    </div> 
-   </div> 
-  </div> 
-  <div class="sect2"> 
-   <h3 id="requirements"><a class="anchor" href="#requirements"></a>Requirements</h3> 
-   <div class="paragraph"> 
-    <p>For Hardware and software requirements, please visit <a href="https://www.mulesoft.com/lp/dl/mule-esb-enterprise">MuleSoft.com</a>.</p> 
-   </div> 
-  </div> 
-  <div class="sect2"> 
-   <h3 id="dependencies"><a class="anchor" href="#dependencies"></a>Dependencies</h3> 
-   <div class="paragraph"> 
-    <p>The PeopleSoft connector requires the following dependencies:</p> 
-   </div> 
-   <table class="tableblock frame-all grid-all"> 
-    <colgroup> 
-     <col> 
-     <col> 
-    </colgroup> 
-    <thead> 
-     <tr> 
-      <th class="tableblock halign-left valign-top">Application/Service</th> 
-      <th class="tableblock halign-left valign-top">Version</th> 
-     </tr> 
-    </thead> 
-    <tbody> 
-     <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">Mule Runtime</p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">3.6.x or higher</p></td> 
-     </tr> 
-     <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">PeopleSoft</p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">9.2</p></td> 
-     </tr> 
-     <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">PeopleTools</p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">8.53.02 or higher</p></td> 
-     </tr> 
-     <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">Java</p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">1.7.0_x</p></td> 
-     </tr> 
-     <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">Anypoint Studio</p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">5.2 or higher</p></td> 
-     </tr> 
-    </tbody> 
-   </table> 
-   <div class="admonitionblock note"> 
-    <table> 
-     <tbody> 
-      <tr> 
-       <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-       <td class="content"> PeopleSoft 9.2 includes several modules, such as: Human Capital Management (HCM), Financial Management (FM), Enterprise Services Automation (ESA), Supplier Relationship Management (SRM), Customer Relationship Management (CRM) and Campus Solution (CS). </td> 
-      </tr> 
-     </tbody> 
-    </table> 
-   </div> 
-  </div> 
+ </div> 
+</div> 
+<div class="sect2"> 
+ <h3 id="requirements"><a class="anchor" href="#requirements"></a>Requirements</h3> 
+ <div class="paragraph"> 
+  <p>For Hardware and software requirements, please visit <a href="https://www.mulesoft.com/lp/dl/mule-esb-enterprise">MuleSoft.com</a>.</p> 
+ </div> 
+</div> 
+<div class="sect2"> 
+ <h3 id="dependencies"><a class="anchor" href="#dependencies"></a>Dependencies</h3> 
+ <div class="paragraph"> 
+  <p>The PeopleSoft connector requires the following dependencies:</p> 
+ </div> 
+ <table class="tableblock frame-all grid-all"> 
+  <colgroup> 
+   <col> 
+   <col> 
+  </colgroup> 
+  <thead> 
+   <tr> 
+    <th class="tableblock halign-left valign-top">Application/Service</th> 
+    <th class="tableblock halign-left valign-top">Version</th> 
+   </tr> 
+  </thead> 
+  <tbody> 
+   <tr> 
+    <td class="tableblock halign-left valign-top"><p class="tableblock">Mule Runtime</p></td> 
+    <td class="tableblock halign-left valign-top"><p class="tableblock">3.6.x or higher</p></td> 
+   </tr> 
+   <tr> 
+    <td class="tableblock halign-left valign-top"><p class="tableblock">PeopleSoft</p></td> 
+    <td class="tableblock halign-left valign-top"><p class="tableblock">9.2</p></td> 
+   </tr> 
+   <tr> 
+    <td class="tableblock halign-left valign-top"><p class="tableblock">PeopleTools</p></td> 
+    <td class="tableblock halign-left valign-top"><p class="tableblock">8.53.02 or higher</p></td> 
+   </tr> 
+   <tr> 
+    <td class="tableblock halign-left valign-top"><p class="tableblock">Java</p></td> 
+    <td class="tableblock halign-left valign-top"><p class="tableblock">1.7.0_x</p></td> 
+   </tr> 
+   <tr> 
+    <td class="tableblock halign-left valign-top"><p class="tableblock">Anypoint Studio</p></td> 
+    <td class="tableblock halign-left valign-top"><p class="tableblock">5.2 or higher</p></td> 
+   </tr> 
+  </tbody> 
+ </table> 
+ <div class="admonitionblock note"> 
+  <table> 
+   <tbody> 
+    <tr> 
+     <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
+     <td class="content"> PeopleSoft 9.2 includes several modules, such as: Human Capital Management (HCM), Financial Management (FM), Enterprise Services Automation (ESA), Supplier Relationship Management (SRM), Customer Relationship Management (CRM) and Campus Solution (CS). </td> 
+    </tr> 
+   </tbody> 
+  </table> 
  </div> 
 </div> 
 <div class="sect1"> 
@@ -2397,7 +2340,7 @@ http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee
     <!-- END article-content -->
     <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
                 <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#intro">Introduction</a></li><li><a class="scroll-menu-link" href="#install-and-config">Installing and Configuring</a></li><li><a class="scroll-menu-link" href="#using-the-connector">Using The Connector</a></li><li><a class="scroll-menu-link" href="#example-use-case">Example Use Case</a></li></ul></div></div><!-- /scroll-menu -->
+                <ul><li><a class="scroll-menu-link" href="#install-and-config">Installing and Configuring</a></li><li><a class="scroll-menu-link" href="#using-the-connector">Using The Connector</a></li><li><a class="scroll-menu-link" href="#example-use-case">Example Use Case</a></li></ul></div></div><!-- /scroll-menu -->
   </div>
 </div>
 <!-- START footer -->

@@ -15,7 +15,7 @@
   <script src="/js/scripts.js?t=1491597550"></script>
 
   <link rel="canonical" href="https://docs.mulesoft.com/mule-user-guide/v/3.7/sap-connector-troubleshooting" />
-  <meta name="description" content="This page contains some common troubleshooting suggestions for the SAP Connector. Mule ESB stores log files (on a per application basis) in the $MU..." />
+  <meta name="description" content="This page contains some common troubleshooting suggestions for the SAP Connector. Mule stores log files (on a per application basis) in the $MULE_H..." />
   <meta class="swiftype" name="title" data-type="string" content="SAP Connector Troubleshooting" />
   <meta class="swiftype" name="version" data-type="enum" content="3.7" />
 </head>
@@ -1059,81 +1059,18 @@
   <div class="paragraph"> 
    <p>This page contains some common troubleshooting suggestions for the <a href="/mule-user-guide/v/3.7/mulesoft-enterprise-java-connector-for-sap-reference">SAP Connector</a>.</p> 
   </div> 
-  <div id="toc" class="toc"> 
-   <div id="toctitle" class="title">
-     Contents 
-   </div> 
-   <ul class="sectlevel1"> 
-    <li><a href="#checking-log-files">Checking Log Files</a></li> 
-    <li><a href="#enabling-jco-trace">Enabling JCo Trace</a></li> 
-    <li><a href="#common-errors">Common Errors</a> 
-     <ul class="sectlevel2"> 
-      <li><a href="#error-jco-missing-libs">JCo Missing Libraries</a> 
-       <ul class="sectlevel3"> 
-        <li><a href="#problem">Problem</a></li> 
-        <li><a href="#solution">Solution</a></li> 
-       </ul> </li> 
-      <li><a href="#error-jco-classloader-conflicts">JCo Classloader Conflicts</a> 
-       <ul class="sectlevel3"> 
-        <li><a href="#problem-2">Problem</a></li> 
-        <li><a href="#solution-2">Solution</a></li> 
-       </ul> </li> 
-      <li><a href="#error-jco-version-conflicts">JCo Version Conflicts</a> 
-       <ul class="sectlevel3"> 
-        <li><a href="#problem-3">Problem</a></li> 
-        <li><a href="#solution-3">Solution</a></li> 
-       </ul> </li> 
-      <li><a href="#error-jco-renaming-conflicts">JCo Renaming Conflicts</a> 
-       <ul class="sectlevel3"> 
-        <li><a href="#problem-4">Problem</a></li> 
-        <li><a href="#solution-4">Solution</a></li> 
-       </ul> </li> 
-      <li><a href="#error-transformer-needs-a-valid-endpoint">Transformer Needs a Valid Endpoint</a> 
-       <ul class="sectlevel3"> 
-        <li><a href="#problem-5">Problem</a></li> 
-        <li><a href="#solution-5">Solution</a></li> 
-       </ul> </li> 
-      <li><a href="#error-message-not-a-sap-object">Message Not a SAP Object</a> 
-       <ul class="sectlevel3"> 
-        <li><a href="#problem-6">Problem</a></li> 
-        <li><a href="#solution-6">Solution</a></li> 
-       </ul> </li> 
-      <li><a href="#error-icoc-metadata-unavailable">IDoc Metadata Unavailable</a> 
-       <ul class="sectlevel3"> 
-        <li><a href="#problem-7">Problem</a></li> 
-        <li><a href="#solution-7">Solution</a></li> 
-       </ul> </li> 
-      <li><a href="#error-cannot-join-a-transaction">Cannot Join a Transaction</a></li> 
-      <li><a href="#error-missing-tid-handler">Missing TID Handler</a> 
-       <ul class="sectlevel3"> 
-        <li><a href="#problem-8">Problem</a></li> 
-        <li><a href="#solution-8">Solution</a></li> 
-       </ul> </li> 
-      <li><a href="#error-parameter-not-supported">Parameter Not Supported</a> 
-       <ul class="sectlevel3"> 
-        <li><a href="#problem-9">Problem</a></li> 
-        <li><a href="#solution-9">Solution</a></li> 
-        <li><a href="#error-multiple-jco-servers">Multiple JCo Servers Running</a></li> 
-        <li><a href="#problem-10">Problem</a></li> 
-        <li><a href="#solution-10">Solution</a></li> 
-       </ul> </li> 
-     </ul> </li> 
-    <li><a href="#see-also">See Also</a></li> 
-   </ul> 
-  </div> 
-  <hr> 
  </div> 
 </div> 
 <div class="sect1"> 
  <h2 id="checking-log-files"><a class="anchor" href="#checking-log-files"></a>Checking Log Files</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>Mule ESB stores log files (on a per application basis) in the <code>$MULE_HOME\logs</code> directory:</p> 
+   <p>Mule stores log files (on a per application basis) in the <code>$MULE_HOME\logs</code> directory:</p> 
   </div> 
   <div class="ulist"> 
    <ul> 
-    <li> <p><code>mule.log</code> - default Mule ESB log file.</p> </li> 
-    <li> <p><code>mule-app-YOUR_APP_NAME.log</code> - per application log file.</p> </li> 
+    <li> <p><code>mule.log</code> - Default Mule log file.</p> </li> 
+    <li> <p><code>mule-app-YOUR_APP_NAME.log</code> - Per application log file.</p> </li> 
    </ul> 
   </div> 
  </div> 
@@ -1142,7 +1079,7 @@
  <h2 id="enabling-jco-trace"><a class="anchor" href="#enabling-jco-trace"></a>Enabling JCo Trace</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>JCo Trace can be enabled from outside Mule ESB and accepts the following Java startup environment properties:</p> 
+   <p>JCo Trace can be enabled from outside Mule and accepts the following Java startup environment properties:</p> 
   </div> 
   <div class="ulist"> 
    <ul> 
@@ -1156,7 +1093,7 @@
   <div class="olist arabic"> 
    <ol class="arabic"> 
     <li> <p>Set the attribute <code>jcoTrace</code> to <code>true</code> or provide the extended JCo property <code>jco.client.trace</code> or <code>jco.server.trace</code> with value <code>1</code>.</p> </li> 
-    <li> <p>Provide a value for <code>-Djco.trace_level=N</code> at Mule ESB startup. <strong>JCo offers trace levels from 0 to 10</strong>. The amount of traced data increases with the chosen trace level. Each trace level also contains all the trace data from the lower trace levels. For details about the traced data please see the table below. If you are using a high JCo trace level with lots of JCo calls and transferred content, please make sure that enough disk space is available. <strong>Default value is 0</strong>.</p> 
+    <li> <p>Provide a value for <code>-Djco.trace_level=N</code> at Mule startup. <strong>JCo offers trace levels from 0 to 10</strong>. The amount of traced data increases with the chosen trace level. Each trace level also contains all the trace data from the lower trace levels. For details about the traced data please see the table below. If you are using a high JCo trace level with lots of JCo calls and transferred content, please make sure that enough disk space is available. <strong>Default value is 0</strong>.</p> 
      <table class="tableblock frame-all grid-all"> 
       <colgroup> 
        <col> 

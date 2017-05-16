@@ -15,7 +15,7 @@
   <script src="/js/scripts.js?t=1491597550"></script>
 
   <link rel="canonical" href="https://docs.mulesoft.com/mule-user-guide/v/3.7/salesforce-connector" />
-  <meta name="description" content="The Anypoint™ Connector for Salesforce lets you connect to the Salesforce platform. The connector exposes convenient methods for exploiting the cap..." />
+  <meta name="description" content="The Anypoint Connector for Salesforce lets you connect to the Salesforce platform. The connector exposes convenient methods for exploiting the capa..." />
   <meta class="swiftype" name="title" data-type="string" content="Salesforce Connector" />
   <meta class="swiftype" name="version" data-type="enum" content="3.7" />
 </head>
@@ -1056,60 +1056,14 @@
       <h1>Salesforce Connector</h1>
       <div id="preamble"> 
  <div class="sectionbody"> 
-  <div id="toc" class="toc"> 
-   <div id="toctitle" class="title">
-     Table of Contents 
-   </div> 
-   <ul class="sectlevel1"> 
-    <li><a href="#introduction">Introduction</a></li> 
-    <li><a href="#prerequisites">Prerequisites</a> 
-     <ul class="sectlevel2"> 
-      <li><a href="#requirements">Requirements</a></li> 
-      <li><a href="#namespace">Namespace</a></li> 
-      <li><a href="#schema-location">Schema Location</a></li> 
-     </ul> </li> 
-    <li><a href="#compatibility">Compatibility</a></li> 
-    <li><a href="#installing-and-configuring">Installing and Configuring</a> 
-     <ul class="sectlevel2"> 
-      <li><a href="#configuring-maven-dependencies">Configuring Maven Dependencies</a></li> 
-      <li><a href="#creating-a-new-project">Creating a New Project</a></li> 
-      <li><a href="#configuring-the-salesforce-global-element">Configuring the Salesforce Global Element</a></li> 
-      <li><a href="#salesforce-connector-authentication">Salesforce Connector Authentication</a></li> 
-      <li><a href="#updating-from-an-older-version">Updating From an Older Version</a></li> 
-     </ul> </li> 
-    <li><a href="#understanding-the-salesforce-connector">Understanding the Salesforce Connector</a> 
-     <ul class="sectlevel2"> 
-      <li><a href="#salesforce-connector-functionality">Salesforce Connector Functionality</a></li> 
-     </ul> </li> 
-    <li><a href="#using-the-salesforce-connector">Using the Salesforce Connector</a> 
-     <ul class="sectlevel2"> 
-      <li><a href="#outbound-scenario">Outbound Scenario</a></li> 
-      <li><a href="#inbound-scenario">Inbound Scenario</a></li> 
-      <li><a href="#use-cases">Use Cases</a></li> 
-      <li><a href="#best-practices-for-using-a-salesforce-connector-in-studio">Best Practices for Using a Salesforce Connector in Studio</a></li> 
-      <li><a href="#tips">Tips</a></li> 
-      <li><a href="#adding-a-salesforce-connector-to-a-flow">Adding a Salesforce Connector to a Flow</a></li> 
-     </ul> </li> 
-    <li><a href="#example-use-case">Example Use Case</a> 
-     <ul class="sectlevel2"> 
-      <li><a href="#example-use-case-code">Example Use Case Code</a></li> 
-     </ul> </li> 
-    <li><a href="#see-also">See Also</a></li> 
-   </ul> 
-  </div> 
- </div> 
-</div> 
-<div class="sect1"> 
- <h2 id="introduction"><a class="anchor" href="#introduction"></a>Introduction</h2> 
- <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>The Anypoint™ Connector for Salesforce lets you connect to the Salesforce platform. The connector exposes convenient methods for exploiting the capabilities of Salesforce, including working with Apex classes.</p> 
+   <p>The Anypoint Connector for Salesforce lets you connect to the Salesforce platform. The connector exposes convenient methods for exploiting the capabilities of Salesforce, including working with Apex classes.</p> 
   </div> 
   <div class="paragraph"> 
    <p>The connector executes API calls targeting Salesforce’s SOAP API, REST API, Bulk API, or Streaming API, depending on the operation you configure. The API calls use an XML request/response over an HTTPS connection. All required request headers, error handling, and HTTPS connection configurations are abstracted from the user and built into the connector.</p> 
   </div> 
   <div class="paragraph"> 
-   <p>Read through this user guide to understand how to set up and configure a basic flow using the connector. Track feature additions, compatibility, limitations and API version updates using the <a href="/release-notes/salesforce-connector-release-notes">Salesforce Connector Release Notes</a>. Review the connector operations and see how they work be reviewing the <a href="http://mulesoft.github.io/salesforce-connector/">Technical Reference</a> alongside the <a href="https://www.mulesoft.com/exchange#!/?filters=Salesforce&amp;sortBy=rank">Demo Applications</a>.</p> 
+   <p>Read this user guide to understand how to set up and configure a basic flow using the connector. Track feature additions, compatibility, limitations and API version updates using the <a href="/release-notes/salesforce-connector-release-notes">Salesforce Connector Release Notes</a>. Review the connector operations and see how they work be reviewing the <a href="http://mulesoft.github.io/salesforce-connector/">Technical Reference</a> alongside the <a href="https://www.mulesoft.com/exchange#!/?filters=Salesforce&amp;sortBy=rank">Demo Applications</a>.</p> 
   </div> 
   <div class="paragraph"> 
    <p>MuleSoft maintains this connector under the <a href="/mule-user-guide/v/3.7/anypoint-connectors#connector-categories"><em>Select</em></a> support policy.</p> 
@@ -2667,7 +2621,7 @@ payload<span class="inline-delimiter">]]&gt;</span><span class="tag">&lt;/dw:set
     <!-- END article-content -->
     <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
                 <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#introduction">Introduction</a></li><li><a class="scroll-menu-link" href="#prerequisites">Prerequisites</a></li><li><a class="scroll-menu-link" href="#compatibility">Compatibility</a></li><li><a class="scroll-menu-link" href="#installing-and-configuring">Installing and Configuring</a></li><li><a class="scroll-menu-link" href="#understanding-the-salesforce-connector">Understanding the Salesforce Connector</a></li><li><a class="scroll-menu-link" href="#using-the-salesforce-connector">Using the Salesforce Connector</a></li><li><a class="scroll-menu-link" href="#example-use-case">Example Use Case</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
+                <ul><li><a class="scroll-menu-link" href="#prerequisites">Prerequisites</a></li><li><a class="scroll-menu-link" href="#compatibility">Compatibility</a></li><li><a class="scroll-menu-link" href="#installing-and-configuring">Installing and Configuring</a></li><li><a class="scroll-menu-link" href="#understanding-the-salesforce-connector">Understanding the Salesforce Connector</a></li><li><a class="scroll-menu-link" href="#using-the-salesforce-connector">Using the Salesforce Connector</a></li><li><a class="scroll-menu-link" href="#example-use-case">Example Use Case</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
   </div>
 </div>
 <!-- START footer -->

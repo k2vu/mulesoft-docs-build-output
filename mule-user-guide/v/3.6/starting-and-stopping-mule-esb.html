@@ -1032,39 +1032,6 @@
       <h1>Starting and Stopping Mule</h1>
       <div id="preamble"> 
  <div class="sectionbody"> 
-  <div id="toc" class="toc"> 
-   <div id="toctitle" class="title">
-     Contents 
-   </div> 
-   <ul class="sectlevel1"> 
-    <li><a href="#startup-and-shutdown-script">Startup and Shutdown Script</a></li> 
-    <li><a href="#starting-and-stopping-mule-via-the-command-line">Starting and Stopping Mule Via the Command Line</a> 
-     <ul class="sectlevel2"> 
-      <li><a href="#starting-in-the-background">Starting In the Background</a></li> 
-      <li><a href="#starting-in-the-foreground">Starting In the Foreground</a></li> 
-     </ul> </li> 
-    <li><a href="#passing-arguments-to-mule-at-startup">Passing Arguments to Mule At Startup</a> 
-     <ul class="sectlevel2"> 
-      <li><a href="#configuration-files">Configuration Files</a></li> 
-      <li><a href="#passing-parameters-to-the-jvm-via-the-startup-command">Passing Parameters to the JVM via the Startup Command</a></li> 
-      <li><a href="#passing-parameters-to-the-jvm-via-the-wrapper-config-file">Passing Parameters&nbsp;to the JVM&nbsp;via the Wrapper Config File</a> 
-       <ul class="sectlevel3"> 
-        <li><a href="#set-mule-standalone-server-memory">Set Mule Standalone Server Memory</a></li> 
-        <li><a href="#set-mule-encoding">Set Mule Encoding</a></li> 
-        <li><a href="#passing-additional-arguments-to-the-wrapper">Passing Additional Arguments to the Wrapper</a></li> 
-       </ul> </li> 
-     </ul> </li> 
-    <li><a href="#running-mule-as-a-unix-daemon">Running Mule As a Unix Daemon</a></li> 
-    <li><a href="#running-mule-as-a-windows-service">Running Mule As a Windows Service</a></li> 
-    <li><a href="#common-parameters">Common Parameters</a></li> 
-    <li><a href="#shutting-down-mule">Shutting Down Mule</a> 
-     <ul class="sectlevel2"> 
-      <li><a href="#timeout-from-wrapper-conf">Timeout From wrapper.conf</a></li> 
-      <li><a href="#shutdown-timeout-from-a-flow">Shutdown Timeout From a Flow</a></li> 
-     </ul> </li> 
-    <li><a href="#see-also">See Also</a></li> 
-   </ul> 
-  </div> 
   <div class="paragraph"> 
    <p>Mule uses the&nbsp;http://wrapper.tanukisoftware.org/[Java Service Wrapper]&nbsp;to control&nbsp;the Java Virtual Machine (JVM) from your native OS. The wrapper provides many options and features, including the ability to run Mule as a Unix daemon or install/remove Mule as a Windows Service. The wrapper can handle system signals and start parameters, and overall provides much better interaction between the JVM and the underlying OS.</p> 
   </div> 

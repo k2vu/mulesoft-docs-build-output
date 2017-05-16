@@ -15,7 +15,7 @@
   <script src="/js/scripts.js?t=1491597550"></script>
 
   <link rel="canonical" href="https://docs.mulesoft.com/mule-user-guide/v/3.7/sap-connector" />
-  <meta name="description" content="Premium The SAP connector enables the integration of data to and from SAP NetWeaver-based and external systems. Release Notes: SAP Connector Releas..." />
+  <meta name="description" content="Premium Release Notes: SAP Connector Release Notes The SAP connector enables the integration of data to and from SAP NetWeaver-based and external s..." />
   <meta class="swiftype" name="title" data-type="string" content="SAP Connector User Guide" />
   <meta class="swiftype" name="version" data-type="enum" content="3.7" />
 </head>
@@ -1060,118 +1060,16 @@
    <p><em>Premium</em></p> 
   </div> 
   <div class="paragraph"> 
-   <p>The SAP connector enables the integration of data to and from <strong>SAP NetWeaver-based</strong> and <strong>external</strong> systems.</p> 
-  </div> 
-  <div class="admonitionblock note"> 
-   <table> 
-    <tbody> 
-     <tr> 
-      <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-      <td class="content"> This connector requires a separate license. Contact <a href="mailto:sales@mulesoft.com">MuleSoft</a> to evaluate or use this connector in production. </td> 
-     </tr> 
-    </tbody> 
-   </table> 
-  </div> 
-  <div class="paragraph"> 
    <p><strong>Release Notes:</strong> <a href="/release-notes/sap-connector-release-notes">SAP Connector Release Notes</a></p> 
   </div> 
-  <div id="toc" class="toc"> 
-   <div id="toctitle" class="title">
-     Contents 
-   </div> 
-   <ul class="sectlevel1"> 
-    <li><a href="#intro">Introduction</a> 
-     <ul class="sectlevel2"> 
-      <li><a href="#jco-architecture">JCo Architecture</a></li> 
-      <li><a href="#prerequisites">Prerequisites</a></li> 
-      <li><a href="#requirements">Requirements</a></li> 
-      <li><a href="#dependencies">Dependencies</a></li> 
-      <li><a href="#compatibility-matrix">Compatibility Matrix</a></li> 
-     </ul> </li> 
-    <li><a href="#install-and-config">Installing and Configuring</a> 
-     <ul class="sectlevel2"> 
-      <li><a href="#install">Installing</a> 
-       <ul class="sectlevel3"> 
-        <li><a href="#adding-the-sap-connector-to-the-classpath">Adding the SAP Connector to the Classpath</a></li> 
-       </ul> </li> 
-      <li><a href="#config">Configuring</a> 
-       <ul class="sectlevel3"> 
-        <li><a href="#config-global">Setting up the Global Configuration</a></li> 
-        <li><a href="#config-libs">Adding the SAP Libraries</a></li> 
-        <li><a href="#config-extended-props">Extended Properties</a></li> 
-       </ul> </li> 
-      <li><a href="#upgrading">Upgrading from an Older Version</a></li> 
-     </ul> </li> 
-    <li><a href="#using-the-connector">Using the Connector</a> 
-     <ul class="sectlevel2"> 
-      <li><a href="#syntax">Syntax</a></li> 
-      <li><a href="#configurable-properties">Configurable Properties</a> 
-       <ul class="sectlevel3"> 
-        <li><a href="#connector-properties">Connector Properties</a></li> 
-        <li><a href="#inbound-endpoint-properties">Inbound Endpoint Properties</a></li> 
-        <li><a href="#outbound-endpoint-properties">Outbound Endpoint Properties</a></li> 
-        <li><a href="#idoc-versions">IDoc Versions</a></li> 
-       </ul> </li> 
-      <li><a href="#sap-transformers">SAP Transformers</a></li> 
-      <li><a href="#xml-definitions">XML Definitions</a> 
-       <ul class="sectlevel3"> 
-        <li><a href="#jco-function">JCo Function</a></li> 
-        <li><a href="#bapi-xml-structure">BAPI XML Structure</a></li> 
-        <li><a href="#xml-version-1">XML Version 1</a></li> 
-        <li><a href="#bapi-request-v1">BAPI Request (v1)</a></li> 
-        <li><a href="#bapi-response-v1">BAPI Response (v1)</a></li> 
-        <li><a href="#xml-version-2">XML Version 2</a></li> 
-        <li><a href="#bapi-request-v2">BAPI Request (v2)</a></li> 
-        <li><a href="#bapi-response-v2">BAPI Response (v2)</a></li> 
-        <li><a href="#idoc-document">IDoc Document / Document List</a></li> 
-       </ul> </li> 
-      <li><a href="#use-cases-and-demos">Use Cases and Demos</a></li> 
-     </ul> </li> 
-    <li><a href="#inbound-use-cases-and-demos">Inbound Use Cases and Demos</a> 
-     <ul class="sectlevel2"> 
-      <li><a href="#inbound-scenario-idoc">1. Inbound Scenario (IDoc)</a> 
-       <ul class="sectlevel3"> 
-        <li><a href="#run-time">Run Time</a></li> 
-       </ul> </li> 
-      <li><a href="#inbound-scenario-bapi">2. Inbound Scenario (BAPI)</a> 
-       <ul class="sectlevel3"> 
-        <li><a href="#run-time-2">Run Time</a></li> 
-       </ul> </li> 
-     </ul> </li> 
-    <li><a href="#outbound-use-cases-and-demos">Outbound Use Cases and Demos</a> 
-     <ul class="sectlevel2"> 
-      <li><a href="#outbound-scenario-idoc">3. Outbound Scenario (IDoc)</a> 
-       <ul class="sectlevel3"> 
-        <li><a href="#run-time-3">Run Time</a></li> 
-       </ul> </li> 
-      <li><a href="#outbound-scenario-bapi">4. Outbound Scenario (BAPI)</a> 
-       <ul class="sectlevel3"> 
-        <li><a href="#run-time-4">Run Time</a></li> 
-       </ul> </li> 
-     </ul> </li> 
-    <li><a href="#best-practices">Best Practices</a> 
-     <ul class="sectlevel2"> 
-      <li><a href="#keep-this-order">Keep this Order</a></li> 
-      <li><a href="#use-datasense">Use DataSense</a></li> 
-      <li><a href="#share-jco-dependencies-between-several-applications">Share JCo Dependencies Between Several Applications</a></li> 
-     </ul> </li> 
-    <li><a href="#tips">Tips</a> 
-     <ul class="sectlevel2"> 
-      <li><a href="#finding-the-sap-object">Finding the SAP object</a></li> 
-     </ul> </li> 
-    <li><a href="#example-code">Example Code</a></li> 
-    <li><a href="#demo">Demo</a></li> 
-    <li><a href="#see-also">See Also</a></li> 
-   </ul> 
-  </div> 
-  <hr> 
- </div> 
-</div> 
-<div class="sect1"> 
- <h2 id="intro"><a class="anchor" href="#intro"></a>Introduction</h2> 
- <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>Mule ESB supports SAP integration through our Anypoint Connector for SAP, which is an <strong>SAP-certified Java connector</strong> that leverages the SAP Java Connector (JCo) libraries, thus enabling Mule applications to:</p> 
+   <p>The SAP connector enables the integration of data to and from <strong>SAP NetWeaver-based</strong> and <strong>external</strong> systems.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>This connector requires a separate license. Contact <a href="mailto:sales@mulesoft.com">MuleSoft</a> to evaluate or use this connector in production.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>Mule supports SAP integration through our Anypoint Connector for SAP, which is an <strong>SAP-certified Java connector</strong> that leverages the SAP Java Connector (JCo) libraries, thus enabling Mule applications to:</p> 
   </div> 
   <div class="olist arabic"> 
    <ol class="arabic"> 
@@ -1189,248 +1087,248 @@
     <li> <p><strong>Transform</strong> SAP objects (JCo Function/BAPI &amp; IDocs) to and from XML.</p> </li> 
    </ol> 
   </div> 
-  <div class="sect2"> 
-   <h3 id="jco-architecture"><a class="anchor" href="#jco-architecture"></a>JCo Architecture</h3> 
-   <div class="paragraph"> 
-    <p><strong>SAP JCo</strong> enables the communication between a SAP backend system and a Java application. It allows Java programs to connect to SAP systems and invoke Remote Function Modules. It also allows parsing of IDocs (SAP Intermediate Documents) among other things. Both types of the communication (inbound and outbound) are supported.</p> 
-   </div> 
-   <div class="ulist"> 
-    <ul> 
-     <li> <p><strong>Java API:</strong> handles dynamic metadata lookup and caching. It implements <code>JCO.Function</code>, which is the container for parameters and/or tables for the SAP Function Module (BAPI) in Java. Java apps are built on top of the Java API.</p> </li> 
-     <li> <p><strong>JNI (Java Native Interface):</strong> originally, SAP created libraries in C language to allow direct RFC calls to SAP, to manipulate with data. JCo wraps C libraries in Java to provide platform-native access into the SAP system. RFC Middleware uses RFC Library through (JNI) Layer.</p> </li> 
-     <li> <p><strong>RFC (Remote Function Call):</strong> communication with the SAP system is performed over the RFC protocol. RFC means calling BAPI or triggering IDoc processing that runs in another system as calling program. The RFC interface enables function calls between two SAP systems or between the SAP and external system.</p> </li> 
-     <li> <p><strong>RFC Library:</strong> libraries of C language-based functions to access the SAP system. RFC library is addressed by JNI.</p> </li> 
-     <li> <p><strong>RFC Layer:</strong> SAP component that processes RFC calls.</p> </li> 
-     <li> <p><strong>SAP Java IDoc Class Library:</strong> provides structured, high-level interpretation and navigation of SAP IDocs in Java. It consists of the following add-on packages:</p> 
-      <div class="ulist"> 
-       <ul> 
-        <li> <p><strong>SAP Java Base IDoc Class Library:</strong> a middleware-independent library that provides a set of general base classes and interfaces for middleware dependent Java IDoc Class Library implementations.</p> </li> 
-        <li> <p><strong>SAP Java Connector IDoc Class Library:</strong> a middleware-independent library for creating, sending, and receiving IDocs.</p> </li> 
-       </ul> 
-      </div> </li> 
-     <li> <p><strong>FM (Function Module):</strong> Function modules are procedures that are defined in the ABAP language of SAP. It allows the encapsulation and reuse of global functions in the SAP System.</p> </li> 
-     <li> <p><strong>BAPI (Business Application Programming Interface):</strong> is the Function Module that fulfills certain design criteria, such as:</p> 
-      <div class="ulist"> 
-       <ul> 
-        <li> <p>Implements a method of a SAP Business Object.</p> </li> 
-        <li> <p>Maintains a static interface through different versions of the SAP system.</p> </li> 
-        <li> <p>Is remote-enabled.</p> </li> 
-        <li> <p>Runs to completion with or without user interaction.</p> </li> 
-        <li> <p>Handles errors.</p> </li> 
-       </ul> 
-      </div> </li> 
-     <li> <p><strong>IDoc (Intermediate Document):</strong> standard SAP format for electronic data interchange between SAP systems. Different messages types (such as delivery notes or purchase orders) generally correspond to different special formats, known as IDoc types. Multiple message types with related content can, however, be assigned to a single IDoc type.</p> </li> 
-     <li> <p><strong>ALE (Application Link Enabling):</strong> technology for setting up and operating distributed applications. ALE facilitates distributed, yet integrated, installation of SAP systems. This involves business-driven message exchange using consistent data across loosely linked SAP applications. Applications are integrated through synchronous and asynchronous communication, rather than by use of a central database.</p> </li> 
-     <li> <p><strong>SAP NetWeaver:</strong> one of the main technologies and application platforms used by SAP solutions. Its main component is the <strong>SAP Web Application Server (WebAS)</strong>, which provides the runtime environment for SAP applications like ERP, CRM, SCM, PLM, SRM, BI. Other components include enterprise portal, exchange infrastructure, master data management and mobile infrastructure. The SAP NetWeaver is an umbrella term for these technical components.</p> 
-      <div class="admonitionblock note"> 
-       <table> 
-        <tbody> 
-         <tr> 
-          <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-          <td class="content"> SAP NetWeaver runs on both Java and ABAP stacks. </td> 
-         </tr> 
-        </tbody> 
-       </table> 
-      </div> </li> 
-     <li> <p><strong>ABAP (Advanced Business Application Programming):</strong> this is SAP’s proprietary programming language and part of the NetWeaver platform for building business applications.</p> </li> 
-    </ul> 
-   </div> 
-  </div> 
-  <div class="sect2"> 
-   <h3 id="prerequisites"><a class="anchor" href="#prerequisites"></a>Prerequisites</h3> 
-   <div class="paragraph"> 
-    <p>This document assumes you have:</p> 
-   </div> 
-   <div class="ulist"> 
-    <ul> 
-     <li> <p>A working knowledge of the <strong>SAP business context</strong> and in particular, the <strong>SAP R/3 Business Suite</strong>.</p> </li> 
-     <li> <p>A basic understanding of the <strong>SAP NetWeaver Platform</strong> from an administration point of view.</p> </li> 
-    </ul> 
-   </div> 
-   <div class="paragraph"> 
-    <p>It is also recommended to have some fundamental knowledge of the <strong>ABAP</strong> language.</p> 
-   </div> 
-  </div> 
-  <div class="sect2"> 
-   <h3 id="requirements"><a class="anchor" href="#requirements"></a>Requirements</h3> 
-   <div class="paragraph"> 
-    <p>This connector requires the following SAP libraries:</p> 
-   </div> 
-   <div class="olist arabic"> 
-    <ol class="arabic"> 
-     <li> <p>Java Connector (JCo) library</p> </li> 
-     <li> <p>IDoc library</p> </li> 
-    </ol> 
-   </div> 
-   <div class="admonitionblock note"> 
-    <table> 
-     <tbody> 
-      <tr> 
-       <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-       <td class="content"> The <strong>JCo library depends on your hardware platform and operating system</strong>. Therefore, you need to download the proper version for the local drive running Anypoint Studio. </td> 
-      </tr> 
-     </tbody> 
-    </table> 
-   </div> 
-   <div class="paragraph"> 
-    <p>Three files are required for both libraries:</p> 
-   </div> 
-   <div class="ulist"> 
-    <ul> 
-     <li> <p><strong>Two</strong> multi-platform Java libraries:</p> 
-      <div class="ulist"> 
-       <ul> 
-        <li> <p><code>sapjco3.jar</code></p> </li> 
-        <li> <p><code>sapidoc3.jar</code></p> </li> 
-       </ul> 
-      </div> </li> 
-     <li> <p><strong>One</strong> of the JCo platform-specific native libraries:</p> 
-      <div class="ulist"> 
-       <ul> 
-        <li> <p><code>sapjco3.dll</code> (Windows)</p> </li> 
-        <li> <p><code>libsapjco3.jnilib</code> (Mac OS X)</p> </li> 
-        <li> <p><code>libsapjco3.so</code> (Linux)</p> </li> 
-       </ul> 
-      </div> </li> 
-    </ul> 
-   </div> 
-   <div class="admonitionblock important"> 
-    <table> 
-     <tbody> 
-      <tr> 
-       <td class="icon"> <i class="fa icon-important" title="Important"></i> </td> 
-       <td class="content"> Do <strong>NOT</strong> change the names of any of the SAP JCo library files from their original names, as they won’t be recognized by JCo. Since <strong>JCo 3.0.11</strong>, the JAR file <strong>cannot be renamed</strong> or repackage from <code>sapjco3.jar</code>. Read more about <a href="/mule-user-guide/v/3.7/sap-connector-troubleshooting">SAP Troubleshooting</a>. </td> 
-      </tr> 
-     </tbody> 
-    </table> 
-   </div> 
-   <div class="admonitionblock important"> 
-    <table> 
-     <tbody> 
-      <tr> 
-       <td class="icon"> <i class="fa icon-important" title="Important"></i> </td> 
-       <td class="content"> The <strong>SAP JCo libraries are OS-dependent</strong>. Therefore, make sure to download the SAP libraries that correspond to the OS and hardware architecture of the <strong>host server on which Mule will be running</strong>. If you <strong>deploy</strong> to a platform different from the one used for development, you <strong>must</strong> change the native library before generating the zip file. </td> 
-      </tr> 
-     </tbody> 
-    </table> 
-   </div> 
-  </div> 
-  <div class="sect2"> 
-   <h3 id="dependencies"><a class="anchor" href="#dependencies"></a>Dependencies</h3> 
-   <div class="paragraph"> 
-    <p>There are <strong>four versions of the SAP connector</strong> that have been released:</p> 
-   </div> 
-   <table class="tableblock frame-all grid-all"> 
-    <colgroup> 
-     <col> 
-     <col> 
-    </colgroup> 
-    <thead> 
-     <tr> 
-      <th class="tableblock halign-left valign-top">SAP Connector Version</th> 
-      <th class="tableblock halign-left valign-top">Compatible Mule Version</th> 
-     </tr> 
-    </thead> 
-    <tbody> 
-     <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.x</code></p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>3.0 / 3.1 / 3.2</code></p></td> 
-     </tr> 
-     <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.0.x</code></p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>3.3 / 3.4</code></p></td> 
-     </tr> 
-     <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.1.x</code></p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>3.3 / 3.4</code></p></td> 
-     </tr> 
-     <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.2.x</code></p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>3.5 / 3.6 / 3.7</code></p></td> 
-     </tr> 
-    </tbody> 
-   </table> 
-   <div class="admonitionblock note"> 
-    <table> 
-     <tbody> 
-      <tr> 
-       <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-       <td class="content"> <strong>Stateful transactions</strong>, involving multiple outbound endpoints, only work from <strong>Mule 3.3 and up</strong>, by setting the <strong>transactional scope</strong>. Read more about <a href="/mule-user-guide/v/3.7/sap-connector-advanced-features#transactions">SAP Transactions</a>. </td> 
-      </tr> 
-     </tbody> 
-    </table> 
-   </div> 
-   <div class="paragraph"> 
-    <p>Every SAP customer/partner has access to the <strong>SAP Service Market Place (SMP)</strong>. Here, you can download both these files as well as the NetWeaver RFC Library and other connectors.</p> 
-   </div> 
-  </div> 
-  <div class="sect2"> 
-   <h3 id="compatibility-matrix"><a class="anchor" href="#compatibility-matrix"></a>Compatibility Matrix</h3> 
-   <div class="paragraph"> 
-    <p>The SAP connector is compatible with <strong>any SAP NetWeaver-based system</strong> and supports <strong>SAP R/3</strong> systems from release <strong>3.11 and later</strong>.</p> 
-   </div> 
-   <table class="tableblock frame-all grid-all"> 
-    <colgroup> 
-     <col> 
-     <col> 
-     <col> 
-    </colgroup> 
-    <thead> 
-     <tr> 
-      <th class="tableblock halign-left valign-top">SAP Connector Version</th> 
-      <th class="tableblock halign-left valign-top">JCo Library Version</th> 
-      <th class="tableblock halign-left valign-top">IDoc Library Version</th> 
-     </tr> 
-    </thead> 
-    <tbody> 
-     <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.x</code></p></td> 
-      <td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>3.0.7 and 3.0.9</code></p></td> 
-     </tr> 
-     <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.0.x and 2.1.x</code></p></td> 
-      <td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>3.0.7 and 3.0.9</code></p></td> 
-     </tr> 
-     <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.1.2</code></p></td> 
-      <td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>3.0.7 / 3.0.9 / 3.0.10</code></p></td> 
-     </tr> 
-     <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.2.2</code></p></td> 
-      <td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>3.0.7 / 3.0.9 / 3.0.10</code></p></td> 
-     </tr> 
-     <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.2.3</code></p></td> 
-      <td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>3.0.7 / 3.0.9 / 3.0.10</code></p></td> 
-     </tr> 
-     <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.2.5</code></p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>3.0.11 / 3.0.13</code></p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Up to 3.0.11</code></p></td> 
-     </tr> 
-     <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.2.6</code></p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>3.0.11 / 3.0.13</code></p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Up to 3.0.12</code></p></td> 
-     </tr> 
-     <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.2.7</code></p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>3.0.11 / 3.0.13</code></p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Up to 3.0.12</code></p></td> 
-     </tr> 
-    </tbody> 
-   </table> 
-   <div class="admonitionblock note"> 
-    <table> 
-     <tbody> 
-      <tr> 
-       <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-       <td class="content"> With the exception of <strong>SAP 2.2.5</strong>, which is incompatible with IDoc 3.0.12, the rest of the JCo and IDoc libraries displayed in the above matrix have been tested with the connector. Note that there may be other SAP-compatible versions, which are not listed above. </td> 
-      </tr> 
-     </tbody> 
-    </table> 
-   </div> 
-  </div> 
+ </div> 
+</div> 
+<div class="sect2"> 
+ <h3 id="jco-architecture"><a class="anchor" href="#jco-architecture"></a>JCo Architecture</h3> 
+ <div class="paragraph"> 
+  <p><strong>SAP JCo</strong> enables the communication between a SAP backend system and a Java application. It allows Java programs to connect to SAP systems and invoke Remote Function Modules. It also allows parsing of IDocs (SAP Intermediate Documents) among other things. Both types of the communication (inbound and outbound) are supported.</p> 
+ </div> 
+ <div class="ulist"> 
+  <ul> 
+   <li> <p><strong>Java API:</strong> handles dynamic metadata lookup and caching. It implements <code>JCO.Function</code>, which is the container for parameters and/or tables for the SAP Function Module (BAPI) in Java. Java apps are built on top of the Java API.</p> </li> 
+   <li> <p><strong>JNI (Java Native Interface):</strong> originally, SAP created libraries in C language to allow direct RFC calls to SAP, to manipulate with data. JCo wraps C libraries in Java to provide platform-native access into the SAP system. RFC Middleware uses RFC Library through (JNI) Layer.</p> </li> 
+   <li> <p><strong>RFC (Remote Function Call):</strong> communication with the SAP system is performed over the RFC protocol. RFC means calling BAPI or triggering IDoc processing that runs in another system as calling program. The RFC interface enables function calls between two SAP systems or between the SAP and external system.</p> </li> 
+   <li> <p><strong>RFC Library:</strong> libraries of C language-based functions to access the SAP system. RFC library is addressed by JNI.</p> </li> 
+   <li> <p><strong>RFC Layer:</strong> SAP component that processes RFC calls.</p> </li> 
+   <li> <p><strong>SAP Java IDoc Class Library:</strong> provides structured, high-level interpretation and navigation of SAP IDocs in Java. It consists of the following add-on packages:</p> 
+    <div class="ulist"> 
+     <ul> 
+      <li> <p><strong>SAP Java Base IDoc Class Library:</strong> a middleware-independent library that provides a set of general base classes and interfaces for middleware dependent Java IDoc Class Library implementations.</p> </li> 
+      <li> <p><strong>SAP Java Connector IDoc Class Library:</strong> a middleware-independent library for creating, sending, and receiving IDocs.</p> </li> 
+     </ul> 
+    </div> </li> 
+   <li> <p><strong>FM (Function Module):</strong> Function modules are procedures that are defined in the ABAP language of SAP. It allows the encapsulation and reuse of global functions in the SAP System.</p> </li> 
+   <li> <p><strong>BAPI (Business Application Programming Interface):</strong> is the Function Module that fulfills certain design criteria, such as:</p> 
+    <div class="ulist"> 
+     <ul> 
+      <li> <p>Implements a method of a SAP Business Object.</p> </li> 
+      <li> <p>Maintains a static interface through different versions of the SAP system.</p> </li> 
+      <li> <p>Is remote-enabled.</p> </li> 
+      <li> <p>Runs to completion with or without user interaction.</p> </li> 
+      <li> <p>Handles errors.</p> </li> 
+     </ul> 
+    </div> </li> 
+   <li> <p><strong>IDoc (Intermediate Document):</strong> standard SAP format for electronic data interchange between SAP systems. Different messages types (such as delivery notes or purchase orders) generally correspond to different special formats, known as IDoc types. Multiple message types with related content can, however, be assigned to a single IDoc type.</p> </li> 
+   <li> <p><strong>ALE (Application Link Enabling):</strong> technology for setting up and operating distributed applications. ALE facilitates distributed, yet integrated, installation of SAP systems. This involves business-driven message exchange using consistent data across loosely linked SAP applications. Applications are integrated through synchronous and asynchronous communication, rather than by use of a central database.</p> </li> 
+   <li> <p><strong>SAP NetWeaver:</strong> one of the main technologies and application platforms used by SAP solutions. Its main component is the <strong>SAP Web Application Server (WebAS)</strong>, which provides the runtime environment for SAP applications like ERP, CRM, SCM, PLM, SRM, BI. Other components include enterprise portal, exchange infrastructure, master data management and mobile infrastructure. The SAP NetWeaver is an umbrella term for these technical components.</p> 
+    <div class="admonitionblock note"> 
+     <table> 
+      <tbody> 
+       <tr> 
+        <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
+        <td class="content"> SAP NetWeaver runs on both Java and ABAP stacks. </td> 
+       </tr> 
+      </tbody> 
+     </table> 
+    </div> </li> 
+   <li> <p><strong>ABAP (Advanced Business Application Programming):</strong> this is SAP’s proprietary programming language and part of the NetWeaver platform for building business applications.</p> </li> 
+  </ul> 
+ </div> 
+</div> 
+<div class="sect2"> 
+ <h3 id="prerequisites"><a class="anchor" href="#prerequisites"></a>Prerequisites</h3> 
+ <div class="paragraph"> 
+  <p>This document assumes you have:</p> 
+ </div> 
+ <div class="ulist"> 
+  <ul> 
+   <li> <p>A working knowledge of the <strong>SAP business context</strong> and in particular, the <strong>SAP R/3 Business Suite</strong>.</p> </li> 
+   <li> <p>A basic understanding of the <strong>SAP NetWeaver Platform</strong> from an administration point of view.</p> </li> 
+  </ul> 
+ </div> 
+ <div class="paragraph"> 
+  <p>It is also recommended to have some fundamental knowledge of the <strong>ABAP</strong> language.</p> 
+ </div> 
+</div> 
+<div class="sect2"> 
+ <h3 id="requirements"><a class="anchor" href="#requirements"></a>Requirements</h3> 
+ <div class="paragraph"> 
+  <p>This connector requires the following SAP libraries:</p> 
+ </div> 
+ <div class="olist arabic"> 
+  <ol class="arabic"> 
+   <li> <p>Java Connector (JCo) library</p> </li> 
+   <li> <p>IDoc library</p> </li> 
+  </ol> 
+ </div> 
+ <div class="admonitionblock note"> 
+  <table> 
+   <tbody> 
+    <tr> 
+     <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
+     <td class="content"> The <strong>JCo library depends on your hardware platform and operating system</strong>. Therefore, you need to download the proper version for the local drive running Anypoint Studio. </td> 
+    </tr> 
+   </tbody> 
+  </table> 
+ </div> 
+ <div class="paragraph"> 
+  <p>Three files are required for both libraries:</p> 
+ </div> 
+ <div class="ulist"> 
+  <ul> 
+   <li> <p><strong>Two</strong> multi-platform Java libraries:</p> 
+    <div class="ulist"> 
+     <ul> 
+      <li> <p><code>sapjco3.jar</code></p> </li> 
+      <li> <p><code>sapidoc3.jar</code></p> </li> 
+     </ul> 
+    </div> </li> 
+   <li> <p><strong>One</strong> of the JCo platform-specific native libraries:</p> 
+    <div class="ulist"> 
+     <ul> 
+      <li> <p><code>sapjco3.dll</code> (Windows)</p> </li> 
+      <li> <p><code>libsapjco3.jnilib</code> (Mac OS X)</p> </li> 
+      <li> <p><code>libsapjco3.so</code> (Linux)</p> </li> 
+     </ul> 
+    </div> </li> 
+  </ul> 
+ </div> 
+ <div class="admonitionblock important"> 
+  <table> 
+   <tbody> 
+    <tr> 
+     <td class="icon"> <i class="fa icon-important" title="Important"></i> </td> 
+     <td class="content"> Do <strong>NOT</strong> change the names of any of the SAP JCo library files from their original names, as they won’t be recognized by JCo. Since <strong>JCo 3.0.11</strong>, the JAR file <strong>cannot be renamed</strong> or repackage from <code>sapjco3.jar</code>. Read more about <a href="/mule-user-guide/v/3.7/sap-connector-troubleshooting">SAP Troubleshooting</a>. </td> 
+    </tr> 
+   </tbody> 
+  </table> 
+ </div> 
+ <div class="admonitionblock important"> 
+  <table> 
+   <tbody> 
+    <tr> 
+     <td class="icon"> <i class="fa icon-important" title="Important"></i> </td> 
+     <td class="content"> The <strong>SAP JCo libraries are OS-dependent</strong>. Therefore, make sure to download the SAP libraries that correspond to the OS and hardware architecture of the <strong>host server on which Mule will be running</strong>. If you <strong>deploy</strong> to a platform different from the one used for development, you <strong>must</strong> change the native library before generating the zip file. </td> 
+    </tr> 
+   </tbody> 
+  </table> 
+ </div> 
+</div> 
+<div class="sect2"> 
+ <h3 id="dependencies"><a class="anchor" href="#dependencies"></a>Dependencies</h3> 
+ <div class="paragraph"> 
+  <p>There are <strong>four versions of the SAP connector</strong> that have been released:</p> 
+ </div> 
+ <table class="tableblock frame-all grid-all"> 
+  <colgroup> 
+   <col> 
+   <col> 
+  </colgroup> 
+  <thead> 
+   <tr> 
+    <th class="tableblock halign-left valign-top">SAP Connector Version</th> 
+    <th class="tableblock halign-left valign-top">Compatible Mule Version</th> 
+   </tr> 
+  </thead> 
+  <tbody> 
+   <tr> 
+    <td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.x</code></p></td> 
+    <td class="tableblock halign-left valign-top"><p class="tableblock"><code>3.0 / 3.1 / 3.2</code></p></td> 
+   </tr> 
+   <tr> 
+    <td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.0.x</code></p></td> 
+    <td class="tableblock halign-left valign-top"><p class="tableblock"><code>3.3 / 3.4</code></p></td> 
+   </tr> 
+   <tr> 
+    <td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.1.x</code></p></td> 
+    <td class="tableblock halign-left valign-top"><p class="tableblock"><code>3.3 / 3.4</code></p></td> 
+   </tr> 
+   <tr> 
+    <td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.2.x</code></p></td> 
+    <td class="tableblock halign-left valign-top"><p class="tableblock"><code>3.5 / 3.6 / 3.7</code></p></td> 
+   </tr> 
+  </tbody> 
+ </table> 
+ <div class="admonitionblock note"> 
+  <table> 
+   <tbody> 
+    <tr> 
+     <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
+     <td class="content"> <strong>Stateful transactions</strong>, involving multiple outbound endpoints, only work from <strong>Mule 3.3 and up</strong>, by setting the <strong>transactional scope</strong>. Read more about <a href="/mule-user-guide/v/3.7/sap-connector-advanced-features#transactions">SAP Transactions</a>. </td> 
+    </tr> 
+   </tbody> 
+  </table> 
+ </div> 
+ <div class="paragraph"> 
+  <p>Every SAP customer/partner has access to the <strong>SAP Service Market Place (SMP)</strong>. Here, you can download both these files as well as the NetWeaver RFC Library and other connectors.</p> 
+ </div> 
+</div> 
+<div class="sect2"> 
+ <h3 id="compatibility-matrix"><a class="anchor" href="#compatibility-matrix"></a>Compatibility Matrix</h3> 
+ <div class="paragraph"> 
+  <p>The SAP connector is compatible with <strong>any SAP NetWeaver-based system</strong> and supports <strong>SAP R/3</strong> systems from release <strong>3.11 and later</strong>.</p> 
+ </div> 
+ <table class="tableblock frame-all grid-all"> 
+  <colgroup> 
+   <col> 
+   <col> 
+   <col> 
+  </colgroup> 
+  <thead> 
+   <tr> 
+    <th class="tableblock halign-left valign-top">SAP Connector Version</th> 
+    <th class="tableblock halign-left valign-top">JCo Library Version</th> 
+    <th class="tableblock halign-left valign-top">IDoc Library Version</th> 
+   </tr> 
+  </thead> 
+  <tbody> 
+   <tr> 
+    <td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.x</code></p></td> 
+    <td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>3.0.7 and 3.0.9</code></p></td> 
+   </tr> 
+   <tr> 
+    <td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.0.x and 2.1.x</code></p></td> 
+    <td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>3.0.7 and 3.0.9</code></p></td> 
+   </tr> 
+   <tr> 
+    <td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.1.2</code></p></td> 
+    <td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>3.0.7 / 3.0.9 / 3.0.10</code></p></td> 
+   </tr> 
+   <tr> 
+    <td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.2.2</code></p></td> 
+    <td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>3.0.7 / 3.0.9 / 3.0.10</code></p></td> 
+   </tr> 
+   <tr> 
+    <td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.2.3</code></p></td> 
+    <td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>3.0.7 / 3.0.9 / 3.0.10</code></p></td> 
+   </tr> 
+   <tr> 
+    <td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.2.5</code></p></td> 
+    <td class="tableblock halign-left valign-top"><p class="tableblock"><code>3.0.11 / 3.0.13</code></p></td> 
+    <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Up to 3.0.11</code></p></td> 
+   </tr> 
+   <tr> 
+    <td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.2.6</code></p></td> 
+    <td class="tableblock halign-left valign-top"><p class="tableblock"><code>3.0.11 / 3.0.13</code></p></td> 
+    <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Up to 3.0.12</code></p></td> 
+   </tr> 
+   <tr> 
+    <td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.2.7</code></p></td> 
+    <td class="tableblock halign-left valign-top"><p class="tableblock"><code>3.0.11 / 3.0.13</code></p></td> 
+    <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Up to 3.0.12</code></p></td> 
+   </tr> 
+  </tbody> 
+ </table> 
+ <div class="admonitionblock note"> 
+  <table> 
+   <tbody> 
+    <tr> 
+     <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
+     <td class="content"> With the exception of <strong>SAP 2.2.5</strong>, which is incompatible with IDoc 3.0.12, the rest of the JCo and IDoc libraries displayed in the above matrix have been tested with the connector. Note that there may be other SAP-compatible versions, which are not listed above. </td> 
+    </tr> 
+   </tbody> 
+  </table> 
  </div> 
 </div> 
 <div class="sect1"> 
@@ -4350,7 +4248,7 @@
     <!-- END article-content -->
     <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
                 <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#intro">Introduction</a></li><li><a class="scroll-menu-link" href="#install-and-config">Installing and Configuring</a></li><li><a class="scroll-menu-link" href="#using-the-connector">Using the Connector</a></li><li><a class="scroll-menu-link" href="#inbound-use-cases-and-demos">Inbound Use Cases and Demos</a></li><li><a class="scroll-menu-link" href="#outbound-use-cases-and-demos">Outbound Use Cases and Demos</a></li><li><a class="scroll-menu-link" href="#best-practices">Best Practices</a></li><li><a class="scroll-menu-link" href="#tips">Tips</a></li><li><a class="scroll-menu-link" href="#example-code">Example Code</a></li><li><a class="scroll-menu-link" href="#demo">Demo</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
+                <ul><li><a class="scroll-menu-link" href="#install-and-config">Installing and Configuring</a></li><li><a class="scroll-menu-link" href="#using-the-connector">Using the Connector</a></li><li><a class="scroll-menu-link" href="#inbound-use-cases-and-demos">Inbound Use Cases and Demos</a></li><li><a class="scroll-menu-link" href="#outbound-use-cases-and-demos">Outbound Use Cases and Demos</a></li><li><a class="scroll-menu-link" href="#best-practices">Best Practices</a></li><li><a class="scroll-menu-link" href="#tips">Tips</a></li><li><a class="scroll-menu-link" href="#example-code">Example Code</a></li><li><a class="scroll-menu-link" href="#demo">Demo</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
   </div>
 </div>
 <!-- START footer -->
