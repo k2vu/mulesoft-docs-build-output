@@ -15,7 +15,7 @@
   <script src="/js/scripts.js?t=1491597550"></script>
 
   <link rel="canonical" href="https://docs.mulesoft.com/mule-user-guide/v/3.7/authentication-in-http-requests" />
-  <meta name="description" content="Use the authentication that you configure in HTTP requests when your Mule app is sending requests to a service that requires authentication, such a..." />
+  <meta name="description" content="Use the authentication that you configure in HTTP requests when your Mule app is sending requests to a service that requires authentication. In thi..." />
   <meta class="swiftype" name="title" data-type="string" content="Authentication in HTTP Requests" />
   <meta class="swiftype" name="version" data-type="enum" content="3.7" />
 </head>
@@ -1057,18 +1057,18 @@
       <div id="preamble"> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>Use the authentication that you configure in HTTP requests when your Mule app is sending requests to a service that requires authentication, such as the Github OAuth2 server described in <a href="/mule-user-guide/v/3.8/authentication-in-http-requests#oauth2-authorization-code">Mule 3.8 documentation</a>. In this case, your Mule app is the client. On the other hand, when you want to protect your API or app from <em>receiving requests</em> from unauthorized access, use an API Manager policy, such as the <a href="/api-manager/external-oauth-2.0-token-validation-policy">OAuth 2.0 Access Token Enforcement Using External Provider</a> policy.</p> 
+   <p>Use the authentication that you configure in HTTP requests when your Mule app is sending requests to a service that requires authentication. In this case, your Mule app is the client. On the other hand, when you want to protect your API or app from <em>receiving requests</em> from unauthorized access, use an API Manager policy, such as the OAuth 2.0 Access Token Enforcement Using External Provider policy.</p> 
   </div> 
   <div class="paragraph"> 
    <p>The&nbsp;HTTP request connector&nbsp;supports connecting a Mule client app to a service that requires any of the following types of authentication:</p> 
   </div> 
   <div class="ulist"> 
    <ul> 
-    <li> <p><a href="#basic-authentication">Basic Authentication</a></p> </li> 
-    <li> <p><a href="#NTLM Authentication">[NTLM Authentication]</a></p> </li> 
-    <li> <p><a href="#digest-authentication">Digest Authentication</a></p> </li> 
-    <li> <p><a href="#OAuth2 - Authorization Code">[OAuth2 - Authorization Code]</a></p> </li> 
-    <li> <p><a href="#OAuth2 - Client Credentials">[OAuth2 - Client Credentials]</a></p> </li> 
+    <li> <p>Basic Authentication</p> </li> 
+    <li> <p>NTLM Authentication</p> </li> 
+    <li> <p>Digest Authentication</p> </li> 
+    <li> <p>OAuth2 - Authorization Code</p> </li> 
+    <li> <p>OAuth2 - Client Credentials</p> </li> 
    </ul> 
   </div> 
   <div class="paragraph"> 
@@ -1082,41 +1082,28 @@
 <div class="sect1"> 
  <h2 id="basic-authentication"><a class="anchor" href="#basic-authentication"></a>Basic Authentication</h2> 
  <div class="sectionbody"> 
-  <div class="panel panel-default no-padding"> 
-   <div class="panel-heading no-padding"> 
-    <!-- Nav tabs --> 
-    <ul class="nav nav-tabs" role="tablist"> 
-     <li class="active"><a href="#tab-1_1" role="tab" data-toggle="tab">Studio Visual Editor</a></li> 
-     <li><a href="#tab-1_2" role="tab" data-toggle="tab">XML Editor</a></li> 
-    </ul> 
-   </div> 
-   <div class="panel-body tab-content no-padding"> 
-    <div class="tab-pane in active fade no-padding" id="tab-1_1"> 
-     <div class="olist arabic"> 
-      <ol class="arabic"> 
-       <li> <p>Drag an HTTP Connector to your canvas, create a new Connector Configuration element for it</p> </li> 
-       <li> <p>Select the <strong>Authentication</strong> tab</p> </li> 
-       <li> <p>In the Protocol dropdown menu, pick <strong>Basic</strong></p> </li> 
-       <li> <p>Provide your <strong>Username</strong> and <strong>Password</strong> (or references to properties that contain them.</p> </li> 
-      </ol> 
-     </div> 
-     <div class="paragraph"> 
-      <p><span class="image"><img src="./_images/basic+auth.png" alt="basic+auth"></span></p> 
-     </div> 
-    </div> 
-    <div class="tab-pane fade no-padding" id="tab-1_2"> 
-     <div class="paragraph"> 
-      <p>Just add a child element to the global element, in it add the user and password attributes.</p> 
-     </div> 
-     <div class="listingblock"> 
-      <div class="content"> 
-       <pre class="CodeRay highlight"><code data-lang="xml">
-    
-            
-         <table class="CodeRay"> 
-          <tbody> 
-           <tr> 
-            <td class="line-numbers"><pre>1
+  <div class="olist arabic"> 
+   <ol class="arabic"> 
+    <li> <p>Drag an HTTP Connector to your canvas, create a new Connector Configuration element for it</p> </li> 
+    <li> <p>Select the <strong>Authentication</strong> tab</p> </li> 
+    <li> <p>In the Protocol dropdown menu, pick <strong>Basic</strong></p> </li> 
+    <li> <p>Provide your <strong>Username</strong> and <strong>Password</strong> (or references to properties that contain them.</p> </li> 
+   </ol> 
+  </div> 
+  <div class="paragraph"> 
+   <p><strong>XML Code</strong></p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>Add a child element to the global element, in it add the user and password attributes.</p> 
+  </div> 
+  <div class="listingblock"> 
+   <div class="content"> 
+    <pre class="CodeRay highlight"><code data-lang="xml">
+         
+      <table class="CodeRay"> 
+       <tbody> 
+        <tr> 
+         <td class="line-numbers"><pre>1
 2
 3
 4
@@ -1126,21 +1113,18 @@
 8
 9
 </pre></td> 
-            <td class="code"><pre><span class="entity">&amp;lt;</span>http:request-config name="HTTP_Request_Configuration" host="example.com" port="8081" doc:name="HTTP Request Configuration"<span class="entity">&amp;gt;</span>
-        <span class="entity">&amp;lt;</span>http:basic-authentication username="myuser" password="mypass"/<span class="entity">&amp;gt;</span>
-    <span class="entity">&amp;lt;</span>/http:request-config<span class="entity">&amp;gt;</span>
+         <td class="code"><pre><span class="tag">&lt;http:request-config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Request_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">host</span>=<span class="string"><span class="delimiter">"</span><span class="content">example.com</span><span class="delimiter">"</span></span> <span class="attribute-name">port</span>=<span class="string"><span class="delimiter">"</span><span class="content">8081</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP Request Configuration</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;http:basic-authentication</span> <span class="attribute-name">username</span>=<span class="string"><span class="delimiter">"</span><span class="content">myuser</span><span class="delimiter">"</span></span> <span class="attribute-name">password</span>=<span class="string"><span class="delimiter">"</span><span class="content">mypass</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+    <span class="tag">&lt;/http:request-config&gt;</span>
 
-<span class="entity">&amp;lt;</span>flow name="basicauth_flow"<span class="entity">&amp;gt;</span>
+<span class="tag">&lt;flow</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">basicauth_flow</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
     ...
-    <span class="entity">&amp;lt;</span>http:request config-ref="HTTP_Request_Configuration" path="test" method="GET" /<span class="entity">&amp;gt;</span>
+    <span class="tag">&lt;http:request</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Request_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">"</span><span class="content">test</span><span class="delimiter">"</span></span> <span class="attribute-name">method</span>=<span class="string"><span class="delimiter">"</span><span class="content">GET</span><span class="delimiter">"</span></span> <span class="tag">/&gt;</span>
 
-<span class="entity">&amp;lt;</span>/flow<span class="entity">&amp;gt;</span></pre></td> 
-           </tr> 
-          </tbody> 
-         </table></code></pre> 
-      </div> 
-     </div> 
-    </div> 
+<span class="tag">&lt;/flow&gt;</span></pre></td> 
+        </tr> 
+       </tbody> 
+      </table></code></pre> 
    </div> 
   </div> 
   <div class="paragraph"> 
@@ -1151,45 +1135,32 @@
    <div class="paragraph"> 
     <p>You can easily make Basic Auth work preemptively, changing the way credentials are required.</p> 
    </div> 
-   <div class="panel panel-default no-padding"> 
-    <div class="panel-heading no-padding"> 
-     <!-- Nav tabs --> 
-     <ul class="nav nav-tabs" role="tablist"> 
-      <li class="active"><a href="#tab-2_1" role="tab" data-toggle="tab">Studio Visual Editor</a></li> 
-      <li><a href="#tab-2_2" role="tab" data-toggle="tab">XML Editor</a></li> 
-     </ul> 
-    </div> 
-    <div class="panel-body tab-content no-padding"> 
-     <div class="tab-pane in active fade no-padding" id="tab-2_1"> 
-      <div class="paragraph"> 
-       <p>When configuring the Basic Auth credentials of your connector, tick the <strong>Preemptive</strong> checkbox.</p> 
-      </div> 
-     </div> 
-     <div class="tab-pane fade no-padding" id="tab-2_2"> 
-      <div class="paragraph"> 
-       <p>Add the attribute&nbsp;<code>preemptive="true"</code> on your&nbsp;`basic-authentication`element in the global configuration of the connector:</p> 
-      </div> 
-      <div class="listingblock"> 
-       <div class="content"> 
-        <pre class="CodeRay highlight"><code data-lang="xml">
-    
-             
-          <table class="CodeRay"> 
-           <tbody> 
-            <tr> 
-             <td class="line-numbers"><pre>1
+   <div class="paragraph"> 
+    <p>When configuring the Basic Auth credentials of your connector, tick the <strong>Preemptive</strong> checkbox.</p> 
+   </div> 
+   <div class="paragraph"> 
+    <p><strong>XML Code</strong></p> 
+   </div> 
+   <div class="paragraph"> 
+    <p>Add the attribute&nbsp;<code>preemptive="true"</code> on your&nbsp;`basic-authentication`element in the global configuration of the connector:</p> 
+   </div> 
+   <div class="listingblock"> 
+    <div class="content"> 
+     <pre class="CodeRay highlight"><code data-lang="xml">
+          
+       <table class="CodeRay"> 
+        <tbody> 
+         <tr> 
+          <td class="line-numbers"><pre>1
 2
 3
 </pre></td> 
-             <td class="code"><pre><span class="entity">&amp;lt;</span>http:request-config name="HTTP_Request_Configuration" doc:name="HTTP Request Configuration"<span class="entity">&amp;gt;</span>
-     <span class="entity">&amp;lt;</span>http:basic-authentication username="myuser" password="mypass" preemptive="true"/<span class="entity">&amp;gt;</span>
-<span class="entity">&amp;lt;</span>/http:request-config<span class="entity">&amp;gt;</span></pre></td> 
-            </tr> 
-           </tbody> 
-          </table></code></pre> 
-       </div> 
-      </div> 
-     </div> 
+          <td class="code"><pre><span class="tag">&lt;http:request-config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Request_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP Request Configuration</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+     <span class="tag">&lt;http:basic-authentication</span> <span class="attribute-name">username</span>=<span class="string"><span class="delimiter">"</span><span class="content">myuser</span><span class="delimiter">"</span></span> <span class="attribute-name">password</span>=<span class="string"><span class="delimiter">"</span><span class="content">mypass</span><span class="delimiter">"</span></span> <span class="attribute-name">preemptive</span>=<span class="string"><span class="delimiter">"</span><span class="content">true</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+<span class="tag">&lt;/http:request-config&gt;</span></pre></td> 
+         </tr> 
+        </tbody> 
+       </table></code></pre> 
     </div> 
    </div> 
   </div> 
@@ -1201,38 +1172,30 @@
   <div class="paragraph"> 
    <p>In this example, a GET request is sent to&nbsp;http://www.example.com/test, adding an "Authorization" header with the provided username and password.</p> 
   </div> 
-  <div class="panel panel-default no-padding"> 
-   <div class="panel-heading no-padding"> 
-    <!-- Nav tabs --> 
-    <ul class="nav nav-tabs" role="tablist"> 
-     <li class="active"><a href="#tab-3_1" role="tab" data-toggle="tab">Studio Visual Editor</a></li> 
-     <li><a href="#tab-3_2" role="tab" data-toggle="tab">XML Editor</a></li> 
-    </ul> 
-   </div> 
-   <div class="panel-body tab-content no-padding"> 
-    <div class="tab-pane in active fade no-padding" id="tab-3_1"> 
-     <div class="olist arabic"> 
-      <ol class="arabic"> 
-       <li> <p>Drag an HTTP Connector to your canvas, create a new Connector Configuration element for it</p> </li> 
-       <li> <p>Select the <strong>Authentication</strong> tab</p> </li> 
-       <li> <p>In the Protocol dropdown menu, pick <strong>NTLM</strong></p> </li> 
-       <li> <p>Provide your Username and Password (or references to properties that contain them), also optionally your Domain and Workstation</p> </li> 
-      </ol> 
-     </div> 
-    </div> 
-    <div class="tab-pane fade no-padding" id="tab-3_2"> 
-     <div class="paragraph"> 
-      <p>NTML authentication is configured in the same way as Basic Authentication, just provide username and password in the attributes of the child element. The only difference is that the child element is differently named: "ntml-authentication" and that you can optionally add domain and workstation attributes.</p> 
-     </div> 
-     <div class="listingblock"> 
-      <div class="content"> 
-       <pre class="CodeRay highlight"><code data-lang="xml">
-    
-            
-         <table class="CodeRay"> 
-          <tbody> 
-           <tr> 
-            <td class="line-numbers"><pre>1
+  <div class="olist arabic"> 
+   <ol class="arabic"> 
+    <li> <p>Drag an HTTP Connector to your canvas, create a new Connector Configuration element for it</p> </li> 
+    <li> <p>Select the <strong>Authentication</strong> tab</p> </li> 
+    <li> <p>In the Protocol dropdown menu, pick <strong>NTLM</strong></p> </li> 
+    <li> <p>Provide your Username and Password (or references to properties that contain them), also optionally your Domain and Workstation</p> 
+     <div class="ulist"> 
+      <ul> 
+       <li> <p>XML Code*</p> </li> 
+      </ul> 
+     </div> </li> 
+   </ol> 
+  </div> 
+  <div class="paragraph"> 
+   <p>NTML authentication is configured in the same way as Basic Authentication, just provide username and password in the attributes of the child element. The only difference is that the child element is differently named: "ntml-authentication" and that you can optionally add domain and workstation attributes.</p> 
+  </div> 
+  <div class="listingblock"> 
+   <div class="content"> 
+    <pre class="CodeRay highlight"><code data-lang="xml">
+         
+      <table class="CodeRay"> 
+       <tbody> 
+        <tr> 
+         <td class="line-numbers"><pre>1
 2
 3
 4
@@ -1242,21 +1205,18 @@
 8
 9
 </pre></td> 
-            <td class="code"><pre><span class="entity">&amp;lt;</span>http:request-config name="HTTP_Request_Configuration" host="example.com" port="8081" doc:name="HTTP Request Configuration"<span class="entity">&amp;gt;</span>
-        <span class="entity">&amp;lt;</span>http:ntlm-authentication username="myuser" password="mypass" domain="mydomain"/<span class="entity">&amp;gt;</span>
-<span class="entity">&amp;lt;</span>/http:request-config<span class="entity">&amp;gt;</span>
+         <td class="code"><pre><span class="tag">&lt;http:request-config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Request_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">host</span>=<span class="string"><span class="delimiter">"</span><span class="content">example.com</span><span class="delimiter">"</span></span> <span class="attribute-name">port</span>=<span class="string"><span class="delimiter">"</span><span class="content">8081</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP Request Configuration</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;http:ntlm-authentication</span> <span class="attribute-name">username</span>=<span class="string"><span class="delimiter">"</span><span class="content">myuser</span><span class="delimiter">"</span></span> <span class="attribute-name">password</span>=<span class="string"><span class="delimiter">"</span><span class="content">mypass</span><span class="delimiter">"</span></span> <span class="attribute-name">domain</span>=<span class="string"><span class="delimiter">"</span><span class="content">mydomain</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+<span class="tag">&lt;/http:request-config&gt;</span>
 
-<span class="entity">&amp;lt;</span>flow name="digest_flow"<span class="entity">&amp;gt;</span>
+<span class="tag">&lt;flow</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">digest_flow</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
     ...
-    <span class="entity">&amp;lt;</span>http:request config-ref="HTTP_Request_Configuration" path="test" method="GET" /<span class="entity">&amp;gt;</span>
+    <span class="tag">&lt;http:request</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Request_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">"</span><span class="content">test</span><span class="delimiter">"</span></span> <span class="attribute-name">method</span>=<span class="string"><span class="delimiter">"</span><span class="content">GET</span><span class="delimiter">"</span></span> <span class="tag">/&gt;</span>
 
-<span class="entity">&amp;lt;</span>/flow<span class="entity">&amp;gt;</span></pre></td> 
-           </tr> 
-          </tbody> 
-         </table></code></pre> 
-      </div> 
-     </div> 
-    </div> 
+<span class="tag">&lt;/flow&gt;</span></pre></td> 
+        </tr> 
+       </tbody> 
+      </table></code></pre> 
    </div> 
   </div> 
  </div> 
@@ -1264,38 +1224,28 @@
 <div class="sect1"> 
  <h2 id="digest-authentication"><a class="anchor" href="#digest-authentication"></a>Digest Authentication</h2> 
  <div class="sectionbody"> 
-  <div class="panel panel-default no-padding"> 
-   <div class="panel-heading no-padding"> 
-    <!-- Nav tabs --> 
-    <ul class="nav nav-tabs" role="tablist"> 
-     <li class="active"><a href="#tab-4_1" role="tab" data-toggle="tab">Studio Visual Editor</a></li> 
-     <li><a href="#tab-4_2" role="tab" data-toggle="tab">XML Editor</a></li> 
-    </ul> 
-   </div> 
-   <div class="panel-body tab-content no-padding"> 
-    <div class="tab-pane in active fade no-padding" id="tab-4_1"> 
-     <div class="olist arabic"> 
-      <ol class="arabic"> 
-       <li> <p>Drag an HTTP Connector to your canvas, create a new Connector Configuration element for it</p> </li> 
-       <li> <p>Select the <strong>Authentication</strong> tab</p> </li> 
-       <li> <p>In the Protocol dropdown menu, pick <strong>Digest</strong></p> </li> 
-       <li> <p>Provide your Username and Password (or references to properties that contain them)</p> </li> 
-      </ol> 
-     </div> 
-    </div> 
-    <div class="tab-pane fade no-padding" id="tab-4_2"> 
-     <div class="paragraph"> 
-      <p>Digest authentication is configured in the same way as Basic Authentication, just provide username and password in the attributes of the child element. The only difference is that the child element is differently named: "digest-authentication".</p> 
-     </div> 
-     <div class="listingblock"> 
-      <div class="content"> 
-       <pre class="CodeRay highlight"><code data-lang="code">
-    
-            
-         <table class="CodeRay"> 
-          <tbody> 
-           <tr> 
-            <td class="line-numbers"><pre>1
+  <div class="olist arabic"> 
+   <ol class="arabic"> 
+    <li> <p>Drag an HTTP Connector to your canvas, create a new Connector Configuration element for it</p> </li> 
+    <li> <p>Select the <strong>Authentication</strong> tab</p> </li> 
+    <li> <p>In the Protocol dropdown menu, pick <strong>Digest</strong></p> </li> 
+    <li> <p>Provide your Username and Password (or references to properties that contain them)</p> </li> 
+   </ol> 
+  </div> 
+  <div class="paragraph"> 
+   <p><strong>XML Code</strong></p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>Digest authentication is configured in the same way as Basic Authentication, just provide username and password in the attributes of the child element. The only difference is that the child element is differently named: "digest-authentication".</p> 
+  </div> 
+  <div class="listingblock"> 
+   <div class="content"> 
+    <pre class="CodeRay highlight"><code data-lang="code">
+         
+      <table class="CodeRay"> 
+       <tbody> 
+        <tr> 
+         <td class="line-numbers"><pre>1
 2
 3
 4
@@ -1306,22 +1256,19 @@
 9
 10
 </pre></td> 
-            <td class="code"><pre>
-&amp;lt;http:request-config name="HTTP_Request_Configuration" host="example.com" port="8081" doc:name="HTTP Request Configuration"&amp;gt;
-        &amp;lt;http:digest-authentication username="myuser" password="mypass"/&amp;gt;
-    &amp;lt;/http:request-config&amp;gt;
+         <td class="code"><pre>
+&lt;http:request-config name="HTTP_Request_Configuration" host="example.com" port="8081" doc:name="HTTP Request Configuration"&gt;
+        &lt;http:digest-authentication username="myuser" password="mypass"/&gt;
+    &lt;/http:request-config&gt;
 
-&amp;lt;flow name="digest_flow"&amp;gt;
+&lt;flow name="digest_flow"&gt;
     ...
-    &amp;lt;http:request config-ref="HTTP_Request_Configuration" path="test" method="GET" /&amp;gt;
+    &lt;http:request config-ref="HTTP_Request_Configuration" path="test" method="GET" /&gt;
 
-&amp;lt;/flow&amp;gt;</pre></td> 
-           </tr> 
-          </tbody> 
-         </table></code></pre> 
-      </div> 
-     </div> 
-    </div> 
+&lt;/flow&gt;</pre></td> 
+        </tr> 
+       </tbody> 
+      </table></code></pre> 
    </div> 
   </div> 
   <div class="paragraph"> 
@@ -1332,30 +1279,27 @@
 <div class="sect1"> 
  <h2 id="oauth-authentication-with-authorization-code-grant-type"><a class="anchor" href="#oauth-authentication-with-authorization-code-grant-type"></a>OAuth Authentication with Authorization Code Grant Type</h2> 
  <div class="sectionbody"> 
-  <div class="sect2"> 
-   <h3 id="how-the-authorization-code-strong-grant-type-strong-works-simplified"><a class="anchor" href="#how-the-authorization-code-strong-grant-type-strong-works-simplified"></a>How the Authorization Code&nbsp;<strong>Grant Type</strong>&nbsp;Works - simplified</h3> 
-   <div class="paragraph"> 
-    <p>The OAuth Authentication Server (<strong>OAS</strong>) is a server that holds the resources that are protected by OAuth. ex: Box server provides an API with OAuth authentication.</p> 
-   </div> 
-   <div class="paragraph"> 
-    <p>The Resource Owner (<strong>RO</strong>) is the owner of the resource to be accessed. ex: the Box user who owns a private repository</p> 
-   </div> 
-   <div class="paragraph"> 
-    <p>The Client Application (<strong>CA</strong>) is the server that tries to access a protected resource that belongs to a resource owner and&nbsp;that is held in an OAuth authentication server. ex: a Mule Server trying to access the resources that belong to a Box user and that are held in a Box server.</p> 
-   </div> 
-   <div class="paragraph"> 
-    <p><span class="image"><img src="./_images/oauth+danceposta.png" alt="oauth+danceposta"></span></p> 
-   </div> 
-   <div class="olist arabic"> 
-    <ol class="arabic"> 
-     <li> <p>The CA must register an app to the OAS server. When this happens, the OAS assigns credentials to the CA that it can later use to identify itself:&nbsp;<strong>client id</strong> and&nbsp;<strong>client secret</strong>. The OAS must also provide an&nbsp;<strong>Authentication URL</strong>,&nbsp;which points to a web page where the RO can later introduce its credentials to grant the CA access to the resources it owns. The OAS must also provide a&nbsp;<strong>Token URL</strong>, to&nbsp;which the CA can later send HTTP requests to retrieve an&nbsp;<strong>access token</strong> that is required when accessing the Protected Resources on behalf of the RO.&nbsp;&nbsp;</p> </li> 
-     <li> <p>When the RO makes a request to the CA, the CA redirects it to the Authentication URL of the OAS. There, the RO&nbsp;can grant the CA access to the resources.&nbsp;This URL that the RO is redirected to is actually not just the Authentication URL of the OAS, it also contains some query parameters that the CA includes: a&nbsp;<strong>client id</strong>&nbsp;and a&nbsp;<strong>Redirect URL</strong>.&nbsp;</p> </li> 
-     <li> <p>The RO introduces its private credentials to grant the CA access to the protected resources it owns.&nbsp;</p> </li> 
-     <li> <p>Once this happens, the OAS calls the&nbsp;<strong>Redirect URL</strong>&nbsp;that was included as a query parameter in the URL that brought the RO there. In this call that the OAS makes to the CA’s Redirect URL, it sends an&nbsp;<strong>authorization code</strong>.&nbsp;&nbsp;&nbsp;</p> </li> 
-     <li> <p>Once the CA receives an&nbsp;authorization code, it&nbsp;sends it to the&nbsp;<strong>Token URL</strong> of the OAS. As a response, the OAS grants it an <strong>access token</strong>.&nbsp;</p> </li> 
-     <li> <p>With this access token, the CA is now free to access the protected resources in the OAS as long as it includes it in its requests. Depending on the policies defined by the OAS, this token may eventually expire.</p> </li> 
-    </ol> 
-   </div> 
+  <div class="paragraph"> 
+   <p>The OAuth Authentication Server (<strong>OAS</strong>) is a server that holds the resources that are protected by OAuth. ex: Box server provides an API with OAuth authentication.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>The Resource Owner (<strong>RO</strong>) is the owner of the resource to be accessed. ex: the Box user who owns a private repository</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>The Client Application (<strong>CA</strong>) is the server that tries to access a protected resource that belongs to a resource owner and&nbsp;that is held in an OAuth authentication server. ex: a Mule Server trying to access the resources that belong to a Box user and that are held in a Box server.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p><span class="image"><img src="./_images/oauth+danceposta.png" alt="oauth+danceposta"></span></p> 
+  </div> 
+  <div class="olist arabic"> 
+   <ol class="arabic"> 
+    <li> <p>The CA must register an app to the OAS server. When this happens, the OAS assigns credentials to the CA that it can later use to identify itself:&nbsp;<strong>client id</strong> and&nbsp;<strong>client secret</strong>. The OAS must also provide an&nbsp;<strong>Authentication URL</strong>,&nbsp;which points to a web page where the RO can later introduce its credentials to grant the CA access to the resources it owns. The OAS must also provide a&nbsp;<strong>Token URL</strong>, to&nbsp;which the CA can later send HTTP requests to retrieve an&nbsp;<strong>access token</strong> that is required when accessing the Protected Resources on behalf of the RO.&nbsp;&nbsp;</p> </li> 
+    <li> <p>When the RO makes a request to the CA, the CA redirects it to the Authentication URL of the OAS. There, the RO&nbsp;can grant the CA access to the resources.&nbsp;This URL that the RO is redirected to is actually not just the Authentication URL of the OAS, it also contains some query parameters that the CA includes: a&nbsp;<strong>client id</strong>&nbsp;and a&nbsp;<strong>Redirect URL</strong>.&nbsp;</p> </li> 
+    <li> <p>The RO introduces its private credentials to grant the CA access to the protected resources it owns.&nbsp;</p> </li> 
+    <li> <p>Once this happens, the OAS calls the&nbsp;<strong>Redirect URL</strong>&nbsp;that was included as a query parameter in the URL that brought the RO there. In this call that the OAS makes to the CA’s Redirect URL, it sends an&nbsp;<strong>authorization code</strong>.&nbsp;&nbsp;&nbsp;</p> </li> 
+    <li> <p>Once the CA receives an&nbsp;authorization code, it&nbsp;sends it to the&nbsp;<strong>Token URL</strong> of the OAS. As a response, the OAS grants it an <strong>access token</strong>.&nbsp;</p> </li> 
+    <li> <p>With this access token, the CA is now free to access the protected resources in the OAS as long as it includes it in its requests. Depending on the policies defined by the OAS, this token may eventually expire.</p> </li> 
+   </ol> 
   </div> 
   <div class="sect2"> 
    <h3 id="basic-configuration"><a class="anchor" href="#basic-configuration"></a>Basic Configuration</h3> 
@@ -1379,106 +1323,76 @@
    <div class="paragraph"> 
     <p>With this information you are now ready to configure OAuth Authorization Code Grant Type in the HTTP Request Connector.</p> 
    </div> 
-   <div class="panel panel-default no-padding"> 
-    <div class="panel-heading no-padding"> 
-     <!-- Nav tabs --> 
-     <ul class="nav nav-tabs" role="tablist"> 
-      <li class="active"><a href="#tab-5_1" role="tab" data-toggle="tab">Studio Visual Editor</a></li> 
-      <li><a href="#tab-5_2" role="tab" data-toggle="tab">XML Editor</a></li> 
-     </ul> 
-    </div> 
-    <div class="panel-body tab-content no-padding"> 
-     <div class="tab-pane in active fade no-padding" id="tab-5_1"> 
-      <div class="olist arabic"> 
-       <ol class="arabic"> 
-        <li> <p>Drag an HTTP Connector to your canvas, create a new Connector Configuration element for it</p> </li> 
-        <li> <p>Select the <strong>Authentication</strong> tab</p> </li> 
-        <li> <p>In the Protocol dropdown menu, pick <strong>OAuth2 - Authorization Code</strong></p> </li> 
-        <li> <p>Provide the following values (or references to properties that contain them)</p> 
-         <div class="ulist"> 
-          <ul> 
-           <li> <p><strong>The Client Id</strong> and <strong>Client Secret</strong> the OAS gave you when registering your application.</p> </li> 
-           <li> <p><strong>The Redirect URL</strong> to which the OAS will send the access token once the RO grants you access.</p> </li> 
-          </ul> 
-         </div> </li> 
-       </ol> 
-      </div> 
-      <div class="admonitionblock warning"> 
-       <table> 
+   <div class="olist arabic"> 
+    <ol class="arabic"> 
+     <li> <p>Drag an HTTP Connector to your canvas, create a new Connector Configuration element for it</p> </li> 
+     <li> <p>Select the <strong>Authentication</strong> tab</p> </li> 
+     <li> <p>In the Protocol dropdown menu, pick <strong>OAuth2 - Authorization Code</strong></p> </li> 
+     <li> <p>Provide the following values (or references to properties that contain them)</p> 
+      <div class="ulist"> 
+       <ul> 
+        <li> <p><strong>The Client Id</strong> and <strong>Client Secret</strong> the OAS gave you when registering your application.</p> </li> 
+        <li> <p><strong>The Redirect URL</strong> to which the OAS will send the access token once the RO grants you access.</p> </li> 
+       </ul> 
+      </div> </li> 
+    </ol> 
+   </div> 
+   <div class="paragraph"> 
+    <p>If you were required to provide a redirect URL when registering your application to the OAS, this value must match what you provided there.</p> 
+   </div> 
+   <div class="ulist"> 
+    <ul> 
+     <li> <p>The <strong>Authorization URL</strong> that the OAS exposes</p> </li> 
+     <li> <p>The <strong>Local Authorization URL</strong></p> </li> 
+     <li> <p>The <strong>Scopes</strong> field is optional, it allows you to define a comma separated list of OAuth scopes available in the OAS. Scopes in OAuth are very much like security roles.</p> </li> 
+     <li> <p>The <strong>Token URI</strong> that the OAS exposes</p> </li> 
+    </ul> 
+   </div> 
+   <div class="paragraph"> 
+    <p>The Local Authorization URL field is used to define a URL in your application that listens for incoming requests and redirects them to the Authorization URL of the OAS. There, the user can login, and then an access token will be sent to the application. After you start your mule application, you can hit this URL and it will allow you to login to the application.</p> 
+   </div> 
+   <div class="paragraph"> 
+    <p><strong>XML Code</strong></p> 
+   </div> 
+   <div class="paragraph"> 
+    <p>Within the global configuration of the connector, add an&nbsp;` oauth2:authorization-code-grant-type ` child element, include the following values in it:</p> 
+   </div> 
+   <div class="ulist"> 
+    <ul> 
+     <li> <p>The <strong>clientId</strong> and <strong>clientSecret</strong> the OAS gave you when registering your application.</p> </li> 
+     <li> <p>The <strong>redirectionUrl</strong> to which the OAS will send the access token once the RO grants you access.</p> </li> 
+    </ul> 
+   </div> 
+   <div class="paragraph"> 
+    <p>If you were required to provide a redirect URL when registering your application to the OAS, this value must match what you provided there.</p> 
+   </div> 
+   <div class="paragraph"> 
+    <p>Inside it this element, add a ` oauth2:authorization-request ` child element with the following:</p> 
+   </div> 
+   <div class="ulist"> 
+    <ul> 
+     <li> <p>The <strong>authorizationUrl</strong> that the OAS exposes</p> </li> 
+     <li> <p>The <strong>localauthorizationUrl</strong></p> </li> 
+     <li> <p>The <strong>scopes</strong> attribute is optional, it allows you to define a comma separated list of OAuth scopes available in the OAS. Scopes in OAuth are like security roles.</p> </li> 
+    </ul> 
+   </div> 
+   <div class="paragraph"> 
+    <p>Also, at the same level, add a&nbsp;` oauth2:token-request ` child element with the following:</p> 
+   </div> 
+   <div class="ulist"> 
+    <ul> 
+     <li> <p>The <strong>tokenUrl</strong> that the OAS exposes</p> </li> 
+     <li> <p>The&nbsp; <strong>localauthorizationUrl</strong> attribute is used to define a URL in your application that listens for incoming requests and redirects them to the Authorization URL of the OAS. There, the user can login, and then an access token will be sent to the application. After you start your mule application, you can hit this URL and it will allow you to login to the application.</p> </li> 
+    </ul> 
+   </div> 
+   <div class="listingblock"> 
+    <div class="content"> 
+     <pre class="CodeRay highlight"><code data-lang="xml">
+          
+       <table class="CodeRay"> 
         <tbody> 
          <tr> 
-          <td class="icon"> <i class="fa icon-warning" title="Warning"></i> </td> 
-          <td class="content"> 
-           <div class="paragraph"> 
-            <p>If you were required to provide a redirect URL when registering your application to the OAS, this value must match what you provided there.</p> 
-           </div> </td> 
-         </tr> 
-        </tbody> 
-       </table> 
-      </div> 
-      <div class="ulist"> 
-       <ul> 
-        <li> <p>The <strong>Authorization URL</strong> that the OAS exposes</p> </li> 
-        <li> <p>The <strong>Local Authorization URL</strong></p> </li> 
-        <li> <p>The <strong>Scopes</strong> field is optional, it allows you to define a comma separated list of OAuth scopes available in the OAS. Scopes in OAuth are very much like security roles.</p> </li> 
-        <li> <p>The <strong>Token URI</strong> that the OAS exposes</p> </li> 
-       </ul> 
-      </div> 
-      <div class="paragraph"> 
-       <p>The Local Authorization URL field is used to define a URL in your application that listens for incoming requests and redirects them to the Authorization URL of the OAS. There, the user can login, and then an access token will be sent to the application. After you start your mule application, you can hit this URL and it will allow you to login to the application.</p> 
-      </div> 
-     </div> 
-     <div class="tab-pane fade no-padding" id="tab-5_2"> 
-      <div class="paragraph"> 
-       <p>Within the global configuration of the connector, add an&nbsp;` oauth2:authorization-code-grant-type ` child element, include the following values in it:</p> 
-      </div> 
-      <div class="ulist"> 
-       <ul> 
-        <li> <p>The <strong>clientId</strong> and <strong>clientSecret</strong> the OAS gave you when registering your application.</p> </li> 
-        <li> <p>The <strong>redirectionUrl</strong> to which the OAS will send the access token once the RO grants you access.</p> </li> 
-       </ul> 
-      </div> 
-      <div class="admonitionblock warning"> 
-       <table> 
-        <tbody> 
-         <tr> 
-          <td class="icon"> <i class="fa icon-warning" title="Warning"></i> </td> 
-          <td class="content"> 
-           <div class="paragraph"> 
-            <p>If you were required to provide a redirect URL when registering your application to the OAS, this value must match what you provided there.</p> 
-           </div> </td> 
-         </tr> 
-        </tbody> 
-       </table> 
-      </div> 
-      <div class="paragraph"> 
-       <p>Inside it this element, add a ` oauth2:authorization-request ` child element with the following:</p> 
-      </div> 
-      <div class="ulist"> 
-       <ul> 
-        <li> <p>The <strong>authorizationUrl</strong> that the OAS exposes</p> </li> 
-        <li> <p>The <strong>localauthorizationUrl</strong></p> </li> 
-        <li> <p>The <strong>scopes</strong> attribute is optional, it allows you to define a comma separated list of OAuth scopes available in the OAS. Scopes in OAuth are like security roles.</p> </li> 
-       </ul> 
-      </div> 
-      <div class="paragraph"> 
-       <p>Also, at the same level, add a&nbsp;` oauth2:token-request ` child element with the following:</p> 
-      </div> 
-      <div class="ulist"> 
-       <ul> 
-        <li> <p>The <strong>tokenUrl</strong> that the OAS exposes</p> </li> 
-        <li> <p>The&nbsp; <strong>localauthorizationUrl</strong> attribute is used to define a URL in your application that listens for incoming requests and redirects them to the Authorization URL of the OAS. There, the user can login, and then an access token will be sent to the application. After you start your mule application, you can hit this URL and it will allow you to login to the application.</p> </li> 
-       </ul> 
-      </div> 
-      <div class="listingblock"> 
-       <div class="content"> 
-        <pre class="CodeRay highlight"><code data-lang="xml">
-    
-             
-          <table class="CodeRay"> 
-           <tbody> 
-            <tr> 
-             <td class="line-numbers"><pre>1
+          <td class="line-numbers"><pre>1
 2
 3
 4
@@ -1487,20 +1401,17 @@
 7
 8
 </pre></td> 
-             <td class="code"><pre><span class="entity">&amp;lt;</span>http:request-config name="HTTP_Request_Configuration" host="api.box.com" port="443" basePath="/2.0" doc:name="HTTP Request Configuration"<span class="entity">&amp;gt;</span>
-        <span class="entity">&amp;lt;</span>oauth2:authorization-code-grant-type clientId="your_client_id" clientSecret="your_client_secret" redirectionUrl="http://localhost:8082/redirectUrl" <span class="entity">&amp;gt;</span>
-            <span class="entity">&amp;lt;</span>oauth2:authorization-request authorizationUrl="http://www.box.com/api/oauth2/authorize" localAuthorizationUrl="http://localhost:8082/authorization"
-scopes="access_user_details, read_user_files"<span class="entity">&amp;gt;</span>
-            <span class="entity">&amp;lt;</span>/oauth2:authorization-request<span class="entity">&amp;gt;</span>
-            <span class="entity">&amp;lt;</span>oauth2:token-request tokenUrl="http://www.box.com/api/oauth2/token"/<span class="entity">&amp;gt;</span>
-        <span class="entity">&amp;lt;</span>/oauth2:authorization-code-grant-type<span class="entity">&amp;gt;</span>
-    <span class="entity">&amp;lt;</span>/http:request-config<span class="entity">&amp;gt;</span></pre></td> 
-            </tr> 
-           </tbody> 
-          </table></code></pre> 
-       </div> 
-      </div> 
-     </div> 
+          <td class="code"><pre><span class="tag">&lt;http:request-config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Request_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">host</span>=<span class="string"><span class="delimiter">"</span><span class="content">api.box.com</span><span class="delimiter">"</span></span> <span class="attribute-name">port</span>=<span class="string"><span class="delimiter">"</span><span class="content">443</span><span class="delimiter">"</span></span> <span class="attribute-name">basePath</span>=<span class="string"><span class="delimiter">"</span><span class="content">/2.0</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP Request Configuration</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;oauth2:authorization-code-grant-type</span> <span class="attribute-name">clientId</span>=<span class="string"><span class="delimiter">"</span><span class="content">your_client_id</span><span class="delimiter">"</span></span> <span class="attribute-name">clientSecret</span>=<span class="string"><span class="delimiter">"</span><span class="content">your_client_secret</span><span class="delimiter">"</span></span> <span class="attribute-name">redirectionUrl</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://localhost:8082/redirectUrl</span><span class="delimiter">"</span></span> <span class="tag">&gt;</span>
+            <span class="tag">&lt;oauth2:authorization-request</span> <span class="attribute-name">authorizationUrl</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.box.com/api/oauth2/authorize</span><span class="delimiter">"</span></span> <span class="attribute-name">localAuthorizationUrl</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://localhost:8082/authorization</span><span class="delimiter">"</span></span>
+<span class="attribute-name">scopes</span>=<span class="string"><span class="delimiter">"</span><span class="content">access_user_details, read_user_files</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+            <span class="tag">&lt;/oauth2:authorization-request&gt;</span>
+            <span class="tag">&lt;oauth2:token-request</span> <span class="attribute-name">tokenUrl</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.box.com/api/oauth2/token</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+        <span class="tag">&lt;/oauth2:authorization-code-grant-type&gt;</span>
+    <span class="tag">&lt;/http:request-config&gt;</span></pre></td> 
+         </tr> 
+        </tbody> 
+       </table></code></pre> 
     </div> 
    </div> 
   </div> 
@@ -1509,39 +1420,29 @@ scopes="access_user_details, read_user_files"<span class="entity">&amp;gt;</span
    <div class="paragraph"> 
     <p>There are OAuth implementations that require or allow extra query parameters to be sent when calling the Authentication URL of the OAS.</p> 
    </div> 
-   <div class="panel panel-default no-padding"> 
-    <div class="panel-heading no-padding"> 
-     <!-- Nav tabs --> 
-     <ul class="nav nav-tabs" role="tablist"> 
-      <li class="active"><a href="#tab-6_1" role="tab" data-toggle="tab">Studio Visual Editor</a></li> 
-      <li><a href="#tab-6_2" role="tab" data-toggle="tab">XML Editor</a></li> 
-     </ul> 
-    </div> 
-    <div class="panel-body tab-content no-padding"> 
-     <div class="tab-pane in active fade no-padding" id="tab-6_1"> 
-      <div class="olist arabic"> 
-       <ol class="arabic"> 
-        <li> <p>Drag an HTTP Connector to your canvas, create a new Connector Configuration element for it</p> </li> 
-        <li> <p>Select the <strong>Authentication</strong> tab</p> </li> 
-        <li> <p>In the Protocol dropdown menu, pick <strong>OAuth2 - Authorization Code</strong></p> </li> 
-        <li> <p>Fill in the same fields as in the previous example</p> </li> 
-        <li> <p>Click the <strong>Add Custom Parameter</strong> as many times as you need and define a name and value for each custom parameter</p> </li> 
-       </ol> 
-      </div> 
-     </div> 
-     <div class="tab-pane fade no-padding" id="tab-6_2"> 
-      <div class="paragraph"> 
-       <p>This example is very much like the previous, but it includes two <code>Oauth2:custom-parameter</code> child elements that define parameters that are specific to this API.</p> 
-      </div> 
-      <div class="listingblock"> 
-       <div class="content"> 
-        <pre class="CodeRay highlight"><code data-lang="xml">
-    
-             
-          <table class="CodeRay"> 
-           <tbody> 
-            <tr> 
-             <td class="line-numbers"><pre>1
+   <div class="olist arabic"> 
+    <ol class="arabic"> 
+     <li> <p>Drag an HTTP Connector to your canvas, create a new Connector Configuration element for it</p> </li> 
+     <li> <p>Select the <strong>Authentication</strong> tab</p> </li> 
+     <li> <p>In the Protocol dropdown menu, pick <strong>OAuth2 - Authorization Code</strong></p> </li> 
+     <li> <p>Fill in the same fields as in the previous example</p> </li> 
+     <li> <p>Click the <strong>Add Custom Parameter</strong> as many times as you need and define a name and value for each custom parameter</p> </li> 
+    </ol> 
+   </div> 
+   <div class="paragraph"> 
+    <p><strong>XML Code</strong></p> 
+   </div> 
+   <div class="paragraph"> 
+    <p>This resembles the previous one, but includes two <code>Oauth2:custom-parameter</code> child elements that define parameters that are specific to this API.</p> 
+   </div> 
+   <div class="listingblock"> 
+    <div class="content"> 
+     <pre class="CodeRay highlight"><code data-lang="xml">
+          
+       <table class="CodeRay"> 
+        <tbody> 
+         <tr> 
+          <td class="line-numbers"><pre>1
 2
 3
 4
@@ -1553,23 +1454,20 @@ scopes="access_user_details, read_user_files"<span class="entity">&amp;gt;</span
 10
 11
 </pre></td> 
-             <td class="code"><pre><span class="entity">&amp;lt;</span>http:request-config name="HTTP_Request_Configuration" host="api.box.com" port="443" basePath="/2.0" doc:name="HTTP Request Configuration" <span class="entity">&amp;gt;</span>
-        <span class="entity">&amp;lt;</span>oauth2:authorization-code-grant-type clientId="your_client_id" clientSecret="your_client_secret" redirectionUrl="http://localhost:8082/redirectUrl"<span class="entity">&amp;gt;</span>
-            <span class="entity">&amp;lt;</span>oauth2:authorization-request authorizationUrl="http://www.box.com/api/oauth2/authorize" localAuthorizationUrl="http://localhost:8082/authorization"<span class="entity">&amp;gt;</span>
-                <span class="entity">&amp;lt;</span>oauth2:custom-parameters<span class="entity">&amp;gt;</span>
-                    <span class="entity">&amp;lt;</span>oauth2:custom-parameter paramName="box_device_id" value="123142"/<span class="entity">&amp;gt;</span>
-                    <span class="entity">&amp;lt;</span>oauth2:custom-parameter paramName="box_device_name" value="my-phone"/<span class="entity">&amp;gt;</span>
-                <span class="entity">&amp;lt;</span>/oauth2:custom-parameters<span class="entity">&amp;gt;</span>
-            <span class="entity">&amp;lt;</span>/oauth2:authorization-request<span class="entity">&amp;gt;</span>
-            <span class="entity">&amp;lt;</span>oauth2:token-request tokenUrl="http://www.box.com/api/oauth2/token"/<span class="entity">&amp;gt;</span>
-        <span class="entity">&amp;lt;</span>/oauth2:authorization-code-grant-type<span class="entity">&amp;gt;</span>
-    <span class="entity">&amp;lt;</span>/http:request-config<span class="entity">&amp;gt;</span></pre></td> 
-            </tr> 
-           </tbody> 
-          </table></code></pre> 
-       </div> 
-      </div> 
-     </div> 
+          <td class="code"><pre><span class="tag">&lt;http:request-config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Request_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">host</span>=<span class="string"><span class="delimiter">"</span><span class="content">api.box.com</span><span class="delimiter">"</span></span> <span class="attribute-name">port</span>=<span class="string"><span class="delimiter">"</span><span class="content">443</span><span class="delimiter">"</span></span> <span class="attribute-name">basePath</span>=<span class="string"><span class="delimiter">"</span><span class="content">/2.0</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP Request Configuration</span><span class="delimiter">"</span></span> <span class="tag">&gt;</span>
+        <span class="tag">&lt;oauth2:authorization-code-grant-type</span> <span class="attribute-name">clientId</span>=<span class="string"><span class="delimiter">"</span><span class="content">your_client_id</span><span class="delimiter">"</span></span> <span class="attribute-name">clientSecret</span>=<span class="string"><span class="delimiter">"</span><span class="content">your_client_secret</span><span class="delimiter">"</span></span> <span class="attribute-name">redirectionUrl</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://localhost:8082/redirectUrl</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+            <span class="tag">&lt;oauth2:authorization-request</span> <span class="attribute-name">authorizationUrl</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.box.com/api/oauth2/authorize</span><span class="delimiter">"</span></span> <span class="attribute-name">localAuthorizationUrl</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://localhost:8082/authorization</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+                <span class="tag">&lt;oauth2:custom-parameters&gt;</span>
+                    <span class="tag">&lt;oauth2:custom-parameter</span> <span class="attribute-name">paramName</span>=<span class="string"><span class="delimiter">"</span><span class="content">box_device_id</span><span class="delimiter">"</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">"</span><span class="content">123142</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+                    <span class="tag">&lt;oauth2:custom-parameter</span> <span class="attribute-name">paramName</span>=<span class="string"><span class="delimiter">"</span><span class="content">box_device_name</span><span class="delimiter">"</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">"</span><span class="content">my-phone</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+                <span class="tag">&lt;/oauth2:custom-parameters&gt;</span>
+            <span class="tag">&lt;/oauth2:authorization-request&gt;</span>
+            <span class="tag">&lt;oauth2:token-request</span> <span class="attribute-name">tokenUrl</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.box.com/api/oauth2/token</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+        <span class="tag">&lt;/oauth2:authorization-code-grant-type&gt;</span>
+    <span class="tag">&lt;/http:request-config&gt;</span></pre></td> 
+         </tr> 
+        </tbody> 
+       </table></code></pre> 
     </div> 
    </div> 
   </div> 
@@ -1589,51 +1487,41 @@ scopes="access_user_details, read_user_files"<span class="entity">&amp;gt;</span
     </ul> 
    </div> 
    <div class="paragraph"> 
-    <p>When this is the case, the parameters will be automatically extracted and you can easily use&nbsp;<a href="/mule-user-guide/v/3.7/mule-expression-language-mel">MEL expressions</a>&nbsp;later in the flow to reference these values in the Mule Message that was generated from the response to the request to the token URL.</p> 
+    <p>When this is the case, the parameters will be automatically extracted and you can easily use&nbsp;MEL expressions later in the flow to reference these values in the Mule Message that was generated from the response to the request to the token URL.</p> 
    </div> 
    <div class="paragraph"> 
     <p>When this is not the case, then you must first configure the connector so that it knows where to extract these values from. In the example below, the connector expects the response to have a&nbsp;<code>Content-Type</code>&nbsp;of&nbsp;<code>application/x-www-form-urlencoded</code>, so the body of the response will be transformed into a Map in the payload, from there it’s easy to extract the values from the Map through MEL expressions, such as&nbsp;<code>#[payload.'access_token']</code>.</p> 
    </div> 
-   <div class="panel panel-default no-padding"> 
-    <div class="panel-heading no-padding"> 
-     <!-- Nav tabs --> 
-     <ul class="nav nav-tabs" role="tablist"> 
-      <li class="active"><a href="#tab-7_1" role="tab" data-toggle="tab">Studio Visual Editor</a></li> 
-      <li><a href="#tab-7_2" role="tab" data-toggle="tab">XML Editor</a></li> 
-     </ul> 
-    </div> 
-    <div class="panel-body tab-content no-padding"> 
-     <div class="tab-pane in active fade no-padding" id="tab-7_1"> 
-      <div class="olist arabic"> 
-       <ol class="arabic"> 
-        <li> <p>Drag an HTTP Connector to your canvas, create a new Connector Configuration element for it</p> </li> 
-        <li> <p>Select the <strong>Authentication</strong> tab</p> </li> 
-        <li> <p>In the Protocol dropdown menu, pick <strong>OAuth2 - Authorization Code</strong></p> </li> 
-        <li> <p>Fill in the same fields as in the previous example</p> </li> 
-        <li> <p>Fill in the following extra parameters:</p> 
-         <div class="ulist"> 
-          <ul> 
-           <li> <p>Access Token: <code>#[payload.'access_token']</code></p> </li> 
-           <li> <p>Expires In <code>#[payload.'expires_in']</code></p> </li> 
-           <li> <p>Refresh Token&nbsp;<code>#[payload.'refresh_token']</code></p> </li> 
-          </ul> 
-         </div> </li> 
-       </ol> 
-      </div> 
-     </div> 
-     <div class="tab-pane fade no-padding" id="tab-7_2"> 
-      <div class="paragraph"> 
-       <p>This example is very much like the previous, but it includes two <code>Oauth2:custom-parameter</code> child elements that define parameters that are specific to this API.</p> 
-      </div> 
-      <div class="listingblock"> 
-       <div class="content"> 
-        <pre class="CodeRay highlight"><code data-lang="xml">
-    
-             
-          <table class="CodeRay"> 
-           <tbody> 
-            <tr> 
-             <td class="line-numbers"><pre>1
+   <div class="olist arabic"> 
+    <ol class="arabic"> 
+     <li> <p>Drag an HTTP Connector to your canvas, create a new Connector Configuration element for it</p> </li> 
+     <li> <p>Select the <strong>Authentication</strong> tab</p> </li> 
+     <li> <p>In the Protocol dropdown menu, pick <strong>OAuth2 - Authorization Code</strong></p> </li> 
+     <li> <p>Fill in the same fields as in the previous example</p> </li> 
+     <li> <p>Fill in the following extra parameters:</p> 
+      <div class="ulist"> 
+       <ul> 
+        <li> <p>Access Token: <code>#[payload.'access_token']</code></p> </li> 
+        <li> <p>Expires In <code>#[payload.'expires_in']</code></p> </li> 
+        <li> <p>Refresh Token&nbsp;<code>#[payload.'refresh_token']</code></p> </li> 
+       </ul> 
+      </div> </li> 
+    </ol> 
+   </div> 
+   <div class="paragraph"> 
+    <p><strong>XML Code</strong></p> 
+   </div> 
+   <div class="paragraph"> 
+    <p>This example resemebles the previous one, but includes two <code>Oauth2:custom-parameter</code> child elements that define parameters that are specific to this API.</p> 
+   </div> 
+   <div class="listingblock"> 
+    <div class="content"> 
+     <pre class="CodeRay highlight"><code data-lang="xml">
+          
+       <table class="CodeRay"> 
+        <tbody> 
+         <tr> 
+          <td class="line-numbers"><pre>1
 2
 3
 4
@@ -1642,20 +1530,17 @@ scopes="access_user_details, read_user_files"<span class="entity">&amp;gt;</span
 7
 8
 </pre></td> 
-             <td class="code"><pre><span class="entity">&amp;lt;</span>http:request-config name="HTTP_Request_Configuration" host="api.box.com" port="443" basePath="/2.0" doc:name="HTTP Request Configuration"<span class="entity">&amp;gt;</span>
-        <span class="entity">&amp;lt;</span>oauth2:authorization-code-grant-type clientId="your_client_id" clientSecret="your_client_secret" redirectionUrl="http://localhost:8082/redirectUrl"<span class="entity">&amp;gt;</span>
-            <span class="entity">&amp;lt;</span>oauth2:authorization-request authorizationUrl="http://www.box.com/api/oauth2/authorize" localAuthorizationUrl="http://localhost:8082/authorization"/<span class="entity">&amp;gt;</span>
-            <span class="entity">&amp;lt;</span>oauth2:token-request tokenUrl="http://www.box.com/api/oauth2/token"<span class="entity">&amp;gt;</span>
-                <span class="entity">&amp;lt;</span>oauth2:token-response accessToken="#[payload.'access_token']" expiresIn="#[payload.'expires_in']" refreshToken="#[payload.'refresh_token']"/<span class="entity">&amp;gt;</span>
-            <span class="entity">&amp;lt;</span>/oauth2:token-request<span class="entity">&amp;gt;</span>
-        <span class="entity">&amp;lt;</span>/oauth2:authorization-code-grant-type<span class="entity">&amp;gt;</span>
-    <span class="entity">&amp;lt;</span>/http:request-config<span class="entity">&amp;gt;</span></pre></td> 
-            </tr> 
-           </tbody> 
-          </table></code></pre> 
-       </div> 
-      </div> 
-     </div> 
+          <td class="code"><pre><span class="tag">&lt;http:request-config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Request_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">host</span>=<span class="string"><span class="delimiter">"</span><span class="content">api.box.com</span><span class="delimiter">"</span></span> <span class="attribute-name">port</span>=<span class="string"><span class="delimiter">"</span><span class="content">443</span><span class="delimiter">"</span></span> <span class="attribute-name">basePath</span>=<span class="string"><span class="delimiter">"</span><span class="content">/2.0</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP Request Configuration</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;oauth2:authorization-code-grant-type</span> <span class="attribute-name">clientId</span>=<span class="string"><span class="delimiter">"</span><span class="content">your_client_id</span><span class="delimiter">"</span></span> <span class="attribute-name">clientSecret</span>=<span class="string"><span class="delimiter">"</span><span class="content">your_client_secret</span><span class="delimiter">"</span></span> <span class="attribute-name">redirectionUrl</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://localhost:8082/redirectUrl</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+            <span class="tag">&lt;oauth2:authorization-request</span> <span class="attribute-name">authorizationUrl</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.box.com/api/oauth2/authorize</span><span class="delimiter">"</span></span> <span class="attribute-name">localAuthorizationUrl</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://localhost:8082/authorization</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+            <span class="tag">&lt;oauth2:token-request</span> <span class="attribute-name">tokenUrl</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.box.com/api/oauth2/token</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+                <span class="tag">&lt;oauth2:token-response</span> <span class="attribute-name">accessToken</span>=<span class="string"><span class="delimiter">"</span><span class="content">#[payload.'access_token']</span><span class="delimiter">"</span></span> <span class="attribute-name">expiresIn</span>=<span class="string"><span class="delimiter">"</span><span class="content">#[payload.'expires_in']</span><span class="delimiter">"</span></span> <span class="attribute-name">refreshToken</span>=<span class="string"><span class="delimiter">"</span><span class="content">#[payload.'refresh_token']</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+            <span class="tag">&lt;/oauth2:token-request&gt;</span>
+        <span class="tag">&lt;/oauth2:authorization-code-grant-type&gt;</span>
+    <span class="tag">&lt;/http:request-config&gt;</span></pre></td> 
+         </tr> 
+        </tbody> 
+       </table></code></pre> 
     </div> 
    </div> 
   </div> 
@@ -1668,59 +1553,46 @@ scopes="access_user_details, read_user_files"<span class="entity">&amp;gt;</span
     <p>Mule handles this use case automatically. So by default, when an HTTP Request Connector is executed, if the response has a status code of 403, mule will call the token URL and get a new access token automatically.</p> 
    </div> 
    <div class="paragraph"> 
-    <p>It’s possible to customize when Mule will perform one of these requests to obtain a new access token. This is configured through a&nbsp;<a href="/mule-user-guide/v/3.7/mule-expression-language-mel">MEL Expression</a>&nbsp;that is evaluated against the Mule Message that is generated from the response of the HTTP Request Connector call.</p> 
+    <p>It’s possible to customize when Mule will perform one of these requests to obtain a new access token. This is configured through a&nbsp;MEL Expression&nbsp;that is evaluated against the Mule Message that is generated from the response of the HTTP Request Connector call.</p> 
    </div> 
-   <div class="panel panel-default no-padding"> 
-    <div class="panel-heading no-padding"> 
-     <!-- Nav tabs --> 
-     <ul class="nav nav-tabs" role="tablist"> 
-      <li class="active"><a href="#tab-8_1" role="tab" data-toggle="tab">Studio Visual Editor</a></li> 
-      <li><a href="#tab-8_2" role="tab" data-toggle="tab">XML Editor</a></li> 
-     </ul> 
-    </div> 
-    <div class="panel-body tab-content no-padding"> 
-     <div class="tab-pane in active fade no-padding" id="tab-8_1"> 
-      <div class="olist arabic"> 
-       <ol class="arabic"> 
-        <li> <p>Drag an HTTP Connector to your canvas, create a new Connector Configuration element for it</p> </li> 
-        <li> <p>Select the <strong>Authentication</strong> tab</p> </li> 
-        <li> <p>In the Protocol dropdown menu, pick <strong>OAuth2 - Authorization Code</strong></p> </li> 
-        <li> <p>Fill in the same fields as in the previous examples</p> </li> 
-        <li> <p>Fill in the <strong>Request Token When</strong> field with the following MEL expression: #<code>[xpath3('/response/status/text()', payload, 'STRING') == ‘unauthorized’]</code></p> </li> 
-       </ol> 
-      </div> 
-     </div> 
-     <div class="tab-pane fade no-padding" id="tab-8_2"> 
-      <div class="paragraph"> 
-       <p>To set when to perform a call to obtain a new access token, set a MEL expression for the attribute <code>refreshTokenwhen</code> in the <code>oauth2:token-request</code> element.</p> 
-      </div> 
-      <div class="listingblock"> 
-       <div class="content"> 
-        <pre class="CodeRay highlight"><code data-lang="xml">
-    
-             
-          <table class="CodeRay"> 
-           <tbody> 
-            <tr> 
-             <td class="line-numbers"><pre>1
+   <div class="olist arabic"> 
+    <ol class="arabic"> 
+     <li> <p>Drag an HTTP Connector to your canvas, create a new Connector Configuration element for it</p> </li> 
+     <li> <p>Select the <strong>Authentication</strong> tab</p> </li> 
+     <li> <p>In the Protocol dropdown menu, pick <strong>OAuth2 - Authorization Code</strong></p> </li> 
+     <li> <p>Fill in the same fields as in the previous examples</p> </li> 
+     <li> <p>Fill in the <strong>Request Token When</strong> field with the following MEL expression: #<code>[xpath3('/response/status/text()', payload, 'STRING') == ‘unauthorized’]</code></p> </li> 
+    </ol> 
+   </div> 
+   <div class="paragraph"> 
+    <p><strong>XML Code</strong></p> 
+   </div> 
+   <div class="paragraph"> 
+    <p>To set when to perform a call to obtain a new access token, set a MEL expression for the attribute <code>refreshTokenwhen</code> in the <code>oauth2:token-request</code> element.</p> 
+   </div> 
+   <div class="listingblock"> 
+    <div class="content"> 
+     <pre class="CodeRay highlight"><code data-lang="xml">
+          
+       <table class="CodeRay"> 
+        <tbody> 
+         <tr> 
+          <td class="line-numbers"><pre>1
 2
 3
 4
 5
 6
 </pre></td> 
-             <td class="code"><pre><span class="entity">&amp;lt;</span>http:request-config name="HTTP_Request_Configuration" host="api.box.com" port="443" basePath="/2.0" doc:name="HTTP Request Configuration"<span class="entity">&amp;gt;</span>
-        <span class="entity">&amp;lt;</span>oauth2:authorization-code-grant-type clientId="your_client_id" clientSecret="your_client_secret" redirectionUrl="http://localhost:8082/redirectUrl"<span class="entity">&amp;gt;</span>
-            <span class="entity">&amp;lt;</span>oauth2:authorization-request authorizationUrl="http://www.box.com/api/oauth2/authorize" localAuthorizationUrl="http://localhost:8082/authorization"/<span class="entity">&amp;gt;</span>
-            <span class="entity">&amp;lt;</span>oauth2:token-request tokenUrl="http://www.box.com/api/oauth2/token" refreshTokenWhen="#[xpath3('/response/status/text()', payload, 'STRING') == ‘unauthorized’]"/<span class="entity">&amp;gt;</span>
-        <span class="entity">&amp;lt;</span>/oauth2:authorization-code-grant-type<span class="entity">&amp;gt;</span>
-    <span class="entity">&amp;lt;</span>/http:request-config<span class="entity">&amp;gt;</span></pre></td> 
-            </tr> 
-           </tbody> 
-          </table></code></pre> 
-       </div> 
-      </div> 
-     </div> 
+          <td class="code"><pre><span class="tag">&lt;http:request-config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Request_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">host</span>=<span class="string"><span class="delimiter">"</span><span class="content">api.box.com</span><span class="delimiter">"</span></span> <span class="attribute-name">port</span>=<span class="string"><span class="delimiter">"</span><span class="content">443</span><span class="delimiter">"</span></span> <span class="attribute-name">basePath</span>=<span class="string"><span class="delimiter">"</span><span class="content">/2.0</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP Request Configuration</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;oauth2:authorization-code-grant-type</span> <span class="attribute-name">clientId</span>=<span class="string"><span class="delimiter">"</span><span class="content">your_client_id</span><span class="delimiter">"</span></span> <span class="attribute-name">clientSecret</span>=<span class="string"><span class="delimiter">"</span><span class="content">your_client_secret</span><span class="delimiter">"</span></span> <span class="attribute-name">redirectionUrl</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://localhost:8082/redirectUrl</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+            <span class="tag">&lt;oauth2:authorization-request</span> <span class="attribute-name">authorizationUrl</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.box.com/api/oauth2/authorize</span><span class="delimiter">"</span></span> <span class="attribute-name">localAuthorizationUrl</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://localhost:8082/authorization</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+            <span class="tag">&lt;oauth2:token-request</span> <span class="attribute-name">tokenUrl</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.box.com/api/oauth2/token</span><span class="delimiter">"</span></span> <span class="attribute-name">refreshTokenWhen</span>=<span class="string"><span class="delimiter">"</span><span class="content">#[xpath3('/response/status/text()', payload, 'STRING') == ‘unauthorized’]</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+        <span class="tag">&lt;/oauth2:authorization-code-grant-type&gt;</span>
+    <span class="tag">&lt;/http:request-config&gt;</span></pre></td> 
+         </tr> 
+        </tbody> 
+       </table></code></pre> 
     </div> 
    </div> 
    <div class="paragraph"> 
@@ -1735,54 +1607,44 @@ scopes="access_user_details, read_user_files"<span class="entity">&amp;gt;</span
    <div class="paragraph"> 
     <p>To identify which RO is granting access to the CA, you must define a MEL expression to retrieve a&nbsp;<strong>Resource Owner ID</strong>&nbsp;against the call done to the local authorization URL.</p> 
    </div> 
-   <div class="panel panel-default no-padding"> 
-    <div class="panel-heading no-padding"> 
-     <!-- Nav tabs --> 
-     <ul class="nav nav-tabs" role="tablist"> 
-      <li class="active"><a href="#tab-9_1" role="tab" data-toggle="tab">Studio Visual Editor</a></li> 
-      <li><a href="#tab-9_2" role="tab" data-toggle="tab">XML Editor</a></li> 
-     </ul> 
-    </div> 
-    <div class="panel-body tab-content no-padding"> 
-     <div class="tab-pane in active fade no-padding" id="tab-9_1"> 
-      <div class="olist arabic"> 
-       <ol class="arabic"> 
-        <li> <p>Drag an HTTP Connector to your canvas, create a new Connector Configuration element for it</p> </li> 
-        <li> <p>Select the <strong>Authentication</strong> tab</p> </li> 
-        <li> <p>In the Protocol dropdown menu, pick <strong>OAuth2 - Authorization Code</strong></p> </li> 
-        <li> <p>Fill in the same fields as in the previous examples</p> </li> 
-        <li> <p>In the Advanced section of the Authentication tab, set:</p> 
-         <div class="ulist"> 
-          <ul> 
-           <li> <p><strong>Resource Owner ID</strong> to&nbsp;<code>#[flowVars.'userId']</code></p> </li> 
-           <li> <p><strong>Local Authorization URI</strong> #[message.inboundProperties.'http.query.params'.userId]</p> </li> 
-          </ul> 
-         </div> </li> 
-       </ol> 
-      </div> 
-      <div class="paragraph"> 
-       <p>The field&nbsp;<strong>Resource Owner ID</strong> must be set with a MEL expression that allows each execution of the HTTP Request Connector to retrieve the RO identifier from the Mule Message. So on this example, whenever the HTTP Request Connector is executed, there must be a flow variable named ‘userId’ with the RO identifier to use. To create this variable, you can add a Variable transformer to your flow, positioned before the HTTP Request Connector, and configure the transformer to create the userId variable in the Mule Message.</p> 
-      </div> 
-      <div class="paragraph"> 
-       <p>The <strong>Local Authorization</strong> <strong>URI</strong> field (the one in the Advanced section), defines that in order to get the RO identifier, the&nbsp;<code>userId</code> query parameter must be parsed from the call done to the local authorization URL.</p> 
-      </div> 
-      <div class="paragraph"> 
-       <p>So if you hit <code><a href="http://localhost:8082/authorization?userId=john" class="bare">http://localhost:8082/authorization?userId=john</a></code>, then the RO john can grant access to the CA on his behalf. If you hit <code><a href="http://localhost:8082/authorization?userId=peter" class="bare">http://localhost:8082/authorization?userId=peter</a></code> then the RO peter can grant access to the CA on his behalf.</p> 
-      </div> 
-     </div> 
-     <div class="tab-pane fade no-padding" id="tab-9_2"> 
-      <div class="paragraph"> 
-       <p>Set <code>resourceOwnerId</code> to <code><mark>[flowVars.'userId']</mark></code> and <code>localAuthorizationUrlResourceOwnerId</code> to&nbsp; <code>[message.inboundProperties.'http.query.params'.userId]</code></p> 
-      </div> 
-      <div class="listingblock"> 
-       <div class="content"> 
-        <pre class="CodeRay highlight"><code data-lang="xml">
-    
-             
-          <table class="CodeRay"> 
-           <tbody> 
-            <tr> 
-             <td class="line-numbers"><pre>1
+   <div class="olist arabic"> 
+    <ol class="arabic"> 
+     <li> <p>Drag an HTTP Connector to your canvas, create a new Connector Configuration element for it</p> </li> 
+     <li> <p>Select the <strong>Authentication</strong> tab</p> </li> 
+     <li> <p>In the Protocol dropdown menu, pick <strong>OAuth2 - Authorization Code</strong></p> </li> 
+     <li> <p>Fill in the same fields as in the previous examples</p> </li> 
+     <li> <p>In the Advanced section of the Authentication tab, set:</p> 
+      <div class="ulist"> 
+       <ul> 
+        <li> <p><strong>Resource Owner ID</strong> to&nbsp;<code>#[flowVars.'userId']</code></p> </li> 
+        <li> <p><strong>Local Authorization URI</strong> #[message.inboundProperties.'http.query.params'.userId]</p> </li> 
+       </ul> 
+      </div> </li> 
+    </ol> 
+   </div> 
+   <div class="paragraph"> 
+    <p>The field&nbsp;<strong>Resource Owner ID</strong> must be set with a MEL expression that allows each execution of the HTTP Request Connector to retrieve the RO identifier from the Mule Message. So on this example, whenever the HTTP Request Connector is executed, there must be a flow variable named ‘userId’ with the RO identifier to use. To create this variable, you can add a Variable transformer to your flow, positioned before the HTTP Request Connector, and configure the transformer to create the userId variable in the Mule Message.</p> 
+   </div> 
+   <div class="paragraph"> 
+    <p>The <strong>Local Authorization</strong> <strong>URI</strong> field (the one in the Advanced section), defines that in order to get the RO identifier, the&nbsp;<code>userId</code> query parameter must be parsed from the call done to the local authorization URL.</p> 
+   </div> 
+   <div class="paragraph"> 
+    <p>So if you hit <code><a href="http://localhost:8082/authorization?userId=john" class="bare">http://localhost:8082/authorization?userId=john</a></code>, then the RO john can grant access to the CA on his behalf. If you hit <code><a href="http://localhost:8082/authorization?userId=peter" class="bare">http://localhost:8082/authorization?userId=peter</a></code> then the RO peter can grant access to the CA on his behalf.</p> 
+   </div> 
+   <div class="paragraph"> 
+    <p><strong>XML Code</strong></p> 
+   </div> 
+   <div class="paragraph"> 
+    <p>Set <code>resourceOwnerId</code> to <code><mark>[flowVars.'userId']</mark></code> and <code>localAuthorizationUrlResourceOwnerId</code> to&nbsp; <code>[message.inboundProperties.'http.query.params'.userId]</code></p> 
+   </div> 
+   <div class="listingblock"> 
+    <div class="content"> 
+     <pre class="CodeRay highlight"><code data-lang="xml">
+          
+       <table class="CodeRay"> 
+        <tbody> 
+         <tr> 
+          <td class="line-numbers"><pre>1
 2
 3
 4
@@ -1790,51 +1652,47 @@ scopes="access_user_details, read_user_files"<span class="entity">&amp;gt;</span
 6
 7
 </pre></td> 
-             <td class="code"><pre><span class="entity">&amp;lt;</span>http:request-config name="HTTP_Request_Configuration" host="api.box.com" port="443" basePath="/2.0" doc:name="HTTP Request Configuration" tlsContext-ref="TLS_Context"<span class="entity">&amp;gt;</span>
-        <span class="entity">&amp;lt;</span>oauth2:authorization-code-grant-type clientId="your_client_id" clientSecret="your_client_secret" redirectionUrl="http://localhost:8082/redirectUrl" localAuthorizationUrlResourceOwnerId="#[message.inboundProperties.'http.query.params'.userId]"
-resourceOwnerId="#[flowVars.'userId']"<span class="entity">&amp;gt;</span>
-            <span class="entity">&amp;lt;</span>oauth2:authorization-request authorizationUrl="http://www.box.com/api/oauth2/authorize" localAuthorizationUrl="http://localhost:8082/authorization" scopes="access_user_details, read_user_files"/<span class="entity">&amp;gt;</span>
-            <span class="entity">&amp;lt;</span>oauth2:token-request tokenUrl="http://www.box.com/api/oauth2/token" refreshTokenWhen="#[xpath3('/response/status/text()')]" /<span class="entity">&amp;gt;</span>
-        <span class="entity">&amp;lt;</span>/oauth2:authorization-code-grant-type<span class="entity">&amp;gt;</span>
-    <span class="entity">&amp;lt;</span>/http:request-config<span class="entity">&amp;gt;</span></pre></td> 
-            </tr> 
-           </tbody> 
-          </table></code></pre> 
-       </div> 
-      </div> 
-      <div class="paragraph"> 
-       <p>The attribute <code>resourceOwnerId</code> must be set with a MEL expression that allows each ` http:request ` execution to retrieve the RO identifier from the Mule Message. So on this example, whenever the ` http:request ` is executed, there must be a flow variable named ‘userId’ with the RO identifier to use.</p> 
-      </div> 
-      <div class="listingblock"> 
-       <div class="content"> 
-        <pre class="CodeRay highlight"><code data-lang="xml">
-    
-             
-          <table class="CodeRay"> 
-           <tbody> 
-            <tr> 
-             <td class="line-numbers"><pre>1
+          <td class="code"><pre><span class="tag">&lt;http:request-config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Request_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">host</span>=<span class="string"><span class="delimiter">"</span><span class="content">api.box.com</span><span class="delimiter">"</span></span> <span class="attribute-name">port</span>=<span class="string"><span class="delimiter">"</span><span class="content">443</span><span class="delimiter">"</span></span> <span class="attribute-name">basePath</span>=<span class="string"><span class="delimiter">"</span><span class="content">/2.0</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP Request Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">tlsContext-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">TLS_Context</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;oauth2:authorization-code-grant-type</span> <span class="attribute-name">clientId</span>=<span class="string"><span class="delimiter">"</span><span class="content">your_client_id</span><span class="delimiter">"</span></span> <span class="attribute-name">clientSecret</span>=<span class="string"><span class="delimiter">"</span><span class="content">your_client_secret</span><span class="delimiter">"</span></span> <span class="attribute-name">redirectionUrl</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://localhost:8082/redirectUrl</span><span class="delimiter">"</span></span> <span class="attribute-name">localAuthorizationUrlResourceOwnerId</span>=<span class="string"><span class="delimiter">"</span><span class="content">#[message.inboundProperties.'http.query.params'.userId]</span><span class="delimiter">"</span></span>
+<span class="attribute-name">resourceOwnerId</span>=<span class="string"><span class="delimiter">"</span><span class="content">#[flowVars.'userId']</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+            <span class="tag">&lt;oauth2:authorization-request</span> <span class="attribute-name">authorizationUrl</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.box.com/api/oauth2/authorize</span><span class="delimiter">"</span></span> <span class="attribute-name">localAuthorizationUrl</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://localhost:8082/authorization</span><span class="delimiter">"</span></span> <span class="attribute-name">scopes</span>=<span class="string"><span class="delimiter">"</span><span class="content">access_user_details, read_user_files</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+            <span class="tag">&lt;oauth2:token-request</span> <span class="attribute-name">tokenUrl</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.box.com/api/oauth2/token</span><span class="delimiter">"</span></span> <span class="attribute-name">refreshTokenWhen</span>=<span class="string"><span class="delimiter">"</span><span class="content">#[xpath3('/response/status/text()')]</span><span class="delimiter">"</span></span> <span class="tag">/&gt;</span>
+        <span class="tag">&lt;/oauth2:authorization-code-grant-type&gt;</span>
+    <span class="tag">&lt;/http:request-config&gt;</span></pre></td> 
+         </tr> 
+        </tbody> 
+       </table></code></pre> 
+    </div> 
+   </div> 
+   <div class="paragraph"> 
+    <p>The attribute <code>resourceOwnerId</code> must be set with a MEL expression that allows each ` http:request ` execution to retrieve the RO identifier from the Mule Message. So on this example, whenever the ` http:request ` is executed, there must be a flow variable named ‘userId’ with the RO identifier to use.</p> 
+   </div> 
+   <div class="listingblock"> 
+    <div class="content"> 
+     <pre class="CodeRay highlight"><code data-lang="xml">
+          
+       <table class="CodeRay"> 
+        <tbody> 
+         <tr> 
+          <td class="line-numbers"><pre>1
 2
 3
 4
 </pre></td> 
-             <td class="code"><pre><span class="entity">&amp;lt;</span>flow name="accessROFolders"<span class="entity">&amp;gt;</span>
-        <span class="entity">&amp;lt;</span>set-variable variableName="userId" value="#['Peter']" doc:name="Variable"/<span class="entity">&amp;gt;</span>
-        <span class="entity">&amp;lt;</span>http:request config-ref="HTTP_Request_Configuration" path="/folders" method="GET" doc:name="HTTP"/<span class="entity">&amp;gt;</span>
-    <span class="entity">&amp;lt;</span>/flow<span class="entity">&amp;gt;</span></pre></td> 
-            </tr> 
-           </tbody> 
-          </table></code></pre> 
-       </div> 
-      </div> 
-      <div class="paragraph"> 
-       <p>The attribute localAuthorizationUrlResourceOwnerId defines that, in order to get the RO identifier, the&nbsp;<code>userId</code> query parameter must be parsed from the call done to the local authorization URL.</p> 
-      </div> 
-      <div class="paragraph"> 
-       <p>So if you hit <code><a href="http://localhost:8082/authorization?userId=john" class="bare">http://localhost:8082/authorization?userId=john</a></code>, then the RO john can grant access to the CA on his behalf. If you hit <code><a href="http://localhost:8082/authorization?userId=peter" class="bare">http://localhost:8082/authorization?userId=peter</a></code> then the RO peter can grant access to the CA on his behalf.</p> 
-      </div> 
-     </div> 
+          <td class="code"><pre><span class="tag">&lt;flow</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">accessROFolders</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;set-variable</span> <span class="attribute-name">variableName</span>=<span class="string"><span class="delimiter">"</span><span class="content">userId</span><span class="delimiter">"</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">"</span><span class="content">#['Peter']</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Variable</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+        <span class="tag">&lt;http:request</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Request_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">"</span><span class="content">/folders</span><span class="delimiter">"</span></span> <span class="attribute-name">method</span>=<span class="string"><span class="delimiter">"</span><span class="content">GET</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+    <span class="tag">&lt;/flow&gt;</span></pre></td> 
+         </tr> 
+        </tbody> 
+       </table></code></pre> 
     </div> 
+   </div> 
+   <div class="paragraph"> 
+    <p>The attribute localAuthorizationUrlResourceOwnerId defines that, in order to get the RO identifier, the&nbsp;<code>userId</code> query parameter must be parsed from the call done to the local authorization URL.</p> 
+   </div> 
+   <div class="paragraph"> 
+    <p>If you hit <code><a href="http://localhost:8082/authorization?userId=john" class="bare">http://localhost:8082/authorization?userId=john</a></code>, then the RO john can grant access to the CA on his behalf. If you hit <code><a href="http://localhost:8082/authorization?userId=peter" class="bare">http://localhost:8082/authorization?userId=peter</a></code> then the RO peter can grant access to the CA on his behalf.</p> 
    </div> 
   </div> 
   <div class="sect2"> 
@@ -1853,55 +1711,35 @@ resourceOwnerId="#[flowVars.'userId']"<span class="entity">&amp;gt;</span>
    <div class="paragraph"> 
     <p>By specifying a TLS context in your HTTP Request Connector authentication settings, this is handled in all of these requests.</p> 
    </div> 
-   <div class="panel panel-default no-padding"> 
-    <div class="panel-heading no-padding"> 
-     <!-- Nav tabs --> 
-     <ul class="nav nav-tabs" role="tablist"> 
-      <li class="active"><a href="#tab-10_1" role="tab" data-toggle="tab">Studio Visual Editor</a></li> 
-      <li><a href="#tab-10_2" role="tab" data-toggle="tab">XML Editor</a></li> 
-     </ul> 
-    </div> 
-    <div class="panel-body tab-content no-padding"> 
-     <div class="tab-pane in active fade no-padding" id="tab-10_1"> 
-      <div class="olist arabic"> 
-       <ol class="arabic"> 
-        <li> <p>Drag an HTTP Connector to your canvas, create a new Connector Configuration element for it</p> </li> 
-        <li> <p>In the General tab, pick the <strong>HTTPS</strong> radio button to select the protocol</p> </li> 
-        <li> <p>Select the <strong>Authentication</strong> tab</p> </li> 
-        <li> <p>In the Protocol dropdown menu, pick <strong>OAuth2 - Authorization Code</strong></p> </li> 
-        <li> <p>Fill in the same fields as in the previous examples</p> </li> 
-        <li> <p>In the TLS configuration section, select <strong>Use Global TLS Config</strong></p> </li> 
-        <li> <p>Click the green plus sign next to the field to create a new TLS Context</p> </li> 
-        <li> <p>Set up the trust store and key store configuration and click OK to save</p> </li> 
-       </ol> 
-      </div> 
-      <div class="admonitionblock note"> 
-       <table> 
+   <div class="olist arabic"> 
+    <ol class="arabic"> 
+     <li> <p>Drag an HTTP Connector to your canvas, create a new Connector Configuration element for it</p> </li> 
+     <li> <p>In the General tab, pick the <strong>HTTPS</strong> radio button to select the protocol</p> </li> 
+     <li> <p>Select the <strong>Authentication</strong> tab</p> </li> 
+     <li> <p>In the Protocol dropdown menu, pick <strong>OAuth2 - Authorization Code</strong></p> </li> 
+     <li> <p>Fill in the same fields as in the previous examples</p> </li> 
+     <li> <p>In the TLS configuration section, select <strong>Use Global TLS Config</strong></p> </li> 
+     <li> <p>Click the green plus sign next to the field to create a new TLS Context</p> </li> 
+     <li> <p>Set up the trust store and key store configuration and click OK to save</p> </li> 
+    </ol> 
+   </div> 
+   <div class="paragraph"> 
+    <p>Keep in mind that the TLS settings in the Authentication tab are for encoding your OAuth credentials, whilst the TLS/SSL tab of the HTTP Request Configuration are for encoding your request’s body.</p> 
+   </div> 
+   <div class="paragraph"> 
+    <p><strong>XML Code</strong></p> 
+   </div> 
+   <div class="paragraph"> 
+    <p>Set &nbsp; <code>tlsContext-ref</code> to reference a TLS context element, provide your trust store and key store credentials in this element.</p> 
+   </div> 
+   <div class="listingblock"> 
+    <div class="content"> 
+     <pre class="CodeRay highlight"><code data-lang="xml">
+          
+       <table class="CodeRay"> 
         <tbody> 
          <tr> 
-          <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-          <td class="content"> 
-           <div class="paragraph"> 
-            <p>Keep in mind that the TLS settings in the Authentication tab are for encoding your OAuth credentials, whilst the TLS/SSL tab of the HTTP Request Configuration are for encoding your request’s body.</p> 
-           </div> </td> 
-         </tr> 
-        </tbody> 
-       </table> 
-      </div> 
-     </div> 
-     <div class="tab-pane fade no-padding" id="tab-10_2"> 
-      <div class="paragraph"> 
-       <p>Set &nbsp; <code>tlsContext-ref</code> to reference a TLS context element, provide your trust store and key store credentials in this element.</p> 
-      </div> 
-      <div class="listingblock"> 
-       <div class="content"> 
-        <pre class="CodeRay highlight"><code data-lang="xml">
-    
-             
-          <table class="CodeRay"> 
-           <tbody> 
-            <tr> 
-             <td class="line-numbers"><pre>1
+          <td class="line-numbers"><pre>1
 2
 3
 4
@@ -1913,37 +1751,24 @@ resourceOwnerId="#[flowVars.'userId']"<span class="entity">&amp;gt;</span>
 10
 11
 </pre></td> 
-             <td class="code"><pre><span class="entity">&amp;lt;</span>http:request-config name="HTTP_Request_Configuration_HTTPS" host="api.box.com" port="443" basePath="/2.0" doc:name="HTTP Request Configuration" tlsContext-ref="TLS_Context" protocol="HTTPS"<span class="entity">&amp;gt;</span>
-        <span class="entity">&amp;lt;</span>oauth2:authorization-code-grant-type clientId="your_client_id" clientSecret="your_client_secret" redirectionUrl="http://localhost:8082/redirectUrl" tlsContext-ref="TLS_Context"<span class="entity">&amp;gt;</span>
-            <span class="entity">&amp;lt;</span>oauth2:authorization-request authorizationUrl="https://www.box.com/api/oauth2/authorize" localAuthorizationUrl="https://localhost:8082/authorization" scopes="access_user_details, read_user_files"/<span class="entity">&amp;gt;</span>
-            <span class="entity">&amp;lt;</span>oauth2:token-request tokenUrl="https://www.box.com/api/oauth2/token" /<span class="entity">&amp;gt;</span>
-        <span class="entity">&amp;lt;</span>/oauth2:authorization-code-grant-type<span class="entity">&amp;gt;</span>
-    <span class="entity">&amp;lt;</span>/http:request-config<span class="entity">&amp;gt;</span>
+          <td class="code"><pre><span class="tag">&lt;http:request-config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Request_Configuration_HTTPS</span><span class="delimiter">"</span></span> <span class="attribute-name">host</span>=<span class="string"><span class="delimiter">"</span><span class="content">api.box.com</span><span class="delimiter">"</span></span> <span class="attribute-name">port</span>=<span class="string"><span class="delimiter">"</span><span class="content">443</span><span class="delimiter">"</span></span> <span class="attribute-name">basePath</span>=<span class="string"><span class="delimiter">"</span><span class="content">/2.0</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP Request Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">tlsContext-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">TLS_Context</span><span class="delimiter">"</span></span> <span class="attribute-name">protocol</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTPS</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;oauth2:authorization-code-grant-type</span> <span class="attribute-name">clientId</span>=<span class="string"><span class="delimiter">"</span><span class="content">your_client_id</span><span class="delimiter">"</span></span> <span class="attribute-name">clientSecret</span>=<span class="string"><span class="delimiter">"</span><span class="content">your_client_secret</span><span class="delimiter">"</span></span> <span class="attribute-name">redirectionUrl</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://localhost:8082/redirectUrl</span><span class="delimiter">"</span></span> <span class="attribute-name">tlsContext-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">TLS_Context</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+            <span class="tag">&lt;oauth2:authorization-request</span> <span class="attribute-name">authorizationUrl</span>=<span class="string"><span class="delimiter">"</span><span class="content">https://www.box.com/api/oauth2/authorize</span><span class="delimiter">"</span></span> <span class="attribute-name">localAuthorizationUrl</span>=<span class="string"><span class="delimiter">"</span><span class="content">https://localhost:8082/authorization</span><span class="delimiter">"</span></span> <span class="attribute-name">scopes</span>=<span class="string"><span class="delimiter">"</span><span class="content">access_user_details, read_user_files</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+            <span class="tag">&lt;oauth2:token-request</span> <span class="attribute-name">tokenUrl</span>=<span class="string"><span class="delimiter">"</span><span class="content">https://www.box.com/api/oauth2/token</span><span class="delimiter">"</span></span> <span class="tag">/&gt;</span>
+        <span class="tag">&lt;/oauth2:authorization-code-grant-type&gt;</span>
+    <span class="tag">&lt;/http:request-config&gt;</span>
 
-    <span class="entity">&amp;lt;</span>tls:context name="TLS_Context" doc:name="TLS Context"<span class="entity">&amp;gt;</span>
-        <span class="entity">&amp;lt;</span>tls:trust-store path="your_trust_store" password="your_password"/<span class="entity">&amp;gt;</span>
-        <span class="entity">&amp;lt;</span>tls:key-store path="your_keystore_path" password="your_password" keyPassword="your_key_password"/<span class="entity">&amp;gt;</span>
-    <span class="entity">&amp;lt;</span>/tls:context<span class="entity">&amp;gt;</span></pre></td> 
-            </tr> 
-           </tbody> 
-          </table></code></pre> 
-       </div> 
-      </div> 
-      <div class="admonitionblock note"> 
-       <table> 
-        <tbody> 
-         <tr> 
-          <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-          <td class="content"> 
-           <div class="paragraph"> 
-            <p>Keep in mind that the&nbsp;<code>tlsContext-ref</code> attribute of the&nbsp;<code>oauth2:authorization-code-grant-type</code> element is for encoding your OAuth credentials,&nbsp;<code>tls:context</code> child element of the&nbsp;<code>http:request-config</code> is for encoding your request’s body.</p> 
-           </div> </td> 
+    <span class="tag">&lt;tls:context</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">TLS_Context</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">TLS Context</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;tls:trust-store</span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">"</span><span class="content">your_trust_store</span><span class="delimiter">"</span></span> <span class="attribute-name">password</span>=<span class="string"><span class="delimiter">"</span><span class="content">your_password</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+        <span class="tag">&lt;tls:key-store</span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">"</span><span class="content">your_keystore_path</span><span class="delimiter">"</span></span> <span class="attribute-name">password</span>=<span class="string"><span class="delimiter">"</span><span class="content">your_password</span><span class="delimiter">"</span></span> <span class="attribute-name">keyPassword</span>=<span class="string"><span class="delimiter">"</span><span class="content">your_key_password</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+    <span class="tag">&lt;/tls:context&gt;</span></pre></td> 
          </tr> 
         </tbody> 
-       </table> 
-      </div> 
-     </div> 
+       </table></code></pre> 
     </div> 
+   </div> 
+   <div class="paragraph"> 
+    <p>The&nbsp;<code>tlsContext-ref</code> attribute of the&nbsp;<code>oauth2:authorization-code-grant-type</code> element is for encoding your OAuth credentials,&nbsp;<code>tls:context</code> child element of the&nbsp;<code>http:request-config</code> is for encoding your request’s body.</p> 
    </div> 
   </div> 
  </div> 
@@ -1951,95 +1776,79 @@ resourceOwnerId="#[flowVars.'userId']"<span class="entity">&amp;gt;</span>
 <div class="sect1"> 
  <h2 id="oauth-authentication-client-credentials-grant-type"><a class="anchor" href="#oauth-authentication-client-credentials-grant-type"></a>OAuth Authentication Client Credentials Grant Type</h2> 
  <div class="sectionbody"> 
-  <div class="sect2"> 
-   <h3 id="how-the-client-credentials-strong-grant-type-strong-works-simplified"><a class="anchor" href="#how-the-client-credentials-strong-grant-type-strong-works-simplified"></a>How the Client Credentials&nbsp;<strong>Grant Type</strong>&nbsp;Works - simplified</h3> 
-   <div class="paragraph"> 
-    <p>The OAuth Authentication Server (<strong>OAS</strong>) is a server that holds the resources that are protected by OAuth. ex: Box server provides an API with OAuth authentication.</p> 
-   </div> 
-   <div class="paragraph"> 
-    <p>The Client Application (<strong>CA</strong>) is the server that tries to access a protected resource that belongs to a resource owner and&nbsp;that is held in an OAuth authentication server. ex: a Mule Server trying to access the resources that belong to a Box user and that are held in a Box server.</p> 
-   </div> 
-   <div class="paragraph"> 
-    <p>In this case, the resource owner (RO) is also the CA. This means that the CA is implicitly authorized by the RO, which makes the whole procedure a lot simpler.</p> 
-   </div> 
-   <div class="paragraph"> 
-    <p><span class="image"><img src="./_images/oauth+danceposta+simple.png" alt="oauth dance post a simple"></span></p> 
-   </div> 
-   <div class="olist arabic"> 
-    <ol class="arabic"> 
-     <li> <p>The CA must register an app to the OAS server. When this happens, the OAS assigns credentials to the CA that it can later use to identify itself:&nbsp;<strong>client id</strong> and&nbsp;<strong>client secret</strong>.&nbsp;The OAS must also provide a&nbsp;<strong>Token URL</strong>, to&nbsp;which the CA can later send HTTP requests to retrieve an&nbsp;<strong>access token</strong> that is required when accessing the Protected Resources.&nbsp;&nbsp;</p> </li> 
-     <li> <p>The CA makes a request to the&nbsp;<strong>Token URL</strong> of the OAS, containing its client id to prove its identity. As a response, the OAS grants it an&nbsp;<strong>access token</strong>.&nbsp;</p> </li> 
-     <li> <p>With this access token, the CA is now free to access the protected resources in the OAS as long as it includes it in its requests. Depending on the policies defined by the OAS, this token may eventually expire.</p> </li> 
-    </ol> 
-   </div> 
+  <div class="paragraph"> 
+   <p>The OAuth Authentication Server (<strong>OAS</strong>) is a server that holds the resources that are protected by OAuth. ex: Box server provides an API with OAuth authentication.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>The Client Application (<strong>CA</strong>) is the server that tries to access a protected resource that belongs to a resource owner and&nbsp;that is held in an OAuth authentication server. ex: a Mule Server trying to access the resources that belong to a Box user and that are held in a Box server.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>In this case, the resource owner (RO) is also the CA. This means that the CA is implicitly authorized by the RO, which makes the whole procedure a lot simpler.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p><span class="image"><img src="./_images/oauth+danceposta+simple.png" alt="oauth dance post a simple"></span></p> 
+  </div> 
+  <div class="olist arabic"> 
+   <ol class="arabic"> 
+    <li> <p>The CA must register an app to the OAS server. When this happens, the OAS assigns credentials to the CA that it can later use to identify itself:&nbsp;<strong>client id</strong> and&nbsp;<strong>client secret</strong>.&nbsp;The OAS must also provide a&nbsp;<strong>Token URL</strong>, to&nbsp;which the CA can later send HTTP requests to retrieve an&nbsp;<strong>access token</strong> that is required when accessing the Protected Resources.&nbsp;&nbsp;</p> </li> 
+    <li> <p>The CA makes a request to the&nbsp;<strong>Token URL</strong> of the OAS, containing its client id to prove its identity. As a response, the OAS grants it an&nbsp;<strong>access token</strong>.&nbsp;</p> </li> 
+    <li> <p>With this access token, the CA is now free to access the protected resources in the OAS as long as it includes it in its requests. Depending on the policies defined by the OAS, this token may eventually expire.</p> </li> 
+   </ol> 
   </div> 
   <div class="sect2"> 
    <h3 id="basic-configuration-2"><a class="anchor" href="#basic-configuration-2"></a>Basic Configuration</h3> 
    <div class="paragraph"> 
     <p>Client credentials grant type is meant to be used by a CA to grant access to an application on behalf of itself, rather than on behalf of a RO (resource owner) in the OAS. To get an access token all you need is the application credentials.</p> 
    </div> 
-   <div class="panel panel-default no-padding"> 
-    <div class="panel-heading no-padding"> 
-     <!-- Nav tabs --> 
-     <ul class="nav nav-tabs" role="tablist"> 
-      <li class="active"><a href="#tab-11_1" role="tab" data-toggle="tab">Studio Visual Editor</a></li> 
-      <li><a href="#tab-11_2" role="tab" data-toggle="tab">XML Editor</a></li> 
-     </ul> 
-    </div> 
-    <div class="panel-body tab-content no-padding"> 
-     <div class="tab-pane in active fade no-padding" id="tab-11_1"> 
-      <div class="olist arabic"> 
-       <ol class="arabic"> 
-        <li> <p>Drag an HTTP Connector to your canvas, create a new Connector Configuration element for it</p> </li> 
-        <li> <p>Select the <strong>Authentication</strong> tab</p> </li> 
-        <li> <p>In the Protocol dropdown menu, pick <strong>OAuth2 - Client Credentials</strong></p> </li> 
-        <li> <p>Fill in the following fields:</p> 
-         <div class="ulist"> 
-          <ul> 
-           <li> <p>The <strong>Client Id</strong> and <strong>Client Secret</strong> the OAS gave you when registering your application.</p> </li> 
-           <li> <p>The <strong>Scopes</strong> field is optional, it allows you to define a comma separated list of OAuth scopes available in the OAS. Scopes in OAuth are very much like security roles.</p> </li> 
-           <li> <p>The <strong>Token URI</strong> that the OAS exposes</p> </li> 
-          </ul> 
-         </div> </li> 
-       </ol> 
-      </div> 
-     </div> 
-     <div class="tab-pane fade no-padding" id="tab-11_2"> 
-      <div class="paragraph"> 
-       <p>You must include the following information:</p> 
-      </div> 
+   <div class="olist arabic"> 
+    <ol class="arabic"> 
+     <li> <p>Drag an HTTP Connector to your canvas, create a new Connector Configuration element for it</p> </li> 
+     <li> <p>Select the <strong>Authentication</strong> tab</p> </li> 
+     <li> <p>In the Protocol dropdown menu, pick <strong>OAuth2 - Client Credentials</strong></p> </li> 
+     <li> <p>Fill in the following fields:</p> 
       <div class="ulist"> 
        <ul> 
-        <li> <p>The <strong>clientId</strong> and <strong>clientSecret</strong> the OAS gave you when registering your application.</p> </li> 
-        <li> <p>The&nbsp; <strong>scopes</strong> attribute is optional, it allows you to define a comma separated list of OAuth scopes available in the OAS. Scopes in OAuth are very much like security roles.</p> </li> 
-        <li> <p>The <strong>tokenUrl</strong> that the OAS exposes</p> </li> 
+        <li> <p>The <strong>Client Id</strong> and <strong>Client Secret</strong> the OAS gave you when registering your application.</p> </li> 
+        <li> <p>The <strong>Scopes</strong> field is optional, it allows you to define a comma separated list of OAuth scopes available in the OAS. Scopes in OAuth are very much like security roles.</p> </li> 
+        <li> <p>The <strong>Token URI</strong> that the OAS exposes</p> </li> 
        </ul> 
-      </div> 
-      <div class="listingblock"> 
-       <div class="content"> 
-        <pre class="CodeRay highlight"><code data-lang="xml">
-    
-             
-          <table class="CodeRay"> 
-           <tbody> 
-            <tr> 
-             <td class="line-numbers"><pre>1
+      </div> </li> 
+    </ol> 
+   </div> 
+   <div class="paragraph"> 
+    <p><strong>XML Code</strong></p> 
+   </div> 
+   <div class="paragraph"> 
+    <p>You must include the following information:</p> 
+   </div> 
+   <div class="ulist"> 
+    <ul> 
+     <li> <p>The <strong>clientId</strong> and <strong>clientSecret</strong> the OAS gave you when registering your application.</p> </li> 
+     <li> <p>The&nbsp; <strong>scopes</strong> attribute is optional, it allows you to define a comma separated list of OAuth scopes available in the OAS. Scopes in OAuth are very much like security roles.</p> </li> 
+     <li> <p>The <strong>tokenUrl</strong> that the OAS exposes</p> </li> 
+    </ul> 
+   </div> 
+   <div class="listingblock"> 
+    <div class="content"> 
+     <pre class="CodeRay highlight"><code data-lang="xml">
+          
+       <table class="CodeRay"> 
+        <tbody> 
+         <tr> 
+          <td class="line-numbers"><pre>1
 2
 3
 4
 5
 </pre></td> 
-             <td class="code"><pre><span class="entity">&amp;lt;</span>http:request-config name="HTTP_Request_Configuration" host="some.api.com" port="80" basePath="/api/1.0" doc:name="HTTP Request Configuration"<span class="entity">&amp;gt;</span>
-        <span class="entity">&amp;lt;</span>oauth2:client-credentials-grant-type clientId="your_client_id" clientSecret="your_client_secret"<span class="entity">&amp;gt;</span>
-            <span class="entity">&amp;lt;</span>oauth2:token-request tokenUrl="http://some.api.com/api/1.0/oauth/token" scopes="access_user_details, read_user_files"/<span class="entity">&amp;gt;</span>
-<span class="entity">&amp;lt;</span>/oauth2:client-credentials-grant-type<span class="entity">&amp;gt;</span>
-    <span class="entity">&amp;lt;</span>/http:request-config<span class="entity">&amp;gt;</span></pre></td> 
-            </tr> 
-           </tbody> 
-          </table></code></pre> 
-       </div> 
-      </div> 
-     </div> 
+          <td class="code"><pre><span class="tag">&lt;http:request-config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Request_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">host</span>=<span class="string"><span class="delimiter">"</span><span class="content">some.api.com</span><span class="delimiter">"</span></span> <span class="attribute-name">port</span>=<span class="string"><span class="delimiter">"</span><span class="content">80</span><span class="delimiter">"</span></span> <span class="attribute-name">basePath</span>=<span class="string"><span class="delimiter">"</span><span class="content">/api/1.0</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP Request Configuration</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;oauth2:client-credentials-grant-type</span> <span class="attribute-name">clientId</span>=<span class="string"><span class="delimiter">"</span><span class="content">your_client_id</span><span class="delimiter">"</span></span> <span class="attribute-name">clientSecret</span>=<span class="string"><span class="delimiter">"</span><span class="content">your_client_secret</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+            <span class="tag">&lt;oauth2:token-request</span> <span class="attribute-name">tokenUrl</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://some.api.com/api/1.0/oauth/token</span><span class="delimiter">"</span></span> <span class="attribute-name">scopes</span>=<span class="string"><span class="delimiter">"</span><span class="content">access_user_details, read_user_files</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+<span class="tag">&lt;/oauth2:client-credentials-grant-type&gt;</span>
+    <span class="tag">&lt;/http:request-config&gt;</span></pre></td> 
+         </tr> 
+        </tbody> 
+       </table></code></pre> 
     </div> 
    </div> 
    <div class="paragraph"> 
@@ -2066,39 +1875,29 @@ resourceOwnerId="#[flowVars.'userId']"<span class="entity">&amp;gt;</span>
   <div class="paragraph"> 
    <p>It’s possible to access authorization information for client credentials and authorization codes by using a token manager configuration.</p> 
   </div> 
-  <div class="panel panel-default no-padding"> 
-   <div class="panel-heading no-padding"> 
-    <!-- Nav tabs --> 
-    <ul class="nav nav-tabs" role="tablist"> 
-     <li class="active"><a href="#tab-12_1" role="tab" data-toggle="tab">Studio Visual Editor</a></li> 
-     <li><a href="#tab-12_2" role="tab" data-toggle="tab">XML Editor</a></li> 
-    </ul> 
-   </div> 
-   <div class="panel-body tab-content no-padding"> 
-    <div class="tab-pane in active fade no-padding" id="tab-12_1"> 
-     <div class="olist arabic"> 
-      <ol class="arabic"> 
-       <li> <p>Drag an HTTP Connector to your canvas, create a new Connector Configuration element for it</p> </li> 
-       <li> <p>Select the <strong>Authentication</strong> tab</p> </li> 
-       <li> <p>In the Protocol dropdown menu, pick <strong>OAuth2 - Client Credentials</strong></p> </li> 
-       <li> <p>In the Advanced section of the form, click the <strong>green plus sign</strong> next to <strong>Token Manager</strong> to create a new token manager</p> </li> 
-       <li> <p>Assign it a reference to an object store</p> </li> 
-      </ol> 
-     </div> 
-    </div> 
-    <div class="tab-pane fade no-padding" id="tab-12_2"> 
-     <div class="paragraph"> 
-      <p>The tokenManager-ref attribute need to reference a token-manager-config element in the configuration.</p> 
-     </div> 
-     <div class="listingblock"> 
-      <div class="content"> 
-       <pre class="CodeRay highlight"><code data-lang="xml">
-    
-            
-         <table class="CodeRay"> 
-          <tbody> 
-           <tr> 
-            <td class="line-numbers"><pre>1
+  <div class="olist arabic"> 
+   <ol class="arabic"> 
+    <li> <p>Drag an HTTP Connector to your canvas, create a new Connector Configuration element for it</p> </li> 
+    <li> <p>Select the <strong>Authentication</strong> tab</p> </li> 
+    <li> <p>In the Protocol dropdown menu, pick <strong>OAuth2 - Client Credentials</strong></p> </li> 
+    <li> <p>In the Advanced section of the form, click the <strong>green plus sign</strong> next to <strong>Token Manager</strong> to create a new token manager</p> </li> 
+    <li> <p>Assign it a reference to an object store</p> </li> 
+   </ol> 
+  </div> 
+  <div class="paragraph"> 
+   <p><strong>XML Code</strong></p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>The tokenManager-ref attribute need to reference a token-manager-config element in the configuration.</p> 
+  </div> 
+  <div class="listingblock"> 
+   <div class="content"> 
+    <pre class="CodeRay highlight"><code data-lang="xml">
+         
+      <table class="CodeRay"> 
+       <tbody> 
+        <tr> 
+         <td class="line-numbers"><pre>1
 2
 3
 4
@@ -2107,20 +1906,17 @@ resourceOwnerId="#[flowVars.'userId']"<span class="entity">&amp;gt;</span>
 7
 8
 </pre></td> 
-            <td class="code"><pre><span class="entity">&amp;lt;</span>oauth2:token-manager-config name="Token_Manager_Config"  doc:name="Token Manager Config"/<span class="entity">&amp;gt;</span>
+         <td class="code"><pre><span class="tag">&lt;oauth2:token-manager-config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Token_Manager_Config</span><span class="delimiter">"</span></span>  <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Token Manager Config</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
 
-    <span class="entity">&amp;lt;</span>http:request-config name="HTTP_Request_Configuration" host="api.box.com" port="443" basePath="/2.0" doc:name="HTTP Request Configuration"<span class="entity">&amp;gt;</span>
-        <span class="entity">&amp;lt;</span>oauth2:authorization-code-grant-type clientId="your_client_id" clientSecret="your_client_secret" redirectionUrl="http://localhost:8082/redirectUrl" tokenManager-ref="Token_Manager_Config" localAuthorizationUrlResourceOwnerId="#[message.inboundProperties.'http.query.params'.userId]" resourceOwnerId="#[flowVars.'userId']"<span class="entity">&amp;gt;</span>
-            <span class="entity">&amp;lt;</span>oauth2:authorization-request authorizationUrl="https://www.box.com/api/oauth2/authorize" localAuthorizationUrl="https://localhost:8082/authorization" scopes="access_user_details, read_user_files"/<span class="entity">&amp;gt;</span>
-            <span class="entity">&amp;lt;</span>oauth2:token-request tokenUrl="https://www.box.com/api/oauth2/token"/<span class="entity">&amp;gt;</span>
-        <span class="entity">&amp;lt;</span>/oauth2:authorization-code-grant-type<span class="entity">&amp;gt;</span>
-    <span class="entity">&amp;lt;</span>/http:request-config<span class="entity">&amp;gt;</span></pre></td> 
-           </tr> 
-          </tbody> 
-         </table></code></pre> 
-      </div> 
-     </div> 
-    </div> 
+    <span class="tag">&lt;http:request-config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Request_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">host</span>=<span class="string"><span class="delimiter">"</span><span class="content">api.box.com</span><span class="delimiter">"</span></span> <span class="attribute-name">port</span>=<span class="string"><span class="delimiter">"</span><span class="content">443</span><span class="delimiter">"</span></span> <span class="attribute-name">basePath</span>=<span class="string"><span class="delimiter">"</span><span class="content">/2.0</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP Request Configuration</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;oauth2:authorization-code-grant-type</span> <span class="attribute-name">clientId</span>=<span class="string"><span class="delimiter">"</span><span class="content">your_client_id</span><span class="delimiter">"</span></span> <span class="attribute-name">clientSecret</span>=<span class="string"><span class="delimiter">"</span><span class="content">your_client_secret</span><span class="delimiter">"</span></span> <span class="attribute-name">redirectionUrl</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://localhost:8082/redirectUrl</span><span class="delimiter">"</span></span> <span class="attribute-name">tokenManager-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">Token_Manager_Config</span><span class="delimiter">"</span></span> <span class="attribute-name">localAuthorizationUrlResourceOwnerId</span>=<span class="string"><span class="delimiter">"</span><span class="content">#[message.inboundProperties.'http.query.params'.userId]</span><span class="delimiter">"</span></span> <span class="attribute-name">resourceOwnerId</span>=<span class="string"><span class="delimiter">"</span><span class="content">#[flowVars.'userId']</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+            <span class="tag">&lt;oauth2:authorization-request</span> <span class="attribute-name">authorizationUrl</span>=<span class="string"><span class="delimiter">"</span><span class="content">https://www.box.com/api/oauth2/authorize</span><span class="delimiter">"</span></span> <span class="attribute-name">localAuthorizationUrl</span>=<span class="string"><span class="delimiter">"</span><span class="content">https://localhost:8082/authorization</span><span class="delimiter">"</span></span> <span class="attribute-name">scopes</span>=<span class="string"><span class="delimiter">"</span><span class="content">access_user_details, read_user_files</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+            <span class="tag">&lt;oauth2:token-request</span> <span class="attribute-name">tokenUrl</span>=<span class="string"><span class="delimiter">"</span><span class="content">https://www.box.com/api/oauth2/token</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+        <span class="tag">&lt;/oauth2:authorization-code-grant-type&gt;</span>
+    <span class="tag">&lt;/http:request-config&gt;</span></pre></td> 
+        </tr> 
+       </tbody> 
+      </table></code></pre> 
    </div> 
   </div> 
   <div class="sect2"> 
@@ -2285,45 +2081,32 @@ resourceOwnerId="#[flowVars.'userId']"<span class="entity">&amp;gt;</span>
    <div class="paragraph"> 
     <p>When using a Token Manager, it’s easy to block a particular RO.&nbsp;</p> 
    </div> 
-   <div class="panel panel-default no-padding"> 
-    <div class="panel-heading no-padding"> 
-     <!-- Nav tabs --> 
-     <ul class="nav nav-tabs" role="tablist"> 
-      <li class="active"><a href="#tab-13_1" role="tab" data-toggle="tab">Studio Visual Editor</a></li> 
-      <li><a href="#tab-13_2" role="tab" data-toggle="tab">XML Editor</a></li> 
-     </ul> 
-    </div> 
-    <div class="panel-body tab-content no-padding"> 
-     <div class="tab-pane in active fade no-padding" id="tab-13_1"> 
-      <div class="olist arabic"> 
-       <ol class="arabic"> 
-        <li> <p>Drag an <strong>Invalidate OAuth Context</strong> element to your canvas.</p> </li> 
-        <li> <p>In its properties editor, set up the <strong>Token Manager Configuration</strong> so that it points to the same <strong>Token Manager</strong> that your HTTP Request Connector references when handling OAuth authentication.</p> </li> 
-       </ol> 
-      </div> 
-     </div> 
-     <div class="tab-pane fade no-padding" id="tab-13_2"> 
-      <div class="listingblock"> 
-       <div class="content"> 
-        <pre class="CodeRay highlight"><code data-lang="xml">
-    
-             
-          <table class="CodeRay"> 
-           <tbody> 
-            <tr> 
-             <td class="line-numbers"><pre>1
+   <div class="olist arabic"> 
+    <ol class="arabic"> 
+     <li> <p>Drag an <strong>Invalidate OAuth Context</strong> element to your canvas.</p> </li> 
+     <li> <p>In its properties editor, set up the <strong>Token Manager Configuration</strong> so that it points to the same <strong>Token Manager</strong> that your HTTP Request Connector references when handling OAuth authentication.</p> </li> 
+    </ol> 
+   </div> 
+   <div class="paragraph"> 
+    <p><strong>XML Code</strong></p> 
+   </div> 
+   <div class="listingblock"> 
+    <div class="content"> 
+     <pre class="CodeRay highlight"><code data-lang="xml">
+          
+       <table class="CodeRay"> 
+        <tbody> 
+         <tr> 
+          <td class="line-numbers"><pre>1
 2
 3
 </pre></td> 
-             <td class="code"><pre><span class="entity">&amp;lt;</span>flow name="invalidateOauthContext"<span class="entity">&amp;gt;</span>
-    <span class="entity">&amp;lt;</span>oauth2:invalidate-oauth-context config-ref="tokenManagerConfig"/<span class="entity">&amp;gt;</span>
-<span class="entity">&amp;lt;</span>/flow<span class="entity">&amp;gt;</span></pre></td> 
-            </tr> 
-           </tbody> 
-          </table></code></pre> 
-       </div> 
-      </div> 
-     </div> 
+          <td class="code"><pre><span class="tag">&lt;flow</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">invalidateOauthContext</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;oauth2:invalidate-oauth-context</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">tokenManagerConfig</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+<span class="tag">&lt;/flow&gt;</span></pre></td> 
+         </tr> 
+        </tbody> 
+       </table></code></pre> 
     </div> 
    </div> 
    <div class="paragraph"> 
@@ -2332,53 +2115,40 @@ resourceOwnerId="#[flowVars.'userId']"<span class="entity">&amp;gt;</span>
    <div class="paragraph"> 
     <p>When using multiple RO with a single Token Manager, if you want to only clear the OAuth information of one RO, then you must specify the resource owner id in the Invalidate OAuth Context element.</p> 
    </div> 
-   <div class="panel panel-default no-padding"> 
-    <div class="panel-heading no-padding"> 
-     <!-- Nav tabs --> 
-     <ul class="nav nav-tabs" role="tablist"> 
-      <li class="active"><a href="#tab-14_1" role="tab" data-toggle="tab">Studio Visual Editor</a></li> 
-      <li><a href="#tab-14_2" role="tab" data-toggle="tab">XML Editor</a></li> 
-     </ul> 
-    </div> 
-    <div class="panel-body tab-content no-padding"> 
-     <div class="tab-pane in active fade no-padding" id="tab-14_1"> 
-      <div class="olist arabic"> 
-       <ol class="arabic"> 
-        <li> <p>Drag an <strong>Invalidate OAuth Context</strong> element to your canvas.</p> </li> 
-        <li> <p>In its properties editor, set up the <strong>Token Manager Configuration</strong> so that it points to the same <strong>Token Manager</strong> that your HTTP Request Connector references when handling OAuth authentication.</p> </li> 
-        <li> <p>Set the <strong>Resource Owner Id</strong> to an expression that points to the RO you want to clear. For example #<code>[flowVars.'resourceOwnerId']</code></p> </li> 
-       </ol> 
-      </div> 
-     </div> 
-     <div class="tab-pane fade no-padding" id="tab-14_2"> 
-      <div class="listingblock"> 
-       <div class="content"> 
-        <pre class="CodeRay highlight"><code data-lang="xml">
-    
-             
-          <table class="CodeRay"> 
-           <tbody> 
-            <tr> 
-             <td class="line-numbers"><pre>1
+   <div class="olist arabic"> 
+    <ol class="arabic"> 
+     <li> <p>Drag an <strong>Invalidate OAuth Context</strong> element to your canvas.</p> </li> 
+     <li> <p>In its properties editor, set up the <strong>Token Manager Configuration</strong> so that it points to the same <strong>Token Manager</strong> that your HTTP Request Connector references when handling OAuth authentication.</p> </li> 
+     <li> <p>Set the <strong>Resource Owner Id</strong> to an expression that points to the RO you want to clear. For example #<code>[flowVars.'resourceOwnerId']</code></p> </li> 
+    </ol> 
+   </div> 
+   <div class="paragraph"> 
+    <p><strong>XML Code</strong></p> 
+   </div> 
+   <div class="listingblock"> 
+    <div class="content"> 
+     <pre class="CodeRay highlight"><code data-lang="xml">
+          
+       <table class="CodeRay"> 
+        <tbody> 
+         <tr> 
+          <td class="line-numbers"><pre>1
 2
 3
 </pre></td> 
-             <td class="code"><pre><span class="entity">&amp;lt;</span>flow name="invalidateOauthContextWithResourceOwnerId"<span class="entity">&amp;gt;</span>
-    <span class="entity">&amp;lt;</span>oauth2:invalidate-oauth-context config-ref="tokenManagerConfig" resourceOwnerId="#[flowVars.'resourceOwnerId']"/<span class="entity">&amp;gt;</span>
-<span class="entity">&amp;lt;</span>/flow<span class="entity">&amp;gt;</span></pre></td> 
-            </tr> 
-           </tbody> 
-          </table></code></pre> 
-       </div> 
-      </div> 
-     </div> 
+          <td class="code"><pre><span class="tag">&lt;flow</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">invalidateOauthContextWithResourceOwnerId</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;oauth2:invalidate-oauth-context</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">tokenManagerConfig</span><span class="delimiter">"</span></span> <span class="attribute-name">resourceOwnerId</span>=<span class="string"><span class="delimiter">"</span><span class="content">#[flowVars.'resourceOwnerId']</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+<span class="tag">&lt;/flow&gt;</span></pre></td> 
+         </tr> 
+        </tbody> 
+       </table></code></pre> 
     </div> 
    </div> 
   </div> 
   <div class="sect2"> 
    <h3 id="customizing-the-token-manager-object-store"><a class="anchor" href="#customizing-the-token-manager-object-store"></a>Customizing the Token Manager Object Store</h3> 
    <div class="paragraph"> 
-    <p>By default, the token manager uses an in-memory object store to store the credentials. You can customize the token manager object store by using the&nbsp;objectStore-ref&nbsp;attribute.&nbsp;<a href="/mule-user-guide/v/3.7/mule-object-stores">See how to configure a custom object store</a>.</p> 
+    <p>By default, the token manager uses an in-memory object store to store the credentials. You can customize the token manager object store by using the&nbsp;objectStore-ref&nbsp;attribute.&nbsp;</p> 
    </div> 
   </div> 
  </div> 
@@ -2388,11 +2158,11 @@ resourceOwnerId="#[flowVars.'userId']"<span class="entity">&amp;gt;</span>
  <div class="sectionbody"> 
   <div class="ulist"> 
    <ul> 
-    <li> <p>HTTP Request Connector</p> </li> 
-    <li> <p>HTTP Listener Connector</p> </li> 
-    <li> <p>See a&nbsp;<a href="/mule-user-guide/v/3.7/http-connector-reference">full reference</a>&nbsp;of the available XML configurable options in this connector</p> </li> 
+    <li> <p><a href="/api-manager/external-oauth-2.0-token-validation-policy">OAuth 2.0 Access Token Enforcement Using External Provider</a></p> </li> 
+    <li> <p><a href="/mule-user-guide/v/3.7/http-connector-reference">HTTP Connector Reference</a></p> </li> 
     <li> <p><a href="/mule-user-guide/v/3.7/migrating-to-the-new-http-connector">Migrating to the New HTTP Connector</a></p> </li> 
     <li> <p><a href="/mule-user-guide/v/3.7/object-store-module-reference">Object Store Module Reference</a></p> </li> 
+    <li> <p><a href="/mule-user-guide/v/3.7/mule-object-stores">Custom object store configuration</a></p> </li> 
    </ul> 
   </div> 
  </div> 
