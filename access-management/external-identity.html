@@ -1058,49 +1058,25 @@
   <div class="paragraph"> 
    <p><span class="image"><img src="./_images/external-identity-decbd.png" alt="external-identity-decbd"></span></p> 
   </div> 
- </div> 
-</div> 
-<div class="sect1"> 
- <h2 id="selecting-an-identity-management-provider"><a class="anchor" href="#selecting-an-identity-management-provider"></a>Selecting an Identity Management Provider</h2> 
- <div class="sectionbody"> 
   <div class="paragraph"> 
    <p>Before configuring OpenID Connect or SAML 2.0, you need to select an identity management provider (IdP). If you intend to use OpenID Connect, choose an OpenID Connect-compliant provider, such as Okta; otherwise, choose any SAML 2.0 compliant provider. The following SAML IdPs have been successfully tested with Anypoint Platform:</p> 
   </div> 
   <div class="ulist"> 
    <ul> 
-    <li> <p>Ping Federate</p> </li> 
+    <li> <p>PingFederate</p> </li> 
     <li> <p>OpenAM</p> </li> 
     <li> <p>Okta</p> </li> 
     <li> <p>Shibboleth</p> </li> 
-    <li> <p>ADFS</p> </li> 
+    <li> <p>Active Directory Federation Services (AD FS)</p> </li> 
     <li> <p>onelogin</p> </li> 
-    <li> <p>CA SiteMinder</p> </li> 
+    <li> <p>CA Single Sign-On</p> </li> 
    </ul> 
   </div> 
   <div class="paragraph"> 
-   <p>Before configuring OpenID Connect or SAML 2.0, set up your Anypoint Platform organization as your audience in your IdP configuration.</p> 
-  </div> 
- </div> 
-</div> 
-<div class="sect1"> 
- <h2 id="configuring-openid-connect-or-saml-2-0"><a class="anchor" href="#configuring-openid-connect-or-saml-2-0"></a>Configuring OpenID Connect or SAML 2.0</h2> 
- <div class="sectionbody"> 
-  <div class="paragraph"> 
-   <p>You configure identity management in the Anypoint Platform master organization. The IdP you are set up to use, and your configuration of the authorization system, is effective for the entire organization and all business groups. Familiarize yourself with your IdP documentation. All attribute names you configure must match on both the IdP and Anypoint Platform side.</p> 
+   <p>Regardless of the IdP you select, be sure to familiarize yourself with its documentation. After you’ve made your selection, you are ready to set up your Anypoint Platform organization as your audience in your IdP configuration, as well as configure identity management in the Anypoint Platform master organization.</p> 
   </div> 
   <div class="paragraph"> 
    <p>Follow the procedures to configure OpenID Connect or SAML 2.0 in this documentation.</p> 
-  </div> 
- </div> 
-</div> 
-<div class="sect1"> 
- <h2 id="ldap-in-anypoint-platform-private-cloud-edition"><a class="anchor" href="#ldap-in-anypoint-platform-private-cloud-edition"></a>LDAP in Anypoint Platform Private Cloud Edition</h2> 
- <div class="sectionbody"> 
-  <div class="paragraph"> 
-   <p>As the Anypoint Platform Private Cloud Edition administrator, you set up LDAP for single sign-on. Follow the procedure to configure LDAP in Anypoint Private Cloud in this documentation.</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>Identity management might not be available to you, depending on the license you purchased. Contact your account representative to obtain the required license.</p> 
   </div> 
  </div> 
 </div> 
@@ -1112,13 +1088,6 @@
     <li> <p><a href="/access-management/managing-users">To Configure OpenID Connect</a></p> </li> 
     <li> <p><a href="/access-management/managing-users">To Configure SAML</a></p> </li> 
     <li> <p><a href="/access-management/conf-ldap-private-cloud-task">To Configure LDAP in Anypoint Platform Private Cloud</a></p> </li> 
-    <li> <p><a href="https://www.pingidentity.com/en/products/pingfederate.html">Ping Federate</a></p> </li> 
-    <li> <p><a href="https://forgerock.org/openam/">OpenAM</a></p> </li> 
-    <li> <p><a href="https://www.okta.com/">Okta</a></p> </li> 
-    <li> <p><a href="https://shibboleth.net/">Shibboleth</a></p> </li> 
-    <li> <p><a href="https://msdn.microsoft.com/en-us/library/bb897402.aspx?f=255&amp;MSPPError=-2147217396">ADFS</a></p> </li> 
-    <li> <p><a href="https://www.onelogin.com/">onelogin</a></p> </li> 
-    <li> <p><a href="http://www.ca.com/us/products/ca-single-sign-on.html">CA SiteMinder</a></p> </li> 
    </ul> 
   </div> 
  </div> 
@@ -1127,7 +1096,7 @@
     <!-- END article-content -->
     <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
                 <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#selecting-an-identity-management-provider">Selecting an Identity Management Provider</a></li><li><a class="scroll-menu-link" href="#configuring-openid-connect-or-saml-2-0">Configuring OpenID Connect or SAML 2.0</a></li><li><a class="scroll-menu-link" href="#ldap-in-anypoint-platform-private-cloud-edition">LDAP in Anypoint Platform Private Cloud Edition</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
+                <ul><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
   </div>
 </div>
 <!-- START footer -->

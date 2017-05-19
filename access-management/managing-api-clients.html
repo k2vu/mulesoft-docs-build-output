@@ -15,7 +15,7 @@
   <script src="/js/scripts.js?t=1491597550"></script>
 
   <link rel="canonical" href="https://docs.mulesoft.com/access-management/managing-api-clients" />
-  <meta name="description" content="As an API owner, you can apply an Anypoint Platform OAuth 2.0 policy to an API to authenticate client applications that try to access your API. In ..." />
+  <meta name="description" content="This topic provides an overview of client management on all versions of Anypoint Platform, except Private Cloud edition. As an API owner, you can a..." />
   <meta class="swiftype" name="title" data-type="string" content="About Client Management" />
 </head>
 <body>
@@ -1035,32 +1035,23 @@
       <div id="preamble"> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>As an API owner, you can apply an Anypoint Platform OAuth 2.0 policy to an API to authenticate client applications that try to access your API. In conjunction with the policy, you need to have a OAuth provider in place. One of the following OAuth providers is recommended:</p> 
+   <p>This topic provides an overview of client management on all versions of Anypoint Platform, except Private Cloud edition. As an API owner, you can apply an Anypoint Platform OAuth 2.0 policy to an API to authenticate client applications that try to access it. You need an OAuth provider to use the policy. The following OAuth providers are recommended:</p> 
   </div> 
   <div class="ulist"> 
    <ul> 
-    <li> <p>OpenAM</p> </li> 
+    <li> <p>OpenAM versions 11 or 12</p> </li> 
     <li> <p>PingFederate</p> </li> 
    </ul> 
   </div> 
   <div class="paragraph"> 
-   <p>To configure OpenAM or PingFederate for client management on Anypoint Platform (not Private Cloud Edition), you need to first have an account with one of these IdPs. Anypoint Platform supports OpenAM versions 11 and 12. To configure an external OAuth 2.0 server for client management, follow one of the procedures in this document.</p> 
+   <p>To configure OpenAM or PingFederate for client management on Anypoint Platform (not Private Cloud Edition), you need to first have an account with one of these IdPs. Follow one of the procedures in this document to configure an external OAuth 2.0 server for client management.</p> 
   </div> 
  </div> 
 </div> 
 <div class="sect2"> 
  <h3 id="using-authorization-and-authentication"><a class="anchor" href="#using-authorization-and-authentication"></a>Using Authorization and Authentication</h3> 
  <div class="paragraph"> 
-  <p>To protect a non-trivial resource, two layers, authorization and authentication, are typically used for identity and client management, respectively. OpenAM and PingFederate can manage users and client management simultaneously.</p> 
- </div> 
- <div class="paragraph"> 
-  <p>Client management might not be available to you, depending on the license you purchased.</p> 
- </div> 
-</div> 
-<div class="sect2"> 
- <h3 id="anypoint-platform-private-cloud-edition"><a class="anchor" href="#anypoint-platform-private-cloud-edition"></a>Anypoint Platform Private Cloud Edition</h3> 
- <div class="paragraph"> 
-  <p>If you are using Anypoint Platform Private Cloud Edition, you do not need to configure OpenAM or PingFederate by completing the OpenAM or PingFederate form.</p> 
+  <p>To protect an important resource, the authorization layer and the authentication layer are typically used for identity and client management, respectively. OpenAM and PingFederate can handle user and client management simultaneously.</p> 
  </div> 
 </div> 
 <div class="sect1"> 
@@ -1070,6 +1061,7 @@
    <ul> 
     <li> <p><a href="/api-manager/aes-oauth-faq">About OAuth 2.0</a></p> </li> 
     <li> <p><a href="/access-management/conf-client-mgmt-pf-task">To Configure Client Management By PingFederate</a></p> </li> 
+    <li> <p><a href="/access-management/conf-client-mgmt-openam-task">To Configure Client Management By OpenAM</a></p> </li> 
    </ul> 
   </div> 
  </div> 
