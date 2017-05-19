@@ -1115,6 +1115,12 @@
        <img src="./_images/creating-an-odata-api-b2e8e.png" alt="creating-an-odata-api-b2e8e"> 
       </div> 
      </div> </li> 
+    <li> <p>Make sure to add the extensionEnabled="true" attribute/value to the apikit:config element in the XML view. This will ensure that the OData extension is picked up at runtime:</p> 
+     <div class="listingblock"> 
+      <div class="content"> 
+       <pre>&lt;apikit:config name="apiConfig" raml="api.raml" consoleEnabled="false" doc:name="Router" extensionEnabled="true"/&gt;</pre> 
+      </div> 
+     </div> </li> 
     <li> <p>Add logic and endpoints for querying a data source as described in the section <a href="/apikit/apikit-odata-extension-reference#implementing-endpoints">"Implementing Endpoints"</a>.</p> </li> 
     <li> <p>Deploy the OData API.</p> </li> 
    </ol> 
