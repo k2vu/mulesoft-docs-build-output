@@ -15,7 +15,7 @@
   <script src="/js/scripts.js?t=1491597550"></script>
 
   <link rel="canonical" href="https://docs.mulesoft.com/runtime-manager/managing-servers" />
-  <meta name="description" content=" Through Runtime Manager, you can register and set up the properties of servers, server groups, and clusters that reside on-premises. Once these ar..." />
+  <meta name="description" content=" Using Runtime Manager, you can register and set up the properties of servers, server groups, and clusters that reside on-premises. Once these are ..." />
   <meta class="swiftype" name="title" data-type="string" content="Managing Servers" />
 </head>
 <body>
@@ -1038,7 +1038,7 @@
    <p><span class="image"><a class="image" href="/runtime-manager/deployment-strategies"><img src="./_images/logo-cloud-disabled.png" alt="logo cloud disabled" title="CloudHub"></a></span> <span class="image"><a class="image" href="/runtime-manager/deployment-strategies"><img src="./_images/logo-hybrid-active.png" alt="logo hybrid active" title="Hybrid Deployment"></a></span> <span class="image"><a class="image" href="/runtime-manager/deployment-strategies"><img src="./_images/logo-server-active.png" alt="logo server active" title="Anypoint Platform Private Cloud Edition"></a></span> <span class="image"><a class="image" href="/runtime-manager/deployment-strategies"><img src="./_images/logo-pcf-disabled.png" alt="logo pcf disabled" title="Pivotal Cloud Foundry"></a></span></p> 
   </div> 
   <div class="paragraph"> 
-   <p>Through Runtime Manager, you can register and set up the properties of servers, server groups, and clusters that reside on-premises. Once these are set up, you can select them as the deployment target for your applications, as an alternative to deploying to <a href="/runtime-manager/deploying-to-cloudhub">CloudHub</a>.</p> 
+   <p>Using Runtime Manager, you can register and set up the properties of servers, server groups, and clusters that reside on-premises. Once these are set up, you can select them as the deployment target for your applications, as an alternative to deploying to <a href="/runtime-manager/deploying-to-cloudhub">CloudHub</a>.</p> 
   </div> 
   <div class="paragraph"> 
    <p>Runtime Manager provides a single management interface where you can manage applications running in the cloud, on local servers, on server groups that are on-premises within your data center, or on clusters of servers. Applications that are on-premises run on Mule runtime instances on a single server or on a group of servers.</p> 
@@ -1063,8 +1063,8 @@
   </div> 
   <div class="ulist"> 
    <ul> 
-    <li> <p>Mule ESB – Version 3.6 or above</p> </li> 
-    <li> <p>API Gateway runtime – Version 2.0 or above</p> </li> 
+    <li> <p>Mule runtime, version 3.6 or above</p> </li> 
+    <li> <p>API Gateway runtime, version 2.0 or above</p> </li> 
    </ul> 
   </div> 
   <div class="paragraph"> 
@@ -1176,7 +1176,7 @@
      <li> <p><a href="#add-a-server-to-a-server-group">Add a Server to a Server Group</a></p> </li> 
      <li> <p><a href="#stop-an-application-on-a-server">Stop an Application on a Server</a></p> </li> 
      <li> <p><a href="#remove-a-server-from-a-server-group">Remove a Server from a Server Group</a></p> </li> 
-     <li> <p><a href="#delete-a-server">Delete a Server</a></p> </li> 
+     <li> <p><a href="#Delete a Server">[Delete a Server]</a></p> </li> 
      <li> <p><a href="#delete-a-server-group">Delete a Server Group</a></p> </li> 
      <li> <p><a href="#create-a-cluster">Create a Cluster</a></p> </li> 
      <li> <p><a href="#add-a-server-to-a-cluster">Add a Server to a Cluster</a></p> </li> 
@@ -1302,7 +1302,7 @@
       <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
       <td class="content"> 
        <div class="paragraph"> 
-        <p><strong>If the server you want to add is already registered with a different instance of Runtime Manager</strong>, you won’t be able to add it until you remove if from the other instance. To do this, <a href="#delete-a-server">remove the server</a> from the server list on the Runtime Manager console and then delete the 'mule-agent.yaml' configuration file found on your '{RUNTIME PARENT FOLDER}/conf' folder.</p> 
+        <p><strong>If the server you want to add is already registered with a different instance of Runtime Manager</strong>, you won’t be able to add it until you remove if from the other instance. To do this, <a href="#Delete a Server">remove the server</a> from the server list on the Runtime Manager console and then delete the 'mule-agent.yaml' configuration file found on your '{RUNTIME PARENT FOLDER}/conf' folder.</p> 
        </div> 
        <div class="paragraph"> 
         <p><strong>If your environment requires all outbound calls to go through a proxy</strong> you will need to modify the proxy settings in the 'wrapper.conf' file in the '{RUNTIME PARENT FOLDER}/conf' folder.</p> 
@@ -1437,6 +1437,47 @@
  </div> 
 </div> 
 <div class="sect1"> 
+ <h2 id="starting-stopping-and-deleting-a-server"><a class="anchor" href="#starting-stopping-and-deleting-a-server"></a>Starting, Stopping, and Deleting a Server</h2> 
+ <div class="sectionbody"> 
+  <div class="paragraph"> 
+   <p>In a hybrid deployment scenario, after creating a server, you can control its status from Runtime Manager.</p> 
+  </div> 
+  <div class="olist arabic"> 
+   <ol class="arabic"> 
+    <li> <p>From the Servers page, select the server you want to control.</p> </li> 
+    <li> <p>In the information panel, click the server status and choose the action you want to perform from the drop-down list. The following actions are available:</p> 
+     <div class="ulist"> 
+      <ul> 
+       <li> <p>Start</p> </li> 
+       <li> <p>Shutdown</p> </li> 
+       <li> <p>Restart</p> </li> 
+       <li> <p>Delete</p> </li> 
+      </ul> 
+     </div> </li> 
+    <li> <p>Confirm that you want to perform the selected action.</p> </li> 
+   </ol> 
+  </div> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="setting-server-side-properties"><a class="anchor" href="#setting-server-side-properties"></a>Setting Server-side Properties</h2> 
+ <div class="sectionbody"> 
+  <div class="paragraph"> 
+   <p>After creating a server in a hybrid deployment scenario, Runtime manager enables you to define and configure server-side properties. These properties are defined as name/value pairs and are used by the JVM where the server is running.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>To set a server-side property:</p> 
+  </div> 
+  <div class="olist arabic"> 
+   <ol class="arabic"> 
+    <li> <p>From the Servers page, select a server, then click Manage Server.</p> </li> 
+    <li> <p>Click the Properties tab.</p> </li> 
+    <li> <p>Provide a key and value, then click Apply Changes.</p> </li> 
+   </ol> 
+  </div> 
+ </div> 
+</div> 
+<div class="sect1"> 
  <h2 id="start-mule-or-api-gateway-runtime"><a class="anchor" href="#start-mule-or-api-gateway-runtime"></a>Start Mule or API Gateway runtime</h2> 
  <div class="sectionbody"> 
   <div class="olist arabic"> 
@@ -1492,23 +1533,6 @@
     <li> <p>Select <strong>Stop</strong> from the drop-down menu in the Status menu:</p> 
      <div class="paragraph"> 
       <p><span class="image"><img src="./_images/StopAppOnServer.png" alt="StopAppOnServer"></span></p> 
-     </div> </li> 
-   </ol> 
-  </div> 
- </div> 
-</div> 
-<div class="sect1"> 
- <h2 id="delete-a-server"><a class="anchor" href="#delete-a-server"></a>Delete a Server</h2> 
- <div class="sectionbody"> 
-  <div class="paragraph"> 
-   <p>To delete a server:</p> 
-  </div> 
-  <div class="olist arabic"> 
-   <ol class="arabic"> 
-    <li> <p>Click a server entry to display the detail view on the right side of the screen.&nbsp;</p> </li> 
-    <li> <p>Click the down arrow below the server name and select <strong>Delete</strong>.</p> 
-     <div class="paragraph"> 
-      <p><span class="image"><img src="./_images/DeleteServer.png" alt="DeleteServer"></span></p> 
      </div> </li> 
    </ol> 
   </div> 
@@ -1804,7 +1828,7 @@
  </div> 
 </div> 
 <div class="sect1"> 
- <h2 id="delete-a-server-from-a-cluster"><a class="anchor" href="#delete-a-server-from-a-cluster"></a>Delete a Server From a Cluster</h2> 
+ <h2 id="delete-a-server-from-a-cluster"><a class="anchor" href="#delete-a-server-from-a-cluster"></a>Delete a Server From a cluster</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
    <p>To delete a server from a cluster:</p> 
@@ -1925,7 +1949,7 @@
     <!-- END article-content -->
     <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
                 <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#prerequisites">Prerequisites</a></li><li><a class="scroll-menu-link" href="#getting-started">Getting Started</a></li><li><a class="scroll-menu-link" href="#servers-dashboard">Servers Dashboard</a></li><li><a class="scroll-menu-link" href="#add-a-server">Add a Server</a></li><li><a class="scroll-menu-link" href="#start-mule-or-api-gateway-runtime">Start Mule or API Gateway runtime</a></li><li><a class="scroll-menu-link" href="#restart-an-application-on-a-server">Restart an Application on a Server</a></li><li><a class="scroll-menu-link" href="#stop-an-application-on-a-server">Stop an Application on a Server</a></li><li><a class="scroll-menu-link" href="#delete-a-server">Delete a Server</a></li><li><a class="scroll-menu-link" href="#create-a-server-group">Create a Server Group</a></li><li><a class="scroll-menu-link" href="#add-a-server-to-a-server-group">Add a Server to a Server Group</a></li><li><a class="scroll-menu-link" href="#remove-a-server-from-a-server-group">Remove a Server from a Server Group</a></li><li><a class="scroll-menu-link" href="#delete-a-server-group">Delete a Server Group</a></li><li><a class="scroll-menu-link" href="#create-a-cluster">Create a Cluster</a></li><li><a class="scroll-menu-link" href="#add-a-server-to-a-cluster">Add a Server to a Cluster</a></li><li><a class="scroll-menu-link" href="#delete-a-server-from-a-cluster">Delete a Server From a Cluster</a></li><li><a class="scroll-menu-link" href="#delete-a-cluster">Delete a Cluster</a></li><li><a class="scroll-menu-link" href="#clusters-vs-server-groups">Clusters vs Server Groups</a></li><li><a class="scroll-menu-link" href="#multicast-versus-unicast">Multicast Versus Unicast</a></li><li><a class="scroll-menu-link" href="#alerts">Alerts</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
+                <ul><li><a class="scroll-menu-link" href="#prerequisites">Prerequisites</a></li><li><a class="scroll-menu-link" href="#getting-started">Getting Started</a></li><li><a class="scroll-menu-link" href="#servers-dashboard">Servers Dashboard</a></li><li><a class="scroll-menu-link" href="#add-a-server">Add a Server</a></li><li><a class="scroll-menu-link" href="#starting-stopping-and-deleting-a-server">Starting, Stopping, and Deleting a Server</a></li><li><a class="scroll-menu-link" href="#setting-server-side-properties">Setting Server-side Properties</a></li><li><a class="scroll-menu-link" href="#start-mule-or-api-gateway-runtime">Start Mule or API Gateway runtime</a></li><li><a class="scroll-menu-link" href="#restart-an-application-on-a-server">Restart an Application on a Server</a></li><li><a class="scroll-menu-link" href="#stop-an-application-on-a-server">Stop an Application on a Server</a></li><li><a class="scroll-menu-link" href="#create-a-server-group">Create a Server Group</a></li><li><a class="scroll-menu-link" href="#add-a-server-to-a-server-group">Add a Server to a Server Group</a></li><li><a class="scroll-menu-link" href="#remove-a-server-from-a-server-group">Remove a Server from a Server Group</a></li><li><a class="scroll-menu-link" href="#delete-a-server-group">Delete a Server Group</a></li><li><a class="scroll-menu-link" href="#create-a-cluster">Create a Cluster</a></li><li><a class="scroll-menu-link" href="#add-a-server-to-a-cluster">Add a Server to a Cluster</a></li><li><a class="scroll-menu-link" href="#delete-a-server-from-a-cluster">Delete a Server From a cluster</a></li><li><a class="scroll-menu-link" href="#delete-a-cluster">Delete a Cluster</a></li><li><a class="scroll-menu-link" href="#clusters-vs-server-groups">Clusters vs Server Groups</a></li><li><a class="scroll-menu-link" href="#multicast-versus-unicast">Multicast Versus Unicast</a></li><li><a class="scroll-menu-link" href="#alerts">Alerts</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
   </div>
 </div>
 <!-- START footer -->

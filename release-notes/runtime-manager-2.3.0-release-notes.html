@@ -15,7 +15,7 @@
   <script src="/js/scripts.js?t=1491597550"></script>
 
   <link rel="canonical" href="https://docs.mulesoft.com/release-notes/runtime-manager-2.3.0-release-notes" />
-  <meta name="description" content="This release introduces the following features: No change. Mule Agent plugin integration is compatible with the following component versions: Avail..." />
+  <meta name="description" content="This release contains the following new features and enhancements: Feature Description Application uptime information Runtime Manager displays the ..." />
   <meta class="swiftype" name="title" data-type="string" content="Runtime Manager v2.3 Release Notes" />
 </head>
 <body>
@@ -1035,23 +1035,93 @@
       <div id="preamble"> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>This release introduces the following features:</p> 
+   <p>This release contains the following new features and enhancements:</p> 
   </div> 
-  <div class="ulist"> 
-   <ul> 
-    <li> <p>Ability to restart &amp; shutdown hybrid servers</p> </li> 
-    <li> <p>Application uptime information at the individual, group or cluster level for enhanced troubleshooting experience</p> </li> 
-    <li> <p>Ability to view and edit server properties on hybrid servers</p> </li> 
-    <li> <p>Enhancements to hybrid clusters to configure a cluster node’s ports and IPs.</p> </li> 
-   </ul> 
-  </div> 
+  <table class="tableblock frame-all grid-all spread"> 
+   <colgroup> 
+    <col style="width: 50%;"> 
+    <col style="width: 50%;"> 
+   </colgroup> 
+   <tbody> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Feature</p> 
+       </div> 
+      </div></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Description</p> 
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Application uptime information</p> 
+       </div> 
+      </div></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Runtime Manager displays the amount of time an application has been running. This information is displayed on the Settings page and information panel for each application.</p> 
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Restart and shutdown hybrid servers</p> 
+       </div> 
+      </div></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Runtime Manager enables you to start, shutdown, and restart servers running in a hybrid deployment scenario.</p> 
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>View and edit server properties on hybrid servers</p> 
+       </div> 
+      </div></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Runtime Manager enables you to define, view, and edit properties for servers running in a hybrid deployment scenario. Properties are defined as key/value pairs on the Manage Servers page.</p> 
+       </div> 
+      </div></td> 
+    </tr> 
+    <tr> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Specify the IP address and port for a cluster node</p> 
+       </div> 
+      </div></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Runtime Manager enables you to specify the IP address and port of a cluster running in a hybrid deployment scenario. To use this feature, your server must be running Mule runtime, version 3.8.5 or greater.</p> 
+       </div> 
+      </div></td> 
+    </tr> 
+   </tbody> 
+  </table> 
  </div> 
 </div> 
 <div class="sect1"> 
  <h2 id="hardware-and-software-requirements"><a class="anchor" href="#hardware-and-software-requirements"></a>Hardware and Software Requirements</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>No change.</p> 
+   <p>To user Runtime Manager to specify a cluster IP and port in hybrid deployment scenarios, you must be running Mule runtime, version 3.8.5 or greater.</p> 
   </div> 
  </div> 
 </div> 
@@ -1128,19 +1198,18 @@
  </div> 
 </div> 
 <div class="sect1"> 
- <h2 id="features-and-functionality"><a class="anchor" href="#features-and-functionality"></a>Features and Functionality</h2> 
+ <h2 id="deprecated-features-or-functionality"><a class="anchor" href="#deprecated-features-or-functionality"></a>Deprecated Features or Functionality</h2> 
  <div class="sectionbody"> 
-  <div class="sect2"> 
-   <h3 id="deprecated-features-or-functionality"><a class="anchor" href="#deprecated-features-or-functionality"></a>Deprecated Features or Functionality</h3> 
-   <div class="paragraph"> 
-    <p>No change.</p> 
-   </div> 
+  <div class="paragraph"> 
+   <p>No change.</p> 
   </div> 
-  <div class="sect2"> 
-   <h3 id="resolved-issues"><a class="anchor" href="#resolved-issues"></a>Resolved Issues</h3> 
-   <div class="paragraph"> 
-    <p>No change.</p> 
-   </div> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="resolved-issues"><a class="anchor" href="#resolved-issues"></a>Resolved Issues</h2> 
+ <div class="sectionbody"> 
+  <div class="paragraph"> 
+   <p>No change.</p> 
   </div> 
  </div> 
 </div> 
@@ -1156,7 +1225,7 @@
  <h2 id="known-issues"><a class="anchor" href="#known-issues"></a>Known Issues</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>No change.</p> 
+   <p>None.</p> 
   </div> 
  </div> 
 </div> 
@@ -1172,7 +1241,7 @@
     <!-- END article-content -->
     <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
                 <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#hardware-and-software-requirements">Hardware and Software Requirements</a></li><li><a class="scroll-menu-link" href="#compatibility">Compatibility</a></li><li><a class="scroll-menu-link" href="#features-and-functionality">Features and Functionality</a></li><li><a class="scroll-menu-link" href="#migration">Migration</a></li><li><a class="scroll-menu-link" href="#known-issues">Known Issues</a></li><li><a class="scroll-menu-link" href="#support">Support</a></li></ul></div></div><!-- /scroll-menu -->
+                <ul><li><a class="scroll-menu-link" href="#hardware-and-software-requirements">Hardware and Software Requirements</a></li><li><a class="scroll-menu-link" href="#compatibility">Compatibility</a></li><li><a class="scroll-menu-link" href="#deprecated-features-or-functionality">Deprecated Features or Functionality</a></li><li><a class="scroll-menu-link" href="#resolved-issues">Resolved Issues</a></li><li><a class="scroll-menu-link" href="#migration">Migration</a></li><li><a class="scroll-menu-link" href="#known-issues">Known Issues</a></li><li><a class="scroll-menu-link" href="#support">Support</a></li></ul></div></div><!-- /scroll-menu -->
   </div>
 </div>
 <!-- START footer -->
