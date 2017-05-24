@@ -15,7 +15,7 @@
   <script src="/js/scripts.js?t=1491597550"></script>
 
   <link rel="canonical" href="https://docs.mulesoft.com/release-notes/api-designer-release-notes" />
-  <meta name="description" content="April 8, 2017 This release focuses on minor bug fixes. March 11, 2017 This release includes a change, minor bug fixes, and performance improvements..." />
+  <meta name="description" content="June 3, 2017 This release focuses on bug fixes and closing gaps in RAML 1.0 support. RAML scalar-valued nodes are now mapped into OAS vendor extens..." />
   <meta class="swiftype" name="title" data-type="string" content="API Designer Release Notes" />
 </head>
 <body>
@@ -1036,12 +1036,64 @@
  <div class="sectionbody"> 
   <div class="ulist"> 
    <ul> 
+    <li> <p><a href="#api-designer-0-4-2-release-notes">API Designer 0.4.2 Release Notes</a></p> </li> 
     <li> <p><a href="#api-designer-0-4-1-release-notes">API Designer 0.4.1 Release Notes</a></p> </li> 
     <li> <p><a href="#api-designer-0-4-0-release-notes">API Designer 0.4.0 Release Notes</a></p> </li> 
     <li> <p><a href="#api-designer-0-3-2-release-notes">API Designer 0.3.2 Release Notes</a></p> </li> 
     <li> <p><a href="#api-designer-0-3-1-release-notes">API Designer 0.3.1 Release Notes</a></p> </li> 
     <li> <p><a href="#api-designer-0-3-0-release-notes">API Designer 0.3.0 Release Notes</a></p> </li> 
     <li> <p><a href="#api-designer-0-2-0-release-notes">API Designer 0.2.0 Release Notes</a></p> </li> 
+   </ul> 
+  </div> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="api-designer-0-4-2-release-notes"><a class="anchor" href="#api-designer-0-4-2-release-notes"></a>API Designer 0.4.2 Release Notes</h2> 
+ <div class="sectionbody"> 
+  <div class="paragraph"> 
+   <p>June 3, 2017</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>This release focuses on bug fixes and closing gaps in RAML 1.0 support.</p> 
+  </div> 
+  <div class="sect2"> 
+   <h3 id="resolved-issues"><a class="anchor" href="#resolved-issues"></a>Resolved Issues</h3> 
+   <div class="ulist"> 
+    <ul> 
+     <li> <p>Export to OAS 2.0</p> 
+      <div class="paragraph"> 
+       <p>RAML scalar-valued nodes are now mapped into OAS vendor extensions.</p> 
+      </div> </li> 
+     <li> <p>Export to OAS 2.0</p> 
+      <div class="paragraph"> 
+       <p>The value of “baseUri” is now correctly mapped to its corresponding node in OAS 2.0.</p> 
+      </div> </li> 
+    </ul> 
+   </div> 
+  </div> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="improvements"><a class="anchor" href="#improvements"></a>Improvements</h2> 
+ <div class="sectionbody"> 
+  <div class="ulist"> 
+   <ul> 
+    <li> <p>Bumped RAML Parser to version to <a href="https://github.com/raml-org/raml-js-parser-2/releases/tag/1.1.20">1.1.20</a></p> </li> 
+    <li> <p>Bumped API Console version to <a href="/release-notes/api-console-release-notes#api-console-3-0-17">3.0.17</a></p> </li> 
+    <li> <p>Improved security</p> 
+     <div class="ulist"> 
+      <ul> 
+       <li> <p>API designer prevents you from importing certain file types.</p> </li> 
+       <li> <p>File names having certain characters are not allowed.</p> 
+        <div class="paragraph"> 
+         <p>See <a href="/api-manager/designing-your-api#supported-extensions">supported extensions and mime types</a> and <a href="/api-manager/designing-your-api#supported-file-names">supported file names</a>.</p> 
+        </div> </li> 
+      </ul> 
+     </div> </li> 
+    <li> <p>Export to OAS 2.0</p> 
+     <div class="paragraph"> 
+      <p>Improved the efficiency and conversion of RAML 0.8 schemas to OAS 2.0 definitions.</p> 
+     </div> </li> 
    </ul> 
   </div> 
  </div> 
@@ -1056,7 +1108,7 @@
    <p>This release focuses on minor bug fixes.</p> 
   </div> 
   <div class="sect2"> 
-   <h3 id="resolved-issues"><a class="anchor" href="#resolved-issues"></a>Resolved Issues</h3> 
+   <h3 id="resolved-issues-2"><a class="anchor" href="#resolved-issues-2"></a>Resolved Issues</h3> 
    <div class="ulist"> 
     <ul> 
      <li> <p>Fixed an issue with Editor in Chrome that caused the scrollbar bounces up and down when trying to scroll</p> </li> 
@@ -1066,7 +1118,7 @@
    </div> 
   </div> 
   <div class="sect2"> 
-   <h3 id="improvements"><a class="anchor" href="#improvements"></a>Improvements</h3> 
+   <h3 id="improvements-2"><a class="anchor" href="#improvements-2"></a>Improvements</h3> 
    <div class="ulist"> 
     <ul> 
      <li> <p>Bumped RAML Parser to version to <a href="https://github.com/raml-org/raml-js-parser-2/releases/tag/1.1.19">1.1.19</a></p> </li> 
@@ -1095,7 +1147,7 @@
    </div> 
   </div> 
   <div class="sect2"> 
-   <h3 id="resolved-issues-2"><a class="anchor" href="#resolved-issues-2"></a>Resolved Issues</h3> 
+   <h3 id="resolved-issues-3"><a class="anchor" href="#resolved-issues-3"></a>Resolved Issues</h3> 
    <div class="ulist"> 
     <ul> 
      <li> <p>Fixed the issue with the importer generating invalid facets on RAML types by using annotations instead of custom facets.</p> </li> 
@@ -1106,7 +1158,7 @@
    </div> 
   </div> 
   <div class="sect2"> 
-   <h3 id="improvements-2"><a class="anchor" href="#improvements-2"></a>Improvements</h3> 
+   <h3 id="improvements-3"><a class="anchor" href="#improvements-3"></a>Improvements</h3> 
    <div class="ulist"> 
     <ul> 
      <li> <p>Bumped the JS parser version to <a href="https://github.com/raml-org/raml-js-parser-2/releases/tag/1.1.14">1.1.14</a>.</p> </li> 
@@ -1131,7 +1183,7 @@
    <p>This release focuses on minor bug fixes.</p> 
   </div> 
   <div class="sect2"> 
-   <h3 id="resolved-issues-3"><a class="anchor" href="#resolved-issues-3"></a>Resolved Issues</h3> 
+   <h3 id="resolved-issues-4"><a class="anchor" href="#resolved-issues-4"></a>Resolved Issues</h3> 
    <div class="ulist"> 
     <ul> 
      <li> <p>Fixed an issue that showed an incorrect response code tab in API Console.</p> </li> 
@@ -1142,7 +1194,7 @@
    </div> 
   </div> 
   <div class="sect2"> 
-   <h3 id="improvements-3"><a class="anchor" href="#improvements-3"></a>Improvements</h3> 
+   <h3 id="improvements-4"><a class="anchor" href="#improvements-4"></a>Improvements</h3> 
    <div class="ulist"> 
     <ul> 
      <li> <p>Bumped the JS parser version to <a href="https://github.com/raml-org/raml-js-parser-2/releases/tag/1.1.13">1.1.13</a>.</p> </li> 
@@ -1163,7 +1215,7 @@
    <p>This release focuses on minor bug fixes.</p> 
   </div> 
   <div class="sect2"> 
-   <h3 id="resolved-issues-4"><a class="anchor" href="#resolved-issues-4"></a>Resolved Issues</h3> 
+   <h3 id="resolved-issues-5"><a class="anchor" href="#resolved-issues-5"></a>Resolved Issues</h3> 
    <div class="ulist"> 
     <ul> 
      <li> <p>Fixed several minor issues with the import of an OAS 2.0 document.</p> </li> 
@@ -1174,7 +1226,7 @@
    </div> 
   </div> 
   <div class="sect2"> 
-   <h3 id="improvements-4"><a class="anchor" href="#improvements-4"></a>Improvements</h3> 
+   <h3 id="improvements-5"><a class="anchor" href="#improvements-5"></a>Improvements</h3> 
    <div class="ulist"> 
     <ul> 
      <li> <p>Bumped the JS parser version to <a href="https://github.com/raml-org/raml-js-parser-2/releases/tag/1.1.12">1.1.12</a>.</p> </li> 
@@ -1194,7 +1246,7 @@
    <p>This release includes a new, <a href="/api-manager/designing-your-api#saving-importing-and-exporting-files">improved menu</a> to simplify creating RAML documents, as well as a beta version for <a href="/api-manager/designing-your-api#importing-an-oas-2-0-specification">importing OAS 2.0 documents</a>.</p> 
   </div> 
   <div class="sect2"> 
-   <h3 id="resolved-issues-5"><a class="anchor" href="#resolved-issues-5"></a>Resolved Issues</h3> 
+   <h3 id="resolved-issues-6"><a class="anchor" href="#resolved-issues-6"></a>Resolved Issues</h3> 
    <div class="ulist"> 
     <ul> 
      <li> <p>Several mocking service issues.</p> </li> 
@@ -1203,7 +1255,7 @@
    </div> 
   </div> 
   <div class="sect2"> 
-   <h3 id="improvements-5"><a class="anchor" href="#improvements-5"></a>Improvements</h3> 
+   <h3 id="improvements-6"><a class="anchor" href="#improvements-6"></a>Improvements</h3> 
    <div class="ulist"> 
     <ul> 
      <li> <p>Improved main menu.</p> </li> 
@@ -1230,7 +1282,7 @@
    <p>This release incorporates full support for RAML 1.0 and fixes bugs.</p> 
   </div> 
   <div class="sect2"> 
-   <h3 id="resolved-issues-6"><a class="anchor" href="#resolved-issues-6"></a>Resolved Issues</h3> 
+   <h3 id="resolved-issues-7"><a class="anchor" href="#resolved-issues-7"></a>Resolved Issues</h3> 
    <div class="ulist"> 
     <ul> 
      <li> <p>The mocking server no longer returns “unknown type” when type is defined in a library.</p> </li> 
@@ -1239,7 +1291,7 @@
    </div> 
   </div> 
   <div class="sect2"> 
-   <h3 id="improvements-6"><a class="anchor" href="#improvements-6"></a>Improvements</h3> 
+   <h3 id="improvements-7"><a class="anchor" href="#improvements-7"></a>Improvements</h3> 
    <div class="paragraph"> 
     <p>Bumped JS parser version to 1.1.6.</p> 
    </div> 
@@ -1260,7 +1312,7 @@
     <!-- END article-content -->
     <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
                 <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#api-designer-0-4-1-release-notes">API Designer 0.4.1 Release Notes</a></li><li><a class="scroll-menu-link" href="#api-designer-0-4-0-release-notes">API Designer 0.4.0 Release Notes</a></li><li><a class="scroll-menu-link" href="#api-designer-0-3-2-release-notes">API Designer 0.3.2 Release Notes</a></li><li><a class="scroll-menu-link" href="#api-designer-0-3-1-release-notes">API Designer 0.3.1 Release Notes</a></li><li><a class="scroll-menu-link" href="#api-designer-0-3-0-release-notes">API Designer 0.3.0 Release Notes</a></li><li><a class="scroll-menu-link" href="#api-designer-0-2-0-release-notes">API Designer 0.2.0 Release Notes</a></li></ul></div></div><!-- /scroll-menu -->
+                <ul><li><a class="scroll-menu-link" href="#api-designer-0-4-2-release-notes">API Designer 0.4.2 Release Notes</a></li><li><a class="scroll-menu-link" href="#improvements">Improvements</a></li><li><a class="scroll-menu-link" href="#api-designer-0-4-1-release-notes">API Designer 0.4.1 Release Notes</a></li><li><a class="scroll-menu-link" href="#api-designer-0-4-0-release-notes">API Designer 0.4.0 Release Notes</a></li><li><a class="scroll-menu-link" href="#api-designer-0-3-2-release-notes">API Designer 0.3.2 Release Notes</a></li><li><a class="scroll-menu-link" href="#api-designer-0-3-1-release-notes">API Designer 0.3.1 Release Notes</a></li><li><a class="scroll-menu-link" href="#api-designer-0-3-0-release-notes">API Designer 0.3.0 Release Notes</a></li><li><a class="scroll-menu-link" href="#api-designer-0-2-0-release-notes">API Designer 0.2.0 Release Notes</a></li></ul></div></div><!-- /scroll-menu -->
   </div>
 </div>
 <!-- START footer -->

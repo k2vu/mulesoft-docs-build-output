@@ -15,7 +15,7 @@
   <script src="/js/scripts.js?t=1491597550"></script>
 
   <link rel="canonical" href="https://docs.mulesoft.com/release-notes/api-console-release-notes" />
-  <meta name="description" content="April 8, 2017 This release focuses on minor bug fixes. March 11, 2017 This release includes a JS parser update. Bumped JS parser version to 1.1.14..." />
+  <meta name="description" content="This release focuses on a couple of RAML 1.0 related improvements and bug fixes. April 8, 2017 This release focuses on minor bug fixes. March 11, 2..." />
   <meta class="swiftype" name="title" data-type="string" content="API Console Release Notes" />
 </head>
 <body>
@@ -1036,6 +1036,7 @@
  <div class="sectionbody"> 
   <div class="ulist"> 
    <ul> 
+    <li> <p><a href="#api-console-3-0-17">API Console 3.0.17</a></p> </li> 
     <li> <p><a href="#api-console-3-0-16">API Console 3.0.16</a></p> </li> 
     <li> <p><a href="#api-console-3-0-14">API Console 3.0.14</a></p> </li> 
     <li> <p><a href="#api-console-3-0-13">API Console 3.0.13</a></p> </li> 
@@ -1043,6 +1044,43 @@
     <li> <p><a href="#api-console-3-0-11">API Console 3.0.11</a></p> </li> 
     <li> <p><a href="#api-console-3-0-9">API Console 3.0.9</a></p> </li> 
    </ul> 
+  </div> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="api-console-3-0-17"><a class="anchor" href="#api-console-3-0-17"></a>API Console 3.0.17</h2> 
+ <div class="sectionbody"> 
+  <div class="paragraph"> 
+   <p>This release focuses on a couple of RAML 1.0 related improvements and bug fixes.</p> 
+  </div> 
+  <div class="sect2"> 
+   <h3 id="resolved-issues"><a class="anchor" href="#resolved-issues"></a>Resolved Issues</h3> 
+   <div class="ulist"> 
+    <ul> 
+     <li> <p>API Console was not displaying accurately enum values when defined at a library.</p> </li> 
+     <li> <p>Arrays defined using type expression shortcut were not displayed correctly.</p> </li> 
+     <li> <p>The order of query parameters and types properties were not preserved when navigating to a resource.</p> </li> 
+     <li> <p>API Console was not showing DataTypes examples when using inheritance.</p> </li> 
+     <li> <p>API Console returned an Invalid Type error inside the TryIt panel when using RAML 1.0 array types.</p> </li> 
+     <li> <p>API Console renders example information twice.</p> </li> 
+     <li> <p>Parameter examples were not shown when defined in a response.</p> </li> 
+     <li> <p>The description and examples of Pass Through security scheme were missing from API console.</p> </li> 
+     <li> <p>Validation of uriParameters failed when using a custom type.</p> </li> 
+     <li> <p>API Console did not entirely show examples when provided in type definitions (either for the entire type or single properties).</p> </li> 
+     <li> <p>Fixed rendering issues when a type extends from another type declaration.</p> </li> 
+     <li> <p>Fixed a validation issue when the type is a number and has a related enum.</p> </li> 
+    </ul> 
+   </div> 
+  </div> 
+  <div class="sect2"> 
+   <h3 id="improvements"><a class="anchor" href="#improvements"></a>Improvements</h3> 
+   <div class="ulist"> 
+    <ul> 
+     <li> <p>Bumped RAML Parser to version to <a href="https://github.com/raml-org/raml-js-parser-2/releases/tag/1.1.20">1.1.20</a></p> </li> 
+     <li> <p>Added file upload when user defines payload type to be a “file”. User needs to explicitly define <code>type: file</code> for API Console to render the uploaded element.</p> </li> 
+     <li> <p>Enhanced performance when rendering large projects.</p> </li> 
+    </ul> 
+   </div> 
   </div> 
  </div> 
 </div> 
@@ -1058,20 +1096,20 @@
  </div> 
 </div> 
 <div class="sect1"> 
- <h2 id="resolved-issues"><a class="anchor" href="#resolved-issues"></a>Resolved Issues</h2> 
+ <h2 id="resolved-issues-2"><a class="anchor" href="#resolved-issues-2"></a>Resolved Issues</h2> 
  <div class="sectionbody"> 
   <div class="ulist"> 
    <ul> 
     <li> <p>Fixed an issue preventing API documentation from being displayed at the Portal due to incorrect url resolution after library expansion.</p> </li> 
     <li> <p>Fixed an issue preventing error feedback from being displayed (white page or greyed page was displayed instead, depending on implementation).</p> </li> 
-    <li> <p>Fixed an issue that response type and examples weren’t refreshed accurately when changing methods.</p> </li> 
+    <li> <p>Fixed an issue that prevented response type and examples from being refreshed accurately when changing methods.</p> </li> 
     <li> <p>Fixed an issue causing multiple inheritance types to be incompletely rendered in the method response.</p> </li> 
    </ul> 
   </div> 
  </div> 
 </div> 
 <div class="sect1"> 
- <h2 id="improvements"><a class="anchor" href="#improvements"></a>Improvements</h2> 
+ <h2 id="improvements-2"><a class="anchor" href="#improvements-2"></a>Improvements</h2> 
  <div class="sectionbody"> 
   <div class="ulist"> 
    <ul> 
@@ -1091,7 +1129,7 @@
    <p>This release includes a JS parser update.</p> 
   </div> 
   <div class="sect2"> 
-   <h3 id="improvements-2"><a class="anchor" href="#improvements-2"></a>Improvements</h3> 
+   <h3 id="improvements-3"><a class="anchor" href="#improvements-3"></a>Improvements</h3> 
    <div class="paragraph"> 
     <p>Bumped JS parser version to <a href="https://github.com/raml-org/raml-js-parser-2/releases/tag/1.1.14">1.1.14</a>.</p> 
    </div> 
@@ -1108,7 +1146,7 @@
    <p>This release includes a JS parser update.</p> 
   </div> 
   <div class="sect2"> 
-   <h3 id="improvements-3"><a class="anchor" href="#improvements-3"></a>Improvements</h3> 
+   <h3 id="improvements-4"><a class="anchor" href="#improvements-4"></a>Improvements</h3> 
    <div class="paragraph"> 
     <p>Bumped JS parser version to 1.1.13.</p> 
    </div> 
@@ -1125,7 +1163,7 @@
    <p>This release includes a JS parser update.</p> 
   </div> 
   <div class="sect2"> 
-   <h3 id="improvements-4"><a class="anchor" href="#improvements-4"></a>Improvements</h3> 
+   <h3 id="improvements-5"><a class="anchor" href="#improvements-5"></a>Improvements</h3> 
    <div class="paragraph"> 
     <p>Bumped JS parser version to 1.1.12.</p> 
    </div> 
@@ -1142,7 +1180,7 @@
    <p>This release includes several fixes for rendering information as well as fixes for issues around RAML 1.0.</p> 
   </div> 
   <div class="sect2"> 
-   <h3 id="resolved-issues-2"><a class="anchor" href="#resolved-issues-2"></a>Resolved Issues</h3> 
+   <h3 id="resolved-issues-3"><a class="anchor" href="#resolved-issues-3"></a>Resolved Issues</h3> 
    <div class="ulist"> 
     <ul> 
      <li> <p>Add support for Pass Through to reflect the complete set of security schemes defined in RAML 1.0.</p> </li> 
@@ -1152,7 +1190,7 @@
    </div> 
   </div> 
   <div class="sect2"> 
-   <h3 id="improvements-5"><a class="anchor" href="#improvements-5"></a>Improvements</h3> 
+   <h3 id="improvements-6"><a class="anchor" href="#improvements-6"></a>Improvements</h3> 
    <div class="ulist"> 
     <ul> 
      <li> <p>Bumped JS parser version to 1.1.8.</p> </li> 
@@ -1169,7 +1207,7 @@
    <p>November 19, 2016</p> 
   </div> 
   <div class="sect2"> 
-   <h3 id="improvements-6"><a class="anchor" href="#improvements-6"></a>Improvements</h3> 
+   <h3 id="improvements-7"><a class="anchor" href="#improvements-7"></a>Improvements</h3> 
    <div class="paragraph"> 
     <p>Bumped JS parser version to 1.1.6.</p> 
    </div> 
@@ -1180,7 +1218,7 @@
     <!-- END article-content -->
     <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
                 <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#api-console-3-0-16">API Console 3.0.16</a></li><li><a class="scroll-menu-link" href="#resolved-issues">Resolved Issues</a></li><li><a class="scroll-menu-link" href="#improvements">Improvements</a></li><li><a class="scroll-menu-link" href="#api-console-3-0-14">API Console 3.0.14</a></li><li><a class="scroll-menu-link" href="#api-console-3-0-13">API Console 3.0.13</a></li><li><a class="scroll-menu-link" href="#api-console-3-0-12">API Console 3.0.12</a></li><li><a class="scroll-menu-link" href="#api-console-3-0-11">API Console 3.0.11</a></li><li><a class="scroll-menu-link" href="#api-console-3-0-9">API Console 3.0.9</a></li></ul></div></div><!-- /scroll-menu -->
+                <ul><li><a class="scroll-menu-link" href="#api-console-3-0-17">API Console 3.0.17</a></li><li><a class="scroll-menu-link" href="#api-console-3-0-16">API Console 3.0.16</a></li><li><a class="scroll-menu-link" href="#resolved-issues-2">Resolved Issues</a></li><li><a class="scroll-menu-link" href="#improvements-2">Improvements</a></li><li><a class="scroll-menu-link" href="#api-console-3-0-14">API Console 3.0.14</a></li><li><a class="scroll-menu-link" href="#api-console-3-0-13">API Console 3.0.13</a></li><li><a class="scroll-menu-link" href="#api-console-3-0-12">API Console 3.0.12</a></li><li><a class="scroll-menu-link" href="#api-console-3-0-11">API Console 3.0.11</a></li><li><a class="scroll-menu-link" href="#api-console-3-0-9">API Console 3.0.9</a></li></ul></div></div><!-- /scroll-menu -->
   </div>
 </div>
 <!-- START footer -->
