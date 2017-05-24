@@ -1288,7 +1288,7 @@ sudo systemctl start var-lib-data.mount</pre>
      <p>The Logical Volume Manager toolset consists of the following commands: * dmsetup - is a low-level logical volume management * pv/vg/lv-prefixed commands like pvdisplay and pvcreate/pvremove - for working with specific LVM object types (i.e. lv - for logical volumes and vg - for volume groups)</p> 
     </div> 
     <div class="paragraph"> 
-     <p>To reset a device use the following commands: * remove logical volume with <code>lvremove -f docker/thinpool</code> (use <code>lvdisplay</code> to find the volume to remove) * remove volume group with <code>vgremovei docker</code> (use <code>vgdisplay</code> to locate the volume group to remove) * remove physical volume and reset device with <code>pvremove /dev/&lt;device name&gt;</code> (use <code>pvdisplay</code> to find the physical volume to remove and the device name it is on)</p> 
+     <p>To reset a device use the following commands: * remove logical volume with <code>lvremove -f docker/thinpool</code> (use <code>lvdisplay</code> to find the volume to remove) * remove volume group with <code>vgremove docker</code> (use <code>vgdisplay</code> to locate the volume group to remove) * remove physical volume and reset device with <code>pvremove /dev/&lt;device name&gt;</code> (use <code>pvdisplay</code> to find the physical volume to remove and the device name it is on)</p> 
     </div> 
    </div> 
   </div> 
