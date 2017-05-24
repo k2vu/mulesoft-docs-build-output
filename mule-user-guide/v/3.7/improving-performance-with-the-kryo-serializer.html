@@ -15,7 +15,7 @@
   <script src="/js/scripts.js?t=1491597550"></script>
 
   <link rel="canonical" href="https://docs.mulesoft.com/mule-user-guide/v/3.7/improving-performance-with-the-kryo-serializer" />
-  <meta name="description" content="Previous to Mule 3.7, Mule relied on plain old Java serialization to store objects in files or to replicate them through a Mule cluster. The Mule 3..." />
+  <meta name="description" content="The Kryo serializer and the Community Edition Serialization API let you serialize or deserialize objects into a byte array. These serializers ..." />
   <meta class="swiftype" name="title" data-type="string" content="Improving Performance with the Kryo Serializer" />
   <meta class="swiftype" name="version" data-type="enum" content="3.7" />
 </head>
@@ -1054,34 +1054,22 @@
       <div class="older-version-notification col-md-9" data-swiftype-index='false'>You are viewing an older version of this section. Click <a href="/mule-user-guide/v/3.8/improving-performance-with-the-kryo-serializer">here</a> to navigate to the latest version.</div>
       <div class="breadcrumb-section" data-swiftype-index='false'><a href="./">Mule Runtime</a>/<a href="developing">Developing</a>/<a href="improving-performance-with-the-kryo-serializer" class="breadcrumb-active-link">Improving Performance with the Kryo Serializer</a></div>
       <h1>Improving Performance with the Kryo Serializer</h1>
-      <div class="sect1"> 
- <h2 id="overview"><a class="anchor" href="#overview"></a>Overview</h2> 
+      <div id="preamble"> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>Previous to Mule 3.7, Mule relied on plain old Java serialization to store objects in files or to replicate them through a Mule cluster. The Mule 3.7 Enterprise Edition Kryo Serializer and the Community Edition&nbsp;Serialization API decouple Mule and its extensions from the actual serialization mechanism to be use, enabling you to configure a mechanism you want to use, or to create your own serializer.</p> 
+   <p>The Kryo serializer and the Community Edition&nbsp;Serialization API let you serialize or deserialize objects into a byte array. These serializers decouple Mule and its extensions from the actual serialization mechanism, thus enabling configuration of the mechanism to use or the creation of a custom serializer. The Kryo serializer replaces plain old Java serialization, in which Java classes implemented <code>java.io.Serializable</code> or <code>java.io.Externalizable</code> to store objects in files, or to replicate classes through a Mule cluster.</p> 
   </div> 
   <div class="paragraph"> 
-   <p>Mule relies on serialization each time that:</p> 
+   <p>Mule relies on serialization when applications read from or write to persistent object stores, a VM or JMS queue, or to an object from a file. Serialization also occurs when an distributes through a Mule cluster. The use of Kryo and Community Edition serializers greatly improves functionality and performance. Changing the serialization mechanism for each task can greatly improve functionality and performance.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>You can develop projects with the Kryo and Community Edition serializers to:</p> 
   </div> 
   <div class="ulist"> 
    <ul> 
-    <li> <p>You read from or write to a persistent ObjectStore</p> </li> 
-    <li> <p>You read from or write to&nbsp;a persistent VM or JMS queue</p> </li> 
-    <li> <p>An object distributes through a Mule cluster</p> </li> 
-    <li> <p>You read from or write to&nbsp;an object from a file</p> </li> 
+    <li> <p>Create a custom serializer using the Serialization API&nbsp;(CE)</p> </li> 
+    <li> <p>Configure the Kryo Serializer&nbsp;(EE only)</p> </li> 
    </ul> 
-  </div> 
-  <div class="paragraph"> 
-   <p>Changing the serialization mechanism for these tasks can greatly improve functionality and performance.</p> 
-  </div> 
-  <div class="sect2"> 
-   <h3 id="use-cases"><a class="anchor" href="#use-cases"></a>Use Cases</h3> 
-   <div class="ulist"> 
-    <ul> 
-     <li> <p>Create a custom serializer using the Serialization API&nbsp;(CE)</p> </li> 
-     <li> <p>Configure the Kryo Serializer&nbsp;(EE only)</p> </li> 
-    </ul> 
-   </div> 
   </div> 
  </div> 
 </div> 
@@ -1137,7 +1125,7 @@
     <p>If no defaultObjectSerializer is configured, then a default implementation uses plain old Java serialization. This means that from a user perspective, there’s no behavioral change unless you specifically set a different serializer.</p> 
    </div> 
    <div class="paragraph"> 
-    <p><strong>Note</strong>: The only component’s behavior that’s not affected by this component is the batch module, which for its own functionality reasons needs to work using the Kryo no matter what.</p> 
+    <p><strong>Note</strong>: The only component behavior that’s not affected by this component is the batch module, which for its own functionality reasons needs to work using the Kryo no matter what.</p> 
    </div> 
   </div> 
   <div class="sect2"> 
@@ -1296,7 +1284,7 @@ muleContext.getRegistry().get(<span class="string"><span class="delimiter">"</sp
    </ul> 
   </div> 
   <div class="paragraph"> 
-   <p>The following illustrations determined by MuleSoft’s performance team compare the transactions per second (TPS) of persistent and distributed VM queues and ObjectStore using the standard Java serializer and different Kryo settings.</p> 
+   <p>The following illustrations by the performance team at MuleSoft compare the transactions per second (TPS) of persistent and distributed VM queues and ObjectStore using the standard Java serializer and different Kryo settings.</p> 
   </div> 
   <div class="paragraph"> 
    <p><span class="image"><img src="./_images/PersistentVMQueues.png" alt="PersistentVMQueues"></span></p> 
@@ -1394,7 +1382,7 @@ muleContext.getRegistry().get(<span class="string"><span class="delimiter">"</sp
   <div class="sect2"> 
    <h3 id="changing-serializers-requires-a-clean-slate"><a class="anchor" href="#changing-serializers-requires-a-clean-slate"></a>Changing Serializers Requires a Clean Slate</h3> 
    <div class="paragraph"> 
-    <p>Serializers are not interoperable nor interchangeable. That means that if you&nbsp;decide to change the serializer your application uses, you need to make sure that all messages in VM and JMS queues have been consumed and that those queues are empty by the time the new serializer kicks in. This is because Kryo serializer won’t be able to read datagrams written by the Java searializer and vice-versa. The same thing applies to persistent ObjectStores. If you try to read an entry generated with a different serializer, you’ll find yourself out of luck.</p> 
+    <p>Serializers are not interoperable nor interchangeable. That means that if you&nbsp;decide to change the serializer your application uses, you need to make sure that all messages in VM and JMS queues have been consumed and that those queues are empty by the time the new serializer kicks in. This is because Kryo serializer won’t be able to read datagrams written by the Java searializer and vice-versa. The same thing applies to persistent ObjectStores. If you try to read an entry generated with a different serializer, you are out of luck.</p> 
    </div> 
   </div> 
   <div class="sect2"> 
@@ -1406,7 +1394,7 @@ muleContext.getRegistry().get(<span class="string"><span class="delimiter">"</sp
   <div class="sect2"> 
    <h3 id="less-improvement-for-a-local-persistent-objectstore"><a class="anchor" href="#less-improvement-for-a-local-persistent-objectstore"></a>Less Improvement for a Local Persistent ObjectStore</h3> 
    <div class="paragraph"> 
-    <p>Unlike the other cases, the local persistent ObjectStore doesn’t show much improvement because of high contention on the ObjectStore implementation which pretty much absorbes all the gain.</p> 
+    <p>Unlike the other cases, the local persistent ObjectStore doesn’t show much improvement because of high contention on the ObjectStore implementation which pretty much absorbs all the gain.</p> 
    </div> 
   </div> 
   <div class="sect2"> 
@@ -1445,7 +1433,7 @@ muleContext.getRegistry().get(<span class="string"><span class="delimiter">"</sp
     <!-- END article-content -->
     <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
                 <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#overview">Overview</a></li><li><a class="scroll-menu-link" href="#using-the-serialization-api">Using the Serialization API</a></li><li><a class="scroll-menu-link" href="#performance-using-kryo">Performance Using Kryo</a></li><li><a class="scroll-menu-link" href="#performance-summary">Performance Summary</a></li><li><a class="scroll-menu-link" href="#limitations-and-considerations">Limitations and Considerations</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
+                <ul><li><a class="scroll-menu-link" href="#using-the-serialization-api">Using the Serialization API</a></li><li><a class="scroll-menu-link" href="#performance-using-kryo">Performance Using Kryo</a></li><li><a class="scroll-menu-link" href="#performance-summary">Performance Summary</a></li><li><a class="scroll-menu-link" href="#limitations-and-considerations">Limitations and Considerations</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
   </div>
 </div>
 <!-- START footer -->
