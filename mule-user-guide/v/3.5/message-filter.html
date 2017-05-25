@@ -15,7 +15,7 @@
   <script src="/js/scripts.js?t=1491597550"></script>
 
   <link rel="canonical" href="https://docs.mulesoft.com/mule-user-guide/v/3.5/message-filter" />
-  <meta name="description" content="Purpose: Used by a message processor to determine whether to handle incoming events or messages. Minimum Configuration: None. Discussion: This filt..." />
+  <meta name="description" content="A message filter is used by a message processor to determine whether to handle incoming events or messages. A Message Filter may also include neste..." />
   <meta class="swiftype" name="title" data-type="string" content="Message Filter" />
   <meta class="swiftype" name="version" data-type="enum" content="3.5" />
 </head>
@@ -1021,16 +1021,13 @@
       <div id="preamble"> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p><strong>Purpose:</strong> Used by a message processor to determine whether to handle incoming events or messages.</p> 
+   <p>A message filter is used by a message processor to determine whether to handle incoming events or messages. A Message Filter may also include nested filters. Nested filters let you apply more complex logic to the filter. See <a href="/mule-user-guide/v/3.5/logic-filter">Logic Filter</a>&nbsp;for more details about nesting filters.</p> 
   </div> 
   <div class="paragraph"> 
-   <p><strong>Minimum Configuration:</strong> None.</p> 
+   <p>This filter determines whether or not a message processor should process an incoming event or message. You can use the On Unaccepted property to optionally specify a flow or subflow to handle any unaccepted events. Check the Throw On Unaccepted box to throw an exception if a message or event is not handled. The default when not checked is to not throw an exception.</p> 
   </div> 
   <div class="paragraph"> 
-   <p><strong>Discussion:</strong> This filter determines whether or not a message processor should process an incoming event or message. You can use the On Unaccepted property to optionally specify the name of the message processor that should handle any unaccepted events. Check the Throw On Unaccepted box to throw an exception if a message or event is not handled. The default when not checked is to not throw an exception.</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>A Message Filter may also include nested filters. Nested filters let you apply more complex logic to the filter. See <a href="/mule-user-guide/v/3.6/logic-filter">Logic Filter</a>&nbsp;for more details about nesting filters.</p> 
+   <p><strong>Note:</strong> The flow or subflow that you specify does not return control to the parent flow.</p> 
   </div> 
  </div> 
 </div> 
@@ -1039,7 +1036,7 @@
  <div class="sectionbody"> 
   <div class="ulist"> 
    <ul> 
-    <li> <p><a href="/mule-user-guide/v/3.6/filters-configuration-reference">Filters Configuration Reference</a></p> </li> 
+    <li> <p><a href="/mule-user-guide/v/3.5/filters-configuration-reference">Filters Configuration Reference</a></p> </li> 
    </ul> 
   </div> 
  </div> 
