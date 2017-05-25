@@ -15,7 +15,7 @@
   <script src="/js/scripts.js?t=1491597550"></script>
 
   <link rel="canonical" href="https://docs.mulesoft.com/analytics/analytics-event-api" />
-  <meta name="description" content="API Manager gathers powerful analytics data for each API that is managed using the platform. This data is displayed visually in your API’s dashboar..." />
+  <meta name="description" content="API Manager gathers analytics data for each API you manage. The API dashboard displays some data by default. You can analyze and transform raw data..." />
   <meta class="swiftype" name="title" data-type="string" content="Analytics Event API" />
 </head>
 <body>
@@ -1035,29 +1035,30 @@
       <div id="preamble"> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>API Manager gathers powerful analytics data for each API that is managed using the platform. This data is displayed visually in your API’s dashboard, but many scenarios require access to the raw data so that it can be analyzed or transformed. To meet this need, the Analytics Reporting API makes it easy to create a report that queries the desired data and exposes it via an API endpoint. You can also create reports that span more than one API, or create different reports for the same API.</p> 
+   <p>API Manager gathers analytics data for each API you manage. The API dashboard displays some data by default. You can analyze and transform raw data to get more information. Using the Analytics Reporting API you create a report that queries the desired data and exposes it through an API endpoint. You can create reports that span more than one API, or create different reports for the same API.</p> 
   </div> 
  </div> 
 </div> 
 <div class="sect1"> 
- <h2 id="creating-a-report"><a class="anchor" href="#creating-a-report"></a>Creating a Report</h2> 
+ <h2 id="to-create-a-report"><a class="anchor" href="#to-create-a-report"></a>To Create a Report</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>The following steps show you how to create a report.</p> 
+   <p>The following procedure describes how to create a report to find the API events that, for example, resulted in a policy violation. You need to select Violated Policy Name in Fields to accomplish this task.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>For example, any events that were rejected because of rate limiting or IP blacklisting.</p> 
   </div> 
   <div class="olist arabic"> 
    <ol class="arabic"> 
-    <li> <p>As an Organization Administrator, you have access to the Analytics Dashboards for your organization. Go to <strong><a href="http://anypoint.mulesoft.com/analytics">http://anypoint.mulesoft.com/analytics</a></strong> to access your Analytics Dashboards. You can also click <strong>Analytics</strong> in the drop-down menu in the top-right of the window.</p> 
-     <div class="paragraph"> 
-      <p><span class="image"><img src="./_images/analytics-access.png" alt="analytics-access"></span></p> 
-     </div> </li> 
+    <li> <p>As an Organization Administrator, you have access to the Analytics Dashboards for your organization. In API Manager, on the API version details page, click Analytics.</p> </li> 
     <li> <p>On the top menu, click <strong>Manage Reports</strong>.</p> </li> 
-    <li> <p>On the <strong>Manage Reports</strong> page, click <strong>New</strong> to create a new report.</p> </li> 
-    <li> <p>On the <strong>Create Report</strong> page, select your desired data source, range, format, and fields. A URL generates for the configured report, which represents the endpoint that can be called. Anypoint Analytics displays the starting date that data is available for the Data Source.</p> 
+    <li> <p>Click Manage Reports &gt; New to create a new report.</p> </li> 
+    <li> <p>In Create Report, select a data source, range, and format.</p> </li> 
+    <li> <p>In Fields, select Violated Policy Name.</p> 
      <div class="paragraph"> 
-      <p><span class="image"><img src="./_images/anev_create_report_2.png" alt="anev_create_report_2"></span></p> 
+      <p>A URL generates for the configured report, which represents the endpoint that can be called. Anypoint Analytics displays the starting date that data is available for the Data Source.</p> 
      </div> </li> 
-    <li> <p>Click <strong>Save Report</strong> to save the report and make it available at the specified endpoint. You are redirected to the <strong>Manage Reports</strong>&nbsp;page.</p> </li> 
+    <li> <p>Click Save Report to save the report and make it available at the specified endpoint. You are redirected to the Manage Reports&nbsp;page.</p> </li> 
    </ol> 
   </div> 
  </div> 
@@ -1660,7 +1661,7 @@ echo;echo</pre></td>
     <!-- END article-content -->
     <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
                 <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#creating-a-report">Creating a Report</a></li><li><a class="scroll-menu-link" href="#running-a-report-in-the-browser">Running a Report in the Browser</a></li><li><a class="scroll-menu-link" href="#calling-a-report-programmatically">Calling a Report Programmatically</a></li><li><a class="scroll-menu-link" href="#data-fields-for-reports">Data Fields for Reports</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
+                <ul><li><a class="scroll-menu-link" href="#to-create-a-report">To Create a Report</a></li><li><a class="scroll-menu-link" href="#running-a-report-in-the-browser">Running a Report in the Browser</a></li><li><a class="scroll-menu-link" href="#calling-a-report-programmatically">Calling a Report Programmatically</a></li><li><a class="scroll-menu-link" href="#data-fields-for-reports">Data Fields for Reports</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
   </div>
 </div>
 <!-- START footer -->
