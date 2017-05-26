@@ -3215,12 +3215,21 @@ HeaderName2: HeaderValue2</code></pre>
          </table></code></pre> 
       </div> 
      </div> 
-     <div class="listingblock"> 
-      <div class="content"> 
-       <pre>If you need to temporarily disable certificate validations, you can set `&amp;lt;tls:trust-store insecure="true"/&amp;gt;` inside the `&amp;lt;tls:context&amp;gt;` tag. This causes your Mule application to accept all certificates from an SSL endpoint without validating them in the flow.
-
-Remember to set this value to _false_ before deploying your application, or simply remove the tag, since false is its default value.</pre> 
-      </div> 
+     <div class="admonitionblock note"> 
+      <table> 
+       <tbody> 
+        <tr> 
+         <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
+         <td class="content"> 
+          <div class="paragraph"> 
+           <p>If you need to temporarily disable certificate validations, you can set <code>&lt;tls:trust-store insecure="true"/&gt;</code> inside the <code>&lt;tls:context&gt;</code> tag. This causes your Mule application to accept all certificates from an SSL endpoint without validating them in the flow.</p> 
+          </div> 
+          <div class="paragraph"> 
+           <p>Remember to set this value to <em>false</em> before deploying your application, or simply remove the tag, since false is its default value.</p> 
+          </div> </td> 
+        </tr> 
+       </tbody> 
+      </table> 
      </div> 
     </div> 
    </div> 

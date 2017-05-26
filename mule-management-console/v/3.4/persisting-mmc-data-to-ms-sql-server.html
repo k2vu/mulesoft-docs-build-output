@@ -1713,18 +1713,39 @@ console.inactivityTimeout=60</pre></td>
     </div> 
     <div class="listingblock"> 
      <div class="content"> 
-      <pre>...
-&lt;FileSystem class="org.apache.jackrabbit.core.fs.db.MSSqlFileSystem"&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;param name="driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;param name="url" value="jdbc:sqlserver://&lt;db_host_ip&gt;:1433;databaseName=MMC_STATUS"/&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;param name="schemaObjectPrefix" value="workspace_"/&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;param name="user" value="MMC_USER"/&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;param name="password" value="&lt;MMC_USER_password&gt;"/&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;param name="schema" value="mssql"/&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;param name="schemaCheckEnabled" value="true"/&gt;
+      <pre class="CodeRay highlight"><code data-lang="xml">
+           
+        <table class="CodeRay"> 
+         <tbody> 
+          <tr> 
+           <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td> 
+           <td class="code"><pre>...
+<span class="tag">&lt;FileSystem</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">"</span><span class="content">org.apache.jackrabbit.core.fs.db.MSSqlFileSystem</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;param</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">driver</span><span class="delimiter">"</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">"</span><span class="content">com.microsoft.sqlserver.jdbc.SQLServerDriver</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;param</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">url</span><span class="delimiter">"</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">"</span><span class="content">jdbc:sqlserver://&lt;db_host_ip</span></span><span class="error">&gt;</span>:1433;databaseName=MMC_STATUS"/<span class="error">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;param</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">schemaObjectPrefix</span><span class="delimiter">"</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">"</span><span class="content">workspace_</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;param</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">user</span><span class="delimiter">"</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">"</span><span class="content">MMC_USER</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;param</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">password</span><span class="delimiter">"</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">"</span><span class="content">&lt;MMC_USER_password</span></span><span class="error">&gt;</span>"/<span class="error">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;param</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">schema</span><span class="delimiter">"</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">"</span><span class="content">mssql</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;param</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">schemaCheckEnabled</span><span class="delimiter">"</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">"</span><span class="content">true</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
 &nbsp;
-&lt;/FileSystem&gt;
-...</pre> 
+<span class="tag">&lt;/FileSystem&gt;</span>
+...</pre></td> 
+          </tr> 
+         </tbody> 
+        </table></code></pre> 
      </div> 
     </div> 
     <div class="listingblock"> 

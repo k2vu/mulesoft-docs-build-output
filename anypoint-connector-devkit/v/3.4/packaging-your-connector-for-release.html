@@ -1079,13 +1079,14 @@
  <h2 id="uploading-your-connector-to-exchange"><a class="anchor" href="#uploading-your-connector-to-exchange"></a>Uploading your Connector to Exchange</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>Anypoint Studio identifies each connector by a <strong>Feature ID</strong> that spans all versions of the connector. In order to expose your connector via the link:/mule-user-guide/v/3.8/anyp</p> 
+   <p>Anypoint Studio identifies each connector by a <strong>Feature ID</strong> that spans all versions of the connector. In order to expose your connector via the <a href="/getting-started/anypoint-exchange">Anypoint Exchange</a>, you will be prompted by the Exchange to provide this Feature ID when uploading your connector asset, as well as a version number.</p> 
   </div> 
   <div class="paragraph"> 
-   <p>\</p> 
+   <p>Follow the steps below to obtain this ID:</p> 
   </div> 
   <div class="olist arabic"> 
    <ol class="arabic"> 
+    <li> <p>Unzip the file containing your connector’s Update Site</p> </li> 
     <li> <p>In the created folder, look for the <code>context.xml</code> file and open it with a text editor</p> </li> 
     <li> <p>In this file, search for a string that follows the following pattern: <code>id=’org.mule.tooling.ui.extension.&lt;connector name&gt;.feature.group’</code>. That entire value is your connector’s Feature ID. As a more concrete example, your Feature ID could be something like ’org.mule.tooling.ui.extension.cloudhub.3.6.0.feature.group’</p> </li> 
    </ol> 

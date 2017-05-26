@@ -1196,12 +1196,9 @@
    <div class="paragraph"> 
     <p>The API for the <a href="http://www.mulesoft.org/docs/site/current/apidocs/org/mule/api/expression/ExpressionEvaluator.html">ExpressionEvaluator</a> has changed slightly to make it strongly typed. The <code>message</code> is now a <a href="http://www.mulesoft.org/docs/site/current/apidocs/org/mule/api/MuleMessage.html">MuleMessage</a>, not a <code>java.lang.Object</code>.</p> 
    </div> 
-   <div class="paragraph"> 
-    <p>[source,</p> 
-   </div> 
    <div class="listingblock"> 
     <div class="content"> 
-     <pre>Object evaluate(String expression, MuleMessage message);</pre> 
+     <pre class="CodeRay highlight"><code data-lang="java"><span class="predefined-type">Object</span> evaluate(<span class="predefined-type">String</span> expression, MuleMessage message);</code></pre> 
     </div> 
    </div> 
   </div> 

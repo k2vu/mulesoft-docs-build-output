@@ -1476,19 +1476,28 @@
   <div class="olist arabic"> 
    <ol class="arabic"> 
     <li> <p>In MMC 3.6.0, locate the file&nbsp;<code>&lt;MMC_HOME&gt;/WEB-INF/web.xml</code> and open it for editing.</p> </li> 
-    <li> <p>In the&nbsp;<code>web.xml</code> file, locate the section shown below. +[source, xml, linenums]</p> </li> 
-   </ol> 
-  </div> 
-  <div class="listingblock"> 
-   <div class="content"> 
-    <pre>&lt;context-param&gt;
-&lt;param-name&gt;spring.profiles.active&lt;/param-name&gt;
-&lt;param-value&gt;tracking-h2,env-derby&lt;/param-value&gt;
-&lt;/context-param&gt;</pre> 
-   </div> 
-  </div> 
-  <div class="olist arabic"> 
-   <ol class="arabic"> 
+    <li> <p>In the&nbsp;<code>web.xml</code> file, locate the section shown below.</p> 
+     <div class="listingblock"> 
+      <div class="content"> 
+       <pre class="CodeRay highlight"><code data-lang="xml">
+            
+         <table class="CodeRay"> 
+          <tbody> 
+           <tr> 
+            <td class="line-numbers"><pre>1
+2
+3
+4
+</pre></td> 
+            <td class="code"><pre><span class="tag">&lt;context-param&gt;</span>
+<span class="tag">&lt;param-name&gt;</span>spring.profiles.active<span class="tag">&lt;/param-name&gt;</span>
+<span class="tag">&lt;param-value&gt;</span>tracking-h2,env-derby<span class="tag">&lt;/param-value&gt;</span>
+<span class="tag">&lt;/context-param&gt;</span></pre></td> 
+           </tr> 
+          </tbody> 
+         </table></code></pre> 
+      </div> 
+     </div> </li> 
     <li> <p>Replace the string <code>tracking-h2</code> with <code>tracking-&lt;database_name&gt;</code>. For example, if persisting data on postgres, replace it with <code>tracking-postgres</code>.</p> </li> 
     <li> <p>After completing the above steps, you can remove your old MMC installation by deleting its home directory in the root directory of your Web app server. However, it is recommended that you keep the backup copies of the old database configuration files until you ensure that MMC 3.6.0 connects properly to the database.</p> </li> 
    </ol> 

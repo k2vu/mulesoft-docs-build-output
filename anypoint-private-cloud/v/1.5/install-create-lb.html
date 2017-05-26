@@ -1132,9 +1132,21 @@
     <li> <p>Enable stream block in your <code>/etc/nginx/nginx.conf</code> file, by referencing all the config from <code>/etc/nginx/stream.d/*</code>. You can achieve that by adding the following:</p> 
      <div class="listingblock"> 
       <div class="content"> 
-       <pre>stream {
-   include /etc/nginx/stream.d/*.conf;
-}</pre> 
+       <pre class="CodeRay highlight"><code data-lang="json">
+            
+         <table class="CodeRay"> 
+          <tbody> 
+           <tr> 
+            <td class="line-numbers"><pre>1
+2
+3
+</pre></td> 
+            <td class="code"><pre><span class="error">s</span><span class="error">t</span><span class="error">r</span><span class="error">e</span><span class="error">a</span><span class="error">m</span> {
+   <span class="error">i</span><span class="error">n</span><span class="error">c</span><span class="error">l</span><span class="error">u</span><span class="error">d</span><span class="error">e</span> <span class="error">/</span><span class="error">e</span><span class="error">t</span><span class="error">c</span><span class="error">/</span><span class="error">n</span><span class="error">g</span><span class="error">i</span><span class="error">n</span><span class="error">x</span><span class="error">/</span><span class="error">s</span><span class="error">t</span><span class="error">r</span><span class="error">e</span><span class="error">a</span><span class="error">m</span><span class="error">.</span><span class="error">d</span><span class="error">/</span><span class="error">*</span><span class="error">.</span><span class="error">c</span><span class="error">o</span><span class="error">n</span><span class="error">f</span><span class="error">;</span>
+}</pre></td> 
+           </tr> 
+          </tbody> 
+         </table></code></pre> 
       </div> 
      </div> </li> 
     <li> <p>Delete the <code>default.conf</code> file from <code>/etc/nginx/conf.d</code></p> </li> 
