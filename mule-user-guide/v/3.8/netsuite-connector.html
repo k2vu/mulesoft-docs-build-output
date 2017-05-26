@@ -1040,7 +1040,7 @@
    <p>NetSuite is the world’s leading provider of cloud-based business management software. NetSuite helps companies manage core business processes with a single, fully integrated system covering ERP/financials, CRM, e-commerce, inventory, and more.</p> 
   </div> 
   <div class="paragraph"> 
-   <p>The NetSuite connector makes use of the <strong>SuiteTalk WSDL</strong> to provide <strong>SOAP-based integration</strong> and generate NetSuite business objects, make use of different authentication levels, and support error handling.</p> 
+   <p>The NetSuite connector makes use of the <strong>SuiteTalk WSDL</strong> to provide <strong>SOAP-based integration</strong> and generate NetSuite business objects, make use of different authentication levels, and support error handling. It is also able to perform <strong>REST</strong> calls to <strong>RESTlets</strong> that expose APIs created with <strong>SuiteScript</strong>.</p> 
   </div> 
   <div class="paragraph"> 
    <p>Read through this user guide to understand how to set up and configure a basic flow using the connector. Track feature additions, compatibility, limitations and API version updates with each release of the connector using the <a href="/release-notes/netsuite-connector-release-notes">Connector Release Notes</a>. Review the connector operations and functionality using the <a href="http://mulesoft.github.io/netsuite-connector/">Technical Reference</a> alongside the <a href="https://www.mulesoft.com/exchange#!/?filters=Netsuite&amp;sortBy=rank">demo applications</a>.</p> 
@@ -1054,7 +1054,7 @@
  <h2 id="prerequisites"><a class="anchor" href="#prerequisites"></a>Prerequisites</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>This document assumes that you are familiar with Mule, <a href="/mule-user-guide/v/3.8/anypoint-connectors">Anypoint Connectors</a>, and the <a href="/anypoint-studio/v/6/">Anypoint Studio interface</a>. To increase your familiarity with Studio, consider completing one or more <a href="/mule-fundamentals/v/3.8/basic-studio-tutorial">Anypoint Studio Tutorials</a>. Further, this page assumes that you have a basic understanding of&nbsp;<a href="/mule-fundamentals/v/3.8/mule-concepts">Mule flows</a> and <a href="/mule-fundamentals/v/3.8/global-elements">Mule Global Elements</a>.&nbsp;</p> 
+   <p>This document assumes that you are familiar with Mule, <a href="/mule-user-guide/v/3.8/anypoint-connectors">Anypoint Connectors</a>, and the <a href="/mule-fundamentals/v/3.8/anypoint-studio-essentials">Anypoint Studio interface</a>. To increase your familiarity with Studio, consider completing one or more <a href="/mule-fundamentals/v/3.8/basic-studio-tutorial">Anypoint Studio Tutorials</a>. Further, this page assumes that you have a basic understanding of&nbsp;<a href="/mule-fundamentals/v/3.8/mule-concepts">Mule flows</a> and <a href="/mule-fundamentals/v/3.8/global-elements">Mule Global Elements</a>.&nbsp;</p> 
   </div> 
   <div class="paragraph"> 
    <p>To use this connector, you need:</p> 
@@ -1115,8 +1115,8 @@
   </div> 
   <table class="tableblock frame-all grid-all spread"> 
    <colgroup> 
-    <col> 
-    <col> 
+    <col style="width: 40%;"> 
+    <col style="width: 60%;"> 
    </colgroup> 
    <thead> 
     <tr> 
@@ -1126,23 +1126,73 @@
    </thead> 
    <tbody> 
     <tr> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Login Authentication</strong></p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">Makes use of the SuiteTalk’s login API call on the first request sent by the connector to establish a session with NetSuite.</p></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p><strong>Login Authentication</strong></p> 
+       </div> 
+      </div></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Makes use of the SuiteTalk’s login API call on the first request sent by the connector to establish a session with NetSuite.</p> 
+       </div> 
+      </div></td> 
     </tr> 
     <tr> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Request Level Authentication</strong></p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">Using this strategy, you can send user credentials in the SOAP header of each request instead of authenticating to NetSuite by invoking login.</p></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p><strong>Request Level Authentication</strong></p> 
+       </div> 
+      </div></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Using this strategy, you can send user credentials in the SOAP header of each request instead of authenticating to NetSuite by invoking login.</p> 
+       </div> 
+      </div></td> 
     </tr> 
     <tr> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Single Sign-On Login Authentication</strong></p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">This is a token based authentication system that avoids the use of environment username and password. Here you supply a privateKey together with other information. The connector is then responsible for generating an authentication token and establishing a session with NetSuite via the <code>ssoLogin</code> API call on the first request.</p></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p><strong>Single Sign-On Login Authentication</strong></p> 
+       </div> 
+      </div></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>This is a token based authentication system that avoids the use of environment username and password. Here you supply a privateKey together with other information. The connector is then responsible for generating an authentication token and establishing a session with NetSuite via the <code>ssoLogin</code> API call on the first request. <strong>Not available for RESTlet calls.</strong></p> 
+       </div> 
+      </div></td> 
     </tr> 
     <tr> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Request Level Token Based Authentication</strong></p></td> 
-     <td class="tableblock halign-left valign-top"><p class="tableblock">Similar to Single Sign-On Login Authentication, this is a token based authentication system. However, instead of using a privateKey generated via openssl, this uses a consumer and token key/secret pairs which are established within the NetSuite environment.</p></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p><strong>Request Level Token Based Authentication</strong></p> 
+       </div> 
+      </div></td> 
+     <td class="tableblock halign-left valign-top"> 
+      <div> 
+       <div class="paragraph"> 
+        <p>Similar to Single Sign-On Login Authentication, this is a token based authentication system. However, instead of using a privateKey generated via openssl, this uses a consumer and token key/secret pairs which are established within the NetSuite environment. <strong>Not available for RESTlet calls.</strong></p> 
+       </div> 
+      </div></td> 
     </tr> 
    </tbody> 
   </table> 
+  <div class="admonitionblock important"> 
+   <table> 
+    <tbody> 
+     <tr> 
+      <td class="icon"> <i class="fa icon-important" title="Important"></i> </td> 
+      <td class="content"> Use <strong>Login Authentication</strong> or <strong>Request Level Authentication</strong> if you wish to make RESTlet calls. </td> 
+     </tr> 
+    </tbody> 
+   </table> 
+  </div> 
   <div class="paragraph"> 
    <p>Follow these steps to configure NetSuite connector global element in a Mule application:</p> 
   </div> 
@@ -1158,12 +1208,22 @@
     <li> <p>Enter global element properties.</p> </li> 
    </ol> 
   </div> 
+  <div class="admonitionblock warning"> 
+   <table> 
+    <tbody> 
+     <tr> 
+      <td class="icon"> <i class="fa icon-warning" title="Warning"></i> </td> 
+      <td class="content"> The <strong>Endpoint URL</strong> must be defined for all configurations. The hostname is specific to the <strong>Account</strong> ID of the user. The rest of the URL contains the API version. Also note that every connector version <strong>only supports</strong> one version of the SuiteTalk API. </td> 
+     </tr> 
+    </tbody> 
+   </table> 
+  </div> 
   <div class="sect2"> 
    <h3 id="login-authentication-and-request-level-authentication"><a class="anchor" href="#login-authentication-and-request-level-authentication"></a>Login Authentication and Request Level Authentication</h3> 
    <table class="tableblock frame-all grid-all spread"> 
     <colgroup> 
-     <col> 
-     <col> 
+     <col style="width: 30%;"> 
+     <col style="width: 70%;"> 
     </colgroup> 
     <thead> 
      <tr> 
@@ -1173,43 +1233,138 @@
     </thead> 
     <tbody> 
      <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Name</strong></p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">Enter a name for the configuration with which to reference it later.</p></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p><strong>Name</strong></p> 
+        </div> 
+       </div></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p>Enter a name for the configuration with which to reference it later.</p> 
+        </div> 
+       </div></td> 
      </tr> 
      <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Email</strong></p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the login email of the NetSuite UI.</p></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p><strong>Email</strong></p> 
+        </div> 
+       </div></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p>Enter the login email of the NetSuite UI.</p> 
+        </div> 
+       </div></td> 
      </tr> 
      <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Password</strong></p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the corresponding password to log into NetSuite UI.</p></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p><strong>Password</strong></p> 
+        </div> 
+       </div></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p>Enter the corresponding password to log into NetSuite UI.</p> 
+        </div> 
+       </div></td> 
      </tr> 
      <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Account</strong></p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the account ID of the SuiteTalk NetSuite web services. This is usually found within NetSuite sandbox UI under&nbsp;<strong>Setup</strong> &gt; <strong>Integration</strong> &gt; <strong>Web Service Preferences.</strong></p></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p><strong>Account</strong></p> 
+        </div> 
+       </div></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p>Enter the account ID of the SuiteTalk NetSuite web services. This is usually found within NetSuite sandbox UI under&nbsp;<strong>Setup</strong> &gt; <strong>Integration</strong> &gt; <strong>Web Service Preferences.</strong></p> 
+        </div> 
+       </div></td> 
      </tr> 
      <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Role Id</strong></p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the role ID for the user in SuiteTalk, which determines the Processor privileges.</p></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p><strong>Role Id</strong></p> 
+        </div> 
+       </div></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p>Enter the role ID for the user in SuiteTalk, which determines the Processor privileges.</p> 
+        </div> 
+       </div></td> 
      </tr> 
      <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Application Id</strong></p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the application ID corresponding to the Integration record to be used.</p></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p><strong>Application Id</strong></p> 
+        </div> 
+       </div></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p>Enter the application ID corresponding to the Integration record to be used.</p> 
+        </div> 
+       </div></td> 
      </tr> 
      <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Connection Timeout</strong></p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the amount of time, in milliseconds, that the client must attempt to establish a connection before timing out.</p></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p><strong>Connection Timeout</strong></p> 
+        </div> 
+       </div></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p>Enter the amount of time, in milliseconds, that the client must attempt to establish a connection before timing out.</p> 
+        </div> 
+       </div></td> 
      </tr> 
      <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Receive Timeout</strong></p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the amount of time, in milliseconds, that the client must wait for a response before timing out.</p></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p><strong>Receive Timeout</strong></p> 
+        </div> 
+       </div></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p>Enter the amount of time, in milliseconds, that the client must wait for a response before timing out.</p> 
+        </div> 
+       </div></td> 
      </tr> 
      <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Enable DataSense</strong></p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">If you select this option, DataSense extracts metadata for NetSuite standard objects to automatically determine the data type and format that your application must deliver to, or can expect from, NetSuite. By enabling this functionality, Mule does the heavy lifting of discovering the type of data you must send to, or be prepared to receive from NetSuite. For more information, see <a href="/mule-user-guide/v/3.8/datasense">DataSense</a>.</p></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p><strong>Enable DataSense</strong></p> 
+        </div> 
+       </div></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p>If you select this option, DataSense extracts metadata for NetSuite standard objects to automatically determine the data type and format that your application must deliver to, or can expect from, NetSuite. By enabling this functionality, Mule does the heavy lifting of discovering the type of data you must send to, or be prepared to receive from NetSuite. For more information, see <a href="/mule-user-guide/v/3.8/datasense">DataSense</a>.</p> 
+        </div> 
+       </div></td> 
      </tr> 
      <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Endpoint</strong></p></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p><strong>Endpoint</strong></p> 
+        </div> 
+       </div></td> 
       <td class="tableblock halign-left valign-top"> 
        <div> 
         <div class="paragraph"> 
@@ -1228,8 +1383,18 @@
        </div></td> 
      </tr> 
      <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Separator</strong></p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the separator used to support the keys that are required to provide a better support for custom fields.</p></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p><strong>Separator</strong></p> 
+        </div> 
+       </div></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p>Enter the separator used to support the keys that are required to provide a better support for custom fields.</p> 
+        </div> 
+       </div></td> 
      </tr> 
     </tbody> 
    </table> 
@@ -1291,8 +1456,8 @@
    </div> 
    <table class="tableblock frame-all grid-all spread"> 
     <colgroup> 
-     <col> 
-     <col> 
+     <col style="width: 30%;"> 
+     <col style="width: 70%;"> 
     </colgroup> 
     <thead> 
      <tr> 
@@ -1302,56 +1467,186 @@
     </thead> 
     <tbody> 
      <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Name</strong></p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">Enter a name for the configuration so it can be referenced later.</p></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p><strong>Name</strong></p> 
+        </div> 
+       </div></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p>Enter a name for the configuration so it can be referenced later.</p> 
+        </div> 
+       </div></td> 
      </tr> 
      <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Partner Id</strong></p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the partner ID used in the mapping process.</p></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p><strong>Partner Id</strong></p> 
+        </div> 
+       </div></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p>Enter the partner ID used in the mapping process.</p> 
+        </div> 
+       </div></td> 
      </tr> 
      <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Partner Account</strong></p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the account ID of the SuiteTalk NetSuite web services.</p></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p><strong>Partner Account</strong></p> 
+        </div> 
+       </div></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p>Enter the account ID of the SuiteTalk NetSuite web services.</p> 
+        </div> 
+       </div></td> 
      </tr> 
      <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Company ID</strong></p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the company ID used in the mapping process for the connector to generate a token.</p></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p><strong>Company ID</strong></p> 
+        </div> 
+       </div></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p>Enter the company ID used in the mapping process for the connector to generate a token.</p> 
+        </div> 
+       </div></td> 
      </tr> 
      <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>User ID</strong></p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the user ID used in the mapping process for the connector to generate a token.</p></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p><strong>User ID</strong></p> 
+        </div> 
+       </div></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p>Enter the user ID used in the mapping process for the connector to generate a token.</p> 
+        </div> 
+       </div></td> 
      </tr> 
      <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Key File</strong></p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the&nbsp;<strong>privateKey</strong>&nbsp;file name to pick up from the project. This file should be the&nbsp;<strong>.der</strong> file generated as per NetSuite’s specifications. This is used to encrypt the company ID and user ID into a token for&nbsp;<strong>ssoLogin</strong>.</p></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p><strong>Key File</strong></p> 
+        </div> 
+       </div></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p>Enter the&nbsp;<strong>privateKey</strong>&nbsp;file name to pick up from the project. This file should be the&nbsp;<strong>.der</strong> file generated as per NetSuite’s specifications. This is used to encrypt the company ID and user ID into a token for&nbsp;<strong>ssoLogin</strong>.</p> 
+        </div> 
+       </div></td> 
      </tr> 
      <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Application Id</strong></p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the application ID corresponding to the Integration record to be used.</p></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p><strong>Application Id</strong></p> 
+        </div> 
+       </div></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p>Enter the application ID corresponding to the Integration record to be used.</p> 
+        </div> 
+       </div></td> 
      </tr> 
      <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Connection Timeout</strong></p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the amount of time, in milliseconds, that the client must attempt to establish a connection before timing out.</p></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p><strong>Connection Timeout</strong></p> 
+        </div> 
+       </div></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p>Enter the amount of time, in milliseconds, that the client must attempt to establish a connection before timing out.</p> 
+        </div> 
+       </div></td> 
      </tr> 
      <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Receive Timeout</strong></p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the amount of time, in milliseconds, that the client must wait for a response before timing out.</p></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p><strong>Receive Timeout</strong></p> 
+        </div> 
+       </div></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p>Enter the amount of time, in milliseconds, that the client must wait for a response before timing out.</p> 
+        </div> 
+       </div></td> 
      </tr> 
      <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Enable DataSense</strong></p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">If you select this option, DataSense extracts metadata for NetSuite standard objects to automatically determine the data type and format that your application must deliver to, or can expect from, NetSuite. By enabling this functionality, Mule does the heavy lifting of discovering the type of data you must send to, or be prepared to receive from NetSuite. For more information, see <a href="/mule-user-guide/v/3.8/datasense">DataSense</a>.</p></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p><strong>Enable DataSense</strong></p> 
+        </div> 
+       </div></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p>If you select this option, DataSense extracts metadata for NetSuite standard objects to automatically determine the data type and format that your application must deliver to, or can expect from, NetSuite. By enabling this functionality, Mule does the heavy lifting of discovering the type of data you must send to, or be prepared to receive from NetSuite. For more information, see <a href="/mule-user-guide/v/3.8/datasense">DataSense</a>.</p> 
+        </div> 
+       </div></td> 
      </tr> 
      <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Endpoint</strong></p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the URL of the service endpoint.</p></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p><strong>Endpoint</strong></p> 
+        </div> 
+       </div></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p>Enter the URL of the service endpoint.</p> 
+        </div> 
+       </div></td> 
      </tr> 
      <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Separator</strong></p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the separator used to support the keys that are required to provide a better support for custom fields.</p></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p><strong>Separator</strong></p> 
+        </div> 
+       </div></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p>Enter the separator used to support the keys that are required to provide a better support for custom fields.</p> 
+        </div> 
+       </div></td> 
      </tr> 
      <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Required Libraries</strong></p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">Click Add File to add the SSO jar that you acquire via NetSuite support.</p></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p><strong>Required Libraries</strong></p> 
+        </div> 
+       </div></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p>Click Add File to add the SSO jar that you acquire via NetSuite support.</p> 
+        </div> 
+       </div></td> 
      </tr> 
     </tbody> 
    </table> 
@@ -1369,8 +1664,8 @@
    </div> 
    <table class="tableblock frame-all grid-all spread"> 
     <colgroup> 
-     <col> 
-     <col> 
+     <col style="width: 30%;"> 
+     <col style="width: 70%;"> 
     </colgroup> 
     <thead> 
      <tr> 
@@ -1380,39 +1675,124 @@
     </thead> 
     <tbody> 
      <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Consumer Key</strong></p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the consumer key value for the token based authentication enabled integration record being used.</p></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p><strong>Consumer Key</strong></p> 
+        </div> 
+       </div></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p>Enter the consumer key value for the token based authentication enabled integration record being used.</p> 
+        </div> 
+       </div></td> 
      </tr> 
      <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Consumer Secret</strong></p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the consumer secret value for the token based authentication enabled integration record being used.</p></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p><strong>Consumer Secret</strong></p> 
+        </div> 
+       </div></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p>Enter the consumer secret value for the token based authentication enabled integration record being used.</p> 
+        </div> 
+       </div></td> 
      </tr> 
      <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Token Id</strong></p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the token id representing the unique combination of a user and integration generated within the NetSuite environment.</p></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p><strong>Token Id</strong></p> 
+        </div> 
+       </div></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p>Enter the token id representing the unique combination of a user and integration generated within the NetSuite environment.</p> 
+        </div> 
+       </div></td> 
      </tr> 
      <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Token Secret</strong></p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the respective token secret for the user/integration pair.</p></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p><strong>Token Secret</strong></p> 
+        </div> 
+       </div></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p>Enter the respective token secret for the user/integration pair.</p> 
+        </div> 
+       </div></td> 
      </tr> 
      <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Account</strong></p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the account ID of the SuiteTalk NetSuite web services. This is usually found within NetSuite sandbox UI under&nbsp;<strong>Setup</strong> &gt; <strong>Integration</strong> &gt; <strong>Web Service Preferences.</strong></p></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p><strong>Account</strong></p> 
+        </div> 
+       </div></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p>Enter the account ID of the SuiteTalk NetSuite web services. This is usually found within NetSuite sandbox UI under&nbsp;<strong>Setup</strong> &gt; <strong>Integration</strong> &gt; <strong>Web Service Preferences.</strong></p> 
+        </div> 
+       </div></td> 
      </tr> 
      <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Connection Timeout</strong></p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the amount of time, in milliseconds, that the client must attempt to establish a connection before timing out.</p></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p><strong>Connection Timeout</strong></p> 
+        </div> 
+       </div></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p>Enter the amount of time, in milliseconds, that the client must attempt to establish a connection before timing out.</p> 
+        </div> 
+       </div></td> 
      </tr> 
      <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Receive Timeout</strong></p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the amount of time, in milliseconds, that the client must wait for a response before timing out.</p></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p><strong>Receive Timeout</strong></p> 
+        </div> 
+       </div></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p>Enter the amount of time, in milliseconds, that the client must wait for a response before timing out.</p> 
+        </div> 
+       </div></td> 
      </tr> 
      <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Enable DataSense</strong></p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">If you select this option, DataSense extracts metadata for NetSuite standard objects to automatically determine the data type and format that your application must deliver to, or can expect from, NetSuite. By enabling this functionality, Mule does the heavy lifting of discovering the type of data you must send to, or be prepared to receive from NetSuite. For more information, see <a href="/mule-user-guide/v/3.8/datasense">DataSense</a>.</p></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p><strong>Enable DataSense</strong></p> 
+        </div> 
+       </div></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p>If you select this option, DataSense extracts metadata for NetSuite standard objects to automatically determine the data type and format that your application must deliver to, or can expect from, NetSuite. By enabling this functionality, Mule does the heavy lifting of discovering the type of data you must send to, or be prepared to receive from NetSuite. For more information, see <a href="/mule-user-guide/v/3.8/datasense">DataSense</a>.</p> 
+        </div> 
+       </div></td> 
      </tr> 
      <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Endpoint</strong></p></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p><strong>Endpoint</strong></p> 
+        </div> 
+       </div></td> 
       <td class="tableblock halign-left valign-top"> 
        <div> 
         <div class="paragraph"> 
@@ -1431,8 +1811,18 @@
        </div></td> 
      </tr> 
      <tr> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Separator</strong></p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the separator used to support the keys that are required to provide a better support for custom fields.</p></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p><strong>Separator</strong></p> 
+        </div> 
+       </div></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p>Enter the separator used to support the keys that are required to provide a better support for custom fields.</p> 
+        </div> 
+       </div></td> 
      </tr> 
     </tbody> 
    </table> 
@@ -1631,8 +2021,8 @@ netsuite.applicationId=</pre></td>
      <li> <p>Drag a <strong>HTTP endpoint</strong> onto the canvas and configure the following parameters:</p> 
       <table class="tableblock frame-all grid-all spread"> 
        <colgroup> 
-        <col> 
-        <col> 
+        <col style="width: 50%;"> 
+        <col style="width: 50%;"> 
        </colgroup> 
        <thead> 
         <tr> 
@@ -1655,8 +2045,8 @@ netsuite.applicationId=</pre></td>
      <li> <p>Configure the processor with the following values:</p> 
       <table class="tableblock frame-all grid-all spread"> 
        <colgroup> 
-        <col> 
-        <col> 
+        <col style="width: 50%;"> 
+        <col style="width: 50%;"> 
        </colgroup> 
        <thead> 
         <tr> 
@@ -2157,7 +2547,7 @@ netsuite.applicationId=</pre></td>
         <span class="attribute-name">xmlns:json</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/json</span><span class="delimiter">"</span></span>
         <span class="attribute-name">xmlns:http</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/http</span><span class="delimiter">"</span></span>
         <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/core</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:doc</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/documentation</span><span class="delimiter">"</span></span>
-        <span class="attribute-name">xmlns:spring</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.springframework.org/schema/beans</span><span class="delimiter">"</span></span>
+        <span class="attribute-name">xmlns:spring</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.springframework.org/schema/beans</span><span class="delimiter">"</span></span> <span class="attribute-name">version</span>=<span class="string"><span class="delimiter">"</span><span class="content">EE-3.8.0</span><span class="delimiter">"</span></span>
         <span class="attribute-name">xmlns:xsi</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.w3.org/2001/XMLSchema-instance</span><span class="delimiter">"</span></span>
         <span class="attribute-name">xsi:schemaLocation</span>=<span class="string"><span class="delimiter">"</span>
 <span class="content">http://www.mulesoft.org/schema/mule/netsuite http://www.mulesoft.org/schema/mule/netsuite/current/mule-netsuite.xsd</span>
@@ -2778,8 +3168,8 @@ netsuite.applicationId=</pre></td>
     </div> 
     <table class="tableblock frame-all grid-all spread"> 
      <colgroup> 
-      <col> 
-      <col> 
+      <col style="width: 30%;"> 
+      <col style="width: 70%;"> 
      </colgroup> 
      <thead> 
       <tr> 
@@ -2789,12 +3179,32 @@ netsuite.applicationId=</pre></td>
      </thead> 
      <tbody> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;Record&gt;Search</code><br></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">Used to execute a search on a record type based on search filter fields specific to that type and others that are associated with a related record type.</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><code>&lt;Record&gt;Search</code><br></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>Used to execute a search on a record type based on search filter fields specific to that type and others that are associated with a related record type.</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;Record&gt;SearchAdvanced</code><br></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">Used to execute a search on a record type in which you specify search filter fields and/or search return columns or joined search columns. Using advanced search, you can also return an existing saved search.</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><code>&lt;Record&gt;SearchAdvanced</code><br></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>Used to execute a search on a record type in which you specify search filter fields and/or search return columns or joined search columns. Using advanced search, you can also return an existing saved search.</p> 
+         </div> 
+        </div></td> 
       </tr> 
      </tbody> 
     </table> 
@@ -2857,8 +3267,8 @@ netsuite.applicationId=</pre></td>
     <h4 id="entity-fields"><a class="anchor" href="#entity-fields"></a>Entity Fields</h4> 
     <table class="tableblock frame-all grid-all spread"> 
      <colgroup> 
-      <col> 
-      <col> 
+      <col style="width: 50%;"> 
+      <col style="width: 50%;"> 
      </colgroup> 
      <thead> 
       <tr> 
@@ -2868,32 +3278,102 @@ netsuite.applicationId=</pre></td>
      </thead> 
      <tbody> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>CONTACT</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">Contact &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>CONTACT</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>Contact &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>CUSTOMER</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">Customer &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>CUSTOMER</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>Customer &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>EMPLOYEE</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">Employee &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>EMPLOYEE</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>Employee &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ENTITY_GROUP</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">EntityGroup &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>ENTITY_GROUP</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>EntityGroup &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>PARTNER</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">Partner &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>PARTNER</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>Partner &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>PROJECT_TASK</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">ProjectTask &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>PROJECT_TASK</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>ProjectTask &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>VENDOR</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">Vendor &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>VENDOR</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>Vendor &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
      </tbody> 
     </table> 
@@ -2902,8 +3382,8 @@ netsuite.applicationId=</pre></td>
     <h4 id="item-fields"><a class="anchor" href="#item-fields"></a>Item Fields</h4> 
     <table class="tableblock frame-all grid-all spread"> 
      <colgroup> 
-      <col> 
-      <col> 
+      <col style="width: 50%;"> 
+      <col style="width: 50%;"> 
      </colgroup> 
      <thead> 
       <tr> 
@@ -2913,56 +3393,186 @@ netsuite.applicationId=</pre></td>
      </thead> 
      <tbody> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ASSEMBLY_ITEM</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">AssemblyItem &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>ASSEMBLY_ITEM</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>AssemblyItem &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ENTITY_GROUP</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">EntityGroup &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>ENTITY_GROUP</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>EntityGroup &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>INVENTORY_ITEM</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">InventoryItem &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>INVENTORY_ITEM</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>InventoryItem &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>KIT_ITEM</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">KitItem &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>KIT_ITEM</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>KitItem &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>NON_INVENTORY_PURCHASE_ITEM</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">NonInventoryPurchaseItem &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>NON_INVENTORY_PURCHASE_ITEM</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>NonInventoryPurchaseItem &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>NON_INVENTORY_RESALE_ITEM</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">NonInventoryResaleItem &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>NON_INVENTORY_RESALE_ITEM</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>NonInventoryResaleItem &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>NON_INVENTORY_SALE_ITEM</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">NonInventorySaleItem &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>NON_INVENTORY_SALE_ITEM</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>NonInventorySaleItem &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>OTHER_CHARGE_PURCHASE_ITEM</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">OtherChargePurchaseItem &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>OTHER_CHARGE_PURCHASE_ITEM</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>OtherChargePurchaseItem &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>OTHER_CHARGE_RESALE_ITEM</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">OtherChargeResaleItem &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>OTHER_CHARGE_RESALE_ITEM</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>OtherChargeResaleItem &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>OTHER_CHARGE_SALE_ITEM</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">OtherChargeSaleItem &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>OTHER_CHARGE_SALE_ITEM</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>OtherChargeSaleItem &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>SERVICE_PURCHASE_ITEM</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">ServicePurchaseItem &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>SERVICE_PURCHASE_ITEM</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>ServicePurchaseItem &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>SERVICE_RESALE_ITEM</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">ServiceResaleItem &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>SERVICE_RESALE_ITEM</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>ServiceResaleItem &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>SERVICE_SALE_ITEM</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">ServiceSaleItem &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>SERVICE_SALE_ITEM</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>ServiceSaleItem &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
      </tbody> 
     </table> 
@@ -2971,8 +3581,8 @@ netsuite.applicationId=</pre></td>
     <h4 id="crm-fields"><a class="anchor" href="#crm-fields"></a>CRM Fields</h4> 
     <table class="tableblock frame-all grid-all spread"> 
      <colgroup> 
-      <col> 
-      <col> 
+      <col style="width: 50%;"> 
+      <col style="width: 50%;"> 
      </colgroup> 
      <thead> 
       <tr> 
@@ -2982,40 +3592,130 @@ netsuite.applicationId=</pre></td>
      </thead> 
      <tbody> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>CALENDAR_EVENT</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">CalendarEvent &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>CALENDAR_EVENT</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>CalendarEvent &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>CAMPAIGN</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">Campaign &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>CAMPAIGN</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>Campaign &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ISSUE</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">Issue &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>ISSUE</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>Issue &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>MANUFACTURING_OPERATION_TASK</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">ManufacturingOperationTask &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>MANUFACTURING_OPERATION_TASK</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>ManufacturingOperationTask &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>PHONE_CALL</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">PhoneCall &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>PHONE_CALL</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>PhoneCall &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>PROJECT_TASK</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">ProjectTask &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>PROJECT_TASK</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>ProjectTask &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>SOLUTION</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">Solution &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>SOLUTION</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>Solution &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>SUPPORT_CASE</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">SupportCase &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>SUPPORT_CASE</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>SupportCase &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>TASK</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">Task &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>TASK</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>Task &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
      </tbody> 
     </table> 
@@ -3024,8 +3724,8 @@ netsuite.applicationId=</pre></td>
     <h4 id="transaction-body-fields"><a class="anchor" href="#transaction-body-fields"></a>Transaction Body Fields</h4> 
     <table class="tableblock frame-all grid-all spread"> 
      <colgroup> 
-      <col> 
-      <col> 
+      <col style="width: 50%;"> 
+      <col style="width: 50%;"> 
      </colgroup> 
      <thead> 
       <tr> 
@@ -3035,88 +3735,298 @@ netsuite.applicationId=</pre></td>
      </thead> 
      <tbody> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ASSEMBLY_BUILD</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">AssemblyBuild &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>ASSEMBLY_BUILD</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>AssemblyBuild &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>CASH_SALE</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">CashSale &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>CASH_SALE</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>CashSale &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>CUSTOMER_PAYMENT</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">CustomerPayment &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>CUSTOMER_PAYMENT</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>CustomerPayment &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>DEPOSIT</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">Deposit &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>DEPOSIT</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>Deposit &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ESTIMATE</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">Estimate &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>ESTIMATE</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>Estimate &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>EXPENSE_REPORT</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">ExpenseReport &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>EXPENSE_REPORT</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>ExpenseReport &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>INVENTORY_ADJUSTMENT</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">InventoryAdjustment &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>INVENTORY_ADJUSTMENT</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>InventoryAdjustment &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>INVOICE</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">Invoice &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>INVOICE</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>Invoice &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ITEM_FULFILLMENT</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">ItemFulfillment &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>ITEM_FULFILLMENT</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>ItemFulfillment &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ITEM_RECEIPT</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">ItemReceipt &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>ITEM_RECEIPT</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>ItemReceipt &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>JOURNAL_ENTRY</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">JournalEntry &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>JOURNAL_ENTRY</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>JournalEntry &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>OPPORTUNITY</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">Opportunity &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>OPPORTUNITY</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>Opportunity &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>PURCHASE_ORDER</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">PurchaseOrder &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>PURCHASE_ORDER</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>PurchaseOrder &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>PURCHASE_REQUISITION</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">PurchaseRequisition &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>PURCHASE_REQUISITION</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>PurchaseRequisition &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>SALES_ORDER</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">SalesOrder &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>SALES_ORDER</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>SalesOrder &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>TRANSFER_ORDER</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">TransferOrder &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>TRANSFER_ORDER</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>TransferOrder &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>VENDOR_BILL</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">VendorBill &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>VENDOR_BILL</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>VendorBill &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>VENDOR_CREDIT</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">VendorCredit &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>VENDOR_CREDIT</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>VendorCredit &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>VENDOR_PAYMENT</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">VendorPayment &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>VENDOR_PAYMENT</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>VendorPayment &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>VENDOR_RETURN_AUTHORIZATION</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">VendorReturnAuthorization &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>VENDOR_RETURN_AUTHORIZATION</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>VendorReturnAuthorization &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>WORK_ORDER</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">WorkOrder &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>WORK_ORDER</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>WorkOrder &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
      </tbody> 
     </table> 
@@ -3125,8 +4035,8 @@ netsuite.applicationId=</pre></td>
     <h4 id="transaction-column-fields"><a class="anchor" href="#transaction-column-fields"></a>Transaction Column Fields</h4> 
     <table class="tableblock frame-all grid-all spread"> 
      <colgroup> 
-      <col> 
-      <col> 
+      <col style="width: 50%;"> 
+      <col style="width: 50%;"> 
      </colgroup> 
      <thead> 
       <tr> 
@@ -3136,76 +4046,256 @@ netsuite.applicationId=</pre></td>
      </thead> 
      <tbody> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>CASH_SALE</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">CashSale &gt; itemList &gt; item &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>CASH_SALE</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>CashSale &gt; itemList &gt; item &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ESTIMATE</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">Estimate &gt; itemList &gt; item &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>ESTIMATE</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>Estimate &gt; itemList &gt; item &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>EXPENSE_REPORT</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">ExpenseReport &gt; expenseList &gt; expense &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>EXPENSE_REPORT</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>ExpenseReport &gt; expenseList &gt; expense &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>INVOICE</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">Invoice &gt; itemList &gt; item &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>INVOICE</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>Invoice &gt; itemList &gt; item &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ITEM_FULFILLMENT</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">ItemFulfillment &gt; itemList &gt; item &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>ITEM_FULFILLMENT</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>ItemFulfillment &gt; itemList &gt; item &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ITEM_RECEIPT</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">ItemReceipt &gt; itemList &gt; item &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>ITEM_RECEIPT</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>ItemReceipt &gt; itemList &gt; item &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>JOURNAL_ENTRY</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">JournalEntry &gt; lineList &gt; line &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>JOURNAL_ENTRY</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>JournalEntry &gt; lineList &gt; line &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>OPPORTUNITY</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">Opportunity &gt; itemList &gt; item &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>OPPORTUNITY</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>Opportunity &gt; itemList &gt; item &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>PURCHASE_ORDER</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">PurchaseOrder &gt; itemList &gt; item &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>PURCHASE_ORDER</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>PurchaseOrder &gt; itemList &gt; item &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>PURCHASE_REQUISITION</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">PurchaseRequisition &gt; itemList &gt; item &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>PURCHASE_REQUISITION</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>PurchaseRequisition &gt; itemList &gt; item &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>SALES_ORDER</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">SalesOrder &gt; itemList &gt; item &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>SALES_ORDER</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>SalesOrder &gt; itemList &gt; item &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>TIME_BILL</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">TimeBill &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>TIME_BILL</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>TimeBill &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>TRANSFER_ORDER</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">TransferOrder &gt; itemList &gt; item &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>TRANSFER_ORDER</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>TransferOrder &gt; itemList &gt; item &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>VENDOR_BILL</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">VendorBill &gt; itemList &gt; item &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>VENDOR_BILL</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>VendorBill &gt; itemList &gt; item &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>VENDOR_CREDIT</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">VendorCredit &gt; itemList &gt; item &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>VENDOR_CREDIT</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>VendorCredit &gt; itemList &gt; item &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>VENDOR_PAYMENT</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">VendorPayment &gt; itemList &gt; item &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>VENDOR_PAYMENT</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>VendorPayment &gt; itemList &gt; item &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>VENDOR_RETURN_AUTHORIZATION</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">VendorReturnAuthorization &gt; itemList &gt; item &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>VENDOR_RETURN_AUTHORIZATION</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>VendorReturnAuthorization &gt; itemList &gt; item &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>WORK_ORDER</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">WorkOrder &gt; itemList &gt; item &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>WORK_ORDER</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>WorkOrder &gt; itemList &gt; item &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
      </tbody> 
     </table> 
@@ -3226,8 +4316,8 @@ netsuite.applicationId=</pre></td>
     <h4 id="other-custom-fields"><a class="anchor" href="#other-custom-fields"></a>Other Custom Fields</h4> 
     <table class="tableblock frame-all grid-all spread"> 
      <colgroup> 
-      <col> 
-      <col> 
+      <col style="width: 50%;"> 
+      <col style="width: 50%;"> 
      </colgroup> 
      <thead> 
       <tr> 
@@ -3237,52 +4327,172 @@ netsuite.applicationId=</pre></td>
      </thead> 
      <tbody> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ACCOUNT</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">Account &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>ACCOUNT</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>Account &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>BIN</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">Bin &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>BIN</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>Bin &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>CLASSIFICATION</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">Classification &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>CLASSIFICATION</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>Classification &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>EXPENSE_CATEGORY</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">ExpenseCategory &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>EXPENSE_CATEGORY</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>ExpenseCategory &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ITEM_DEMAND_PLAN</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">ItemDemandPlan &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>ITEM_DEMAND_PLAN</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>ItemDemandPlan &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ITEM_SUPPLY_PLAN</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">ItemSupplyPlan &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>ITEM_SUPPLY_PLAN</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>ItemSupplyPlan &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>LOCATION</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">Location &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>LOCATION</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>Location &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>MANUFACTURING_COST_TEMPLATE</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">ManufacturingCostTemplate &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>MANUFACTURING_COST_TEMPLATE</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>ManufacturingCostTemplate &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>MANUFACTURING_ROUTING</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">ManufacturingRouting &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>MANUFACTURING_ROUTING</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>ManufacturingRouting &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>NOTE</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">Note &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>NOTE</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>Note &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>PROMOTION_CODE</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">PromotionCode &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>PROMOTION_CODE</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>PromotionCode &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
       <tr> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>SUBSIDIARY</strong></p></td> 
-       <td class="tableblock halign-left valign-top"><p class="tableblock">Subsidiary &gt; customFieldList &gt; customField</p></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p><strong>SUBSIDIARY</strong></p> 
+         </div> 
+        </div></td> 
+       <td class="tableblock halign-left valign-top"> 
+        <div> 
+         <div class="paragraph"> 
+          <p>Subsidiary &gt; customFieldList &gt; customField</p> 
+         </div> 
+        </div></td> 
       </tr> 
      </tbody> 
     </table> 
