@@ -1042,7 +1042,7 @@
       <div id="preamble"> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>The Cassandra connector was implemented using the DataStax Java Driver for Apache Cassandra 3.1. The connector exposes multiple operations that are described in the javadoc. Some of these operations accept some custom POJOs as input parameters, which are needed for the DataSense functionality.</p> 
+   <p>The Cassandra connector was implemented using the DataStax Java Driver for Apache Cassandra 3.1. The connector exposes multiple operations that are described in the javadoc. Some of these operations accept some custom plain old Java objects (POJOs) as input parameters, which are needed for the DataSense functionality.</p> 
   </div> 
  </div> 
 </div> 
@@ -1192,7 +1192,7 @@
  <h2 id="create-keyspace"><a class="anchor" href="#create-keyspace"></a>Create Keyspace</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>This operation accepts a custom pojo CreateKeyspaceInput as input.</p> 
+   <p>This operation accepts a custom POJO CreateKeyspaceInput as input.</p> 
   </div> 
   <div class="paragraph"> 
    <p>Input for this operation using SimpleStrategy is:</p> 
@@ -1458,7 +1458,7 @@
   </div> 
   <div class="ulist"> 
    <ul> 
-    <li> <p>A custom pojo (CQLQueryInput)</p> 
+    <li> <p>A custom POJO (CQLQueryInput)</p> 
      <div class="paragraph"> 
       <p>A string representing the query. The query can be parametrized or not.</p> 
      </div> </li> 

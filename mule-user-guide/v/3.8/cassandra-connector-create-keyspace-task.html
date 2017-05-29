@@ -1047,33 +1047,28 @@
   <div class="olist arabic"> 
    <ol class="arabic"> 
     <li> <p>Start Cassandra and Anypoint Studio.</p> </li> 
-    <li> <p>Create a new Anypoint Studio project, and in the Package Explorer, open mule-app-properties. Assuming you installed Cassandra locally, add connection properties and values. For example:</p> </li> 
-   </ol> 
-  </div> 
-  <div class="listingblock"> 
-   <div class="content"> 
-    <pre>username=cassandra
+    <li> <p>Create a new Anypoint Studio project, and in the Package Explorer, open mule-app-properties. Assuming you installed Cassandra locally, add connection properties and values. For example:</p> 
+     <div class="listingblock"> 
+      <div class="content"> 
+       <pre>username=cassandra
 password=cassandra
 host=localhost
 keyspace=Excelsior
 port=9042</pre> 
-   </div> 
-  </div> 
-  <div class="paragraph"> 
-   <p>+ . Create a flow by dragging an HTTP connector from the Mule palette to the canvas, select the connector, and set the Path in Basic Properties to <strong>/simple</strong>. In Connector Configuration, click <span class="image"><img src="./_images/plus.png" alt="Plus control"></span>. . In HTTP Listener Configuration, set the following options:</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>+ * Host = 0.0.0.0 * Port = 8081</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>+ . Drag a Transform Message component from the Mule palette to the right (process) side of the flow, select the component, and set the output payload. For example:</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>+</p> 
-  </div> 
-  <div class="listingblock"> 
-   <div class="content"> 
-    <pre>%dw 1.0
+      </div> 
+     </div> </li> 
+    <li> <p>Create a flow by dragging an HTTP connector from the Mule palette to the canvas, select the connector, and set the Path in Basic Properties to <strong>/simple</strong>. In Connector Configuration, click <span class="image"><img src="./_images/plus.png" alt="Plus control"></span>.</p> </li> 
+    <li> <p>In HTTP Listener Configuration, set the following options:</p> 
+     <div class="ulist"> 
+      <ul> 
+       <li> <p>Host = 0.0.0.0</p> </li> 
+       <li> <p>Port = 8081</p> </li> 
+      </ul> 
+     </div> </li> 
+    <li> <p>Drag a Transform Message component from the Mule palette to the right (process) side of the flow, select the component, and set the output payload. For example:</p> 
+     <div class="listingblock"> 
+      <div class="content"> 
+       <pre>%dw 1.0
 %output application/java
 ---
 {
@@ -1083,42 +1078,41 @@ port=9042</pre>
 } as :object {
   class : "com.mulesoft.mule.cassandradb.metadata.CreateKeyspaceInput"
 }</pre> 
-   </div> 
-  </div> 
-  <div class="paragraph"> 
-   <p>+ <span class="image"><img src="./_images/cassandra-ks-dw.png" alt="DataWeave code in the properties window"></span></p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>+ . Drag a Cassandra connector from the Mule palette to the right of the Transform Message component, and select the connector. In Operation, select Create Keyspace, and click <span class="image"><img src="./_images/plus.png" alt="Plus control"></span>. . In CassandraDB Username/Password Connection, set the following options to placeholder values, and test the connection:</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>+ * Username: <strong>${username}</strong> * Password: <strong>${password}</strong> * Host: <strong>${host}</strong> * Port: <strong>${port}</strong></p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>+ . Run the app. In a browser, use the following URL to enter query parameter for the keyspace name (ks_name), replication factor (rf), and replication strategy class (rs_class):</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>+ <code>http://localhost:8081/simple?ks_name=simple_keyspace&amp;rf=3&amp;rs_class=SimpleStrategy</code></p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>+ . On the cqlsh command line, check that the app created the keyspace:</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>+ <strong>describe schema</strong></p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>+ Cassandra output:</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>+</p> 
-  </div> 
-  <div class="listingblock"> 
-   <div class="content"> 
-    <pre>cassandra@cqlsh&gt; describe schema
+      </div> 
+     </div> 
+     <div class="paragraph"> 
+      <p><span class="image"><img src="./_images/cassandra-ks-dw.png" alt="DataWeave code in the properties window"></span></p> 
+     </div> </li> 
+    <li> <p>Drag a Cassandra connector from the Mule palette to the right of the Transform Message component, and select the connector. In Operation, select Create Keyspace, and click <span class="image"><img src="./_images/plus.png" alt="Plus control"></span>.</p> </li> 
+    <li> <p>In CassandraDB Username/Password Connection, set the following options to placeholder values, and test the connection:</p> 
+     <div class="ulist"> 
+      <ul> 
+       <li> <p>Username: <strong>${username}</strong></p> </li> 
+       <li> <p>Password: <strong>${password}</strong></p> </li> 
+       <li> <p>Host: <strong>${host}</strong></p> </li> 
+       <li> <p>Port: <strong>${port}</strong></p> </li> 
+      </ul> 
+     </div> </li> 
+    <li> <p>Run the app. In a browser, use the following URL to enter query parameter for the keyspace name (ks_name), replication factor (rf), and replication strategy class (rs_class):</p> 
+     <div class="paragraph"> 
+      <p><code>http://localhost:8081/simple?ks_name=simple_keyspace&amp;rf=3&amp;rs_class=SimpleStrategy</code></p> 
+     </div> </li> 
+    <li> <p>On the cqlsh command line, check that the app created the keyspace:</p> 
+     <div class="paragraph"> 
+      <p><strong>describe schema</strong></p> 
+     </div> 
+     <div class="paragraph"> 
+      <p>Cassandra output:</p> 
+     </div> 
+     <div class="listingblock"> 
+      <div class="content"> 
+       <pre>cassandra@cqlsh&gt; describe schema
 ...
 CREATE KEYSPACE simple_keyspace WITH replication = {'class': 'SimpleStrategy', 'replication_factor': '3'}  AND durable_writes = true;
 ...</pre> 
-   </div> 
+      </div> 
+     </div> </li> 
+   </ol> 
   </div> 
  </div> 
 </div> 
