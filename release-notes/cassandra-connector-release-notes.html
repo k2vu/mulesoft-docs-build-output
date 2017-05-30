@@ -1056,9 +1056,13 @@
   <div class="ulist"> 
    <ul> 
     <li> <p>Cassandra database or cluster 1.2 or later</p> </li> 
+    <li> <p>Cassandra 3.0.11 or earlier to use Change Column Type operations</p> </li> 
     <li> <p>CQL spec 3.x</p> </li> 
     <li> <p>Anypoint Studio 6.x and Mule Runtime 3.6 or later, or Mule Runtime only</p> </li> 
    </ul> 
+  </div> 
+  <div class="paragraph"> 
+   <p>The capability to change the data type of a column using the CQL alter table query was removed from Cassandra 3.0.11 and later; consequently, the Cassandra connector Change Column Type operation does not work if you connect to a Cassandra database that does not support this capability.</p> 
   </div> 
  </div> 
 </div> 
@@ -1120,20 +1124,12 @@
    </ul> 
   </div> 
  </div> 
-</div> 
-<div class="sect1"> 
- <h2 id="known-issues"><a class="anchor" href="#known-issues"></a>Known Issues</h2> 
- <div class="sectionbody"> 
-  <div class="paragraph"> 
-   <p>The capability to change the data type of a column using the CQL alter table query was removed from Cassandra 3.0.11 and later; consequently, the Cassandra connector Change Column Type operation does not work if you connect to a Cassandra database that does not support this capability.</p> 
-  </div> 
- </div> 
 </div>
     </div>
     <!-- END article-content -->
     <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
                 <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#compatibility">Compatibility</a></li><li><a class="scroll-menu-link" href="#key-features">Key Features</a></li><li><a class="scroll-menu-link" href="#known-issues">Known Issues</a></li></ul></div></div><!-- /scroll-menu -->
+                <ul><li><a class="scroll-menu-link" href="#compatibility">Compatibility</a></li><li><a class="scroll-menu-link" href="#key-features">Key Features</a></li></ul></div></div><!-- /scroll-menu -->
   </div>
 </div>
 <!-- START footer -->
