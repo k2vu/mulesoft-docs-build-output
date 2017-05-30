@@ -2408,59 +2408,65 @@ ROOT: payload.root.*order mapObject (
  <h2 id="concat"><a class="anchor" href="#concat"></a>Concat</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>The concat operator is defined using <code>`. You must have spaces on both sides of the `</code> operator. === Using Concat on an Array .(':array', ':array') ⇒ ':array'</p> 
+   <p>The concat operator is defined using . You must have spaces on both sides of the operator.</p> 
   </div> 
-  <div class="paragraph"> 
-   <p>When using arrays, it returns the resulting array of concatenating two existing arrays.</p> 
-  </div> 
-  <div class="listingblock"> 
-   <div class="title">
-     Transform 
+  <div class="sect2"> 
+   <h3 id="using-concat-on-an-array"><a class="anchor" href="#using-concat-on-an-array"></a>Using Concat on an Array</h3> 
+   <div class="paragraph"> 
+    <div class="title">
+      (':array', ':array') ⇒ ':array' 
+    </div> 
+    <p>When using arrays, it returns the resulting array of concatenating two existing arrays.</p> 
    </div> 
-   <div class="content"> 
-    <pre class="CodeRay highlight"><code data-lang="DataWeave">
-         
-      <table class="CodeRay"> 
-       <tbody> 
-        <tr> 
-         <td class="line-numbers"><pre>1
+   <div class="listingblock"> 
+    <div class="title">
+      Transform 
+    </div> 
+    <div class="content"> 
+     <pre class="CodeRay highlight"><code data-lang="DataWeave">
+          
+       <table class="CodeRay"> 
+        <tbody> 
+         <tr> 
+          <td class="line-numbers"><pre>1
 2
 3
 4
 5
 6
 </pre></td> 
-         <td class="code"><pre>%dw 1.0
+          <td class="code"><pre>%dw 1.0
 %output application/json
 ---
 {
   a: [0, 1, 2] ++ [3, 4, 5]
 }</pre></td> 
-        </tr> 
-       </tbody> 
-      </table></code></pre> 
+         </tr> 
+        </tbody> 
+       </table></code></pre> 
+    </div> 
    </div> 
-  </div> 
-  <div class="listingblock"> 
-   <div class="title">
-     Output 
-   </div> 
-   <div class="content"> 
-    <pre class="CodeRay highlight"><code data-lang="json">
-         
-      <table class="CodeRay"> 
-       <tbody> 
-        <tr> 
-         <td class="line-numbers"><pre>1
+   <div class="listingblock"> 
+    <div class="title">
+      Output 
+    </div> 
+    <div class="content"> 
+     <pre class="CodeRay highlight"><code data-lang="json">
+          
+       <table class="CodeRay"> 
+        <tbody> 
+         <tr> 
+          <td class="line-numbers"><pre>1
 2
 3
 </pre></td> 
-         <td class="code"><pre>{
+          <td class="code"><pre>{
   <span class="key"><span class="delimiter">"</span><span class="content">a</span><span class="delimiter">"</span></span>: [<span class="integer">0</span>, <span class="integer">1</span>, <span class="integer">2</span>, <span class="integer">3</span>, <span class="integer">4</span>, <span class="integer">5</span>]
 }</pre></td> 
-        </tr> 
-       </tbody> 
-      </table></code></pre> 
+         </tr> 
+        </tbody> 
+       </table></code></pre> 
+    </div> 
    </div> 
   </div> 
   <div class="sect2"> 
