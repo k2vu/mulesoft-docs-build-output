@@ -15,7 +15,7 @@
   <script src="/js/scripts.js?t=1495998692"></script>
 
   <link rel="canonical" href="https://docs.mulesoft.com/api-manager/to-test-local-provider" />
-  <meta name="description" content="To test the OAuth 2.0 provider, you encode the client ID and client secret in base64 according to the HTTP Basic Authentication specification. This..." />
+  <meta name="description" content="To test the OAuth 2.0 provider, you encode the client ID and client secret in base64 according to the HTTP Basic Authentication specification RFC 2..." />
   <meta class="swiftype" name="title" data-type="string" content="To Test the Local Provider" />
 </head>
 <body>
@@ -593,7 +593,7 @@
 <li class="expanded">
 <i></i>
 <a href="/api-manager/aes-oauth-faq">About OAuth 2.0</a><ul style="display: block;">
-<li><i></i><a href="/api-manager/about-configure-api-for-oauth">About Configuring an API for OAuth 2.0</a></li><li><i></i><a href="/api-manager/building-an-external-oauth-2.0-provider-application">To Build a Mule OAuth 2.0 Provider</a></li><li class="active"><i></i><a href="/api-manager/to-test-local-provider">To Test the Local Provider</a></li><li><i></i><a href="/api-manager/to-deploy-provider">To Deploy the Provider</a></li><li><i></i><a href="/api-manager/to-test-remote-provider">To Test the Remote Provider</a></li><li><i></i><a href="/api-manager/to-use-authentication">To Use a Mule Provider for OAuth 2.0 Authentication</a></li><li><i></i><a href="/api-manager/oauth-service-provider-reference">OAuth 2.0 Service Provider Reference</a></li><li><i></i><a href="/api-manager/oauth-grant-types-about">About OAuth Grant Types</a></li><li><i></i><a href="/api-manager/oauth-persist-obj-store-about">About Persisting Object Stores</a></li><li><i></i><a href="/api-manager/oauth2-provider-configuration">Mule OAuth 2.0 Provider Configuration Reference</a></li></ul></li>
+<li><i></i><a href="/api-manager/oauth-build-provider-prerequisites-about">About Mule OAuth Provider Prerequisites</a></li><li><i></i><a href="/api-manager/building-an-external-oauth-2.0-provider-application">To Build a Mule OAuth 2.0 Provider</a></li><li class="active"><i></i><a href="/api-manager/to-test-local-provider">To Test the Local Provider</a></li><li><i></i><a href="/api-manager/to-deploy-provider">To Deploy the Provider</a></li><li><i></i><a href="/api-manager/to-test-remote-provider">To Test the Remote Provider</a></li><li><i></i><a href="/api-manager/to-use-authentication">To Use a Mule Provider for OAuth 2.0 Authentication</a></li><li><i></i><a href="/api-manager/oauth-dance-about">About the OAuth Dance</a></li><li><i></i><a href="/api-manager/about-configure-api-for-oauth">About Configuring an API for OAuth 2.0</a></li><li><i></i><a href="/api-manager/oauth-service-provider-reference">OAuth 2.0 Service Provider Reference</a></li><li><i></i><a href="/api-manager/oauth-grant-types-about">About OAuth Grant Types</a></li><li><i></i><a href="/api-manager/oauth-persist-obj-store-about">About Persisting Object Stores</a></li><li><i></i><a href="/api-manager/oauth2-provider-configuration">Mule OAuth 2.0 Provider Configuration Reference</a></li></ul></li>
 <li>
 <i></i>
 <a href="/api-manager/available-policies">Provided Policies</a><ul>
@@ -1040,13 +1040,10 @@
       <div id="preamble"> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>To test the OAuth 2.0 provider, you encode the client ID and client secret in base64 according to the <a href="https://tools.ietf.org/html/rfc2617">HTTP Basic Authentication</a> specification. This specification has been superseded by RFC 7235, but describes HTTP Basic Authentication better than RFC 7235. You run the provider as a Mule application locally. The provider checks the client ID and client secret that you entered in Anypoint Platform preferences against the base64-encoded credentials, and returns an access token if there is a match.</p> 
+   <p>To test the OAuth 2.0 provider, you encode the client ID and client secret in base64 according to the HTTP Basic Authentication specification RFC 2617. This specification has been superseded by RFC 7235, but describes HTTP Basic Authentication better than RFC 7235. You run the provider as a Mule application locally. The provider checks the client ID and client secret that you entered in Anypoint Platform preferences against the base64-encoded credentials, and returns an access token if there is a match.</p> 
   </div> 
   <div class="paragraph"> 
-   <p>To test the provider, Windows users need to download tools that support <code>curl</code>.</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p><strong>To test the provider:</strong></p> 
+   <p>To test the provider:</p> 
   </div> 
   <div class="olist arabic"> 
    <ol class="arabic"> 

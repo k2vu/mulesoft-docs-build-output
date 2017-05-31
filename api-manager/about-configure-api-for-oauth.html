@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>About Configuring an API for OAuth 2.0 Protection // MuleSoft Documentation </title>
+  <title>About OAuth Policy Prerequisites // MuleSoft Documentation </title>
   <link rel="shortcut icon" href="/favicon.ico"/>
   <link rel="stylesheet" type="text/css" href="/css/vendor.min.css?t=1495998692">
   <link rel="stylesheet" type="text/css" href="/css/mulesoft.min.css?t=1495998692">
@@ -15,8 +15,8 @@
   <script src="/js/scripts.js?t=1495998692"></script>
 
   <link rel="canonical" href="https://docs.mulesoft.com/api-manager/about-configure-api-for-oauth" />
-  <meta name="description" content="The following policies are available for authorization: Using the PingFederate or OpenAM policy is recommended. Prerequisites for using one of thes..." />
-  <meta class="swiftype" name="title" data-type="string" content="About Configuring an API for OAuth 2.0 Protection" />
+  <meta name="description" content="Prerequisites for using an OAuth 2.0 policy are: Within the RAML securitySchemes definition, you include URIs for the authorization and access toke..." />
+  <meta class="swiftype" name="title" data-type="string" content="About OAuth Policy Prerequisites" />
 </head>
 <body>
 <!-- START Swiftype -->
@@ -593,7 +593,7 @@
 <li class="expanded">
 <i></i>
 <a href="/api-manager/aes-oauth-faq">About OAuth 2.0</a><ul style="display: block;">
-<li class="active"><i></i><a href="/api-manager/about-configure-api-for-oauth">About Configuring an API for OAuth 2.0</a></li><li><i></i><a href="/api-manager/building-an-external-oauth-2.0-provider-application">To Build a Mule OAuth 2.0 Provider</a></li><li><i></i><a href="/api-manager/to-test-local-provider">To Test the Local Provider</a></li><li><i></i><a href="/api-manager/to-deploy-provider">To Deploy the Provider</a></li><li><i></i><a href="/api-manager/to-test-remote-provider">To Test the Remote Provider</a></li><li><i></i><a href="/api-manager/to-use-authentication">To Use a Mule Provider for OAuth 2.0 Authentication</a></li><li><i></i><a href="/api-manager/oauth-service-provider-reference">OAuth 2.0 Service Provider Reference</a></li><li><i></i><a href="/api-manager/oauth-grant-types-about">About OAuth Grant Types</a></li><li><i></i><a href="/api-manager/oauth-persist-obj-store-about">About Persisting Object Stores</a></li><li><i></i><a href="/api-manager/oauth2-provider-configuration">Mule OAuth 2.0 Provider Configuration Reference</a></li></ul></li>
+<li><i></i><a href="/api-manager/oauth-build-provider-prerequisites-about">About Mule OAuth Provider Prerequisites</a></li><li><i></i><a href="/api-manager/building-an-external-oauth-2.0-provider-application">To Build a Mule OAuth 2.0 Provider</a></li><li><i></i><a href="/api-manager/to-test-local-provider">To Test the Local Provider</a></li><li><i></i><a href="/api-manager/to-deploy-provider">To Deploy the Provider</a></li><li><i></i><a href="/api-manager/to-test-remote-provider">To Test the Remote Provider</a></li><li><i></i><a href="/api-manager/to-use-authentication">To Use a Mule Provider for OAuth 2.0 Authentication</a></li><li><i></i><a href="/api-manager/oauth-dance-about">About the OAuth Dance</a></li><li class="active"><i></i><a href="/api-manager/about-configure-api-for-oauth">About Configuring an API for OAuth 2.0</a></li><li><i></i><a href="/api-manager/oauth-service-provider-reference">OAuth 2.0 Service Provider Reference</a></li><li><i></i><a href="/api-manager/oauth-grant-types-about">About OAuth Grant Types</a></li><li><i></i><a href="/api-manager/oauth-persist-obj-store-about">About Persisting Object Stores</a></li><li><i></i><a href="/api-manager/oauth2-provider-configuration">Mule OAuth 2.0 Provider Configuration Reference</a></li></ul></li>
 <li>
 <i></i>
 <a href="/api-manager/available-policies">Provided Policies</a><ul>
@@ -1036,41 +1036,21 @@
     <div class="article-content col-md-7">
       
       <div class="breadcrumb-section" data-swiftype-index='false'><a href="./">API Manager</a>/<a href="using-policies">About Policies</a>/<a href="aes-oauth-faq">About OAuth 2.0</a>/<a href="about-configure-api-for-oauth" class="breadcrumb-active-link">About Configuring an API for OAuth 2.0</a></div>
-      <h1>About Configuring an API for OAuth 2.0 Protection</h1>
+      <h1>About OAuth Policy Prerequisites</h1>
       <div id="preamble"> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>The following policies are available for authorization:</p> 
-  </div> 
-  <div class="ulist"> 
-   <ul> 
-    <li> <p>PingFederate OAuth Token Enforcement policy</p> </li> 
-    <li> <p>OpenAM OAuth Token Enforcement Policy</p> </li> 
-    <li> <p>OAuth 2.0 Access Token Enforcement Using External Provider policy</p> </li> 
-   </ul> 
-  </div> 
-  <div class="paragraph"> 
-   <p>Using the PingFederate or OpenAM policy is recommended.</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>Prerequisites for using one of these policies are:</p> 
+   <p>Prerequisites for using an OAuth 2.0 policy are:</p> 
   </div> 
   <div class="ulist"> 
    <ul> 
     <li> <p>Applying the policy to the API</p> </li> 
-    <li> <p>Having access to an <a href="/api-manager/aes-oauth-faq#about-oauth-provider-models">external OAuth 2.0 provider</a></p> </li> 
+    <li> <p>Having an OAuth 2.0 provider</p> </li> 
+    <li> <p>A securityScheme if the API is RAML-based</p> </li> 
    </ul> 
   </div> 
- </div> 
-</div> 
-<div class="sect1"> 
- <h2 id="requirements-for-raml-apis"><a class="anchor" href="#requirements-for-raml-apis"></a>Requirements for RAML APIs</h2> 
- <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>If the API protected by one of the Anypoint Platform authorization policies is defined using RAML (recommended), define <a href="https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md#oauth-20">RAML securitySchemes</a> for OAuth 2.0. Within the RAML securitySchemes definition, you include URIs for the authorization and access token. The following example shows URIs for a Mule OAuth 2.0 provider:</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>You specify grant types in RAML securitySchemes.&nbsp;The following example RAML syntax shows the authorizationGrants setting:</p> 
+   <p>Within the RAML securitySchemes definition, you include URIs for the authorization and access token for a Mule OAuth 2.0 provider as shown in the following example:</p> 
   </div> 
   <div class="listingblock"> 
    <div class="content"> 
@@ -1081,7 +1061,7 @@
    </div> 
   </div> 
   <div class="paragraph"> 
-   <p>Also, add the securedBy node after the method name of the resource and method you want to secure, as shown in the following snippet:</p> 
+   <p>Also, add the securedBy node after the method name of the resource and method you want to secure, as shown in the following example:</p> 
   </div> 
   <div class="listingblock"> 
    <div class="content"> 
@@ -1091,7 +1071,7 @@
    </div> 
   </div> 
   <div class="paragraph"> 
-   <p>The following table shows the mapping of the RAML grant types to the grant type names in the OAuth 2.0 Access Token Enforcement Using External Provider policy configuration.&nbsp;</p> 
+   <p>The following table maps the RAML grant types to the grant type names in the OAuth 2.0 policy configuration.&nbsp;</p> 
   </div> 
   <table class="tableblock frame-all grid-all spread"> 
    <colgroup> 
@@ -1189,13 +1169,20 @@
     </tr> 
    </tbody> 
   </table> 
+  <div class="paragraph"> 
+   <p>After meeting these prerequisites, you are ready to build the provider.</p> 
+  </div> 
  </div> 
 </div> 
 <div class="sect1"> 
- <h2 id="next"><a class="anchor" href="#next"></a>Next</h2> 
+ <h2 id="see-also"><a class="anchor" href="#see-also"></a>See Also</h2> 
  <div class="sectionbody"> 
-  <div class="paragraph"> 
-   <p><a href="/api-manager/building-an-external-oauth-2.0-provider-application">Build an external OAuth 2.0 provider</a>.</p> 
+  <div class="ulist"> 
+   <ul> 
+    <li> <p><a href="/api-manager/aes-oauth-faq#about-oauth-provider-models">external OAuth 2.0 provider</a></p> </li> 
+    <li> <p><a href="/api-manager/building-an-external-oauth-2.0-provider-application">Build an external OAuth 2.0 provider</a>.</p> </li> 
+    <li> <p><a href="https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md#oauth-20">RAML securitySchemes</a></p> </li> 
+   </ul> 
   </div> 
  </div> 
 </div>
@@ -1203,7 +1190,7 @@
     <!-- END article-content -->
     <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
                 <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#requirements-for-raml-apis">Requirements for RAML APIs</a></li><li><a class="scroll-menu-link" href="#next">Next</a></li></ul></div></div><!-- /scroll-menu -->
+                <ul><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
   </div>
 </div>
 <!-- START footer -->

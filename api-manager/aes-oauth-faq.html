@@ -15,7 +15,7 @@
   <script src="/js/scripts.js?t=1495998692"></script>
 
   <link rel="canonical" href="https://docs.mulesoft.com/api-manager/aes-oauth-faq" />
-  <meta name="description" content="In Anypoint Platform you work with OAuth solutions on the server and client side: For example, you create a client apps having an HTTP or Salesforc..." />
+  <meta name="description" content="In Anypoint Platform, you work with OAuth solutions on the server and client side: Example: Configure an HTTP or Salesforce connector in the app to..." />
   <meta class="swiftype" name="title" data-type="string" content="About OAuth 2.0" />
 </head>
 <body>
@@ -593,7 +593,7 @@
 <li class="active expanded">
 <i></i>
 <a href="/api-manager/aes-oauth-faq">About OAuth 2.0</a><ul style="display: block;">
-<li><i></i><a href="/api-manager/about-configure-api-for-oauth">About Configuring an API for OAuth 2.0</a></li><li><i></i><a href="/api-manager/building-an-external-oauth-2.0-provider-application">To Build a Mule OAuth 2.0 Provider</a></li><li><i></i><a href="/api-manager/to-test-local-provider">To Test the Local Provider</a></li><li><i></i><a href="/api-manager/to-deploy-provider">To Deploy the Provider</a></li><li><i></i><a href="/api-manager/to-test-remote-provider">To Test the Remote Provider</a></li><li><i></i><a href="/api-manager/to-use-authentication">To Use a Mule Provider for OAuth 2.0 Authentication</a></li><li><i></i><a href="/api-manager/oauth-service-provider-reference">OAuth 2.0 Service Provider Reference</a></li><li><i></i><a href="/api-manager/oauth-grant-types-about">About OAuth Grant Types</a></li><li><i></i><a href="/api-manager/oauth-persist-obj-store-about">About Persisting Object Stores</a></li><li><i></i><a href="/api-manager/oauth2-provider-configuration">Mule OAuth 2.0 Provider Configuration Reference</a></li></ul></li>
+<li><i></i><a href="/api-manager/oauth-build-provider-prerequisites-about">About Mule OAuth Provider Prerequisites</a></li><li><i></i><a href="/api-manager/building-an-external-oauth-2.0-provider-application">To Build a Mule OAuth 2.0 Provider</a></li><li><i></i><a href="/api-manager/to-test-local-provider">To Test the Local Provider</a></li><li><i></i><a href="/api-manager/to-deploy-provider">To Deploy the Provider</a></li><li><i></i><a href="/api-manager/to-test-remote-provider">To Test the Remote Provider</a></li><li><i></i><a href="/api-manager/to-use-authentication">To Use a Mule Provider for OAuth 2.0 Authentication</a></li><li><i></i><a href="/api-manager/oauth-dance-about">About the OAuth Dance</a></li><li><i></i><a href="/api-manager/about-configure-api-for-oauth">About Configuring an API for OAuth 2.0</a></li><li><i></i><a href="/api-manager/oauth-service-provider-reference">OAuth 2.0 Service Provider Reference</a></li><li><i></i><a href="/api-manager/oauth-grant-types-about">About OAuth Grant Types</a></li><li><i></i><a href="/api-manager/oauth-persist-obj-store-about">About Persisting Object Stores</a></li><li><i></i><a href="/api-manager/oauth2-provider-configuration">Mule OAuth 2.0 Provider Configuration Reference</a></li></ul></li>
 <li>
 <i></i>
 <a href="/api-manager/available-policies">Provided Policies</a><ul>
@@ -1040,38 +1040,41 @@
       <div id="preamble"> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>In Anypoint Platform you work with OAuth solutions on the server and client side:</p> 
+   <p>In Anypoint Platform, you work with OAuth solutions on the server and client side:</p> 
   </div> 
   <div class="ulist"> 
    <ul> 
     <li> <p>Accessing an OAuth-protected server from a client app</p> 
      <div class="paragraph"> 
-      <p>For example, you create a client apps having an HTTP or Salesforce connector configured to access OAuth-protected servers.</p> 
+      <p>Example: Configure an HTTP or Salesforce connector in the app to access OAuth-protected servers.</p> 
      </div> </li> 
     <li> <p>Protecting an API from unauthorized calls from client applications</p> 
      <div class="paragraph"> 
-      <p>For example, you apply an OAuth 2.0 policy to the API and use the corresponding OAuth provider to authenticate client applications.</p> 
-     </div> 
-     <div class="ulist"> 
-      <ul> 
-       <li> <p>PingFederate provider and PingFederate OAuth Token Enforcement policy</p> </li> 
-       <li> <p>OpenAM provider and OpenAM OAuthToken Enforcement policy</p> </li> 
-       <li> <p>Mule OAuth 2.0 provider and OAuth 2.0 Access Token Enforcement Using External Provider policy</p> </li> 
-      </ul> 
+      <p>Example: Apply an OAuth 2.0 policy and your configured OAuth provider denies access to unauthenticated client apps.</p> 
      </div> </li> 
    </ul> 
   </div> 
   <div class="paragraph"> 
-   <p>Using PingFederate or OpenAM is recommended.</p> 
+   <p>You can use the following OAuth provider and policy pairs:</p> 
+  </div> 
+  <div class="ulist"> 
+   <ul> 
+    <li> <p>PingFederate provider and PingFederate OAuth Token Enforcement policy</p> </li> 
+    <li> <p>OpenAM provider and OpenAM OAuthToken Enforcement policy</p> </li> 
+    <li> <p>Mule OAuth 2.0 provider and OAuth 2.0 Access Token Enforcement Using External Provider policy</p> </li> 
+   </ul> 
+  </div> 
+  <div class="paragraph"> 
+   <p>The API to which you apply an OAuth 2.0 policy supports HTTPS communication using a Mule OAuth 2.0 provider. The provider verifies the validity of OAuth 2.0 credentials.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>Using a PingFederate or OpenAM provider is recommended. If you don’t want to contract with PingFederate or OpenAM, you need to build a Mule OAuth provider. Instead of building the provider from the ground up, you can download and import a custom Mule OAuth provider, developed by MuleSoft Consulting, into Anypoint Studio.</p> 
   </div> 
  </div> 
 </div> 
 <div class="sect1"> 
- <h2 id="about-the-mule-oauth-provider"><a class="anchor" href="#about-the-mule-oauth-provider"></a>About the Mule OAuth Provider</h2> 
+ <h2 id="migrating-to-the-mule-oauth-provider"><a class="anchor" href="#migrating-to-the-mule-oauth-provider"></a>Migrating to the Mule OAuth Provider</h2> 
  <div class="sectionbody"> 
-  <div class="paragraph"> 
-   <p>If you do not want to contract with an organization, such as PingFederate or OpenAM, you need to build a Mule OAuth provider. The OAuth 2.0 Access Token Enforcement Using External Provider policy supports HTTPS communication using a Mule OAuth 2.0 provider. The provider verifies the validity of OAuth 2.0 credentials. The Mule OAuth provider can run on any application server that is in the same organization as your API protected by OAuth 2.0. For example, you can run the Mule provider on premises using a Tomcat server or in the cloud using CloudHub.</p> 
-  </div> 
   <div class="paragraph"> 
    <p>If you are using the deprecated AES OAuth policy provider for non-production environments, the policy as-is is working for you, and can accept tokens exchanged by HTTP (and not HTTPS), no change is required; otherwise, migrate to a Mule OAuth provider as follows:</p> 
   </div> 
@@ -1091,40 +1094,12 @@
  </div> 
 </div> 
 <div class="sect1"> 
- <h2 id="about-the-oauth-2-0-access-token-enforcement-using-external-provider-policy"><a class="anchor" href="#about-the-oauth-2-0-access-token-enforcement-using-external-provider-policy"></a>About the OAuth 2.0 Access Token Enforcement Using External Provider Policy</h2> 
- <div class="sectionbody"> 
-  <div class="paragraph"> 
-   <p>The OAuth 2.0 Access Token Enforcement Using External Provider policy enforces the OAuth interaction, called the OAuth dance, between the OAuth 2.0 provider, API, and client application as described in RFC 6749. You can get a hands-on perspective of the OAuth dance by following the step-by-step procedure in this section. In this section, you build, run, and test the custom Mule OAuth provider in Anypoint Platform.</p> 
-  </div> 
-  <div class="imageblock"> 
-   <div class="content"> 
-    <img src="./_images/oauth+policy1.png" alt="oauth+policy1" width="640" height="366"> 
-   </div> 
-  </div> 
-  <div class="olist arabic"> 
-   <ol class="arabic"> 
-    <li> <p>The client application requests a token from the provider.</p> </li> 
-    <li> <p>The provider returns a token.</p> </li> 
-    <li> <p>The client application includes the token either as an authentication header or a query parameter in a request to the API.</p> </li> 
-    <li> <p>The OAuth 2.0 Access Token Enforcement Using External Provider Policy intercepts this request and communicates with the provider to validate the token.</p> </li> 
-    <li> <p>The validated token is whitelisted and kept on record until expiration. Any further requests that contain this token are not validated against the OAuth provider.</p> </li> 
-    <li> <p>If the token is valid, the request is forwarded to the API.</p> </li> 
-    <li> <p>The API responds to the client application.</p> </li> 
-   </ol> 
-  </div> 
-  <div class="paragraph"> 
-   <p>The client application gets authorization from an OAuth provider instead of directly gaining access to the user’s credentials. The user owns the credentials and authorizes the provider to interact with the API. The application has knowledge of the user’s authentication in the form of an access token.</p> 
-  </div> 
- </div> 
-</div> 
-<div class="sect1"> 
  <h2 id="see-also"><a class="anchor" href="#see-also"></a>See Also</h2> 
  <div class="sectionbody"> 
   <div class="ulist"> 
    <ul> 
-    <li> <p><a href="https://tools.ietf.org/html/rfc6749#section-4.1">RFC 6749</a></p> </li> 
     <li> <p><a href="/api-manager/external-oauth-2.0-token-validation-policy">OAuth 2.0 Access Token Enforcement Using External Provider</a></p> </li> 
-    <li> <p><a href="/access-management/external-identity">External Identity (setting up PingFederate and OpenAM providers)</a></p> </li> 
+    <li> <p><a href="/access-management/external-identity">PingFederate and OpenAM providers</a></p> </li> 
    </ul> 
   </div> 
  </div> 
@@ -1133,7 +1108,7 @@
     <!-- END article-content -->
     <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
                 <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#about-the-mule-oauth-provider">About the Mule OAuth Provider</a></li><li><a class="scroll-menu-link" href="#about-the-oauth-2-0-access-token-enforcement-using-external-provider-policy">About the OAuth 2.0 Access Token Enforcement Using External Provider Policy</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
+                <ul><li><a class="scroll-menu-link" href="#migrating-to-the-mule-oauth-provider">Migrating to the Mule OAuth Provider</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
   </div>
 </div>
 <!-- START footer -->

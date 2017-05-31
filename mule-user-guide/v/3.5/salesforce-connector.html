@@ -575,7 +575,7 @@
 <li>
 <i></i>
 <a href="/api-manager/aes-oauth-faq">About OAuth 2.0</a><ul>
-<li><i></i><a href="/api-manager/about-configure-api-for-oauth">About Configuring an API for OAuth 2.0</a></li><li><i></i><a href="/api-manager/building-an-external-oauth-2.0-provider-application">To Build a Mule OAuth 2.0 Provider</a></li><li><i></i><a href="/api-manager/to-test-local-provider">To Test the Local Provider</a></li><li><i></i><a href="/api-manager/to-deploy-provider">To Deploy the Provider</a></li><li><i></i><a href="/api-manager/to-test-remote-provider">To Test the Remote Provider</a></li><li><i></i><a href="/api-manager/to-use-authentication">To Use a Mule Provider for OAuth 2.0 Authentication</a></li><li><i></i><a href="/api-manager/oauth-service-provider-reference">OAuth 2.0 Service Provider Reference</a></li><li><i></i><a href="/api-manager/oauth-grant-types-about">About OAuth Grant Types</a></li><li><i></i><a href="/api-manager/oauth-persist-obj-store-about">About Persisting Object Stores</a></li><li><i></i><a href="/api-manager/oauth2-provider-configuration">Mule OAuth 2.0 Provider Configuration Reference</a></li></ul></li>
+<li><i></i><a href="/api-manager/oauth-build-provider-prerequisites-about">About Mule OAuth Provider Prerequisites</a></li><li><i></i><a href="/api-manager/building-an-external-oauth-2.0-provider-application">To Build a Mule OAuth 2.0 Provider</a></li><li><i></i><a href="/api-manager/to-test-local-provider">To Test the Local Provider</a></li><li><i></i><a href="/api-manager/to-deploy-provider">To Deploy the Provider</a></li><li><i></i><a href="/api-manager/to-test-remote-provider">To Test the Remote Provider</a></li><li><i></i><a href="/api-manager/to-use-authentication">To Use a Mule Provider for OAuth 2.0 Authentication</a></li><li><i></i><a href="/api-manager/oauth-dance-about">About the OAuth Dance</a></li><li><i></i><a href="/api-manager/about-configure-api-for-oauth">About Configuring an API for OAuth 2.0</a></li><li><i></i><a href="/api-manager/oauth-service-provider-reference">OAuth 2.0 Service Provider Reference</a></li><li><i></i><a href="/api-manager/oauth-grant-types-about">About OAuth Grant Types</a></li><li><i></i><a href="/api-manager/oauth-persist-obj-store-about">About Persisting Object Stores</a></li><li><i></i><a href="/api-manager/oauth2-provider-configuration">Mule OAuth 2.0 Provider Configuration Reference</a></li></ul></li>
 <li>
 <i></i>
 <a href="/api-manager/available-policies">Provided Policies</a><ul>
@@ -1033,17 +1033,17 @@
  <h2 id="prerequisites"><a class="anchor" href="#prerequisites"></a>Prerequisites</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>This document assumes that you are familiar with Mule, the&nbsp;<a href="/anypoint-studio/v/6/index">Anypoint&nbsp;Studio interface</a>,&nbsp;<a href="/mule-user-guide/v/3.6/global-elements">Global Elements</a>, <a href="/mule-user-guide/v/3.6/datasense">DataSense</a>, and <a href="/mule-user-guide/v/3.6/batch-processing">batch processing</a> in Mule. Further, it assumes you are familiar with Salesforce and have a Salesforce&nbsp;<a href="http://developer.force.com/">developerforce</a> account.</p> 
+   <p>This document assumes that you are familiar with Mule, the&nbsp;<a href="/anypoint-studio/v/5/index">Anypoint&nbsp;Studio interface</a>,&nbsp;<a href="/mule-user-guide/v/3.5/global-elements">Global Elements</a>, <a href="/mule-user-guide/v/3.5/datasense">DataSense</a>, and <a href="/mule-user-guide/v/3.5/batch-processing">batch processing</a> in Mule. Further, it assumes you are familiar with Salesforce and have a Salesforce&nbsp;<a href="http://developer.force.com/">developerforce</a> account.</p> 
   </div> 
   <div class="paragraph"> 
    <p>To use the Salesforce connector, you need:</p> 
   </div> 
   <div class="ulist"> 
    <ul> 
-    <li> <p><strong>Studio</strong> - An instance of&nbsp;<a href="http://www.mulesoft.org/download-mule-esb-community-edition">Anypoint&nbsp;Studio</a>.&nbsp;If you don’t use Anypoint Studio for development, follow the instructions below to configure Salesforce Maven dependencies in your&nbsp; <code>pom.xml</code> &nbsp;file.</p> </li> 
-    <li> <p><strong>Salesforce&nbsp;developer account</strong> - Sign up for one at&nbsp;http://developer.force.com/.</p> </li> 
-    <li> <p><strong>Security token</strong>&nbsp;-<strong>&nbsp;</strong>Sign into&nbsp;http://developer.force.com/, click&nbsp;your name<strong>&nbsp;</strong> in the upper right corner, then click&nbsp;<strong>Setup</strong> &gt;&nbsp;<strong>My Personal Information</strong> &gt;&nbsp; <strong>Reset Security Token</strong>. Then,&nbsp;click&nbsp;<strong>Reset My Security Token</strong>. Salesforce sends your security token via email to your registered email address.</p> </li> 
-    <li> <p><strong>Consumer key and Secret</strong> - If you are using the Salesforce connector to access an <strong>OAuth API</strong>, you also need a consumer key and secret. Refer to the detailed documentation on how to <a href="/mule-user-guide/v/3.7/using-a-connector-to-access-an-oauth-api">use the Salesforce connector to access an OAuth API</a>.&nbsp;</p> </li> 
+    <li> <p><strong>Studio</strong> - An instance of&nbsp;<a href="http://www.mulesoft.org/download-mule-esb-community-edition">Anypoint&nbsp;Studio</a>.&nbsp;If you don’t use Anypoint Studio for development, follow the instructions below to configure Salesforce Maven dependencies in your&nbsp; <code>pom.xml</code> file.</p> </li> 
+    <li> <p><strong>Salesforce&nbsp;developer account</strong> - Sign up for one at&nbsp;<a href="https://developer.salesforce.com/">Salesforce developer site</a>.</p> </li> 
+    <li> <p><strong>Security token</strong>&nbsp;- Sign into&nbsp;https://developer.salesforce.com/, click&nbsp;your name in the upper right corner, then click&nbsp;<strong>Setup</strong> &gt;&nbsp;<strong>My Personal Information</strong> &gt;&nbsp; <strong>Reset Security Token</strong>. Then,&nbsp;click&nbsp;<strong>Reset My Security Token</strong>. Salesforce sends your security token via email to your registered email address.</p> </li> 
+    <li> <p><strong>Consumer key and Secret</strong> - If you are using the Salesforce connector to access an <strong>OAuth API</strong>, you also need a consumer key and secret. Refer to the detailed documentation on how to <a href="/mule-user-guide/v/3.5/using-a-connector-to-access-an-oauth-api">use the Salesforce connector to access an OAuth API</a>.&nbsp;</p> </li> 
    </ul> 
   </div> 
   <div class="paragraph"> 
@@ -1053,17 +1053,7 @@
    <h3 id="namespace"><a class="anchor" href="#namespace"></a>Namespace</h3> 
    <div class="listingblock"> 
     <div class="content"> 
-     <pre class="CodeRay highlight"><code data-lang="xml">
-          
-       <table class="CodeRay"> 
-        <tbody> 
-         <tr> 
-          <td class="line-numbers"><pre>1
-</pre></td> 
-          <td class="code"><pre>xmlns:sfdc="http://www.mulesoft.org/schema/mule/sfdc"</pre></td> 
-         </tr> 
-        </tbody> 
-       </table></code></pre> 
+     <pre class="CodeRay highlight"><code data-lang="xml">xmlns:sfdc="http://www.mulesoft.org/schema/mule/sfdc"</code></pre> 
     </div> 
    </div> 
    <div class="paragraph"> 
@@ -1458,17 +1448,7 @@ insert pushTopic;</pre></td>
    </div> 
    <div class="listingblock"> 
     <div class="content"> 
-     <pre class="CodeRay highlight"><code data-lang="xml">
-          
-       <table class="CodeRay"> 
-        <tbody> 
-         <tr> 
-          <td class="line-numbers"><pre>1
-</pre></td> 
-          <td class="code"><pre><span class="tag">&lt;sfdc:publish-topic</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">AccountUpdates</span><span class="delimiter">"</span></span> <span class="attribute-name">query</span>=<span class="string"><span class="delimiter">"</span><span class="content">SELECT Id FROM Account</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></pre></td> 
-         </tr> 
-        </tbody> 
-       </table></code></pre> 
+     <pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;sfdc:publish-topic</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">AccountUpdates</span><span class="delimiter">"</span></span> <span class="attribute-name">query</span>=<span class="string"><span class="delimiter">"</span><span class="content">SELECT Id FROM Account</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></code></pre> 
     </div> 
    </div> 
   </div> 
@@ -1731,10 +1711,10 @@ insert pushTopic;</pre></td>
   </div> 
   <div class="ulist"> 
    <ul> 
-    <li> <p><strong>DataSense</strong>: When enabled,&nbsp;<a href="/mule-user-guide/v/3.6/datasense">DataSense</a>&nbsp;extracts metadata for Salesforce standard objects (sObjects) to automatically determine the data type and format that your application must deliver to, or can expect from, Salesforce. By enabling this functionality (in the Global Salesforce Connector element), Mule does the heavy lifting of discovering the type of data you must send to, or be prepared to receive from Salesforce.</p> </li> 
+    <li> <p><strong>DataSense</strong>: When enabled,&nbsp;<a href="/mule-user-guide/v/3.5/datasense">DataSense</a>&nbsp;extracts metadata for Salesforce standard objects (sObjects) to automatically determine the data type and format that your application must deliver to, or can expect from, Salesforce. By enabling this functionality (in the Global Salesforce Connector element), Mule does the heavy lifting of discovering the type of data you must send to, or be prepared to receive from Salesforce.</p> </li> 
     <li> <p><strong>DataMapper transformer</strong>: When used in conjunction with a DataSense-enabled Salesforce Connector,&nbsp;<a href="/anypoint-studio/v/5/datamapper-user-guide-and-reference">DataMapper</a>&nbsp;can automatically extract sObject metadata that you can use to visually map and/or transform to a different data format or structure. For example, if you configure a Salesforce Connector in your application, then drop a DataMapper after it, DataMapper uses the information that DataSense extracted to pre-populate the input values for mapping. That way, you only need to confirm (or adjust) the selections, then proceed to mapping to your desired output.&nbsp; In other words, DataSense makes sure that DataMapper&nbsp;<em>knows</em>&nbsp;the data format and structure with which it must work so you don’t have to figure it out manually.</p> </li> 
-    <li> <p><strong>Poll Scope and Watermark</strong>: To regularly pull data from Salesforce into your application, use a poll-wrapped Salesforce connector in place of an inbound endpoint in your flow. Use the&nbsp;<a href="/mule-user-guide/v/3.6/poll-reference">Watermark</a>&nbsp;functionality of the&nbsp;<a href="/mule-user-guide/v/3.6/poll-reference">Poll Scope</a>&nbsp;to make sure you’re only pulling, then processing,&nbsp;<em>new</em>&nbsp;information from Salesforce.</p> </li> 
-    <li> <p><strong>Batch Processing</strong>: A&nbsp;<a href="/mule-user-guide/v/3.6/batch-processing">batch job</a>&nbsp;is a block of code that splits messages into individual records, performs actions upon each record, then reports on the results and potentially pushes the processed output to other systems or queues. This functionality is particularly useful when working with streaming input or when engineering "near real-time" data integration with SaaS providers such as Salesforce.</p> </li> 
+    <li> <p><strong>Poll Scope and Watermark</strong>: To regularly pull data from Salesforce into your application, use a poll-wrapped Salesforce connector in place of an inbound endpoint in your flow. Use the&nbsp;<a href="/mule-user-guide/v/3.6/poll-reference">Watermark</a>&nbsp;functionality of the&nbsp;<a href="/mule-user-guide/v/3.5/poll-reference">Poll Scope</a>&nbsp;to make sure you’re only pulling, then processing,&nbsp;<em>new</em>&nbsp;information from Salesforce.</p> </li> 
+    <li> <p><strong>Batch Processing</strong>: A&nbsp;<a href="/mule-user-guide/v/3.5/batch-processing">batch job</a>&nbsp;is a block of code that splits messages into individual records, performs actions upon each record, then reports on the results and potentially pushes the processed output to other systems or queues. This functionality is particularly useful when working with streaming input or when engineering "near real-time" data integration with SaaS providers such as Salesforce.</p> </li> 
    </ul> 
   </div> 
   <div class="sect2"> 
@@ -1846,14 +1826,14 @@ insert pushTopic;</pre></td>
    </div> 
    <div class="olist arabic"> 
     <ol class="arabic"> 
-     <li> <p><strong>Outbound Connector</strong>: Use as an outbound connector in your flow to push data into Salesforce. To use the connector in this capacity, simply place the connector in your flow at any point after an inbound endpoint (see image below, top). Note that you can also use a Salesforce Connector in a <a href="/mule-user-guide/v/3.6/batch-processing">batch process</a> to push data to Salesforce in batches (see image below, bottom).</p> 
+     <li> <p><strong>Outbound Connector</strong>: Use as an outbound connector in your flow to push data into Salesforce. To use the connector in this capacity, simply place the connector in your flow at any point after an inbound endpoint (see image below, top). Note that you can also use a Salesforce Connector in a <a href="/mule-user-guide/v/3.5/batch-processing">batch process</a> to push data to Salesforce in batches (see image below, bottom).</p> 
       <div class="paragraph"> 
        <p><span class="image"><img src="./_images/sfdc_outbound.png" alt="sfdc_outbound"></span></p> 
       </div> 
       <div class="paragraph"> 
        <p><span class="image"><img src="./_images/example_batch_output1.png" alt="example_batch_output1"></span></p> 
       </div> </li> 
-     <li> <p><strong>Inbound Connector:</strong> Use the connector in conjunction with a <a href="/mule-user-guide/v/3.6/poll-reference">Poll Scope</a> to behave like an inbound connector in a flow to pull data from Salesforce into your application. To use the connector in this capacity, you must first place a poll scope element at the beginning of your flow, then place a Salesforce Connector within the poll scope (see image below, top). Note that you can also use a poll-wrapped Salesforce Connector at the beginning of a batch process to extract data from Salesforce, then <a href="/mule-user-guide/v/3.6/batch-processing">batch process</a> the content in Mule (see image below, bottom).</p> 
+     <li> <p><strong>Inbound Connector:</strong> Use the connector in conjunction with a <a href="/mule-user-guide/v/3.5/poll-reference">Poll Scope</a> to behave like an inbound connector in a flow to pull data from Salesforce into your application. To use the connector in this capacity, you must first place a poll scope element at the beginning of your flow, then place a Salesforce Connector within the poll scope (see image below, top). Note that you can also use a poll-wrapped Salesforce Connector at the beginning of a batch process to extract data from Salesforce, then <a href="/mule-user-guide/v/3.5/batch-processing">batch process</a> the content in Mule (see image below, bottom).</p> 
       <div class="paragraph"> 
        <p><span class="image"><img src="./_images/poll_inbound.png" alt="poll_inbound"></span><br></p> 
       </div> 
@@ -1879,7 +1859,7 @@ insert pushTopic;</pre></td>
     <p><strong>BUILD the rest of your flow &nbsp; -→ &nbsp; ADD and configure DataMappers</strong></p> 
    </div> 
    <div class="paragraph"> 
-    <p>The objective of this design-time strategy is to set the pieces of the integration puzzle in place, then "glue them together" with DataMappers. Rather than designing a flow sequentially, from the inbound endpoint, this type of "align, then glue together" strategy ensures that you are utilizing DataSense, wherever possible, to pre-populate the information about the structure and format of the input or output data into a DataMapper. The diagram in the section below prescribes a process that follows this best practice in the context of a flow that uses a Salesforce Connector. Get further details by reading about <a href="/mule-user-guide/v/3.6/datasense">DataSense Best Practices</a>.</p> 
+    <p>The objective of this design-time strategy is to set the pieces of the integration puzzle in place, then "glue them together" with DataMappers. Rather than designing a flow sequentially, from the inbound endpoint, this type of "align, then glue together" strategy ensures that you are utilizing DataSense, wherever possible, to pre-populate the information about the structure and format of the input or output data into a DataMapper. The diagram in the section below prescribes a process that follows this best practice in the context of a flow that uses a Salesforce Connector. Get further details by reading about <a href="/mule-user-guide/v/3.5/datasense">DataSense Best Practices</a>.</p> 
    </div> 
    <div class="paragraph"> 
     <p><strong>Note</strong>:&nbsp;When subscribing to a topic that does not exist in Salesforce, the subscription is successful.&nbsp;When the topic creates, the user that is already subscribed to it does NOT receive notification regarding that topic. The user has to resubscribe after the topic creates.</p> 
@@ -1907,18 +1887,18 @@ insert pushTopic;</pre></td>
     <ul> 
      <li> <p>(a) Though you can place a connector at any point in your flow, be aware that you may need to transform and the data structure and format to smoothly transfer date to, or accept data from another resource.</p> </li> 
      <li> <p>(b) The Salesforce (Streaming) Connector can only perform one operation against your organization’s data in Salesforce: <code>Subscribe to topic</code>.</p> </li> 
-     <li> <p>(c) Learn more about using the <a href="/mule-user-guide/v/3.6/poll-reference">Poll Scope</a>&nbsp;to regularly poll Salesforce for new data for your application to process.</p> </li> 
+     <li> <p>(c) Learn more about using the <a href="/mule-user-guide/v/3.5/poll-reference">Poll Scope</a>&nbsp;to regularly poll Salesforce for new data for your application to process.</p> </li> 
     </ul> 
    </div> 
    <div class="paragraph"> 
-    <p>Depending upon its function in your application (streaming data, polling for data, pushing data, etc.), the operation you select, and the sObject you are acting upon, Studio makes different Salesforce Connector fields available for configuration.&nbsp; The objectives of this document do not include the exhaustive exploration of all combinations of operations and objects in an application. However, you can access <a href="/mule-user-guide/v/3.7/salesforce-connector-reference">full reference documentation</a> to learn about how to configure the connector for all operations.&nbsp;</p> 
+    <p>Depending upon its function in your application (streaming data, polling for data, pushing data, etc.), the operation you select, and the sObject you are acting upon, Studio makes different Salesforce Connector fields available for configuration.&nbsp; The objectives of this document do not include the exhaustive exploration of all combinations of operations and objects in an application. However, you can access <a href="/mule-user-guide/v/3.5/salesforce-connector-reference">full reference documentation</a> to learn about how to configure the connector for all operations.&nbsp;</p> 
    </div> 
   </div> 
   <div class="sect2"> 
    <h3 id="tips"><a class="anchor" href="#tips"></a>Tips</h3> 
    <div class="ulist"> 
     <ul> 
-     <li> <p><strong>Upsert</strong>: Unless you configure the <strong><a href="http://help.salesforce.com/apex/HTViewHelpDoc?id=faq_import_general_what_is_an_external.htm">External ID</a> Field Name</strong> for the <a href="http://www.salesforce.com/us/developer/docs/officetoolkit/Content/sforce_api_objects_list.htm">sObject</a> to which you’re trying to upsert, every use of the upsert will fail.&nbsp;<br></p> 
+     <li> <p><strong>Upsert</strong>: Unless you configure the <strong><a href="http://help.salesforce.com/apex/HTViewHelpDoc?id=faq_import_general_what_is_an_external.htm">External ID</a> Field Name</strong> for the <a href="http://www.salesforce.com/us/developer/docs/officetoolkit/Content/sforce_api_objects_list.htm">sObject</a> to which you’re trying to upsert, every use of the upsert fails.&nbsp;<br></p> 
       <div class="paragraph"> 
        <p><span class="image"><img src="./_images/upsert.png" alt="upsert"></span></p> 
       </div> </li> 
@@ -2099,7 +2079,7 @@ insert pushTopic;</pre></td>
 30
 </pre></td> 
           <td class="code"><pre><span class="tag">&lt;mule</span> <span class="attribute-name">xmlns:data-mapper</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/ee/data-mapper</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:http</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/http</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:sfdc</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/sfdc</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/core</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:doc</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/documentation</span><span class="delimiter">"</span></span>
-<span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="attribute-name">xmlns:spring</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.springframework.org/schema/beans</span><span class="delimiter">"</span></span> <span class="attribute-name">version</span>=<span class="string"><span class="delimiter">"</span><span class="content">EE-3.6.1</span><span class="delimiter">"</span></span>
+<span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="attribute-name">xmlns:spring</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.springframework.org/schema/beans</span><span class="delimiter">"</span></span>
 <span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="attribute-name">xmlns:xsi</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.w3.org/2001/XMLSchema-instance</span><span class="delimiter">"</span></span>
 <span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="attribute-name">xsi:schemaLocation</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd</span>
 <span class="content">http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd</span>
@@ -2141,10 +2121,10 @@ insert pushTopic;</pre></td>
  <div class="sectionbody"> 
   <div class="ulist"> 
    <ul> 
-    <li> <p>Access <a href="/mule-user-guide/v/3.7/salesforce-connector-reference">full reference documentation</a> for the Salesforce connector.</p> </li> 
-    <li> <p>Read more about <a href="/mule-user-guide/v/3.7/anypoint-connectors">Anypoint Connectors</a>.</p> </li> 
-    <li> <p>Read more about <a href="/mule-user-guide/v/3.6/batch-processing">Batch Processing</a> in Mule.</p> </li> 
-    <li> <p>Read more about the <a href="/mule-user-guide/v/3.6/poll-reference">Poll Scope</a>.</p> </li> 
+    <li> <p>Access <a href="/mule-user-guide/v/3.5/salesforce-connector-reference">full reference documentation</a> for the Salesforce connector.</p> </li> 
+    <li> <p>Read more about <a href="/mule-user-guide/v/3.5/anypoint-connectors">Anypoint Connectors</a>.</p> </li> 
+    <li> <p>Read more about <a href="/mule-user-guide/v/3.5/batch-processing">Batch Processing</a> in Mule.</p> </li> 
+    <li> <p>Read more about the <a href="/mule-user-guide/v/3.5/poll-reference">Poll Scope</a>.</p> </li> 
     <li> <p>Access the <a href="https://developer.salesforce.com/docs">Salesforce developer documentation</a> for detailed documentation on Salesforce objects and queries.</p> </li> 
    </ul> 
   </div> 

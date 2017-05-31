@@ -15,7 +15,7 @@
   <script src="/js/scripts.js?t=1495998692"></script>
 
   <link rel="canonical" href="https://docs.mulesoft.com/api-manager/building-an-external-oauth-2.0-provider-application" />
-  <meta name="description" content="To use the OAuth 2.0 Access Token Enforcement Using External Provider policy, you need an external OAuth 2.0 provider. One of the following externa..." />
+  <meta name="description" content="To build a provider from MuleSoft Consulting on Mule Runtime 3.8.x, perform this task. This step is necessary to test the local provider. Assuming ..." />
   <meta class="swiftype" name="title" data-type="string" content="To Build a Mule OAuth 2 Provider" />
 </head>
 <body>
@@ -593,7 +593,7 @@
 <li class="expanded">
 <i></i>
 <a href="/api-manager/aes-oauth-faq">About OAuth 2.0</a><ul style="display: block;">
-<li><i></i><a href="/api-manager/about-configure-api-for-oauth">About Configuring an API for OAuth 2.0</a></li><li class="active"><i></i><a href="/api-manager/building-an-external-oauth-2.0-provider-application">To Build a Mule OAuth 2.0 Provider</a></li><li><i></i><a href="/api-manager/to-test-local-provider">To Test the Local Provider</a></li><li><i></i><a href="/api-manager/to-deploy-provider">To Deploy the Provider</a></li><li><i></i><a href="/api-manager/to-test-remote-provider">To Test the Remote Provider</a></li><li><i></i><a href="/api-manager/to-use-authentication">To Use a Mule Provider for OAuth 2.0 Authentication</a></li><li><i></i><a href="/api-manager/oauth-service-provider-reference">OAuth 2.0 Service Provider Reference</a></li><li><i></i><a href="/api-manager/oauth-grant-types-about">About OAuth Grant Types</a></li><li><i></i><a href="/api-manager/oauth-persist-obj-store-about">About Persisting Object Stores</a></li><li><i></i><a href="/api-manager/oauth2-provider-configuration">Mule OAuth 2.0 Provider Configuration Reference</a></li></ul></li>
+<li><i></i><a href="/api-manager/oauth-build-provider-prerequisites-about">About Mule OAuth Provider Prerequisites</a></li><li class="active"><i></i><a href="/api-manager/building-an-external-oauth-2.0-provider-application">To Build a Mule OAuth 2.0 Provider</a></li><li><i></i><a href="/api-manager/to-test-local-provider">To Test the Local Provider</a></li><li><i></i><a href="/api-manager/to-deploy-provider">To Deploy the Provider</a></li><li><i></i><a href="/api-manager/to-test-remote-provider">To Test the Remote Provider</a></li><li><i></i><a href="/api-manager/to-use-authentication">To Use a Mule Provider for OAuth 2.0 Authentication</a></li><li><i></i><a href="/api-manager/oauth-dance-about">About the OAuth Dance</a></li><li><i></i><a href="/api-manager/about-configure-api-for-oauth">About Configuring an API for OAuth 2.0</a></li><li><i></i><a href="/api-manager/oauth-service-provider-reference">OAuth 2.0 Service Provider Reference</a></li><li><i></i><a href="/api-manager/oauth-grant-types-about">About OAuth Grant Types</a></li><li><i></i><a href="/api-manager/oauth-persist-obj-store-about">About Persisting Object Stores</a></li><li><i></i><a href="/api-manager/oauth2-provider-configuration">Mule OAuth 2.0 Provider Configuration Reference</a></li></ul></li>
 <li>
 <i></i>
 <a href="/api-manager/available-policies">Provided Policies</a><ul>
@@ -1040,48 +1040,11 @@
       <div id="preamble"> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>To use the OAuth 2.0 Access Token Enforcement Using External Provider policy, you need an external OAuth 2.0 provider. One of the following external identity providers are recommended:</p> 
-  </div> 
-  <div class="ulist"> 
-   <ul> 
-    <li> <p>PingFederate</p> </li> 
-    <li> <p>OpenAM</p> </li> 
-   </ul> 
-  </div> 
-  <div class="paragraph"> 
-   <p>You can also download and import a custom Mule OAuth provider, developed by MuleSoft Consulting, into Anypoint Studio. In Studio, you build the sample provider, and then you run the provider to authenticate credentials against a security service.</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>In the Mule OAuth provider, you need to configure the credentials, for example the client ID and client secret of the Anypoint Platform organization in which you register the managed API.</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>Build an external (Mule) OAuth provider application on one of the following installations:</p> 
-  </div> 
-  <div class="ulist"> 
-   <ul> 
-    <li> <p>Mule 3.8.0 runtime or later</p> </li> 
-    <li> <p>API Gateway runtime 2.0 or earlier</p> 
-     <div class="paragraph"> 
-      <p>To build the provider on API Gateway runtime 2.0 or earlier, download the Gateway Runtime 2.0 version of the External OAuth 2.0 server for Anypoint Platform from <a href="https://anypoint.mulesoft.com/exchange">Exchange</a>.</p> 
-     </div> </li> 
-   </ul> 
-  </div> 
-  <div class="paragraph"> 
-   <p>Use the following software and steps in this procedure:</p> 
-  </div> 
-  <div class="ulist"> 
-   <ul> 
-    <li> <p>Anypoint Studio 6.x with Mule Runtime EE 3.8 or later</p> </li> 
-    <li> <p>Java JDK 1.8</p> </li> 
-    <li> <p>Maven 3.3.9</p> </li> 
-   </ul> 
-  </div> 
-  <div class="paragraph"> 
-   <p><strong>To build the provider on Mule Runtime 3.8.x:</strong></p> 
+   <p>To build a provider from MuleSoft Consulting on Mule Runtime 3.8.x, perform this task.</p> 
   </div> 
   <div class="olist arabic"> 
    <ol class="arabic"> 
-    <li> <p>Set up credentials in the Mule EE Repository. Create or add to the Maven <code>settings.xml</code> file. For example, on Linux <code>~/.m2/settings.xml</code>:</p> 
+    <li> <p>Set up credentials in the Mule EE Repository by creating, or by adding the credentials to, the Maven <code>settings.xml</code> file. This file is typically located in <code>~/.m2/settings.xml</code> on Linux or Mac OSX:</p> 
      <div class="listingblock"> 
       <div class="content"> 
        <pre class="CodeRay highlight"><code data-lang="xml">
@@ -1114,18 +1077,8 @@
 23
 24
 25
-26
-27
-28
-29
-30
-31
 </pre></td> 
-            <td class="code"><pre><span class="tag">&lt;settings</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://maven.apache.org/SETTINGS/1.0.0</span><span class="delimiter">"</span></span>
-      <span class="attribute-name">xmlns:xsi</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.w3.org/2001/XMLSchema-instance</span><span class="delimiter">"</span></span>
-      <span class="attribute-name">xsi:schemaLocation</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://maven.apache.org/SETTINGS/1.0.0</span>
-                          <span class="content">https://maven.apache.org/xsd/settings-1.0.0.xsd</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
-...
+            <td class="code"><pre>...
   <span class="tag">&lt;servers&gt;</span>
     <span class="tag">&lt;server&gt;</span>
       <span class="tag">&lt;id&gt;</span>MuleRepository<span class="tag">&lt;/id&gt;</span>
@@ -1149,44 +1102,36 @@
         <span class="tag">&lt;/repository&gt;</span>
       <span class="tag">&lt;/repositories&gt;</span>
     <span class="tag">&lt;/profile&gt;</span>
-  <span class="tag">&lt;/profiles&gt;</span>
-  <span class="tag">&lt;activeProfiles</span><span class="tag">/&gt;</span>
-<span class="tag">&lt;/settings&gt;</span></pre></td> 
+  <span class="tag">&lt;/profiles&gt;</span></pre></td> 
            </tr> 
           </tbody> 
          </table></code></pre> 
       </div> 
      </div> </li> 
-    <li> <p>Download the <a href="_attachments/OAuthProviderStudioArchive.zip">OAuthProviderStudioArchive</a>.</p> </li> 
-    <li> <p>Launch Studio, and choose File &gt; Import.</p> 
-     <div class="paragraph"> 
-      <p>The Select dialog appears.</p> 
-     </div> </li> 
-    <li> <p>Expand Anypoint Studio and select Anypoint Studio generated Deployable Archive.</p> </li> 
+    <li> <p>Download the OAuthProviderStudioArchive using the link at the bottom of this topic.</p> </li> 
+    <li> <p>Launch Studio, and choose File &gt; Import.</p> </li> 
+    <li> <p>In Select, expand Anypoint Studio and choose Anypoint Studio Generated Deployable Archive.</p> </li> 
     <li> <p>Browse to the <code>OAuthProviderStudioArchive.zip</code> you downloaded, and click Finish.</p> </li> 
-    <li> <p><a href="https://anypoint.mulesoft.com/login/#/signup">Log into your Anypoint platform</a> account.</p> </li> 
-    <li> <p><a href="/access-management/organization#client-id-and-client-secret">Access the client ID and client secret</a> of the account you are using to create the provider application.</p> </li> 
-    <li> <p>Enter your client Id and client Secret in <strong>Anypoint Studio</strong> &gt; <strong>Preferences</strong> &gt; <strong>Anypoint Studio</strong> &gt; <strong>Anypoint Platform for APIs</strong>. Alternatively, if you use the Mule command line, start Mule as follows:</p> 
-     <div class="listingblock"> 
-      <div class="content"> 
-       <pre>${MULE_HOME}/bin/mule -M-Danypoint.platform.client_id=client_ID -M-Danypoint.platform.client_secret=client_secret start</pre> 
-      </div> 
-     </div> 
+    <li> <p>Log into your Anypoint platform account.</p> </li> 
+    <li> <p>Access the client ID and client secret of the account you are using to create the provider application.</p> </li> 
+    <li> <p>Enter your client Id and client Secret in Anypoint Studio &gt; Preferences &gt; Anypoint Studio &gt; Anypoint Platform for APIs.</p> 
      <div class="paragraph"> 
-      <p>This step is necessary to [test the local provider].</p> 
+      <p>This step is necessary to test the local provider.</p> 
      </div> </li> 
-    <li> <p>In Project Explorer, select the project name oauth2-cust-provider, right-click, and select <strong>Run As</strong> &gt; <strong>Mule Application with Maven</strong>.</p> 
+    <li> <p>In Project Explorer, right-click the project name and select Run As &gt; Mule Application with Maven.</p> </li> 
+    <li> <p>In Configure Maven, enter your Maven installation home directory, and click Test Maven Configuration.</p> 
      <div class="paragraph"> 
-      <p>The Configure Maven dialog appears.</p> 
-     </div> </li> 
-    <li> <p>Enter your Maven installation home directory, and click <strong>Test Maven Configuration</strong>.</p> 
-     <div class="paragraph"> 
-      <p>Assuming the test was successful, click OK; otherwise, troubleshoot the Maven problem.</p> 
-     </div> 
-     <div class="paragraph"> 
-      <p>The console reports that the app deployed. Next, test the local provider.</p> 
+      <p>Assuming the test was successful, click OK; otherwise, troubleshoot the Maven problem. The console reports that the app deployed. Next, test the local provider.</p> 
      </div> </li> 
    </ol> 
+  </div> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="downloads"><a class="anchor" href="#downloads"></a>Downloads</h2> 
+ <div class="sectionbody"> 
+  <div class="paragraph"> 
+   <p><a href="_attachments/OAuthProviderStudioArchive.zip">OAuthProviderStudioArchive</a></p> 
   </div> 
  </div> 
 </div> 
@@ -1195,18 +1140,12 @@
  <div class="sectionbody"> 
   <div class="ulist"> 
    <ul> 
+    <li> <p><a href="/api-manager/to-test-local-provider">Test the provider</a></p> </li> 
     <li> <p><a href="/api-manager/external-oauth-2.0-token-validation-policy">Access Token Enforcement Using External Provider policy</a></p> </li> 
     <li> <p><a href="/api-manager/aes-oauth-faq#about-oauth-provider-models">About the External OAuth 2.0 provider</a></p> </li> 
     <li> <p><a href="/access-management/external-identity">External Identity (setting up PingFederate and OpenAM providers)</a></p> </li> 
+    <li> <p><a href="/access-management/organization#client-id-and-client-secret">Access the client ID and client secret</a></p> </li> 
    </ul> 
-  </div> 
- </div> 
-</div> 
-<div class="sect1"> 
- <h2 id="next"><a class="anchor" href="#next"></a>Next</h2> 
- <div class="sectionbody"> 
-  <div class="paragraph"> 
-   <p><a href="/api-manager/to-test-local-provider">Test the local provider</a></p> 
   </div> 
  </div> 
 </div>
@@ -1214,7 +1153,7 @@
     <!-- END article-content -->
     <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
                 <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#see-also">See Also</a></li><li><a class="scroll-menu-link" href="#next">Next</a></li></ul></div></div><!-- /scroll-menu -->
+                <ul><li><a class="scroll-menu-link" href="#downloads">Downloads</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
   </div>
 </div>
 <!-- START footer -->
