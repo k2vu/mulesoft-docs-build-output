@@ -1045,16 +1045,16 @@
  <h2 id="prerequisites"><a class="anchor" href="#prerequisites"></a>Prerequisites</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>This document assumes that you are familiar with Mule, the&nbsp;<a href="/anypoint-studio/v/6/index">Anypoint&nbsp;Studio interface</a>,&nbsp;<a href="/mule-user-guide/v/3.6/global-elements">Global Elements</a>, <a href="/mule-user-guide/v/3.6/datasense">DataSense</a>, and <a href="/mule-user-guide/v/3.6/batch-processing">batch processing</a> in Mule. Further, it assumes you are familiar with Salesforce and have a Salesforce&nbsp;<a href="http://developer.force.com/">developerforce</a> account.</p> 
+   <p>This document assumes that you are familiar with Mule, the&nbsp;<a href="/anypoint-studio/v/6/index">Anypoint&nbsp;Studio interface</a>,&nbsp;<a href="/mule-user-guide/v/3.6/global-elements">Global Elements</a>, <a href="/mule-user-guide/v/3.6/datasense">DataSense</a>, and <a href="/mule-user-guide/v/3.6/batch-processing">batch processing</a> in Mule. Further, it assumes you are familiar with Salesforce and have a <a href="https://developer.salesforce.com/">Salesforce developer</a> account.</p> 
   </div> 
   <div class="paragraph"> 
    <p>To use the Salesforce connector, you need:</p> 
   </div> 
   <div class="ulist"> 
    <ul> 
-    <li> <p><strong>Studio</strong> - An instance of&nbsp;<a href="http://www.mulesoft.org/download-mule-esb-community-edition">Anypoint&nbsp;Studio</a>.&nbsp;If you don’t use Anypoint Studio for development, follow the instructions below to install Salesforce Maven dependencies in your&nbsp; <code>pom.xml</code> &nbsp;file.</p> </li> 
-    <li> <p><strong>Salesforce&nbsp;developer account</strong> - Sign up for one at&nbsp;http://developer.force.com/.</p> </li> 
-    <li> <p><strong>Security token</strong>&nbsp;-<strong>&nbsp;</strong>Sign into&nbsp;http://developer.force.com/, click&nbsp;your name<strong>&nbsp;</strong> in the upper right corner, then click&nbsp;<strong>Setup</strong> &gt;&nbsp;<strong>My Personal Information</strong> &gt;&nbsp; <strong>Reset Security Token</strong>. Then,&nbsp;click&nbsp;<strong>Reset My Security Token</strong>. Salesforce sends your security token via email to your registered email address.</p> </li> 
+    <li> <p><strong>Studio</strong> - An instance of&nbsp;Anypoint&nbsp;Studio.&nbsp;If you don’t use Anypoint Studio for development, follow the instructions below to install Salesforce Maven dependencies in your&nbsp; <code>pom.xml</code> &nbsp;file.</p> </li> 
+    <li> <p><strong>Salesforce&nbsp;developer account</strong> - Sign up at&nbsp;https://developer.salesforce.com/.</p> </li> 
+    <li> <p><strong>Security token</strong>&nbsp;- Sign into&nbsp;https://developer.salesforce.com/, click&nbsp;your name in the upper right corner, then click&nbsp;<strong>Setup</strong> &gt;&nbsp;<strong>My Personal Information</strong> &gt;&nbsp; <strong>Reset Security Token</strong>. Then,&nbsp;click&nbsp;<strong>Reset My Security Token</strong>. Salesforce sends your security token via email to your registered email address.</p> </li> 
     <li> <p><strong>Consumer key and Secret</strong> - If you are using the Salesforce connector to access an <strong>OAuth API</strong>, you also need a consumer key and secret. Refer to the detailed documentation on how to <a href="/mule-user-guide/v/3.6/using-a-connector-to-access-an-oauth-api">use the Salesforce connector to access an OAuth API</a>.&nbsp;</p> </li> 
    </ul> 
   </div> 
@@ -1065,17 +1065,7 @@
    <h3 id="namespace"><a class="anchor" href="#namespace"></a>Namespace</h3> 
    <div class="listingblock"> 
     <div class="content"> 
-     <pre class="CodeRay highlight"><code data-lang="xml">
-          
-       <table class="CodeRay"> 
-        <tbody> 
-         <tr> 
-          <td class="line-numbers"><pre>1
-</pre></td> 
-          <td class="code"><pre>xmlns:sfdc="http://www.mulesoft.org/schema/mule/sfdc"</pre></td> 
-         </tr> 
-        </tbody> 
-       </table></code></pre> 
+     <pre class="CodeRay highlight"><code data-lang="xml">xmlns:sfdc="http://www.mulesoft.org/schema/mule/sfdc"</code></pre> 
     </div> 
    </div> 
   </div> 
@@ -1857,18 +1847,23 @@ insert pushTopic;</pre></td>
      </tbody> 
     </table> 
    </div> 
-   <div class="olist arabic"> 
-    <ol class="arabic"> 
-     <li> <p><strong>Outbound Connector</strong>: Use as an outbound connector in your flow to push data into Salesforce. To use the connector in this capacity, simply place the connector in your flow at any point after an inbound endpoint (see image below, top). Note that you can also use a Salesforce Connector in a <a href="/mule-user-guide/v/3.6/batch-processing">batch process</a> to push data to Salesforce in batches (see image below, bottom).<br> <span class="image"><img src="./_images/sfdc_outbound.png" alt="sfdc_outbound"></span><br> <span class="image"><img src="./_images/example_batch_output1.png" alt="example_batch_output1"></span></p> </li> 
-     <li> <p><strong>Inbound Connector</strong>: Use the connector in conjunction with a <a href="//developer.mulesoft.com/docs/display/current/Poll+Reference">Pool Scope</a> to behave like an inbound connector in a flow to pull data from Salesforce into your application. To use the connector in this capacity, you must first place a poll scope element at the beginning of your flow, then place a Salesforce Connector within the poll scope (see image below, top). Note that you can also use a poll-wrapped Salesforce Connector at the beginning of a batch process to extract data from Salesforce, then <a href="/mule-user-guide/v/3.6/batch-processing">batch process</a> the content in Mule (see image below, bottom).</p> 
-      <div class="paragraph"> 
-       <p><span class="image"><img src="./_images/poll_inbound.png" alt="image"></span></p> 
-      </div> 
-      <div class="paragraph"> 
-       <p><span class="image"><img src="./_images/example_batch_input1.png" alt="example_batch_input1"></span></p> 
-      </div> </li> 
-     <li> <p><strong>Streaming Inbound Connector:</strong> Use the connector on its own as the inbound connector of your flow, streaming data from Salesforce into your application. To use the connector in this capacity, place a Salesforce Connector at the very beginning of your flow; <strong>Studio automatically converts the connector to Salesforce (Streaming).</strong> Technically, this is still the same connector, but it accesses Salesforce’s Streaming API which, consequently, means that the only operation the converted connector can perform is <code>Subscribe to topic</code> (i.e. subscribe to PushTopic). <br> <span class="image"><img src="./_images/streaming_inbound.png" alt="streaming_inbound"></span></p> </li> 
-    </ol> 
+   <div class="paragraph"> 
+    <p>+ . <strong>Outbound Connector</strong>: Use as an outbound connector in your flow to push data into Salesforce. To use the connector in this capacity, simply place the connector in your flow at any point after an inbound endpoint (see image below, top). Note that you can also use a Salesforce Connector in a <a href="/mule-user-guide/v/3.6/batch-processing">batch process</a> to push data to Salesforce in batches (see image below, bottom).<br> <span class="image"><img src="./_images/sfdc_outbound.png" alt="sfdc_outbound"></span><br> <span class="image"><img src="./_images/example_batch_output1.png" alt="example_batch_output1"></span></p> 
+   </div> 
+   <div class="paragraph"> 
+    <p>+ . <strong>Inbound Connector</strong>: Use the connector in conjunction with a <a href="/mule-user-guide/v/3.6/poll-reference">Poll Scope</a> to behave like an inbound connector in a flow to pull data from Salesforce into your application. To use the connector in this capacity, you must first place a poll scope element at the beginning of your flow, then place a Salesforce Connector within the poll scope (see image below, top). Note that you can also use a poll-wrapped Salesforce Connector at the beginning of a batch process to extract data from Salesforce, then <a href="/mule-user-guide/v/3.6/batch-processing">batch process</a> the content in Mule (see image below, bottom).</p> 
+   </div> 
+   <div class="paragraph"> 
+    <p>+ <span class="image"><img src="./_images/poll_inbound.png" alt="image"></span></p> 
+   </div> 
+   <div class="paragraph"> 
+    <p>+ <span class="image"><img src="./_images/example_batch_input1.png" alt="example_batch_input1"></span></p> 
+   </div> 
+   <div class="paragraph"> 
+    <p>+ . <strong>Streaming Inbound Connector:</strong> Use the connector on its own as the inbound connector of your flow, streaming data from Salesforce into your application. To use the connector in this capacity, place a Salesforce Connector at the very beginning of your flow; Studio automatically converts the connector to Salesforce (Streaming). Technically, this is still the same connector, but it accesses Salesforce’s Streaming API which, consequently, means that the only operation the converted connector can perform is <code>Subscribe to topic</code> (that is, subscribe to PushTopic).</p> 
+   </div> 
+   <div class="paragraph"> 
+    <p>+ <span class="image"><img src="./_images/streaming_inbound.png" alt="streaming_inbound"></span></p> 
    </div> 
   </div> 
   <div class="sect2"> 
@@ -1922,7 +1917,10 @@ insert pushTopic;</pre></td>
    <h3 id="tips"><a class="anchor" href="#tips"></a>Tips</h3> 
    <div class="ulist"> 
     <ul> 
-     <li> <p><strong>Upsert</strong>: Unless you configure the <strong><a href="http://help.salesforce.com/apex/HTViewHelpDoc?id=faq_import_general_what_is_an_external.htm">External ID</a> Field Name</strong> for the <a href="http://www.salesforce.com/us/developer/docs/officetoolkit/Content/sforce_api_objects_list.htm">sObject</a> to which you’re trying to upsert, every use of the upsert will fail.&nbsp;<br> <span class="image"><img src="./_images/upsert.png" alt="upsert"></span></p> </li> 
+     <li> <p><strong>Upsert</strong>: Unless you configure the <strong><a href="http://help.salesforce.com/apex/HTViewHelpDoc?id=faq_import_general_what_is_an_external.htm">External ID</a> Field Name</strong> for the <a href="http://www.salesforce.com/us/developer/docs/officetoolkit/Content/sforce_api_objects_list.htm">sObject</a> to which you’re trying to upsert, every use of the upsert fails.</p> 
+      <div class="paragraph"> 
+       <p><span class="image"><img src="./_images/upsert.png" alt="upsert"></span></p> 
+      </div> </li> 
      <li> <p><strong>Upsert</strong>: The upsert operation does not work with the sObject &nbsp;<code>priceBookentry2</code>.&nbsp;</p> </li> 
      <li> <p><strong>Inserting into Drop-Down</strong>: Be aware, inserting dependent values into an existing drop-down list field in Salesforce doesn’t always work. Test to confirm functionality.</p> </li> 
      <li> <p><strong>Evaluating Values in Drop-Down</strong>: If you’re evaluating against a value in an existing drop-down list field in Salesforce, be sure to use the <em>exact value</em> in the drop-down. For example, if you use the value "US" to evaluate against the contents of a drop-down list which contains the value "USA", the evaluation will work, but you’ll end up with two values in the drop-down: one for US and one for USA.</p> </li> 
@@ -2016,7 +2014,7 @@ insert pushTopic;</pre></td>
     <li> <p>Click the HTTP connector, click the green plus to the right of&nbsp;<strong>Connector Configuration</strong>, and in the next screen, click&nbsp;<strong>OK</strong>&nbsp;to accept the default settings.</p> </li> 
     <li> <p>Search for&nbsp;<strong>sales</strong>&nbsp;and drag the&nbsp;<strong>Salesforce</strong>&nbsp;connector to the canvas. Configure as before.</p> </li> 
     <li> <p>Click the <strong>Invoke apex method</strong> operation.<br> Datasense brings all the available Apex methods (for the classes set under Apex Class Names in the connector configuration, or all the Apex classes if None is selected for this parameter).</p> </li> 
-    <li> <p>Select a method that DataSense has brought in the drop-down for <strong>Apex Class Method Name</strong>. Let us say we choose <strong>Customorderutils - Createorder.</strong> After choosing a method, DataSense brings the input and output format for that specific method.</p> </li> 
+    <li> <p>Select a method that DataSense has brought in the drop-down for <strong>Apex Class Method Name</strong>. Let us say we choose Customorderutils - Createorder. After choosing a method, DataSense brings the input and output format for that specific method.</p> </li> 
     <li> <p>Add a DataMapper in front and after the connector. If Payload - Unknown is listed in the DataMapper then the method either has no input or it returns nothing. If DataMapper detects any input for the method, it looks something like:</p> 
      <div class="paragraph"> 
       <p><span class="image"><img src="./_images/SFDCuseCaseEx.png" alt="SFDCuseCaseEx"></span><br></p> 
@@ -2098,7 +2096,7 @@ insert pushTopic;</pre></td>
 31
 </pre></td> 
           <td class="code"><pre><span class="tag">&lt;mule</span> <span class="attribute-name">xmlns:data-mapper</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/ee/data-mapper</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:http</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/http</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:sfdc</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/sfdc</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/core</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:doc</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/documentation</span><span class="delimiter">"</span></span>
-<span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="attribute-name">xmlns:spring</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.springframework.org/schema/beans</span><span class="delimiter">"</span></span> <span class="attribute-name">version</span>=<span class="string"><span class="delimiter">"</span><span class="content">EE-3.6.1</span><span class="delimiter">"</span></span>
+<span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="attribute-name">xmlns:spring</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.springframework.org/schema/beans</span><span class="delimiter">"</span></span>
 <span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="attribute-name">xmlns:xsi</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.w3.org/2001/XMLSchema-instance</span><span class="delimiter">"</span></span>
 <span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="attribute-name">xsi:schemaLocation</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd</span>
 <span class="content">http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd</span>

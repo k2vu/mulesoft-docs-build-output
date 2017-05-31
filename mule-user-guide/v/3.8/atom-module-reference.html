@@ -1062,17 +1062,7 @@
   </div> 
   <div class="listingblock"> 
    <div class="content"> 
-    <pre class="CodeRay highlight"><code data-lang="code">
-         
-      <table class="CodeRay"> 
-       <tbody> 
-        <tr> 
-         <td class="line-numbers"><pre>1
-</pre></td> 
-         <td class="code"><pre>http://www.mulesoft.org/schema/mule/atom http://www.mulesoft.org/schema/mule/atom/current/mule-atom.xsd</pre></td> 
-        </tr> 
-       </tbody> 
-      </table></code></pre> 
+    <pre class="CodeRay highlight"><code>http://www.mulesoft.org/schema/mule/atom http://www.mulesoft.org/schema/mule/atom/current/mule-atom.xsd</code></pre> 
    </div> 
   </div> 
  </div> 
@@ -1158,7 +1148,7 @@
     </tbody> 
    </table> 
    <div class="paragraph"> 
-    <p>Use an atom feed splitter to split an incoming feed into individual messages and invoke the component method for each entry in the feed:</p> 
+    <p>Use an Atom feed splitter to split an incoming feed into individual messages and invoke the component method for each entry in the feed:</p> 
    </div> 
    <div class="listingblock"> 
     <div class="content"> 
@@ -1491,7 +1481,7 @@
     </tbody> 
    </table> 
    <div class="paragraph"> 
-    <p><strong>Note</strong>:&nbsp;In the code example,&nbsp;<code>spring-beans-current.xsd</code>&nbsp;is a placeholder. To locate the correct version, see&nbsp;http://www.springframework.org/schema/beans/.</p> 
+    <p><strong>Note</strong>:&nbsp;In the code example,&nbsp;<code>spring-beans-current.xsd</code>&nbsp;is a placeholder. To locate the correct version, see&nbsp;link:http://www.springframework.org/schema/beans/[Spring Beans versions.</p> 
    </div> 
    <div class="paragraph"> 
     <p>The <code>&lt;a:provider&gt;</code> creates an Abdera DefaultProvider and allows you to add workspaces and collections to it. This <code>provider</code> reference is used by the the <code>&lt;atom:component/&gt;</code> in Mule to store any events sent to the component.</p> 
@@ -1639,7 +1629,7 @@
    </tbody> 
   </table> 
   <div class="paragraph"> 
-   <p>You can also post Media entries quite simply. In this case it takes whatever your message payload is and posts it to the collection as a media entry. You can supply your own Slug via configuration or by setting a property on the mule message.</p> 
+   <p>You can also post Media entries quite simply. In this case it takes whatever your message payload is and posts it to the collection as a media entry. You can supply your own Slug via configuration or by setting a property on the Mule message.</p> 
   </div> 
   <table class="tableblock frame-all grid-all spread"> 
    <colgroup> 
@@ -2069,7 +2059,7 @@
  <h2 id="schema"><a class="anchor" href="#schema"></a>Schema</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p><a href="http://www.mulesoft.org/docs/site/current3/schemadocs/namespaces/http_www_mulesoft_org_schema_mule_atom/namespace-overview.html" class="bare">http://www.mulesoft.org/docs/site/current3/schemadocs/namespaces/http_www_mulesoft_org_schema_mule_atom/namespace-overview.html</a></p> 
+   <p><a href="http://www.mulesoft.org/docs/site/current3/schemadocs/namespaces/http_www_mulesoft_org_schema_mule_atom/namespace-overview.html">Atom namespace overview</a></p> 
   </div> 
  </div> 
 </div> 
@@ -2088,7 +2078,7 @@
  <h2 id="maven"><a class="anchor" href="#maven"></a>Maven</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>The ATOM Module can be included with the following dependency:</p> 
+   <p>The Atom Module can be included with the following dependency:</p> 
   </div> 
   <div class="listingblock"> 
    <div class="content"> 
@@ -2118,14 +2108,14 @@
 <div class="sect1"> 
  <h2 id="points-of-etiquette-when-polling-atom-feeds"><a class="anchor" href="#points-of-etiquette-when-polling-atom-feeds"></a>Points of Etiquette When Polling Atom Feeds</h2> 
  <div class="sectionbody"> 
-  <div class="olist arabic"> 
-   <ol class="arabic"> 
+  <div class="ulist"> 
+   <ul> 
     <li> <p>Make use of HTTP cache. Send ETag and LastModified headers. Recognize 304 Not modified response. This way you can save a lot of bandwidth. Additionally some scripts recognize the LastModified header and return only partial contents, such as only the two or three newest items instead of all 30 or so.</p> </li> 
     <li> <p>Don’t poll RSS from services that supports RPC Ping (or other PUSH service, such as PubSubHubBub). If you’re receiving PUSH notifications from a service, you don’t have to poll the data in the standard interval — do it once a day to check if the mechanism still works or not (ping can be disabled, reconfigured, damaged, etc). This way you can fetch RSS only on receiving notification, not every hour or so.</p> </li> 
-    <li> <p>Check the TTL (in RSS) or cache control headers (Expires in ATOM), and don’t fetch until resource expires.</p> </li> 
+    <li> <p>Check the TTL (in RSS) or cache control headers (Expires in Atom), and don’t fetch until resource expires.</p> </li> 
     <li> <p>Try to adapt to frequency of new items in each single RSS feed. If in the past week there were only two updates in particular feed, don’t fetch it more than once a day. AFAIR Google Reader does that.</p> </li> 
     <li> <p>Lower the rate at night hours or other time when the traffic on your site is low.</p> </li> 
-   </ol> 
+   </ul> 
   </div> 
  </div> 
 </div> 
