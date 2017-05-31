@@ -1220,7 +1220,7 @@
   <div class="sect2"> 
    <h3 id="preparations"><a class="anchor" href="#preparations"></a>Preparations</h3> 
    <div class="paragraph"> 
-    <p>You must download a copy of the WSDL file to your local disk and include it in your Maven project. &nbsp;For the Web service in this example, you can download the WSDL from <a href="http://www.webservicex.net/sunsetriseservice.asmx?WSDL" class="bare">http://www.webservicex.net/sunsetriseservice.asmx?WSDL</a>.</p> 
+    <p>You must download a copy of the WSDL file to your local disk and include it in your Maven project. &nbsp;For the Web service in this example, you can download the WSDL from <code>http://www.webservicex.net/sunsetriseservice.asmx?WSDL</code>.</p> 
    </div> 
    <div class="paragraph"> 
     <p>See <a href="/anypoint-connector-devkit/v/3.5/setting-up-your-api-access">Setting Up Your API Access</a> for steps that may be required to gain access to other APIs, including how to get access to the WSDL file.</p> 
@@ -1431,43 +1431,43 @@
 &nbsp;&nbsp;<span class="tag">&lt;version&gt;</span>${cxf.version}<span class="tag">&lt;/version&gt;</span>
 &nbsp;&nbsp;<span class="tag">&lt;executions&gt;</span>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;execution&gt;</span>
-                                <span class="comment">&lt;!-- Note that validate phase is not the usual phase
-                                                 to run wsdl2java. This is done because DevKit requires
-                                                 that the class be generated so it can be used in
-                                                 the generate-sources phase by DevKit. DevKit generates
-                                                 code from annotations etc and references the wsdl2java
-                                                 generated output.
-                                --&gt;</span>
-                                <span class="tag">&lt;phase&gt;</span>validate<span class="tag">&lt;/phase&gt;</span>
-                                <span class="tag">&lt;goals&gt;</span>
-                                &nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;goal&gt;</span>wsdl2java<span class="tag">&lt;/goal&gt;</span>
-                                <span class="tag">&lt;/goals&gt;</span>
-                                <span class="tag">&lt;configuration&gt;</span>
-                                &nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;wsdlOptions&gt;</span>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;wsdlOption&gt;</span>
-                                <span class="comment">&lt;!-- WSDL file path --&gt;</span>
-                                <span class="tag">&lt;wsdl&gt;</span>${connector.wsdl}<span class="tag">&lt;/wsdl&gt;</span>
-                                <span class="comment">&lt;!-- Pick up the WSDL from within the JAR --&gt;</span>
-                                <span class="tag">&lt;wsdlLocation&gt;</span>${connector.wsdlLocation}<span class="tag">&lt;/wsdlLocation&gt;</span>
-                                <span class="tag">&lt;autoNameResolution&gt;</span>true<span class="tag">&lt;/autoNameResolution&gt;</span>
-                                <span class="tag">&lt;extraargs&gt;</span>
-                                &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">&lt;!-- Package Destination --&gt;</span>
-                                &nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;extraarg&gt;</span>-p<span class="tag">&lt;/extraarg&gt;</span>
-                                &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">&lt;!-- Name of the output package specified following -p argument
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to wsdl2java --&gt;</span>
-                                &nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;extraarg&gt;</span>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${connector.package}
-                                &nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/extraarg&gt;</span>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">&lt;!-- DataMapper compatibility requires that the
-                                                                                 boolean getters and setters follow naming conventions
-                                                                                 for other getters and setters.
-                                                                --&gt;</span>
-                                &nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;extraarg&gt;</span>-xjc-Xbg<span class="tag">&lt;/extraarg&gt;</span>
-                                &nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;extraarg&gt;</span>-xjc-Xcollection-setter-injector<span class="tag">&lt;/extraarg&gt;</span>
-                                <span class="tag">&lt;/extraargs&gt;</span>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/wsdlOption&gt;</span>
-                                &nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/wsdlOptions&gt;</span>
-                                <span class="tag">&lt;/configuration&gt;</span>
+        <span class="comment">&lt;!-- Note that validate phase is not the usual phase
+         to run wsdl2java. This is done because DevKit requires
+         that the class be generated so it can be used in
+         the generate-sources phase by DevKit. DevKit generates
+         code from annotations etc and references the wsdl2java
+         generated output.
+        --&gt;</span>
+        <span class="tag">&lt;phase&gt;</span>validate<span class="tag">&lt;/phase&gt;</span>
+        <span class="tag">&lt;goals&gt;</span>
+            <span class="tag">&lt;goal&gt;</span>wsdl2java<span class="tag">&lt;/goal&gt;</span>
+        <span class="tag">&lt;/goals&gt;</span>
+        <span class="tag">&lt;configuration&gt;</span>
+            <span class="tag">&lt;wsdlOptions&gt;</span>
+                <span class="tag">&lt;wsdlOption&gt;</span>
+        <span class="comment">&lt;!-- WSDL file path --&gt;</span>
+        <span class="tag">&lt;wsdl&gt;</span>${connector.wsdl}<span class="tag">&lt;/wsdl&gt;</span>
+        <span class="comment">&lt;!-- Pick up the WSDL from within the JAR --&gt;</span>
+        <span class="tag">&lt;wsdlLocation&gt;</span>${connector.wsdlLocation}<span class="tag">&lt;/wsdlLocation&gt;</span>
+        <span class="tag">&lt;autoNameResolution&gt;</span>true<span class="tag">&lt;/autoNameResolution&gt;</span>
+        <span class="tag">&lt;extraargs&gt;</span>
+            <span class="comment">&lt;!-- Package Destination --&gt;</span>
+            <span class="tag">&lt;extraarg&gt;</span>-p<span class="tag">&lt;/extraarg&gt;</span>
+            <span class="comment">&lt;!-- Name of the output package specified following -p argument
+                to wsdl2java --&gt;</span>
+            <span class="tag">&lt;extraarg&gt;</span>
+                ${connector.package}
+            <span class="tag">&lt;/extraarg&gt;</span>
+                <span class="comment">&lt;!-- DataMapper compatibility requires that the
+                     boolean getters and setters follow naming conventions
+                     for other getters and setters.
+                --&gt;</span>
+            <span class="tag">&lt;extraarg&gt;</span>-xjc-Xbg<span class="tag">&lt;/extraarg&gt;</span>
+            <span class="tag">&lt;extraarg&gt;</span>-xjc-Xcollection-setter-injector<span class="tag">&lt;/extraarg&gt;</span>
+        <span class="tag">&lt;/extraargs&gt;</span>
+                <span class="tag">&lt;/wsdlOption&gt;</span>
+            <span class="tag">&lt;/wsdlOptions&gt;</span>
+        <span class="tag">&lt;/configuration&gt;</span>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/execution&gt;</span>
 &nbsp;&nbsp;<span class="tag">&lt;/executions&gt;</span>
         <span class="tag">&lt;dependencies&gt;</span>
@@ -1495,7 +1495,7 @@
     </div> 
     <div class="ulist"> 
      <ul> 
-      <li> <p>The <code>connector.package</code>,&nbsp;<code>connector.wsdl</code> and <code>connector.wsdlLocation</code> properties you added are referenced here</p> </li> 
+      <li> <p>The <code>connector.package</code>,&nbsp;<code>connector.wsdl</code>, and <code>connector.wsdlLocation</code> properties you added are referenced here</p> </li> 
       <li> <p>The&nbsp;xjc-Xbg argument is included to enable wsdl2java to generate getters and setters that follow the naming convention of other Java bean getters and setters. This is required for compatibility with DataSense and DataMapper</p> </li> 
       <li> <p>The wsdl2java code generation is performed during the Maven validate&nbsp;phase. The generated code from wsdl2java is required in the generate-sources phase&nbsp;of the build process, where DevKit code generation references these sources.&nbsp;</p> </li> 
      </ul> 
@@ -2201,17 +2201,7 @@
    </div> 
    <div class="listingblock"> 
     <div class="content"> 
-     <pre class="CodeRay highlight"><code data-lang="code">
-          
-       <table class="CodeRay"> 
-        <tbody> 
-         <tr> 
-          <td class="line-numbers"><pre>1
-</pre></td> 
-          <td class="code"><pre>mvn clean install</pre></td> 
-         </tr> 
-        </tbody> 
-       </table></code></pre> 
+     <pre class="CodeRay highlight"><code>mvn clean install</code></pre> 
     </div> 
    </div> 
    <div class="paragraph"> 
