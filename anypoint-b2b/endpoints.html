@@ -717,7 +717,7 @@
 <li class="expanded">
 <i></i>
 <a href="/anypoint-b2b/partner-configuration">Partner Configuration</a><ul style="display: block;">
-<li><i></i><a href="/anypoint-b2b/company-information">Company Information</a></li><li><i></i><a href="/anypoint-b2b/identifiers">Identifiers</a></li><li><i></i><a href="/anypoint-b2b/on-hold-inactive">On-Hold/Inactive</a></li><li><i></i><a href="/anypoint-b2b/as2-certificate">AS2 Certificate</a></li><li><i></i><a href="/anypoint-b2b/x12-settings">X12 Settings</a></li><li><i></i><a href="/anypoint-b2b/edifact-settings">EDIFACT Settings</a></li><li><i></i><a href="/anypoint-b2b/csv-settings">CSV Settings</a></li><li><i></i><a href="/anypoint-b2b/document-types">Document Types</a></li><li class="active"><i></i><a href="/anypoint-b2b/endpoints">Endpoints</a></li><li><i></i><a href="/anypoint-b2b/maps">Maps</a></li><li><i></i><a href="/anypoint-b2b/channels">Channels</a></li><li><i></i><a href="/anypoint-b2b/routes">Routes</a></li><li><i></i><a href="/anypoint-b2b/partner-conversations">Partner Conversations</a></li></ul></li>
+<li><i></i><a href="/anypoint-b2b/company-information">Company Information</a></li><li><i></i><a href="/anypoint-b2b/identifiers">Identifiers</a></li><li><i></i><a href="/anypoint-b2b/on-hold-inactive">On-Hold/Inactive</a></li><li><i></i><a href="/anypoint-b2b/certificate">Certificate</a></li><li><i></i><a href="/anypoint-b2b/x12-settings">X12 Settings</a></li><li><i></i><a href="/anypoint-b2b/edifact-settings">EDIFACT Settings</a></li><li><i></i><a href="/anypoint-b2b/csv-settings">CSV Settings</a></li><li><i></i><a href="/anypoint-b2b/document-types">Document Types</a></li><li class="active"><i></i><a href="/anypoint-b2b/endpoints">Endpoints</a></li><li><i></i><a href="/anypoint-b2b/maps">Maps</a></li><li><i></i><a href="/anypoint-b2b/channels">Channels</a></li><li><i></i><a href="/anypoint-b2b/routes">Routes</a></li><li><i></i><a href="/anypoint-b2b/partner-conversations">Partner Conversations</a></li><li><i></i><a href="/anypoint-b2b/rosettanet-pips">RosettaNet PIPs</a></li><li><i></i><a href="/anypoint-b2b/rosettanet-agreements">RosettaNet Agreements</a></li></ul></li>
 <li>
 <i></i>
 <a href="/anypoint-b2b/administration">Administration</a><ul>
@@ -1127,7 +1127,7 @@
    <ol class="arabic"> 
     <li> <p>On the <a href="#img-endpoints">Endpoints Page</a>, click <strong>New</strong>.</p> 
      <div class="paragraph"> 
-      <p>The <a href="#img-endpoint-add">Endpoint Page</a> appears.</p> 
+      <p>The <a href="#img-endpoint-add">Add New Endpoint Page</a> appears.</p> 
      </div> </li> 
    </ol> 
   </div> 
@@ -1136,7 +1136,7 @@
     <img src="./_images/endpoint.png" alt="img-endpoint-add"> 
    </div> 
    <div class="title">
-     Figure 3. Endpoint Page 
+     Figure 3. Add New Endpoint Page 
    </div> 
   </div> 
   <div class="olist arabic"> 
@@ -1158,9 +1158,9 @@
    <h3 id="a-id-choose-a-choose-endpoint-name-protocol-and-type"><a class="anchor" href="#a-id-choose-a-choose-endpoint-name-protocol-and-type"></a><a id="choose"></a>Choose Endpoint Name, Protocol and Type</h3> 
    <div class="olist arabic"> 
     <ol class="arabic"> 
-     <li> <p>On the <a href="#img-endpoint-add">Endpoint Page</a>, enter the appropriate settings.</p> 
+     <li> <p>On the <a href="#img-endpoint-add">Add New Endpoint Page</a>, enter the appropriate settings.</p> 
       <div class="paragraph"> 
-       <p>When you have entered settings for <strong>Name</strong>, <strong>Protocol</strong> and <strong>Type</strong>, the <a href="#img-endpoint-add">Endpoint Page</a> becomes the <a href="#img-endpoint-settings">Endpoint Page</a>.</p> 
+       <p>When you have entered settings for <strong>Name</strong>, <strong>Protocol</strong> and <strong>Type</strong>, the <a href="#img-endpoint-add">Add New Endpoint Page</a> becomes the <a href="#img-endpoint-settings">Endpoint Page</a>.</p> 
       </div> 
       <div class="paragraph"> 
        <p>For information about Protocol- and Type-specific settings, go to the corresponding section in <a href="#to-enter-protocol-type-specific-endpoint-settings">To Enter Protocol/Type-Specific Endpoint Settings</a>.</p> 
@@ -1249,6 +1249,7 @@
                 <li> <p>'SMTP'</p> </li> 
                 <li> <p>'POP3'</p> </li> 
                 <li> <p>'IMAP'</p> </li> 
+                <li> <p>'RNIF'</p> </li> 
                </ul> 
               </div> 
              </dd> 
@@ -1310,7 +1311,7 @@
        </tbody> 
       </table> 
       <div class="paragraph"> 
-       <p>When you have entered settings for <strong>Name</strong>, <strong>Protocol</strong> and <strong>Type</strong>, additional settings specific to the protocol-type combination appear; the <a href="#img-endpoint-add">Endpoint Page</a> becomes the <a href="#img-endpoint-settings">Endpoint Page</a>. For information about the additional settings, go to the appropriate Protocol-Type combination in <a href="#to-enter-protocol-type-specific-endpoint-settings">To Enter Protocol/Type-Specific Endpoint Settings</a>.</p> 
+       <p>When you have entered settings for <strong>Name</strong>, <strong>Protocol</strong> and <strong>Type</strong>, additional settings specific to the protocol-type combination appear; the <a href="#img-endpoint-add">Add New Endpoint Page</a> becomes the <a href="#img-endpoint-settings">Endpoint Page</a>. For information about the additional settings, go to the appropriate Protocol-Type combination in <a href="#to-enter-protocol-type-specific-endpoint-settings">To Enter Protocol/Type-Specific Endpoint Settings</a>.</p> 
       </div> </li> 
     </ol> 
    </div> 
@@ -1352,6 +1353,8 @@
      <li> <p><a href="#smtp-send-settings">SMTP Send Settings</a></p> </li> 
      <li> <p><a href="#pop3-receive-settings">POP3 Receive Settings</a></p> </li> 
      <li> <p><a href="#imap-receive-settings">IMAP Receive Settings</a></p> </li> 
+     <li> <p><a href="#RNIF Send Settings">[RNIF Send Settings]</a></p> </li> 
+     <li> <p><a href="#RNIF Receive Settings">[RNIF Receive Settings]</a></p> </li> 
     </ul> 
    </div> 
   </div> 
@@ -3954,12 +3957,147 @@
    </table> 
   </div> 
  </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="rnif-settings"><a class="anchor" href="#rnif-settings"></a>RNIF Settings</h2> 
+ <div class="sectionbody"> 
+  <div class="paragraph"> 
+   <p>RNIF Settings pertain to trading partner-specific RNIF settings such as <strong>Receive Http Reference</strong>.</p> 
+  </div> 
+  <div class="sect2"> 
+   <h3 id="receive"><a class="anchor" href="#receive"></a>Receive</h3> 
+   <table class="tableblock frame-all grid-all spread"> 
+    <colgroup> 
+     <col style="width: 30%;"> 
+     <col style="width: 70%;"> 
+    </colgroup> 
+    <thead> 
+     <tr> 
+      <th class="tableblock halign-left valign-top">Setting</th> 
+      <th class="tableblock halign-left valign-top">Description</th> 
+     </tr> 
+    </thead> 
+    <tbody> 
+     <tr> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Receive Http Reference</strong></p></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p>Name of global HTTP listener connector configuration for this organization’s endpoint.</p> 
+        </div> 
+        <div class="dlist"> 
+         <dl> 
+          <dt class="hdlist1">
+            Required? 
+          </dt> 
+          <dd> 
+           <p>Yes</p> 
+          </dd> 
+          <dt class="hdlist1">
+            Valid values 
+          </dt> 
+          <dd> 
+           <p>String</p> 
+          </dd> 
+          <dt class="hdlist1">
+            Default 
+          </dt> 
+          <dd> 
+           <p>None</p> 
+          </dd> 
+         </dl> 
+        </div> 
+       </div></td> 
+     </tr> 
+     <tr> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Service Path</strong></p></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p>Path relative to the <strong>Receive Http Reference</strong>; required for multiple paths under a single server.</p> 
+        </div> 
+        <div class="dlist"> 
+         <dl> 
+          <dt class="hdlist1">
+            Valid values 
+          </dt> 
+          <dd> 
+           <p>String</p> 
+          </dd> 
+          <dt class="hdlist1">
+            Required 
+          </dt> 
+          <dd> 
+           <p>Yes</p> 
+          </dd> 
+          <dt class="hdlist1">
+            Default 
+          </dt> 
+          <dd> 
+           <p>None</p> 
+          </dd> 
+         </dl> 
+        </div> 
+       </div></td> 
+     </tr> 
+    </tbody> 
+   </table> 
+  </div> 
+  <div class="sect2"> 
+   <h3 id="send"><a class="anchor" href="#send"></a>Send</h3> 
+   <table class="tableblock frame-all grid-all spread"> 
+    <colgroup> 
+     <col style="width: 30%;"> 
+     <col style="width: 70%;"> 
+    </colgroup> 
+    <thead> 
+     <tr> 
+      <th class="tableblock halign-left valign-top">Setting</th> 
+      <th class="tableblock halign-left valign-top">Description</th> 
+     </tr> 
+    </thead> 
+    <tbody> 
+     <tr> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Send Http Reference</strong></p></td> 
+      <td class="tableblock halign-left valign-top"> 
+       <div> 
+        <div class="paragraph"> 
+         <p>Name of global HTTP request connector configuration for partner organization’s endpoint.</p> 
+        </div> 
+        <div class="dlist"> 
+         <dl> 
+          <dt class="hdlist1">
+            Valid values 
+          </dt> 
+          <dd> 
+           <p>String</p> 
+          </dd> 
+          <dt class="hdlist1">
+            Required? 
+          </dt> 
+          <dd> 
+           <p>No</p> 
+          </dd> 
+          <dt class="hdlist1">
+            Default 
+          </dt> 
+          <dd> 
+           <p>None</p> 
+          </dd> 
+         </dl> 
+        </div> 
+       </div></td> 
+     </tr> 
+    </tbody> 
+   </table> 
+  </div> 
+ </div> 
 </div>
     </div>
     <!-- END article-content -->
     <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
                 <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#get-started">Get Started</a></li><li><a class="scroll-menu-link" href="#edit-an-existing-endpoint">Edit an Existing Endpoint</a></li><li><a class="scroll-menu-link" href="#add-a-new-endpoint">Add a New Endpoint</a></li><li><a class="scroll-menu-link" href="#protocol-type-specific-endpoint-settings">Protocol/Type-Specific Endpoint Settings</a></li><li><a class="scroll-menu-link" href="#as2-send-settings">AS2 Send Settings</a></li><li><a class="scroll-menu-link" href="#as2-receive-settings">AS2 Receive Settings</a></li><li><a class="scroll-menu-link" href="#ftp-send-settings">FTP Send Settings</a></li><li><a class="scroll-menu-link" href="#ftps-send-settings">FTPS Send Settings</a></li><li><a class="scroll-menu-link" href="#ftps-receive-settings">FTPS Receive Settings</a></li><li><a class="scroll-menu-link" href="#sftp-send-settings">SFTP Send Settings</a></li><li><a class="scroll-menu-link" href="#sftp-receive-settings">SFTP Receive Settings</a></li><li><a class="scroll-menu-link" href="#http-send-settings">HTTP Send Settings</a></li><li><a class="scroll-menu-link" href="#http-receive-settings">HTTP Receive Settings</a></li><li><a class="scroll-menu-link" href="#jms-send-settings">JMS Send Settings</a></li><li><a class="scroll-menu-link" href="#jms-receive-settings">JMS Receive Settings</a></li><li><a class="scroll-menu-link" href="#smtp-send-settings">SMTP Send Settings</a></li><li><a class="scroll-menu-link" href="#pop3-receive-settings">POP3 Receive Settings</a></li><li><a class="scroll-menu-link" href="#imap-receive-settings">IMAP Receive Settings</a></li></ul></div></div><!-- /scroll-menu -->
+                <ul><li><a class="scroll-menu-link" href="#get-started">Get Started</a></li><li><a class="scroll-menu-link" href="#edit-an-existing-endpoint">Edit an Existing Endpoint</a></li><li><a class="scroll-menu-link" href="#add-a-new-endpoint">Add a New Endpoint</a></li><li><a class="scroll-menu-link" href="#protocol-type-specific-endpoint-settings">Protocol/Type-Specific Endpoint Settings</a></li><li><a class="scroll-menu-link" href="#as2-send-settings">AS2 Send Settings</a></li><li><a class="scroll-menu-link" href="#as2-receive-settings">AS2 Receive Settings</a></li><li><a class="scroll-menu-link" href="#ftp-send-settings">FTP Send Settings</a></li><li><a class="scroll-menu-link" href="#ftps-send-settings">FTPS Send Settings</a></li><li><a class="scroll-menu-link" href="#ftps-receive-settings">FTPS Receive Settings</a></li><li><a class="scroll-menu-link" href="#sftp-send-settings">SFTP Send Settings</a></li><li><a class="scroll-menu-link" href="#sftp-receive-settings">SFTP Receive Settings</a></li><li><a class="scroll-menu-link" href="#http-send-settings">HTTP Send Settings</a></li><li><a class="scroll-menu-link" href="#http-receive-settings">HTTP Receive Settings</a></li><li><a class="scroll-menu-link" href="#jms-send-settings">JMS Send Settings</a></li><li><a class="scroll-menu-link" href="#jms-receive-settings">JMS Receive Settings</a></li><li><a class="scroll-menu-link" href="#smtp-send-settings">SMTP Send Settings</a></li><li><a class="scroll-menu-link" href="#pop3-receive-settings">POP3 Receive Settings</a></li><li><a class="scroll-menu-link" href="#imap-receive-settings">IMAP Receive Settings</a></li><li><a class="scroll-menu-link" href="#rnif-settings">RNIF Settings</a></li></ul></div></div><!-- /scroll-menu -->
   </div>
 </div>
 <!-- START footer -->
