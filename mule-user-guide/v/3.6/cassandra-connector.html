@@ -1059,149 +1059,141 @@
  <h2 id="installing-cassandra-connector-in-anypoint-studio"><a class="anchor" href="#installing-cassandra-connector-in-anypoint-studio"></a>Installing Cassandra Connector in Anypoint Studio</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>You can "test drive" a connector in Anypoint Studio using the instructions in&nbsp;<a href="/getting-started/anypoint-exchange#installing-a-connector-from-anypoint-exchange">Installing a Connector from Anypoint Exchange</a>.&nbsp;</p> 
+   <p>You can "test drive" a connector in Anypoint Studio using the instructions in&nbsp;<a href="/mule-user-guide/v/3.6/installing-connectors">To Install a Connector from Anypoint Exchange</a>.</p> 
   </div> 
  </div> 
 </div> 
 <div class="sect1"> 
- <h2 id="configuring-the-cassandra-connector"><a class="anchor" href="#configuring-the-cassandra-connector"></a>Configuring the Cassandra Connector</h2> 
+ <h2 id="configuring-the-cassandra-connector-from-the-studio-visual-editor"><a class="anchor" href="#configuring-the-cassandra-connector-from-the-studio-visual-editor"></a>Configuring the Cassandra Connector from the Studio Visual Editor</h2> 
  <div class="sectionbody"> 
-  <div class="panel panel-default no-padding"> 
-   <div class="panel-heading no-padding"> 
-    <!-- Nav tabs --> 
-    <ul class="nav nav-tabs" role="tablist"> 
-     <li class="active"><a href="#tab-1_1" role="tab" data-toggle="tab">STUDIO Visual Editor</a></li> 
-     <li><a href="#tab-1_2" role="tab" data-toggle="tab">XML Editor</a></li> 
-    </ul> 
-   </div> 
-   <div class="panel-body tab-content no-padding"> 
-    <div class="tab-pane in active fade no-padding" id="tab-1_1"> 
+  <div class="paragraph"> 
+   <p>To use the CassandraDB connector in your Mule application, you must configure:</p> 
+  </div> 
+  <div class="ulist"> 
+   <ul> 
+    <li> <p>A global CassandraDB element for use by all the CassandraDB connectors in an application. For more information, see&nbsp;<a href="/mule-user-guide/v/3.6/global-elements">Mule Global Elements</a>.</p> </li> 
+    <li> <p>Parameters of each CassandraDB connector instance in the application.</p> </li> 
+   </ul> 
+  </div> 
+  <div class="paragraph"> 
+   <p>Follow these steps to configure CassandraDB connector in a Mule application:</p> 
+  </div> 
+  <div class="olist arabic"> 
+   <ol class="arabic"> 
+    <li> <p>Click the <strong>Global Elements</strong> tab at the base of the canvas, then click <strong>Create</strong>.</p> </li> 
+    <li> <p>In the <strong>Choose Global Type</strong> menu, use the filter to locate and select <strong>CassandraDB</strong>, then click <strong>OK</strong>.</p> </li> 
+    <li> <p>Configure the parameters according to the table below</p> 
      <div class="paragraph"> 
-      <p>To use the CassandraDB connector in your Mule application, you must configure:</p> 
+      <p><span class="image"><img src="./_images/Config.png" alt="Config"></span></p> 
      </div> 
-     <div class="ulist"> 
-      <ul> 
-       <li> <p>A global CassandraDB element for use by all the CassandraDB connectors in an application. For more information, see&nbsp;<a href="/mule-user-guide/v/3.6/global-elements">Mule Global Elements</a>.</p> </li> 
-       <li> <p>Parameters of each CassandraDB connector instance in the application.</p> </li> 
-      </ul> 
-     </div> 
-     <div class="paragraph"> 
-      <p>Follow these steps to configure CassandraDB connector in a Mule application:</p> 
-     </div> 
-     <div class="olist arabic"> 
-      <ol class="arabic"> 
-       <li> <p>Click the <strong>Global Elements</strong> tab at the base of the canvas, then click <strong>Create</strong>.</p> </li> 
-       <li> <p>In the <strong>Choose Global Type</strong> menu, use the filter to locate and select <strong>CassandraDB</strong>, then click <strong>OK</strong>.</p> </li> 
-       <li> <p>Configure the parameters according to the table below</p> 
-        <div class="paragraph"> 
-         <p><span class="image"><img src="./_images/Config.png" alt="Config"></span></p> 
-        </div> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col> 
-          <col> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Parameter</th> 
-           <th class="tableblock halign-left valign-top">Description</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Enter a name for the configuration so it can be referenced later by the <code>config-ref</code> parameter in the flow.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Username</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Enter a Cassandra username. Use a dummy username if you have disabled authentication.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Password</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the password. Leave this field empty if you have disabled authentication.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Host</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Enter host name or IP address of the application.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Port</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Enter a port number. The default port is 9160.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Keyspace</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the Cassandra keyspace. A keyspace groups column families together.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Consistency Level</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Specify the number of replicas that need to respond to a read request before returning data to an application. ONE is the default.</p></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-       <li> <p>Access the <strong>Pooling Profile</strong> tab to configure any settings relevant to managing multiple connections using a connection pool.</p> </li> 
-       <li> <p>Access the <strong>Reconnection</strong> tab to configure any settings relevant to reconnection strategies that Mule should execute if it loses its connection to Cassandra.</p> </li> 
-       <li> <p>Click <strong>OK</strong> to save the global connector configurations.</p> </li> 
-       <li> <p>Return to the Message Flow tab in Studio.</p> </li> 
-      </ol> 
-     </div> 
-     <div class="paragraph"> 
-      <p><strong>Configuration in a Flow</strong></p> 
-     </div> 
-     <div class="paragraph"> 
-      <p>Follow these steps to configure the parameters of the CassandraDB connector in the flow:</p> 
-     </div> 
-     <div class="olist arabic"> 
-      <ol class="arabic"> 
-       <li> <p>Drag the CassandraDB connector onto the canvas, then select it to open the Properties Editor console.</p> </li> 
-       <li> <p>Configure these connector parameters:</p> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col> 
-          <col> 
-          <col> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Field</th> 
-           <th class="tableblock halign-left valign-top">Description</th> 
-           <th class="tableblock halign-left valign-top">Default</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Enter a unique label for the connector in your application.</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Cassandra DB</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Connector Configuration</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Connect to a global element linked to this connector. Global elements encapsulate reusable data about the connection to the target resource or service. Select the global CassandraDB connector element that you just created.</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"> — </p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Operation</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Select the action this component must perform.</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"> — </p></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-       <li> <p>Save your configurations.</p> </li> 
-      </ol> 
-     </div> 
-    </div> 
-    <div class="tab-pane fade no-padding" id="tab-1_2"> 
-     <div class="paragraph"> 
-      <p>Include the CassandraDB namespaces in your configuration file:</p> 
-     </div> 
-     <div class="listingblock"> 
-      <div class="content"> 
-       <pre class="CodeRay highlight"><code data-lang="xml">
-    
-            
-         <table class="CodeRay"> 
-          <tbody> 
-           <tr> 
-            <td class="line-numbers"><pre>1
+     <table class="tableblock frame-all grid-all spread"> 
+      <colgroup> 
+       <col> 
+       <col> 
+      </colgroup> 
+      <thead> 
+       <tr> 
+        <th class="tableblock halign-left valign-top">Parameter</th> 
+        <th class="tableblock halign-left valign-top">Description</th> 
+       </tr> 
+      </thead> 
+      <tbody> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Name</strong></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Enter a name for the configuration so it can be referenced later by the <code>config-ref</code> parameter in the flow.</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Username</strong></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Enter a Cassandra username. Use a dummy username if you have disabled authentication.</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Password</strong></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the password. Leave this field empty if you have disabled authentication.</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Host</strong></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Enter host name or IP address of the application.</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Port</strong></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Enter a port number. The default port is 9160.</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Keyspace</strong></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the Cassandra keyspace. A keyspace groups column families together.</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Consistency Level</strong></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Specify the number of replicas that need to respond to a read request before returning data to an application. ONE is the default.</p></td> 
+       </tr> 
+      </tbody> 
+     </table> </li> 
+    <li> <p>Access the <strong>Pooling Profile</strong> tab to configure any settings relevant to managing multiple connections using a connection pool.</p> </li> 
+    <li> <p>Access the <strong>Reconnection</strong> tab to configure any settings relevant to reconnection strategies that Mule should execute if it loses its connection to Cassandra.</p> </li> 
+    <li> <p>Click <strong>OK</strong> to save the global connector configurations.</p> </li> 
+    <li> <p>Return to the Message Flow tab in Studio.</p> </li> 
+   </ol> 
+  </div> 
+  <div class="paragraph"> 
+   <p><strong>Configuration in a Flow</strong></p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>Follow these steps to configure the parameters of the CassandraDB connector in the flow:</p> 
+  </div> 
+  <div class="olist arabic"> 
+   <ol class="arabic"> 
+    <li> <p>Drag the CassandraDB connector onto the canvas, then select it to open the Properties Editor console.</p> </li> 
+    <li> <p>Configure these connector parameters:</p> 
+     <table class="tableblock frame-all grid-all spread"> 
+      <colgroup> 
+       <col> 
+       <col> 
+       <col> 
+      </colgroup> 
+      <thead> 
+       <tr> 
+        <th class="tableblock halign-left valign-top">Field</th> 
+        <th class="tableblock halign-left valign-top">Description</th> 
+        <th class="tableblock halign-left valign-top">Default</th> 
+       </tr> 
+      </thead> 
+      <tbody> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Enter a unique label for the connector in your application.</p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Cassandra DB</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Connector Configuration</strong></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Connect to a global element linked to this connector. Global elements encapsulate reusable data about the connection to the target resource or service. Select the global CassandraDB connector element that you just created.</p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"> — </p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Operation</strong></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Select the action this component must perform.</p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"> — </p></td> 
+       </tr> 
+      </tbody> 
+     </table> </li> 
+    <li> <p>Save your configurations.</p> </li> 
+   </ol> 
+  </div> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="configuring-the-cassandra-connector-from-the-xml-editor"><a class="anchor" href="#configuring-the-cassandra-connector-from-the-xml-editor"></a>Configuring the Cassandra Connector from the XML Editor</h2> 
+ <div class="sectionbody"> 
+  <div class="paragraph"> 
+   <p>Include the CassandraDB namespaces in your configuration file:</p> 
+  </div> 
+  <div class="listingblock"> 
+   <div class="content"> 
+    <pre class="CodeRay highlight"><code data-lang="xml">
+         
+      <table class="CodeRay"> 
+       <tbody> 
+        <tr> 
+         <td class="line-numbers"><pre>1
 2
 3
 4
@@ -1214,189 +1206,186 @@
 11
 12
 </pre></td> 
-            <td class="code"><pre><span class="entity">&amp;lt;</span>mule xmlns="http://www.mulesoft.org/schema/mule/core"
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xmlns:cassandradb="http://www.mulesoft.org/schema/mule/cassandradb"
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xsi:schemaLocation="
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://www.mulesoft.org/schema/mule/core
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://www.mulesoft.org/schema/mule/core/current/mule.xsd
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://www.mulesoft.org/schema/mule/cassandradb
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://www.mulesoft.org/schema/mule/cassandradb/current/mule-cassandradb.xsd"<span class="entity">&amp;gt;</span>
+         <td class="code"><pre><span class="tag">&lt;mule</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/core</span><span class="delimiter">"</span></span>
+<span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="attribute-name">xmlns:xsi</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.w3.org/2001/XMLSchema-instance</span><span class="delimiter">"</span></span>
+<span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="attribute-name">xmlns:cassandradb</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/cassandradb</span><span class="delimiter">"</span></span>
+<span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="attribute-name">xsi:schemaLocation</span>=<span class="string"><span class="delimiter">"</span>
+<span class="content">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://www.mulesoft.org/schema/mule/core</span>
+<span class="content">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://www.mulesoft.org/schema/mule/core/current/mule.xsd</span>
+<span class="content">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://www.mulesoft.org/schema/mule/cassandradb</span>
+<span class="content">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://www.mulesoft.org/schema/mule/cassandradb/current/mule-cassandradb.xsd</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
 &nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="entity">&amp;lt;</span>!-- Your flows and configuration elements --<span class="entity">&amp;gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">&lt;!-- Your flows and configuration elements --&gt;</span>
 &nbsp;
-<span class="entity">&amp;lt;</span>/mule<span class="entity">&amp;gt;</span></pre></td> 
-           </tr> 
-          </tbody> 
-         </table></code></pre> 
-      </div> 
+<span class="tag">&lt;/mule&gt;</span></pre></td> 
+        </tr> 
+       </tbody> 
+      </table></code></pre> 
+   </div> 
+  </div> 
+  <div class="paragraph"> 
+   <p>Follow these steps to configure a CassandraDB connector in your application:</p> 
+  </div> 
+  <div class="olist arabic"> 
+   <ol class="arabic"> 
+    <li> <p>Create a global CassandraDB configuration outside and above your flows, using this global configuration code:</p> 
+     <div class="paragraph"> 
+      <p>Build your application flow, then add a CassandraDB connector using one of the following operations.</p> 
      </div> 
      <div class="paragraph"> 
-      <p>Follow these steps to configure a CassandraDB connector in your application:</p> 
+      <p>The following table provides details on each operation: &nbsp;</p> 
      </div> 
-     <div class="olist arabic"> 
-      <ol class="arabic"> 
-       <li> <p>Create a global CassandraDB configuration outside and above your flows, using this global configuration code:</p> 
-        <div class="paragraph"> 
-         <p>Build your application flow, then add a CassandraDB connector using one of the following operations.</p> 
-        </div> 
-        <div class="paragraph"> 
-         <p>The following table provides details on each operation: &nbsp;</p> 
-        </div> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col> 
-          <col> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Operation</th> 
-           <th class="tableblock halign-left valign-top">Description</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#add">&lt;cassandradb:add&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Increments a CounterColumn consisting of (name, value) at the given ColumnParent.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#batch-mutable">&lt;cassandradb:batch-mutable&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Executes the specified batch mutations on the keyspace.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#describe-cluster-name">&lt;cassandradb:describe-cluster-name&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Gets the name of the cluster.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#describe-keyspace">&lt;cassandradb:describe-keyspace&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Gets information about the specified keyspace.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#describe-keyspaces">&lt;cassandradb:describe-keyspaces&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Gets a list of all the keyspaces configured for the cluster.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#describe-partitioner">&lt;cassandradb:describe-partitioner&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Gets the name of the partitioner for the cluster.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#describe-ring">&lt;cassandradb:describe-ring&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Gets the token ring; a map of ranges to host addresses.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#describe-schema-versions">&lt;cassandradb:describe-schema-versions&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Returns a list of nodes per version for each schema version present in a cluster.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#describe-snitch">&lt;cassandradb:describe-snitch&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Gets the name of the snitch used for the cluster. A snitch indicates which datacenter and rack that data is written to and from.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#describe-version">&lt;cassandradb:describe-version&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Gets the Thrift API version.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#execute-cql-query">&lt;cassandradb:execute-cql-query&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Executes a CQL (Cassandra Query Language) statement and returns a CqlResult containing the results.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#get">&lt;cassandradb:get&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Gets Column or SuperColumn by the path.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#get-count">&lt;cassandradb:get-count&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Counts the columns present in column_parent within the predicate.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#get-indexed-slices">&lt;cassandradb:get-indexed-slices&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Returns a list of slices, but uses IndexClause instead of KeyRange.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#get-range-slices">&lt;cassandradb:get-range-slices&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Replaces get_range_slices.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#get-row">&lt;cassandradb:get-row&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Gets Column or SuperColumn by the path.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#get-slice">&lt;cassandradb:get-slice&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Gets the group of columns contained by column_parent (either a ColumnFamily name or a ColumnFamily and SuperColumn name pair) specified by the given SlicePredicate (start, finish, reversed and count) parameters.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#insert">&lt;cassandradb:insert&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Inserts a Column consisting of name, value, timestamp, and ttl (time to live) for a ColumnParent.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#insert-from-map">&lt;cassandradb:insert-from-map&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Inserts an object into the database.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#multiget-count">&lt;cassandradb:multiget-count&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Provides a combination of multiget_slice and get_count.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#multiget-slice">&lt;cassandradb:multiget-slice&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves slices for column_parent and predicate on each of the given keys in parallel.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#remove">&lt;cassandradb:remove&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Removes data from a row specified by a key at the granularity specified by column_path, and the given timestamp.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#remove-counter">&lt;cassandradb:remove-counter&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Removes a counter from the row specified by a key at the granularity specified by column_path.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#set-query-keyspace">&lt;cassandradb:set-query-keyspace&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Sets the keyspace to use for subsequent requests.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#system-add-column-family-from-object">&lt;cassandradb:system-add-column-family-from-object&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Adds a column family from an object.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#system-add-column-family-from-object-with-simple-names">&lt;cassandradb:system-add-column-family-from-object-with-simple-names&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Adds a column family from an object that has a simple name.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#system-add-column-family-with-params">&lt;cassandradb:system-add-column-family-with-params&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Adds a column family to the current keyspace.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#system-add-keyspace-from-object">&lt;cassandradb:system-add-keyspace-from-object&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Creates a new keyspace and any column families defined with it.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#system-add-keyspace-with-params">&lt;cassandradb:system-add-keyspace-with-params&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Creates a new keyspace with the provided name with all the defaults values</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#system-drop-column-family">&lt;cassandradb:system-drop-column-family&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Drops a column family.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#system-drop-keyspace">&lt;cassandradb:system-drop-keyspace&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Drops a keyspace.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#system-update-column-family">&lt;cassandradb:system-update-column-family&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Updates properties of a ColumnFamily.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#system-update-keyspace">&lt;cassandradb:system-update-keyspace&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Updates properties of a keyspace.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#truncate">&lt;cassandradb:truncate&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Removes all the rows from a column family.</p></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-      </ol> 
-     </div> 
-    </div> 
-   </div> 
+     <table class="tableblock frame-all grid-all spread"> 
+      <colgroup> 
+       <col> 
+       <col> 
+      </colgroup> 
+      <thead> 
+       <tr> 
+        <th class="tableblock halign-left valign-top">Operation</th> 
+        <th class="tableblock halign-left valign-top">Description</th> 
+       </tr> 
+      </thead> 
+      <tbody> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#add">&lt;cassandradb:add&gt;</a></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Increments a CounterColumn consisting of (name, value) at the given ColumnParent.</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#batch-mutable">&lt;cassandradb:batch-mutable&gt;</a></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Executes the specified batch mutations on the keyspace.</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#describe-cluster-name">&lt;cassandradb:describe-cluster-name&gt;</a></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Gets the name of the cluster.</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#describe-keyspace">&lt;cassandradb:describe-keyspace&gt;</a></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Gets information about the specified keyspace.</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#describe-keyspaces">&lt;cassandradb:describe-keyspaces&gt;</a></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Gets a list of all the keyspaces configured for the cluster.</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#describe-partitioner">&lt;cassandradb:describe-partitioner&gt;</a></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Gets the name of the partitioner for the cluster.</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#describe-ring">&lt;cassandradb:describe-ring&gt;</a></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Gets the token ring; a map of ranges to host addresses.</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#describe-schema-versions">&lt;cassandradb:describe-schema-versions&gt;</a></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Returns a list of nodes per version for each schema version present in a cluster.</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#describe-snitch">&lt;cassandradb:describe-snitch&gt;</a></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Gets the name of the snitch used for the cluster. A snitch indicates which datacenter and rack that data is written to and from.</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#describe-version">&lt;cassandradb:describe-version&gt;</a></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Gets the Thrift API version.</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#execute-cql-query">&lt;cassandradb:execute-cql-query&gt;</a></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Executes a CQL (Cassandra Query Language) statement and returns a CqlResult containing the results.</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#get">&lt;cassandradb:get&gt;</a></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Gets Column or SuperColumn by the path.</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#get-count">&lt;cassandradb:get-count&gt;</a></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Counts the columns present in column_parent within the predicate.</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#get-indexed-slices">&lt;cassandradb:get-indexed-slices&gt;</a></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Returns a list of slices, but uses IndexClause instead of KeyRange.</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#get-range-slices">&lt;cassandradb:get-range-slices&gt;</a></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Replaces get_range_slices.</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#get-row">&lt;cassandradb:get-row&gt;</a></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Gets Column or SuperColumn by the path.</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#get-slice">&lt;cassandradb:get-slice&gt;</a></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Gets the group of columns contained by column_parent (either a ColumnFamily name or a ColumnFamily and SuperColumn name pair) specified by the given SlicePredicate (start, finish, reversed and count) parameters.</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#insert">&lt;cassandradb:insert&gt;</a></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Inserts a Column consisting of name, value, timestamp, and ttl (time to live) for a ColumnParent.</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#insert-from-map">&lt;cassandradb:insert-from-map&gt;</a></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Inserts an object into the database.</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#multiget-count">&lt;cassandradb:multiget-count&gt;</a></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Provides a combination of multiget_slice and get_count.</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#multiget-slice">&lt;cassandradb:multiget-slice&gt;</a></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves slices for column_parent and predicate on each of the given keys in parallel.</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#remove">&lt;cassandradb:remove&gt;</a></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Removes data from a row specified by a key at the granularity specified by column_path, and the given timestamp.</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#remove-counter">&lt;cassandradb:remove-counter&gt;</a></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Removes a counter from the row specified by a key at the granularity specified by column_path.</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#set-query-keyspace">&lt;cassandradb:set-query-keyspace&gt;</a></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Sets the keyspace to use for subsequent requests.</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#system-add-column-family-from-object">&lt;cassandradb:system-add-column-family-from-object&gt;</a></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Adds a column family from an object.</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#system-add-column-family-from-object-with-simple-names">&lt;cassandradb:system-add-column-family-from-object-with-simple-names&gt;</a></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Adds a column family from an object that has a simple name.</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#system-add-column-family-with-params">&lt;cassandradb:system-add-column-family-with-params&gt;</a></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Adds a column family to the current keyspace.</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#system-add-keyspace-from-object">&lt;cassandradb:system-add-keyspace-from-object&gt;</a></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Creates a new keyspace and any column families defined with it.</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#system-add-keyspace-with-params">&lt;cassandradb:system-add-keyspace-with-params&gt;</a></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Creates a new keyspace with the provided name with all the defaults values</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#system-drop-column-family">&lt;cassandradb:system-drop-column-family&gt;</a></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Drops a column family.</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#system-drop-keyspace">&lt;cassandradb:system-drop-keyspace&gt;</a></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Drops a keyspace.</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#system-update-column-family">&lt;cassandradb:system-update-column-family&gt;</a></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Updates properties of a ColumnFamily.</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#system-update-keyspace">&lt;cassandradb:system-update-keyspace&gt;</a></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Updates properties of a keyspace.</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cassandra-connector/1.2.2/mule/cassandradb-config.html#truncate">&lt;cassandradb:truncate&gt;</a></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Removes all the rows from a column family.</p></td> 
+       </tr> 
+      </tbody> 
+     </table> </li> 
+   </ol> 
   </div> 
  </div> 
 </div> 
@@ -1409,348 +1398,338 @@
   <div class="paragraph"> 
    <p><span class="image"><img src="./_images/cassandra.png" alt="cassandra"></span></p> 
   </div> 
-  <div class="panel panel-default no-padding"> 
-   <div class="panel-heading no-padding"> 
-    <!-- Nav tabs --> 
-    <ul class="nav nav-tabs" role="tablist"> 
-     <li class="active"><a href="#tab-2_1" role="tab" data-toggle="tab">STUDIO Visual Editor</a></li> 
-     <li><a href="#tab-2_2" role="tab" data-toggle="tab">XML Editor</a></li> 
-    </ul> 
+  <div class="sect2"> 
+   <h3 id="studio-visual-editor"><a class="anchor" href="#studio-visual-editor"></a>Studio Visual Editor</h3> 
+   <div class="olist arabic"> 
+    <ol class="arabic"> 
+     <li> <p>Drag an HTTP Connector into a new flow, open it’s properties editor and Create a new <strong>Connector Configuration</strong> element by clicking the green plus sign.</p> </li> 
+     <li> <p>Fill in the two required fields: <strong>Host</strong> and <strong>Port</strong>. Set&nbsp;the host to&nbsp;<code>localhost</code> and leave the port as the default value <code>8081</code>. Also set the <strong>Path</strong> to <code>cassandra</code><br></p> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col> 
+        <col> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Field</th> 
+         <th class="tableblock halign-left valign-top">Value</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>HTTP_Listener_Configuration</code></p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Host</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>localhost</code></p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Port</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>8081</code></p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Path</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cassandra</code></p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>Back in the connector’s properties editor, set the path to&nbsp;<code>addKeyspace</code></p> </li> 
+     <li> <p>Drag the CassandraDB connector onto the canvas, then select it to open the properties editor console.</p> </li> 
+     <li> <p>Click the <strong>+</strong> sign next to the <strong>Connector Configuration</strong> field to add a new global connector configuration:</p> 
+      <div class="paragraph"> 
+       <p><span class="image"><img src="./_images/addconfig.png" alt="addconfig"></span></p> 
+      </div> </li> 
+     <li> <p>Configure the global element:</p> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col> 
+        <col> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Field</th> 
+         <th class="tableblock halign-left valign-top">Value</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">CassandraDB (or any other name you prefer)</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Username</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">&lt;Your Cassandra username&gt; (You can use a dummy username if you disabled authentication)</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Password</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">&lt;Your Cassandra password&gt; ( You can leave this element blank if you disabled authentication)</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Host</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">localhost</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Port</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">9160 (default is 9160)</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Keyspace</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">&lt;Cassandra Keyspace&gt;</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Consistency Level</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">ONE (default)</p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>In the properties editor of the CassandraDB connector, configure the remaining parameters:</p> 
+      <div class="paragraph"> 
+       <p><span class="image"><img src="./_images/cassandra+conf+1.png" alt="cassandra+conf+1"></span></p> 
+      </div> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col> 
+        <col> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Field</th> 
+         <th class="tableblock halign-left valign-top">Value</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Add-Keyspace (or any other name you prefer)</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Connector&nbsp;</strong> <strong>Configuration</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">CassandraDB (name of the global element you have created)</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Operation</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">System adds a keyspace with parameters</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Keyspace Name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>#[message.inboundProperties.'http.query.params'.keyspace]</code></p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>Run the project as a Mule Application (right-click project name, then select <strong>Run As</strong> &gt; <strong>Mule Application</strong>).</p> </li> 
+     <li> <p>From a browser, navigate to` <a href="http://localhost:8081/?keyspace=`" class="bare">http://localhost:8081/?keyspace=`</a><em>&lt;keyspacename&gt;</em>&nbsp;</p> </li> 
+    </ol> 
    </div> 
-   <div class="panel-body tab-content no-padding"> 
-    <div class="tab-pane in active fade no-padding" id="tab-2_1"> 
-     <div class="olist arabic"> 
-      <ol class="arabic"> 
-       <li> <p>Drag an HTTP Connector into a new flow, open it’s properties editor and Create a new <strong>Connector Configuration</strong> element by clicking the green plus sign.</p> </li> 
-       <li> <p>Fill in the two required fields: <strong>Host</strong> and <strong>Port</strong>. Set&nbsp;the host to&nbsp;<code>localhost</code> and leave the port as the default value <code>8081</code>. Also set the <strong>Path</strong> to <code>cassandra</code><br></p> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col> 
-          <col> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Field</th> 
-           <th class="tableblock halign-left valign-top">Value</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><code>HTTP_Listener_Configuration</code></p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Host</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><code>localhost</code></p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Port</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><code>8081</code></p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Path</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cassandra</code></p></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-       <li> <p>Back in the connector’s properties editor, set the path to&nbsp;<code>addKeyspace</code></p> </li> 
-       <li> <p>Drag the CassandraDB connector onto the canvas, then select it to open the properties editor console.</p> </li> 
-       <li> <p>Click the <strong>+</strong> sign next to the <strong>Connector Configuration</strong> field to add a new global connector configuration:</p> 
-        <div class="paragraph"> 
-         <p><span class="image"><img src="./_images/addconfig.png" alt="addconfig"></span></p> 
-        </div> </li> 
-       <li> <p>Configure the global element:</p> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col> 
-          <col> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Field</th> 
-           <th class="tableblock halign-left valign-top">Value</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">CassandraDB (or any other name you prefer)</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Username</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">&lt;Your Cassandra username&gt; (You can use a dummy username if you disabled authentication)</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Password</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">&lt;Your Cassandra password&gt; ( You can leave this element blank if you disabled authentication)</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Host</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">localhost</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Port</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">9160 (default is 9160)</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Keyspace</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">&lt;Cassandra Keyspace&gt;</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Consistency Level</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">ONE (default)</p></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-       <li> <p>In the properties editor of the CassandraDB connector, configure the remaining parameters:</p> 
-        <div class="paragraph"> 
-         <p><span class="image"><img src="./_images/cassandra+conf+1.png" alt="cassandra+conf+1"></span></p> 
-        </div> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col> 
-          <col> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Field</th> 
-           <th class="tableblock halign-left valign-top">Value</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Add-Keyspace (or any other name you prefer)</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Connector&nbsp;</strong> <strong>Configuration</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">CassandraDB (name of the global element you have created)</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Operation</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">System adds a keyspace with parameters</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Keyspace Name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><code>#[message.inboundProperties.'http.query.params'.keyspace]</code></p></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-       <li> <p>Run the project as a Mule Application (right-click project name, then select <strong>Run As</strong> &gt; <strong>Mule Application</strong>).</p> </li> 
-       <li> <p>From a browser, navigate to` <a href="http://localhost:8081/?keyspace=`" class="bare">http://localhost:8081/?keyspace=`</a><em>&lt;keyspacename&gt;</em>&nbsp;</p> </li> 
-      </ol> 
-     </div> 
+  </div> 
+  <div class="sect2"> 
+   <h3 id="xml-editor"><a class="anchor" href="#xml-editor"></a>XML Editor</h3> 
+   <div class="olist arabic"> 
+    <div class="title">
+      Mule conducts the query, and creates the CassandraDB keyspace with the specified name. 
     </div> 
-    <div class="tab-pane fade no-padding" id="tab-2_2"> 
-     <div class="olist arabic"> 
-      <ol class="arabic"> 
-       <li> <p>Add a <code>cassandradb:config</code> element to your project, then configure its attributes according to the&nbsp;table below.</p> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-       
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
+    <ol class="arabic"> 
+     <li> <p>Add a <code>cassandradb:config</code> element to your project, then configure its attributes according to the&nbsp;table below.</p> 
+      <div class="listingblock"> 
+       <div class="content"> 
+        <pre class="CodeRay highlight"><code data-lang="xml">
+             
+          <table class="CodeRay"> 
+           <tbody> 
+            <tr> 
+             <td class="line-numbers"><pre>1
 </pre></td> 
-               <td class="code"><pre><span class="entity">&amp;lt;</span>cassandradb:config name="Cassandradb" username="dummy"&nbsp; keyspace="system" doc:name="Cassandradb"/<span class="entity">&amp;gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
-        </div> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col> 
-          <col> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Attribute</th> 
-           <th class="tableblock halign-left valign-top">Value</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">CassandraDB</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">CassandraDB</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>username</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">&lt;Your Cassandra username&gt;</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>keyspace</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">system</p></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-       <li> <p>Create a Mule flow with an HTTP endpoint, configuring the endpoint according to the table below.</p> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-       
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
+             <td class="code"><pre><span class="tag">&lt;cassandradb:config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Cassandradb</span><span class="delimiter">"</span></span> <span class="attribute-name">username</span>=<span class="string"><span class="delimiter">"</span><span class="content">dummy</span><span class="delimiter">"</span></span><span class="error">&nbsp;</span> <span class="attribute-name">keyspace</span>=<span class="string"><span class="delimiter">"</span><span class="content">system</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Cassandradb</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></pre></td> 
+            </tr> 
+           </tbody> 
+          </table></code></pre> 
+       </div> 
+      </div> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col> 
+        <col> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Attribute</th> 
+         <th class="tableblock halign-left valign-top">Value</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">CassandraDB</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">CassandraDB</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>username</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">&lt;Your Cassandra username&gt;</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>keyspace</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">system</p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>Create a Mule flow with an HTTP endpoint, configuring the endpoint according to the table below.</p> 
+      <div class="listingblock"> 
+       <div class="content"> 
+        <pre class="CodeRay highlight"><code data-lang="xml">
+             
+          <table class="CodeRay"> 
+           <tbody> 
+            <tr> 
+             <td class="line-numbers"><pre>1
 </pre></td> 
-               <td class="code"><pre><span class="entity">&amp;lt;</span>http:listener config-ref="HTTP_Listener_Configuration" path="addKeyspace" doc:name="HTTP"/<span class="entity">&amp;gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
-        </div> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col> 
-          <col> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Attribute</th> 
-           <th class="tableblock halign-left valign-top">Value</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>config-ref</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">HTTP_Listener_Configuration</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>path</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">addKeyspace</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">HTTP</p></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-       <li> <p>The&nbsp;<strong>config-ref</strong> attribute in the connector references a global element, you must now create this global element outside your flow.</p> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-       
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
+             <td class="code"><pre><span class="tag">&lt;http:listener</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Listener_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">"</span><span class="content">addKeyspace</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></pre></td> 
+            </tr> 
+           </tbody> 
+          </table></code></pre> 
+       </div> 
+      </div> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col> 
+        <col> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Attribute</th> 
+         <th class="tableblock halign-left valign-top">Value</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>config-ref</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">HTTP_Listener_Configuration</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>path</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">addKeyspace</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">HTTP</p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>The&nbsp;<strong>config-ref</strong> attribute in the connector references a global element, you must now create this global element outside your flow.</p> 
+      <div class="listingblock"> 
+       <div class="content"> 
+        <pre class="CodeRay highlight"><code data-lang="xml">
+             
+          <table class="CodeRay"> 
+           <tbody> 
+            <tr> 
+             <td class="line-numbers"><pre>1
 </pre></td> 
-               <td class="code"><pre><span class="entity">&amp;lt;</span>http:listener-config name="HTTP_Listener_Configuration" host="localhost" port="8081" basePath="cassandra" doc:name="HTTP Listener Configuration"/<span class="entity">&amp;gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
-        </div> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col> 
-          <col> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Attribute</th> 
-           <th class="tableblock halign-left valign-top">Value</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><code>HTTP_Listener_Configuration</code></p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>host</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><code>localhost</code></p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>port</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><code>8081</code></p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>basePath</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cassandra</code></p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"> 
-            <div> 
-             <div class="paragraph"> 
-              <p><code>HTTP Listener Configuration</code></p> 
-             </div> 
-            </div></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-       <li> <p>Add a <code>cassandradb:system-add-keyspace-with-params</code>&nbsp;element to your flow, configuring the attributes according to the table below.</p> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-       
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
+             <td class="code"><pre><span class="tag">&lt;http:listener-config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Listener_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">host</span>=<span class="string"><span class="delimiter">"</span><span class="content">localhost</span><span class="delimiter">"</span></span> <span class="attribute-name">port</span>=<span class="string"><span class="delimiter">"</span><span class="content">8081</span><span class="delimiter">"</span></span> <span class="attribute-name">basePath</span>=<span class="string"><span class="delimiter">"</span><span class="content">cassandra</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP Listener Configuration</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></pre></td> 
+            </tr> 
+           </tbody> 
+          </table></code></pre> 
+       </div> 
+      </div> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col> 
+        <col> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Attribute</th> 
+         <th class="tableblock halign-left valign-top">Value</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>HTTP_Listener_Configuration</code></p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>host</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>localhost</code></p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>port</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>8081</code></p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>basePath</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cassandra</code></p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"> 
+          <div> 
+           <div class="paragraph"> 
+            <p><code>HTTP Listener Configuration</code></p> 
+           </div> 
+          </div></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>Add a <code>cassandradb:system-add-keyspace-with-params</code>&nbsp;element to your flow, configuring the attributes according to the table below.</p> 
+      <div class="listingblock"> 
+       <div class="content"> 
+        <pre class="CodeRay highlight"><code data-lang="xml">
+             
+          <table class="CodeRay"> 
+           <tbody> 
+            <tr> 
+             <td class="line-numbers"><pre>1
 2
 </pre></td> 
-               <td class="code"><pre><span class="entity">&amp;lt;</span>cassandradb:system-add-keyspace-with-params config-ref="Cassandradb" keyspaceName="#[message.inboundProperties.'http.query.params'.keyspace]"&nbsp; doc:name="Add-Keyspace"<span class="entity">&amp;gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="entity">&amp;lt;</span>/cassandradb:system-add-keyspace-with-params<span class="entity">&amp;gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
-        </div> 
-        <table class="tableblock frame-all grid-all" style="width: 80%;"> 
-         <colgroup> 
-          <col style="width: 10%;"> 
-          <col style="width: 90%;"> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Attribute</th> 
-           <th class="tableblock halign-left valign-top">Value</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>config-ref</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Cassandradb</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>keyspaceName</strong></p></td> 
-           <td class="tableblock halign-left valign-top"> 
-            <div> 
-             <div class="paragraph"> 
-              <p><code>#[message.inboundProperties.'http.query.params'.keyspace]</code></p> 
-             </div> 
-            </div></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"> 
-            <div> 
-             <div class="paragraph"> 
-              <p><code>Add-Keyspace</code></p> 
-             </div> 
-            </div></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-       <li> <p>Run the project as a Mule Application (right-click project name, then select <strong>Run As &gt; Mule Application</strong>).</p> </li> 
-       <li> <p>From a browser, navigate to` <a href="http://localhost:8081/?keyspace=" class="bare">http://localhost:8081/?keyspace=</a> `&lt;keyspacename&gt;</p> </li> 
-       <li> <p>Mule conducts the query, and adds the keyspace with the specified name.</p> </li> 
-      </ol> 
-     </div> 
-    </div> 
+             <td class="code"><pre><span class="tag">&lt;cassandradb:system-add-keyspace-with-params</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">Cassandradb</span><span class="delimiter">"</span></span> <span class="attribute-name">keyspaceName</span>=<span class="string"><span class="delimiter">"</span><span class="content">#[message.inboundProperties.'http.query.params'.keyspace]</span><span class="delimiter">"</span></span><span class="error">&nbsp;</span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Add-Keyspace</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/cassandradb:system-add-keyspace-with-params&gt;</span></pre></td> 
+            </tr> 
+           </tbody> 
+          </table></code></pre> 
+       </div> 
+      </div> 
+      <table class="tableblock frame-all grid-all" style="width: 80%;"> 
+       <colgroup> 
+        <col style="width: 10%;"> 
+        <col style="width: 90%;"> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Attribute</th> 
+         <th class="tableblock halign-left valign-top">Value</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>config-ref</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Cassandradb</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>keyspaceName</strong></p></td> 
+         <td class="tableblock halign-left valign-top"> 
+          <div> 
+           <div class="paragraph"> 
+            <p><code>#[message.inboundProperties.'http.query.params'.keyspace]</code></p> 
+           </div> 
+          </div></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"> 
+          <div> 
+           <div class="paragraph"> 
+            <p><code>Add-Keyspace</code></p> 
+           </div> 
+          </div></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>Run the project as a Mule Application (right-click project name, then select <strong>Run As &gt; Mule Application</strong>).</p> </li> 
+     <li> <p>From a browser, navigate to` <a href="http://localhost:8081/?keyspace=" class="bare">http://localhost:8081/?keyspace=</a> `&lt;keyspacename&gt;</p> </li> 
+     <li> <p>Mule conducts the query, and adds the keyspace with the specified name.</p> </li> 
+    </ol> 
    </div> 
   </div> 
  </div> 
@@ -1789,7 +1768,7 @@
 22
 23
 </pre></td> 
-         <td class="code"><pre><span class="tag">&lt;mule</span> <span class="attribute-name">xmlns:scripting</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/scripting</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:mulexml</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/xml</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:json</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/json</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:cassandradb</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/cassandradb</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:http</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/http</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:tracking</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/ee/tracking</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/core</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:doc</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/documentation</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:spring</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.springframework.org/schema/beans</span><span class="delimiter">"</span></span> <span class="attribute-name">version</span>=<span class="string"><span class="delimiter">"</span><span class="content">EE-3.6.1</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:xsi</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.w3.org/2001/XMLSchema-instance</span><span class="delimiter">"</span></span> <span class="attribute-name">xsi:schemaLocation</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd</span>
+         <td class="code"><pre><span class="tag">&lt;mule</span> <span class="attribute-name">xmlns:scripting</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/scripting</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:mulexml</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/xml</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:json</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/json</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:cassandradb</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/cassandradb</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:http</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/http</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:tracking</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/ee/tracking</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/core</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:doc</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/documentation</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:spring</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.springframework.org/schema/beans</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:xsi</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.w3.org/2001/XMLSchema-instance</span><span class="delimiter">"</span></span> <span class="attribute-name">xsi:schemaLocation</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd</span>
 <span class="content">http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd</span>
 <span class="content">http://www.mulesoft.org/schema/mule/cassandradb http://www.mulesoft.org/schema/mule/cassandradb/current/mule-cassandradb.xsd</span>
 <span class="content">http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd</span>
@@ -1837,7 +1816,7 @@
     <!-- END article-content -->
     <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
                 <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#prerequisites">Prerequisites</a></li><li><a class="scroll-menu-link" href="#installing-cassandra-connector-in-anypoint-studio">Installing Cassandra Connector in Anypoint Studio</a></li><li><a class="scroll-menu-link" href="#configuring-the-cassandra-connector">Configuring the Cassandra Connector</a></li><li><a class="scroll-menu-link" href="#example-use-case">Example Use Case</a></li><li><a class="scroll-menu-link" href="#example-code">Example Code</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
+                <ul><li><a class="scroll-menu-link" href="#prerequisites">Prerequisites</a></li><li><a class="scroll-menu-link" href="#installing-cassandra-connector-in-anypoint-studio">Installing Cassandra Connector in Anypoint Studio</a></li><li><a class="scroll-menu-link" href="#configuring-the-cassandra-connector-from-the-studio-visual-editor">Configuring the Cassandra Connector from the Studio Visual Editor</a></li><li><a class="scroll-menu-link" href="#configuring-the-cassandra-connector-from-the-xml-editor">Configuring the Cassandra Connector from the XML Editor</a></li><li><a class="scroll-menu-link" href="#example-use-case">Example Use Case</a></li><li><a class="scroll-menu-link" href="#example-code">Example Code</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
   </div>
 </div>
 <!-- START footer -->
