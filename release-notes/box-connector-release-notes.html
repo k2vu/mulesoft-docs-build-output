@@ -1048,6 +1048,68 @@
  </div> 
 </div> 
 <div class="sect1"> 
+ <h2 id="version-3-1-1-june-2-2017"><a class="anchor" href="#version-3-1-1-june-2-2017"></a>Version 3.1.1 - June 2, 2017</h2> 
+ <div class="sectionbody"> 
+  <div class="sect2"> 
+   <h3 id="compatibility"><a class="anchor" href="#compatibility"></a>Compatibility</h3> 
+   <table class="tableblock frame-all grid-all spread"> 
+    <colgroup> 
+     <col style="width: 50%;"> 
+     <col style="width: 50%;"> 
+    </colgroup> 
+    <thead> 
+     <tr> 
+      <th class="tableblock halign-left valign-top">Software</th> 
+      <th class="tableblock halign-left valign-top">Version</th> 
+     </tr> 
+    </thead> 
+    <tbody> 
+     <tr> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">Mule Runtime EE</p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">3.6.x</p></td> 
+     </tr> 
+     <tr> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">Java</p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td> 
+     </tr> 
+     <tr> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">Box API</p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">2.0.0</p></td> 
+     </tr> 
+     <tr> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">Box Java SDK</p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">2.1.1</p></td> 
+     </tr> 
+    </tbody> 
+   </table> 
+   <div class="admonitionblock important"> 
+    <table> 
+     <tbody> 
+      <tr> 
+       <td class="icon"> <i class="fa icon-important" title="Important"></i> </td> 
+       <td class="content"> Box connector <strong>only supports a subset of operations</strong> from Box API v2.0.0. See <a href="/mule-user-guide/v/3.8/box-connector#supported-api-endpoints">Supported API Endpoints</a> for a detailed list. </td> 
+      </tr> 
+     </tbody> 
+    </table> 
+   </div> 
+  </div> 
+  <div class="sect2"> 
+   <h3 id="features"><a class="anchor" href="#features"></a>Features</h3> 
+   <div class="paragraph"> 
+    <p>None.</p> 
+   </div> 
+  </div> 
+  <div class="sect2"> 
+   <h3 id="fixed-in-this-release"><a class="anchor" href="#fixed-in-this-release"></a>Fixed in this Release</h3> 
+   <div class="ulist"> 
+    <ul> 
+     <li> <p><strong>Failure to test the connection in OAuth Server to Sever configuration</strong> - In the previous version, the Test Connection would throw the exception <code>NoSuchAlgorithmException: PBKDF-OpenSSL SecretKeyFactory not available</code>. This was caused by a conflict in the version of the BouncyCastle library used by the connector (1.52) and the one shipped with the Mule Runtime (i.e Mule 3.8.0 bundles 1.54). In the current version, the Test Connection works as expected.</p> </li> 
+    </ul> 
+   </div> 
+  </div> 
+ </div> 
+</div> 
+<div class="sect1"> 
  <h2 id="version-3-1-0-march-8-2017"><a class="anchor" href="#version-3-1-0-march-8-2017"></a>Version 3.1.0 - March 8, 2017</h2> 
  <div class="sectionbody"> 
   <div class="sect2"> 
@@ -1094,7 +1156,7 @@
    </div> 
   </div> 
   <div class="sect2"> 
-   <h3 id="features"><a class="anchor" href="#features"></a>Features</h3> 
+   <h3 id="features-2"><a class="anchor" href="#features-2"></a>Features</h3> 
    <div class="ulist"> 
     <ul> 
      <li> <p>The following operations now support pagination:</p> 
@@ -1131,7 +1193,7 @@
    </div> 
   </div> 
   <div class="sect2"> 
-   <h3 id="fixed-in-this-release"><a class="anchor" href="#fixed-in-this-release"></a>Fixed in this Release</h3> 
+   <h3 id="fixed-in-this-release-2"><a class="anchor" href="#fixed-in-this-release-2"></a>Fixed in this Release</h3> 
    <div class="ulist"> 
     <ul> 
      <li> <p>Shaded a bouncycastle dependency: This was done to fix an issue produced on Mule EE 3.8.0.</p> </li> 
@@ -1194,7 +1256,7 @@
    </div> 
   </div> 
   <div class="sect2"> 
-   <h3 id="features-2"><a class="anchor" href="#features-2"></a>Features</h3> 
+   <h3 id="features-3"><a class="anchor" href="#features-3"></a>Features</h3> 
    <div class="ulist"> 
     <ul> 
      <li> <p>First SDK-based version of the connector.</p> </li> 
@@ -1379,7 +1441,7 @@
     <!-- END article-content -->
     <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
                 <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#version-3-1-0-march-8-2017">Version 3.1.0 - March 8, 2017</a></li><li><a class="scroll-menu-link" href="#version-3-0-0-august-11-2016">Version 3.0.0 - August 11, 2016</a></li><li><a class="scroll-menu-link" href="#version-2-5-2-april-23-2015">Version 2.5.2 - April 23, 2015</a></li><li><a class="scroll-menu-link" href="#version-2-4-1-september-25-2013">Version 2.4.1 - September 25, 2013</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
+                <ul><li><a class="scroll-menu-link" href="#version-3-1-1-june-2-2017">Version 3.1.1 - June 2, 2017</a></li><li><a class="scroll-menu-link" href="#version-3-1-0-march-8-2017">Version 3.1.0 - March 8, 2017</a></li><li><a class="scroll-menu-link" href="#version-3-0-0-august-11-2016">Version 3.0.0 - August 11, 2016</a></li><li><a class="scroll-menu-link" href="#version-2-5-2-april-23-2015">Version 2.5.2 - April 23, 2015</a></li><li><a class="scroll-menu-link" href="#version-2-4-1-september-25-2013">Version 2.4.1 - September 25, 2013</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
   </div>
 </div>
 <!-- START footer -->
