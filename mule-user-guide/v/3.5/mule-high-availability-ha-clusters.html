@@ -1362,12 +1362,12 @@
   <div class="ulist"> 
    <ul> 
     <li> <p>As much as possible, organize your application into a series of steps where each step moves the message from one transactional store to another.</p> </li> 
-    <li> <p>If your application processes messages from a non-transactional transport, use a <a href="/mule-management-console/v/3.6/reliability-patterns">reliability pattern</a> to move them to a transactional store such as a VM or JMS store.</p> </li> 
+    <li> <p>If your application processes messages from a non-transactional transport, use a <a href="/mule-user-guide/v/3.5/reliability-patterns">reliability pattern</a> to move them to a transactional store such as a VM or JMS store.</p> </li> 
     <li> <p>Use transactions to process messages from a transactional transport. This ensures that if an error is encountered, the message will be reprocessed.</p> </li> 
     <li> <p>Use distributed stores such as those used with the VM or JMS transport – these stores are available to an entire cluster. This is preferable to the non-distributed stores used with transports such as File, FTP, and JDBC – these stores are read by a single node at a time.</p> </li> 
     <li> <p>Use the VM transport to get optimal performance. Use the JMS transport for applications where data needs to be saved after the entire cluster exits.</p> </li> 
     <li> <p>Create the number of nodes within a cluster that best meets your needs.</p> </li> 
-    <li> <p>Implement <a href="/mule-management-console/v/3.6/reliability-patterns">reliability patterns</a> to create high reliability applications.</p> </li> 
+    <li> <p>Implement <a href="/mule-user-guide/v/3.5/reliability-patterns">reliability patterns</a> to create high reliability applications.</p> </li> 
    </ul> 
   </div> 
  </div> 

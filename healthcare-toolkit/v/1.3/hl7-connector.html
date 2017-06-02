@@ -1180,46 +1180,166 @@
         <tr> 
          <td class="tableblock halign-left valign-top"><p class="tableblock">Name (Studio Only)</p></td> 
          <td class="tableblock halign-left valign-top"><p class="tableblock">Name of the building block as it appears in the flow</p></td> 
-         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>name="connectorName"</code> </p><p class="tableblock"></p><p class="tableblock"><span class="image"><img src="./_images/hl7_gloabl_advanced.png" alt="hl7_gloabl_advanced"></span> </p><p class="tableblock"><strong>Advanced</strong> </p><p class="tableblock">[%header%autowidth.spread]</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>name="connectorName"</code></p></td> 
         </tr> 
        </tbody> 
       </table> 
       <div class="paragraph"> 
-       <p>|Name |Description |XML |<strong>Dispatched Pool Factory</strong> |Allows you to reference a TCP dispatcher pool factory other than the default dispatcher factory bean. To add a different dispatcher factory bean ID in Studio, click the <span class="image"><img src="./_images/conn.spring.props-addbutton.png" alt="conn.spring.props-addbutton"></span> button next to the combo box. |<code>dispatcherPoolFactory-ref="sampleBean"</code> |<strong>Dynamic Notifications</strong> (boolean) |Enables [Dynamic Notifications] for this connector. |<code>dynamicNotification="true"</code> |<strong>Valida te Connections</strong> (boolean) |Causes Mule to validate connections before using this connector. Note that this is only a configuration hint; transport implementations may or may not validate the connection. |<code>validateConnections="true"</code></p> 
+       <p><span class="image"><img src="./_images/hl7_gloabl_advanced.png" alt="hl7_gloabl_advanced"></span></p> 
+      </div> 
+      <div class="paragraph"> 
+       <p><strong>Advanced</strong></p> 
       </div> 
       <table class="tableblock frame-all grid-all spread"> 
        <colgroup> 
-        <col style="width: 100%;"> 
+        <col> 
+        <col> 
+        <col> 
        </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Name</th> 
+         <th class="tableblock halign-left valign-top">Description</th> 
+         <th class="tableblock halign-left valign-top">XML</th> 
+        </tr> 
+       </thead> 
        <tbody> 
         <tr> 
-         <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="./_images/hl7_global_properties.png" alt="hl7_global_properties"></span> </p><p class="tableblock"><strong>Properties</strong> </p><p class="tableblock">[%header%autowidth.spread]</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Dispatched Pool Factory</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Allows you to reference a TCP dispatcher pool factory other than the default dispatcher factory bean. To add a different dispatcher factory bean ID in Studio, click the <span class="image"><img src="./_images/conn.spring.props-addbutton.png" alt="conn.spring.props-addbutton"></span> button next to the combo box.</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>dispatcherPoolFactory-ref="sampleBean"</code></p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Dynamic Notifications</strong> (boolean)</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Enables [Dynamic Notifications] for this connector.</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>dynamicNotification="true"</code></p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Valida te Connections</strong> (boolean)</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Causes Mule to validate connections before using this connector. Note that this is only a configuration hint; transport implementations may or may not validate the connection.</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>validateConnections="true"</code></p></td> 
         </tr> 
        </tbody> 
       </table> 
       <div class="paragraph"> 
-       <p>|Name |Description |XML |<strong>Spring Properties</strong> |Use this tab to enter Spring bean property information. To add a property in Studio, click the <span class="image"><img src="./_images/conn.spring.props-addbutton.png" alt="conn.spring.props-addbutton"></span> button under <strong>Spring Properties</strong> |<code>&lt;spring:property name="com.sample.sampleBean" value="sampleValue"/&gt;</code></p> 
+       <p><span class="image"><img src="./_images/hl7_global_properties.png" alt="hl7_global_properties"></span></p> 
+      </div> 
+      <div class="paragraph"> 
+       <p><strong>Properties</strong></p> 
       </div> 
       <table class="tableblock frame-all grid-all spread"> 
        <colgroup> 
-        <col style="width: 100%;"> 
+        <col> 
+        <col> 
+        <col> 
        </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Name</th> 
+         <th class="tableblock halign-left valign-top">Description</th> 
+         <th class="tableblock halign-left valign-top">XML</th> 
+        </tr> 
+       </thead> 
        <tbody> 
         <tr> 
-         <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="./_images/hl7_global_protocol.png" alt="hl7_global_protocol"></span> </p><p class="tableblock"><strong>Protocol</strong> </p><p class="tableblock">[%header%autowidth.spread]</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Spring Properties</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Use this tab to enter Spring bean property information. To add a property in Studio, click the <span class="image"><img src="./_images/conn.spring.props-addbutton.png" alt="conn.spring.props-addbutton"></span> button under <strong>Spring Properties</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;spring:property name="com.sample.sampleBean" value="sampleValue"/&gt;</code></p></td> 
         </tr> 
        </tbody> 
       </table> 
       <div class="paragraph"> 
-       <p>|Name |Description |XML |<strong>HL7 Message Encoding</strong> |Allows you to select between ER7, XML and HAPI |<code>hl7Encoding="ER7"</code> |<strong>Strong/Weak Validation</strong> a|Allows you to select between <code>STRONG</code> or <code>WEAK</code> HL7 message validation (leave blank for no validation).</p> 
+       <p><span class="image"><img src="./_images/hl7_global_protocol.png" alt="hl7_global_protocol"></span></p> 
       </div> 
-      <div class="ulist"> 
-       <ul> 
-        <li> <p><code>STRONG</code>: Checks that all message structure components are present, and that the message is well-formed</p> </li> 
-        <li> <p><code>WEAK</code>: Only checks that the message is well-formed |<code>validation="STRONG"</code> |<strong>Send Buffer Size</strong> |Buffer size in bytes for sending data. |<code>sendBufferSize="0"</code> |<strong>Receive Buffer Size</strong> |Buffer size in bytes for receiving data. |<code>receiveBufferSize="0"</code> |<strong>Receive Backlog</strong> |Maximum queue size for incoming connections. |<code>receiveBacklog="0"</code> |<strong>Send TCP No Delay</strong> (boolean) |Do not collect data before transmitting; send data immediately. |<code>sendTcpNoDelay="true"</code> |<strong>Reuse Address</strong> (boolean) |Enable <code>SO_REUSEADDRESS</code> on server sockets. This helps reduce Address already in use errors when a socket is reused. Default value: <code>true</code> |<code>reuseAddress="true"</code> |<strong>Keep Send Socket Open</strong> (boolean) |Do not close a socket after sending a message. |<code>keepSendSocketOpen="true"</code> |<strong>Keep Alive</strong> (boolean) |Enable <code>SO_KEEPALIVE</code> on open sockets. This causes a probe packet to be sent on an open socket which has not registered activity for a long period of time, in order to check whether the remote peer is up. |<code>keepAlive="true"</code> |<strong>Client SO_TIMEOUT</strong> |Set the <code>SO_TIMEOUT</code> value for client sockets (in milliseconds). This is the timeout for waiting for data. A value of <code>0</code> means forever. |<code>clientSoTimeout="10000"</code> |<strong>Server SO_TIMEOUT</strong> |Set the <code>SO_TIMEOUT</code> value for server sockets (in milliseconds). This is the timeout for waiting for data. A value of <code>0</code> means forever. |<code>serverSoTimeout="10000"</code> |<strong>Socket SO_LINGER</strong> |Set the <code>SO_LINGER</code> value for sockets (in milliseconds). This is the value of the delay before closing a socket. If enabled, a call to close the socket before data transmission has finished blocks the calling program; the block remains in place until data transmission is finished or until the connection times out. |<code>socketSoLinger="0"</code></p> </li> 
-       </ul> 
+      <div class="paragraph"> 
+       <p><strong>Protocol</strong></p> 
       </div> 
       <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col> 
+        <col> 
+        <col> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Name</th> 
+         <th class="tableblock halign-left valign-top">Description</th> 
+         <th class="tableblock halign-left valign-top">XML</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>HL7 Message Encoding</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Allows you to select between ER7, XML and HAPI</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>hl7Encoding="ER7"</code></p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Strong/Weak Validation</strong></p></td> 
+         <td class="tableblock halign-left valign-top"> 
+          <div> 
+           <div class="paragraph"> 
+            <p>Allows you to select between <code>STRONG</code> or <code>WEAK</code> HL7 message validation (leave blank for no validation).</p> 
+           </div> 
+           <div class="ulist"> 
+            <ul> 
+             <li> <p><code>STRONG</code>: Checks that all message structure components are present, and that the message is well-formed</p> </li> 
+             <li> <p><code>WEAK</code>: Only checks that the message is well-formed</p> </li> 
+            </ul> 
+           </div> 
+          </div></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>validation="STRONG"</code></p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Send Buffer Size</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Buffer size in bytes for sending data.</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>sendBufferSize="0"</code></p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Receive Buffer Size</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Buffer size in bytes for receiving data.</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>receiveBufferSize="0"</code></p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Receive Backlog</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Maximum queue size for incoming connections.</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>receiveBacklog="0"</code></p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Send TCP No Delay</strong> (boolean)</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Do not collect data before transmitting; send data immediately.</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>sendTcpNoDelay="true"</code></p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Reuse Address</strong> (boolean)</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Enable <code>SO_REUSEADDRESS</code> on server sockets. This helps reduce Address already in use errors when a socket is reused. Default value: <code>true</code></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>reuseAddress="true"</code></p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Keep Send Socket Open</strong> (boolean)</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Do not close a socket after sending a message.</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>keepSendSocketOpen="true"</code></p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Keep Alive</strong> (boolean)</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Enable <code>SO_KEEPALIVE</code> on open sockets. This causes a probe packet to be sent on an open socket which has not registered activity for a long period of time, in order to check whether the remote peer is up.</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>keepAlive="true"</code></p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Client SO_TIMEOUT</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Set the <code>SO_TIMEOUT</code> value for client sockets (in milliseconds). This is the timeout for waiting for data. A value of <code>0</code> means forever.</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>clientSoTimeout="10000"</code></p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Server SO_TIMEOUT</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Set the <code>SO_TIMEOUT</code> value for server sockets (in milliseconds). This is the timeout for waiting for data. A value of <code>0</code> means forever.</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>serverSoTimeout="10000"</code></p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Socket SO_LINGER</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Set the <code>SO_LINGER</code> value for sockets (in milliseconds). This is the value of the delay before closing a socket. If enabled, a call to close the socket before data transmission has finished blocks the calling program; the block remains in place until data transmission is finished or until the connection times out.</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>socketSoLinger="0"</code></p></td> 
+        </tr> 
+       </tbody> 
       </table> 
      </div> 
      <div class="tab-pane fade no-padding" id="tab-2_2"> 

@@ -1126,10 +1126,10 @@
  <h2 id="clustering-and-reliable-applications"><a class="anchor" href="#clustering-and-reliable-applications"></a>Clustering and Reliable Applications</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>High-reliability applications (ones that have zero tolerance for message loss) not only require the underlying ESB to be reliable, but that reliability needs to extend to individual connections. <a href="/mule-management-console/v/3.2/reliability-patterns">Reliability Patterns</a> give you the tools to build fully reliable applications in your clusters.</p> 
+   <p>High-reliability applications (ones that have zero tolerance for message loss) not only require the underlying ESB to be reliable, but that reliability needs to extend to individual connections. <a href="/mule-user-guide/v/3.2/reliability-patterns">Reliability Patterns</a> give you the tools to build fully reliable applications in your clusters.</p> 
   </div> 
   <div class="paragraph"> 
-   <p>The Mule 3.2 documentation provides <a href="/mule-management-console/v/3.2/reliability-patterns">code examples</a> that show how you can implement a reliability pattern for a number of different non-transactional transports, including HTTP, FTP, File, and IMAP. If your application uses a non-transactional transport, follow the reliability pattern. These patterns ensure that a message is accepted and successfully processed or that it generates an "unsuccessful" response allowing the client to retry.</p> 
+   <p>The Mule 3.2 documentation provides <a href="/mule-user-guide/v/3.2/reliability-patterns">code examples</a> that show how you can implement a reliability pattern for a number of different non-transactional transports, including HTTP, FTP, File, and IMAP. If your application uses a non-transactional transport, follow the reliability pattern. These patterns ensure that a message is accepted and successfully processed or that it generates an "unsuccessful" response allowing the client to retry.</p> 
   </div> 
   <div class="paragraph"> 
    <p>If your application uses transactional transports, such as JMS, VM, and JDBC, use transactions. Mule’s built-in support for transactional transports enables reliable messaging for applications that use these transports.</p> 
@@ -1173,12 +1173,12 @@
   <div class="ulist"> 
    <ul> 
     <li> <p>As much as possible, organize your application into a series of steps where each step moves the message from one transactional store to another.</p> </li> 
-    <li> <p>If your application processes messages from a non-transactional transport, use a <a href="/mule-management-console/v/3.2/reliability-patterns">reliability pattern</a> to move them to a transactional store such as a VM or JMS store.</p> </li> 
+    <li> <p>If your application processes messages from a non-transactional transport, use a <a href="/mule-user-guide/v/3.2/reliability-patterns">reliability pattern</a> to move them to a transactional store such as a VM or JMS store.</p> </li> 
     <li> <p>Use transactions to process messages from a transactional transport. This ensures that if an error is encountered, the message will be reprocessed.</p> </li> 
     <li> <p>Use distributed stores such as those used with the VM or JMS transport – these stores are available to an entire cluster. This is preferable to the non-distributed stores used with transports such as File, FTP, and JDBC – these stores are read by a single node at a time.</p> </li> 
     <li> <p>Use the VM transport to get optimal performance. Use the JMS transport for applications where data needs to be saved after the entire cluster exits.</p> </li> 
     <li> <p>Create the number of nodes within a cluster that best meets your needs.</p> </li> 
-    <li> <p>Implement <a href="/mule-management-console/v/3.2/reliability-patterns">reliability patterns</a> to create high reliability applications.</p> </li> 
+    <li> <p>Implement <a href="/mule-user-guide/v/3.2/reliability-patterns">reliability patterns</a> to create high reliability applications.</p> </li> 
    </ul> 
   </div> 
  </div> 

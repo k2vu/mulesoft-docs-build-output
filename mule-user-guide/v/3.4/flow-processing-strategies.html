@@ -1006,7 +1006,7 @@
    <ul> 
     <li> <p>The sender of the message expects a response. This is known as a "request-response" exchange pattern.</p> </li> 
     <li> <p>The flow needs to meet the requirements of transactional processing. In other words, all the steps in the flow are considered a single unit, which must succeed entirely or fail entirely. Additionally, appropriate parties (such as the sender of the message or the administrator of the business process encapsulated by the flow) must be notified of the result. This means that a transactional flow must not hand off processing to other threads, where errors can occur after the transaction is completed.</p> </li> 
-    <li> <p>The flow’s inbound endpoint must be notified of all errors that occur during the processing of the message. This situation is discussed further in <a href="/mule-management-console/v/3.4/reliability-patterns">Reliability Patterns</a>.</p> </li> 
+    <li> <p>The flow’s inbound endpoint must be notified of all errors that occur during the processing of the message. This situation is discussed further in <a href="/mule-user-guide/v/3.4/reliability-patterns">Reliability Patterns</a>.</p> </li> 
    </ul> 
   </div> 
  </div> 
@@ -1105,7 +1105,7 @@
   </div> 
   <div class="ulist"> 
    <ul> 
-    <li> <p>In cases where Mule has selected queued-asynchronous processing for a flow, you can specify a synchronous flow instead (see <a href="#forcing-a-specific-flow-processing-strategy">Forcing a Specific Flow Processing Strategy</a>). You might want to specify a synchronous flow to achieve reliability. Recall that the synchronous strategy is ideally suited for flows where the flow’s inbound endpoint must be notified of all errors that occur during the processing of the message. This situation is discussed further in <a href="/mule-management-console/v/3.4/reliability-patterns">Reliability Patterns</a>.<br> Note that you cannot force a synchronous flow to become asynchronous.</p> </li> 
+    <li> <p>In cases where Mule has selected queued-asynchronous processing for a flow, you can specify a synchronous flow instead (see <a href="#forcing-a-specific-flow-processing-strategy">Forcing a Specific Flow Processing Strategy</a>). You might want to specify a synchronous flow to achieve reliability. Recall that the synchronous strategy is ideally suited for flows where the flow’s inbound endpoint must be notified of all errors that occur during the processing of the message. This situation is discussed further in <a href="/mule-user-guide/v/3.4/reliability-patterns">Reliability Patterns</a>.<br> Note that you cannot force a synchronous flow to become asynchronous.</p> </li> 
     <li> <p>You can accept Mule’s choice of flow processing strategy, but then proceed to fine-tune that strategy as well. See <a href="#fine-tuning-a-processing-strategy">Fine-Tuning a Processing Strategy</a>. Note that you can only fine-tune a queued-asynchronous strategy. You cannot do any fine-tuning for a synchronous flow.</p> </li> 
     <li> <p>You can create a custom flow processing strategy to fit your exact needs. For instance, you might prefer a queued-asynchronous flow that uses an increased number of threads to handle high peak loads. See <a href="#creating-a-processing-strategy">Creating a Processing Strategy</a>.</p> </li> 
    </ul> 

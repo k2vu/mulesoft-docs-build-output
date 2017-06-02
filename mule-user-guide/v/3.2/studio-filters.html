@@ -1003,12 +1003,61 @@
    </tbody> 
   </table> 
  </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="about-filter-logic"><a class="anchor" href="#about-filter-logic"></a>About Filter Logic</h2> 
+ <div class="sectionbody"> 
+  <div class="paragraph"> 
+   <p>When a message fails to satisfy the conditions specified by a filter, that filter returns a null value, which causes the processing of that particular message to halt. In other words, the message is rejected and undergoes no further processing.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>When a message satisfies the conditions specified by a filter, that filter passes the payload of the message to the next building block in the flow, and processing of that particular message continues.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>When you place a filter immediately after an HTTP endpoint configured for a request-response pattern, and no response has been configured for the flow, Mule uses as a response the result returned by the final message processor in the flow, which is null.</p> 
+  </div> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="configuring-filters"><a class="anchor" href="#configuring-filters"></a>Configuring Filters</h2> 
+ <div class="sectionbody"> 
+  <div class="paragraph"> 
+   <p>This section covers only those configuration activities common to all filters. For explanation of the control elements on the Properties pane as well as the configuration activities that apply to all building blocks, see: <a href="/mule-user-guide/v/3.2/mule-studio-essentials">Configuring Building Blocks</a>. For configuration activities that apply only to individual filters, click one of the links in the Reference column of the table <a href="#bundled-filters">Bundled Filters</a>.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>As for all Studio building blocks, you configure Filters in two major steps:</p> 
+  </div> 
+  <div class="olist arabic"> 
+   <ol class="arabic"> 
+    <li> <p>Drag the filter from the Palette to the Message Flow canvas, then set its position within the sequence of building blocks that make up the application flow.</p> </li> 
+    <li> <p>Provide values for the required fields on the various tabs in the filter’s Properties pane.</p> </li> 
+   </ol> 
+  </div> 
+  <div class="paragraph"> 
+   <p>The Properties panes for most of the bundled filters contain only two tabs: <strong>General</strong> and <strong>Documentation</strong>. The Custom filter also includes a <strong>Spring</strong> tab (See: <strong>below, left</strong>).</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>To view the filter’s <strong>Properties</strong> pane, double-click the filter icon on the Message Flow Canvas, or right-click the icon, then select <strong>Properties</strong> from the context menu.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p><span class="image"><img src="./_images/Filter+General.png" alt="Filter+General"></span></p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>Typically, the <strong>General</strong> tab displays a <strong>Display name</strong> field which, by default, is populated with the name of the filter (such as <code>Custom</code>, <code>Wildcard</code>, or <code>Not</code>). Although you can accept this generic name, you have an opportunity to enter a meaningful name that appears in the Mule Management Console and also displays below the filter icon on the Message Flow canvas. This filter-specific description can prove useful when you or some other developer updates the filter settings at a later time.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>The <strong>General</strong> tab typically contains additional required fields, which vary according to the type of filter you are configuring. For example, <strong>Filter Ref</strong> (See: above, <strong>left center</strong>) requires you to create a new template called a global element or to specify an existing global element from a drop-down list. The <strong>Expression</strong> filter (See: <strong>above, right center</strong>) requires you to specify an expression and <strong>Schema Validation</strong> (See: <strong>above, right</strong>) requires you to specify Schema Locations. For guidance on populating these fields, consult the <a href="#bundled-filters">Bundled Filters</a> for the specific type of filter you are developing.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>When you are satisfied with the values you have entered in the various fields of the Properties pane, click <strong>OK</strong> to commit the information.</p> 
+  </div> 
+ </div> 
 </div>
     </div>
     <!-- END article-content -->
     <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
                 <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#what-are-filters">What are Filters?</a></li><li><a class="scroll-menu-link" href="#bundled-filters">Bundled Filters</a></li></ul></div></div><!-- /scroll-menu -->
+                <ul><li><a class="scroll-menu-link" href="#what-are-filters">What are Filters?</a></li><li><a class="scroll-menu-link" href="#bundled-filters">Bundled Filters</a></li><li><a class="scroll-menu-link" href="#about-filter-logic">About Filter Logic</a></li><li><a class="scroll-menu-link" href="#configuring-filters">Configuring Filters</a></li></ul></div></div><!-- /scroll-menu -->
   </div>
 </div>
 <!-- START footer -->

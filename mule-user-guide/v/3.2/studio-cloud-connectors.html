@@ -1009,12 +1009,71 @@
    </div> 
   </div> 
  </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="configuring-cloud-connectors"><a class="anchor" href="#configuring-cloud-connectors"></a>Configuring Cloud Connectors</h2> 
+ <div class="sectionbody"> 
+  <div class="paragraph"> 
+   <p>This section covers the configuration procedures common to all Studio-compatible Cloud Connectors. For information on Studio’s general interface features, see: <a href="/mule-user-guide/v/3.2/mule-studio-essentials">Configuring Building Blocks</a>. For configuration information specific to individual Cloud Connectors, see the <strong>Reference</strong> column in the table titled: Studio-configurable Cloud Connectors.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>To initiate configuration, double-click the Cloud Connector icon on the Message Flow canvas, or right-click on the icon, then select <strong>Properties</strong> from the context menu.</p> 
+  </div> 
+  <div class="sect2"> 
+   <h3 id="setting-the-display-name"><a class="anchor" href="#setting-the-display-name"></a>Setting the Display Name</h3> 
+   <div class="paragraph"> 
+    <p><strong>Display name</strong> appears as the first field on the <strong>General</strong> tab of the <strong>Properties</strong> pane for each Cloud Connector (See: <strong>below, left</strong> and <strong>below, right</strong>). Although you can accept the default, which is the name of the Web service API enabled by the Cloud Connector, the Display name field offers an opportunity to create a meaningful Cloud Connector name that appears in the XML configuration file and under the Cloud Connector icon on the Message Flow palette. For instance, you can change "Mongo DB" to "DB Admin Dashboard for Mongo".</p> 
+   </div> 
+   <div class="paragraph"> 
+    <p><span class="image"><img src="./_images/CC+Properties.png" alt="CC+Properties"></span></p> 
+   </div> 
+  </div> 
+  <div class="sect2"> 
+   <h3 id="setting-the-config-reference-property"><a class="anchor" href="#setting-the-config-reference-property"></a>Setting the Config Reference Property</h3> 
+   <div class="paragraph"> 
+    <p>Before you create a Studio Cloud Connector of a certain type (i.e., CMIS or Twitter, etc.) for the first time, you must create a template or <strong>Global Element</strong> that you can reuse each subsequent time you create a Cloud Connector of that type. Two procedures exist for creating this global element for a Cloud Connector that connects to a specific Web service API. This section covers only the more direct procedure. (For details on the other, more general procedure see: <a href="/mule-user-guide/v/3.2/configuring-global-mule-elements">Configuring Global Mule Elements</a>)</p> 
+   </div> 
+   <div class="paragraph"> 
+    <p>For every Cloud Connector on the Studio Palette, you set the <code>Config reference</code> property by specifying a global element along with certain API-specific information.</p> 
+   </div> 
+   <div class="paragraph"> 
+    <p>For some Cloud Connectors, such as CMIS (See: <strong>above, left</strong>), <code>Config reference</code> appears in the <strong>Generic</strong> group on the <strong>General</strong> tab of the <strong>Properties</strong> pane. For others, such as Twitter (See: above, right), <code>Config reference</code> appears in the <strong>Config</strong> group on the <strong>General</strong> tab of the <strong>Properties</strong> pane.</p> 
+   </div> 
+   <div class="sect3"> 
+    <h4 id="creating-the-global-element"><a class="anchor" href="#creating-the-global-element"></a>Creating the Global Element</h4> 
+    <div class="paragraph"> 
+     <p>Click the <strong>Add</strong> button, which exists to the right of the <strong>Config Reference</strong> field on the <strong>General</strong> tab of the Properties pane for the CMIS Cloud Connector (See: below, left).</p> 
+    </div> 
+    <div class="paragraph"> 
+     <p>After the <strong>Global Element</strong> configuration pane appears, complete the fields marked by "<strong>x</strong>" in a small red circle (See: <strong>below, center</strong>). As for most Cloud Connector global elements, the requisite fields for CMIS include authentication credentials (in this case, <code>Username</code> and <code>Password</code>) and connection information (in this case <code>Repository ID</code> and <code>Base URL</code>). You can find details for specifying and formatting this information on either the MULE3STUDIO:Cloud Connector reference page or on the reference page for the Web service API, to which there is a link on the Cloud Connector reference page. Click <strong>OK</strong> to commit the information you have entered in the fields.</p> 
+    </div> 
+    <div class="paragraph"> 
+     <p><span class="image"><img src="./_images/CMIS+Config.png" alt="CMIS+Config"></span></p> 
+    </div> 
+   </div> 
+   <div class="sect3"> 
+    <h4 id="specifying-an-existing-global-element"><a class="anchor" href="#specifying-an-existing-global-element"></a>Specifying an Existing Global Element</h4> 
+    <div class="paragraph"> 
+     <p>If you have configured only one global element for this type of API-specific Cloud Connector, it will appear in the <strong>Config reference</strong> field (See: <strong>above, right</strong>).</p> 
+    </div> 
+    <div class="paragraph"> 
+     <p>If more than one global element exists, click the arrow icon to the right of the <strong>Config reference</strong> field, then select the appropriate global element from the drop down list (See: <strong>above, right</strong>).</p> 
+    </div> 
+    <div class="paragraph"> 
+     <p>In the case of CMIS, you need to specify an operation (API call) for the Cloud Connector to implement. Click the arrow to the right of the <strong>Operation</strong> field and select an item. For other API-specific Cloud Connectors, such as Salesforce, you may need to specify many additional attributes to complete configuration. For guidance, consult either the Cloud Connector reference page or the reference page for the Web service API.</p> 
+    </div> 
+    <div class="paragraph"> 
+     <p>Click <strong>OK</strong> to commit your field choices.</p> 
+    </div> 
+   </div> 
+  </div> 
+ </div> 
 </div>
     </div>
     <!-- END article-content -->
     <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
                 <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#what-is-a-cloud-connector">What is a Cloud Connector?</a></li><li><a class="scroll-menu-link" href="#about-cloud-connector-compatibility">About Cloud Connector Compatibility</a></li></ul></div></div><!-- /scroll-menu -->
+                <ul><li><a class="scroll-menu-link" href="#what-is-a-cloud-connector">What is a Cloud Connector?</a></li><li><a class="scroll-menu-link" href="#about-cloud-connector-compatibility">About Cloud Connector Compatibility</a></li><li><a class="scroll-menu-link" href="#configuring-cloud-connectors">Configuring Cloud Connectors</a></li></ul></div></div><!-- /scroll-menu -->
   </div>
 </div>
 <!-- START footer -->

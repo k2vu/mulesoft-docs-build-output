@@ -1000,8 +1000,10 @@
   <div class="paragraph"> 
    <p>Though a simple example, this application nonetheless employs complex functionality to demonstrate a basic use case. The application accepts CSV files which contain contact information – name, phone number, email – and uploads them into a Salesforce account, automatically inserting the correct data into each Salesforce field.&nbsp;</p> 
   </div> 
-  <div class="paragraph"> 
-   <p><span class="image"><img src="./_images/contacts-to-SFDC.png" alt="contacts-to-SFDC"></span></p> 
+  <div class="imageblock"> 
+   <div class="content"> 
+    <img src="./_images/contacts-to-SFDC.png" alt="contacts-to-SFDC"> 
+   </div> 
   </div> 
  </div> 
 </div> 
@@ -1040,8 +1042,10 @@
       </div> 
       <div class="panel-body tab-content no-padding"> 
        <div class="tab-pane in active fade no-padding" id="tab-1_1"> 
-        <div class="paragraph"> 
-         <p><span class="image"><img src="./_images/global_initial.png" alt="global_initial"></span></p> 
+        <div class="imageblock"> 
+         <div class="content"> 
+          <img src="./_images/global_initial.png" alt="global_initial"> 
+         </div> 
         </div> 
        </div> 
        <div class="tab-pane fade no-padding" id="tab-1_2"> 
@@ -1075,7 +1079,7 @@
     <li> <p>Click and drag the <code>contacts.csv</code> file into the <code>input</code> folder in the same directory.</p> </li> 
     <li> <p>The File Endpoint in the application polls the <code>input</code> folder every ten seconds. It picks up the CSV file, processes it, then deposits it into the <code>output</code> folder in the same directory. (Hit <strong>F5</strong> to refresh the contents of the <code>input</code> and <code>output</code> folders.)</p> </li> 
     <li> <p>In your browser, access your Salesforce account, then navigate to the <strong>Contacts</strong> tab.</p> </li> 
-    <li> <p>Use the drop-down menu to display <strong>All Contacts</strong>, then scan your contacts for three new entries:&nbsp;&nbsp;<br></p> 
+    <li> <p>Use the drop-down menu to display <strong>All Contacts</strong>, then scan your contacts for three new entries:</p> 
      <div class="ulist"> 
       <ul> 
        <li> <p>Charles Bingley</p> </li> 
@@ -1114,8 +1118,10 @@
       </div> 
       <div class="panel-body tab-content no-padding"> 
        <div class="tab-pane in active fade no-padding" id="tab-2_1"> 
-        <div class="paragraph"> 
-         <p><span class="image"><img src="./_images/file_Endpoint_studio.png" alt="file_Endpoint_studio"></span></p> 
+        <div class="imageblock"> 
+         <div class="content"> 
+          <img src="./_images/file_Endpoint_studio.png" alt="file_Endpoint_studio"> 
+         </div> 
         </div> 
         <table class="tableblock frame-all grid-all spread"> 
          <colgroup> 
@@ -1210,8 +1216,10 @@
           <li> <p>Modify the display name for the connector, if you wish, then click the&nbsp;<strong>plus sign</strong>&nbsp;next to the&nbsp;<strong>Config Reference</strong>&nbsp;drop-down to create a new&nbsp;<strong>Global Element</strong>.</p> </li> 
           <li> <p>Select the&nbsp;<strong>Salesforce</strong>&nbsp;global element, then click&nbsp;<strong>OK</strong>.</p> </li> 
           <li> <p>Enter values in the U <strong>sername</strong>, P <strong>assword</strong>&nbsp;and&nbsp;<strong>Security token</strong>&nbsp;fields, then click&nbsp;<strong>OK</strong>. (See the&nbsp;Set Up section&nbsp;above for details on how to acquire the security token.) Notice that Studio automatically enables DataSense in the global element.</p> 
-           <div class="paragraph"> 
-            <p>image:/docs/download/attachments/95393757/global_salesforce.png?version=1&amp;modificationDate=1374599130837[image</p> 
+           <div class="imageblock"> 
+            <div class="content"> 
+             <img src="/docs/download/attachments/95393757/global_salesforce.png?version=1&amp;modificationDate=1374599130837" alt="image"> 
+            </div> 
            </div> </li> 
          </ol> 
         </div> 
@@ -1250,13 +1258,17 @@
        </div> 
       </div> 
      </div> </li> 
-    <li> <p>When you click OK, Mule tests the connection to Salesforce (see image below). With a valid username, password and security token, the connection test results in success and Mule saves your global element configurations. If any of the values are invalid, the connection test results in failure, and Mule does not save the global element, prompting you to correct the invalid configurations.<br></p> 
-     <div class="paragraph"> 
-      <p><span class="image"><img src="./_images/getting_metadata.png" alt="getting_metadata"></span><br></p> 
+    <li> <p>When you click OK, Mule tests the connection to Salesforce (see image below). With a valid username, password and security token, the connection test results in success and Mule saves your global element configurations. If any of the values are invalid, the connection test results in failure, and Mule does not save the global element, prompting you to correct the invalid configurations.</p> 
+     <div class="imageblock"> 
+      <div class="content"> 
+       <img src="./_images/getting_metadata.png" alt="getting_metadata"> 
+      </div> 
      </div> </li> 
-    <li> <p>Back in the Salesforce connector <strong>General Tab</strong>, use the drop-down menus to select the <strong>Operation</strong> and <strong>sObject</strong> Type. Because the DataSense activity has gathered metadata about Salesforce’s operations and data sObject types, Mule is able to present a list of Salesforce-specific values in the drop-down menus for each of these fields (see image below).<br></p> 
-     <div class="paragraph"> 
-      <p><span class="image"><img src="./_images/sfdc_options.png" alt="sfdc_options"></span></p> 
+    <li> <p>Back in the Salesforce connector <strong>General Tab</strong>, use the drop-down menus to select the <strong>Operation</strong> and <strong>sObject</strong> Type. Because the DataSense activity has gathered metadata about Salesforce’s operations and data sObject types, Mule is able to present a list of Salesforce-specific values in the drop-down menus for each of these fields (see image below).</p> 
+     <div class="imageblock"> 
+      <div class="content"> 
+       <img src="./_images/sfdc_options.png" alt="sfdc_options"> 
+      </div> 
      </div> 
      <table class="tableblock frame-all grid-all spread"> 
       <colgroup> 
@@ -1280,17 +1292,23 @@
        </tr> 
       </tbody> 
      </table> </li> 
-    <li> <p>Having defined the Salesforce-friendly output, you can then drop a DataMapper between the elements in the flow to map CSV input fields to Salesforce output fields. Because DataSense has already acquired the operation and sObject information from Salesforce, the DataMapper demands that you configure only the input values (below, left). In this example application, we used an existing CSV example to define the input fields in DataMapper (below, right).<br></p> 
-     <div class="paragraph"> 
-      <p><span class="image"><img src="./_images/define_input_both.png" alt="define_input_both"></span><br></p> 
+    <li> <p>Having defined the Salesforce-friendly output, you can then drop a DataMapper between the elements in the flow to map CSV input fields to Salesforce output fields. Because DataSense has already acquired the operation and sObject information from Salesforce, the DataMapper demands that you configure only the input values (below, left). In this example application, we used an existing CSV example to define the input fields in DataMapper (below, right).</p> 
+     <div class="imageblock"> 
+      <div class="content"> 
+       <img src="./_images/define_input_both.png" alt="define_input_both"> 
+      </div> 
      </div> </li> 
-    <li> <p>When you save the DataMapper configurations, Mule maps input fields to output. Where the input and output fields have identical names, DataMapper intelligently, and automatically, maps input to output, as with the fields in this example application. Otherwise, you can quickly map input to output manually by clicking and dragging input fields to output fields in the Data Mapping Console (see below).<br></p> 
-     <div class="paragraph"> 
-      <p><span class="image"><img src="./_images/dataMapper.png" alt="dataMapper"></span><br></p> 
+    <li> <p>When you save the DataMapper configurations, Mule maps input fields to output. Where the input and output fields have identical names, DataMapper intelligently, and automatically, maps input to output, as with the fields in this example application. Otherwise, you can quickly map input to output manually by clicking and dragging input fields to output fields in the Data Mapping Console (see below).</p> 
+     <div class="imageblock"> 
+      <div class="content"> 
+       <img src="./_images/dataMapper.png" alt="dataMapper"> 
+      </div> 
      </div> </li> 
-    <li> <p>The configuration now complete, you can save, then run the application. Feed CSV files with contact information into the input folder, and watch the new contents appear in your Salesforce account (see image below).<br></p> 
-     <div class="paragraph"> 
-      <p><span class="image"><img src="./_images/sfdc_contact_list.png" alt="sfdc_contact_list"></span></p> 
+    <li> <p>The configuration now complete, you can save, then run the application. Feed CSV files with contact information into the input folder, and watch the new contents appear in your Salesforce account (see image below).</p> 
+     <div class="imageblock"> 
+      <div class="content"> 
+       <img src="./_images/sfdc_contact_list.png" alt="sfdc_contact_list"> 
+      </div> 
      </div> 
      <div class="panel panel-default no-padding"> 
       <div class="panel-heading no-padding"> 
@@ -1302,8 +1320,10 @@
       </div> 
       <div class="panel-body tab-content no-padding"> 
        <div class="tab-pane in active fade no-padding" id="tab-4_1"> 
-        <div class="paragraph"> 
-         <p><span class="image"><img src="./_images/flow_contacts_to_sfdc.png" alt="flow_contacts_to_sfdc"></span></p> 
+        <div class="imageblock"> 
+         <div class="content"> 
+          <img src="./_images/flow_contacts_to_sfdc.png" alt="flow_contacts_to_sfdc"> 
+         </div> 
         </div> 
        </div> 
        <div class="tab-pane fade no-padding" id="tab-4_2"> 

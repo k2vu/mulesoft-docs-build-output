@@ -1015,17 +1015,38 @@
        <p><span class="image"><img src="./_images/scripts_studio.png" alt="scripts_studio"></span></p> 
       </div> </li> 
      <li> <p>Copy the contents of the <code>procs.ddl</code> and <code>tables.ddl</code> files and run those scripts on your database.</p> 
-      <table class="tableblock frame-all grid-all spread"> 
+      <table class="tableblock frame-all grid-all spread spread"> 
        <colgroup> 
-        <col> 
-        <col> 
+        <col style="width: 50%;"> 
+        <col style="width: 50%;"> 
        </colgroup> 
-       <thead> 
+       <tbody> 
         <tr> 
-         <th class="tableblock halign-left valign-top"><span class="image"><img src="./_images/check.png" alt="check"></span></th> 
-         <th class="tableblock halign-left valign-top"><strong>Need More Details?</strong><br> &nbsp;View Granular Instructions . Double-click the <code>procs.ddl</code> file to open it in a new Studio <strong>Canvas</strong> pane. . Double-click the <code>tables.ddl</code> file to open it in a new Studio canvas pane.<br> <br> <span class="image"><img src="./_images/open_canvases.png" alt="open_canvases"></span> . Access your database. For example, you can access your Oracle database through Oracle SQL Developer. . Copy all the contents of the <code>procs.ddl</code> file (open in a Studio canvas pane) into your database development tool. . Copy all the contents of the <code>tables.ddl</code> file (open in a Studio canvas pane) into your database development tool. . Run the two scripts on your database to create stored procedures and a table in your database.</th> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="./_images/check.png" alt="check"></span></p></td> 
+         <td class="tableblock halign-left valign-top"> 
+          <div> 
+           <div class="paragraph"> 
+            <p><strong>Need More Details?</strong></p> 
+           </div> 
+           <div class="paragraph"> 
+            <p>View Granular Instructions</p> 
+           </div> 
+           <div class="olist arabic"> 
+            <ol class="arabic"> 
+             <li> <p>Double-click the <code>procs.ddl</code> file to open it in a new Studio <strong>Canvas</strong> pane.</p> </li> 
+             <li> <p>Double-click the <code>tables.ddl</code> file to open it in a new Studio canvas pane.</p> 
+              <div class="paragraph"> 
+               <p><span class="image"><img src="./_images/open_canvases.png" alt="open_canvases"></span></p> 
+              </div> </li> 
+             <li> <p>Access your database. For example, you can access your Oracle database through Oracle SQL Developer.</p> </li> 
+             <li> <p>Copy all the contents of the <code>procs.ddl</code> file (open in a Studio canvas pane) into your database development tool.</p> </li> 
+             <li> <p>Copy all the contents of the <code>tables.ddl</code> file (open in a Studio canvas pane) into your database development tool.</p> </li> 
+             <li> <p>Run the two scripts on your database to create stored procedures and a table in your database.</p> </li> 
+            </ol> 
+           </div> 
+          </div></td> 
         </tr> 
-       </thead> 
+       </tbody> 
       </table> </li> 
      <li> <p>In the expanded <code>src/main/resources</code> in the package explorer pane in Studio, double-click the <code>db.properties</code> file to open it in a new Studio canvas pane.</p> </li> 
      <li> <p>On line 5 of the file, after <code>database.connection=</code>, type the connection information of your database so that the JDBC application can connect to it.</p> 
@@ -1066,12 +1087,30 @@
         <col> 
         <col> 
        </colgroup> 
-       <thead> 
+       <tbody> 
         <tr> 
-         <th class="tableblock halign-left valign-top"><span class="image"><img src="./_images/check.png" alt="check"></span></th> 
-         <th class="tableblock halign-left valign-top"><strong>Need More Details?</strong><br> &nbsp;View Granular Instructions . Double-click the <code>procs.ddl</code> file to open it in your text editor. . Double-click the <code>tables.ddl</code> file to open it in your text editor. . Access your database. For example, you can access your Oracle database through Oracle SQL Developer. . Copy all the contents of the <code>procs.ddl</code> file (open in your text editor) into your database development tool. . Copy all the contents of the <code>tables.ddl</code> file (open in your text editor) into your database development tool. . Run the two scripts on your database to create stored procedures and a table in your database.</th> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="./_images/check.png" alt="check"></span></p></td> 
+         <td class="tableblock halign-left valign-top"> 
+          <div> 
+           <div class="paragraph"> 
+            <p><strong>Need More Details?</strong></p> 
+           </div> 
+           <div class="paragraph"> 
+            <p>View Granular Instructions</p> 
+           </div> 
+           <div class="olist arabic"> 
+            <ol class="arabic"> 
+             <li> <p>Double-click the <code>procs.ddl</code> file to open it in your text editor.</p> </li> 
+             <li> <p>Double-click the <code>tables.ddl</code> file to open it in your text editor.</p> </li> 
+             <li> <p>Access your database. For example, you can access your Oracle database through Oracle SQL Developer.</p> </li> 
+             <li> <p>Copy all the contents of the <code>procs.ddl</code> file (open in your text editor) into your database development tool.</p> </li> 
+             <li> <p>Copy all the contents of the <code>tables.ddl</code> file (open in your text editor) into your database development tool.</p> </li> 
+             <li> <p>Run the two scripts on your database to create stored procedures and a table in your database.</p> </li> 
+            </ol> 
+           </div> 
+          </div></td> 
         </tr> 
-       </thead> 
+       </tbody> 
       </table> </li> 
      <li> <p>On your hard drive, navigate to <code>mule-enterprise-standalone-3.3.0</code> &gt; <code>apps</code>, then double-click <code>mule-example-jdbc-3.3.0.zip</code> to unzip the file.</p> </li> 
      <li> <p>When unzipped, navigate to <code>mule-example-jdbc-3.3.0</code> &gt; <code>classes</code>, then double-click the <code>db.properties</code> file to open it in your text editor.</p> </li> 
@@ -1092,10 +1131,8 @@
            <div class="paragraph"> 
             <p><strong>Need More Details?</strong></p> 
            </div> 
-           <div class="literalblock"> 
-            <div class="content"> 
-             <pre>&nbsp;Learn how to start Mule</pre> 
-            </div> 
+           <div class="paragraph"> 
+            <p>Learn how to start Mule</p> 
            </div> 
            <div class="olist arabic"> 
             <ol class="arabic"> 
