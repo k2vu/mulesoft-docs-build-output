@@ -1033,13 +1033,13 @@
  <h2 id="prerequisites"><a class="anchor" href="#prerequisites"></a>Prerequisites</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>This document assumes that you are familiar with Mule, <a href="/mule-user-guide/v/3.7/anypoint-connectors">Anypoint connectors</a>, and the <a href="/anypoint-studio/v/6/index">Anypoint Studio interface</a>. To increase your familiarity with Studio, consider completing one or more <a href="/anypoint-studio/v/6/basic-studio-tutorial">Anypoint Studio Tutorials</a>. Further, this page assumes that you have a basic understanding of&nbsp;<a href="/mule-user-guide/v/3.7/mule-concepts">Mule flows</a> and <a href="/mule-user-guide/v/3.6/global-elements">Mule Global Elements</a>.&nbsp;</p> 
+   <p>This document assumes that you are familiar with Mule, <a href="/mule-user-guide/v/3.5/anypoint-connectors">Anypoint connectors</a>, and the <a href="/anypoint-studio/v/5/index">Anypoint Studio interface</a>. To increase your familiarity with Studio, consider completing one or more <a href="/anypoint-studio/v/6/basic-studio-tutorial">Anypoint Studio Tutorials</a>. Further, this page assumes that you have a basic understanding of&nbsp;<a href="/mule-user-guide/v/3.7/mule-concepts">Mule flows</a> and <a href="/mule-user-guide/v/3.5/global-elements">Mule Global Elements</a>.&nbsp;</p> 
   </div> 
   <div class="paragraph"> 
-   <p>This document describes implementation examples within the context of Anypoint Studio, Mule ESB’s graphical user interface, and, also includes configuration details for doing the same in the XML Editor.&nbsp;</p> 
+   <p>This document describes implementation examples within the context of Anypoint Studio, Mule runtime’s graphical user interface, and, also includes configuration details for doing the same in the XML Editor.&nbsp;</p> 
   </div> 
   <div class="paragraph"> 
-   <p>If you don’t use Anypoint Studio for development, follow the instructions to&nbsp;http://mulesoft.github.io/servicenow-connector/guide/install[install the ServiceNow Maven dependencies] into your&nbsp;<code>pom.xml</code> file.</p> 
+   <p>If you don’t use Anypoint Studio for development, follow the instructions to&nbsp;<a href="http://mulesoft.github.io/servicenow-connector/4.0.1/guide/install">install the ServiceNow Maven dependencies</a> into your&nbsp;<code>pom.xml</code> file.</p> 
   </div> 
   <div class="paragraph"> 
    <p>For ServiceNow connector v4.0 to function properly, the namespace for locally declared elements must be qualified by the target namespace. Make the following change in your ServiceNow instance to do so:</p> 
@@ -1065,7 +1065,7 @@
  <h2 id="installing-servicenow-connector-in-anypoint-studio"><a class="anchor" href="#installing-servicenow-connector-in-anypoint-studio"></a>Installing ServiceNow Connector in Anypoint Studio</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>You can install a connector in Anypoint Studio using the instructions in&nbsp;<a href="/getting-started/anypoint-exchange#installing-a-connector-from-anypoint-exchange">Installing a Connector from Anypoint Exchange</a>. &nbsp;</p> 
+   <p>You can install a connector in Anypoint Studio using the instructions in&nbsp;<a href="/mule-user-guide/v/3.5/installing-connectors">To Install a Connector from Anypoint Exchange</a>. &nbsp;</p> 
   </div> 
   <div class="paragraph"> 
    <p>However, to use the&nbsp;ServiceNow connector in a production environment, you must have either:</p> 
@@ -1077,7 +1077,7 @@
    </ul> 
   </div> 
   <div class="paragraph"> 
-   <p>Contact the&nbsp;<a href="mailto:info@mulesoft.com">MuleSoft Sales Team</a>&nbsp;to obtain either of these. (Read more about&nbsp;<a href="/mule-user-guide/v/3.7/installing-an-enterprise-license">Installing an Enterprise License</a>.)</p> 
+   <p>Contact the&nbsp;<a href="mailto:info@mulesoft.com">MuleSoft Sales Team</a>&nbsp;to obtain either of these. (Read more about&nbsp;<a href="/mule-user-guide/v/3.5/installing-an-enterprise-license">Installing an Enterprise License</a>.)</p> 
   </div> 
  </div> 
 </div> 
@@ -1089,270 +1089,252 @@
   </div> 
   <div class="ulist"> 
    <ul> 
-    <li> <p>A global ServiceNow element to be used by all the ServiceNow connectors in the application (read more about&nbsp;<a href="/mule-user-guide/v/3.6/global-elements">global elements in Mule</a>).</p> </li> 
+    <li> <p>A global ServiceNow element to be used by all the ServiceNow connectors in the application.</p> </li> 
     <li> <p>Parameters of each ServiceNow connector instance in the flow.</p> </li> 
    </ul> 
   </div> 
-  <div class="panel panel-default no-padding"> 
-   <div class="panel-heading no-padding"> 
-    <!-- Nav tabs --> 
-    <ul class="nav nav-tabs" role="tablist"> 
-     <li class="active"><a href="#tab-1_1" role="tab" data-toggle="tab">Studio Visual Editor</a></li> 
-     <li><a href="#tab-1_2" role="tab" data-toggle="tab">XML Editor or Standalone</a></li> 
-    </ul> 
+  <div class="sect2"> 
+   <h3 id="configuring-using-the-studio-visual-editor"><a class="anchor" href="#configuring-using-the-studio-visual-editor"></a>Configuring Using the Studio Visual Editor</h3> 
+   <div class="paragraph"> 
+    <p>Follow these steps to create a global ServiceNow configuration in a Mule application:</p> 
    </div> 
-   <div class="panel-body tab-content no-padding"> 
-    <div class="tab-pane in active fade no-padding" id="tab-1_1"> 
-     <div class="paragraph"> 
-      <p>Follow these steps to create a global ServiceNow configuration in a Mule application:</p> 
-     </div> 
-     <div class="olist arabic"> 
-      <ol class="arabic"> 
-       <li> <p>Click the&nbsp;<strong>Global Elements</strong>&nbsp;tab at the base of the canvas, then click&nbsp;<strong>Create</strong>.</p> </li> 
-       <li> <p>In the&nbsp;<strong>Choose Global Type</strong>&nbsp;wizard, use the filter to locate and select, S<strong>erviceNow,&nbsp;</strong>then click&nbsp;<strong>OK</strong>.</p> </li> 
-       <li> <p>Configure the parameters according to instructions below.</p> 
-        <div class="paragraph"> 
-         <p><span class="image"><img src="./_images/serviceNowge.png" alt="serviceNowge"></span></p> 
-        </div> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col style="width: 50%;"> 
-          <col style="width: 50%;"> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Field</th> 
-           <th class="tableblock halign-left valign-top">Description</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Enter a name for the configuration so it can be referenced later.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Username</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Username for connecting to the ServiceNow instance</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Password</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Password to log into the ServiceNow instance</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Service Endpoint</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">The URL of the ServiceNow instance.<br> Format:`https://&lt;instancename&gt;.service-now.com`</p></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-       <li> <p>Access the&nbsp;<strong>Pooling Profile</strong>&nbsp;tab to configure any settings relevant to managing multiple connections via a connection pool.</p> </li> 
-       <li> <p>Access the&nbsp;<strong>Reconnection</strong>&nbsp;tab to configure any&nbsp;settings relevant to reconnection strategies that Mule should execute if it loses its connection to ServiceNow.</p> </li> 
-       <li> <p>Click&nbsp;<strong>OK</strong>&nbsp;to save the global connector configurations.</p> </li> 
-       <li> <p>Return to the&nbsp;<strong>Message Flow</strong>&nbsp;tab in Studio.</p> </li> 
-      </ol> 
-     </div> 
-     <div class="paragraph"> 
-      <p>Follow these steps to configure the parameters of a ServiceNow connector in the flow:</p> 
-     </div> 
-     <div class="olist arabic"> 
-      <ol class="arabic"> 
-       <li> <p>Drag the ServiceNow connector&nbsp;onto the canvas, then select it to open the properties editor.</p> </li> 
-       <li> <p>Configure the connector’s parameters according to the table below.</p> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col style="width: 50%;"> 
-          <col style="width: 50%;"> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Field</th> 
-           <th class="tableblock halign-left valign-top">Description</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Enter a unique label for the connector in your application.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Connector Configuration</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Connect to a global element linked to this connector. Global elements encapsulate reusable data about the connection to the target resource or service. Select the global ServiceNow connector element that you just created.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Operation</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Select the action this component must perform: Insert, Delete Record, Delete Multiple, Update, Get, Get Keys, and Get Record.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Type</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Select the ServiceNow table to act upon. For a complete list, see the <a href="/release-notes/servicenow-connector-release-notes">ServiceNow Release Notes</a>.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>&lt;Operation&gt; Request</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>From Message:</strong> &nbsp;Select this option to define the operation based on the incoming payload.<br> <strong>Create Object manually: &nbsp;S</strong>elect this option to define the search values manually. Mule provides an editor to facilitate this task.</p></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-       <li> <p>Save your configurations.</p> </li> 
-      </ol> 
-     </div> 
-    </div> 
-    <div class="tab-pane fade no-padding" id="tab-1_2"> 
-     <div class="paragraph"> 
-      <p>First, ensure that you have included the ServiceNow namespaces in your configuration file.</p> 
-     </div> 
-     <div class="listingblock"> 
-      <div class="content"> 
-       <pre class="CodeRay highlight"><code data-lang="code">
-    
-            
-         <table class="CodeRay"> 
-          <tbody> 
-           <tr> 
-            <td class="line-numbers"><pre>1
+   <div class="olist arabic"> 
+    <ol class="arabic"> 
+     <li> <p>Click the&nbsp;<strong>Global Elements</strong>&nbsp;tab at the base of the canvas, then click&nbsp;<strong>Create</strong>.</p> </li> 
+     <li> <p>In the&nbsp;<strong>Choose Global Type</strong>&nbsp;wizard, use the filter to locate and select, ServiceNow,&nbsp;then click&nbsp;O*.</p> </li> 
+     <li> <p>Configure the parameters according to instructions below.</p> 
+      <div class="paragraph"> 
+       <p><span class="image"><img src="./_images/serviceNowge.png" alt="serviceNowge"></span></p> 
+      </div> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col style="width: 50%;"> 
+        <col style="width: 50%;"> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Field</th> 
+         <th class="tableblock halign-left valign-top">Description</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Enter a name for the configuration so it can be referenced later.</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Username</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Username for connecting to the ServiceNow instance</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Password</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Password to log into the ServiceNow instance</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Service Endpoint</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">The URL of the ServiceNow instance.<br> Format:`https://&lt;instancename&gt;.service-now.com`</p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>Access the&nbsp;<strong>Pooling Profile</strong>&nbsp;tab to configure any settings relevant to managing multiple connections via a connection pool.</p> </li> 
+     <li> <p>Access the&nbsp;<strong>Reconnection</strong>&nbsp;tab to configure any&nbsp;settings relevant to reconnection strategies that Mule should execute if it loses its connection to ServiceNow.</p> </li> 
+     <li> <p>Click&nbsp;<strong>OK</strong>&nbsp;to save the global connector configurations.</p> </li> 
+     <li> <p>Return to the&nbsp;<strong>Message Flow</strong>&nbsp;tab in Studio.</p> </li> 
+    </ol> 
+   </div> 
+   <div class="paragraph"> 
+    <p>Follow these steps to configure the parameters of a ServiceNow connector in the flow:</p> 
+   </div> 
+   <div class="olist arabic"> 
+    <ol class="arabic"> 
+     <li> <p>Drag the ServiceNow connector&nbsp;onto the canvas, then select it to open the properties editor.</p> </li> 
+     <li> <p>Configure the connector’s parameters according to the table below.</p> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col style="width: 50%;"> 
+        <col style="width: 50%;"> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Field</th> 
+         <th class="tableblock halign-left valign-top">Description</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Enter a unique label for the connector in your application.</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Connector Configuration</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Connect to a global element linked to this connector. Global elements encapsulate reusable data about the connection to the target resource or service. Select the global ServiceNow connector element that you just created.</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Operation</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Select the action this component must perform: Insert, Delete Record, Delete Multiple, Update, Get, Get Keys, and Get Record.</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Type</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Select the ServiceNow table to act upon. For a complete list, see the <a href="/release-notes/servicenow-connector-release-notes">ServiceNow Release Notes</a>.</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>&lt;Operation&gt; Request</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>From Message:</strong> &nbsp;Select this option to define the operation based on the incoming payload.<br> Create Object manually: &nbsp;Select this option to define the search values manually. Mule provides an editor to facilitate this task.</p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>Save your configurations.</p> </li> 
+    </ol> 
+   </div> 
+  </div> 
+  <div class="sect2"> 
+   <h3 id="configuring-using-the-xml-editor-or-standalone"><a class="anchor" href="#configuring-using-the-xml-editor-or-standalone"></a>Configuring Using the XML Editor or Standalone</h3> 
+   <div class="olist arabic"> 
+    <ol class="arabic"> 
+     <li> <p>Ensure that you have included the ServiceNow namespaces in your configuration file.</p> 
+      <div class="listingblock"> 
+       <div class="content"> 
+        <pre class="CodeRay highlight"><code data-lang="code">
+             
+          <table class="CodeRay"> 
+           <tbody> 
+            <tr> 
+             <td class="line-numbers"><pre>1
 2
 </pre></td> 
-            <td class="code"><pre>http://www.mulesoft.org/schema/mule/servicenow
+             <td class="code"><pre>http://www.mulesoft.org/schema/mule/servicenow
 http://www.mulesoft.org/schema/mule/servicenow/current/mule-servicenow.xsd</pre></td> 
-           </tr> 
-          </tbody> 
-         </table></code></pre> 
-      </div> 
-     </div> 
-     <div class="paragraph"> 
-      <p>Follow these steps to configure a ServiceNow connector in your application.</p> 
-     </div> 
-     <div class="olist arabic"> 
-      <ol class="arabic"> 
-       <li> <p>First, create a global ServiceNow configuration outside and above your flows, using the following global configuration code.</p> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-       
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
+            </tr> 
+           </tbody> 
+          </table></code></pre> 
+       </div> 
+      </div> </li> 
+     <li> <p>Create a global ServiceNow configuration outside and above your flows, using the following global configuration code.</p> 
+      <div class="listingblock"> 
+       <div class="content"> 
+        <pre class="CodeRay highlight"><code data-lang="xml">
+             
+          <table class="CodeRay"> 
+           <tbody> 
+            <tr> 
+             <td class="line-numbers"><pre>1
 </pre></td> 
-               <td class="code"><pre><span class="entity">&amp;lt;</span>servicenow:config name="ServiceNow" username="YOUR_USERNAME" password="YOUR_PASSWORD" serviceEndpoint="YOUR_SERVICENOW_URI"/<span class="entity">&amp;gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
-        </div> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col style="width: 50%;"> 
-          <col style="width: 50%;"> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Attribute</th> 
-           <th class="tableblock halign-left valign-top">Description</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Enter a name for the configuration so it can be referenced from within the flow.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>username</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Username for connecting to the ServiceNow instance.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>password</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Password to log into the ServiceNow instance.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>serviceEndpoint</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">The URL of the ServiceNow instance.<br> Format: `https://&lt;instancename&gt;.service-now.com `</p></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-       <li> <p>Build your application flow, then add a ServiceNow connector using one of the following operations.</p> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col style="width: 50%;"> 
-          <col style="width: 50%;"> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Operation</th> 
-           <th class="tableblock halign-left valign-top">Description</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/servicenow-connector/mule/servicenow-config.html#delete-multiple">&lt;servicenow:delete-multiple&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"> 
-            <div> 
-             <div class="paragraph"> 
-              <p>Delete multiple records from the targeted table by example values.</p> 
-             </div> 
-            </div></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/servicenow-connector/mule/servicenow-config.html#delete-record">&lt;servicenow:delete-record&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"> 
-            <div> 
-             <div class="paragraph"> 
-              <p>Delete a record from the targeted table by supplying its sys_id.</p> 
-             </div> 
-            </div></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/servicenow-connector/mule/servicenow-config.html#get">&lt;servicenow:get&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"> 
-            <div> 
-             <div class="paragraph"> 
-              <p>Query a single record from the targeted table by sys_id and return the record and its fields.</p> 
-             </div> 
-            </div></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/servicenow-connector/mule/servicenow-config.html#get-keys">&lt;servicenow:get-keys&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"> 
-            <div> 
-             <div class="paragraph"> 
-              <p>Query the targeted table by example values and return a comma delimited list of sys_id.</p> 
-             </div> 
-            </div></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/servicenow-connector/mule/servicenow-config.html#get-records">&lt;servicenow:get-records&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"> 
-            <div> 
-             <div class="paragraph"> 
-              <p>Query the targeted table by example values and return all matching records and their fields.</p> 
-             </div> 
-            </div></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/servicenow-connector/mule/servicenow-config.html#insert">&lt;servicenow:insert&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"> 
-            <div> 
-             <div class="paragraph"> 
-              <p>Creates a new record for the targeted table.</p> 
-             </div> 
-            </div></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/servicenow-connector/mule/servicenow-config.html#update">&lt;servicenow:update&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"> 
-            <div> 
-             <div class="paragraph"> 
-              <p>Updates a existing record in the targeted table in the URL, identified by the mandatory sys_id field.</p> 
-             </div> 
-            </div></td> 
-          </tr> 
-         </tbody> 
-        </table> 
-        <div class="paragraph"> 
-         <p>Follow the links in the table above to access detailed configuration reference for each of these operations.</p> 
-        </div> </li> 
-      </ol> 
-     </div> 
-    </div> 
+             <td class="code"><pre><span class="tag">&lt;servicenow:config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">ServiceNow</span><span class="delimiter">"</span></span> <span class="attribute-name">username</span>=<span class="string"><span class="delimiter">"</span><span class="content">YOUR_USERNAME</span><span class="delimiter">"</span></span> <span class="attribute-name">password</span>=<span class="string"><span class="delimiter">"</span><span class="content">YOUR_PASSWORD</span><span class="delimiter">"</span></span> <span class="attribute-name">serviceEndpoint</span>=<span class="string"><span class="delimiter">"</span><span class="content">YOUR_SERVICENOW_URI</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></pre></td> 
+            </tr> 
+           </tbody> 
+          </table></code></pre> 
+       </div> 
+      </div> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col style="width: 50%;"> 
+        <col style="width: 50%;"> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Attribute</th> 
+         <th class="tableblock halign-left valign-top">Description</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Enter a name for the configuration so it can be referenced from within the flow.</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>username</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Username for connecting to the ServiceNow instance.</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>password</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Password to log into the ServiceNow instance.</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>serviceEndpoint</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">The URL of the ServiceNow instance.<br> Format: `https://&lt;instancename&gt;.service-now.com `</p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>Build your application flow, then add a ServiceNow connector using one of the following operations.</p> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col style="width: 50%;"> 
+        <col style="width: 50%;"> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Operation</th> 
+         <th class="tableblock halign-left valign-top">Description</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/servicenow-connector/4.0.1/mule/servicenow-config.html#delete-multiple">&lt;servicenow:delete-multiple&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"> 
+          <div> 
+           <div class="paragraph"> 
+            <p>Delete multiple records from the targeted table by example values.</p> 
+           </div> 
+          </div></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/servicenow-connector/4.0.1/mule/servicenow-config.html#delete-record">&lt;servicenow:delete-record&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"> 
+          <div> 
+           <div class="paragraph"> 
+            <p>Delete a record from the targeted table by supplying its sys_id.</p> 
+           </div> 
+          </div></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/servicenow-connector/4.0.1/mule/servicenow-config.html#get">&lt;servicenow:get&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"> 
+          <div> 
+           <div class="paragraph"> 
+            <p>Query a single record from the targeted table by sys_id and return the record and its fields.</p> 
+           </div> 
+          </div></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/servicenow-connector/4.0.1/mule/servicenow-config.html#get-keys">&lt;servicenow:get-keys&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"> 
+          <div> 
+           <div class="paragraph"> 
+            <p>Query the targeted table by example values and return a comma delimited list of sys_id.</p> 
+           </div> 
+          </div></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/servicenow-connector/4.0.1/mule/servicenow-config.html#get-records">&lt;servicenow:get-records&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"> 
+          <div> 
+           <div class="paragraph"> 
+            <p>Query the targeted table by example values and return all matching records and their fields.</p> 
+           </div> 
+          </div></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/servicenow-connector/4.0.1/mule/servicenow-config.html#insert">&lt;servicenow:insert&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"> 
+          <div> 
+           <div class="paragraph"> 
+            <p>Creates a new record for the targeted table.</p> 
+           </div> 
+          </div></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/servicenow-connector/4.0.1/mule/servicenow-config.html#update">&lt;servicenow:update&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"> 
+          <div> 
+           <div class="paragraph"> 
+            <p>Updates a existing record in the targeted table in the URL, identified by the mandatory sys_id field.</p> 
+           </div> 
+          </div></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>Follow the links in the table above to access detailed configuration reference for each of these operations.</p> </li> 
+    </ol> 
    </div> 
   </div> 
  </div> 
@@ -1363,840 +1345,790 @@ http://www.mulesoft.org/schema/mule/servicenow/current/mule-servicenow.xsd</pre>
   <div class="paragraph"> 
    <p>As a ServiceNow administrator, insert a user record in the ServiceNow application, and if the user belongs to development department, create a request for a Blackberry phone for the user.</p> 
   </div> 
-  <div class="panel panel-default no-padding"> 
-   <div class="panel-heading no-padding"> 
-    <!-- Nav tabs --> 
-    <ul class="nav nav-tabs" role="tablist"> 
-     <li class="active"><a href="#tab-2_1" role="tab" data-toggle="tab">Studio Visual Editor</a></li> 
-     <li><a href="#tab-2_2" role="tab" data-toggle="tab">XML Editor</a></li> 
-    </ul> 
-   </div> 
-   <div class="panel-body tab-content no-padding"> 
-    <div class="tab-pane in active fade no-padding" id="tab-2_1"> 
-     <div class="olist arabic"> 
-      <ol class="arabic"> 
-       <li> <p>Drag an HTTP connector into a new flow. Open the connector’s properties editor. Set the exchange pattern to&nbsp;<code>one-way</code> and the Path to <code>onboard</code>.</p> 
-        <div class="paragraph"> 
-         <p><span class="image"><img src="./_images/HTTPConnectorProperties.png" alt="HTTPConnectorProperties"></span></p> 
-        </div> </li> 
-       <li> <p>The new flow is now reachable through the path <code><a href="http://localhost:8081/onboard" class="bare">http://localhost:8081/onboard</a></code>. As the exchange pattern is set to one-way, no response message will be returned to the requester.</p> </li> 
-       <li> <p>Add a Set Payload transformer after HTTP endpoint to process the message payload.</p> </li> 
-       <li> <p>Configure the Set Payload transformer according to the table below.</p> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col style="width: 34%;"> 
-          <col style="width: 33%;"> 
-          <col style="width: 33%;"> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Field</th> 
-           <th class="tableblock halign-left valign-top">Value</th> 
-           <th class="tableblock halign-left valign-top">XML</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">User info</p></td> 
-           <td class="tableblock halign-left valign-top"> 
-            <div> 
-             <div class="listingblock"> 
-              <div class="content"> 
-               <pre class="CodeRay highlight"><code data-lang="code">
-            
-                    
-                 <table class="CodeRay"> 
-                  <tbody> 
-                   <tr> 
-                    <td class="line-numbers"><pre>1
+  <div class="sect2"> 
+   <h3 id="studio-visual-editor"><a class="anchor" href="#studio-visual-editor"></a>Studio Visual Editor</h3> 
+   <div class="olist arabic"> 
+    <ol class="arabic"> 
+     <li> <p>Drag an HTTP connector into a new flow. Open the connector’s properties editor. Set the exchange pattern to&nbsp;<code>one-way</code> and the Path to <code>onboard</code>.</p> 
+      <div class="paragraph"> 
+       <p><span class="image"><img src="./_images/HTTPConnectorProperties.png" alt="HTTPConnectorProperties"></span></p> 
+      </div> </li> 
+     <li> <p>The new flow is now reachable through the path <code><a href="http://localhost:8081/onboard" class="bare">http://localhost:8081/onboard</a></code>. As the exchange pattern is set to one-way, no response message will be returned to the requester.</p> </li> 
+     <li> <p>Add a Set Payload transformer after HTTP endpoint to process the message payload.</p> </li> 
+     <li> <p>Configure the Set Payload transformer according to the table below.</p> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col style="width: 34%;"> 
+        <col style="width: 33%;"> 
+        <col style="width: 33%;"> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Field</th> 
+         <th class="tableblock halign-left valign-top">Value</th> 
+         <th class="tableblock halign-left valign-top">XML</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">User info</p></td> 
+         <td class="tableblock halign-left valign-top"> 
+          <div> 
+           <div class="listingblock"> 
+            <div class="content"> 
+             <pre class="CodeRay highlight"><code data-lang="code">
+                  
+               <table class="CodeRay"> 
+                <tbody> 
+                 <tr> 
+                  <td class="line-numbers"><pre>1
 </pre></td> 
-                    <td class="code"><pre>doc:name="User info"</pre></td> 
-                   </tr> 
-                  </tbody> 
-                 </table></code></pre> 
-              </div> 
-             </div> 
-            </div></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Value</strong></p></td> 
-           <td class="tableblock halign-left valign-top"> 
-            <div> 
-             <div class="paragraph"> 
-              <p><strong>Note:</strong> Copy the lines below and concatenate into a continuous statement<br> before adding to Anypoint Studio:</p> 
-             </div> 
-             <div class="listingblock"> 
-              <div class="content"> 
-               <pre>#[['fname':message.inboundProperties['fname'], 'lname':message.inboundProperties['lname'], 'email':message.inboundProperties['email'], dept':message.inboundProperties['dept']]]`</pre> 
-              </div> 
-             </div> 
-            </div></td> 
-           <td class="tableblock halign-left valign-top"> 
-            <div> 
-             <div class="listingblock"> 
-              <div class="content"> 
-               <pre class="CodeRay highlight"><code data-lang="code">
-            
-                    
-                 <table class="CodeRay"> 
-                  <tbody> 
-                   <tr> 
-                    <td class="line-numbers"><pre>1
+                  <td class="code"><pre>doc:name="User info"</pre></td> 
+                 </tr> 
+                </tbody> 
+               </table></code></pre> 
+            </div> 
+           </div> 
+          </div></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Value</strong></p></td> 
+         <td class="tableblock halign-left valign-top"> 
+          <div> 
+           <div class="paragraph"> 
+            <p><strong>Note:</strong> Copy the lines below and concatenate into a continuous statement<br> before adding to Anypoint Studio:</p> 
+           </div> 
+           <div class="listingblock"> 
+            <div class="content"> 
+             <pre>#[['fname':message.inboundProperties['fname'], 'lname':message.inboundProperties['lname'], 'email':message.inboundProperties['email'], dept':message.inboundProperties['dept']]]`</pre> 
+            </div> 
+           </div> 
+          </div></td> 
+         <td class="tableblock halign-left valign-top"> 
+          <div> 
+           <div class="listingblock"> 
+            <div class="content"> 
+             <pre class="CodeRay highlight"><code data-lang="code">
+                  
+               <table class="CodeRay"> 
+                <tbody> 
+                 <tr> 
+                  <td class="line-numbers"><pre>1
 2
 3
 4
 </pre></td> 
-                    <td class="code"><pre>value="# [['fname':message.inboundProperties['fname'],
+                  <td class="code"><pre>value="# [['fname':message.inboundProperties['fname'],
 'lname':message.inboundProperties['lname'],
 'email':message.inboundProperties['email'],
 'dept':message.inboundProperties['dept']]]"</pre></td> 
-                   </tr> 
-                  </tbody> 
-                 </table></code></pre> 
-              </div> 
-             </div> 
-            </div></td> 
-          </tr> 
-         </tbody> 
-        </table> 
-        <div class="paragraph"> 
-         <p>With the above configuration, the transformer is set to accept browser query parameters in the following format:</p> 
-        </div> 
-        <div class="paragraph"> 
-         <p><code><a href="http://localhost:8081/onboard?fname=<user’s" class="bare">http://localhost:8081/onboard?fname=&lt;user’s</a> first name&gt; &amp;lname=&lt;user’s last name&gt; &amp;email= &lt;user’s email address&gt;&amp;dept=&lt;department of the user&gt;</code></p> 
-        </div> </li> 
-       <li> <p>Add a Variable transformer to preserve the user’s first name and last name from the message payload.<br> Configure the transformer as follows:</p> 
-        <div class="paragraph"> 
-         <p><span class="image"><img src="./_images/Setusername.png" alt="Setusername"></span></p> 
-        </div> </li> 
-       <li> <p>Drag a ServiceNow connector into the flow to create a ServiceNow user with the message payload.</p> </li> 
-       <li> <p>Add a new Global element by clicking the plus sign next to the <strong>Connector Configuration</strong> field.</p> </li> 
-       <li> <p>Configure this Global Element according to the table below (Refer to <a href="#Configuration">[Configuration]</a> for more details).</p> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col style="width: 50%;"> 
-          <col style="width: 50%;"> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Field</th> 
-           <th class="tableblock halign-left valign-top">Description</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Enter a unique label for this global element to be referenced by connectors in the flow.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Username</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Enter a Username for connecting to the ServiceNow instance.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Password</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the user password.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ServiceNow Endpoint</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the URL of your ServiceNow server.<br> The format of the ServiceNow URL is: <code><a href="https://<instancename>.service-now.com" class="bare">https://&lt;instancename&gt;.service-now.com</a></code></p></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-       <li> <p>Click <strong>Test Connection</strong> to confirm that Mule can connect with your ServiceNow instance. If the connection is successful, click <strong>OK</strong> to save the configurations of the global element. If unsuccessful, revise or correct any incorrect parameters, then test again.</p> </li> 
-       <li> <p>Back in the properties editor of the ServiceNow connector, configure the remaining parameters according to the table below.</p> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col style="width: 50%;"> 
-          <col style="width: 50%;"> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Field</th> 
-           <th class="tableblock halign-left valign-top">Value</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Insert System User (or any other name you prefer)</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Config Reference</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">ServiceNow (Enter name of the global element you have created)</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Operation</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Insert</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Type</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">User Management --&gt; User (SYS_USER)</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Insert Request</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Select the <code>From Message</code> option</p></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-       <li> <p>Drag a DataMapper transformer between the Variable transformer and the ServiceNow connector, then click it to open its properties editor.</p> </li> 
-       <li> <p>Configure the Input properties of the DataMapper according to the steps below.<br></p> 
-        <div class="olist loweralpha"> 
-         <ol class="loweralpha" type="a"> 
-          <li> <p>In the <strong>Input type</strong>, select <strong>Map&lt;k,v&gt;</strong>, then select <strong>User Defined</strong>.</p> </li> 
-          <li> <p>Click <strong>Create/Edit Structure</strong>. &nbsp;</p> </li> 
-          <li> <p>Enter a name for the Map, then select <strong>Element</strong> for <strong>Type</strong>.</p> </li> 
-          <li> <p>Add the child fields according to the table below.</p> 
-           <table class="tableblock frame-all grid-all spread"> 
-            <colgroup> 
-             <col> 
-             <col> 
-            </colgroup> 
-            <thead> 
-             <tr> 
-              <th class="tableblock halign-left valign-top">Name</th> 
-              <th class="tableblock halign-left valign-top">Type</th> 
-             </tr> 
-            </thead> 
-            <tbody> 
-             <tr> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>dept</strong></p></td> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
-             </tr> 
-             <tr> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>email</strong></p></td> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
-             </tr> 
-             <tr> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>lname</strong></p></td> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
-             </tr> 
-             <tr> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>fname</strong></p></td> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
-             </tr> 
-            </tbody> 
-           </table> </li> 
-         </ol> 
-        </div> </li> 
-       <li> <p>The Output properties are automatically configured to correspond to the ServiceNow connector.</p> </li> 
-       <li> <p>Click <strong>Create Mapping</strong>, then drag each input data field to its corresponding output ServiceNow field. Click the blank space on the canvas to save the changes.</p> </li> 
-       <li> <p>Add another ServiceNow connector to the flow.</p> </li> 
-       <li> <p>In the <strong>Connector Configuration</strong> field, select the global ServiceNow element you have created.</p> </li> 
-       <li> <p>Configure the remaining parameters according to the table below.</p> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col style="width: 50%;"> 
-          <col style="width: 50%;"> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Field</th> 
-           <th class="tableblock halign-left valign-top">Value</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Create a Request (or any other name you prefer)</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Config Reference</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the name of the global element you have created</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Operation</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Insert</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Type</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Service Catalog --&gt; Requested Item (SC_REQ_ITEM)</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Insert Request</strong></p></td> 
-           <td class="tableblock halign-left valign-top"> 
-            <div> 
-             <div class="paragraph"> 
-              <p>Select Create Manually, then click the … button next to the option. On the Object Builder window, find requestedFor:String field and enter the following value: <code>#[flowVars['UserName']]</code></p> 
-             </div> 
-            </div></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-       <li> <p>Add a Variable transformer, then configure it according to the table below.</p> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col style="width: 50%;"> 
-          <col style="width: 50%;"> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Field</th> 
-           <th class="tableblock halign-left valign-top">Value</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Set Request ID</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Operation</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Set Variable</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Request ID</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Value</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><code>#[payload.number]</code></p></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-       <li> <p>Add a ServiceNow connector into the flow to create a ServiceNow request item for the user.</p> </li> 
-       <li> <p>In the <strong>Connector Configuration</strong> field, select the ServiceNow global element you created.</p> </li> 
-       <li> <p>Configure the remaining parameters according to the table below.</p> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col style="width: 50%;"> 
-          <col style="width: 50%;"> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Field</th> 
-           <th class="tableblock halign-left valign-top">Value</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Assign the Requested Item to User (or any other name you want to give to the connector)</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Config Reference</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the name of the global element you have created</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Operation</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Insert</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Type</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Service Catalog --&gt; Requested Item (SC_REQ_ITEM)</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Insert Request</strong></p></td> 
-           <td class="tableblock halign-left valign-top"> 
-            <div> 
-             <div class="paragraph"> 
-              <p>Select Create Manually, then click the button next to it. On the Object Builder window, do the following:</p> 
-             </div> 
-             <div class="paragraph"> 
-              <p>Enter <code>Blackberry</code> in <strong>CatItem: String</strong> field</p> 
-             </div> 
-             <div class="paragraph"> 
-              <p>Enter <code>#[flowVars['RequestID']]</code> in <strong>request:String</strong> field&nbsp;</p> 
-             </div> 
-            </div></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-       <li> <p>Save and run the project as a Mule Application.</p> </li> 
-       <li> <p>From a browser, navigate to <code><a href="http://localhost:8081/onboard" class="bare">http://localhost:8081/onboard</a> `and enter the user’s first name, last name, email address, and department in the form query parameters:<br> `http://localhost:8081/onboard?fname=&lt;user’s first name&gt;&amp;lname=&lt;user’s last name&gt; &amp;email= &lt;user’s email address&gt;&amp;dept=&lt;department of the user&gt;</code></p> </li> 
-       <li> <p>Mule performs the query and creates the user record in ServiceNow, then assigns Blackberry phone if the user is a developer.</p> </li> 
-      </ol> 
-     </div> 
-    </div> 
-    <div class="tab-pane fade no-padding" id="tab-2_2"> 
-     <div class="olist arabic"> 
-      <ol class="arabic"> 
-       <li> <p>Add a <strong>servicenow:config</strong> global element to your project, then configure its attributes according to the table below (see code below for a complete sample).</p> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-       
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
+                 </tr> 
+                </tbody> 
+               </table></code></pre> 
+            </div> 
+           </div> 
+          </div></td> 
+        </tr> 
+       </tbody> 
+      </table> 
+      <div class="paragraph"> 
+       <p>With the above configuration, the transformer is set to accept browser query parameters in the following format:</p> 
+      </div> 
+      <div class="paragraph"> 
+       <p><code><a href="http://localhost:8081/onboard?fname=<user’s" class="bare">http://localhost:8081/onboard?fname=&lt;user’s</a> first name&gt; &amp;lname=&lt;user’s last name&gt; &amp;email= &lt;user’s email address&gt;&amp;dept=&lt;department of the user&gt;</code></p> 
+      </div> </li> 
+     <li> <p>Add a Variable transformer to preserve the user’s first name and last name from the message payload.<br> Configure the transformer as follows:</p> 
+      <div class="paragraph"> 
+       <p><span class="image"><img src="./_images/Setusername.png" alt="Setusername"></span></p> 
+      </div> </li> 
+     <li> <p>Drag a ServiceNow connector into the flow to create a ServiceNow user with the message payload.</p> </li> 
+     <li> <p>Add a new Global element by clicking the plus sign next to the <strong>Connector Configuration</strong> field.</p> </li> 
+     <li> <p>Configure this Global Element according to the table below (Refer to <a href="#configuration">Configuration</a> for more details).</p> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col style="width: 50%;"> 
+        <col style="width: 50%;"> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Field</th> 
+         <th class="tableblock halign-left valign-top">Description</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Enter a unique label for this global element to be referenced by connectors in the flow.</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Username</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Enter a Username for connecting to the ServiceNow instance.</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Password</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the user password.</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ServiceNow Endpoint</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the URL of your ServiceNow server.<br> The format of the ServiceNow URL is: <code><a href="https://<instancename>.service-now.com" class="bare">https://&lt;instancename&gt;.service-now.com</a></code></p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>Click <strong>Test Connection</strong> to confirm that Mule can connect with your ServiceNow instance. If the connection is successful, click <strong>OK</strong> to save the configurations of the global element. If unsuccessful, revise or correct any incorrect parameters, then test again.</p> </li> 
+     <li> <p>Back in the properties editor of the ServiceNow connector, configure the remaining parameters according to the table below.</p> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col style="width: 50%;"> 
+        <col style="width: 50%;"> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Field</th> 
+         <th class="tableblock halign-left valign-top">Value</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Insert System User (or any other name you prefer)</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Config Reference</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">ServiceNow (Enter name of the global element you have created)</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Operation</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Insert</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Type</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">User Management -→ User (SYS_USER)</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Insert Request</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Select the <code>From Message</code> option</p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>Drag a DataMapper transformer between the Variable transformer and the ServiceNow connector, then click it to open its properties editor.</p> </li> 
+     <li> <p>Configure the Input properties of the DataMapper according to the steps below.<br></p> 
+      <div class="olist loweralpha"> 
+       <ol class="loweralpha" type="a"> 
+        <li> <p>In the <strong>Input type</strong>, select <strong>Map&lt;k,v&gt;</strong>, then select <strong>User Defined</strong>.</p> </li> 
+        <li> <p>Click <strong>Create/Edit Structure</strong>. &nbsp;</p> </li> 
+        <li> <p>Enter a name for the Map, then select <strong>Element</strong> for <strong>Type</strong>.</p> </li> 
+        <li> <p>Add the child fields according to the table below.</p> 
+         <table class="tableblock frame-all grid-all spread"> 
+          <colgroup> 
+           <col> 
+           <col> 
+          </colgroup> 
+          <thead> 
+           <tr> 
+            <th class="tableblock halign-left valign-top">Name</th> 
+            <th class="tableblock halign-left valign-top">Type</th> 
+           </tr> 
+          </thead> 
+          <tbody> 
+           <tr> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>dept</strong></p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
+           </tr> 
+           <tr> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>email</strong></p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
+           </tr> 
+           <tr> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>lname</strong></p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
+           </tr> 
+           <tr> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>fname</strong></p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
+           </tr> 
+          </tbody> 
+         </table> </li> 
+       </ol> 
+      </div> </li> 
+     <li> <p>The Output properties are automatically configured to correspond to the ServiceNow connector.</p> </li> 
+     <li> <p>Click <strong>Create Mapping</strong>, then drag each input data field to its corresponding output ServiceNow field. Click the blank space on the canvas to save the changes.</p> </li> 
+     <li> <p>Add another ServiceNow connector to the flow.</p> </li> 
+     <li> <p>In the <strong>Connector Configuration</strong> field, select the global ServiceNow element you have created.</p> </li> 
+     <li> <p>Configure the remaining parameters according to the table below.</p> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col style="width: 50%;"> 
+        <col style="width: 50%;"> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Field</th> 
+         <th class="tableblock halign-left valign-top">Value</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Create a Request (or any other name you prefer)</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Config Reference</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the name of the global element you have created</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Operation</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Insert</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Type</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Service Catalog -→ Requested Item (SC_REQ_ITEM)</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Insert Request</strong></p></td> 
+         <td class="tableblock halign-left valign-top"> 
+          <div> 
+           <div class="paragraph"> 
+            <p>Select Create Manually, then click the … button next to the option. On the Object Builder window, find requestedFor:String field and enter the following value: <code>#[flowVars['UserName']]</code></p> 
+           </div> 
+          </div></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>Add a Variable transformer, then configure it according to the table below.</p> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col style="width: 50%;"> 
+        <col style="width: 50%;"> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Field</th> 
+         <th class="tableblock halign-left valign-top">Value</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Set Request ID</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Operation</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Set Variable</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Request ID</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Value</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>#[payload.number]</code></p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>Add a ServiceNow connector into the flow to create a ServiceNow request item for the user.</p> </li> 
+     <li> <p>In the <strong>Connector Configuration</strong> field, select the ServiceNow global element you created.</p> </li> 
+     <li> <p>Configure the remaining parameters according to the table below.</p> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col style="width: 50%;"> 
+        <col style="width: 50%;"> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Field</th> 
+         <th class="tableblock halign-left valign-top">Value</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Assign the Requested Item to User (or any other name you want to give to the connector)</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Config Reference</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the name of the global element you have created</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Operation</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Insert</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Type</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Service Catalog -→ Requested Item (SC_REQ_ITEM)</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Insert Request</strong></p></td> 
+         <td class="tableblock halign-left valign-top"> 
+          <div> 
+           <div class="paragraph"> 
+            <p>Select Create Manually, then click the button next to it. On the Object Builder window, do the following:</p> 
+           </div> 
+           <div class="paragraph"> 
+            <p>Enter <code>Blackberry</code> in <strong>CatItem: String</strong> field</p> 
+           </div> 
+           <div class="paragraph"> 
+            <p>Enter <code>#[flowVars['RequestID']]</code> in <strong>request:String</strong> field&nbsp;</p> 
+           </div> 
+          </div></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>Save and run the project as a Mule Application.</p> </li> 
+     <li> <p>From a browser, navigate to <code><a href="http://localhost:8081/onboard" class="bare">http://localhost:8081/onboard</a> `and enter the user’s first name, last name, email address, and department in the form query parameters:<br> `http://localhost:8081/onboard?fname=&lt;user’s first name&gt;&amp;lname=&lt;user’s last name&gt; &amp;email= &lt;user’s email address&gt;&amp;dept=&lt;department of the user&gt;</code></p> </li> 
+     <li> <p>Mule performs the query and creates the user record in ServiceNow, then assigns Blackberry phone if the user is a developer.</p> </li> 
+    </ol> 
+   </div> 
+  </div> 
+  <div class="sect2"> 
+   <h3 id="xml-editor"><a class="anchor" href="#xml-editor"></a>XML Editor</h3> 
+   <div class="olist arabic"> 
+    <ol class="arabic"> 
+     <li> <p>Add a <strong>servicenow:config</strong> global element to your project, then configure its attributes according to the table below (see code below for a complete sample).</p> 
+      <div class="listingblock"> 
+       <div class="content"> 
+        <pre class="CodeRay highlight"><code data-lang="xml">
+             
+          <table class="CodeRay"> 
+           <tbody> 
+            <tr> 
+             <td class="line-numbers"><pre>1
 </pre></td> 
-               <td class="code"><pre><span class="entity">&amp;lt;</span>servicenow:config name="ServiceNow" username="<span class="entity">&amp;lt;</span>user<span class="entity">&amp;gt;</span>" password="<span class="entity">&amp;lt;</span>pw<span class="entity">&amp;gt;</span>" serviceEndpoint="<span class="entity">&amp;lt;</span>endpoint_URL<span class="entity">&amp;gt;</span>" doc:name="ServiceNow"/<span class="entity">&amp;gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
-        </div> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col style="width: 50%;"> 
-          <col style="width: 50%;"> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Attribute</th> 
-           <th class="tableblock halign-left valign-top">Value</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">ServiceNow</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">ServiceNow</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>username</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">&lt;Your username&gt;</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>password</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">&lt;Your password&gt;</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>serviceEndpoint</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">&lt;the URL of your ServiceNow instance&gt;</p></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-       <li> <p>Create a Mule flow with an <strong>HTTP endpoint</strong>, configuring the endpoint according to the table below (see code below for a complete sample).</p> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-       
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
+             <td class="code"><pre><span class="tag">&lt;servicenow:config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">ServiceNow</span><span class="delimiter">"</span></span> <span class="attribute-name">username</span>=<span class="string"><span class="delimiter">"</span><span class="content">&lt;user</span></span><span class="error">&gt;</span>" password="<span class="tag">&lt;pw&gt;</span>" serviceEndpoint="<span class="tag">&lt;endpoint_URL&gt;</span>" doc:name="ServiceNow"/<span class="error">&gt;</span></pre></td> 
+            </tr> 
+           </tbody> 
+          </table></code></pre> 
+       </div> 
+      </div> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col style="width: 50%;"> 
+        <col style="width: 50%;"> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Attribute</th> 
+         <th class="tableblock halign-left valign-top">Value</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">ServiceNow</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">ServiceNow</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>username</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">&lt;Your username&gt;</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>password</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">&lt;Your password&gt;</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>serviceEndpoint</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">&lt;the URL of your ServiceNow instance&gt;</p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>Create a Mule flow with an <strong>HTTP endpoint</strong>, configuring the endpoint according to the table below (see code below for a complete sample).</p> 
+      <div class="listingblock"> 
+       <div class="content"> 
+        <pre class="CodeRay highlight"><code data-lang="xml">
+             
+          <table class="CodeRay"> 
+           <tbody> 
+            <tr> 
+             <td class="line-numbers"><pre>1
 </pre></td> 
-               <td class="code"><pre><span class="entity">&amp;lt;</span>http:inbound-endpoint exchange-pattern="one-way" host="localhost" port="8081" doc:name="/onboard" path="onboard"/<span class="entity">&amp;gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
-        </div> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col style="width: 50%;"> 
-          <col style="width: 50%;"> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Attribute</th> 
-           <th class="tableblock halign-left valign-top">Value</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>exchange-pattern</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">one-way</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>host</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">local host</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>port</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">8081</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>path</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">onboard</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">/onboard</p></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-       <li> <p>After the <strong>HTTP</strong> endpoint, add a set-payload transformer to set the message payload in the flow.</p> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-       
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
+             <td class="code"><pre><span class="tag">&lt;http:inbound-endpoint</span> <span class="attribute-name">exchange-pattern</span>=<span class="string"><span class="delimiter">"</span><span class="content">one-way</span><span class="delimiter">"</span></span> <span class="attribute-name">host</span>=<span class="string"><span class="delimiter">"</span><span class="content">localhost</span><span class="delimiter">"</span></span> <span class="attribute-name">port</span>=<span class="string"><span class="delimiter">"</span><span class="content">8081</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">/onboard</span><span class="delimiter">"</span></span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">"</span><span class="content">onboard</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></pre></td> 
+            </tr> 
+           </tbody> 
+          </table></code></pre> 
+       </div> 
+      </div> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col style="width: 50%;"> 
+        <col style="width: 50%;"> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Attribute</th> 
+         <th class="tableblock halign-left valign-top">Value</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>exchange-pattern</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">one-way</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>host</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">local host</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>port</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">8081</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>path</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">onboard</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">/onboard</p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>After the <strong>HTTP</strong> endpoint, add a set-payload transformer to set the message payload in the flow.</p> 
+      <div class="listingblock"> 
+       <div class="content"> 
+        <pre class="CodeRay highlight"><code data-lang="xml">
+             
+          <table class="CodeRay"> 
+           <tbody> 
+            <tr> 
+             <td class="line-numbers"><pre>1
 </pre></td> 
-               <td class="code"><pre><span class="entity">&amp;lt;</span>set-payload value="#[['fname':message.inboundProperties['fname'],'lname':message.inboundProperties['lname'],'email':message.inboundProperties['email'],'dept':message.inboundProperties['dept']]]" doc:name="Set Payload"/<span class="entity">&amp;gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
-        </div> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col style="width: 50%;"> 
-          <col style="width: 50%;"> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Attribute</th> 
-           <th class="tableblock halign-left valign-top">Value</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><code>#[['fname':message.inboundProperties['fname'],'lname':message.inboundProperties['lname'],'email':message.inboundProperties['email'],'dept':message.inboundProperties['dept']]]</code></p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Set Payload</p></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-       <li> <p>Add a&nbsp;<strong>set-variable</strong> element in the flow to preserve the user name from the payload.</p> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-       
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
-</pre></td> 
-               <td class="code"><pre><span class="entity">&amp;lt;</span>set-variable variableName="UserName" value="#[message.inboundProperties['fname']+ ' ' +message.inboundProperties['lname']]" doc:name="Set User name"/<span class="entity">&amp;gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
-        </div> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col style="width: 50%;"> 
-          <col style="width: 50%;"> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Attribute</th> 
-           <th class="tableblock halign-left valign-top">Value</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">variableName</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">UserName</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">value</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><code>#[message.inboundProperties['fname']+ ' ' +message.inboundProperties['lname']]</code></p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">doc:name</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Set User name</p></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-       <li> <p>Add&nbsp;<strong>servicenow:insert</strong> element to the flow now. Configure the attributes according to the table below.</p> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-       
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
+             <td class="code"><pre><span class="tag">&lt;set-payload</span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">"</span><span class="content">#[['fname':message.inboundProperties['fname'],'lname':message.inboundProperties['lname'],'email':message.inboundProperties['email'],'dept':message.inboundProperties['dept']]]</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Set Payload</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></pre></td> 
+            </tr> 
+           </tbody> 
+          </table></code></pre> 
+       </div> 
+      </div> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col style="width: 50%;"> 
+        <col style="width: 50%;"> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Attribute</th> 
+         <th class="tableblock halign-left valign-top">Value</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>#[['fname':message.inboundProperties['fname'],'lname':message.inboundProperties['lname'],'email':message.inboundProperties['email'],'dept':message.inboundProperties['dept']]]</code></p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Set Payload</p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>Add a&nbsp;set-variable element in the flow to preserve the user name from the payload.</p> 
+      <div class="listingblock"> 
+       <div class="content"> 
+        <pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;set-variable</span> <span class="attribute-name">variableName</span>=<span class="string"><span class="delimiter">"</span><span class="content">UserName</span><span class="delimiter">"</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">"</span><span class="content">#[message.inboundProperties['fname']+ ' ' +message.inboundProperties['lname']]</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Set User name</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></code></pre> 
+       </div> 
+      </div> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col style="width: 50%;"> 
+        <col style="width: 50%;"> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Attribute</th> 
+         <th class="tableblock halign-left valign-top">Value</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">variableName</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">UserName</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">value</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>#[message.inboundProperties['fname']+ ' ' +message.inboundProperties['lname']]</code></p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">doc:name</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Set User name</p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>Add&nbsp;the servicenow:insert element to the flow. Configure the attributes according to the table below.</p> 
+      <div class="listingblock"> 
+       <div class="content"> 
+        <pre class="CodeRay highlight"><code data-lang="xml">
+             
+          <table class="CodeRay"> 
+           <tbody> 
+            <tr> 
+             <td class="line-numbers"><pre>1
 2
 3
 </pre></td> 
-               <td class="code"><pre><span class="entity">&amp;lt;</span>servicenow:insert config-ref="ServiceNow" type="SYS_USER" doc:name="Insert System User"<span class="entity">&amp;gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="entity">&amp;lt;</span>servicenow:insert-request ref="#[payload]"/<span class="entity">&amp;gt;</span>
-<span class="entity">&amp;lt;</span>/servicenow:insert<span class="entity">&amp;gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
-        </div> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col style="width: 50%;"> 
-          <col style="width: 50%;"> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Attribute</th> 
-           <th class="tableblock halign-left valign-top">Value</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>config-ref</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">ServiceNow</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">User Management --&gt; User (SYS_USER)</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Insert System User</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ref</strong></p></td> 
-           <td class="tableblock halign-left valign-top"> 
-            <div> 
-             <div class="paragraph"> 
-              <p>"#[payload]"</p> 
-             </div> 
-            </div></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-       <li> <p>Add a <strong>DataMapper element</strong> between the Set Payload transformer and the ServiceNow connector to pass the message payload to ServiceNow.</p> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-       
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
-</pre></td> 
-               <td class="code"><pre><span class="entity">&amp;lt;</span>data-mapper:transform config-ref="Map_To_Map" doc:name="Payload to Insert User"/<span class="entity">&amp;gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
-        </div> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col> 
-          <col> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Attribute</th> 
-           <th class="tableblock halign-left valign-top">Value</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>config-ref</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Map_To_Map</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Payload to Insert User</p></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-       <li> <p>You must configure the <strong>DataMapper</strong> <strong>element</strong> through Studio’s Visual Editor. Switch the view to&nbsp; Message Flow view, then click the DataMapper element to set its properties.</p> 
-        <div class="olist loweralpha"> 
-         <ol class="loweralpha" type="a"> 
-          <li> <p>In the <strong>Input type</strong>, select <strong>Map&lt;k,v&gt;</strong>, then select <strong>User Defined</strong>.</p> </li> 
-          <li> <p>Click <strong>Create/Edit Structure</strong>. &nbsp;</p> </li> 
-          <li> <p>Enter a name for the Map, then select <strong>Element</strong> for <strong>Type</strong>.</p> </li> 
-          <li> <p>Add the child fields according to the table below.</p> 
-           <table class="tableblock frame-all grid-all spread"> 
-            <colgroup> 
-             <col> 
-             <col> 
-            </colgroup> 
-            <thead> 
-             <tr> 
-              <th class="tableblock halign-left valign-top">Name</th> 
-              <th class="tableblock halign-left valign-top">Type</th> 
-             </tr> 
-            </thead> 
-            <tbody> 
-             <tr> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>dept</strong></p></td> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
-             </tr> 
-             <tr> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>email</strong></p></td> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
-             </tr> 
-             <tr> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>lname</strong></p></td> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
-             </tr> 
-             <tr> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>fname</strong></p></td> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
-             </tr> 
-            </tbody> 
-           </table> </li> 
-         </ol> 
-        </div> </li> 
-       <li> <p>Add a <strong>servicenow:insert element</strong> to create a request for an item in ServiceNow. Configure the attributes according to the table below.</p> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-       
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
+             <td class="code"><pre><span class="tag">&lt;servicenow:insert</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">ServiceNow</span><span class="delimiter">"</span></span> <span class="attribute-name">type</span>=<span class="string"><span class="delimiter">"</span><span class="content">SYS_USER</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Insert System User</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;servicenow:insert-request</span> <span class="attribute-name">ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">#[payload]</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+<span class="tag">&lt;/servicenow:insert&gt;</span></pre></td> 
+            </tr> 
+           </tbody> 
+          </table></code></pre> 
+       </div> 
+      </div> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col style="width: 50%;"> 
+        <col style="width: 50%;"> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Attribute</th> 
+         <th class="tableblock halign-left valign-top">Value</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>config-ref</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">ServiceNow</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">User Management -→ User (SYS_USER)</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Insert System User</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ref</strong></p></td> 
+         <td class="tableblock halign-left valign-top"> 
+          <div> 
+           <div class="paragraph"> 
+            <p>"#[payload]"</p> 
+           </div> 
+          </div></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>Add a <strong>DataMapper element</strong> between the Set Payload transformer and the ServiceNow connector to pass the message payload to ServiceNow.</p> 
+      <div class="listingblock"> 
+       <div class="content"> 
+        <pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;data-mapper:transform</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">Map_To_Map</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Payload to Insert User</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></code></pre> 
+       </div> 
+      </div> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col> 
+        <col> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Attribute</th> 
+         <th class="tableblock halign-left valign-top">Value</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>config-ref</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Map_To_Map</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Payload to Insert User</p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>You must configure the <strong>DataMapper</strong> <strong>element</strong> through Studio’s Visual Editor. Switch the view to&nbsp; Message Flow view, then click the DataMapper element to set its properties.</p> 
+      <div class="olist loweralpha"> 
+       <ol class="loweralpha" type="a"> 
+        <li> <p>In the <strong>Input type</strong>, select <strong>Map&lt;k,v&gt;</strong>, then select <strong>User Defined</strong>.</p> </li> 
+        <li> <p>Click <strong>Create/Edit Structure</strong>. &nbsp;</p> </li> 
+        <li> <p>Enter a name for the Map, then select <strong>Element</strong> for <strong>Type</strong>.</p> </li> 
+        <li> <p>Add the child fields according to the table below.</p> 
+         <table class="tableblock frame-all grid-all spread"> 
+          <colgroup> 
+           <col> 
+           <col> 
+          </colgroup> 
+          <thead> 
+           <tr> 
+            <th class="tableblock halign-left valign-top">Name</th> 
+            <th class="tableblock halign-left valign-top">Type</th> 
+           </tr> 
+          </thead> 
+          <tbody> 
+           <tr> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>dept</strong></p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
+           </tr> 
+           <tr> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>email</strong></p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
+           </tr> 
+           <tr> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>lname</strong></p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
+           </tr> 
+           <tr> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>fname</strong></p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
+           </tr> 
+          </tbody> 
+         </table> </li> 
+       </ol> 
+      </div> </li> 
+     <li> <p>Add a <strong>servicenow:insert element</strong> to create a request for an item in ServiceNow. Configure the attributes according to the table below.</p> 
+      <div class="listingblock"> 
+       <div class="content"> 
+        <pre class="CodeRay highlight"><code data-lang="xml">
+             
+          <table class="CodeRay"> 
+           <tbody> 
+            <tr> 
+             <td class="line-numbers"><pre>1
 2
 3
 4
 5
 </pre></td> 
-               <td class="code"><pre><span class="entity">&amp;lt;</span>servicenow:insert config-ref="ServiceNow" type="SC_REQUEST" doc:name="Create a Request"<span class="entity">&amp;gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="entity">&amp;lt;</span>servicenow:insert-request<span class="entity">&amp;gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="entity">&amp;lt;</span>servicenow:insert-request key="requestedFor"<span class="entity">&amp;gt;</span>#[flowVars['UserName']]<span class="entity">&amp;lt;</span>/servicenow:insert-request<span class="entity">&amp;gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="entity">&amp;lt;</span>/servicenow:insert-request<span class="entity">&amp;gt;</span>
-<span class="entity">&amp;lt;</span>/servicenow:insert<span class="entity">&amp;gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
-        </div> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col> 
-          <col> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Attribute</th> 
-           <th class="tableblock halign-left valign-top">Value</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>config-ref</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">ServiceNow</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Service Catalog --&gt; Request (SC_REQUEST)</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Create a Request</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>key</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">requestedFor</p></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-       <li> <p>Add a&nbsp;<strong>set-variable element</strong> to preserve the ServiceNow request ID.</p> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-       
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
-</pre></td> 
-               <td class="code"><pre><span class="entity">&amp;lt;</span>set-variable variableName="RequestID" value="#[payload.number]" doc:name="Set Request Id"/<span class="entity">&amp;gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
-        </div> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col style="width: 50%;"> 
-          <col style="width: 50%;"> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Attribute</th> 
-           <th class="tableblock halign-left valign-top">Value</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>variableName</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">RequestID</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><code>#[payload.number]</code></p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Set Request Id</p></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-       <li> <p>Add <strong>servicenow:insert</strong> to assign the specified catalog item against the request ID.</p> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-       
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
+             <td class="code"><pre><span class="tag">&lt;servicenow:insert</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">ServiceNow</span><span class="delimiter">"</span></span> <span class="attribute-name">type</span>=<span class="string"><span class="delimiter">"</span><span class="content">SC_REQUEST</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Create a Request</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;servicenow:insert-request&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;servicenow:insert-request</span> <span class="attribute-name">key</span>=<span class="string"><span class="delimiter">"</span><span class="content">requestedFor</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>#[flowVars['UserName']]<span class="tag">&lt;/servicenow:insert-request&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/servicenow:insert-request&gt;</span>
+<span class="tag">&lt;/servicenow:insert&gt;</span></pre></td> 
+            </tr> 
+           </tbody> 
+          </table></code></pre> 
+       </div> 
+      </div> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col> 
+        <col> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Attribute</th> 
+         <th class="tableblock halign-left valign-top">Value</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>config-ref</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">ServiceNow</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Service Catalog -→ Request (SC_REQUEST)</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Create a Request</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>key</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">requestedFor</p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>Add a&nbsp;set-variable element to preserve the ServiceNow request ID.</p> 
+      <div class="listingblock"> 
+       <div class="content"> 
+        <pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;set-variable</span> <span class="attribute-name">variableName</span>=<span class="string"><span class="delimiter">"</span><span class="content">RequestID</span><span class="delimiter">"</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">"</span><span class="content">#[payload.number]</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Set Request Id</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></code></pre> 
+       </div> 
+      </div> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col style="width: 50%;"> 
+        <col style="width: 50%;"> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Attribute</th> 
+         <th class="tableblock halign-left valign-top">Value</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>variableName</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">RequestID</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>#[payload.number]</code></p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Set Request Id</p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>Add <strong>servicenow:insert</strong> to assign the specified catalog item against the request ID.</p> 
+      <div class="listingblock"> 
+       <div class="content"> 
+        <pre class="CodeRay highlight"><code data-lang="xml">
+             
+          <table class="CodeRay"> 
+           <tbody> 
+            <tr> 
+             <td class="line-numbers"><pre>1
 2
 3
 4
 5
 6
 </pre></td> 
-               <td class="code"><pre><span class="entity">&amp;lt;</span>servicenow:insert config-ref="ServiceNow" type="SC_REQ_ITEM" doc:name="Assign a requested item with user"<span class="entity">&amp;gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="entity">&amp;lt;</span>servicenow:insert-request<span class="entity">&amp;gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="entity">&amp;lt;</span>servicenow:insert-request key="request"<span class="entity">&amp;gt;</span>#[flowVars['RequestID']]<span class="entity">&amp;lt;</span>/servicenow:insert-request<span class="entity">&amp;gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="entity">&amp;lt;</span>servicenow:insert-request key="catItem"<span class="entity">&amp;gt;</span>Blackberry<span class="entity">&amp;lt;</span>/servicenow:insert-request<span class="entity">&amp;gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="entity">&amp;lt;</span>/servicenow:insert-request<span class="entity">&amp;gt;</span>
-<span class="entity">&amp;lt;</span>/servicenow:insert<span class="entity">&amp;gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
-        </div> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col> 
-          <col> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Attribute</th> 
-           <th class="tableblock halign-left valign-top">Value</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>config-ref</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">ServiceNow</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Service Catalog --&gt; Requested Item (SC_REQ_ITEM)</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Assign a requested item with user</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>key</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><code>"request"&gt;#[flowVars['RequestID']]</code></p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>key</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><code>"catItem"&gt;Blackberry</code></p></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-      </ol> 
-     </div> 
-    </div> 
+             <td class="code"><pre><span class="tag">&lt;servicenow:insert</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">ServiceNow</span><span class="delimiter">"</span></span> <span class="attribute-name">type</span>=<span class="string"><span class="delimiter">"</span><span class="content">SC_REQ_ITEM</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Assign a requested item with user</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;servicenow:insert-request&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;servicenow:insert-request</span> <span class="attribute-name">key</span>=<span class="string"><span class="delimiter">"</span><span class="content">request</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>#[flowVars['RequestID']]<span class="tag">&lt;/servicenow:insert-request&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;servicenow:insert-request</span> <span class="attribute-name">key</span>=<span class="string"><span class="delimiter">"</span><span class="content">catItem</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>Blackberry<span class="tag">&lt;/servicenow:insert-request&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/servicenow:insert-request&gt;</span>
+<span class="tag">&lt;/servicenow:insert&gt;</span></pre></td> 
+            </tr> 
+           </tbody> 
+          </table></code></pre> 
+       </div> 
+      </div> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col> 
+        <col> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Attribute</th> 
+         <th class="tableblock halign-left valign-top">Value</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>config-ref</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">ServiceNow</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Service Catalog -→ Requested Item (SC_REQ_ITEM)</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Assign a requested item with user</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>key</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>"request"&gt;#[flowVars['RequestID']]</code></p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>key</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>"catItem"&gt;Blackberry</code></p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+    </ol> 
    </div> 
   </div> 
  </div> 
 </div> 
 <div class="sect1"> 
- <h2 id="strong-example-code-strong"><a class="anchor" href="#strong-example-code-strong"></a><strong>Example Code</strong></h2> 
+ <h2 id="example-code"><a class="anchor" href="#example-code"></a>Example Code</h2> 
  <div class="sectionbody"> 
   <div class="listingblock"> 
    <div class="content"> 
@@ -2237,7 +2169,7 @@ http://www.mulesoft.org/schema/mule/servicenow/current/mule-servicenow.xsd</pre>
 30
 31
 </pre></td> 
-         <td class="code"><pre><span class="tag">&lt;mule</span> <span class="attribute-name">xmlns:tracking</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/ee/tracking</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:json</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/json</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:servicenow</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/servicenow</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:data-mapper</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/ee/data-mapper</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:http</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/http</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/core</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:doc</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/documentation</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:spring</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.springframework.org/schema/beans</span><span class="delimiter">"</span></span> <span class="attribute-name">version</span>=<span class="string"><span class="delimiter">"</span><span class="content">EE-3.6.1</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:xsi</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.w3.org/2001/XMLSchema-instance</span><span class="delimiter">"</span></span> <span class="attribute-name">xsi:schemaLocation</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd</span>
+         <td class="code"><pre><span class="tag">&lt;mule</span> <span class="attribute-name">xmlns:tracking</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/ee/tracking</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:json</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/json</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:servicenow</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/servicenow</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:data-mapper</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/ee/data-mapper</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:http</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/http</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/core</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:doc</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/documentation</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:spring</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.springframework.org/schema/beans</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:xsi</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.w3.org/2001/XMLSchema-instance</span><span class="delimiter">"</span></span> <span class="attribute-name">xsi:schemaLocation</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd</span>
 <span class="content">http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd</span>
 <span class="content">http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd</span>
 <span class="content">http://www.mulesoft.org/schema/mule/servicenow http://www.mulesoft.org/schema/mule/servicenow/current/mule-servicenow.xsd</span>
@@ -2289,7 +2221,7 @@ http://www.mulesoft.org/schema/mule/servicenow/current/mule-servicenow.xsd</pre>
     <!-- END article-content -->
     <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
                 <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#prerequisites">Prerequisites</a></li><li><a class="scroll-menu-link" href="#installing-servicenow-connector-in-anypoint-studio">Installing ServiceNow Connector in Anypoint Studio</a></li><li><a class="scroll-menu-link" href="#configuration">Configuration</a></li><li><a class="scroll-menu-link" href="#example-use-case">Example Use Case</a></li><li><a class="scroll-menu-link" href="#strong-example-code-strong">Example Code</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
+                <ul><li><a class="scroll-menu-link" href="#prerequisites">Prerequisites</a></li><li><a class="scroll-menu-link" href="#installing-servicenow-connector-in-anypoint-studio">Installing ServiceNow Connector in Anypoint Studio</a></li><li><a class="scroll-menu-link" href="#configuration">Configuration</a></li><li><a class="scroll-menu-link" href="#example-use-case">Example Use Case</a></li><li><a class="scroll-menu-link" href="#example-code">Example Code</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
   </div>
 </div>
 <!-- START footer -->
