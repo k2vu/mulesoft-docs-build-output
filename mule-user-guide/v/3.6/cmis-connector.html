@@ -1062,17 +1062,15 @@
  <h2 id="installing-the-connector"><a class="anchor" href="#installing-the-connector"></a>Installing the Connector</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>You can "test drive" a connector in Anypoint Studio using the instructions in&nbsp;<a href="/getting-started/anypoint-exchange#installing-a-connector-from-anypoint-exchange">Installing a Connector from Anypoint Exchange</a>.&nbsp;</p> 
+   <p>You can "test drive" a connector in Anypoint Studio using the instructions in&nbsp;<a href="/mule-user-guide/v/3.6/installing-connectors">To Install a Connector from Anypoint Exchange</a>.</p> 
   </div> 
  </div> 
 </div> 
 <div class="sect1"> 
  <h2 id="configuring-the-cmis-connector"><a class="anchor" href="#configuring-the-cmis-connector"></a>Configuring the CMIS Connector</h2> 
  <div class="sectionbody"> 
-  <div class="literalblock"> 
-   <div class="content"> 
-    <pre>&nbsp;To use the CMIS connector in your Mule application, you must configure:&nbsp;&nbsp;</pre> 
-   </div> 
+  <div class="paragraph"> 
+   <p>To use the CMIS connector in your Mule application, you must configure:&nbsp;&nbsp;</p> 
   </div> 
   <div class="ulist"> 
    <ul> 
@@ -1083,179 +1081,171 @@
   <div class="paragraph"> 
    <p>Follow these steps to configure CMIS connector in a Mule application:</p> 
   </div> 
-  <div class="panel panel-default no-padding"> 
-   <div class="panel-heading no-padding"> 
-    <!-- Nav tabs --> 
-    <ul class="nav nav-tabs" role="tablist"> 
-     <li class="active"><a href="#tab-1_1" role="tab" data-toggle="tab">Studio Visual Editor</a></li> 
-     <li><a href="#tab-1_2" role="tab" data-toggle="tab">XML Editor</a></li> 
-    </ul> 
+  <div class="sect2"> 
+   <h3 id="studio-visual-editor"><a class="anchor" href="#studio-visual-editor"></a>Studio Visual Editor</h3> 
+   <div class="olist arabic"> 
+    <ol class="arabic"> 
+     <li> <p>Click the&nbsp;<strong>Global Elements</strong>&nbsp;tab at the base of the canvas, then click&nbsp;<strong>Create</strong>.</p> </li> 
+     <li> <p>In the&nbsp;<strong>Choose Global Type</strong>&nbsp;menu, use the filter to locate and select&nbsp;<strong>CMIS</strong>, then click&nbsp;<strong>OK</strong>.</p> </li> 
+     <li> <p>Configure the parameters according to the table below.</p> 
+      <div class="paragraph"> 
+       <p><span class="image"><img src="./_images/config-1.png" alt="config-1"></span></p> 
+      </div> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col style="width: 34%;"> 
+        <col style="width: 33%;"> 
+        <col style="width: 33%;"> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Parameter</th> 
+         <th class="tableblock halign-left valign-top">Description</th> 
+         <th class="tableblock halign-left valign-top">Default Value</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Enter a name for the configuration so it can be referenced later by the&nbsp;<code>config-ref</code>&nbsp;parameter in the flow.</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">&nbsp;</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Username</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the username for your content repository.</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">&nbsp;</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Password</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the password for the CMIS username.</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">&nbsp;</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Base Url</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the URL of the SOAP connector.</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">&nbsp;</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Repository Id</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the Repository Identity that this connector can access.</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">&nbsp;</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Endpoint</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the type of the endpoint: SOAP or ATOMPUB.</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">ATOM</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Connection Timeout</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Specify the values for the connection time out.</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">10000</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Use Alfresco Extension</strong></p></td> 
+         <td class="tableblock halign-left valign-top"> 
+          <div> 
+           <div class="paragraph"> 
+            <p>Specify whether the Alfresco Object Factory implementation should be utilized.</p> 
+           </div> 
+           <div class="admonitionblock warning"> 
+            <table> 
+             <tbody> 
+              <tr> 
+               <td class="icon"> <i class="fa icon-warning" title="Warning"></i> </td> 
+               <td class="content"> The Aflresco CMIS extension JAR must be included in your Mule application for this configuration to work. </td> 
+              </tr> 
+             </tbody> 
+            </table> 
+           </div> 
+          </div></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cxf Port Provider</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Specify the name of the CXF port provider here. The CMIS connector includes a default implementation.</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">org.apache.chemistry.&nbsp; opencmis.client. bindings.spi.&nbsp; webservices. CXFPortProvider</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Use Cookies</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Set this option to 'true' if you want to enable cookie support. If you want to implement a custom cookie setting, click the <strong>#</strong> button to add an expression.</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>Access the&nbsp;<strong>Pooling Profile</strong>&nbsp;tab to configure any settings relevant to managing multiple connections using a connection pool.</p> </li> 
+     <li> <p>Access the&nbsp;<strong>Reconnection</strong>&nbsp;tab to configure any settings relevant to reconnection strategies that Mule should execute if it loses its connection to CMIS.</p> </li> 
+     <li> <p>Click&nbsp;<strong>OK</strong>&nbsp;to save the global connector configurations.</p> </li> 
+     <li> <p>Return to the Message Flow tab in Studio.&nbsp;</p> </li> 
+    </ol> 
    </div> 
-   <div class="panel-body tab-content no-padding"> 
-    <div class="tab-pane in active fade no-padding" id="tab-1_1"> 
-     <div class="olist arabic"> 
-      <ol class="arabic"> 
-       <li> <p>Click the&nbsp;<strong>Global Elements</strong>&nbsp;tab at the base of the canvas, then click&nbsp;<strong>Create</strong>.</p> </li> 
-       <li> <p>In the&nbsp;<strong>Choose Global Type</strong>&nbsp;menu, use the filter to locate and select&nbsp;<strong>CMIS</strong>, then click&nbsp;<strong>OK</strong>.</p> </li> 
-       <li> <p>Configure the parameters according to the table below.</p> 
-        <div class="paragraph"> 
-         <p><span class="image"><img src="./_images/config-1.png" alt="config-1"></span></p> 
-        </div> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col style="width: 34%;"> 
-          <col style="width: 33%;"> 
-          <col style="width: 33%;"> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Parameter</th> 
-           <th class="tableblock halign-left valign-top">Description</th> 
-           <th class="tableblock halign-left valign-top">Default Value</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Enter a name for the configuration so it can be referenced later by the&nbsp;<code>config-ref</code>&nbsp;parameter in the flow.</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">&nbsp;</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Username</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the username for your content repository.</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">&nbsp;</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Password</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the password for the CMIS username.</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">&nbsp;</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Base Url</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the URL of the SOAP connector.</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">&nbsp;</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Repository Id</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the Repository Identity that this connector can access.</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">&nbsp;</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Endpoint</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the type of the endpoint: SOAP or ATOMPUB.</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">ATOM</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Connection Timeout</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Specify the values for the connection time out.</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">10000</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Use Alfresco Extension</strong></p></td> 
-           <td class="tableblock halign-left valign-top"> 
-            <div> 
-             <div class="paragraph"> 
-              <p>Specify whether the Alfresco Object Factory implementation should be utilized.</p> 
-             </div> 
-             <div class="admonitionblock warning"> 
-              <table> 
-               <tbody> 
-                <tr> 
-                 <td class="icon"> <i class="fa icon-warning" title="Warning"></i> </td> 
-                 <td class="content"> The Aflresco CMIS extension JAR must be included in your Mule application for this configuration to work. </td> 
-                </tr> 
-               </tbody> 
-              </table> 
-             </div> 
-            </div></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cxf Port Provider</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Specify the name of the CXF port provider here. The CMIS connector includes a default implementation.</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">org.apache.chemistry.&nbsp; opencmis.client. bindings.spi.&nbsp; webservices. CXFPortProvider</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Use Cookies</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Set this option to 'true' if you want to enable cookie support. If you want to implement a custom cookie setting, click the <strong>#</strong> button to add an expression.</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-       <li> <p>Access the&nbsp;<strong>Pooling Profile</strong>&nbsp;tab to configure any settings relevant to managing multiple connections using a connection pool.</p> </li> 
-       <li> <p>Access the&nbsp;<strong>Reconnection</strong>&nbsp;tab to configure any settings relevant to reconnection strategies that Mule should execute if it loses its connection to CMIS.</p> </li> 
-       <li> <p>Click&nbsp;<strong>OK</strong>&nbsp;to save the global connector configurations.</p> </li> 
-       <li> <p>Return to the Message Flow tab in Studio.&nbsp;</p> </li> 
-      </ol> 
-     </div> 
-     <div class="paragraph"> 
-      <p><strong>Configuring the connector in a flow:</strong></p> 
-     </div> 
-     <div class="paragraph"> 
-      <p>Follow these steps to configure the parameters of the CMIS connector in a flow: &nbsp;</p> 
-     </div> 
-     <div class="olist arabic"> 
-      <ol class="arabic"> 
-       <li> <p>Drag the CMIS connector onto the canvas, then select it to open the Properties Editor console.</p> </li> 
-       <li> <p>Configure these connector parameters: &nbsp;</p> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col style="width: 34%;"> 
-          <col style="width: 33%;"> 
-          <col style="width: 33%;"> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Field</th> 
-           <th class="tableblock halign-left valign-top">Description</th> 
-           <th class="tableblock halign-left valign-top">Default</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Enter a unique label for the connector in your application.</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">CMIS</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Connector Configuration</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Select the global CMIS connector element that you just created.</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"> — </p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Operation</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Select the action this component must perform.</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"> — </p></td> 
-          </tr> 
-         </tbody> 
-        </table> 
-        <div class="admonitionblock note"> 
-         <table> 
-          <tbody> 
-           <tr> 
-            <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-            <td class="content"> Refer to the list of supported operations and their descriptions on the XML Editor tab. </td> 
-           </tr> 
-          </tbody> 
-         </table> 
-        </div> </li> 
-       <li> <p>Save your configurations.</p> </li> 
-      </ol> 
-     </div> 
-    </div> 
-    <div class="tab-pane fade no-padding" id="tab-1_2"> 
-     <div class="paragraph"> 
-      <p>Include the CMIS namespaces in your configuration file:</p> 
-     </div> 
-     <div class="listingblock"> 
-      <div class="content"> 
-       <pre class="CodeRay highlight"><code data-lang="xml">
-    
-            
-         <table class="CodeRay"> 
-          <tbody> 
-           <tr> 
-            <td class="line-numbers"><pre>1
+   <div class="paragraph"> 
+    <p><strong>Configuring the connector in a flow:</strong></p> 
+   </div> 
+   <div class="paragraph"> 
+    <p>Follow these steps to configure the parameters of the CMIS connector in a flow: &nbsp;</p> 
+   </div> 
+   <div class="olist arabic"> 
+    <ol class="arabic"> 
+     <li> <p>Drag the CMIS connector onto the canvas, then select it to open the Properties Editor console.</p> </li> 
+     <li> <p>Configure these connector parameters: &nbsp;</p> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col style="width: 34%;"> 
+        <col style="width: 33%;"> 
+        <col style="width: 33%;"> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Field</th> 
+         <th class="tableblock halign-left valign-top">Description</th> 
+         <th class="tableblock halign-left valign-top">Default</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Enter a unique label for the connector in your application.</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">CMIS</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Connector Configuration</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Select the global CMIS connector element that you just created.</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"> — </p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Operation</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Select the action this component must perform.</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"> — </p></td> 
+        </tr> 
+       </tbody> 
+      </table> 
+      <div class="admonitionblock note"> 
+       <table> 
+        <tbody> 
+         <tr> 
+          <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
+          <td class="content"> Refer to the list of supported operations and their descriptions on the XML Editor tab. </td> 
+         </tr> 
+        </tbody> 
+       </table> 
+      </div> </li> 
+     <li> <p>Save your configurations.</p> </li> 
+    </ol> 
+   </div> 
+  </div> 
+  <div class="sect2"> 
+   <h3 id="xml-editor"><a class="anchor" href="#xml-editor"></a>XML Editor</h3> 
+   <div class="paragraph"> 
+    <p>Include the CMIS namespaces in your configuration file:</p> 
+   </div> 
+   <div class="listingblock"> 
+    <div class="content"> 
+     <pre class="CodeRay highlight"><code data-lang="xml">
+          
+       <table class="CodeRay"> 
+        <tbody> 
+         <tr> 
+          <td class="line-numbers"><pre>1
 2
 3
 4
@@ -1263,188 +1253,185 @@
 6
 7
 </pre></td> 
-            <td class="code"><pre>xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          <td class="code"><pre>xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xmlns:cmis="http://www.mulesoft.org/schema/mule/cmis"
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xsi:schemaLocation="
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://www.mulesoft.org/schema/mule/core
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://www.mulesoft.org/schema/mule/cmis
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://www.mulesoft.org/schema/mule/cmis/current/mule-cmis.xsd"<span class="entity">&amp;gt;</span></pre></td> 
-           </tr> 
-          </tbody> 
-         </table></code></pre> 
-      </div> 
-     </div> 
-     <div class="paragraph"> 
-      <p>Follow these steps to configure a CMIS connector in your application:</p> 
-     </div> 
-     <div class="olist arabic"> 
-      <ol class="arabic"> 
-       <li> <p>Create a global CMIS element outside and above your flows, using a global configuration code similar to the following:&nbsp;</p> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-       
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
-</pre></td> 
-               <td class="code"><pre><span class="entity">&amp;lt;</span>cmis:config name="CMIS" doc:name="CMIS" baseUrl="Enter the Base URL of your CMIS endpoint here" password="Enter the passowrd" repositoryId="Enter the CMIS repository ID which the connector needs to connect with" username="Enter CMIS username"/<span class="entity">&amp;gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
-        </div> 
-        <div class="paragraph"> 
-         <p>Build your application flow, then add a CMIS connector to execute one of the following operations:&nbsp; &nbsp;</p> 
-        </div> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col> 
-          <col> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Operation</th> 
-           <th class="tableblock halign-left valign-top">Description</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/mule/cmis-config.html#apply-acl">&lt;cmis:apply-acl&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Set the permissions associated with an object</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/mule/cmis-config.html#apply-aspect">&lt;cmis:apply-aspect&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Apply and aspect to an object and set some properties of that aspect</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/mule/cmis-config.html#apply-policy">&lt;cmis:apply-policy&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Apply policies to an object</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/mule/cmis-config.html#cancel-check-out">&lt;cmis:cancel-check-out&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">If applied to a private working copy of a document, the check out will be reversed</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/mule/cmis-config.html#changelog">&lt;cmis:changelog&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Get repository changes</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/mule/cmis-config.html#check-in">&lt;cmis:check-in&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">If applied to a private working copy, it performs a check in</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/mule/cmis-config.html#check-out">&lt;cmis:check-out&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Check out the document and return the object id of the private working copy</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/mule/cmis-config.html#create-document-by-id">&lt;cmis:create-document-by-id&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Create a new document in the repository where the content comes directly from the payload and the target folder node is specified by an object ID</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/mule/cmis-config.html#create-document-by-id-from-content">&lt;cmis:create-document-by-id-from-content&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Create a new document in the repository where the content comes directly from the payload and the target folder node is specified by an object ID</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/mule/cmis-config.html#create-document-by-path">&lt;cmis:create-document-by-path&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Create a new document in the repository where the content comes directly from the payload and the target folder node is specified by a repository path</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/mule/cmis-config.html#create-document-by-path-from-content">&lt;cmis:create-document-by-path-from-content&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Create a new document in the repository where the content is specified as the value of the "content" parameter and the target folder node is specified by a repository path.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/mule/cmis-config.html#create-folder">&lt;cmis:create-folder&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Create a folder</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/mule/cmis-config.html#create-relationship">&lt;cmis:create-relationship&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Creates a parent/child relationship between two nodes in the repository of the specified relationship object type</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/mule/cmis-config.html#delete">&lt;cmis:delete&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Remove an object</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/mule/cmis-config.html#delete-tree">&lt;cmis:delete-tree&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Delete a folder and all sub-folders</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/mule/cmis-config.html#folder">&lt;cmis:folder&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Navigates the folder structure</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/mule/cmis-config.html#get-acl">&lt;cmis:get-acl&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Get the permissions associated with an object</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/mule/cmis-config.html#get-all-versions">&lt;cmis:get-all-versions&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Retrieve an object’s version history</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/mule/cmis-config.html#get-applied-policies">&lt;cmis:get-applied-policies&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Get the policies that are applied to an object</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/mule/cmis-config.html#get-checkout-docs">&lt;cmis:get-checkout-docs&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Retrieve list of checked out documents</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/mule/cmis-config.html#get-content-stream">&lt;cmis:get-content-stream&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves the content stream of a document</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/mule/cmis-config.html#get-object-by-id">&lt;cmis:get-object-by-id&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Get a CMIS object from the repository and put it into the cache</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/mule/cmis-config.html#get-object-by-path">&lt;cmis:get-object-by-path&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Get a CMIS object from the repository and puts it into the cache</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/mule/cmis-config.html#get-object-relationships">&lt;cmis:get-object-relationships&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Get the relationships if they have been fetched for an object</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/mule/cmis-config.html#get-or-create-folder-by-path">&lt;cmis:get-or-create-folder-by-path&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Create a new folder in the repository if it doesn’t already exist</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/mule/cmis-config.html#get-parent-folders">&lt;cmis:get-parent-folders&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Get the parent folders of a Fileable CMIS object</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/mule/cmis-config.html#get-type-definition">&lt;cmis:get-type-definition&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Get the type definition of the given type id.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/mule/cmis-config.html#move-object">&lt;cmis:move-object&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Move a Fileable CMIS object from one location to another.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/mule/cmis-config.html#query">&lt;cmis:query&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Send a query to the repository</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/mule/cmis-config.html#repositories">&lt;cmis:repositories&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Get all repositories that are available at the endpoint</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/mule/cmis-config.html#repository-info">&lt;cmis:repository-info&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Get information about the CMIS repository, the optional capabilities it supports, and its Access Control information, if applicable</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/mule/cmis-config.html#update-object-properties">&lt;cmis:update-object-properties&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Update an object’s properties</p></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-      </ol> 
-     </div> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://www.mulesoft.org/schema/mule/cmis/current/mule-cmis.xsd"<span class="error">&gt;</span></pre></td> 
+         </tr> 
+        </tbody> 
+       </table></code></pre> 
     </div> 
+   </div> 
+   <div class="paragraph"> 
+    <p>Follow these steps to configure a CMIS connector in your application:</p> 
+   </div> 
+   <div class="olist arabic"> 
+    <ol class="arabic"> 
+     <li> <p>Create a global CMIS element outside and above your flows, using a global configuration code similar to the following:&nbsp;</p> 
+      <div class="listingblock"> 
+       <div class="content"> 
+        <pre class="CodeRay highlight"><code data-lang="xml">
+             
+          <table class="CodeRay"> 
+           <tbody> 
+            <tr> 
+             <td class="line-numbers"><pre>1
+</pre></td> 
+             <td class="code"><pre><span class="tag">&lt;cmis:config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">CMIS</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">CMIS</span><span class="delimiter">"</span></span> <span class="attribute-name">baseUrl</span>=<span class="string"><span class="delimiter">"</span><span class="content">Enter the Base URL of your CMIS endpoint here</span><span class="delimiter">"</span></span> <span class="attribute-name">password</span>=<span class="string"><span class="delimiter">"</span><span class="content">Enter the passowrd</span><span class="delimiter">"</span></span> <span class="attribute-name">repositoryId</span>=<span class="string"><span class="delimiter">"</span><span class="content">Enter the CMIS repository ID which the connector needs to connect with</span><span class="delimiter">"</span></span> <span class="attribute-name">username</span>=<span class="string"><span class="delimiter">"</span><span class="content">Enter CMIS username</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></pre></td> 
+            </tr> 
+           </tbody> 
+          </table></code></pre> 
+       </div> 
+      </div> 
+      <div class="paragraph"> 
+       <p>Build your application flow, then add a CMIS connector to execute one of the following operations:&nbsp; &nbsp;</p> 
+      </div> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col> 
+        <col> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Operation</th> 
+         <th class="tableblock halign-left valign-top">Description</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/2.1.0/apidocs/mule/cmis-config.html#apply-acl">&lt;cmis:apply-acl&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Set the permissions associated with an object</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/2.1.0/apidocs/mule/cmis-config.html#apply-aspect">&lt;cmis:apply-aspect&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Apply and aspect to an object and set some properties of that aspect</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/2.1.0/apidocs/mule/cmis-config.html#apply-policy">&lt;cmis:apply-policy&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Apply policies to an object</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/2.1.0/apidocs/mule/cmis-config.html#cancel-check-out">&lt;cmis:cancel-check-out&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">If applied to a private working copy of a document, the check out will be reversed</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/2.1.0/apidocs/mule/cmis-config.html#changelog">&lt;cmis:changelog&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Get repository changes</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/2.1.0/apidocs/mule/cmis-config.html#check-in">&lt;cmis:check-in&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">If applied to a private working copy, it performs a check in</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/2.1.0/apidocs/mule/cmis-config.html#check-out">&lt;cmis:check-out&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Check out the document and return the object ID of the private working copy</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/2.1.0/apidocs/mule/cmis-config.html#create-document-by-id">&lt;cmis:create-document-by-id&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Create a new document in the repository where the content comes directly from the payload and the target folder node is specified by an object ID</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/2.1.0/apidocs/mule/cmis-config.html#create-document-by-id-from-content">&lt;cmis:create-document-by-id-from-content&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Create a new document in the repository where the content comes directly from the payload and the target folder node is specified by an object ID</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/2.1.0/apidocs/mule/cmis-config.html#create-document-by-path">&lt;cmis:create-document-by-path&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Create a new document in the repository where the content comes directly from the payload and the target folder node is specified by a repository path</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/2.1.0/apidocs/mule/cmis-config.html#create-document-by-path-from-content">&lt;cmis:create-document-by-path-from-content&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Create a new document in the repository where the content is specified as the value of the "content" parameter and the target folder node is specified by a repository path.</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/2.1.0/apidocs/mule/cmis-config.html#create-folder">&lt;cmis:create-folder&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Create a folder</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/2.1.0/apidocs/mule/cmis-config.html#create-relationship">&lt;cmis:create-relationship&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Creates a parent/child relationship between two nodes in the repository of the specified relationship object type</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/2.1.0/apidocs/mule/cmis-config.html#delete">&lt;cmis:delete&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Remove an object</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/2.1.0/apidocs/mule/cmis-config.html#delete-tree">&lt;cmis:delete-tree&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Delete a folder and all sub-folders</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/2.1.0/apidocs/mule/cmis-config.html#folder">&lt;cmis:folder&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Navigates the folder structure</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/2.1.0/apidocs/mule/cmis-config.html#get-acl">&lt;cmis:get-acl&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Get the permissions associated with an object</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/2.1.0/apidocs/mule/cmis-config.html#get-all-versions">&lt;cmis:get-all-versions&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Retrieve an object’s version history</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/2.1.0/apidocs/mule/cmis-config.html#get-applied-policies">&lt;cmis:get-applied-policies&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Get the policies that are applied to an object</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/2.1.0/apidocs/mule/cmis-config.html#get-checkout-docs">&lt;cmis:get-checkout-docs&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Retrieve list of checked out documents</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/2.1.0/apidocs/mule/cmis-config.html#get-content-stream">&lt;cmis:get-content-stream&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves the content stream of a document</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/2.1.0/apidocs/mule/cmis-config.html#get-object-by-id">&lt;cmis:get-object-by-id&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Get a CMIS object from the repository and put it into the cache.</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/2.1.0/apidocs/mule/cmis-config.html#get-object-by-path">&lt;cmis:get-object-by-path&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Get a CMIS object from the repository and puts it into the cache.</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/2.1.0/apidocs/mule/cmis-config.html#get-object-relationships">&lt;cmis:get-object-relationships&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Get the relationships if they have been fetched for an object.</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/2.1.0/apidocs/mule/cmis-config.html#get-or-create-folder-by-path">&lt;cmis:get-or-create-folder-by-path&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Create a new folder in the repository if it doesn’t already exist.</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/2.1.0/apidocs/mule/cmis-config.html#get-parent-folders">&lt;cmis:get-parent-folders&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Get the parent folders of a Fileable CMIS object.</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/2.1.0/apidocs/mule/cmis-config.html#get-type-definition">&lt;cmis:get-type-definition&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Get the type definition of the given type ID.</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/2.1.0/apidocs/mule/cmis-config.html#move-object">&lt;cmis:move-object&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Move a Fileable CMIS object from one location to another.</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/2.1.0/apidocs/mule/cmis-config.html#query">&lt;cmis:query&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Send a query to the repository.</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/2.1.0/apidocs/mule/cmis-config.html#repositories">&lt;cmis:repositories&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Get all repositories that are available at the endpoint.</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/2.1.0/apidocs/mule/cmis-config.html#repository-info">&lt;cmis:repository-info&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Get information about the CMIS repository, the optional capabilities it supports, and its Access Control information, if applicable.</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/cmis-connector/2.1.0/apidocs/mule/cmis-config.html#update-object-properties">&lt;cmis:update-object-properties&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Update an object’s properties.</p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+    </ol> 
    </div> 
   </div> 
  </div> 
@@ -1455,637 +1442,568 @@
   <div class="paragraph"> 
    <p>Use the CMIS connector to access an CMIS repository and upload a file to it.</p> 
   </div> 
-  <div class="panel panel-default no-padding"> 
-   <div class="panel-heading no-padding"> 
-    <!-- Nav tabs --> 
-    <ul class="nav nav-tabs" role="tablist"> 
-     <li class="active"><a href="#tab-2_1" role="tab" data-toggle="tab">Studio Visual Editor</a></li> 
-     <li><a href="#tab-2_2" role="tab" data-toggle="tab">XML Editor</a></li> 
-    </ul> 
-   </div> 
-   <div class="panel-body tab-content no-padding"> 
-    <div class="tab-pane in active fade no-padding" id="tab-2_1"> 
+  <div class="paragraph"> 
+   <p><span class="image"><img src="./_images/image017.jpeg" alt="image017"></span></p> 
+  </div> 
+  <div class="olist arabic"> 
+   <ol class="arabic"> 
+    <li> <p>Drag an HTTP endpoint into a new flow, and configure it as follows:</p> 
      <div class="paragraph"> 
-      <p><span class="image"><img src="./_images/image017.jpeg" alt="image017"></span></p> 
+      <p><span class="image"><img src="./_images/http.png" alt="http"></span><br></p> 
      </div> 
-     <div class="olist arabic"> 
-      <ol class="arabic"> 
-       <li> <p>Drag an HTTP endpoint into a new flow, and configure it as follows:</p> 
-        <div class="paragraph"> 
-         <p><span class="image"><img src="./_images/http.png" alt="http"></span><br></p> 
-        </div> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col> 
-          <col> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Field</th> 
-           <th class="tableblock halign-left valign-top">Value</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">HTTP</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Exchange Pattern</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">request-response (Default)</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Enable HTTPS</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Leave this option disabled. (If you select this check box, the <em>HTTP over SSL</em> or HTTPS protocol is enabled)</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Host</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">localhost</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Port</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">8081</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Path</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">cmis</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Connector Configuration</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Leave this option empty. (You can use the drop-down list to select a previously created connector configuration for this endpoint, if any.)</p></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-       <li> <p>Drag the CMIS connector onto the canvas, then select it to open the properties editor console.</p> </li> 
-       <li> <p>Click the&nbsp;<strong>+&nbsp;</strong>sign next to the&nbsp;<strong>Connector Configuration</strong>&nbsp;field to add a new global connector configuration:</p> 
-        <div class="paragraph"> 
-         <p><span class="image"><img src="./_images/global+element.png" alt="global+element"></span></p> 
-        </div> </li> 
-       <li> <p>Configure the CMIS global element.</p> 
-        <div class="paragraph"> 
-         <p><span class="image"><img src="/documentation/download/attachments/122752082/config.png?version=1&amp;modificationDate=1417509786685" alt="image"></span></p> 
-        </div> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col style="width: 34%;"> 
-          <col style="width: 33%;"> 
-          <col style="width: 33%;"> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Field</th> 
-           <th class="tableblock halign-left valign-top">Value</th> 
-           <th class="tableblock halign-left valign-top">Default Value</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">CMIS (or any other name you prefer)</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">&nbsp;</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Username</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the username for your content repository.</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">&nbsp;</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Password</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the password for the CMIS username.</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">&nbsp;</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Base Url</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the URL of the SOAP connector.</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">&nbsp;</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Repository Id</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the identify of the repository that this connector should access.</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">&nbsp;</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Endpoint</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the type of the endpoint. You can leave this field blank for the application to use the default value.</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">ATOMPUB</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Connection Timeout</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Specify the values for the connection time out. You can leave this field blank for the application to use the default value.</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">10000</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Use Alfresco Extension</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Specify whether the Alfresco Object Factory implementation should be utilized. Leave this field blank for the application to use the default value.</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cxf Port Provider</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Specify the name of the CXF port provider here. The CMIS connector includes a default implementation.</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">org.apache.chemistry. opencmis.client.bindings.spi. webservices.CXFPortProvider</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Use Cookies</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Leave the checkbox deselected to disable the cookie support in the application. <strong>Use Cookies</strong> field can be used to enable/disable cookie support, and also implement custom cookie settings.</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-       <li> <p>In the properties editor of the CMIS connector, use the <strong>Get or create folder by path operation</strong> to create a folder in the CMIS repository:</p> 
-        <div class="paragraph"> 
-         <p><span class="image"><img src="./_images/connector+parameters.png" alt="connector+parameters"></span></p> 
-        </div> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col> 
-          <col> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Field</th> 
-           <th class="tableblock halign-left valign-top">Vealu</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Create Folder</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Connector Configuration</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">CMIS</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Operation</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Get or create folder by path</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Folder Path</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">/mule-demo (or any other path your prefer)</p></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-       <li> <p>Add a Groovy component to the flow and add the following script text to process the message payload:</p> 
-        <div class="paragraph"> 
-         <p><span class="image"><img src="./_images/groovy.png" alt="groovy"></span></p> 
-        </div> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col style="width: 50%;"> 
-          <col style="width: 50%;"> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Field</th> 
-           <th class="tableblock halign-left valign-top">Value</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Load File</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Script Text</strong></p></td> 
-           <td class="tableblock halign-left valign-top"> 
-            <div> 
-             <div class="paragraph"> 
-              <p>import java.io.FileInputStream;</p> 
-             </div> 
-             <div class="paragraph"> 
-              <p>return new FileInputStream("/Users/../../image.gif");</p> 
-             </div> 
-            </div></td> 
-          </tr> 
-         </tbody> 
-        </table> 
-        <div class="admonitionblock warning"> 
-         <table> 
-          <tbody> 
-           <tr> 
-            <td class="icon"> <i class="fa icon-warning" title="Warning"></i> </td> 
-            <td class="content"> <strong>Note:</strong> This file path specified in the script text need to be changed to point &nbsp;point to the .gif &nbsp;file on your local system. </td> 
-           </tr> 
-          </tbody> 
-         </table> 
-        </div> </li> 
-       <li> <p>Add another CMIS connector after the Groovy transformer, and use the <strong>Create document by path from content</strong> operation to create a document with the content in the payload.</p> 
-        <div class="paragraph"> 
-         <p><span class="image"><img src="./_images/second+cmis.png" alt="second+cmis"></span></p> 
-        </div> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col> 
-          <col> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Field</th> 
-           <th class="tableblock halign-left valign-top">Value</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Create document by path from content (or any other name you prefer).</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Connector Configuration</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">&lt;select the global element you create&gt;</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Operation</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Create document by path from content</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Filename</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">&lt;Specify the name of the file you want to use&gt;</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Folder Path</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">&lt;Specify the path to the file&gt;</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Content Reference</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">#[payload]</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Mime Type</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">image.gif (Specifies the stream content type)</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Object Type</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">cmis:document</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Versioning State</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">MAJOR (Specifies the versioning state of the newly created object. Major denotes that the document must be created as a major version)</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Force</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">_de-select (_If you select this checkbox, the application will create any missing intermediate folders in the folder path. By default, the checkbox is de-selected.)</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Properties</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-       <li> <p>Add a&nbsp;<strong>Object to Json</strong>&nbsp;transformer onto the flow to capture the response from the CMIS connector and display it as a HTTP response.&nbsp;</p> 
-        <div class="paragraph"> 
-         <p><span class="image"><img src="./_images/ObjecttoJson.png" alt="ObjecttoJson"></span></p> 
-        </div> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col> 
-          <col> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Field</th> 
-           <th class="tableblock halign-left valign-top">Value</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Object to Json</p></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-       <li> <p>Run the project as a Mule Application (right-click project name, then select&nbsp;<strong>Run As &gt; Mule Application</strong>).</p> </li> 
-       <li> <p>Navigate to <code><a href="http://localhost:8081/cmis" class="bare">http://localhost:8081/cmis</a> to upload a file to your CMIS repository.</code></p> </li> 
-      </ol> 
+     <table class="tableblock frame-all grid-all spread"> 
+      <colgroup> 
+       <col> 
+       <col> 
+      </colgroup> 
+      <thead> 
+       <tr> 
+        <th class="tableblock halign-left valign-top">Field</th> 
+        <th class="tableblock halign-left valign-top">Value</th> 
+       </tr> 
+      </thead> 
+      <tbody> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">HTTP</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Exchange Pattern</strong></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">request-response (Default)</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Enable HTTPS</strong></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Leave this option disabled. (If you select this check box, the <em>HTTP over SSL</em> or HTTPS protocol is enabled)</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Host</strong></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">localhost</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Port</strong></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">8081</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Path</strong></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">cmis</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Connector Configuration</strong></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Leave this option empty. (You can use the drop-down list to select a previously created connector configuration for this endpoint, if any.)</p></td> 
+       </tr> 
+      </tbody> 
+     </table> </li> 
+    <li> <p>Drag the CMIS connector onto the canvas, then select it to open the properties editor console.</p> </li> 
+    <li> <p>Click the&nbsp;plus sign next to the&nbsp;<strong>Connector Configuration</strong>&nbsp;field to add a new global connector configuration:</p> 
+     <div class="paragraph"> 
+      <p><span class="image"><img src="./_images/global+element.png" alt="global+element"></span></p> 
+     </div> </li> 
+    <li> <p>Configure the CMIS global element.</p> 
+     <div class="paragraph"> 
+      <p><span class="image"><img src="./_images/config.png" alt="config"></span></p> 
      </div> 
-    </div> 
-    <div class="tab-pane fade no-padding" id="tab-2_2"> 
-     <div class="olist arabic"> 
-      <ol class="arabic"> 
-       <li> <p>Add a&nbsp;<code>cmis:config</code>&nbsp;element to your project, then configure its attributes as follows:</p> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-       
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
+     <table class="tableblock frame-all grid-all spread"> 
+      <colgroup> 
+       <col style="width: 34%;"> 
+       <col style="width: 33%;"> 
+       <col style="width: 33%;"> 
+      </colgroup> 
+      <thead> 
+       <tr> 
+        <th class="tableblock halign-left valign-top">Field</th> 
+        <th class="tableblock halign-left valign-top">Value</th> 
+        <th class="tableblock halign-left valign-top">Default Value</th> 
+       </tr> 
+      </thead> 
+      <tbody> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Name</strong></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">CMIS (or any other name you prefer)</p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">&nbsp;</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Username</strong></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the username for your content repository.</p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">&nbsp;</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Password</strong></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the password for the CMIS username.</p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">&nbsp;</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Base Url</strong></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the URL of the SOAP connector.</p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">&nbsp;</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Repository Id</strong></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the identify of the repository that this connector should access.</p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">&nbsp;</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Endpoint</strong></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the type of the endpoint. You can leave this field blank for the application to use the default value.</p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">ATOMPUB</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Connection Timeout</strong></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Specify the values for the connection time out. You can leave this field blank for the application to use the default value.</p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">10000</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Use Alfresco Extension</strong></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Specify whether the Alfresco Object Factory implementation should be utilized. Leave this field blank for the application to use the default value.</p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cxf Port Provider</strong></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Specify the name of the CXF port provider here. The CMIS connector includes a default implementation.</p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">org.apache.chemistry. opencmis.client.bindings.spi. webservices.CXFPortProvider</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Use Cookies</strong></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Leave the checkbox deselected to disable the cookie support in the application. <strong>Use Cookies</strong> field can be used to enable/disable cookie support, and also implement custom cookie settings.</p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td> 
+       </tr> 
+      </tbody> 
+     </table> </li> 
+    <li> <p>In the properties editor of the CMIS connector, use the <strong>Get or create folder by path operation</strong> to create a folder in the CMIS repository:</p> 
+     <div class="paragraph"> 
+      <p><span class="image"><img src="./_images/connector+parameters.png" alt="connector+parameters"></span></p> 
+     </div> 
+     <table class="tableblock frame-all grid-all spread"> 
+      <colgroup> 
+       <col> 
+       <col> 
+      </colgroup> 
+      <thead> 
+       <tr> 
+        <th class="tableblock halign-left valign-top">Field</th> 
+        <th class="tableblock halign-left valign-top">Value</th> 
+       </tr> 
+      </thead> 
+      <tbody> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Create Folder</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Connector Configuration</strong></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">CMIS</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Operation</strong></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Get or create folder by path</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Folder Path</strong></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">/mule-demo (or any other path your prefer)</p></td> 
+       </tr> 
+      </tbody> 
+     </table> </li> 
+    <li> <p>Add a Groovy component to the flow and add the following script text to process the message payload:</p> 
+     <div class="paragraph"> 
+      <p><span class="image"><img src="./_images/groovy.png" alt="groovy"></span></p> 
+     </div> 
+     <table class="tableblock frame-all grid-all spread"> 
+      <colgroup> 
+       <col style="width: 50%;"> 
+       <col style="width: 50%;"> 
+      </colgroup> 
+      <thead> 
+       <tr> 
+        <th class="tableblock halign-left valign-top">Field</th> 
+        <th class="tableblock halign-left valign-top">Value</th> 
+       </tr> 
+      </thead> 
+      <tbody> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Load File</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Script Text</strong></p></td> 
+        <td class="tableblock halign-left valign-top"> 
+         <div> 
+          <div class="listingblock"> 
+           <div class="content"> 
+            <pre class="CodeRay highlight"><code data-lang="xml">
+                 
+              <table class="CodeRay"> 
+               <tbody> 
+                <tr> 
+                 <td class="line-numbers"><pre>1
+2
+3
 </pre></td> 
-               <td class="code"><pre><span class="entity">&amp;lt;</span>cmis:config name="CMIS" doc:name="CMIS" baseUrl="Enter the Base URL of your CMIS endpoint here" password="Enter the passowrd" repositoryId="Enter the CMIS repository ID which the connector needs to connect with" username="Enter CMIS username"/<span class="entity">&amp;gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
-        </div> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col style="width: 50%;"> 
-          <col style="width: 50%;"> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Attribute</th> 
-           <th class="tableblock halign-left valign-top">Value</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">CMIS (or any other name you prefer)</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">CMIS</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>baseUrl</strong></p></td> 
-           <td class="tableblock halign-left valign-top"> 
-            <div> 
-             <div class="listingblock"> 
-              <div class="content"> 
-               <pre class="CodeRay highlight"><code data-lang="xml">
-            
-                    
-                 <table class="CodeRay"> 
-                  <tbody> 
-                   <tr> 
-                    <td class="line-numbers"><pre>1
-</pre></td> 
-                    <td class="code"><pre>Enter the Base URL of your CMIS endpoint here</pre></td> 
-                   </tr> 
-                  </tbody> 
-                 </table></code></pre> 
-              </div> 
-             </div> 
-            </div></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>password</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Enter a CMIS password</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>repositoryId</strong></p></td> 
-           <td class="tableblock halign-left valign-top"> 
-            <div> 
-             <div class="listingblock"> 
-              <div class="content"> 
-               <pre class="CodeRay highlight"><code data-lang="xml">
-            
-                    
-                 <table class="CodeRay"> 
-                  <tbody> 
-                   <tr> 
-                    <td class="line-numbers"><pre>1
-</pre></td> 
-                    <td class="code"><pre>Enter the CMIS repository ID which the connector needs to connect with</pre></td> 
-                   </tr> 
-                  </tbody> 
-                 </table></code></pre> 
-              </div> 
-             </div> 
-            </div></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>username</strong></p></td> 
-           <td class="tableblock halign-left valign-top"> 
-            <div> 
-             <div class="listingblock"> 
-              <div class="content"> 
-               <pre class="CodeRay highlight"><code data-lang="xml">
-            
-                    
-                 <table class="CodeRay"> 
-                  <tbody> 
-                   <tr> 
-                    <td class="line-numbers"><pre>1
-</pre></td> 
-                    <td class="code"><pre>Enter a CMIS username</pre></td> 
-                   </tr> 
-                  </tbody> 
-                 </table></code></pre> 
-              </div> 
-             </div> 
-            </div></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-       <li> <p>Create a Mule flow with an HTTP endpoint, configuring the endpoint as follows:&nbsp;&nbsp;&nbsp;</p> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-       
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
-</pre></td> 
-               <td class="code"><pre><span class="entity">&amp;lt;</span>http:inbound-endpoint exchange-pattern="request-response" host="localhost" port="8081" path="cmis" doc:name="HTTP"/<span class="entity">&amp;gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
-        </div> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col style="width: 50%;"> 
-          <col style="width: 50%;"> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Attribute</th> 
-           <th class="tableblock halign-left valign-top">Value</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>exchange-pattern</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">request-response</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>host</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">localhost</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>port</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">8081</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>path</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cmis</code></p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">HTTP</p></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-       <li> <p>Configure a&nbsp;<strong>cmis:get-or-create-folder-by-path</strong>&nbsp;element to create a folder in the CMIS repository.</p> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-       
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
-</pre></td> 
-               <td class="code"><pre><span class="entity">&amp;lt;</span>cmis:get-or-create-folder-by-path config-ref="CMIS" folderPath="/mule-demo" doc:name="Create Folder"/<span class="entity">&amp;gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
-        </div> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col> 
-          <col> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Attribute</th> 
-           <th class="tableblock halign-left valign-top">Value</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">config-ref</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">CMIS</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">folderPath</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">/mule-demo</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">doc:name</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Create Folder</p></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-       <li> <p>Add a scripting:component element</p> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-       
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
+                 <td class="code"><pre>import java.io.FileInputStream;
+
+return new FileInputStream("/Users/../../image.gif");</pre></td> 
+                </tr> 
+               </tbody> 
+              </table></code></pre> 
+           </div> 
+          </div> 
+         </div></td> 
+       </tr> 
+      </tbody> 
+     </table> 
+     <div class="paragraph"> 
+      <p><strong>Note:</strong> This file path specified in the script text need to be changed to point &nbsp;point to the .gif &nbsp;file on your local system.</p> 
+     </div> </li> 
+    <li> <p>Add another CMIS connector after the Groovy transformer, and use the <strong>Create document by path from content</strong> operation to create a document with the content in the payload.</p> 
+     <div class="paragraph"> 
+      <p><span class="image"><img src="./_images/second+cmis.png" alt="second+cmis"></span></p> 
+     </div> 
+     <table class="tableblock frame-all grid-all spread"> 
+      <colgroup> 
+       <col> 
+       <col> 
+      </colgroup> 
+      <thead> 
+       <tr> 
+        <th class="tableblock halign-left valign-top">Field</th> 
+        <th class="tableblock halign-left valign-top">Value</th> 
+       </tr> 
+      </thead> 
+      <tbody> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Create document by path from content (or any other name you prefer).</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Connector Configuration</strong></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Select the global element you create</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Operation</strong></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Create document by path from content</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Filename</strong></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Specify the name of the file you want to use</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Folder Path</strong></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Specify the path to the file</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Content Reference</strong></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">#[payload]</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Mime Type</strong></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">image.gif (Specifies the stream content type)</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Object Type</strong></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">cmis:document</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Versioning State</strong></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">MAJOR (Specifies the versioning state of the newly created object. Major denotes that the document must be created as a major version)</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Force</strong></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">de-select (If you select this checkbox, the application creates any missing intermediate folders in the folder path. By default, the checkbox is de-selected.)</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Properties</strong></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td> 
+       </tr> 
+      </tbody> 
+     </table> </li> 
+    <li> <p>Add a&nbsp;<strong>Object to Json</strong>&nbsp;transformer onto the flow to capture the response from the CMIS connector and display it as a HTTP response.&nbsp;</p> 
+     <div class="paragraph"> 
+      <p><span class="image"><img src="./_images/ObjecttoJson.png" alt="ObjecttoJson"></span></p> 
+     </div> 
+     <table class="tableblock frame-all grid-all spread"> 
+      <colgroup> 
+       <col> 
+       <col> 
+      </colgroup> 
+      <thead> 
+       <tr> 
+        <th class="tableblock halign-left valign-top">Field</th> 
+        <th class="tableblock halign-left valign-top">Value</th> 
+       </tr> 
+      </thead> 
+      <tbody> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Object to Json</p></td> 
+       </tr> 
+      </tbody> 
+     </table> </li> 
+    <li> <p>Run the project as a Mule Application (right-click project name, then select&nbsp;Run As &gt; Mule Application).</p> </li> 
+    <li> <p>Navigate to <code><a href="http://localhost:8081/cmis" class="bare">http://localhost:8081/cmis</a> to upload a file to your CMIS repository.</code></p> </li> 
+   </ol> 
+  </div> 
+  <div class="sect2"> 
+   <h3 id="xml-editor-2"><a class="anchor" href="#xml-editor-2"></a>XML Editor</h3> 
+   <div class="olist arabic"> 
+    <ol class="arabic"> 
+     <li> <p>Add a&nbsp;<code>cmis:config</code>&nbsp;element to your project, then configure its attributes as follows:</p> 
+      <div class="listingblock"> 
+       <div class="content"> 
+        <pre class="CodeRay highlight"><code data-lang="xml">
+             
+          <table class="CodeRay"> 
+           <tbody> 
+            <tr> 
+             <td class="line-numbers"><pre>1
 2
 3
 4
 </pre></td> 
-               <td class="code"><pre><span class="entity">&amp;lt;</span>scripting:component doc:name="Groovy"<span class="entity">&amp;gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="entity">&amp;lt;</span>scripting:script engine="Groovy"<span class="entity">&amp;gt;</span><span class="entity">&amp;lt;</span>![CDATA[import java.io.FileInputStream;
-return new FileInputStream("/Users/../../image.gif");]]<span class="entity">&amp;gt;</span><span class="entity">&amp;lt;</span>/scripting:script<span class="entity">&amp;gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="entity">&amp;lt;</span>/scripting:component<span class="entity">&amp;gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
-        </div> </li> 
-       <li> <p>Add a cmis:create-document-by-path-from-content element to create a document with the content in the payload:</p> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-       
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
+             <td class="code"><pre><span class="tag">&lt;cmis:config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">CMIS</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">CMIS</span><span class="delimiter">"</span></span>
+<span class="attribute-name">baseUrl</span>=<span class="string"><span class="delimiter">"</span><span class="content">Enter the Base URL of your CMIS endpoint here</span><span class="delimiter">"</span></span> <span class="attribute-name">password</span>=<span class="string"><span class="delimiter">"</span><span class="content">Enter the passowrd</span><span class="delimiter">"</span></span>
+<span class="attribute-name">repositoryId</span>=<span class="string"><span class="delimiter">"</span><span class="content">Enter the CMIS repository ID which the connector needs to connect with</span><span class="delimiter">"</span></span>
+<span class="attribute-name">username</span>=<span class="string"><span class="delimiter">"</span><span class="content">Enter CMIS username</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></pre></td> 
+            </tr> 
+           </tbody> 
+          </table></code></pre> 
+       </div> 
+      </div> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col style="width: 50%;"> 
+        <col style="width: 50%;"> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Attribute</th> 
+         <th class="tableblock halign-left valign-top">Value</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">CMIS (or any other name you prefer)</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">CMIS</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>baseUrl</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the Base URL of your CMIS endpoint here.</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>password</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Enter a CMIS password</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>repositoryId</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the CMIS repository ID which the connector needs to connect with.</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>username</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Enter a CMIS username</p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>Create a Mule flow with an HTTP endpoint, configuring the endpoint as follows:&nbsp;&nbsp;&nbsp;</p> 
+      <div class="listingblock"> 
+       <div class="content"> 
+        <pre class="CodeRay highlight"><code data-lang="xml">
+             
+          <table class="CodeRay"> 
+           <tbody> 
+            <tr> 
+             <td class="line-numbers"><pre>1
+2
 </pre></td> 
-               <td class="code"><pre><span class="entity">&amp;lt;</span>cmis:create-document-by-path-from-content config-ref="CMIS" filename="image.gif" folderPath="/mule-cloud-connector/video-demo" mimeType="image/gif" objectType="cmis:document" versioningState="MAJOR" doc:name="Create document by path from content"/<span class="entity">&amp;gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
-        </div> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col style="width: 50%;"> 
-          <col style="width: 50%;"> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Attribute</th> 
-           <th class="tableblock halign-left valign-top">Value</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">config-ref</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">CMIS</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">filename</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">image.gif (or any other filename you like to use)</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">folderPath</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the path to the file you specify</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">mimeType</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">image/gif</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">objectType</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">cmis:document</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">versioningState</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Major</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">doc:name</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Create document by path from content (or any other name you prefer)</code></p></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-       <li> <p>Add a&nbsp;json:object-to-json-transformer&nbsp;element to the flow to capture the response from the CMIS connector and display it as an HTTP response.&nbsp;</p> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-       
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
+             <td class="code"><pre><span class="tag">&lt;http:inbound-endpoint</span> <span class="attribute-name">exchange-pattern</span>=<span class="string"><span class="delimiter">"</span><span class="content">request-response</span><span class="delimiter">"</span></span>
+<span class="attribute-name">host</span>=<span class="string"><span class="delimiter">"</span><span class="content">localhost</span><span class="delimiter">"</span></span> <span class="attribute-name">port</span>=<span class="string"><span class="delimiter">"</span><span class="content">8081</span><span class="delimiter">"</span></span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">"</span><span class="content">cmis</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></pre></td> 
+            </tr> 
+           </tbody> 
+          </table></code></pre> 
+       </div> 
+      </div> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col style="width: 50%;"> 
+        <col style="width: 50%;"> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Attribute</th> 
+         <th class="tableblock halign-left valign-top">Value</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>exchange-pattern</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">request-response</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>host</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">localhost</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>port</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">8081</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>path</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cmis</code></p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">HTTP</p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>Configure a&nbsp;<strong>cmis:get-or-create-folder-by-path</strong>&nbsp;element to create a folder in the CMIS repository.</p> 
+      <div class="listingblock"> 
+       <div class="content"> 
+        <pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;cmis:get-or-create-folder-by-path</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">CMIS</span><span class="delimiter">"</span></span> <span class="attribute-name">folderPath</span>=<span class="string"><span class="delimiter">"</span><span class="content">/mule-demo</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Create Folder</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></code></pre> 
+       </div> 
+      </div> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col> 
+        <col> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Attribute</th> 
+         <th class="tableblock halign-left valign-top">Value</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">config-ref</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">CMIS</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">folderPath</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">/mule-demo</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">doc:name</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Create Folder</p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>Add a scripting:component element</p> 
+      <div class="listingblock"> 
+       <div class="content"> 
+        <pre class="CodeRay highlight"><code data-lang="xml">
+             
+          <table class="CodeRay"> 
+           <tbody> 
+            <tr> 
+             <td class="line-numbers"><pre>1
+2
+3
+4
 </pre></td> 
-               <td class="code"><pre><span class="entity">&amp;lt;</span>json:object-to-json-transformer doc:name="Object to JSON"/<span class="entity">&amp;gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
-        </div> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col style="width: 50%;"> 
-          <col style="width: 50%;"> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Attribute</th> 
-           <th class="tableblock halign-left valign-top">Value</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><code>doc:name</code></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Object to JSON (or any other name you prefer)</code></p></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-       <li> <p>Run the project as a Mule Application (right-click project name, then select&nbsp;<strong>Run As &gt; Mule Application</strong>).</p> </li> 
-       <li> <p>Navigate to <code><a href="http://localhost:8081/cmis" class="bare">http://localhost:8081/cmis</a></code> to upload a file to your CMIS repository.</p> </li> 
-      </ol> 
-     </div> 
-    </div> 
+             <td class="code"><pre><span class="tag">&lt;script</span><span class="attribute-name">ing:component</span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Groovy</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+<span class="inline"><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span>&lt;scripting:script engine=<span class="string"><span class="delimiter">"</span><span class="content">Groovy</span><span class="delimiter">"</span></span>&gt;&lt;![CDATA[<span class="reserved">import</span> java.io.FileInputStream;
+<span class="keyword">return</span> <span class="keyword">new</span> FileInputStream(<span class="string"><span class="delimiter">"</span><span class="content">/Users/../../image.gif</span><span class="delimiter">"</span></span>);]]&gt;&lt;<span class="regexp"><span class="delimiter">/</span><span class="content">scripting:script&gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span><span class="delimiter">/</span></span>scripting:component&gt;</span></pre></td> 
+            </tr> 
+           </tbody> 
+          </table></code></pre> 
+       </div> 
+      </div> </li> 
+     <li> <p>Add a cmis:create-document-by-path-from-content element to create a document with the content in the payload:</p> 
+      <div class="listingblock"> 
+       <div class="content"> 
+        <pre class="CodeRay highlight"><code data-lang="xml">
+             
+          <table class="CodeRay"> 
+           <tbody> 
+            <tr> 
+             <td class="line-numbers"><pre>1
+</pre></td> 
+             <td class="code"><pre><span class="tag">&lt;cmis:create-document-by-path-from-content</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">CMIS</span><span class="delimiter">"</span></span> <span class="attribute-name">filename</span>=<span class="string"><span class="delimiter">"</span><span class="content">image.gif</span><span class="delimiter">"</span></span> <span class="attribute-name">folderPath</span>=<span class="string"><span class="delimiter">"</span><span class="content">/mule-cloud-connector/video-demo</span><span class="delimiter">"</span></span> <span class="attribute-name">mimeType</span>=<span class="string"><span class="delimiter">"</span><span class="content">image/gif</span><span class="delimiter">"</span></span> <span class="attribute-name">objectType</span>=<span class="string"><span class="delimiter">"</span><span class="content">cmis:document</span><span class="delimiter">"</span></span> <span class="attribute-name">versioningState</span>=<span class="string"><span class="delimiter">"</span><span class="content">MAJOR</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Create document by path from content</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></pre></td> 
+            </tr> 
+           </tbody> 
+          </table></code></pre> 
+       </div> 
+      </div> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col style="width: 50%;"> 
+        <col style="width: 50%;"> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Attribute</th> 
+         <th class="tableblock halign-left valign-top">Value</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">config-ref</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">CMIS</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">filename</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">image.gif (or any other filename you like to use)</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">folderPath</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the path to the file you specify</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">mimeType</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">image/gif</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">objectType</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">cmis:document</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">versioningState</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Major</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">doc:name</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Create document by path from content (or any other name you prefer)</code></p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>Add a&nbsp;json:object-to-json-transformer&nbsp;element to the flow to capture the response from the CMIS connector and display it as an HTTP response.&nbsp;</p> 
+      <div class="listingblock"> 
+       <div class="content"> 
+        <pre class="CodeRay highlight"><code data-lang="xml">
+             
+          <table class="CodeRay"> 
+           <tbody> 
+            <tr> 
+             <td class="line-numbers"><pre>1
+</pre></td> 
+             <td class="code"><pre><span class="tag">&lt;json:object-to-json-transformer</span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Object to JSON</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></pre></td> 
+            </tr> 
+           </tbody> 
+          </table></code></pre> 
+       </div> 
+      </div> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col style="width: 50%;"> 
+        <col style="width: 50%;"> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Attribute</th> 
+         <th class="tableblock halign-left valign-top">Value</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>doc:name</code></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Object to JSON (or any other name you prefer)</code></p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>Run the project as a Mule Application (right-click project name, then select&nbsp;Run As &gt; Mule Application).</p> </li> 
+     <li> <p>Navigate to <code>http://localhost:8081/cmis</code> to upload a file to your CMIS repository.</p> </li> 
+    </ol> 
    </div> 
   </div> 
  </div> 
@@ -2135,7 +2053,7 @@ return new FileInputStream("/Users/../../image.gif");]]<span class="entity">&amp
 </pre></td> 
          <td class="code"><pre><span class="preprocessor">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="tag">&lt;mule</span> <span class="attribute-name">xmlns:json</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/json</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:scripting</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/scripting</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:http</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/http</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:cmis</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/cmis</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/core</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:doc</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/documentation</span><span class="delimiter">"</span></span>
-<span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="attribute-name">xmlns:spring</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.springframework.org/schema/beans</span><span class="delimiter">"</span></span> <span class="attribute-name">version</span>=<span class="string"><span class="delimiter">"</span><span class="content">EE-3.6.1</span><span class="delimiter">"</span></span>
+<span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="attribute-name">xmlns:spring</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.springframework.org/schema/beans</span><span class="delimiter">"</span></span>
 <span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="attribute-name">xmlns:xsi</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.w3.org/2001/XMLSchema-instance</span><span class="delimiter">"</span></span>
 <span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="attribute-name">xsi:schemaLocation</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd</span>
 <span class="content">http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd</span>
@@ -2166,9 +2084,8 @@ return new FileInputStream("/Users/../../image.gif");]]<span class="entity">&amp
   <div class="ulist"> 
    <ul> 
     <li> <p>Learn more about working with&nbsp;<a href="/mule-user-guide/v/3.6/anypoint-connectors">Anypoint Connectors</a>&nbsp;</p> </li> 
-    <li> <p>Learn about&nbsp;http://www.mulesoft.org/documentation/display/current/Mule+Expression+Language+MEL[Mule Expression Language]&nbsp;</p> </li> 
+    <li> <p>Learn about&nbsp;<a href="/mule-user-guide/v/3.6/mule-expression-language-mel">Mule Expression Language</a>&nbsp;</p> </li> 
     <li> <p>Learn about <a href="/mule-user-guide/v/3.6/endpoint-configuration-reference">Configuring Endpoints</a>&nbsp;</p> </li> 
-    <li> <p>Learn &nbsp;about&nbsp;http://www.mulesoft.org/documentation/display/current/Studio+Transformers[Studio transformers]&nbsp;</p> </li> 
     <li> <p>Access&nbsp;http://www.alfresco.com/cmis[Public Alfresco CMIS Test Server]&nbsp;documentation&nbsp;</p> </li> 
    </ul> 
   </div> 
