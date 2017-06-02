@@ -1045,7 +1045,7 @@
     <li> <p><a href="/mule-user-guide/v/3.6/dotnet-connector-migration-guide">DotNet Connector Migration Guide</a></p> </li> 
     <li> <p><a href="/mule-user-guide/v/3.6/dotnet-connector-faqs">DotNet Connector FAQs</a></p> </li> 
     <li> <p><a href="/release-notes/dotnet-connector-release-notes">DotNet Connector Release Notes</a></p> </li> 
-    <li> <p><a href="/documentation/download/attachments/123339388/dotnet-connector-samples.zip?version=1&amp;modificationDate=1422013042856">dotnet-connector-samples.zip</a></p> </li> 
+    <li> <p><a href="_attachments/dotnet-connector-samples.zip">dotnet-connector-samples.zip</a></p> </li> 
    </ul> 
   </div> 
  </div> 
@@ -1062,21 +1062,11 @@
   <div class="ulist"> 
    <ul> 
     <li> <p>The <a href="http://www.microsoft.com/net">Microsoft .NET framework</a></p> </li> 
-    <li> <p>Anypoint Studio, the graphical interface to Mule ESB. See&nbsp;<a href="/anypoint-studio/v/5/">Download and Launch Anypoint Studio</a> for details</p> </li> 
+    <li> <p>Anypoint Studio, the graphical interface to Mule. See&nbsp;<a href="/anypoint-studio/v/5/">Download and Launch Anypoint Studio</a> for details.</p> </li> 
    </ul> 
   </div> 
-  <div class="admonitionblock warning"> 
-   <table> 
-    <tbody> 
-     <tr> 
-      <td class="icon"> <i class="fa icon-warning" title="Warning"></i> </td> 
-      <td class="content"> 
-       <div class="paragraph"> 
-        <p>The .NET connector version 1.0 is incompatible with version 2.0. Please refer to the <a href="/mule-user-guide/v/3.6/dotnet-connector-migration-guide">.NET connector migration guide</a> if you are an existing user of .NET connector 1.0.</p> 
-       </div> </td> 
-     </tr> 
-    </tbody> 
-   </table> 
+  <div class="paragraph"> 
+   <p><strong>Note:</strong> The .NET connector version 1.0 is incompatible with version 2.0. See the <a href="/mule-user-guide/v/3.6/dotnet-connector-migration-guide">.NET connector migration guide</a> if you are an existing user of .NET connector 1.0.</p> 
   </div> 
  </div> 
 </div> 
@@ -1084,7 +1074,7 @@
  <h2 id="installing-the-dotnet-connector-in-anypoint-studio"><a class="anchor" href="#installing-the-dotnet-connector-in-anypoint-studio"></a>Installing the DotNet Connector in Anypoint Studio</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>You can install a connector in Anypoint Studio using the instructions in&nbsp;<a href="/getting-started/anypoint-exchange#installing-a-connector-from-anypoint-exchange">Installing a Connector from Anypoint Exchange</a>. &nbsp;</p> 
+   <p>You can install a connector in Anypoint Studio using the instructions in&nbsp;<a href="/mule-user-guide/v/3.6/installing-connectors">To Install a Connector from Anypoint Exchange</a>.&nbsp;</p> 
   </div> 
  </div> 
 </div> 
@@ -1129,15 +1119,10 @@
   </table> 
   <div class="sect2"> 
    <h3 id="step-1-creating-a-net-component"><a class="anchor" href="#step-1-creating-a-net-component"></a>Step 1.&nbsp;Creating a .NET Component</h3> 
-   <div class="paragraph"> 
-    <p>To create the .NET component that will be called from Mule, start Visual Studio and create a new C# Class Library project.</p> 
-   </div> 
-   <div class="paragraph"> 
-    <p>To create a new project:</p> 
-   </div> 
    <div class="olist arabic"> 
     <ol class="arabic"> 
-     <li> <p>Select <strong>File</strong> &gt; <strong>New</strong> &gt; <strong>Project</strong>.</p> </li> 
+     <li> <p>Start Visual Studio and create a new C# Class Library project.</p> </li> 
+     <li> <p>In Anypoint Studio, select <strong>File</strong> &gt; <strong>New</strong> &gt; <strong>Project</strong>.</p> </li> 
      <li> <p>In the <strong>New Project</strong> dialog, select the Class Library template under Visual C#. &nbsp;Name the Project “Test.SampleComponent”.</p> 
       <div class="paragraph"> 
        <p><span class="image"><img src="./_images/dotnetcomponent.png" alt="dotnetcomponent"></span></p> 
@@ -1193,11 +1178,9 @@
   </div> 
   <div class="sect2"> 
    <h3 id="step-2-creating-a-new-anypoint-studio-project"><a class="anchor" href="#step-2-creating-a-new-anypoint-studio-project"></a>Step 2. Creating a New Anypoint Studio Project</h3> 
-   <div class="paragraph"> 
-    <p>To begin building this application, start Anypoint Studio and create a new project.</p> 
-   </div> 
    <div class="olist arabic"> 
     <ol class="arabic"> 
+     <li> <p>Start Anypoint Studio and create a new project.</p> </li> 
      <li> <p>Select <strong>File</strong> &gt; <strong>New</strong> &gt; <strong>Mule Project</strong>.</p> </li> 
      <li> <p>In the New Mule Project configuration menu, provide a name for this project:&nbsp;<code>dotnet_demo</code>.</p> </li> 
      <li> <p>Click <strong>Finish</strong>.</p> </li> 
@@ -1217,7 +1200,7 @@
      <li> <p>Click the <strong>Global Elements</strong> tab at the base of the canvas, then click <strong>Create</strong>.</p> </li> 
      <li> <p>Use <strong>DotNet Connector</strong> as filter to locate, then select the Global Type:</p> 
       <div class="paragraph"> 
-       <p><span class="image"><img src="./_images/Global+Type.png" alt="Global+Type"></span><br></p> 
+       <p><span class="image"><img src="./_images/Global+Type.png" alt="Global+Type"></span></p> 
       </div> </li> 
      <li> <p>Choose <strong>DotNet: External Assembly</strong> and click&nbsp;<strong>OK</strong>.</p> </li> 
      <li> <p>Configure the External Assembly global type:</p> 
@@ -1270,74 +1253,19 @@
   </div> 
   <div class="sect2"> 
    <h3 id="step-4-creating-a-demo-flow"><a class="anchor" href="#step-4-creating-a-demo-flow"></a>Step 4. Creating a Demo Flow</h3> 
-   <div class="panel panel-default no-padding"> 
-    <div class="panel-heading no-padding"> 
-     <!-- Nav tabs --> 
-     <ul class="nav nav-tabs" role="tablist"> 
-      <li class="active"><a href="#tab-1_1" role="tab" data-toggle="tab">Studio Visual Editor</a></li> 
-      <li><a href="#tab-1_2" role="tab" data-toggle="tab">XML Code</a></li> 
-     </ul> 
-    </div> 
-    <div class="panel-body tab-content no-padding"> 
-     <div class="tab-pane in active fade no-padding" id="tab-1_1"> 
-      <div class="olist arabic"> 
-       <ol class="arabic"> 
-        <li> <p>Drag an HTTP connector into the canvas, then select it to open the properties editor console.</p> </li> 
-        <li> <p>Add a new HTTP Listener Configuration global element:</p> 
-         <div class="olist loweralpha"> 
-          <ol class="loweralpha" type="a"> 
-           <li> <p>In <strong>General Settings</strong>, click Add <strong>button</strong>:</p> 
-            <div class="paragraph"> 
-             <p><span class="image"><img src="./_images/httplistener.png" alt="httplistener"></span><br></p> 
-            </div> </li> 
-           <li> <p>Configure the following HTTP parameters:</p> 
-            <div class="paragraph"> 
-             <p><span class="image"><img src="./_images/httparameters.png" alt="httparameters"></span></p> 
-            </div> 
-            <table class="tableblock frame-all grid-all spread"> 
-             <colgroup> 
-              <col> 
-              <col> 
-             </colgroup> 
-             <thead> 
-              <tr> 
-               <th class="tableblock halign-left valign-top">Field</th> 
-               <th class="tableblock halign-left valign-top">Value</th> 
-              </tr> 
-             </thead> 
-             <tbody> 
-              <tr> 
-               <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Port</strong></p></td> 
-               <td class="tableblock halign-left valign-top"><p class="tableblock">8081</p></td> 
-              </tr> 
-              <tr> 
-               <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Path</strong></p></td> 
-               <td class="tableblock halign-left valign-top"><p class="tableblock">dotnet</p></td> 
-              </tr> 
-              <tr> 
-               <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Host</strong></p></td> 
-               <td class="tableblock halign-left valign-top"><p class="tableblock">localhost</p></td> 
-              </tr> 
-              <tr> 
-               <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Exchange Patterns</strong></p></td> 
-               <td class="tableblock halign-left valign-top"><p class="tableblock">request-response</p></td> 
-              </tr> 
-              <tr> 
-               <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
-               <td class="tableblock halign-left valign-top"><p class="tableblock">HTTP (or any other name you prefer)</p></td> 
-              </tr> 
-             </tbody> 
-            </table> </li> 
-          </ol> 
-         </div> </li> 
-        <li> <p>Reference the HTTP Listener Configuration global element:</p> 
+   <div class="olist arabic"> 
+    <ol class="arabic"> 
+     <li> <p>In Anypoint Studio, drag an HTTP connector onto the canvas, and select it to open the properties editor console.</p> </li> 
+     <li> <p>Add a new HTTP Listener Configuration global element:</p> 
+      <div class="olist loweralpha"> 
+       <ol class="loweralpha" type="a"> 
+        <li> <p>In <strong>General Settings</strong>, click Add <strong>button</strong>:</p> 
          <div class="paragraph"> 
-          <p><span class="image"><img src="./_images/httpreference.png" alt="httpreference"></span></p> 
+          <p><span class="image"><img src="./_images/httplistener.png" alt="httplistener"></span></p> 
          </div> </li> 
-        <li> <p>Drag a set payload transformer into the canvas, then select it to open the properties editor console.</p> </li> 
-        <li> <p>Configure the required filter parameters as follows:</p> 
+        <li> <p>Configure the following HTTP parameters:</p> 
          <div class="paragraph"> 
-          <p><span class="image"><img src="./_images/SetPayload+1.png" alt="SetPayload+1"></span></p> 
+          <p><span class="image"><img src="./_images/httparameters.png" alt="httparameters"></span></p> 
          </div> 
          <table class="tableblock frame-all grid-all spread"> 
           <colgroup> 
@@ -1352,33 +1280,71 @@
           </thead> 
           <tbody> 
            <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Value</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><code>{ "name" : "bar", "lastName" : &nbsp;"foo", "id" : 1, "myRide" : \{ "Model" : "Coupe", "Brand" : "GM", "Color" : \{ "Name" : "red", "RGB" : "123,220,213" } } }}</code></p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Port</strong></p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">8081</p></td> 
+           </tr> 
+           <tr> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Path</strong></p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">dotnet</p></td> 
+           </tr> 
+           <tr> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Host</strong></p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">localhost</p></td> 
+           </tr> 
+           <tr> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Exchange Patterns</strong></p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">request-response</p></td> 
            </tr> 
            <tr> 
             <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">Set Payload (or any other name you prefer)</p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">HTTP (or any other name you prefer)</p></td> 
            </tr> 
           </tbody> 
-         </table> 
-         <div class="admonitionblock note"> 
-          <table> 
+         </table> </li> 
+       </ol> 
+      </div> </li> 
+     <li> <p>Reference the HTTP Listener Configuration global element:</p> 
+      <div class="paragraph"> 
+       <p><span class="image"><img src="./_images/httpreference.png" alt="httpreference"></span></p> 
+      </div> </li> 
+     <li> <p>Drag a set payload transformer into the canvas, then select it to open the properties editor console.</p> </li> 
+     <li> <p>Configure the required filter parameters as follows:</p> 
+      <div class="paragraph"> 
+       <p><span class="image"><img src="./_images/SetPayload+1.png" alt="SetPayload+1"></span></p> 
+      </div> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col> 
+        <col> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Field</th> 
+         <th class="tableblock halign-left valign-top">Value</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Value</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>{ "name" : "bar", "lastName" : &nbsp;"foo", "id" : 1, "myRide" : \{ "Model" : "Coupe", "Brand" : "GM", "Color" : \{ "Name" : "red", "RGB" : "123,220,213" } } }}</code></p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Set Payload (or any other name you prefer)</p></td> 
+        </tr> 
+       </tbody> 
+      </table> 
+      <div class="paragraph"> 
+       <p>The string you enter in the <strong>Value</strong> field represents a serialized JSON object for a Person class:</p> 
+      </div> 
+      <div class="listingblock"> 
+       <div class="content"> 
+        <pre class="CodeRay highlight"><code data-lang="code">
+             
+          <table class="CodeRay"> 
            <tbody> 
             <tr> 
-             <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-             <td class="content"> 
-              <div class="paragraph"> 
-               <p>The string you enter in the <strong>Value</strong> field represents a serialized JSON object for a Person class:</p> 
-              </div> 
-              <div class="listingblock"> 
-               <div class="content"> 
-                <pre class="CodeRay highlight"><code data-lang="code">
-            
-                     
-                  <table class="CodeRay"> 
-                   <tbody> 
-                    <tr> 
-                     <td class="line-numbers"><pre>1
+             <td class="line-numbers"><pre>1
 2
 3
 4
@@ -1408,7 +1374,7 @@
 28
 29
 </pre></td> 
-                     <td class="code"><pre>namespace Test.SampleComponent{&nbsp;
+             <td class="code"><pre>namespace Test.SampleComponent{&nbsp;
 &nbsp;&nbsp;public class Person
 &nbsp;&nbsp;&nbsp;&nbsp;{
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public string Name {
@@ -1437,152 +1403,134 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
 &nbsp;&nbsp;&nbsp;&nbsp;}
 }</pre></td> 
-                    </tr> 
-                   </tbody> 
-                  </table></code></pre> 
-               </div> 
-              </div> </td> 
             </tr> 
            </tbody> 
-          </table> 
-         </div> </li> 
-        <li> <p>Drag a DataMapper from the palette, and place it into the canvas after the Set Payload transformer.</p> </li> 
-        <li> <p>Configure the parameters as follows:</p> 
-         <div class="paragraph"> 
-          <p><span class="image"><img src="./_images/jsontoexecutecomplex.png" alt="jsontoexecutecomplex"></span></p> 
-         </div> 
-         <table class="tableblock frame-all grid-all spread"> 
-          <colgroup> 
-           <col> 
-           <col> 
-          </colgroup> 
-          <thead> 
-           <tr> 
-            <th class="tableblock halign-left valign-top">Field</th> 
-            <th class="tableblock halign-left valign-top">Value</th> 
-           </tr> 
-          </thead> 
-          <tbody> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">JSON to ExecuteComplex (or any other name you prefer)</p></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><strong>Input</strong></p></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Type</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">JSON</p></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>From Example</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">True (Check)</p></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Sample</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the path to the input.json sample file.</p></td> 
-           </tr> 
-          </tbody> 
-         </table> 
-         <div class="admonitionblock note"> 
-          <table> 
-           <tbody> 
-            <tr> 
-             <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-             <td class="content"> 
-              <div class="paragraph"> 
-               <p>Before you run this application, create a JSON sample file named <strong>input.json</strong> and copy the following content into it:&nbsp;</p> 
-              </div> 
-              <div class="listingblock"> 
-               <div class="content"> 
-                <pre class="CodeRay highlight"><code data-lang="code">
-            
-                     
-                  <table class="CodeRay"> 
-                   <tbody> 
-                    <tr> 
-                     <td class="line-numbers"><pre>1
+          </table></code></pre> 
+       </div> 
+      </div> </li> 
+     <li> <p>Drag a DataMapper from the palette, and place it into the canvas after the Set Payload transformer.</p> </li> 
+     <li> <p>Configure the parameters as follows:</p> 
+      <div class="paragraph"> 
+       <p><span class="image"><img src="./_images/jsontoexecutecomplex.png" alt="jsontoexecutecomplex"></span></p> 
+      </div> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col> 
+        <col> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Field</th> 
+         <th class="tableblock halign-left valign-top">Value</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">JSON to ExecuteComplex (or any other name you prefer)</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><strong>Input</strong></p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Type</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">JSON</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>From Example</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">True (Check)</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Sample</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the path to the input.json sample file.</p></td> 
+        </tr> 
+       </tbody> 
+      </table> 
+      <div class="paragraph"> 
+       <p>Before you run this application, create a JSON sample file named <strong>input.json</strong> and copy the following content into it:&nbsp;</p> 
+      </div> </li> 
+    </ol> 
+   </div> 
+   <div class="listingblock"> 
+    <div class="content"> 
+     <pre class="CodeRay highlight"><code data-lang="code">
+          
+       <table class="CodeRay"> 
+        <tbody> 
+         <tr> 
+          <td class="line-numbers"><pre>1
 </pre></td> 
-                     <td class="code"><pre>"person" : { "name" : "bar", "lastName" :  "foo", "id" : 1, "myRide" : { "Model" : "Coupe", "Brand" : "GM", "Color" : { "Name" : "red", "RGB" : "123,220,213" }  } }}.</pre></td> 
-                    </tr> 
-                   </tbody> 
-                  </table></code></pre> 
-               </div> 
-              </div> </td> 
-            </tr> 
-           </tbody> 
-          </table> 
-         </div> </li> 
-        <li> <p>Click <strong>Create Mapping</strong>.</p> 
-         <div class="paragraph"> 
-          <p><span class="image"><img src="./_images/datamapper-mappingscreen.png" alt="datamapper-mappingscreen"></span></p> 
-         </div> </li> 
-        <li> <p>Drag the DotNet connector in the Palette, then place it into the canvas after the set payload transformer. Configure the DotNet connector as shown below.</p> 
-         <div class="paragraph"> 
-          <p><span class="image"><img src="./_images/DotNet+Connectorscreen.png" alt="DotNet+Connectorscreen"></span></p> 
-         </div> 
-         <table class="tableblock frame-all grid-all spread"> 
-          <colgroup> 
-           <col> 
-           <col> 
-          </colgroup> 
-          <thead> 
-           <tr> 
-            <th class="tableblock halign-left valign-top">Field</th> 
-            <th class="tableblock halign-left valign-top">Value</th> 
-           </tr> 
-          </thead> 
-          <tbody> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Operation</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">Execute</p></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Method name</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">Test.SampleComponent.Sample.ExecuteComplex(Test.SampleComponent.Person person)&nbsp;</p></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">DotNet Connector (or any other name you prefer)</p></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Config Reference</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">Dot_Net_Resource_External_Assembly</p></td> 
-           </tr> 
-          </tbody> 
-         </table> 
-         <div class="admonitionblock note"> 
-          <table> 
-           <tbody> 
-            <tr> 
-             <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-             <td class="content"> 
-              <div class="paragraph"> 
-               <p>Note that the&nbsp;<strong>Config Reference</strong>&nbsp;field references the DotNet global element created previously.</p> 
-              </div> </td> 
-            </tr> 
-           </tbody> 
-          </table> 
-         </div> </li> 
-       </ol> 
-      </div> 
-      <div class="paragraph"> 
-       <p>After completing the above steps, your application flow should look like this:</p> 
-      </div> 
-      <div class="paragraph"> 
-       <p><span class="image"><img src="./_images/complete+application+flow.png" alt="complete+application+flow"></span></p> 
-      </div> 
-     </div> 
-     <div class="tab-pane fade no-padding" id="tab-1_2"> 
-      <div class="listingblock"> 
-       <div class="content"> 
-        <pre class="CodeRay highlight"><code data-lang="xml">
-    
-             
-          <table class="CodeRay"> 
-           <tbody> 
-            <tr> 
-             <td class="line-numbers"><pre>1
+          <td class="code"><pre>"person" : { "name" : "bar", "lastName" :  "foo", "id" : 1, "myRide" : { "Model" : "Coupe", "Brand" : "GM", "Color" : { "Name" : "red", "RGB" : "123,220,213" }  } }}.</pre></td> 
+         </tr> 
+        </tbody> 
+       </table></code></pre> 
+    </div> 
+   </div> 
+   <div class="paragraph"> 
+    <p>+ . Click <strong>Create Mapping</strong>.</p> 
+   </div> 
+   <div class="paragraph"> 
+    <p>+ <span class="image"><img src="./_images/datamapper-mappingscreen.png" alt="datamapper-mappingscreen"></span></p> 
+   </div> 
+   <div class="paragraph"> 
+    <p>+ . Drag the DotNet connector in the Palette, then place it into the canvas after the set payload transformer. Configure the DotNet connector as shown below.</p> 
+   </div> 
+   <div class="paragraph"> 
+    <p>+ <span class="image"><img src="./_images/DotNet+Connectorscreen.png" alt="DotNet+Connectorscreen"></span></p> 
+   </div> 
+   <div class="paragraph"> 
+    <p>+</p> 
+   </div> 
+   <table class="tableblock frame-all grid-all spread"> 
+    <colgroup> 
+     <col> 
+     <col> 
+    </colgroup> 
+    <thead> 
+     <tr> 
+      <th class="tableblock halign-left valign-top">Field</th> 
+      <th class="tableblock halign-left valign-top">Value</th> 
+     </tr> 
+    </thead> 
+    <tbody> 
+     <tr> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Operation</strong></p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">Execute</p></td> 
+     </tr> 
+     <tr> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Method name</strong></p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">Test.SampleComponent.Sample.ExecuteComplex(Test.SampleComponent.Person person)&nbsp;</p></td> 
+     </tr> 
+     <tr> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">DotNet Connector (or any other name you prefer)</p></td> 
+     </tr> 
+     <tr> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Config Reference</strong></p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">Dot_Net_Resource_External_Assembly</p></td> 
+     </tr> 
+    </tbody> 
+   </table> 
+   <div class="paragraph"> 
+    <p>+ Note that the&nbsp;<strong>Config Reference</strong>&nbsp;field references the DotNet global element created previously.</p> 
+   </div> 
+   <div class="paragraph"> 
+    <p>After completing the above steps, your application flow should look like this:</p> 
+   </div> 
+   <div class="paragraph"> 
+    <p><span class="image"><img src="./_images/complete+application+flow.png" alt="complete+application+flow"></span></p> 
+   </div> 
+  </div> 
+  <div class="sect2"> 
+   <h3 id="xml-code"><a class="anchor" href="#xml-code"></a>XML Code</h3> 
+   <div class="listingblock"> 
+    <div class="content"> 
+     <pre class="CodeRay highlight"><code data-lang="xml">
+          
+       <table class="CodeRay"> 
+        <tbody> 
+         <tr> 
+          <td class="line-numbers"><pre>1
 2
 3
 4
@@ -1601,30 +1549,27 @@
 17
 18
 </pre></td> 
-             <td class="code"><pre><span class="entity">&amp;lt;</span>mule xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:data-mapper="http://www.mulesoft.org/schema/mule/ee/data-mapper" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:dotnet="http://www.mulesoft.org/schema/mule/dotnet" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
-&nbsp;xmlns:spring="http://www.springframework.org/schema/beans" version="EE-3.6.1"&nbsp;xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-&nbsp;xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
-http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd&nbsp;
-http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd&nbsp;
-http://www.mulesoft.org/schema/mule/dotnet http://www.mulesoft.org/schema/mule/dotnet/current/mule-dotnet.xsd&nbsp;
-http://www.mulesoft.org/schema/mule/ee/data-mapper http://www.mulesoft.org/schema/mule/ee/data-mapper/current/mule-data-mapper.xsd&nbsp;
-http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd"<span class="entity">&amp;gt;</span>&nbsp;
-&nbsp;<span class="entity">&amp;lt;</span>dotnet:externalConfig name="DotNet_External_Assembly" scope="Transient" path="C:\Samples\Test.SampleComponent.dll" doc:name="DotNet: External Assembly"/<span class="entity">&amp;gt;</span>
-<span class="entity">&amp;lt;</span>http:listener-config name="HTTP_Listener_Configuration" host="0.0.0.0" port="8081" basePath="dotnet" doc:name="HTTP Listener Configuration"/<span class="entity">&amp;gt;</span>
-<span class="entity">&amp;lt;</span>http:connector name="HTTP_HTTPS" cookieSpec="netscape" validateConnections="true" sendBufferSize="0" receiveBufferSize="0" receiveBacklog="0" clientSoTimeout="10000" serverSoTimeout="10000" socketSoLinger="0" doc:name="HTTP-HTTPS"/<span class="entity">&amp;gt;</span>
-<span class="entity">&amp;lt;</span>data-mapper:config name="JSON_To_ExecuteComplex" transformationGraphPath="json_to_executecomplex.grf" doc:name="JSON_To_ExecuteComplex"/<span class="entity">&amp;gt;</span>
-&nbsp;<span class="entity">&amp;lt;</span>flow name="dotnet-demoFlow1" doc:name="dotnet-demoFlow1"<span class="entity">&amp;gt;</span>
-&nbsp;<span class="entity">&amp;lt;</span>http:listener config-ref="HTTP_Listener_Configuration" path="/" doc:name="HTTP"/<span class="entity">&amp;gt;</span>
-&nbsp;<span class="entity">&amp;lt;</span>data-mapper:transform config-ref="JSON_To_ExecuteComplex" doc:name="JSON To ExecuteComplex" path="dotnet"/<span class="entity">&amp;gt;</span>
-&nbsp;<span class="entity">&amp;lt;</span>dotnet:execute config-ref="DotNet_External_Assembly" methodName="Test.SampleComponent.Sample, Test.SampleComponent, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null | ExecuteComplex(Test.SampleComponent.Person person) -<span class="entity">&amp;amp;</span>gt; System.Object" doc:name="DotNet"/<span class="entity">&amp;gt;</span>
-&nbsp;<span class="entity">&amp;lt;</span>/flow<span class="entity">&amp;gt;</span>&nbsp;
-<span class="entity">&amp;lt;</span>/mule<span class="entity">&amp;gt;</span>&nbsp;</pre></td> 
-            </tr> 
-           </tbody> 
-          </table></code></pre> 
-       </div> 
-      </div> 
-     </div> 
+          <td class="code"><pre><span class="tag">&lt;mule</span> <span class="attribute-name">xmlns:tracking</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/ee/tracking</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:data-mapper</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/ee/data-mapper</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:http</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/http</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:dotnet</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/dotnet</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/core</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:doc</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/documentation</span><span class="delimiter">"</span></span>
+<span class="error">&nbsp;</span><span class="attribute-name">xmlns:spring</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.springframework.org/schema/beans</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:xsi</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.w3.org/2001/XMLSchema-instance</span><span class="delimiter">"</span></span>
+<span class="error">&nbsp;</span><span class="attribute-name">xsi:schemaLocation</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd</span>
+<span class="content">http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd&nbsp;</span>
+<span class="content">http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd&nbsp;</span>
+<span class="content">http://www.mulesoft.org/schema/mule/dotnet http://www.mulesoft.org/schema/mule/dotnet/current/mule-dotnet.xsd&nbsp;</span>
+<span class="content">http://www.mulesoft.org/schema/mule/ee/data-mapper http://www.mulesoft.org/schema/mule/ee/data-mapper/current/mule-data-mapper.xsd&nbsp;</span>
+<span class="content">http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>&nbsp;
+&nbsp;<span class="tag">&lt;dotnet:externalConfig</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">DotNet_External_Assembly</span><span class="delimiter">"</span></span> <span class="attribute-name">scope</span>=<span class="string"><span class="delimiter">"</span><span class="content">Transient</span><span class="delimiter">"</span></span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">"</span><span class="content">C:\Samples\Test.SampleComponent.dll</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">DotNet: External Assembly</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+<span class="tag">&lt;http:listener-config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Listener_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">host</span>=<span class="string"><span class="delimiter">"</span><span class="content">0.0.0.0</span><span class="delimiter">"</span></span> <span class="attribute-name">port</span>=<span class="string"><span class="delimiter">"</span><span class="content">8081</span><span class="delimiter">"</span></span> <span class="attribute-name">basePath</span>=<span class="string"><span class="delimiter">"</span><span class="content">dotnet</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP Listener Configuration</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+<span class="tag">&lt;http:connector</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_HTTPS</span><span class="delimiter">"</span></span> <span class="attribute-name">cookieSpec</span>=<span class="string"><span class="delimiter">"</span><span class="content">netscape</span><span class="delimiter">"</span></span> <span class="attribute-name">validateConnections</span>=<span class="string"><span class="delimiter">"</span><span class="content">true</span><span class="delimiter">"</span></span> <span class="attribute-name">sendBufferSize</span>=<span class="string"><span class="delimiter">"</span><span class="content">0</span><span class="delimiter">"</span></span> <span class="attribute-name">receiveBufferSize</span>=<span class="string"><span class="delimiter">"</span><span class="content">0</span><span class="delimiter">"</span></span> <span class="attribute-name">receiveBacklog</span>=<span class="string"><span class="delimiter">"</span><span class="content">0</span><span class="delimiter">"</span></span> <span class="attribute-name">clientSoTimeout</span>=<span class="string"><span class="delimiter">"</span><span class="content">10000</span><span class="delimiter">"</span></span> <span class="attribute-name">serverSoTimeout</span>=<span class="string"><span class="delimiter">"</span><span class="content">10000</span><span class="delimiter">"</span></span> <span class="attribute-name">socketSoLinger</span>=<span class="string"><span class="delimiter">"</span><span class="content">0</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP-HTTPS</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+<span class="tag">&lt;data-mapper:config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">JSON_To_ExecuteComplex</span><span class="delimiter">"</span></span> <span class="attribute-name">transformationGraphPath</span>=<span class="string"><span class="delimiter">"</span><span class="content">json_to_executecomplex.grf</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">JSON_To_ExecuteComplex</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+&nbsp;<span class="tag">&lt;flow</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">dotnet-demoFlow1</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">dotnet-demoFlow1</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+&nbsp;<span class="tag">&lt;http:listener</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Listener_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">"</span><span class="content">/</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+&nbsp;<span class="tag">&lt;data-mapper:transform</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">JSON_To_ExecuteComplex</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">JSON To ExecuteComplex</span><span class="delimiter">"</span></span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">"</span><span class="content">dotnet</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+&nbsp;<span class="tag">&lt;dotnet:execute</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">DotNet_External_Assembly</span><span class="delimiter">"</span></span> <span class="attribute-name">methodName</span>=<span class="string"><span class="delimiter">"</span><span class="content">Test.SampleComponent.Sample, Test.SampleComponent, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null | ExecuteComplex(Test.SampleComponent.Person person) -</span><span class="entity">&amp;gt;</span> <span class="content">System.Object</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">DotNet</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+&nbsp;<span class="tag">&lt;/flow&gt;</span>&nbsp;
+<span class="tag">&lt;/mule&gt;</span>&nbsp;</pre></td> 
+         </tr> 
+        </tbody> 
+       </table></code></pre> 
     </div> 
    </div> 
   </div> 
@@ -1670,7 +1615,7 @@ http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/m
   <div class="ulist"> 
    <ul> 
     <li> <p>Learn more about the DotNet connector in the <a href="/mule-user-guide/v/3.6/dotnet-connector-faqs">DotNet Connector FAQs</a>.</p> </li> 
-    <li> <p>For code samples that illustrate more advanced scenarios, refer to the <a href="/documentation/download/attachments/123339388/dotnet-connector-samples.zip?version=1&amp;modificationDate=1422013042856">dotnet-connector-samples.zip</a>&nbsp;and the&nbsp;<a href="/documentation/download/attachments/123339388/dotnet-connector-sdk.zip?version=2&amp;modificationDate=1428086670824">dotnet-connector-sdk.zip</a>.</p> </li> 
+    <li> <p>For code samples that illustrate more advanced scenarios, refer to the <a href="_attachments/dotnet-connector-samples.zip">dotnet-connector-samples.zip</a>&nbsp;and the&nbsp;<a href="_attachments/dotnet-connector-sdk.zip?">dotnet-connector-sdk.zip</a>.</p> </li> 
     <li> <p>Refer to the <a href="/release-notes/dotnet-connector-release-notes">release notes</a>.&nbsp;</p> </li> 
    </ul> 
   </div> 
