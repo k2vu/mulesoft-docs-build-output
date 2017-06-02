@@ -1100,137 +1100,21 @@
   <div class="sect2"> 
    <h3 id="installing-hdfs-connector-in-anypoint-studio"><a class="anchor" href="#installing-hdfs-connector-in-anypoint-studio"></a>Installing HDFS Connector in Anypoint Studio</h3> 
    <div class="paragraph"> 
-    <p>You can install a connector in Anypoint Studio using the instructions in&nbsp; <a href="/getting-started/anypoint-exchange#installing-a-connector-from-anypoint-exchange">Installing a Connector from Anypoint Exchange</a>.&nbsp;</p> 
+    <p>You can install a connector in Anypoint Studio using the instructions in&nbsp;<a href="/mule-user-guide/v/3.6/installing-connectors">To Install a Connector from Anypoint Exchange</a>.</p> 
    </div> 
   </div> 
   <div class="sect2"> 
    <h3 id="configuring-a-global-element"><a class="anchor" href="#configuring-a-global-element"></a>Configuring a Global Element</h3> 
    <div class="paragraph"> 
-    <p>To use the HDFS connector in your Mule application, you must configure&nbsp;a global HDFS element that can be used by all the HDFS connectors in the application (read more about&nbsp; <a href="/mule-user-guide/v/3.6/global-elements">global elements</a> ).</p> 
+    <p>To use the HDFS connector in your Mule application, you must configure&nbsp;a global HDFS element that can be used by all the HDFS connectors in the application.</p> 
    </div> 
-   <div class="panel panel-default no-padding"> 
-    <div class="panel-heading no-padding"> 
-     <!-- Nav tabs --> 
-     <ul class="nav nav-tabs" role="tablist"> 
-      <li class="active"><a href="#tab-1_1" role="tab" data-toggle="tab">Studio Visual Editor</a></li> 
-      <li><a href="#tab-1_2" role="tab" data-toggle="tab">XML Editor</a></li> 
-     </ul> 
-    </div> 
-    <div class="panel-body tab-content no-padding"> 
-     <div class="tab-pane in active fade no-padding" id="tab-1_1"> 
-      <div class="olist arabic"> 
-       <ol class="arabic"> 
-        <li> <p>Click the <strong>Global Elements</strong> tab at the base of the canvas, then click <strong>Create</strong>.</p> </li> 
-        <li> <p>In the <strong>Choose Global Type</strong> wizard, use the filter to locate and select <strong>HDFS</strong>, then click <strong>OK</strong>.</p> </li> 
-        <li> <p>Configure the parameters according to the table below.</p> 
-         <div class="paragraph"> 
-          <p><span class="image"><img src="/documentation/download/attachments/124486303/1.png?version=1&amp;modificationDate=1425661022528" alt="image"></span></p> 
-         </div> 
-         <table class="tableblock frame-all grid-all spread"> 
-          <colgroup> 
-           <col> 
-           <col> 
-          </colgroup> 
-          <thead> 
-           <tr> 
-            <th class="tableblock halign-left valign-top">Parameter</th> 
-            <th class="tableblock halign-left valign-top">Description</th> 
-           </tr> 
-          </thead> 
-          <tbody> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Name</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">Enter a name for the configuration with which it can be referenced later.</p></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>NameNode URI</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the host name or IP address of the master node of the Hadoop cluster.</p></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Username</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">Enter a Hadoop File System username.</p></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Configuration Resources</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">If you want to override the configuration resources of the Hadoop instance, select a suitable option from here.</p></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Configuration Entries</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">If you want to override the configuration entries of the Hadoop instance, select a suitable option from here.</p></td> 
-           </tr> 
-          </tbody> 
-         </table> </li> 
-        <li> <p>Access the <strong>Pooling Profile</strong> tab to configure any settings relevant to managing multiple connections using a connection pool.</p> </li> 
-        <li> <p>Access the <strong>Reconnection</strong> tab to configure any settings relevant to reconnection strategies that Mule should execute if it loses its connection to HDFS.</p> </li> 
-        <li> <p>Click&nbsp;<strong>Test Connection</strong> to receive a <em>Connection Successful</em> message.</p> </li> 
-        <li> <p>Click <strong>OK</strong> to save the global connector configurations.</p> </li> 
-        <li> <p>Return to the Message Flow tab in Studio.</p> </li> 
-       </ol> 
-      </div> 
-     </div> 
-     <div class="tab-pane fade no-padding" id="tab-1_2"> 
+   <div class="olist arabic"> 
+    <ol class="arabic"> 
+     <li> <p>In Anypoint Studio, click the <strong>Global Elements</strong> tab at the base of the canvas, and click <strong>Create</strong>.</p> </li> 
+     <li> <p>In the <strong>Choose Global Type</strong> wizard, use the filter to locate and select <strong>HDFS</strong>, and click <strong>OK</strong>.</p> </li> 
+     <li> <p>Configure the parameters according to the table below.</p> 
       <div class="paragraph"> 
-       <p>First, ensure that you have included the HDFS namespaces in your configuration file.</p> 
-      </div> 
-      <div class="listingblock"> 
-       <div class="content"> 
-        <pre class="CodeRay highlight"><code data-lang="xml">
-    
-             
-          <table class="CodeRay"> 
-           <tbody> 
-            <tr> 
-             <td class="line-numbers"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-</pre></td> 
-             <td class="code"><pre><span class="entity">&amp;lt;</span>mule xmlns:mulexml="http://www.mulesoft.org/schema/mule/xml" xmlns:hdfs="http://www.mulesoft.org/schema/mule/hdfs"
-      xmlns:http="http://www.mulesoft.org/schema/mule/http"
-      xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
-      xmlns:spring="http://www.springframework.org/schema/beans"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.mulesoft.org/schema/mule/core"
-      version="EE-3.6.1" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
-http://www.mulesoft.org/schema/mule/hdfs http://www.mulesoft.org/schema/mule/hdfs/current/mule-hdfs.xsd
-http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
-http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
-http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/current/mule-xml.xsd"<span class="entity">&amp;gt;</span></pre></td> 
-            </tr> 
-           </tbody> 
-          </table></code></pre> 
-       </div> 
-      </div> 
-      <div class="paragraph"> 
-       <p>Follow these steps to configure a HDFS connector in your application:</p> 
-      </div> 
-      <div class="olist arabic"> 
-       <ol class="arabic"> 
-        <li> <p>Create a global HDFS configuration outside and above your flows, using the following global configuration code.</p> 
-         <div class="listingblock"> 
-          <div class="content"> 
-           <pre class="CodeRay highlight"><code data-lang="xml">
-       
-                
-             <table class="CodeRay"> 
-              <tbody> 
-               <tr> 
-                <td class="line-numbers"><pre>1
-2
-</pre></td> 
-                <td class="code"><pre><span class="entity">&amp;lt;</span>!-- Simple configuration --<span class="entity">&amp;gt;</span>
-<span class="entity">&amp;lt;</span>hdfs:config nameNodeUri="${mule.HDFS.nameNodeUri}" username="${mule.HDFS.username}"/<span class="entity">&amp;gt;</span></pre></td> 
-               </tr> 
-              </tbody> 
-             </table></code></pre> 
-          </div> 
-         </div> </li> 
-       </ol> 
+       <p><span class="image"><img src="./_images/1.png" alt="1.png"></span></p> 
       </div> 
       <table class="tableblock frame-all grid-all spread"> 
        <colgroup> 
@@ -1245,22 +1129,124 @@ http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/
        </thead> 
        <tbody> 
         <tr> 
-         <td class="tableblock halign-left valign-top"><p class="tableblock"><em>Name</em></p></td> 
-         <td class="tableblock halign-left valign-top"><p class="tableblock">Enter a name for the configuration with which it can be referenced later by config-ref. The name in this example is <code>hdfs:config</code>.</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Enter a name for the configuration with which it can be referenced later.</p></td> 
         </tr> 
         <tr> 
-         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>nameNode Uri</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>NameNode URI</strong></p></td> 
          <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the host name or IP address of the master node of the Hadoop cluster.</p></td> 
         </tr> 
         <tr> 
-         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>username</strong></p></td> 
-         <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the Hadoop FileSystem username.</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Username</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Enter a Hadoop File System username.</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Configuration Resources</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">If you want to override the configuration resources of the Hadoop instance, select a suitable option from here.</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Configuration Entries</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">If you want to override the configuration entries of the Hadoop instance, select a suitable option from here.</p></td> 
         </tr> 
        </tbody> 
-      </table> 
-     </div> 
+      </table> </li> 
+     <li> <p>Access the <strong>Pooling Profile</strong> tab to configure any settings relevant to managing multiple connections using a connection pool.</p> </li> 
+     <li> <p>Access the <strong>Reconnection</strong> tab to configure any settings relevant to reconnection strategies that Mule should execute if it loses its connection to HDFS.</p> </li> 
+     <li> <p>Click&nbsp;<strong>Test Connection</strong> to receive a <em>Connection Successful</em> message.</p> </li> 
+     <li> <p>Click <strong>OK</strong> to save the global connector configurations.</p> </li> 
+     <li> <p>Return to the Message Flow tab in Studio.</p> </li> 
+    </ol> 
+   </div> 
+  </div> 
+  <div class="sect2"> 
+   <h3 id="configuring-with-the-xml-editor"><a class="anchor" href="#configuring-with-the-xml-editor"></a>Configuring with the XML Editor</h3> 
+   <div class="paragraph"> 
+    <p>Ensure that you have included the HDFS namespaces in your configuration file.</p> 
+   </div> 
+   <div class="listingblock"> 
+    <div class="content"> 
+     <pre class="CodeRay highlight"><code data-lang="xml">
+          
+       <table class="CodeRay"> 
+        <tbody> 
+         <tr> 
+          <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td> 
+          <td class="code"><pre><span class="tag">&lt;mule</span> <span class="attribute-name">xmlns:mulexml</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/xml</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:hdfs</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/hdfs</span><span class="delimiter">"</span></span>
+      <span class="attribute-name">xmlns:http</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/http</span><span class="delimiter">"</span></span>
+      <span class="attribute-name">xmlns:doc</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/documentation</span><span class="delimiter">"</span></span>
+      <span class="attribute-name">xmlns:spring</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.springframework.org/schema/beans</span><span class="delimiter">"</span></span>
+      <span class="attribute-name">xmlns:xsi</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.w3.org/2001/XMLSchema-instance</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/core</span><span class="delimiter">"</span></span>
+      <span class="attribute-name">version</span>=<span class="string"><span class="delimiter">"</span><span class="content">EE-3.6.1</span><span class="delimiter">"</span></span> <span class="attribute-name">xsi:schemaLocation</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd</span>
+<span class="content">http://www.mulesoft.org/schema/mule/hdfs http://www.mulesoft.org/schema/mule/hdfs/current/mule-hdfs.xsd</span>
+<span class="content">http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd</span>
+<span class="content">http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd</span>
+<span class="content">http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/current/mule-xml.xsd</span><span class="delimiter">"</span></span><span class="tag">&gt;</span></pre></td> 
+         </tr> 
+        </tbody> 
+       </table></code></pre> 
     </div> 
    </div> 
+   <div class="paragraph"> 
+    <p>Follow these steps to configure a HDFS connector in your application:</p> 
+   </div> 
+   <div class="olist arabic"> 
+    <ol class="arabic"> 
+     <li> <p>Create a global HDFS configuration outside and above your flows, using the following global configuration code.</p> 
+      <div class="listingblock"> 
+       <div class="content"> 
+        <pre class="CodeRay highlight"><code data-lang="xml">
+             
+          <table class="CodeRay"> 
+           <tbody> 
+            <tr> 
+             <td class="line-numbers"><pre>1
+2
+</pre></td> 
+             <td class="code"><pre><span class="comment">&lt;!-- Simple configuration --&gt;</span>
+<span class="tag">&lt;hdfs:config</span> <span class="attribute-name">nameNodeUri</span>=<span class="string"><span class="delimiter">"</span><span class="content">${mule.HDFS.nameNodeUri}</span><span class="delimiter">"</span></span> <span class="attribute-name">username</span>=<span class="string"><span class="delimiter">"</span><span class="content">${mule.HDFS.username}</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></pre></td> 
+            </tr> 
+           </tbody> 
+          </table></code></pre> 
+       </div> 
+      </div> </li> 
+    </ol> 
+   </div> 
+   <table class="tableblock frame-all grid-all spread"> 
+    <colgroup> 
+     <col> 
+     <col> 
+    </colgroup> 
+    <thead> 
+     <tr> 
+      <th class="tableblock halign-left valign-top">Parameter</th> 
+      <th class="tableblock halign-left valign-top">Description</th> 
+     </tr> 
+    </thead> 
+    <tbody> 
+     <tr> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><em>Name</em></p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">Enter a name for the configuration with which it can be referenced later by config-ref. The name in this example is <code>hdfs:config</code>.</p></td> 
+     </tr> 
+     <tr> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>nameNode Uri</strong></p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the host name or IP address of the master node of the Hadoop cluster.</p></td> 
+     </tr> 
+     <tr> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>username</strong></p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the Hadoop FileSystem username.</p></td> 
+     </tr> 
+    </tbody> 
+   </table> 
   </div> 
  </div> 
 </div> 
@@ -1365,7 +1351,7 @@ http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/
      <li> <p>Drag the HDFS connector onto the canvas, then select it to open the Properties Editor console.</p> </li> 
      <li> <p>Configure the parameters of the connector according to the table below.</p> 
       <div class="paragraph"> 
-       <p><span class="image"><img src="/documentation/download/attachments/124486303/2.png?version=1&amp;modificationDate=1425661325662" alt="image"></span></p> 
+       <p><span class="image"><img src="./_images/2.png" alt="2.png"></span></p> 
       </div> 
       <table class="tableblock frame-all grid-all spread"> 
        <colgroup> 
@@ -1421,265 +1407,22 @@ http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/
    <div class="paragraph"> 
     <p>Create a file in a Hadoop instance using a Mule application:</p> 
    </div> 
-   <div class="panel panel-default no-padding"> 
-    <div class="panel-heading no-padding"> 
-     <!-- Nav tabs --> 
-     <ul class="nav nav-tabs" role="tablist"> 
-      <li class="active"><a href="#tab-2_1" role="tab" data-toggle="tab">Studio Visual Editor</a></li> 
-      <li><a href="#tab-2_2" role="tab" data-toggle="tab">XML Editor</a></li> 
-     </ul> 
-    </div> 
-    <div class="panel-body tab-content no-padding"> 
-     <div class="tab-pane in active fade no-padding" id="tab-2_1"> 
-      <div class="paragraph"> 
-       <p><span class="image"><img src="./_images/hdfsflow.png" alt="hdfsflow"></span></p> 
-      </div> 
-      <div class="olist arabic"> 
-       <ol class="arabic"> 
-        <li> <p>Drag an HTTP connector into the canvas, then select it to open the properties editor console.</p> </li> 
-        <li> <p>Add a new HTTP Listener Configuration global element:</p> 
-         <div class="olist loweralpha"> 
-          <ol class="loweralpha" type="a"> 
-           <li> <p>In <strong>General Settings</strong>, click the <strong>Add</strong> button:</p> 
-            <div class="paragraph"> 
-             <p><span class="image"><img src="./_images/4-1.png" alt="4-1"></span></p> 
-            </div> </li> 
-           <li> <p>Configure the following HTTP parameters:</p> 
-            <div class="paragraph"> 
-             <p><span class="image"><img src="./_images/5-1.png" alt="5-1"></span></p> 
-            </div> 
-            <table class="tableblock frame-all grid-all spread"> 
-             <colgroup> 
-              <col style="width: 50%;"> 
-              <col style="width: 50%;"> 
-             </colgroup> 
-             <thead> 
-              <tr> 
-               <th class="tableblock halign-left valign-top">Field</th> 
-               <th class="tableblock halign-left valign-top">Value</th> 
-              </tr> 
-             </thead> 
-             <tbody> 
-              <tr> 
-               <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Port</strong></p></td> 
-               <td class="tableblock halign-left valign-top"><p class="tableblock">8090</p></td> 
-              </tr> 
-              <tr> 
-               <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Path</strong></p></td> 
-               <td class="tableblock halign-left valign-top"><p class="tableblock">filecreate</p></td> 
-              </tr> 
-              <tr> 
-               <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Host</strong></p></td> 
-               <td class="tableblock halign-left valign-top"><p class="tableblock">localhost</p></td> 
-              </tr> 
-              <tr> 
-               <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
-               <td class="tableblock halign-left valign-top"><p class="tableblock">HTTP_Listener_Configuration</p></td> 
-              </tr> 
-             </tbody> 
-            </table> </li> 
-          </ol> 
+   <div class="paragraph"> 
+    <p><span class="image"><img src="./_images/hdfsflow.png" alt="hdfsflow"></span></p> 
+   </div> 
+   <div class="olist arabic"> 
+    <ol class="arabic"> 
+     <li> <p>In Anypoint Studio, drag an HTTP connector into the canvas, and select it to open the properties editor console.</p> </li> 
+     <li> <p>Add a new HTTP Listener Configuration global element:</p> 
+      <div class="olist loweralpha"> 
+       <ol class="loweralpha" type="a"> 
+        <li> <p>In <strong>General Settings</strong>, click the <strong>Add</strong> button:</p> 
+         <div class="paragraph"> 
+          <p><span class="image"><img src="./_images/4-1.png" alt="4-1"></span></p> 
          </div> </li> 
-        <li> <p>Reference the HTTP Listener Configuration global element:</p> 
+        <li> <p>Configure the following HTTP parameters:</p> 
          <div class="paragraph"> 
-          <p><span class="image"><img src="./_images/6-1.png" alt="6-1"></span></p> 
-         </div> </li> 
-        <li> <p>Add a Logger scope to print the name of the file that needs to be created in the Mule Console. Configure the Logger according to the table below.</p> 
-         <div class="paragraph"> 
-          <p><span class="image"><img src="./_images/7.jpeg" alt="7"></span></p> 
-         </div> 
-         <table class="tableblock frame-all grid-all spread"> 
-          <colgroup> 
-           <col> 
-           <col> 
-          </colgroup> 
-          <thead> 
-           <tr> 
-            <th class="tableblock halign-left valign-top">Field</th> 
-            <th class="tableblock halign-left valign-top">Value</th> 
-           </tr> 
-          </thead> 
-          <tbody> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">Write to path log (or any other name you prefer)</p></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Message</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">Create file: `#[message.inboundProperties['http.query.params'].path] with message: #[message.inboundProperties['http.query.params’].msg]</p></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Level</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">INFO (Default)</p></td> 
-           </tr> 
-          </tbody> 
-         </table> </li> 
-        <li> <p>Add a Set Payload transformer to set the message input as payload, configuring it according to the table below.</p> 
-         <table class="tableblock frame-all grid-all spread"> 
-          <colgroup> 
-           <col> 
-           <col> 
-          </colgroup> 
-          <thead> 
-           <tr> 
-            <th class="tableblock halign-left valign-top">Field</th> 
-            <th class="tableblock halign-left valign-top">Value</th> 
-           </tr> 
-          </thead> 
-          <tbody> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">Set the message input as payload (or any other name you prefer)</p></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Value</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">`#[message.inboundProperties['http.query.params’].msg]</p></td> 
-           </tr> 
-          </tbody> 
-         </table> </li> 
-        <li> <p>Drag the HDFS connector onto the canvas, and select it to open the properties editor console.</p> </li> 
-        <li> <p>Click the plus sign next to the <strong>Connector Configuration</strong> field to add a new global connector configuration.</p> </li> 
-        <li> <p>Configure the global element according to the table below.</p> 
-         <div class="paragraph"> 
-          <p><span class="image"><img src="./_images/8-1.png" alt="8-1"></span></p> 
-         </div> 
-         <table class="tableblock frame-all grid-all spread"> 
-          <colgroup> 
-           <col> 
-           <col> 
-          </colgroup> 
-          <thead> 
-           <tr> 
-            <th class="tableblock halign-left valign-top">Field</th> 
-            <th class="tableblock halign-left valign-top">Value</th> 
-           </tr> 
-          </thead> 
-          <tbody> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">Names</p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">HDFS</p></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">NameNode URI</p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">&lt;NameNode URI of Hadoop instance&gt;</p></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">Username</p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">&lt;Your Hadoop FileSystem username&gt;</p></td> 
-           </tr> 
-          </tbody> 
-         </table> </li> 
-        <li> <p>Back in the properties editor of the HDFS connector in your application, configure the remaining parameters according to the table below.</p> 
-         <div class="paragraph"> 
-          <p><span class="image"><img src="./_images/9.jpeg" alt="9"></span></p> 
-         </div> 
-         <table class="tableblock frame-all grid-all spread"> 
-          <colgroup> 
-           <col> 
-           <col> 
-          </colgroup> 
-          <thead> 
-           <tr> 
-            <th class="tableblock halign-left valign-top">Field</th> 
-            <th class="tableblock halign-left valign-top">Value</th> 
-           </tr> 
-          </thead> 
-          <tbody> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">Write to Path (or any other name you prefer)</p></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Connector</strong> <strong>Configuration</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">hdfs-conf (name of the global element you have created)</p></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Operation</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">Write to path</p></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Path</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><code>#[message.inboundProperties['http.query.params'].path]</code></p></td> 
-           </tr> 
-          </tbody> 
-         </table> </li> 
-        <li> <p>Run the project as a Mule Application (right-click the project name and click <strong>Run As &gt; Mule Application</strong>).</p> </li> 
-        <li> <p>From a browser, navigate to <code><a href="http://localhost:8090/path=filecreate" class="bare">http://localhost:8090/path=filecreate</a></code></p> </li> 
-        <li> <p>Mule conducts the query, and creates the file in Hadoop with the specified message.</p> </li> 
-       </ol> 
-      </div> 
-     </div> 
-     <div class="tab-pane fade no-padding" id="tab-2_2"> 
-      <div class="paragraph"> 
-       <p><span class="image"><img src="./_images/hdfsflow.png" alt="hdfsflow"></span></p> 
-      </div> 
-      <div class="olist arabic"> 
-       <ol class="arabic"> 
-        <li> <p>Add an <code>hdfs:config</code> global element to your project, and configure its attributes according to the table below.</p> 
-         <div class="listingblock"> 
-          <div class="content"> 
-           <pre class="CodeRay highlight"><code data-lang="xml">
-       
-                
-             <table class="CodeRay"> 
-              <tbody> 
-               <tr> 
-                <td class="line-numbers"><pre>1
-</pre></td> 
-                <td class="code"><pre><span class="entity">&amp;lt;</span>hdfs:config name="HDFS" doc:name="HDFS" username="<span class="entity">&amp;lt;</span>username<span class="entity">&amp;gt;</span>" nameNodeUri="<span class="entity">&amp;lt;</span>namenode" /<span class="entity">&amp;gt;</span></pre></td> 
-               </tr> 
-              </tbody> 
-             </table></code></pre> 
-          </div> 
-         </div> 
-         <table class="tableblock frame-all grid-all spread"> 
-          <colgroup> 
-           <col> 
-           <col> 
-          </colgroup> 
-          <thead> 
-           <tr> 
-            <th class="tableblock halign-left valign-top">Attribute</th> 
-            <th class="tableblock halign-left valign-top">Value</th> 
-           </tr> 
-          </thead> 
-          <tbody> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">HDFS</p></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">HDFS</p></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>username</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">&lt;Your Hadoop FileSystem username&gt;</p></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>nameNodeUri</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">NameNode URI of your Hadoop instance</p></td> 
-           </tr> 
-          </tbody> 
-         </table> </li> 
-        <li> <p>Add a http:listner-config element as shown below.</p> 
-         <div class="listingblock"> 
-          <div class="content"> 
-           <pre class="CodeRay highlight"><code data-lang="xml">
-       
-                
-             <table class="CodeRay"> 
-              <tbody> 
-               <tr> 
-                <td class="line-numbers"><pre>1
-2
-</pre></td> 
-                <td class="code"><pre><span class="entity">&amp;lt;</span>http:listener-config name="HTTP_Listener_Configuration" host="localhost" port="8090" basePath="filecreate" doc:name="HTTP Listener Configuration"/<span class="entity">&amp;gt;</span>
-<span class="entity">&amp;lt;</span>http:connector name="HTTP_HTTPS" cookieSpec="netscape" validateConnections="true" sendBufferSize="0" receiveBufferSize="0" receiveBacklog="0" clientSoTimeout="10000" serverSoTimeout="10000" socketSoLinger="0" doc:name="HTTP-HTTPS"/<span class="entity">&amp;gt;</span></pre></td> 
-               </tr> 
-              </tbody> 
-             </table></code></pre> 
-          </div> 
+          <p><span class="image"><img src="./_images/5-1.png" alt="5-1"></span></p> 
          </div> 
          <table class="tableblock frame-all grid-all spread"> 
           <colgroup> 
@@ -1688,204 +1431,430 @@ http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/
           </colgroup> 
           <thead> 
            <tr> 
-            <th class="tableblock halign-left valign-top">Attribute</th> 
+            <th class="tableblock halign-left valign-top">Field</th> 
             <th class="tableblock halign-left valign-top">Value</th> 
            </tr> 
           </thead> 
           <tbody> 
            <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">HTTP_Listener_Configuration</p></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>host</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">localhost</p></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>port</strong></p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Port</strong></p></td> 
             <td class="tableblock halign-left valign-top"><p class="tableblock">8090</p></td> 
            </tr> 
            <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>basePath</strong></p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Path</strong></p></td> 
             <td class="tableblock halign-left valign-top"><p class="tableblock">filecreate</p></td> 
            </tr> 
            <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">HTTP Listener Configuration</p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Host</strong></p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">localhost</p></td> 
            </tr> 
-          </tbody> 
-         </table> </li> 
-        <li> <p>Begin the flow with a http:listener.</p> 
-         <div class="listingblock"> 
-          <div class="content"> 
-           <pre class="CodeRay highlight"><code data-lang="xml">
-       
-                
-             <table class="CodeRay"> 
-              <tbody> 
-               <tr> 
-                <td class="line-numbers"><pre>1
-</pre></td> 
-                <td class="code"><pre><span class="entity">&amp;lt;</span>http:listener config-ref="HTTP_Listener_Configuration" path="/" doc:name="HTTP"/<span class="entity">&amp;gt;</span></pre></td> 
-               </tr> 
-              </tbody> 
-             </table></code></pre> 
-          </div> 
-         </div> 
-         <table class="tableblock frame-all grid-all spread"> 
-          <colgroup> 
-           <col> 
-           <col> 
-          </colgroup> 
-          <thead> 
            <tr> 
-            <th class="tableblock halign-left valign-top">Attribute</th> 
-            <th class="tableblock halign-left valign-top">Value</th> 
-           </tr> 
-          </thead> 
-          <tbody> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>config-ref</strong></p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
             <td class="tableblock halign-left valign-top"><p class="tableblock">HTTP_Listener_Configuration</p></td> 
            </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Path</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">HTTP</p></td> 
-           </tr> 
           </tbody> 
          </table> </li> 
-        <li> <p>Add a Logger transformer to your flow, configuring the attributes according to the table below.</p> 
-         <div class="listingblock"> 
-          <div class="content"> 
-           <pre class="CodeRay highlight"><code data-lang="xml">
-       
-                
-             <table class="CodeRay"> 
-              <tbody> 
-               <tr> 
-                <td class="line-numbers"><pre>1
-</pre></td> 
-                <td class="code"><pre><span class="entity">&amp;lt;</span>set-payload value="#[message.inboundProperties['http.query.params'].msg]" doc:name="Set the message input as payload"/<span class="entity">&amp;gt;</span></pre></td> 
-               </tr> 
-              </tbody> 
-             </table></code></pre> 
-          </div> 
-         </div> 
-         <table class="tableblock frame-all grid-all spread"> 
-          <colgroup> 
-           <col style="width: 50%;"> 
-           <col style="width: 50%;"> 
-          </colgroup> 
-          <thead> 
-           <tr> 
-            <th class="tableblock halign-left valign-top">Attribute</th> 
-            <th class="tableblock halign-left valign-top">Value</th> 
-           </tr> 
-          </thead> 
-          <tbody> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>message</strong></p></td> 
-            <td class="tableblock halign-left valign-top"> 
-             <div> 
-              <div class="listingblock"> 
-               <div class="content"> 
-                <pre>Creating file: #[message.inboundProperties['http.query.params'].path]</pre> 
-               </div> 
-              </div> 
-              <div class="listingblock"> 
-               <div class="content"> 
-                <pre>with message: #[message.inboundProperties['http.query.params'].msg]</pre> 
-               </div> 
-              </div> 
-             </div></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>level</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">INFO (Default)</p></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">Write to Path Log</p></td> 
-           </tr> 
-          </tbody> 
-         </table> </li> 
-        <li> <p>Add a Set Payload transformer to set the message input as payload.</p> 
-         <div class="listingblock"> 
-          <div class="content"> 
-           <pre class="CodeRay highlight"><code data-lang="xml">
-       
-                
-             <table class="CodeRay"> 
-              <tbody> 
-               <tr> 
-                <td class="line-numbers"><pre>1
-</pre></td> 
-                <td class="code"><pre><span class="entity">&amp;lt;</span>set-payload value="#[message.inboundProperties['http.query.params'].msg]" doc:name="Set the message input as payload"/<span class="entity">&amp;gt;</span></pre></td> 
-               </tr> 
-              </tbody> 
-             </table></code></pre> 
-          </div> 
-         </div> 
-         <table class="tableblock frame-all grid-all spread"> 
-          <colgroup> 
-           <col> 
-           <col> 
-          </colgroup> 
-          <thead> 
-           <tr> 
-            <th class="tableblock halign-left valign-top">Attribute</th> 
-            <th class="tableblock halign-left valign-top">Value</th> 
-           </tr> 
-          </thead> 
-          <tbody> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Value</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><code>#[message.inboundProperties['http.query.params'].msg]</code></p></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">Set the message input as payload</p></td> 
-           </tr> 
-          </tbody> 
-         </table> </li> 
-        <li> <p>Add a <code>hdfs:write</code>&nbsp;element to your flow, configuring the attributes according to the table below.</p> 
-         <table class="tableblock frame-all grid-all spread"> 
-          <colgroup> 
-           <col> 
-           <col> 
-          </colgroup> 
-          <thead> 
-           <tr> 
-            <th class="tableblock halign-left valign-top">Attribute</th> 
-            <th class="tableblock halign-left valign-top">Value</th> 
-           </tr> 
-          </thead> 
-          <tbody> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>config-ref</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">hdfs-conf</p></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">Write to Path</p></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>path</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><code>#[message.inboundProperties['http.query.params'].path]</code></p></td> 
-           </tr> 
-          </tbody> 
-         </table> </li> 
-        <li> <p>Run the project as a Mule Application (right-click project name and click <strong>Run As</strong> &gt; <strong>Mule Application</strong>).</p> </li> 
-        <li> <p>From a browser, navigate to <code><a href="http://localhost:8090/path=filecreate" class="bare">http://localhost:8090/path=filecreate</a></code></p> </li> 
-        <li> <p>Mule conducts the query, and creates the file in Hadoop with the specified message.</p> </li> 
        </ol> 
+      </div> </li> 
+     <li> <p>Reference the HTTP Listener Configuration global element:</p> 
+      <div class="paragraph"> 
+       <p><span class="image"><img src="./_images/6-1.png" alt="6-1"></span></p> 
+      </div> </li> 
+     <li> <p>Add a Logger scope to print the name of the file that needs to be created in the Mule Console. Configure the Logger according to the table below.</p> 
+      <div class="paragraph"> 
+       <p><span class="image"><img src="./_images/7.jpeg" alt="7"></span></p> 
       </div> 
-     </div> 
-    </div> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col> 
+        <col> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Field</th> 
+         <th class="tableblock halign-left valign-top">Value</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Write to path log (or any other name you prefer)</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Message</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Create file: `#[message.inboundProperties['http.query.params'].path] with message: #[message.inboundProperties['http.query.params’].msg]</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Level</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">INFO (Default)</p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>Add a Set Payload transformer to set the message input as payload, configuring it according to the table below.</p> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col> 
+        <col> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Field</th> 
+         <th class="tableblock halign-left valign-top">Value</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Set the message input as payload (or any other name you prefer)</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Value</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">`#[message.inboundProperties['http.query.params’].msg]</p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>Drag the HDFS connector onto the canvas, and select it to open the properties editor console.</p> </li> 
+     <li> <p>Click the plus sign next to the <strong>Connector Configuration</strong> field to add a new global connector configuration.</p> </li> 
+     <li> <p>Configure the global element according to the table below.</p> 
+      <div class="paragraph"> 
+       <p><span class="image"><img src="./_images/8-1.png" alt="8-1"></span></p> 
+      </div> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col> 
+        <col> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Field</th> 
+         <th class="tableblock halign-left valign-top">Value</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Names</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">HDFS</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">NameNode URI</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">&lt;NameNode URI of Hadoop instance&gt;</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Username</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">&lt;Your Hadoop FileSystem username&gt;</p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>Back in the properties editor of the HDFS connector in your application, configure the remaining parameters according to the table below.</p> 
+      <div class="paragraph"> 
+       <p><span class="image"><img src="./_images/9.jpeg" alt="9"></span></p> 
+      </div> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col> 
+        <col> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Field</th> 
+         <th class="tableblock halign-left valign-top">Value</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Write to Path (or any other name you prefer)</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Connector</strong> <strong>Configuration</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">hdfs-conf (name of the global element you have created)</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Operation</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Write to path</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Path</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>#[message.inboundProperties['http.query.params'].path]</code></p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>Run the project as a Mule Application (right-click the project name and click <strong>Run As &gt; Mule Application</strong>).</p> </li> 
+     <li> <p>From a browser, navigate to <code><a href="http://localhost:8090/path=filecreate" class="bare">http://localhost:8090/path=filecreate</a></code></p> </li> 
+     <li> <p>Mule conducts the query, and creates the file in Hadoop with the specified message.</p> </li> 
+    </ol> 
+   </div> 
+  </div> 
+  <div class="sect2"> 
+   <h3 id="xml-editor"><a class="anchor" href="#xml-editor"></a>XML Editor</h3> 
+   <div class="paragraph"> 
+    <p><span class="image"><img src="./_images/hdfsflow.png" alt="hdfsflow"></span></p> 
+   </div> 
+   <div class="olist arabic"> 
+    <ol class="arabic"> 
+     <li> <p>Add an <code>hdfs:config</code> global element to your project, and configure its attributes according to the table below.</p> 
+      <div class="listingblock"> 
+       <div class="content"> 
+        <pre class="CodeRay highlight"><code data-lang="xml">
+             
+          <table class="CodeRay"> 
+           <tbody> 
+            <tr> 
+             <td class="line-numbers"><pre>1
+</pre></td> 
+             <td class="code"><pre><span class="tag">&lt;hdfs:config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HDFS</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HDFS</span><span class="delimiter">"</span></span> <span class="attribute-name">username</span>=<span class="string"><span class="delimiter">"</span><span class="content">&lt;username</span></span><span class="error">&gt;</span>" nameNodeUri="<span class="tag">&lt;namenode</span><span class="error">"</span> <span class="tag">/&gt;</span></pre></td> 
+            </tr> 
+           </tbody> 
+          </table></code></pre> 
+       </div> 
+      </div> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col> 
+        <col> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Attribute</th> 
+         <th class="tableblock halign-left valign-top">Value</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">HDFS</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">HDFS</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>username</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">&lt;Your Hadoop FileSystem username&gt;</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>nameNodeUri</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">NameNode URI of your Hadoop instance</p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>Add a http:listner-config element as shown below.</p> 
+      <div class="listingblock"> 
+       <div class="content"> 
+        <pre class="CodeRay highlight"><code data-lang="xml">
+             
+          <table class="CodeRay"> 
+           <tbody> 
+            <tr> 
+             <td class="line-numbers"><pre>1
+2
+</pre></td> 
+             <td class="code"><pre><span class="tag">&lt;http:listener-config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Listener_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">host</span>=<span class="string"><span class="delimiter">"</span><span class="content">localhost</span><span class="delimiter">"</span></span> <span class="attribute-name">port</span>=<span class="string"><span class="delimiter">"</span><span class="content">8090</span><span class="delimiter">"</span></span> <span class="attribute-name">basePath</span>=<span class="string"><span class="delimiter">"</span><span class="content">filecreate</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP Listener Configuration</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+<span class="tag">&lt;http:connector</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_HTTPS</span><span class="delimiter">"</span></span> <span class="attribute-name">cookieSpec</span>=<span class="string"><span class="delimiter">"</span><span class="content">netscape</span><span class="delimiter">"</span></span> <span class="attribute-name">validateConnections</span>=<span class="string"><span class="delimiter">"</span><span class="content">true</span><span class="delimiter">"</span></span> <span class="attribute-name">sendBufferSize</span>=<span class="string"><span class="delimiter">"</span><span class="content">0</span><span class="delimiter">"</span></span> <span class="attribute-name">receiveBufferSize</span>=<span class="string"><span class="delimiter">"</span><span class="content">0</span><span class="delimiter">"</span></span> <span class="attribute-name">receiveBacklog</span>=<span class="string"><span class="delimiter">"</span><span class="content">0</span><span class="delimiter">"</span></span> <span class="attribute-name">clientSoTimeout</span>=<span class="string"><span class="delimiter">"</span><span class="content">10000</span><span class="delimiter">"</span></span> <span class="attribute-name">serverSoTimeout</span>=<span class="string"><span class="delimiter">"</span><span class="content">10000</span><span class="delimiter">"</span></span> <span class="attribute-name">socketSoLinger</span>=<span class="string"><span class="delimiter">"</span><span class="content">0</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP-HTTPS</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></pre></td> 
+            </tr> 
+           </tbody> 
+          </table></code></pre> 
+       </div> 
+      </div> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col style="width: 50%;"> 
+        <col style="width: 50%;"> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Attribute</th> 
+         <th class="tableblock halign-left valign-top">Value</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">HTTP_Listener_Configuration</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>host</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">localhost</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>port</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">8090</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>basePath</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">filecreate</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">HTTP Listener Configuration</p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>Begin the flow with a http:listener.</p> 
+      <div class="listingblock"> 
+       <div class="content"> 
+        <pre class="CodeRay highlight"><code data-lang="xml">
+             
+          <table class="CodeRay"> 
+           <tbody> 
+            <tr> 
+             <td class="line-numbers"><pre>1
+</pre></td> 
+             <td class="code"><pre><span class="tag">&lt;http:listener</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Listener_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">"</span><span class="content">/</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></pre></td> 
+            </tr> 
+           </tbody> 
+          </table></code></pre> 
+       </div> 
+      </div> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col> 
+        <col> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Attribute</th> 
+         <th class="tableblock halign-left valign-top">Value</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>config-ref</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">HTTP_Listener_Configuration</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Path</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">HTTP</p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>Add a Logger transformer to your flow, configuring the attributes according to the table below.</p> 
+      <div class="listingblock"> 
+       <div class="content"> 
+        <pre class="CodeRay highlight"><code data-lang="xml">
+             
+          <table class="CodeRay"> 
+           <tbody> 
+            <tr> 
+             <td class="line-numbers"><pre>1
+</pre></td> 
+             <td class="code"><pre><span class="tag">&lt;set-payload</span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">"</span><span class="content">#[message.inboundProperties['http.query.params'].msg]</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Set the message input as payload</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></pre></td> 
+            </tr> 
+           </tbody> 
+          </table></code></pre> 
+       </div> 
+      </div> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col style="width: 50%;"> 
+        <col style="width: 50%;"> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Attribute</th> 
+         <th class="tableblock halign-left valign-top">Value</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>message</strong></p></td> 
+         <td class="tableblock halign-left valign-top"> 
+          <div> 
+           <div class="listingblock"> 
+            <div class="content"> 
+             <pre>Creating file: #[message.inboundProperties['http.query.params'].path]</pre> 
+            </div> 
+           </div> 
+           <div class="listingblock"> 
+            <div class="content"> 
+             <pre>with message: #[message.inboundProperties['http.query.params'].msg]</pre> 
+            </div> 
+           </div> 
+          </div></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>level</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">INFO (Default)</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Write to Path Log</p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>Add a Set Payload transformer to set the message input as payload.</p> 
+      <div class="listingblock"> 
+       <div class="content"> 
+        <pre class="CodeRay highlight"><code data-lang="xml">
+             
+          <table class="CodeRay"> 
+           <tbody> 
+            <tr> 
+             <td class="line-numbers"><pre>1
+</pre></td> 
+             <td class="code"><pre><span class="tag">&lt;set-payload</span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">"</span><span class="content">#[message.inboundProperties['http.query.params'].msg]</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Set the message input as payload</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></pre></td> 
+            </tr> 
+           </tbody> 
+          </table></code></pre> 
+       </div> 
+      </div> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col> 
+        <col> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Attribute</th> 
+         <th class="tableblock halign-left valign-top">Value</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Value</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>#[message.inboundProperties['http.query.params'].msg]</code></p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Set the message input as payload</p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>Add a <code>hdfs:write</code>&nbsp;element to your flow, configuring the attributes according to the table below.</p> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col> 
+        <col> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Attribute</th> 
+         <th class="tableblock halign-left valign-top">Value</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>config-ref</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">hdfs-conf</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Write to Path</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>path</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>#[message.inboundProperties['http.query.params'].path]</code></p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>Run the project as a Mule Application (right-click project name and click <strong>Run As</strong> &gt; <strong>Mule Application</strong>).</p> </li> 
+     <li> <p>From a browser, navigate to <code><a href="http://localhost:8090/path=filecreate" class="bare">http://localhost:8090/path=filecreate</a></code></p> </li> 
+     <li> <p>Mule conducts the query, and creates the file in Hadoop with the specified message.</p> </li> 
+    </ol> 
    </div> 
   </div> 
   <div class="sect2"> 
@@ -1917,14 +1886,12 @@ http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/
 18
 19
 20
-21
 </pre></td> 
           <td class="code"><pre><span class="tag">&lt;mule</span> <span class="attribute-name">xmlns:tracking</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/ee/tracking</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:mulexml</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/xml</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:hdfs</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/hdfs</span><span class="delimiter">"</span></span>
       <span class="attribute-name">xmlns:http</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/http</span><span class="delimiter">"</span></span>
       <span class="attribute-name">xmlns:doc</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/documentation</span><span class="delimiter">"</span></span>
       <span class="attribute-name">xmlns:spring</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.springframework.org/schema/beans</span><span class="delimiter">"</span></span>
-      <span class="attribute-name">xmlns:xsi</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.w3.org/2001/XMLSchema-instance</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/core</span><span class="delimiter">"</span></span>
-      <span class="attribute-name">version</span>=<span class="string"><span class="delimiter">"</span><span class="content">EE-3.6.1</span><span class="delimiter">"</span></span> <span class="attribute-name">xsi:schemaLocation</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd</span>
+      <span class="attribute-name">xmlns:xsi</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.w3.org/2001/XMLSchema-instance</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/core</span><span class="delimiter">"</span></span> <span class="attribute-name">xsi:schemaLocation</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd</span>
 <span class="content">http://www.mulesoft.org/schema/mule/hdfs http://www.mulesoft.org/schema/mule/hdfs/current/mule-hdfs.xsd</span>
 <span class="content">http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd</span>
 <span class="content">http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd</span>
@@ -1951,77 +1918,27 @@ http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/
    <div class="paragraph"> 
     <p>Delete a file from a Hadoop instance using a Mule application:</p> 
    </div> 
-   <div class="panel panel-default no-padding"> 
-    <div class="panel-heading no-padding"> 
-     <!-- Nav tabs --> 
-     <ul class="nav nav-tabs" role="tablist"> 
-      <li class="active"><a href="#tab-3_1" role="tab" data-toggle="tab">Studio Visual Editor</a></li> 
-      <li><a href="#tab-3_2" role="tab" data-toggle="tab">XML Editor</a></li> 
-     </ul> 
-    </div> 
-    <div class="panel-body tab-content no-padding"> 
-     <div class="tab-pane in active fade no-padding" id="tab-3_1"> 
-      <div class="paragraph"> 
-       <p><span class="image"><img src="./_images/DeleteFileFlow.png" alt="DeleteFileFlow"></span></p> 
-      </div> 
-      <div class="olist arabic"> 
-       <ol class="arabic"> 
-        <li> <p>Drag an HTTP connector into the canvas, then select it to open the properties editor console.</p> </li> 
-        <li> <p>Add a new HTTP Listener Configuration global element:</p> 
-         <div class="olist loweralpha"> 
-          <ol class="loweralpha" type="a"> 
-           <li> <p>In <strong>General Settings</strong>, click the <strong>Add</strong> button:</p> 
-            <div class="paragraph"> 
-             <p><span class="image"><img src="./_images/11-1.png" alt="11-1"></span></p> 
-            </div> </li> 
-           <li> <p>Configure the following HTTP parameters:</p> 
-            <div class="paragraph"> 
-             <p><span class="image"><img src="./_images/12-1.png" alt="12-1"></span></p> 
-            </div> 
-            <table class="tableblock frame-all grid-all spread"> 
-             <colgroup> 
-              <col style="width: 50%;"> 
-              <col style="width: 50%;"> 
-             </colgroup> 
-             <thead> 
-              <tr> 
-               <th class="tableblock halign-left valign-top">Field</th> 
-               <th class="tableblock halign-left valign-top">Value</th> 
-              </tr> 
-             </thead> 
-             <tbody> 
-              <tr> 
-               <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Port</strong></p></td> 
-               <td class="tableblock halign-left valign-top"><p class="tableblock">8090</p></td> 
-              </tr> 
-              <tr> 
-               <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Path</strong></p></td> 
-               <td class="tableblock halign-left valign-top"><p class="tableblock">filedelete</p></td> 
-              </tr> 
-              <tr> 
-               <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Host</strong></p></td> 
-               <td class="tableblock halign-left valign-top"><p class="tableblock">localhost</p></td> 
-              </tr> 
-              <tr> 
-               <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
-               <td class="tableblock halign-left valign-top"><p class="tableblock">HTTP_Listener_Configuration</p></td> 
-              </tr> 
-             </tbody> 
-            </table> </li> 
-          </ol> 
+   <div class="paragraph"> 
+    <p><span class="image"><img src="./_images/DeleteFileFlow.png" alt="DeleteFileFlow"></span></p> 
+   </div> 
+   <div class="olist arabic"> 
+    <ol class="arabic"> 
+     <li> <p>Drag an HTTP connector into the canvas, then select it to open the properties editor console.</p> </li> 
+     <li> <p>Add a new HTTP Listener Configuration global element:</p> 
+      <div class="olist loweralpha"> 
+       <ol class="loweralpha" type="a"> 
+        <li> <p>In <strong>General Settings</strong>, click the <strong>Add</strong> button:</p> 
+         <div class="paragraph"> 
+          <p><span class="image"><img src="./_images/11-1.png" alt="11-1"></span></p> 
          </div> </li> 
-        <li> <p>Reference the HTTP Listener Configuration global element:</p> 
+        <li> <p>Configure the following HTTP parameters:</p> 
          <div class="paragraph"> 
-          <p><span class="image"><img src="./_images/13.png" alt="13"></span> <br></p> 
-         </div> </li> 
-        <li> <p>Add a Logger scope after the HTTP endpoint to print the name of the file that needs to be deleted in the Mule Console. Configure the Logger according to the table below.</p> 
-         <div class="paragraph"> 
-          <p><span class="image"><img src="./_images/14.jpeg" alt="14"></span></p> 
+          <p><span class="image"><img src="./_images/12-1.png" alt="12-1"></span></p> 
          </div> 
          <table class="tableblock frame-all grid-all spread"> 
           <colgroup> 
-           <col> 
-           <col> 
+           <col style="width: 50%;"> 
+           <col style="width: 50%;"> 
           </colgroup> 
           <thead> 
            <tr> 
@@ -2031,309 +1948,342 @@ http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/
           </thead> 
           <tbody> 
            <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">Delete file log (or any other name you prefer)</p></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Message</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">Deleting file: <code>#[message.inboundProperties['http.query.params'].path]</code></p></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Level</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">INFO (Default)</p></td> 
-           </tr> 
-          </tbody> 
-         </table> </li> 
-        <li> <p>Drag an HDFS connector onto the canvas, and click it to open the properties editor console.</p> </li> 
-        <li> <p>Click the plus sign next to the Connector Configuration field to add a new global connector configuration.</p> </li> 
-        <li> <p>Configure the global element according to the table below.</p> 
-         <div class="paragraph"> 
-          <p><span class="image"><img src="./_images/15.png" alt="15"></span></p> 
-         </div> 
-         <table class="tableblock frame-all grid-all spread"> 
-          <colgroup> 
-           <col> 
-           <col> 
-          </colgroup> 
-          <thead> 
-           <tr> 
-            <th class="tableblock halign-left valign-top">Field</th> 
-            <th class="tableblock halign-left valign-top">Value</th> 
-           </tr> 
-          </thead> 
-          <tbody> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">Names</p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">HDFS</p></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">NameNode URI</p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">&lt;NameNode URI of Hadoop instance&gt;</p></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">Username</p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">&lt;Your Hadoop FileSystem username&gt;</p></td> 
-           </tr> 
-          </tbody> 
-         </table> </li> 
-        <li> <p>Back in the properties editor of the HDFS connector in your application, configure the remaining parameters according to the table below.</p> 
-         <div class="paragraph"> 
-          <p><span class="image"><img src="./_images/16.jpeg" alt="16"></span></p> 
-         </div> 
-         <table class="tableblock frame-all grid-all spread"> 
-          <colgroup> 
-           <col> 
-           <col> 
-          </colgroup> 
-          <thead> 
-           <tr> 
-            <th class="tableblock halign-left valign-top">Field</th> 
-            <th class="tableblock halign-left valign-top">Value</th> 
-           </tr> 
-          </thead> 
-          <tbody> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">Delete file (or any other name you prefer)</p></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Connector</strong> <strong>Configuration</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">hdfs-conf (name of the global element you have created)</p></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Operation</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">Delete file</p></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Path</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><code>#[ message.inboundProperties['http.query.params'].path]</code></p></td> 
-           </tr> 
-          </tbody> 
-         </table> </li> 
-        <li> <p>Run the project as a Mule Application (right-click project name, and click <strong>Run As &gt; Mule Application</strong>).</p> </li> 
-        <li> <p>From a browser, navigate to ` <a href="http://localhost:8090/path=" class="bare">http://localhost:8090/path=</a> filedelete`</p> </li> 
-        <li> <p>Mule conducts the query, and deletes the file from Hadoop.</p> </li> 
-       </ol> 
-      </div> 
-     </div> 
-     <div class="tab-pane fade no-padding" id="tab-3_2"> 
-      <div class="paragraph"> 
-       <p><span class="image"><img src="./_images/hdfsflow.png" alt="hdfsflow"></span></p> 
-      </div> 
-      <div class="olist arabic"> 
-       <ol class="arabic"> 
-        <li> <p>Add a <code>hdfs:config</code> global element to your project, then configure its attributes according to the table below.</p> 
-         <div class="listingblock"> 
-          <div class="content"> 
-           <pre class="CodeRay highlight"><code data-lang="xml">
-       
-                
-             <table class="CodeRay"> 
-              <tbody> 
-               <tr> 
-                <td class="line-numbers"><pre>1
-</pre></td> 
-                <td class="code"><pre><span class="entity">&amp;lt;</span>hdfs:config name="HDFS" doc:name="HDFS" username="<span class="entity">&amp;lt;</span>username<span class="entity">&amp;gt;</span>" nameNodeUri="<span class="entity">&amp;lt;</span>namenode" /<span class="entity">&amp;gt;</span></pre></td> 
-               </tr> 
-              </tbody> 
-             </table></code></pre> 
-          </div> 
-         </div> 
-         <table class="tableblock frame-all grid-all spread"> 
-          <colgroup> 
-           <col> 
-           <col> 
-          </colgroup> 
-          <thead> 
-           <tr> 
-            <th class="tableblock halign-left valign-top">Attribute</th> 
-            <th class="tableblock halign-left valign-top">Value</th> 
-           </tr> 
-          </thead> 
-          <tbody> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">HDFS</p></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">HDFS</p></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>username</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">&lt;Your Hadoop FileSystem username&gt;</p></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>nameNodeUri</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">NameNode URI of your Hadoop instance</p></td> 
-           </tr> 
-          </tbody> 
-         </table> </li> 
-        <li> <p>Add a <code>http:listener-config</code> element as follows:</p> 
-         <div class="listingblock"> 
-          <div class="content"> 
-           <pre class="CodeRay highlight"><code data-lang="xml">
-       
-                
-             <table class="CodeRay"> 
-              <tbody> 
-               <tr> 
-                <td class="line-numbers"><pre>1
-2
-</pre></td> 
-                <td class="code"><pre><span class="entity">&amp;lt;</span>http:listener-config name="HTTP_Listener_Configuration" host="localhost" port="8090" basePath="filedelete" doc:name="HTTP Listener Configuration"/<span class="entity">&amp;gt;</span>
-<span class="entity">&amp;lt;</span>http:connector name="HTTP_HTTPS" cookieSpec="netscape" validateConnections="true" sendBufferSize="0" receiveBufferSize="0" receiveBacklog="0" clientSoTimeout="10000" serverSoTimeout="10000" socketSoLinger="0" doc:name="HTTP-HTTPS"/<span class="entity">&amp;gt;</span></pre></td> 
-               </tr> 
-              </tbody> 
-             </table></code></pre> 
-          </div> 
-         </div> 
-         <table class="tableblock frame-all grid-all spread"> 
-          <colgroup> 
-           <col> 
-           <col> 
-          </colgroup> 
-          <thead> 
-           <tr> 
-            <th class="tableblock halign-left valign-top">Attribute</th> 
-            <th class="tableblock halign-left valign-top">Value</th> 
-           </tr> 
-          </thead> 
-          <tbody> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">HTTP_Listener_Configuration</p></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>host</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">0.0.0.0</p></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>port</strong></p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Port</strong></p></td> 
             <td class="tableblock halign-left valign-top"><p class="tableblock">8090</p></td> 
            </tr> 
            <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>basePath</strong></p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Path</strong></p></td> 
             <td class="tableblock halign-left valign-top"><p class="tableblock">filedelete</p></td> 
+           </tr> 
+           <tr> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Host</strong></p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">localhost</p></td> 
+           </tr> 
+           <tr> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">HTTP_Listener_Configuration</p></td> 
            </tr> 
           </tbody> 
          </table> </li> 
-        <li> <p>Begin the flow with a http:listener.</p> 
-         <div class="listingblock"> 
-          <div class="content"> 
-           <pre class="CodeRay highlight"><code data-lang="xml">
-       
-                
-             <table class="CodeRay"> 
-              <tbody> 
-               <tr> 
-                <td class="line-numbers"><pre>1
+       </ol> 
+      </div> </li> 
+     <li> <p>Reference the HTTP Listener Configuration global element:</p> 
+      <div class="paragraph"> 
+       <p><span class="image"><img src="./_images/13.png" alt="13"></span> <br></p> 
+      </div> </li> 
+     <li> <p>Add a Logger scope after the HTTP endpoint to print the name of the file that needs to be deleted in the Mule Console. Configure the Logger according to the table below.</p> 
+      <div class="paragraph"> 
+       <p><span class="image"><img src="./_images/14.jpeg" alt="14"></span></p> 
+      </div> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col> 
+        <col> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Field</th> 
+         <th class="tableblock halign-left valign-top">Value</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Delete file log (or any other name you prefer)</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Message</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Deleting file: <code>#[message.inboundProperties['http.query.params'].path]</code></p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Level</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">INFO (Default)</p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>Drag an HDFS connector onto the canvas, and click it to open the properties editor console.</p> </li> 
+     <li> <p>Click the plus sign next to the Connector Configuration field to add a new global connector configuration.</p> </li> 
+     <li> <p>Configure the global element according to the table below.</p> 
+      <div class="paragraph"> 
+       <p><span class="image"><img src="./_images/15.png" alt="15"></span></p> 
+      </div> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col> 
+        <col> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Field</th> 
+         <th class="tableblock halign-left valign-top">Value</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Names</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">HDFS</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">NameNode URI</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">&lt;NameNode URI of Hadoop instance&gt;</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Username</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">&lt;Your Hadoop FileSystem username&gt;</p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>Back in the properties editor of the HDFS connector in your application, configure the remaining parameters according to the table below.</p> 
+      <div class="paragraph"> 
+       <p><span class="image"><img src="./_images/16.jpeg" alt="16"></span></p> 
+      </div> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col> 
+        <col> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Field</th> 
+         <th class="tableblock halign-left valign-top">Value</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Delete file (or any other name you prefer)</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Connector</strong> <strong>Configuration</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">hdfs-conf (name of the global element you have created)</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Operation</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Delete file</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Path</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>#[ message.inboundProperties['http.query.params'].path]</code></p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>Run the project as a Mule Application (right-click project name, and click <strong>Run As &gt; Mule Application</strong>).</p> </li> 
+     <li> <p>From a browser, navigate to ` <a href="http://localhost:8090/path=" class="bare">http://localhost:8090/path=</a> filedelete`</p> </li> 
+     <li> <p>Mule conducts the query, and deletes the file from Hadoop.</p> </li> 
+    </ol> 
+   </div> 
+  </div> 
+  <div class="sect2"> 
+   <h3 id="xml-editor-2"><a class="anchor" href="#xml-editor-2"></a>XML Editor</h3> 
+   <div class="paragraph"> 
+    <p><span class="image"><img src="./_images/hdfsflow.png" alt="hdfsflow"></span></p> 
+   </div> 
+   <div class="olist arabic"> 
+    <ol class="arabic"> 
+     <li> <p>Add a <code>hdfs:config</code> global element to your project, then configure its attributes according to the table below.</p> 
+      <div class="listingblock"> 
+       <div class="content"> 
+        <pre class="CodeRay highlight"><code data-lang="xml">
+             
+          <table class="CodeRay"> 
+           <tbody> 
+            <tr> 
+             <td class="line-numbers"><pre>1
 </pre></td> 
-                <td class="code"><pre><span class="entity">&amp;lt;</span>http:listener config-ref="HTTP_Listener_Configuration" path="/" doc:name="HTTP"/<span class="entity">&amp;gt;</span></pre></td> 
-               </tr> 
-              </tbody> 
-             </table></code></pre> 
-          </div> 
-         </div> </li> 
-        <li> <p>Add a Logger transformer to your flow, configuring the attributes according to the table below.</p> 
-         <div class="listingblock"> 
-          <div class="content"> 
-           <pre class="CodeRay highlight"><code data-lang="xml">
-       
-                
-             <table class="CodeRay"> 
-              <tbody> 
-               <tr> 
-                <td class="line-numbers"><pre>1
+             <td class="code"><pre><span class="tag">&lt;hdfs:config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HDFS</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HDFS</span><span class="delimiter">"</span></span> <span class="attribute-name">username</span>=<span class="string"><span class="delimiter">"</span><span class="content">&lt;username</span></span><span class="error">&gt;</span>" nameNodeUri="<span class="tag">&lt;namenode</span><span class="error">"</span> <span class="tag">/&gt;</span></pre></td> 
+            </tr> 
+           </tbody> 
+          </table></code></pre> 
+       </div> 
+      </div> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col> 
+        <col> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Attribute</th> 
+         <th class="tableblock halign-left valign-top">Value</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">HDFS</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">HDFS</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>username</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">&lt;Your Hadoop FileSystem username&gt;</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>nameNodeUri</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">NameNode URI of your Hadoop instance</p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>Add a <code>http:listener-config</code> element as follows:</p> 
+      <div class="listingblock"> 
+       <div class="content"> 
+        <pre class="CodeRay highlight"><code data-lang="xml">
+             
+          <table class="CodeRay"> 
+           <tbody> 
+            <tr> 
+             <td class="line-numbers"><pre>1
+2
+</pre></td> 
+             <td class="code"><pre><span class="tag">&lt;http:listener-config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Listener_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">host</span>=<span class="string"><span class="delimiter">"</span><span class="content">localhost</span><span class="delimiter">"</span></span> <span class="attribute-name">port</span>=<span class="string"><span class="delimiter">"</span><span class="content">8090</span><span class="delimiter">"</span></span> <span class="attribute-name">basePath</span>=<span class="string"><span class="delimiter">"</span><span class="content">filedelete</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP Listener Configuration</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+<span class="tag">&lt;http:connector</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_HTTPS</span><span class="delimiter">"</span></span> <span class="attribute-name">cookieSpec</span>=<span class="string"><span class="delimiter">"</span><span class="content">netscape</span><span class="delimiter">"</span></span> <span class="attribute-name">validateConnections</span>=<span class="string"><span class="delimiter">"</span><span class="content">true</span><span class="delimiter">"</span></span> <span class="attribute-name">sendBufferSize</span>=<span class="string"><span class="delimiter">"</span><span class="content">0</span><span class="delimiter">"</span></span> <span class="attribute-name">receiveBufferSize</span>=<span class="string"><span class="delimiter">"</span><span class="content">0</span><span class="delimiter">"</span></span> <span class="attribute-name">receiveBacklog</span>=<span class="string"><span class="delimiter">"</span><span class="content">0</span><span class="delimiter">"</span></span> <span class="attribute-name">clientSoTimeout</span>=<span class="string"><span class="delimiter">"</span><span class="content">10000</span><span class="delimiter">"</span></span> <span class="attribute-name">serverSoTimeout</span>=<span class="string"><span class="delimiter">"</span><span class="content">10000</span><span class="delimiter">"</span></span> <span class="attribute-name">socketSoLinger</span>=<span class="string"><span class="delimiter">"</span><span class="content">0</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP-HTTPS</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></pre></td> 
+            </tr> 
+           </tbody> 
+          </table></code></pre> 
+       </div> 
+      </div> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col> 
+        <col> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Attribute</th> 
+         <th class="tableblock halign-left valign-top">Value</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">HTTP_Listener_Configuration</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>host</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">0.0.0.0</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>port</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">8090</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>basePath</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">filedelete</p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>Begin the flow with a http:listener.</p> 
+      <div class="listingblock"> 
+       <div class="content"> 
+        <pre class="CodeRay highlight"><code data-lang="xml">
+             
+          <table class="CodeRay"> 
+           <tbody> 
+            <tr> 
+             <td class="line-numbers"><pre>1
+</pre></td> 
+             <td class="code"><pre><span class="tag">&lt;http:listener</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Listener_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">"</span><span class="content">/</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></pre></td> 
+            </tr> 
+           </tbody> 
+          </table></code></pre> 
+       </div> 
+      </div> </li> 
+     <li> <p>Add a Logger transformer to your flow, configuring the attributes according to the table below.</p> 
+      <div class="listingblock"> 
+       <div class="content"> 
+        <pre class="CodeRay highlight"><code data-lang="xml">
+             
+          <table class="CodeRay"> 
+           <tbody> 
+            <tr> 
+             <td class="line-numbers"><pre>1
 2
 3
 </pre></td> 
-                <td class="code"><pre><span class="entity">&amp;lt;</span>logger message="Deleting file:
-#[message.inboundProperties['http.query.params'].path]" level="INFO"
-doc:name="Delete file log"/<span class="entity">&amp;gt;</span></pre></td> 
-               </tr> 
-              </tbody> 
-             </table></code></pre> 
-          </div> 
-         </div> 
-         <table class="tableblock frame-all grid-all spread"> 
-          <colgroup> 
-           <col> 
-           <col> 
-          </colgroup> 
-          <thead> 
-           <tr> 
-            <th class="tableblock halign-left valign-top">Attribute</th> 
-            <th class="tableblock halign-left valign-top">Value</th> 
-           </tr> 
-          </thead> 
-          <tbody> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>message</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">Deleting file: #` [message.inboundProperties['http.query.params'].path]`</p></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>level</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">INFO (Default)</p></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">Delete file log</p></td> 
-           </tr> 
-          </tbody> 
-         </table> </li> 
-        <li> <p>Add an <code>hdfs:delete-file</code> element to your flow, configuring the attributes according to the table below.</p> 
-         <div class="listingblock"> 
-          <div class="content"> 
-           <pre class="CodeRay highlight"><code data-lang="xml">
-       
-                
-             <table class="CodeRay"> 
-              <tbody> 
-               <tr> 
-                <td class="line-numbers"><pre>1
+             <td class="code"><pre><span class="tag">&lt;logger</span> <span class="attribute-name">message</span>=<span class="string"><span class="delimiter">"</span><span class="content">Deleting file:</span>
+<span class="content">#[message.inboundProperties['http.query.params'].path]</span><span class="delimiter">"</span></span> <span class="attribute-name">level</span>=<span class="string"><span class="delimiter">"</span><span class="content">INFO</span><span class="delimiter">"</span></span>
+<span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Delete file log</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></pre></td> 
+            </tr> 
+           </tbody> 
+          </table></code></pre> 
+       </div> 
+      </div> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col> 
+        <col> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Attribute</th> 
+         <th class="tableblock halign-left valign-top">Value</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>message</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Deleting file: #` [message.inboundProperties['http.query.params'].path]`</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>level</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">INFO (Default)</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Delete file log</p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>Add an <code>hdfs:delete-file</code> element to your flow, configuring the attributes according to the table below.</p> 
+      <div class="listingblock"> 
+       <div class="content"> 
+        <pre class="CodeRay highlight"><code data-lang="xml">
+             
+          <table class="CodeRay"> 
+           <tbody> 
+            <tr> 
+             <td class="line-numbers"><pre>1
 2
 </pre></td> 
-                <td class="code"><pre><span class="entity">&amp;lt;</span>hdfs:delete-file config-ref="hdfs-conf" doc:name="Delete
-file" path="#[message.inboundProperties['http.query.params'].path]"/<span class="entity">&amp;gt;</span></pre></td> 
-               </tr> 
-              </tbody> 
-             </table></code></pre> 
-          </div> 
-         </div> 
-         <table class="tableblock frame-all grid-all spread"> 
-          <colgroup> 
-           <col> 
-           <col> 
-          </colgroup> 
-          <thead> 
-           <tr> 
-            <th class="tableblock halign-left valign-top">Attribute</th> 
-            <th class="tableblock halign-left valign-top">Value</th> 
-           </tr> 
-          </thead> 
-          <tbody> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>config-ref</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">hdfs-conf</p></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">Delete file</p></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>path</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><code># [message.inboundProperties['http.query.params'].path]</code></p></td> 
-           </tr> 
-          </tbody> 
-         </table> </li> 
-        <li> <p>Run the project as a Mule Application (right-click project name, then select Run As &gt; Mule Application).</p> </li> 
-        <li> <p>From a browser, navigate to ` <a href="http://localhost:8090/path=" class="bare">http://localhost:8090/path=</a> ` <code>filedelete</code></p> </li> 
-        <li> <p>Mule conducts the query, and deletes the file from Hadoop.</p> </li> 
-       </ol> 
+             <td class="code"><pre><span class="tag">&lt;hdfs:delete-file</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">hdfs-conf</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Delete</span>
+<span class="content">file</span><span class="delimiter">"</span></span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">"</span><span class="content">#[message.inboundProperties['http.query.params'].path]</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></pre></td> 
+            </tr> 
+           </tbody> 
+          </table></code></pre> 
+       </div> 
       </div> 
-     </div> 
-    </div> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col> 
+        <col> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Attribute</th> 
+         <th class="tableblock halign-left valign-top">Value</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>config-ref</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">hdfs-conf</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Delete file</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>path</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><code># [message.inboundProperties['http.query.params'].path]</code></p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>Run the project as a Mule Application (right-click project name, then select Run As &gt; Mule Application).</p> </li> 
+     <li> <p>From a browser, navigate to ` <a href="http://localhost:8090/path=" class="bare">http://localhost:8090/path=</a> ` <code>filedelete</code></p> </li> 
+     <li> <p>Mule conducts the query, and deletes the file from Hadoop.</p> </li> 
+    </ol> 
    </div> 
   </div> 
   <div class="sect2"> 
@@ -2380,10 +2330,8 @@ file" path="#[message.inboundProperties['http.query.params'].path]"/<span class=
 33
 34
 35
-36
 </pre></td> 
-          <td class="code"><pre>
-<span class="tag">&lt;mule</span> <span class="attribute-name">xmlns:tracking</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/ee/tracking</span><span class="delimiter">"</span></span>
+          <td class="code"><pre><span class="tag">&lt;mule</span> <span class="attribute-name">xmlns:tracking</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/ee/tracking</span><span class="delimiter">"</span></span>
 <span class="attribute-name">xmlns:mulexml</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/xml</span><span class="delimiter">"</span></span>
 <span class="attribute-name">xmlns:hdfs</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/hdfs</span><span class="delimiter">"</span></span>
 <span class="attribute-name">xmlns:http</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/http</span><span class="delimiter">"</span></span>
@@ -2391,7 +2339,6 @@ file" path="#[message.inboundProperties['http.query.params'].path]"/<span class=
 <span class="attribute-name">xmlns:spring</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.springframework.org/schema/beans</span><span class="delimiter">"</span></span>
 <span class="attribute-name">xmlns:xsi</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.w3.org/2001/XMLSchema-instance</span><span class="delimiter">"</span></span>
 <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/core</span><span class="delimiter">"</span></span>
-<span class="attribute-name">version</span>=<span class="string"><span class="delimiter">"</span><span class="content">EE-3.6.1</span><span class="delimiter">"</span></span>
 <span class="attribute-name">xsi:schemaLocation</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/http</span>
 <span class="content">http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd</span>
 <span class="content">http://www.mulesoft.org/schema/mule/hdfs</span>
@@ -2412,7 +2359,8 @@ file" path="#[message.inboundProperties['http.query.params'].path]"/<span class=
 <span class="tag">&lt;flow</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Delete_File_Flow</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Delete_File_Flow</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
 <span class="tag">&lt;http:listener</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Listener_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">"</span><span class="content">/</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
 <span class="tag">&lt;logger</span> <span class="attribute-name">message</span>=<span class="string"><span class="delimiter">"</span><span class="content">Deleting file:</span>
-<span class="content">#[message.inboundProperties['http.query.params'].path]</span><span class="delimiter">"</span></span> <span class="attribute-name">level</span>=<span class="string"><span class="delimiter">"</span><span class="content">INFO</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Delete file</span>
+<span class="content">#[message.inboundProperties['http.query.params'].path]</span><span class="delimiter">"</span></span> <span class="attribute-name">level</span>=<span class="string"><span class="delimiter">"</span><span class="content">INFO</span><span class="delimiter">"</span></span>
+<span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Delete file</span>
 <span class="content">log</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
 <span class="tag">&lt;hdfs:delete-file</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">hdfs-conf</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Delete file</span><span class="delimiter">"</span></span>
 <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">"</span><span class="content">#[message.inboundProperties['http.query.params'].path]</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
@@ -2432,7 +2380,7 @@ file" path="#[message.inboundProperties['http.query.params'].path]"/<span class=
   <div class="ulist"> 
    <ul> 
     <li> <p>Learn more about working with <a href="/mule-user-guide/v/3.6/anypoint-connectors">Anypoint Connectors</a>.</p> </li> 
-    <li> <p>Access HDFS connector<a href="/release-notes/hdfs-connector-release-notes">release notes</a>.</p> </li> 
+    <li> <p>Access HDFS connector <a href="/release-notes/hdfs-connector-release-notes">release notes</a>.</p> </li> 
     <li> <p>Learn how to <a href="/mule-user-guide/v/3.6/using-maven-with-mule">use Maven with Mule</a>.</p> </li> 
    </ul> 
   </div> 

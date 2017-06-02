@@ -1060,8 +1060,8 @@
   <div class="ulist"> 
    <ul> 
     <li> <p>Install the <a href="/mule-user-guide/v/3.6/windows-gateway-services-guide">Windows Gateway Service</a> first before installing and configuring MSMQ.</p> </li> 
-    <li> <p>.NET 4.0 ( <a href="http://www.microsoft.com/en-US/download/details.aspx?id=17851">http://www.microsoft.com/en-US/download/details.aspx?id=17851</a> )</p> </li> 
-    <li> <p>MSMQ Service ( <a href="http://technet.microsoft.com/en-us/library/cc730960.aspx">http://technet.microsoft.com/en-us/library/cc730960.aspx</a> )</p> </li> 
+    <li> <p>.NET 4.0</p> </li> 
+    <li> <p>MSMQ Service</p> </li> 
    </ul> 
   </div> 
  </div> 
@@ -1071,18 +1071,11 @@
  <div class="sectionbody"> 
   <div class="sect2"> 
    <h3 id="installing-the-msmq-connector-in-anypoint-studio"><a class="anchor" href="#installing-the-msmq-connector-in-anypoint-studio"></a>Installing the MSMQ Connector in Anypoint Studio</h3> 
-   <div class="admonitionblock warning"> 
-    <table> 
-     <tbody> 
-      <tr> 
-       <td class="icon"> <i class="fa icon-warning" title="Warning"></i> </td> 
-       <td class="content"> <strong>Important</strong>: Install the <a href="/mule-user-guide/v/3.6/windows-gateway-services-guide">Windows Gateway Service</a> first before installing and configuring MSMQ. </td> 
-      </tr> 
-     </tbody> 
-    </table> 
+   <div class="paragraph"> 
+    <p><strong>Important</strong>: Install the <a href="/mule-user-guide/v/3.6/windows-gateway-services-guide">Windows Gateway Service</a> first before installing and configuring MSMQ.</p> 
    </div> 
    <div class="paragraph"> 
-    <p>To install a connector, see &nbsp; <a href="/getting-started/anypoint-exchange#installing-a-connector-from-anypoint-exchange">Installing a Connector from Anypoint Exchange</a>.</p> 
+    <p>To install a connector, see <a href="/mule-user-guide/v/3.6/installing-connectors">To Install a Connector from Anypoint Exchange</a>.</p> 
    </div> 
   </div> 
  </div> 
@@ -1091,7 +1084,7 @@
  <h2 id="example"><a class="anchor" href="#example"></a>Example</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>This example requires some basic familiarity with MSMQ and with Mule ESB. The following documentation describes the Mule ESB features in this example:</p> 
+   <p>This example requires some basic familiarity with MSMQ and with Mule. The following documentation describes the Mule ESB features in this example:</p> 
   </div> 
   <div class="ulist"> 
    <ul> 
@@ -1126,8 +1119,8 @@
     </div> 
     <div class="olist arabic"> 
      <ol class="arabic"> 
-      <li> <p>Right click the <strong>msmq-demo&nbsp;*queue and click *Properties</strong>.</p> </li> 
-      <li> <p>Click the Security Tab. For this demo, make sure that <strong>Everyone</strong> has permissions to the following:</p> 
+      <li> <p>Right click the msmq-demo&nbsp;queue and click Properties.</p> </li> 
+      <li> <p>Click the Security Tab. For this demo, make sure that everyone has permissions to the following:</p> 
        <div class="ulist"> 
         <ul> 
          <li> <p>Receive Message</p> </li> 
@@ -1222,10 +1215,10 @@
       <li> <p>Check the console to see when the application starts. You should see a message <code>Started app 'msmq-demo'</code> &nbsp;message if no errors occurred.</p> 
        <div class="listingblock"> 
         <div class="content"> 
-         <pre>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ Started app 'msmq-demo' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</pre> 
+         <pre>++++++++++++++++++++++ Started app 'msmq-demo'</pre> 
         </div> 
        </div> </li> 
-      <li> <p>Access the endpoint at <a href="http://localhost:9333/Hello-World" class="bare">http://localhost:9333/Hello-World</a> and check the operation payload.</p> </li> 
+      <li> <p>Access the endpoint at <code>http://localhost:9333/Hello-World</code> and check the operation payload.</p> </li> 
       <li> <p>The following messages should display in the console.</p> 
        <div class="listingblock"> 
         <div class="content"> 

@@ -1101,7 +1101,7 @@
     </div> 
     <div class="ulist"> 
      <ul> 
-      <li> <p><strong>Sts Url</strong>: The STS endpoint that accepts username and password for authenticating users and understands the WS-Trust 1.3 protocol. When the STS is Microsoft’s ADFS (Active Directory Federation Services), this url usually is <a href="https://youradfs.com/adfs/services/trust/13/usernamemixed" class="bare">https://youradfs.com/adfs/services/trust/13/usernamemixed</a>.</p> </li> 
+      <li> <p><strong>Sts Url</strong>: The STS endpoint that accepts username and password for authenticating users and understands the WS-Trust 1.3 protocol. When the STS is Microsoft’s ADFS (Active Directory Federation Services), this url usually is <code>https://youradfs.com/adfs/services/trust/13/usernamemixed.</code></p> </li> 
       <li> <p><strong>Sts App Identifier</strong>: A string that identifies the Sharepoint site in the STS. It is also known as Relying Party Identifier, Client Identifier, Scope, or Realm. When the STS is Microsoft’s ADFS, this value can be discovered in the AD FS Management console under AD FS at T*rust Relationships* &gt; <strong>Relying Party Trusts</strong> &gt; <em>(Sharepoint Site’s relying part properties)</em> &gt; <strong>Identifiers</strong> tab.<br> <br> You can obtain the Sts App Identifier by logging into the Sharepoint Site that you want to be accessed by opening the Site Url in a web browser. If there is more than one authentication provider configured for a site, a drop-down menu lists the options. Select the desired STS to be redirected to the STS’s login page. At this point, the address bar of the web browser contains a URL that includes the following query parameters:<br> <br> <code>wa=wsignin1.0&amp;wtrealm=uri%3amule%3asp80</code><br> <br> The parameter <em>*wa*</em> tells the STS that a sign in is being initiated. The <em>*wtrealm*</em> contains the URI-encoded value for the Sts App Identifier. In the example, <code>uri%3amule%3asp80</code> is <code>uri:mule:sp80</code>. The unencoded value is the parameter for the connector’s configuration.</p> </li> 
      </ul> 
     </div> 
@@ -1113,7 +1113,7 @@
  <h2 id="install-and-configure"><a class="anchor" href="#install-and-configure"></a>Install and Configure</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>To install a connector, see <a href="/getting-started/anypoint-exchange#installing-a-connector-from-anypoint-exchange">Installing a Connector from Anypoint Exchange</a>.</p> 
+   <p>To install a connector, see <a href="/mule-user-guide/v/3.6/installing-connectors">To Install a Connector from Anypoint Exchange</a>.</p> 
   </div> 
   <div class="sect2"> 
    <h3 id="configuring-your-first-flow"><a class="anchor" href="#configuring-your-first-flow"></a>Configuring Your First Flow</h3> 
@@ -1140,7 +1140,7 @@
          <div class="ulist"> 
           <ul> 
            <li> <p>If using a self-signed SSL certificate, and click the <strong>Disable SSL certificate validation</strong> checkbox.</p> </li> 
-           <li> <p>To connect with Claims Authentication, fill in STS URL (Security Token Service) and scope (Relying Party Identifier).&nbsp; The STS URL has to point to the endpoint of the STS that accepts username and password as authentication credentials and understands WS-Trust 1.3 standard. In ADFS, the endpoint is usually <a href="https://myadfs.com/adfs/services/trust/13/usernamemixed" class="bare">https://myadfs.com/adfs/services/trust/13/usernamemixed</a> . Also, the endpoint has to be enabled in ADFS (it is enabled by default).</p> </li> 
+           <li> <p>To connect with Claims Authentication, fill in STS URL (Security Token Service) and scope (Relying Party Identifier).&nbsp; The STS URL has to point to the endpoint of the STS that accepts username and password as authentication credentials and understands WS-Trust 1.3 standard. In ADFS, the endpoint is usually <code>https://myadfs.com/adfs/services/trust/13/usernamemixed</code>. Also, the endpoint has to be enabled in ADFS (it is enabled by default).</p> </li> 
            <li> <p>To connect with NTLM Authentication, fill in <strong>Domain</strong>.</p> </li> 
            <li> <p>To connect to SharePoint Online, leave&nbsp;&nbsp;NTLM and Claims inputs empty. Just specify a&nbsp;<strong>Username</strong>,&nbsp;<strong>Password</strong>, and&nbsp;<strong>Site URL</strong>.</p> </li> 
           </ul> 
@@ -1228,7 +1228,7 @@
          </table></code></pre> 
       </div> 
      </div> </li> 
-    <li> <p>Open an Internet browser and visit <a href="http://localhost:8081/query" class="bare">http://localhost:8081/query</a></p> </li> 
+    <li> <p>Open an Internet browser and visit <code>http://localhost:8081/query</code></p> </li> 
     <li> <p>The list of documents are ordered by descending title and returns in JSON format&nbsp; (results vary according to your SharePoint 2013 instance).</p> 
      <div class="listingblock"> 
       <div class="content"> 
@@ -1294,8 +1294,14 @@ sItem"},"Id":4,"ID":4,"Title":"folder"}]</pre></td>
         <tbody> 
          <tr> 
           <td class="line-numbers"><pre>1
+2
+3
+4
 </pre></td> 
-          <td class="code"><pre><span class="tag">&lt;sharepoint-2013:list-create</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">Sharepoint_2013</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Sharepoint 2013</span><span class="delimiter">"</span></span> <span class="attribute-name">baseTemplate</span>=<span class="string"><span class="delimiter">"</span><span class="content">GENERIC_LIST</span><span class="delimiter">"</span></span> <span class="attribute-name">title</span>=<span class="string"><span class="delimiter">"</span><span class="content">Title</span><span class="delimiter">"</span></span><span class="tag">&gt;</span> <span class="tag">&lt;sharepoint-2013:list</span> <span class="attribute-name">contentTypesEnabled</span>=<span class="string"><span class="delimiter">"</span><span class="content">true</span><span class="delimiter">"</span></span> <span class="attribute-name">description</span>=<span class="string"><span class="delimiter">"</span><span class="content">Description</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span> <span class="tag">&lt;/sharepoint-2013:list-create&gt;</span></pre></td> 
+          <td class="code"><pre><span class="tag">&lt;sharepoint-2013:list-create</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">Sharepoint_2013</span><span class="delimiter">"</span></span>
+<span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Sharepoint 2013</span><span class="delimiter">"</span></span> <span class="attribute-name">baseTemplate</span>=<span class="string"><span class="delimiter">"</span><span class="content">GENERIC_LIST</span><span class="delimiter">"</span></span> <span class="attribute-name">title</span>=<span class="string"><span class="delimiter">"</span><span class="content">Title</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+  <span class="tag">&lt;sharepoint-2013:list</span> <span class="attribute-name">contentTypesEnabled</span>=<span class="string"><span class="delimiter">"</span><span class="content">true</span><span class="delimiter">"</span></span> <span class="attribute-name">description</span>=<span class="string"><span class="delimiter">"</span><span class="content">Description</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+<span class="tag">&lt;/sharepoint-2013:list-create&gt;</span></pre></td> 
          </tr> 
         </tbody> 
        </table></code></pre> 
@@ -1312,8 +1318,10 @@ sItem"},"Id":4,"ID":4,"Title":"folder"}]</pre></td>
         <tbody> 
          <tr> 
           <td class="line-numbers"><pre>1
+2
 </pre></td> 
-          <td class="code"><pre><span class="tag">&lt;sharepoint-2013:list-delete</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">Sharepoint_2013</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Sharepoint 2013</span><span class="delimiter">"</span></span> <span class="attribute-name">listId</span>=<span class="string"><span class="delimiter">"</span><span class="content">8e306633-c600-40ab-80db-80f57968c0a1</span><span class="delimiter">"</span></span> <span class="tag">/&gt;</span></pre></td> 
+          <td class="code"><pre><span class="tag">&lt;sharepoint-2013:list-delete</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">Sharepoint_2013</span><span class="delimiter">"</span></span>
+<span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Sharepoint 2013</span><span class="delimiter">"</span></span> <span class="attribute-name">listId</span>=<span class="string"><span class="delimiter">"</span><span class="content">8e306633-c600-40ab-80db-80f57968c0a1</span><span class="delimiter">"</span></span> <span class="tag">/&gt;</span></pre></td> 
          </tr> 
         </tbody> 
        </table></code></pre> 
@@ -1825,17 +1833,7 @@ sItem"},"Id":4,"ID":4,"Title":"folder"}]</pre></td>
   </div> 
   <div class="listingblock"> 
    <div class="content"> 
-    <pre class="CodeRay highlight"><code data-lang="code">
-         
-      <table class="CodeRay"> 
-       <tbody> 
-        <tr> 
-         <td class="line-numbers"><pre>1
-</pre></td> 
-         <td class="code"><pre>[Title: "foo", ChoiceMultiSelect: [results: ["one", "three"]]]</pre></td> 
-        </tr> 
-       </tbody> 
-      </table></code></pre> 
+    <pre class="CodeRay highlight"><code>[Title: "foo", ChoiceMultiSelect: [results: ["one", "three"]]]</code></pre> 
    </div> 
   </div> 
   <div class="paragraph"> 
@@ -1894,44 +1892,44 @@ List-item["ChoiceMultiSelect"] = multiValuesMap</pre></td>
 <div class="sect1"> 
  <h2 id="frequently-asked-questions"><a class="anchor" href="#frequently-asked-questions"></a>Frequently Asked Questions</h2> 
  <div class="sectionbody"> 
-  <div class="sect3"> 
-   <h4 id="which-versions-of-sharepoint-are-supported-by-this-connector"><a class="anchor" href="#which-versions-of-sharepoint-are-supported-by-this-connector"></a>Which versions of SharePoint are supported by this connector?</h4> 
+  <div class="sect2"> 
+   <h3 id="which-versions-of-sharepoint-are-supported-by-this-connector"><a class="anchor" href="#which-versions-of-sharepoint-are-supported-by-this-connector"></a>Which versions of SharePoint are supported by this connector?</h3> 
    <div class="paragraph"> 
     <p>The SharePoint connector supports SharePoint 2013 on-premises, and SharePoint online versions.</p> 
    </div> 
   </div> 
-  <div class="sect3"> 
-   <h4 id="what-authentication-schemes-are-supported-by-the-connector"><a class="anchor" href="#what-authentication-schemes-are-supported-by-the-connector"></a>What authentication schemes are supported by the connector?</h4> 
+  <div class="sect2"> 
+   <h3 id="what-authentication-schemes-are-supported-by-the-connector"><a class="anchor" href="#what-authentication-schemes-are-supported-by-the-connector"></a>What authentication schemes are supported by the connector?</h3> 
    <div class="paragraph"> 
     <p>Options for authentication against on-premises SharePoint instances include Claims Authentication (ADFS) and NTLM. For SharePoint Online, authentication using standard SharePoint online user credentials is supported.</p> 
    </div> 
   </div> 
-  <div class="sect3"> 
-   <h4 id="what-parts-of-the-sharepoint-object-model-are-accessible-by-the-connector"><a class="anchor" href="#what-parts-of-the-sharepoint-object-model-are-accessible-by-the-connector"></a>What parts of the SharePoint object model are accessible by the connector?</h4> 
+  <div class="sect2"> 
+   <h3 id="what-parts-of-the-sharepoint-object-model-are-accessible-by-the-connector"><a class="anchor" href="#what-parts-of-the-sharepoint-object-model-are-accessible-by-the-connector"></a>What parts of the SharePoint object model are accessible by the connector?</h3> 
    <div class="paragraph"> 
     <p>Specific support for Files and Folders, Lists, ListItems and Attachments is offered. Additionally, all other entities of the SharePoint API are accessible in JSON form via the ResolveObject and ResolveCollection operations.</p> 
    </div> 
   </div> 
-  <div class="sect3"> 
-   <h4 id="is-datasense-and-datamapper-supported-by-this-connector"><a class="anchor" href="#is-datasense-and-datamapper-supported-by-this-connector"></a>Is DataSense and DataMapper supported by this connector?</h4> 
+  <div class="sect2"> 
+   <h3 id="is-datasense-and-datamapper-supported-by-this-connector"><a class="anchor" href="#is-datasense-and-datamapper-supported-by-this-connector"></a>Is DataSense and DataMapper supported by this connector?</h3> 
    <div class="paragraph"> 
     <p>Yes, all supported entities and entity attributes are exposed to Studio by the connector for use with DataMapper.</p> 
    </div> 
   </div> 
-  <div class="sect3"> 
-   <h4 id="what-operations-can-i-perform-with-the-connector"><a class="anchor" href="#what-operations-can-i-perform-with-the-connector"></a>What operations can I perform with the connector?</h4> 
+  <div class="sect2"> 
+   <h3 id="what-operations-can-i-perform-with-the-connector"><a class="anchor" href="#what-operations-can-i-perform-with-the-connector"></a>What operations can I perform with the connector?</h3> 
    <div class="paragraph"> 
     <p>For the Lists and ListItems API, supported operations include Create, Retrieve, Update and Delete. For Files and Folders, operations include Add, retrieve content, retrieve metadata, delete, check out, undo check out, check in, publish, unpublish, approve, deny, recycle, and copy.</p> 
    </div> 
   </div> 
-  <div class="sect3"> 
-   <h4 id="are-there-any-examples-that-show-how-to-use-the-connector"><a class="anchor" href="#are-there-any-examples-that-show-how-to-use-the-connector"></a>Are there any examples that show how to use the connector?</h4> 
+  <div class="sect2"> 
+   <h3 id="are-there-any-examples-that-show-how-to-use-the-connector"><a class="anchor" href="#are-there-any-examples-that-show-how-to-use-the-connector"></a>Are there any examples that show how to use the connector?</h3> 
    <div class="paragraph"> 
     <p>Yes, an example project for Anypoint Studio is freely available here: (link to sharepoint-connector-samples.zip)</p> 
    </div> 
   </div> 
-  <div class="sect3"> 
-   <h4 id="what-mule-editions-can-i-use-this-connector-on"><a class="anchor" href="#what-mule-editions-can-i-use-this-connector-on"></a>What Mule editions can I use this connector on?</h4> 
+  <div class="sect2"> 
+   <h3 id="what-mule-editions-can-i-use-this-connector-on"><a class="anchor" href="#what-mule-editions-can-i-use-this-connector-on"></a>What Mule editions can I use this connector on?</h3> 
    <div class="paragraph"> 
     <p>This connector is supported on any Enterprise Edition Anypoint platform running on any operating system and bit-ness, including the CloudHub integration PaaS.</p> 
    </div> 
@@ -1947,7 +1945,6 @@ List-item["ChoiceMultiSelect"] = multiValuesMap</pre></td>
     <li> <p><a href="/mule-user-guide/v/3.6/endpoint-configuration-reference">Configuring Endpoints</a></p> </li> 
     <li> <p><a href="/mule-user-guide/v/3.6/transformers">Studio Transformers</a> &nbsp; &nbsp;</p> </li> 
     <li> <p><a href="/mule-user-guide/v/3.6/flow-reference-component-reference">Flow References</a></p> </li> 
-    <li> <p>Webinars and additional documentation related to Mule ESB can be found under the Resources menu option.</p> </li> 
    </ul> 
   </div> 
  </div> 

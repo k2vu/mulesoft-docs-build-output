@@ -1040,7 +1040,7 @@
    <p><strong>Release Notes</strong>:&nbsp;<a href="/release-notes/microsoft-dynamics-crm-connector-release-notes">Microsoft Dynamics CRM Connector Release Notes</a></p> 
   </div> 
   <div class="paragraph"> 
-   <p><strong>Samples</strong>:&nbsp;<a href="/documentation/download/attachments/124487132/dynamics-crm-connector-samples.zip?version=2&amp;modificationDate=1430140511709">dynamics-crm-connector-samples.zip</a></p> 
+   <p><strong>Samples</strong>:&nbsp;<a href="_attachments/dynamics-crm-connector-samples.zip">dynamics-crm-connector-samples.zip</a></p> 
   </div> 
  </div> 
 </div> 
@@ -1074,7 +1074,7 @@
   <div class="ulist"> 
    <ul> 
     <li> <p>Username and password for users granted access to CRM</p> </li> 
-    <li> <p>Organization Service URL - usually in the format: <em><a href="https://crm.mycompany.com/MyOrganization/XRMServices/2011/Organization.svc" class="bare">https://crm.mycompany.com/MyOrganization/XRMServices/2011/Organization.svc</a></em></p> </li> 
+    <li> <p>Organization Service URL - usually in the format: <code>https://crm.mycompany.com/MyOrganization/XRMServices/2011/Organization.svc</code></p> </li> 
    </ul> 
   </div> 
  </div> 
@@ -1086,7 +1086,7 @@
    <p>Install the Java Cryptography Extensions (JCE) package before installing the connector. Download JCE for Java 7 from <a href="http://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html">Oracle’s Java SE Download site</a>. &nbsp;(JDK 8 or JRE 8 are not supported.)</p> 
   </div> 
   <div class="paragraph"> 
-   <p>Use the instructions in <a href="/getting-started/anypoint-exchange#installing-a-connector-from-anypoint-exchange">Installing a Connector from Anypoint Exchange</a>.</p> 
+   <p>Use the instructions in <a href="/mule-user-guide/v/3.6/installing-connectors">To Install a Connector from Anypoint Exchange</a>.</p> 
   </div> 
   <div class="sect2"> 
    <h3 id="configuring-the-connector"><a class="anchor" href="#configuring-the-connector"></a>Configuring the Connector</h3> 
@@ -1112,7 +1112,7 @@
       <li> <p>Click the <strong>Global Elements</strong> tab and click <strong>Create</strong>.</p> </li> 
       <li> <p>In the <strong>Search</strong> field, type <strong>crm</strong>, click <strong>Microsoft Dynamics CRM</strong>, and click <strong>OK</strong>.</p> </li> 
       <li> <p>Specify a <strong>Username</strong> and&nbsp;<strong>Password</strong>.</p> </li> 
-      <li> <p>Specify a&nbsp;<strong>Organization Service URL</strong> for accessing the CRM system. Click <strong>OK</strong>.<br> For example: <code><a href="http://{siteUrl}/XrmServices/2011/Organization.svc" class="bare">http://{siteUrl}/XrmServices/2011/Organization.svc</a></code></p> </li> 
+      <li> <p>Specify a&nbsp;<strong>Organization Service URL</strong> for accessing the CRM system. Click <strong>OK</strong>.<br> For example: <code>http://{siteUrl}/XrmServices/2011/Organization.svc</code></p> </li> 
       <li> <p>Click an <strong>Authentication Scheme</strong> from the dropdown list.</p> </li> 
       <li> <p>Specify values for <strong>Domain Controller</strong> and <strong>Domain Name</strong>.</p> </li> 
       <li> <p>Click <strong>Test Connection</strong> to ensure that the connection works correctly.</p> </li> 
@@ -1148,7 +1148,7 @@
    </div> 
    <div class="olist arabic"> 
     <ol class="arabic"> 
-     <li> <p>Double-click the <strong>HTTP</strong> connector and click the green plus sign&nbsp;<span class="image"><img src="/documentation/s/en_GB/3391/c989735defd8798a9d5e69c058c254be2e5a762b.76/_/images/icons/emoticons/add.png" alt="(plus)"></span>&nbsp;to the right of <strong>Connector Configuration</strong>:</p> 
+     <li> <p>Double-click the <strong>HTTP</strong> connector and click the green plus sign&nbsp;to the right of <strong>Connector Configuration</strong>:</p> 
       <div class="paragraph"> 
        <p><span class="image"><img src="./_images/HTTPconfigref.png" alt="HTTPconfigref"></span></p> 
       </div> </li> 
@@ -1157,7 +1157,7 @@
        <p><span class="image"><img src="./_images/MSDyCRMHTTPconfig.png" alt="MSDyCRMHTTPconfig"></span></p> 
       </div> </li> 
      <li> <p>Double-click <strong>Microsoft Dynamics CRM</strong>.</p> </li> 
-     <li> <p>Click the green plus symbol <span class="image"><img src="/documentation/s/en_GB/3391/c989735defd8798a9d5e69c058c254be2e5a762b.76/_/images/icons/emoticons/add.png" alt="(plus)"></span>&nbsp;to the right of <strong>Connector Configuration</strong>:</p> 
+     <li> <p>Click the green plus symbol&nbsp;to the right of <strong>Connector Configuration</strong>:</p> 
       <div class="paragraph"> 
        <p><span class="image"><img src="./_images/CRMConfigRef.png" alt="CRMConfigRef"></span></p> 
       </div> </li> 
@@ -1331,7 +1331,7 @@ myrealm.com = MYREALM.COM</pre></td>
     </div> 
    </div> 
    <div class="paragraph"> 
-    <p><strong>Note:</strong> The <code>default_realm</code> and <code>default_domain</code> values are case-sensitive. Specify these values exactly as defined in Active Directory. ** If you receive an error during Test Connection stating <code>Message stream modified (41)</code>, the domain name is not correctly formed.</p> 
+    <p><strong>Note:</strong> The <code>default_realm</code> and <code>default_domain</code> values are case-sensitive. Specify these values exactly as defined in Active Directory. If you receive an error during Test Connection stating <code>Message stream modified (41)</code>, the domain name is not correctly formed.</p> 
    </div> 
    <div class="paragraph"> 
     <p>More information on how to create the Kerberos configuration file can be found at <a href="http://web.mit.edu/kerberos/krb5-devel/doc/admin/conf_files/krb5_conf.html" class="bare">http://web.mit.edu/kerberos/krb5-devel/doc/admin/conf_files/krb5_conf.html</a>.</p> 
@@ -1342,7 +1342,13 @@ myrealm.com = MYREALM.COM</pre></td>
    <div class="olist arabic"> 
     <ol class="arabic"> 
      <li> <p>Set the property <strong>Kerberos Properties File Path</strong></p> </li> 
-     <li> <p>Place the file in the class path (usually under src/main/resources) and set the value of the property to <strong>classpath:krb5.conf</strong> <br> Or:&nbsp;<br> Provide the full path to the file as in <strong>C:\kerberos\krb5.conf</strong>&nbsp;</p> </li> 
+     <li> <p>Place the file in the class path (usually under src/main/resources) and set the value of the property to classpath:krb5.conf</p> 
+      <div class="paragraph"> 
+       <p>Or:</p> 
+      </div> 
+      <div class="paragraph"> 
+       <p>Provide the full path to the file as in <code>C:\kerberos\krb5.conf</code></p> 
+      </div> </li> 
     </ol> 
    </div> 
    <div class="paragraph"> 
@@ -1413,7 +1419,7 @@ myrealm.com = MYREALM.COM</pre></td>
     <p>After installing&nbsp;<em>Anypoint Platform Gateway Service</em>, configure the connector’s connection properties with the <strong>Username</strong>, <strong>Password</strong>, and the <strong>Organization Service URL</strong>.</p> 
    </div> 
    <div class="paragraph"> 
-    <p>Under <em>NTLM authentication settings</em>, set the <strong>Gateway Router Service Address</strong> to the address of the <em>Anypoint Platform Gateway Service</em>. This address is usually similar to <a href="https://myserver.com:9000/router" class="bare">https://myserver.com:9000/router</a>.</p> 
+    <p>Under <em>NTLM authentication settings</em>, set the <strong>Gateway Router Service Address</strong> to the address of the <em>Anypoint Platform Gateway Service</em>. This address is usually similar to <code>https://myserver.com:9000/router</code>.</p> 
    </div> 
    <div class="paragraph"> 
     <p>At this point, the connection should be successfully tested.</p> 
@@ -2044,44 +2050,44 @@ myrealm.com = MYREALM.COM</pre></td>
 <div class="sect1"> 
  <h2 id="frequently-asked-questions"><a class="anchor" href="#frequently-asked-questions"></a>Frequently Asked Questions</h2> 
  <div class="sectionbody"> 
-  <div class="sect3"> 
-   <h4 id="which-versions-of-dynamics-crm-are-supported-by-this-connector"><a class="anchor" href="#which-versions-of-dynamics-crm-are-supported-by-this-connector"></a>Which versions of Dynamics CRM are supported by this connector?</h4> 
+  <div class="sect2"> 
+   <h3 id="which-versions-of-dynamics-crm-are-supported-by-this-connector"><a class="anchor" href="#which-versions-of-dynamics-crm-are-supported-by-this-connector"></a>Which versions of Dynamics CRM are supported by this connector?</h3> 
    <div class="paragraph"> 
     <p>The Dynamics CRM connector supports CRM 2011, CRM 2013 on-premises versions, and CRM Online.</p> 
    </div> 
   </div> 
-  <div class="sect3"> 
-   <h4 id="what-authentication-schemes-are-supported-by-the-connector"><a class="anchor" href="#what-authentication-schemes-are-supported-by-the-connector"></a>What authentication schemes are supported by the connector?</h4> 
+  <div class="sect2"> 
+   <h3 id="what-authentication-schemes-are-supported-by-the-connector"><a class="anchor" href="#what-authentication-schemes-are-supported-by-the-connector"></a>What authentication schemes are supported by the connector?</h3> 
    <div class="paragraph"> 
     <p>Options for authentication against on-premises CRM instances include Kerberos, Claims Authentication (ADFS), and NTLM (via the Anypoint platform gateway for Windows). For CRM Online, the standard CRM online authentication protocol is supported.</p> 
    </div> 
   </div> 
-  <div class="sect3"> 
-   <h4 id="what-parts-of-the-crm-object-model-are-accessible-by-the-connector"><a class="anchor" href="#what-parts-of-the-crm-object-model-are-accessible-by-the-connector"></a>What parts of the CRM object model are accessible by the connector?</h4> 
+  <div class="sect2"> 
+   <h3 id="what-parts-of-the-crm-object-model-are-accessible-by-the-connector"><a class="anchor" href="#what-parts-of-the-crm-object-model-are-accessible-by-the-connector"></a>What parts of the CRM object model are accessible by the connector?</h3> 
    <div class="paragraph"> 
     <p>All out-of-box and custom entities are available via the connector, including primary entities and association entities.</p> 
    </div> 
   </div> 
-  <div class="sect3"> 
-   <h4 id="are-datasense-and-datamapper-supported-by-this-connector"><a class="anchor" href="#are-datasense-and-datamapper-supported-by-this-connector"></a>Are DataSense and DataMapper supported by this connector?</h4> 
+  <div class="sect2"> 
+   <h3 id="are-datasense-and-datamapper-supported-by-this-connector"><a class="anchor" href="#are-datasense-and-datamapper-supported-by-this-connector"></a>Are DataSense and DataMapper supported by this connector?</h3> 
    <div class="paragraph"> 
     <p>Yes, all entities and entity attributes are exposed to Studio by the connector for use with DataMapper and DataSense.</p> 
    </div> 
   </div> 
-  <div class="sect3"> 
-   <h4 id="what-operations-can-i-perform-with-the-connector"><a class="anchor" href="#what-operations-can-i-perform-with-the-connector"></a>What operations can I perform with the connector?</h4> 
+  <div class="sect2"> 
+   <h3 id="what-operations-can-i-perform-with-the-connector"><a class="anchor" href="#what-operations-can-i-perform-with-the-connector"></a>What operations can I perform with the connector?</h3> 
    <div class="paragraph"> 
     <p>All standard create-read-update-delete operations are supported against all CRM entities. Additionally, queries for collections of objects can be written either in native FetchXML or Mule’s DSQL query language.</p> 
    </div> 
   </div> 
-  <div class="sect3"> 
-   <h4 id="are-there-any-examples-that-show-how-to-use-the-connector"><a class="anchor" href="#are-there-any-examples-that-show-how-to-use-the-connector"></a>Are there any examples that show how to use the connector?</h4> 
+  <div class="sect2"> 
+   <h3 id="are-there-any-examples-that-show-how-to-use-the-connector"><a class="anchor" href="#are-there-any-examples-that-show-how-to-use-the-connector"></a>Are there any examples that show how to use the connector?</h3> 
    <div class="paragraph"> 
     <p>Yes, an example project for Anypoint Studio is available in <a href="/documentation/download/attachments/124487132/dynamics-crm-connector-samples.zip?version=2&amp;modificationDate=1430140511709">dynamics-crm-connector-samples.zip</a>.</p> 
    </div> 
   </div> 
-  <div class="sect3"> 
-   <h4 id="what-mule-editions-can-i-use-this-connector-on"><a class="anchor" href="#what-mule-editions-can-i-use-this-connector-on"></a>What Mule editions can I use this connector on?</h4> 
+  <div class="sect2"> 
+   <h3 id="what-mule-editions-can-i-use-this-connector-on"><a class="anchor" href="#what-mule-editions-can-i-use-this-connector-on"></a>What Mule editions can I use this connector on?</h3> 
    <div class="paragraph"> 
     <p>This connector is supported on any Enterprise Edition Anypoint platform running on any operating system and bit-ness, including the CloudHub integration PaaS.</p> 
    </div> 
@@ -2097,7 +2103,6 @@ myrealm.com = MYREALM.COM</pre></td>
     <li> <p><a href="/mule-user-guide/v/3.6/endpoint-configuration-reference">Configuring Endpoints</a></p> </li> 
     <li> <p><a href="/mule-user-guide/v/3.6/transformers">Transformers</a></p> </li> 
     <li> <p><a href="/mule-user-guide/v/3.6/flow-reference-component-reference">Flow Reference Component Reference</a></p> </li> 
-    <li> <p>Webinars and additional documentation related to Mule ESB can be found under the Resources menu option.</p> </li> 
    </ul> 
   </div> 
  </div> 

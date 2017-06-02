@@ -1059,7 +1059,7 @@
  <h2 id="installing-the-netsuite-connector-in-anypoint-studio"><a class="anchor" href="#installing-the-netsuite-connector-in-anypoint-studio"></a>Installing the NetSuite Connector in Anypoint Studio</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>You can install a connector in Anypoint Studio using the instructions in&nbsp;<a href="/getting-started/anypoint-exchange#installing-a-connector-from-anypoint-exchange">Installing a Connector from Anypoint Exchange</a>.&nbsp;</p> 
+   <p>You can install a connector in Anypoint Studio using the instructions in&nbsp;<a href="/mule-user-guide/v/3.6/installing-connectors">To Install a Connector from Anypoint Exchange</a>.</p> 
   </div> 
  </div> 
 </div> 
@@ -1071,943 +1071,154 @@
   </div> 
   <div class="ulist"> 
    <ul> 
-    <li> <p>A global NetSuite element for use by all the NetSuite connectors in an application. For more information, see&nbsp;http://www.mulesoft.org/documentation/display/current/Global+Elements[Mule Global Elements].</p> </li> 
+    <li> <p>A global NetSuite element for use by all the NetSuite connectors in an application.</p> </li> 
     <li> <p>Parameters of each NetSuite connector instance in the application.</p> </li> 
    </ul> 
   </div> 
   <div class="paragraph"> 
    <p>Follow these steps to configure NetSuite connector in a Mule application:</p> 
   </div> 
-  <div class="panel panel-default no-padding"> 
-   <div class="panel-heading no-padding"> 
-    <!-- Nav tabs --> 
-    <ul class="nav nav-tabs" role="tablist"> 
-     <li class="active"><a href="#tab-1_1" role="tab" data-toggle="tab">Studio Visual Editor</a></li> 
-     <li><a href="#tab-1_2" role="tab" data-toggle="tab">XML Editor</a></li> 
-    </ul> 
-   </div> 
-   <div class="panel-body tab-content no-padding"> 
-    <div class="tab-pane in active fade no-padding" id="tab-1_1"> 
-     <div class="olist arabic"> 
-      <ol class="arabic"> 
-       <li> <p>Click the&nbsp;<strong>Global Elements</strong>&nbsp;tab at the base of the canvas, then click&nbsp;<strong>Create</strong>.</p> </li> 
-       <li> <p>In the&nbsp;<strong>Choose Global Type</strong>&nbsp;menu, use the filter to locate and select&nbsp;<strong>NetSuite</strong>, then click&nbsp;<strong>OK</strong>.</p> </li> 
-       <li> <p>Configure the parameters according to the table below</p> 
-        <div class="paragraph"> 
-         <p><span class="image"><img src="/documentation/download/attachments/122751662/Configuration.jpg?version=1&amp;modificationDate=1410255202180" alt="image"></span></p> 
-        </div> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col style="width: 50%;"> 
-          <col style="width: 50%;"> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Parameter</th> 
-           <th class="tableblock halign-left valign-top">Description</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Enter a name for the configuration so it can be referenced later.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Email</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the login email of the NetSuite UI.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Password</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the corresponding password to log into NetSuite UI.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Endpoint</strong></p></td> 
-           <td class="tableblock halign-left valign-top"> 
-            <div> 
-             <div class="paragraph"> 
-              <p>Enter the name of the service endpoint.</p> 
-             </div> 
-             <div class="admonitionblock note"> 
-              <table> 
-               <tbody> 
-                <tr> 
-                 <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-                 <td class="content"> Ensure that the endpoint you enter here points to the version of NetSuite that the connector supports.&nbsp; </td> 
-                </tr> 
-               </tbody> 
-              </table> 
-             </div> 
-            </div></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Account</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the account ID of the SuiteTalk - NetSuite web services. It looks similar to TSTDRVXXXXXX.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>RoleId</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the role ID for the user in SuiteTalk, which determines the Processor privileges.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Connection Timeout</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the amount of time, in milliseconds, that the client must attempt to establish a connection before timing out. The default is 30000 (30 seconds). Zero (0) indicates that the client continues to attempt to open a connection indefinitely.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Receive Timeout</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the amount of time, in milliseconds, that the client must wait for a response before timing out. The default is 60000. Zero (0) specifies that the client waits indefinitely.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Enable DataSense</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">If you select this option, DataSense extracts metadata for NetSuite standard objects to automatically determine the data type and format that your application must deliver to, or can expect from, NetSuite. By enabling this functionality, Mule does the heavy lifting of discovering the type of data you must send to, or be prepared to receive from NetSuite. For more information, see <a href="/mule-user-guide/v/3.6/datasense">DataSense</a>.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Default Endpoint</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the default service endpoint.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Separator</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the separator used to support the keys that are required to provide a better support for custom fields.&nbsp;</p></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-       <li> <p>Access the&nbsp;<strong>Pooling Profile</strong>&nbsp;tab to configure any settings relevant to managing multiple connections via a connection pool.</p> </li> 
-       <li> <p>Access the&nbsp;<strong>Reconnection</strong>&nbsp;tab to configure any settings relevant to reconnection strategies that Mule should execute if it loses its connection to NetSuite.</p> </li> 
-       <li> <p>Click&nbsp;<strong>OK</strong>&nbsp;to save the global connector configurations.</p> </li> 
-       <li> <p>Return to the Message Flow tab in Studio.</p> </li> 
-      </ol> 
-     </div> 
-     <div class="sect3"> 
-      <h4 id="configuration-in-a-flow"><a class="anchor" href="#configuration-in-a-flow"></a>Configuration in a Flow</h4> 
+  <div class="sect2"> 
+   <h3 id="studio-visual-editor"><a class="anchor" href="#studio-visual-editor"></a>Studio Visual Editor</h3> 
+   <div class="olist arabic"> 
+    <ol class="arabic"> 
+     <li> <p>Click the&nbsp;<strong>Global Elements</strong>&nbsp;tab at the base of the canvas, then click&nbsp;<strong>Create</strong>.</p> </li> 
+     <li> <p>In the&nbsp;<strong>Choose Global Type</strong>&nbsp;menu, use the filter to locate and select&nbsp;<strong>NetSuite</strong>, then click&nbsp;<strong>OK</strong>.</p> </li> 
+     <li> <p>Configure the parameters according to the table below</p> 
       <div class="paragraph"> 
-       <p>Follow these steps to configure the parameters of the NetSuite connector in the flow:</p> 
+       <p><span class="image"><img src="./_images/Configuration.jpg" alt="Configuration"></span></p> 
       </div> 
-      <div class="olist arabic"> 
-       <ol class="arabic"> 
-        <li> <p>Drag the NetSuite connector onto the canvas, and double-click it to open the Properties Editor console.</p> </li> 
-        <li> <p>Configure these parameters for the connector:</p> 
-         <table class="tableblock frame-all grid-all spread"> 
-          <colgroup> 
-           <col style="width: 34%;"> 
-           <col style="width: 33%;"> 
-           <col style="width: 33%;"> 
-          </colgroup> 
-          <thead> 
-           <tr> 
-            <th class="tableblock halign-left valign-top">Field</th> 
-            <th class="tableblock halign-left valign-top">Description</th> 
-            <th class="tableblock halign-left valign-top">Default</th> 
-           </tr> 
-          </thead> 
-          <tbody> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">Enter a unique label for the connector in your application.</p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">Netsuite</p></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Config Reference</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">Connect to a global element linked to this connector. Global elements encapsulate reusable data about the connection to the target resource or service. Select the global NetSuite connector element that you just created.</p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"> — </p></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Operation</strong></p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">Select the action this component must perform.</p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock"> — </p></td> 
-           </tr> 
-          </tbody> 
-         </table> </li> 
-        <li> <p>Save your configurations.</p> </li> 
-       </ol> 
-      </div> 
-     </div> 
-    </div> 
-    <div class="tab-pane fade no-padding" id="tab-1_2"> 
-     <div class="paragraph"> 
-      <p>Ensure that you include the NetSuite namespaces in your configuration file.</p> 
-     </div> 
-     <div class="listingblock"> 
-      <div class="content"> 
-       <pre class="CodeRay highlight"><code data-lang="xml">
-    
-            
-         <table class="CodeRay"> 
-          <tbody> 
-           <tr> 
-            <td class="line-numbers"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-</pre></td> 
-            <td class="code"><pre><span class="entity">&amp;lt;</span>mule xmlns="http://www.mulesoft.org/schema/mule/core"
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xmlns:netsuite="http://www.mulesoft.org/schema/mule/netsuite"
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xsi:schemaLocation="
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://www.mulesoft.org/schema/mule/core
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://www.mulesoft.org/schema/mule/core/current/mule.xsd
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://www.mulesoft.org/schema/mule/netsuite
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://www.mulesoft.org/schema/mule/netsuite/current/mule-netsuite.xsd"<span class="entity">&amp;gt;</span>
-&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="entity">&amp;lt;</span>!-- Your flows and configuration elements --<span class="entity">&amp;gt;</span>
-&nbsp;
-<span class="entity">&amp;lt;</span>/mule<span class="entity">&amp;gt;</span></pre></td> 
-           </tr> 
-          </tbody> 
-         </table></code></pre> 
-      </div> 
-     </div> 
-     <div class="paragraph"> 
-      <p>Follow these steps to configure a NetSuite connector in your application:</p> 
-     </div> 
-     <div class="olist arabic"> 
-      <ol class="arabic"> 
-       <li> <p>Create a global NetSuite configuration outside and above your flows, using the following global configuration code:</p> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-       
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
-2
-</pre></td> 
-               <td class="code"><pre><span class="entity">&amp;lt;</span>!-- Simple configuration --<span class="entity">&amp;gt;</span>
-<span class="entity">&amp;lt;</span>netsuite:config name="Netsuite" email="Your NetSuite email" password="Your NetSuite password" account="Your Netsuite account name" roleId="The id of your NetSuite role" doc:name="Netsuite"<span class="entity">&amp;gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
-        </div> </li> 
-       <li> <p>Build your application flow, then add a NetSuite connector using one of these operations: &nbsp;</p> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col style="width: 50%;"> 
-          <col style="width: 50%;"> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Operation</th> 
-           <th class="tableblock halign-left valign-top">Description</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#add-file">&lt;netsuite:add-file&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Creates a new NetSuite file record.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#add-list">&lt;netsuite:add-list&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"> 
-            <div> 
-             <div class="paragraph"> 
-              <p>Adds one or more records in the system.</p> 
-             </div> 
-             <div class="paragraph"> 
-              <p>The attributes that define each record can either be the POJOs corresponding to the fields in the record or a map that represents it.</p> 
-             </div> 
-            </div></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#add-record">&lt;netsuite:add-record&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Creates a new record of the specified type.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#add-record-objects">&lt;netsuite:add-record-objects&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Creates new records of the specified type.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#async-add-list">&lt;netsuite:async-add-list&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Specifies an asynchronous request equivalent to&nbsp; ` addRecord(String, Map, Preferences) `</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#async-delete-list">&lt;netsuite:async-delete-list&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Specifies an asynchronous request equivalent to&nbsp; ` deleteList(List, Preferences) `</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#async-delete-list-records">&lt;netsuite:async-delete-list-records&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Specifies an asynchronous request equivalent to&nbsp; ` deleteList(List, Preferences) `</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#async-get-list">&lt;netsuite:async-get-list&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Specifies an asynchronous request equivalent to&nbsp; ` getList(List, Preferences) `</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#async-get-list-records">&lt;netsuite:async-get-list-records&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Specifies an asynchronous request equivalent to&nbsp; ` getList(List, Preferences) `</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#async-initialize-list">&lt;netsuite:async-initialize-list&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Specifies an asynchronous request equivalent to&nbsp; ` initialize(InitializeRecord, Preferences) `</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#async-search">&lt;netsuite:async-search&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Searches for all records that match the given filtering expression, asynchronously.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#async-update-list">&lt;netsuite:async-update-list&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Specifies an asynchronous request equivalent to&nbsp; ` updateRecord(String, Map, Preferences) `</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#async-upsert-list">&lt;netsuite:async-upsert-list&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Specifies an asynchronous request equivalent to&nbsp; ` upsertRecord(String, Map, Preferences) `</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#attach-record">&lt;netsuite:attach-record&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Adds a source contact record to a destination record as an attachment.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#change-email">&lt;netsuite:change-email&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Changes the email address for the NetSuite account.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#change-password">&lt;netsuite:change-password&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Changes the password for the NetSuite account.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#check-async-status">&lt;netsuite:check-async-status&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Returns the status of an asynchronous web services submission.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#delete">&lt;netsuite:delete&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"> 
-            <div> 
-             <div class="paragraph"> 
-              <p>Deletes a record with the specified BaseRef.</p> 
-             </div> 
-             <div class="admonitionblock warning"> 
-              <table> 
-               <tbody> 
-                <tr> 
-                 <td class="icon"> <i class="fa icon-warning" title="Warning"></i> </td> 
-                 <td class="content"> Not all records can be deleted from the system. </td> 
-                </tr> 
-               </tbody> 
-              </table> 
-             </div> 
-            </div></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#delete-list">&lt;netsuite:delete-list&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Deletes one or more records in the system. The records to be deleted are identified through the specified unique identifiers.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#delete-record">&lt;netsuite:delete-record&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"> 
-            <div> 
-             <div class="paragraph"> 
-              <p>Deletes a record from the system with the specified RecordRef.</p> 
-             </div> 
-             <div class="admonitionblock warning"> 
-              <table> 
-               <tbody> 
-                <tr> 
-                 <td class="icon"> <i class="fa icon-warning" title="Warning"></i> </td> 
-                 <td class="content"> Not all records can be deleted from the system. </td> 
-                </tr> 
-               </tbody> 
-              </table> 
-             </div> 
-            </div></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#delete-records-list">&lt;netsuite:delete-records-list&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Deletes one or more records from the system. The records to be deleted are identified through the provided unique identifiers.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#detach-record">&lt;netsuite:detach-record&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Detaches a source record from a destination record.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#get">&lt;netsuite:get&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves a record by providing the unique ID for the record.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#get-async-result">&lt;netsuite:get-async-result&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Returns the results of an asynchronous web services submission.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#get-budget-exchange-rates">&lt;netsuite:get-budget-exchange-rates&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Returns the list of budget exchange rates.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#get-consolidated-exchange-rates">&lt;netsuite:get-consolidated-exchange-rates&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Returns the list of consolidated exchange rates.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#get-current-rate">&lt;netsuite:get-current-rate&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Gets the exchange rate between two currencies based on a certain date.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#get-custom-record">&lt;netsuite:get-custom-record&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves a custom record by providing the unique ID for the record.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#get-customization-ids">&lt;netsuite:get-customization-ids&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Returns the IDs of available customizations for a given record type.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#get-data-center-urls">&lt;netsuite:get-data-center-urls&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Gets datacenter URLS - use for dynamic discovery of datacenter-specific URLs to access NetSuite as partner applications.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#get-deleted-records">&lt;netsuite:get-deleted-records&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Returns a list of deleted records of the specified record type that match a given date expression.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#get-item-availability">&lt;netsuite:get-item-availability&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Returns the availability of a given record reference.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#get-list">&lt;netsuite:get-list&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves a list of objects referenced in the list of BaseRef object.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#get-posting-transaction-summary">&lt;netsuite:get-posting-transaction-summary&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves a summary of the actual data in an account.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">&lt;<a href="http://netsuiteget-record">netsuite:get-record</a>&gt;</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves a record by providing the unique ID for the record.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#get-records">&lt;netsuite:get-records&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves a list of all records of the specified type.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#get-saved-search">&lt;netsuite:get-saved-search&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves a list of existing saved searches for the given record type.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#get-select-value">&lt;netsuite:get-select-value&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves valid values for a given recordRef field where the referenced record type is not yet exposed in the web services API or when the logged in role does not have permission to the instances of the record type.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#get-server-time">&lt;netsuite:get-server-time&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Returns the server time, resulting in more accurate and reliable synchronization of data than using local client time.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#initialize">&lt;netsuite:initialize&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Populates fields on transaction line items with values from a related record in a way similar to how empty text boxes are pre-populated within the Netsuite UI.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#initialize-list">&lt;netsuite:initialize-list&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Emulates the UI workflow by pre-populating fields on transaction line items with values from a related record.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#map-sso">&lt;netsuite:map-sso&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Automates the mapping between external application credentials and NetSuite’s credentials for a user.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#query-as-native-result">&lt;netsuite:query-as-native-result&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Returns a SearchResult containing a list of records or columns matching the specified query.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#query-records">&lt;netsuite:query-records&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Returns a list of records.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#search">&lt;netsuite:search&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Executes a search on a specific record type based on a set of criteria.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#search-more">&lt;netsuite:search-more&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves more records after an initial search operation.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#search-more-with-id">&lt;netsuite:search-more-with-id&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">References a specific search result set by its searchId - a parameter included in all search results.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#search-next">&lt;netsuite:search-next&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves the next set of records after an initial search operation.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#search-with-expression">&lt;netsuite:search-with-expression&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Executes a search on a specific record type based on a set of criteria.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#sso-login">&lt;netsuite:sso-login&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Establishes a single sign-on connection.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#update-invitee-status">&lt;netsuite:update-invitee-status&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Sets a new invitation status for a given event.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#update-invitee-status-list">&lt;netsuite:update-invitee-status-list&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Sets a new invitation status for a given event.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#update-list">&lt;netsuite:update-list&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Updates one or more existing records in the system by providing new values for some fields in the records.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#update-record">&lt;netsuite:update-record&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Updates an existing record.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#update-records-list">&lt;netsuite:update-records-list&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Updates one or more existing records in the system by providing a list of records.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#upsert-list">&lt;netsuite:upsert-list&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Updates one or more instances of a record type in the system.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/mule/netsuite-config.html#upsert-record">&lt;netsuite:upsert-record&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Adds a new instance or updates an instance of a record in the system.</p></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-      </ol> 
-     </div> 
-    </div> 
-   </div> 
-  </div> 
- </div> 
-</div> 
-<div class="sect1"> 
- <h2 id="example-use-case"><a class="anchor" href="#example-use-case"></a>Example Use Case</h2> 
- <div class="sectionbody"> 
-  <div class="paragraph"> 
-   <p>Add a new Employee record in NetSuite using a Mule application.&nbsp;</p> 
-  </div> 
-  <div class="panel panel-default no-padding"> 
-   <div class="panel-heading no-padding"> 
-    <!-- Nav tabs --> 
-    <ul class="nav nav-tabs" role="tablist"> 
-     <li class="active"><a href="#tab-2_1" role="tab" data-toggle="tab">Studio Visual Editor</a></li> 
-     <li><a href="#tab-2_2" role="tab" data-toggle="tab">XML Editor</a></li> 
-    </ul> 
-   </div> 
-   <div class="panel-body tab-content no-padding"> 
-    <div class="tab-pane in active fade no-padding" id="tab-2_1"> 
-     <div class="paragraph"> 
-      <p><span class="image"><img src="/documentation/download/attachments/122751662/NetSuiteDemoFlow.png?version=1&amp;modificationDate=1426786714624" alt="image"></span></p> 
-     </div> 
-     <div class="olist arabic"> 
-      <ol class="arabic"> 
-       <li> <p>Drag an <strong>HTTP</strong> connector into a new flow, click the green plus to the right of Connector Configuration and set the values to: Host: <strong>localhost</strong> and Port: <strong>8081</strong>. Click <strong>OK</strong>. In the Basic Settings, set the <strong>Path</strong> to <strong>accountWithCustomFields</strong>.</p> 
-        <div class="paragraph"> 
-         <p><span class="image"><img src="/documentation/download/attachments/122751662/HTTPSettings.png?version=1&amp;modificationDate=1426787664604" alt="image"></span></p> 
-        </div> </li> 
-       <li> <p>Add a <strong>Set Payload</strong> transformer after the HTTP connector to process the message payload.&nbsp;Configure the transformer as shown below.</p> 
-        <div class="paragraph"> 
-         <p><span class="image"><img src="/documentation/download/attachments/122751662/setpayload.jpg?version=1&amp;modificationDate=1410252287411" alt="image"></span>&nbsp;</p> 
-        </div> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col> 
-          <col> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Field</th> 
-           <th class="tableblock halign-left valign-top">Value</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Set Payload (or any other name you prefer)</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Value</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><code>#&nbsp;[['name':message.inboundProperties['name'],'lastname':message.inboundProperties['lastname'],'e-mail':message.inboundProperties['email'],'externalId':message.inboundProperties['externalId']]]</code></p></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-       <li> <p>Drag the <strong>NetSuite</strong> connector onto the canvas, then select it to open the properties editor console.</p> </li> 
-       <li> <p>Click the&nbsp;<strong>+</strong> sign next to the&nbsp;<strong>Connector Configuration</strong> field to add a new NetSuite global element.<br> <span class="image"><img src="/documentation/download/attachments/122751662/global+element.jpg?version=1&amp;modificationDate=1410253866392" alt="image"></span></p> </li> 
-       <li> <p>Configure the global element as follows:</p> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col> 
-          <col> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Field</th> 
-           <th class="tableblock halign-left valign-top">Value</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">NetSuite (or any other name you prefer)</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Email</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">&lt;Your NetSuite Email&gt;</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Password</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">&lt;Your NetSuite password&gt;</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Account</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">&lt;Your NetSuite account&gt; (It looks similiar to TSTDRVXXXXXX.)</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Role Id</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the id of the role you use to login in SuiteTalk, which determines the Processor privileges.</p></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-       <li> <p>In the properties editor of the NetSuite connector, configure the remaining parameters:</p> 
-        <div class="paragraph"> 
-         <p><span class="image"><img src="/documentation/download/attachments/122751662/Configuration.jpg?version=1&amp;modificationDate=1410255202180" alt="image"></span><br></p> 
-        </div> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col> 
-          <col> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Field</th> 
-           <th class="tableblock halign-left valign-top">Value</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">NetSuite (or any other name you prefer)</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Config Reference</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">NetSuite (name of the global element you have created)</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Operation</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Add record</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Record Type</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Employee</p></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-       <li> <p>Drag a <strong>DataMapper</strong> transformer between the Set Payload transformer and the NetSuite connector, then click it to open its properties editor.</p> </li> 
-       <li> <p>Configure its Input properties according to the steps below.<br></p> 
-        <div class="olist loweralpha"> 
-         <ol class="loweralpha" type="a"> 
-          <li> <p>In the&nbsp;<strong>Input type</strong>, select&nbsp;<strong>Map&lt;k,v&gt;</strong>, then select&nbsp;<strong>User Defined</strong>.</p> </li> 
-          <li> <p>Click&nbsp;<strong>Create/Edit Structure</strong>. &nbsp;</p> </li> 
-          <li> <p>Enter a name for the Map, then select&nbsp;<strong>Element</strong>&nbsp;for<strong>&nbsp;Type</strong>.</p> </li> 
-          <li> <p>Add the child fields according to the table below.</p> 
-           <table class="tableblock frame-all grid-all spread"> 
-            <colgroup> 
-             <col style="width: 50%;"> 
-             <col style="width: 50%;"> 
-            </colgroup> 
-            <thead> 
-             <tr> 
-              <th class="tableblock halign-left valign-top">Name</th> 
-              <th class="tableblock halign-left valign-top">Type</th> 
-             </tr> 
-            </thead> 
-            <tbody> 
-             <tr> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>e-mail</strong></p></td> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
-             </tr> 
-             <tr> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>externalId</strong></p></td> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
-             </tr> 
-             <tr> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>lastname</strong></p></td> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
-             </tr> 
-             <tr> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong></p></td> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
-             </tr> 
-            </tbody> 
-           </table> </li> 
-          <li> <p>The Output properties are automatically configured to correspond to the NetSuite connector.</p> </li> 
-          <li> <p>Click&nbsp;<strong>Create Mapping</strong>, then drag each input data field to its corresponding output NetSuite field. Click the blank space on the canvas to save the changes.</p> </li> 
-         </ol> 
-        </div> </li> 
-       <li> <p>Add a <strong>Object to Json</strong> transformer onto the flow to capture the response from the NetSuite connector and display it as a HTTP response.&nbsp;</p> </li> 
-       <li> <p>Run the project as a Mule Application (right-click project name, then select <strong>Run As &gt; Mule Application</strong> ).&nbsp;</p> </li> 
-       <li> <p>From a browser, e nter the employee’s e-mail address, externalId, lastname, and name in the form of the following query parameters:<strong>&nbsp; <a href="http://localhost:8081/accountWithCustomFields?" class="bare">http://localhost:8081/accountWithCustomFields?</a></strong> * email&nbsp; =&lt;employee’s email address&gt; &amp;externalId=&lt;employee’s externalId&gt; &amp;lname= &lt;employee’s last name&gt;&amp;name=&lt;employee’s firstname&gt;&nbsp;*</p> </li> 
-       <li> <p>Mule conducts the query, and adds the Employee record to NetSuite.</p> </li> 
-      </ol> 
-     </div> 
-    </div> 
-    <div class="tab-pane fade no-padding" id="tab-2_2"> 
-     <div class="olist arabic"> 
-      <ol class="arabic"> 
-       <li> <p>Add a <strong>netsuite:config</strong> element to your project, then configure its attributes according to the&nbsp; table below.</p> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-       
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
-2
-</pre></td> 
-               <td class="code"><pre><span class="entity">&amp;lt;</span>netsuite:config name="NetSuite" email="email@youremail.com" password="netsuite_password" account="netsuite_account" roleId="netsuite_role" doc:name="Netsuite"<span class="entity">&amp;gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="entity">&amp;lt;</span>/netsuite:config<span class="entity">&amp;gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
-        </div> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col> 
-          <col> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Attribute</th> 
-           <th class="tableblock halign-left valign-top">Value</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">NetSuite</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>email</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">&lt;Your NetSuite Email&gt;</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>password</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">&lt;Your NetSuite password&gt;</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>account</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">&lt;Your NetSuite account&gt; (It looks similiar to TSTDRVXXXXXX.)</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>roleId</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the ID of the role you use to login in SuiteTalk, which determines the Processor privileges.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">NetSuite</p></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-       <li> <p>Create a Mule flow with an HTTP endpoint, configuring the endpoint as follows: &nbsp;</p> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-       
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
-</pre></td> 
-               <td class="code"><pre><span class="entity">&amp;lt;</span>http:inbound-endpoint exchange-pattern="request-response" host="localhost" port="8081" path="accountWithCustomFields" doc:name="HTTP"/<span class="entity">&amp;gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
-        </div> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col style="width: 50%;"> 
-          <col style="width: 50%;"> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Attribute</th> 
-           <th class="tableblock halign-left valign-top">Value</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>exchange-pattern</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">request-response</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>host</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">localhost</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>port</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">8081</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>path</strong></p></td> 
-           <td class="tableblock halign-left valign-top"> 
-            <div> 
-             <div class="paragraph"> 
-              <p><code>accountWithCustomFields</code></p> 
-             </div> 
-            </div></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">HTTP</p></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-       <li> <p>Add a <strong>set-payload</strong> element to set the message payload in the flow.</p> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-       
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
-</pre></td> 
-               <td class="code"><pre><span class="entity">&amp;lt;</span>set-payload value="#[['name':message.inboundProperties['name'],'lastname':message.inboundProperties['lastname'],'e-mail':message.inboundProperties['email'],'externalId':message.inboundProperties['externalId']]]" doc:name="Set Payload"/<span class="entity">&amp;gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
-        </div> </li> 
-       <li> <p>Add a&nbsp;<strong>data-mapper</strong> element to pass the message payload to NetSuite.</p> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-       
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
-</pre></td> 
-               <td class="code"><pre><span class="entity">&amp;lt;</span>data-mapper:transform config-ref="Map_To_EMPLOYEE" doc:name="Map To EMPLOYEE"/<span class="entity">&amp;gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
-        </div> </li> 
-       <li> <p>Add a <strong>netsuite:add-record</strong> element to your flow as follows:</p> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-       
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
-</pre></td> 
-               <td class="code"><pre><span class="entity">&amp;lt;</span>netsuite:add-record config-ref="Netsuite" doc:name="Netsuite Add Record" recordType="EMPLOYEE"/<span class="entity">&amp;gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
-        </div> </li> 
-       <li> <p>Configure the&nbsp;data-mapper&nbsp;through the Visual Editor. Switch the view to&nbsp;Message Flow view, then click the <strong>DataMapper</strong> transformer to set its properties.</p> 
-        <div class="olist loweralpha"> 
-         <ol class="loweralpha" type="a"> 
-          <li> <p>In the&nbsp;<strong>Input type</strong>, select&nbsp;<strong>Map&lt;k,v&gt;</strong>, then select&nbsp;<strong>User Defined</strong>.</p> </li> 
-          <li> <p>Click&nbsp;<strong>Create/Edit Structure</strong>. &nbsp;</p> </li> 
-          <li> <p>Enter a name for the Map, then select&nbsp;<strong>Element</strong>&nbsp;for<strong>&nbsp;Type</strong>.</p> </li> 
-          <li> <p>Add the child fields according to the table below.</p> 
-           <table class="tableblock frame-all grid-all spread"> 
-            <colgroup> 
-             <col style="width: 50%;"> 
-             <col style="width: 50%;"> 
-            </colgroup> 
-            <thead> 
-             <tr> 
-              <th class="tableblock halign-left valign-top">Name</th> 
-              <th class="tableblock halign-left valign-top">Type</th> 
-             </tr> 
-            </thead> 
-            <tbody> 
-             <tr> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>e-mail</strong></p></td> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
-             </tr> 
-             <tr> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>externalId</strong></p></td> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
-             </tr> 
-             <tr> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>lastname</strong></p></td> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
-             </tr> 
-             <tr> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong></p></td> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
-             </tr> 
-            </tbody> 
-           </table> </li> 
-         </ol> 
-        </div> </li> 
-       <li> <p>Add a <strong>json:object-to-json-transformer</strong> element to the flow to capture the response from the NetSuite connector and display it as an HTTP response.&nbsp;</p> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-       
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
-</pre></td> 
-               <td class="code"><pre><span class="entity">&amp;lt;</span>json:object-to-json-transformer doc:name="Object to JSON"/<span class="entity">&amp;gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
-        </div> </li> 
-       <li> <p>Run the project as a Mule Application (right-click project name, then select <strong>Run As &gt; Mule Application</strong>).&nbsp;</p> </li> 
-       <li> <p>From a browser, e nter the employee’s e-mail address, externalId, lastname, and name in the form of the following query parameters:<strong>&nbsp; <a href="http://localhost:8081/accountWithCustomFields" class="bare">http://localhost:8081/accountWithCustomFields</a> ?</strong> * email&nbsp;=&lt;employee’s email address&gt; &amp;externalId=&lt;employee’s externalId&gt; &amp;lname= &lt;employee’s last name&gt;&amp;name=&lt;employee’s firstname&gt;&nbsp;*</p> </li> 
-       <li> <p>Mule conducts the query, and adds the Employee record to NetSuite.</p> </li> 
-      </ol> 
-     </div> 
-    </div> 
-   </div> 
-  </div> 
-  <div class="paragraph"> 
-   <p>Example Code</p> 
-  </div> 
-  <div class="admonitionblock note"> 
-   <table> 
-    <tbody> 
-     <tr> 
-      <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-      <td class="content"> 
-       <div class="paragraph"> 
-        <p>Keep in mind that for this example code to work, you must manually configure the following values of the <strong>global NetSuite connector</strong>&nbsp;to match your instance of NetSuite:</p> 
-       </div> 
-       <div class="ulist"> 
-        <ul> 
-         <li> <p>Email</p> </li> 
-         <li> <p>Password</p> </li> 
-         <li> <p>Account</p> </li> 
-         <li> <p>Role ID</p> </li> 
-        </ul> 
-       </div> </td> 
-     </tr> 
-    </tbody> 
-   </table> 
-  </div> 
-  <div class="listingblock"> 
-   <div class="content"> 
-    <pre class="CodeRay highlight"><code data-lang="xml">
-         
-      <table class="CodeRay"> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col style="width: 50%;"> 
+        <col style="width: 50%;"> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Parameter</th> 
+         <th class="tableblock halign-left valign-top">Description</th> 
+        </tr> 
+       </thead> 
        <tbody> 
         <tr> 
-         <td class="line-numbers"><pre>1
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Enter a name for the configuration so it can be referenced later.</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Email</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the login email of the NetSuite UI.</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Password</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the corresponding password to log into NetSuite UI.</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Endpoint</strong></p></td> 
+         <td class="tableblock halign-left valign-top"> 
+          <div> 
+           <div class="paragraph"> 
+            <p>Enter the name of the service endpoint.</p> 
+           </div> 
+           <div class="paragraph"> 
+            <p>Ensure that the endpoint you enter here points to the version of NetSuite that the connector supports.&nbsp;</p> 
+           </div> 
+          </div></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Account</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the account ID of the SuiteTalk - NetSuite web services. It looks similar to TSTDRVXXXXXX.</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>RoleId</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the role ID for the user in SuiteTalk, which determines the Processor privileges.</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Connection Timeout</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the amount of time, in milliseconds, that the client must attempt to establish a connection before timing out. The default is 30000 (30 seconds). Zero (0) indicates that the client continues to attempt to open a connection indefinitely.</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Receive Timeout</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the amount of time, in milliseconds, that the client must wait for a response before timing out. The default is 60000. Zero (0) specifies that the client waits indefinitely.</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Enable DataSense</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">If you select this option, DataSense extracts metadata for NetSuite standard objects to automatically determine the data type and format that your application must deliver to, or can expect from, NetSuite. By enabling this functionality, Mule does the heavy lifting of discovering the type of data you must send to, or be prepared to receive from NetSuite. For more information, see <a href="/mule-user-guide/v/3.6/datasense">DataSense</a>.</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Default Endpoint</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the default service endpoint.</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Separator</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the separator used to support the keys that are required to provide a better support for custom fields.&nbsp;</p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>Access the&nbsp;<strong>Pooling Profile</strong>&nbsp;tab to configure any settings relevant to managing multiple connections via a connection pool.</p> </li> 
+     <li> <p>Access the&nbsp;<strong>Reconnection</strong>&nbsp;tab to configure any settings relevant to reconnection strategies that Mule should execute if it loses its connection to NetSuite.</p> </li> 
+     <li> <p>Click&nbsp;<strong>OK</strong>&nbsp;to save the global connector configurations.</p> </li> 
+     <li> <p>Return to the Message Flow tab in Studio.</p> </li> 
+    </ol> 
+   </div> 
+   <div class="sect3"> 
+    <h4 id="configuration-in-a-flow"><a class="anchor" href="#configuration-in-a-flow"></a>Configuration in a Flow</h4> 
+    <div class="paragraph"> 
+     <p>Follow these steps to configure the parameters of the NetSuite connector in the flow:</p> 
+    </div> 
+    <div class="olist arabic"> 
+     <ol class="arabic"> 
+      <li> <p>Drag the NetSuite connector onto the canvas, and double-click it to open the Properties Editor console.</p> </li> 
+      <li> <p>Configure these parameters for the connector:</p> 
+       <table class="tableblock frame-all grid-all spread"> 
+        <colgroup> 
+         <col style="width: 34%;"> 
+         <col style="width: 33%;"> 
+         <col style="width: 33%;"> 
+        </colgroup> 
+        <thead> 
+         <tr> 
+          <th class="tableblock halign-left valign-top">Field</th> 
+          <th class="tableblock halign-left valign-top">Description</th> 
+          <th class="tableblock halign-left valign-top">Default</th> 
+         </tr> 
+        </thead> 
+        <tbody> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Enter a unique label for the connector in your application.</p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Netsuite</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Config Reference</strong></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Connect to a global element linked to this connector. Global elements encapsulate reusable data about the connection to the target resource or service. Select the global NetSuite connector element that you just created.</p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"> — </p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Operation</strong></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Select the action this component must perform.</p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"> — </p></td> 
+         </tr> 
+        </tbody> 
+       </table> </li> 
+      <li> <p>Save your configurations.</p> </li> 
+     </ol> 
+    </div> 
+    <div class="literalblock"> 
+     <div class="content"> 
+      <pre>[tab,title="XML Editor"]</pre> 
+     </div> 
+    </div> 
+    <div class="paragraph"> 
+     <p>Ensure that you include the NetSuite namespaces in your configuration file.</p> 
+    </div> 
+    <div class="listingblock"> 
+     <div class="content"> 
+      <pre class="CodeRay highlight"><code data-lang="xml">
+           
+        <table class="CodeRay"> 
+         <tbody> 
+          <tr> 
+           <td class="line-numbers"><pre>1
 2
 3
 4
@@ -2019,70 +1230,553 @@
 10
 11
 12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
 </pre></td> 
-         <td class="code"><pre><span class="tag">&lt;mule</span> <span class="attribute-name">xmlns:data-mapper</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/ee/data-mapper</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:json</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/json</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:netsuite</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/netsuite</span><span class="delimiter">"</span></span>
-<span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="attribute-name">xmlns:http</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/http</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/core</span><span class="delimiter">"</span></span>
-<span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="attribute-name">xmlns:doc</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/documentation</span><span class="delimiter">"</span></span>
-<span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="attribute-name">xmlns:spring</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.springframework.org/schema/beans</span><span class="delimiter">"</span></span> <span class="attribute-name">version</span>=<span class="string"><span class="delimiter">"</span><span class="content">EE-3.6.1</span><span class="delimiter">"</span></span>
-<span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="attribute-name">xmlns:xsi</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.w3.org/2001/XMLSchema-instance</span><span class="delimiter">"</span></span>
-<span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="attribute-name">xsi:schemaLocation</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd</span>
-<span class="content">http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd</span>
-<span class="content">http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd</span>
-<span class="content">http://www.mulesoft.org/schema/mule/netsuite http://www.mulesoft.org/schema/mule/netsuite/current/mule-netsuite.xsd</span>
-<span class="content">http://www.mulesoft.org/schema/mule/ee/data-mapper http://www.mulesoft.org/schema/mule/ee/data-mapper/current/mule-data-mapper.xsd</span>
-<span class="content">http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;netsuite:config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Netsuite</span><span class="delimiter">"</span></span> <span class="attribute-name">email</span>=<span class="string"><span class="delimiter">"</span><span class="content">${email}</span><span class="delimiter">"</span></span>
-<span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="attribute-name">password</span>=<span class="string"><span class="delimiter">"</span><span class="content">${password}</span><span class="delimiter">"</span></span> <span class="attribute-name">account</span>=<span class="string"><span class="delimiter">"</span><span class="content">${account}</span><span class="delimiter">"</span></span> <span class="attribute-name">connectionTimeout</span>=<span class="string"><span class="delimiter">"</span><span class="content">50000</span><span class="delimiter">"</span></span>
-<span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="attribute-name">receiveTimeout</span>=<span class="string"><span class="delimiter">"</span><span class="content">50000</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Netsuite</span><span class="delimiter">"</span></span> <span class="attribute-name">roleId</span>=<span class="string"><span class="delimiter">"</span><span class="content">${RoleID}</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;netsuite:connection-pooling-profile</span>
-<span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="attribute-name">initialisationPolicy</span>=<span class="string"><span class="delimiter">"</span><span class="content">INITIALISE_ONE</span><span class="delimiter">"</span></span> <span class="attribute-name">exhaustedAction</span>=<span class="string"><span class="delimiter">"</span><span class="content">WHEN_EXHAUSTED_GROW</span><span class="delimiter">"</span></span> <span class="tag">/&gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/netsuite:config&gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;data-mapper:config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">JSON_To___customRecordType__21____customrecord21</span><span class="delimiter">"</span></span> <span class="attribute-name">transformationGraphPath</span>=<span class="string"><span class="delimiter">"</span><span class="content">json_to___customrecordtype__21____customrecord21.grf</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">JSON_To___customRecordType__21____customrecord21</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;data-mapper:config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Map_To_EMPLOYEE</span><span class="delimiter">"</span></span> <span class="attribute-name">transformationGraphPath</span>=<span class="string"><span class="delimiter">"</span><span class="content">map_to_employee.grf</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Map_To_EMPLOYEE</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;http:listener-config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Listener_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">host</span>=<span class="string"><span class="delimiter">"</span><span class="content">localhost</span><span class="delimiter">"</span></span> <span class="attribute-name">port</span>=<span class="string"><span class="delimiter">"</span><span class="content">8081</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP Listener Configuration</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;http:listener-config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Listener_Configuration1</span><span class="delimiter">"</span></span> <span class="attribute-name">host</span>=<span class="string"><span class="delimiter">"</span><span class="content">localhost</span><span class="delimiter">"</span></span> <span class="attribute-name">port</span>=<span class="string"><span class="delimiter">"</span><span class="content">8081</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP Listener Configuration</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;flow</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">netsuite-demoFlow1</span><span class="delimiter">"</span></span> <span class="tag">&gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;http:listener</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Listener_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">"</span><span class="content">accountWithCustomFields</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;set-payload</span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">"</span><span class="content">#[['name':message.inboundProperties['name'],'lastname':message.inboundProperties['lastname'],'e-mail':message.inboundProperties['email'],'externalId':message.inboundProperties['externalId']]]</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Set Payload</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;data-mapper:transform</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">Map_To_EMPLOYEE</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Map To EMPLOYEE</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;netsuite:add-record</span>
-<span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">Netsuite</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Netsuite Add Record</span><span class="delimiter">"</span></span> <span class="attribute-name">recordType</span>=<span class="string"><span class="delimiter">"</span><span class="content">EMPLOYEE</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;json:object-to-json-transformer</span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Object to JSON</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/flow&gt;</span>
-&nbsp;&nbsp;<span class="tag">&lt;flow</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">netsuite-demoFlow2</span><span class="delimiter">"</span></span> <span class="tag">&gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;http:listener</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Listener_Configuration1</span><span class="delimiter">"</span></span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">"</span><span class="content">customRecord</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;data-mapper:transform</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">JSON_To___customRecordType__21____customrecord21</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">JSON To __customRecordType__21____customrecord21</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;netsuite:add-record</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">Netsuite</span><span class="delimiter">"</span></span> <span class="attribute-name">recordType</span>=<span class="string"><span class="delimiter">"</span><span class="content">__customRecordType__21____customrecord21</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Netsuite</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;json:object-to-json-transformer</span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Object to JSON</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
-&nbsp;&nbsp;<span class="tag">&lt;/flow&gt;</span>
+           <td class="code"><pre><span class="tag">&lt;mule</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/core</span><span class="delimiter">"</span></span>
+<span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="attribute-name">xmlns:xsi</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.w3.org/2001/XMLSchema-instance</span><span class="delimiter">"</span></span>
+<span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="attribute-name">xmlns:netsuite</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/netsuite</span><span class="delimiter">"</span></span>
+<span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="attribute-name">xsi:schemaLocation</span>=<span class="string"><span class="delimiter">"</span>
+<span class="content">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://www.mulesoft.org/schema/mule/core</span>
+<span class="content">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://www.mulesoft.org/schema/mule/core/current/mule.xsd</span>
+<span class="content">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://www.mulesoft.org/schema/mule/netsuite</span>
+<span class="content">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://www.mulesoft.org/schema/mule/netsuite/current/mule-netsuite.xsd</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">&lt;!-- Your flows and configuration elements --&gt;</span>
+&nbsp;
 <span class="tag">&lt;/mule&gt;</span></pre></td> 
-        </tr> 
-       </tbody> 
-      </table></code></pre> 
+          </tr> 
+         </tbody> 
+        </table></code></pre> 
+     </div> 
+    </div> 
+    <div class="paragraph"> 
+     <p>Follow these steps to configure a NetSuite connector in your application:</p> 
+    </div> 
+    <div class="olist arabic"> 
+     <ol class="arabic"> 
+      <li> <p>Create a global NetSuite configuration outside and above your flows, using the following global configuration code:</p> 
+       <div class="listingblock"> 
+        <div class="content"> 
+         <pre class="CodeRay highlight"><code data-lang="xml">
+              
+           <table class="CodeRay"> 
+            <tbody> 
+             <tr> 
+              <td class="line-numbers"><pre>1
+2
+</pre></td> 
+              <td class="code"><pre><span class="comment">&lt;!-- Simple configuration --&gt;</span>
+<span class="tag">&lt;netsuite:config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Netsuite</span><span class="delimiter">"</span></span> <span class="attribute-name">email</span>=<span class="string"><span class="delimiter">"</span><span class="content">Your NetSuite email</span><span class="delimiter">"</span></span> <span class="attribute-name">password</span>=<span class="string"><span class="delimiter">"</span><span class="content">Your NetSuite password</span><span class="delimiter">"</span></span> <span class="attribute-name">account</span>=<span class="string"><span class="delimiter">"</span><span class="content">Your Netsuite account name</span><span class="delimiter">"</span></span> <span class="attribute-name">roleId</span>=<span class="string"><span class="delimiter">"</span><span class="content">The id of your NetSuite role</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Netsuite</span><span class="delimiter">"</span></span><span class="tag">&gt;</span></pre></td> 
+             </tr> 
+            </tbody> 
+           </table></code></pre> 
+        </div> 
+       </div> </li> 
+      <li> <p>Build your application flow, then add a NetSuite connector using one of these operations: &nbsp;</p> 
+       <table class="tableblock frame-all grid-all spread"> 
+        <colgroup> 
+         <col style="width: 50%;"> 
+         <col style="width: 50%;"> 
+        </colgroup> 
+        <thead> 
+         <tr> 
+          <th class="tableblock halign-left valign-top">Operation</th> 
+          <th class="tableblock halign-left valign-top">Description</th> 
+         </tr> 
+        </thead> 
+        <tbody> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_add-file">&lt;netsuite:add-file&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Creates a new NetSuite file record.</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_add-list">&lt;netsuite:add-list&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"> 
+           <div> 
+            <div class="paragraph"> 
+             <p>Adds one or more records in the system.</p> 
+            </div> 
+            <div class="paragraph"> 
+             <p>The attributes that define each record can either be the POJOs corresponding to the fields in the record or a map that represents it.</p> 
+            </div> 
+           </div></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_add-record">&lt;netsuite:add-record&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Creates a new record of the specified type.</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_add-record-objects">&lt;netsuite:add-record-objects&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Creates new records of the specified type.</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_async-add-list">&lt;netsuite:async-add-list&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Specifies an asynchronous request equivalent to&nbsp;`addRecord(String, Map, Preferences) `</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_async-delete-list">&lt;netsuite:async-delete-list&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Specifies an asynchronous request equivalent to&nbsp;`deleteList(List, Preferences) `</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_async-delete-list-records">&lt;netsuite:async-delete-list-records&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Specifies an asynchronous request equivalent to&nbsp;`deleteList(List, Preferences) `</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_async-get-list">&lt;netsuite:async-get-list&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Specifies an asynchronous request equivalent to&nbsp;`getList(List, Preferences) `</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_async-get-list-records">&lt;netsuite:async-get-list-records&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Specifies an asynchronous request equivalent to&nbsp;`getList(List, Preferences) `</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_async-initialize-list">&lt;netsuite:async-initialize-list&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Specifies an asynchronous request equivalent to&nbsp;`initialize(InitializeRecord, Preferences) `</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_async-search">&lt;netsuite:async-search&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Searches for all records that match the given filtering expression, asynchronously.</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_async-update-list">&lt;netsuite:async-update-list&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Specifies an asynchronous request equivalent to&nbsp;`updateRecord(String, Map, Preferences) `</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_async-upsert-list">&lt;netsuite:async-upsert-list&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Specifies an asynchronous request equivalent to&nbsp;`upsertRecord(String, Map, Preferences) `</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_attach-record">&lt;netsuite:attach-record&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Adds a source contact record to a destination record as an attachment.</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_change-email">&lt;netsuite:change-email&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Changes the email address for the NetSuite account.</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_change-password">&lt;netsuite:change-password&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Changes the password for the NetSuite account.</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_check-async-status">&lt;netsuite:check-async-status&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Returns the status of an asynchronous web services submission.</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_delete">&lt;netsuite:delete&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"> 
+           <div> 
+            <div class="paragraph"> 
+             <p>Deletes a record with the specified BaseRef.</p> 
+            </div> 
+            <div class="paragraph"> 
+             <p>Not all records can be deleted from the system.</p> 
+            </div> 
+           </div></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_delete-list">&lt;netsuite:delete-list&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Deletes one or more records in the system. The records to be deleted are identified through the specified unique identifiers.</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_delete-record">&lt;netsuite:delete-record&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"> 
+           <div> 
+            <div class="paragraph"> 
+             <p>Deletes a record from the system with the specified RecordRef.</p> 
+            </div> 
+            <div class="paragraph"> 
+             <p>Not all records can be deleted from the system.</p> 
+            </div> 
+           </div></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_delete-records-list">&lt;netsuite:delete-records-list&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Deletes one or more records from the system. The records to be deleted are identified through the provided unique identifiers.</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_detach-record">&lt;netsuite:detach-record&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Detaches a source record from a destination record.</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_get">&lt;netsuite:get&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves a record by providing the unique ID for the record.</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_get-async-result">&lt;netsuite:get-async-result&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Returns the results of an asynchronous web services submission.</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_get-budget-exchange-rates">&lt;netsuite:get-budget-exchange-rates&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Returns the list of budget exchange rates.</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_get-consolidated-exchange-rates">&lt;netsuite:get-consolidated-exchange-rates&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Returns the list of consolidated exchange rates.</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_get-current-rate">&lt;netsuite:get-current-rate&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Gets the exchange rate between two currencies based on a certain date.</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_get-custom-record">&lt;netsuite:get-custom-record&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves a custom record by providing the unique ID for the record.</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_get-customization-ids">&lt;netsuite:get-customization-ids&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Returns the IDs of available customizations for a given record type.</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_get-data-center-urls">&lt;netsuite:get-data-center-urls&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Gets datacenter URLS - use for dynamic discovery of datacenter-specific URLs to access NetSuite as partner applications.</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_get-deleted-records">&lt;netsuite:get-deleted-records&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Returns a list of deleted records of the specified record type that match a given date expression.</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_get-item-availability">&lt;netsuite:get-item-availability&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Returns the availability of a given record reference.</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_get-list">&lt;netsuite:get-list&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves a list of objects referenced in the list of BaseRef object.</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_get-posting-transaction-summary">&lt;netsuite:get-posting-transaction-summary&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves a summary of the actual data in an account.</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">&lt;<a href="http://netsuiteget-record">netsuite:get-record</a>&gt;</p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves a record by providing the unique ID for the record.</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_get-records">&lt;netsuite:get-records&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves a list of all records of the specified type.</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_get-saved-search">&lt;netsuite:get-saved-search&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves a list of existing saved searches for the given record type.</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_get-select-value">&lt;netsuite:get-select-value&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves valid values for a given recordRef field where the referenced record type is not yet exposed in the web services API or when the logged in role does not have permission to the instances of the record type.</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_get-server-time">&lt;netsuite:get-server-time&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Returns the server time, resulting in more accurate and reliable synchronization of data than using local client time.</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_initialize">&lt;netsuite:initialize&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Populates fields on transaction line items with values from a related record in a way similar to how empty text boxes are pre-populated within the Netsuite UI.</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_initialize-list">&lt;netsuite:initialize-list&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Emulates the UI workflow by pre-populating fields on transaction line items with values from a related record.</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_map-sso">&lt;netsuite:map-sso&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Automates the mapping between external application credentials and NetSuite’s credentials for a user.</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_query-as-native-result">&lt;netsuite:query-as-native-result&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Returns a SearchResult containing a list of records or columns matching the specified query.</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_query-records">&lt;netsuite:query-records&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Returns a list of records.</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_search">&lt;netsuite:search&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Executes a search on a specific record type based on a set of criteria.</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_search-more">&lt;netsuite:search-more&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves more records after an initial search operation.</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_search-more-with-id">&lt;netsuite:search-more-with-id&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">References a specific search result set by its searchId - a parameter included in all search results.</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_search-next">&lt;netsuite:search-next&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves the next set of records after an initial search operation.</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_search-with-expression">&lt;netsuite:search-with-expression&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Executes a search on a specific record type based on a set of criteria.</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_sso-login">&lt;netsuite:sso-login&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Establishes a single sign-on connection.</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_update-invitee-status">&lt;netsuite:update-invitee-status&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Sets a new invitation status for a given event.</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_update-invitee-status-list">&lt;netsuite:update-invitee-status-list&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Sets a new invitation status for a given event.</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_update-list">&lt;netsuite:update-list&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Updates one or more existing records in the system by providing new values for some fields in the records.</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_update-record">&lt;netsuite:update-record&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Updates an existing record.</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_update-records-list">&lt;netsuite:update-records-list&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Updates one or more existing records in the system by providing a list of records.</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_upsert-list">&lt;netsuite:upsert-list&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Updates one or more instances of a record type in the system.</p></td> 
+         </tr> 
+         <tr> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/netsuite-connector/7.3.0/apidocs/netsuite-apidoc.html#_upsert-record">&lt;netsuite:upsert-record&gt;</a></p></td> 
+          <td class="tableblock halign-left valign-top"><p class="tableblock">Adds a new instance or updates an instance of a record in the system.</p></td> 
+         </tr> 
+        </tbody> 
+       </table> </li> 
+     </ol> 
+    </div> 
+    <div class="literalblock"> 
+     <div class="content"> 
+      <pre>------
+
+== Example Use Case
+
+Add a new Employee record in NetSuite using a Mule application.&nbsp;
+
+image:NetSuiteDemoFlow.png[NetSuiteDemoFlow]
+
+. Drag an *HTTP* connector into a new flow, click the green plus to the right of Connector Configuration and set the values to: Host: *localhost* and Port: **8081**. Click *OK*. In the Basic Settings, set the *Path* to *accountWithCustomFields*.
+
++
+image:HTTPSettings.png[HTTPSettings]
++
+
+. Add a *Set Payload* transformer after the HTTP connector to process the message payload.&nbsp;Configure the transformer as shown below.
++
+image:setpayload.jpg[setpayload]
++
+
+[%header%autowidth.spread]
+|===
+|Field |Value
+|*Display Name* |Set Payload (or any other name you prefer)
+|*Value* |`#&nbsp;[['name':message.inboundProperties['name'],'lastname':message.inboundProperties['lastname'],'e-mail':message.inboundProperties['email'],'externalId':message.inboundProperties['externalId']]]`
+|===
++
+
+. Drag the *NetSuite* connector onto the canvas, then select it to open the properties editor console.
+. Click the&nbsp;plus sign next to the&nbsp;*Connector Configuration* field to add a new NetSuite global element.
++
+image:global+element.jpg[global+element]
++
+. Configure the global element as follows:
++
+[%header%autowidth.spread]
+|===
+|Field |Value
+|*Name* |NetSuite (or any other name you prefer)
+|*Email* |&lt;Your NetSuite Email&gt;
+|*Password* |&lt;Your NetSuite password&gt;
+|*Account* |&lt;Your NetSuite account&gt; (It looks similiar to TSTDRVXXXXXX.)
+|*Role Id* |Enter the id of the role you use to login in SuiteTalk, which determines the Processor privileges.
+|===
++
+. In the properties editor of the NetSuite connector, configure the remaining parameters:
++
+image:Configuration.jpg[Configuration]
++
+[%header%autowidth.spread]
+|===
+|Field |Value
+|*Display Name* |NetSuite (or any other name you prefer)
+|*Config Reference* |NetSuite (name of the global element you have created)
+|*Operation* |Add record
+|*Record Type* |Employee
+|===
++
+. Drag a *DataMapper* transformer between the Set Payload transformer and the NetSuite connector, then click it to open its properties editor.
+. Configure its Input properties according to the steps below. +
+.. In the&nbsp;*Input type*, select&nbsp;**Map&lt;k,v&gt;**, then select&nbsp;*User Defined*.
+.. Click&nbsp;**Create/Edit Structure**. &nbsp;
+.. Enter a name for the Map, then select&nbsp;*Element*&nbsp;for**&nbsp;Type**.
+.. Add the child fields according to the table below.
++
+[%header,cols="2*"]
+|===
+a|
+Name
+
+ a|
+Type
+
+|*e-mail* |String
+|*externalId* |String
+|*lastname* |String
+|*name* |String
+|===
++
+.. The Output properties are automatically configured to correspond to the NetSuite connector.
+.. Click&nbsp;*Create Mapping*, then drag each input data field to its corresponding output NetSuite field. Click the blank space on the canvas to save the changes.
+. Add a *Object to Json* transformer onto the flow to capture the response from the NetSuite connector and display it as a HTTP response.&nbsp;
+. Run the project as a Mule Application (right-click project name, then select *Run As &gt; Mule Application* ).&nbsp;
+. From a browser, e nter the employee's e-mail address, externalId, lastname, and name in the form of the following query parameters:**&nbsp; http://localhost:8081/accountWithCustomFields?** * email&nbsp; =&lt;employee's email address&gt; &amp;externalId=&lt;employee's externalId&gt; &amp;lname= &lt;employee's last name&gt;&amp;name=&lt;employee's firstname&gt;&nbsp;*
+. Mule conducts the query, and adds the Employee record to NetSuite.
+
+=== XML Editor
+
+. Add a *netsuite:config* element to your project, then configure its attributes according to the&nbsp; table below.
++
+
+[source, xml, linenums]
+----
+&lt;netsuite:config name="NetSuite" email="email@youremail.com" password="netsuite_password" account="netsuite_account" roleId="netsuite_role" doc:name="Netsuite"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/netsuite:config&gt;
+----
+
++
+[%header%autowidth.spread]
+|===
+|Attribute |Value
+|*name* |NetSuite
+|*email* |&lt;Your NetSuite Email&gt;
+|*password* |&lt;Your NetSuite password&gt;
+|*account* |&lt;Your NetSuite account&gt; (It looks similiar to TSTDRVXXXXXX.)
+|*roleId* |Enter the ID of the role you use to login in SuiteTalk, which determines the Processor privileges.
+|*doc:name* |NetSuite
+|===
+.  Create a Mule flow with an HTTP endpoint, configuring the endpoint as follows: &nbsp;
++
+
+[source, xml, linenums]
+----
+&lt;http:inbound-endpoint exchange-pattern="request-response" host="localhost" port="8081" path="accountWithCustomFields" doc:name="HTTP"/&gt;
+----
+
++
+[%header,cols="2*"]
+|===
+|Attribute |Value
+|*exchange-pattern* |request-response
+|*host* |localhost
+|*port* |8081
+|*path* a|`accountWithCustomFields` |*doc:name* |HTTP
+|===
+. Add a *set-payload* element to set the message payload in the flow.
++
+
+[source, xml, linenums]
+----
+&lt;set-payload value="#[['name':message.inboundProperties['name'],'lastname':message.inboundProperties['lastname'],'e-mail':message.inboundProperties['email'],'externalId':message.inboundProperties['externalId']]]" doc:name="Set Payload"/&gt;
+----
+
+. Add a&nbsp;**data-mapper** element to pass the message payload to NetSuite.
++
+
+[source, xml, linenums]
+----
+&lt;data-mapper:transform config-ref="Map_To_EMPLOYEE" doc:name="Map To EMPLOYEE"/&gt;
+----
+
+. Add a *netsuite:add-record* element to your flow as follows:
++
+
+[source, xml, linenums]
+----
+&lt;netsuite:add-record config-ref="Netsuite" doc:name="Netsuite Add Record" recordType="EMPLOYEE"/&gt;
+----
+
+. Configure the&nbsp;data-mapper&nbsp;through the Visual Editor. Switch the view to&nbsp;Message Flow view, then click the *DataMapper* transformer to set its properties.
+.. In the&nbsp;*Input type*, select&nbsp;**Map&lt;k,v&gt;**, then select&nbsp;*User Defined*.
+.. Click&nbsp;**Create/Edit Structure**. &nbsp;
+.. Enter a name for the Map, then select&nbsp;*Element*&nbsp;for**&nbsp;Type**.
+.. Add the child fields according to the table below.
++
+[%header,cols="2*"]
+|===
+a|
+Name
+
+ a|
+Type
+
+|*e-mail* |String
+|*externalId* |String
+|*lastname* |String
+|*name* |String
+|===
+. Add a *json:object-to-json-transformer* element to the flow to capture the response from the NetSuite connector and display it as an HTTP response.&nbsp;
++
+
+[source, xml, linenums]
+----
+&lt;json:object-to-json-transformer doc:name="Object to JSON"/&gt;
+----
+
+. Run the project as a Mule Application (right-click project name, then select **Run As &gt; Mule Application**).&nbsp;
+. From a browser, e nter the employee's e-mail address, externalId, lastname, and name in the form of the following query parameters:**&nbsp; http://localhost:8081/accountWithCustomFields ?** * email&nbsp;=&lt;employee's email address&gt; &amp;externalId=&lt;employee's externalId&gt; &amp;lname= &lt;employee's last name&gt;&amp;name=&lt;employee's firstname&gt;&nbsp;*
+. Mule conducts the query, and adds the Employee record to NetSuite.</pre> 
+     </div> 
+    </div> 
+    <div class="listingblock"> 
+     <div class="content"> 
+      <pre>Example Code
+
+[NOTE]
+====
+Keep in mind that for this example code to work, you must manually configure the following values of the *global NetSuite connector*&nbsp;to match your instance of NetSuite:
+
+* Email
+* Password
+* Account
+* Role ID
+====
+
+[source, xml, linenums]
+----
+&lt;mule xmlns:data-mapper="http://www.mulesoft.org/schema/mule/ee/data-mapper" xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:netsuite="http://www.mulesoft.org/schema/mule/netsuite"
+&nbsp;&nbsp;&nbsp;&nbsp;xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+&nbsp;&nbsp;&nbsp;&nbsp;xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+&nbsp;&nbsp;&nbsp;&nbsp;xmlns:spring="http://www.springframework.org/schema/beans"
+&nbsp;&nbsp;&nbsp;&nbsp;xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+&nbsp;&nbsp;&nbsp;&nbsp;xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/netsuite http://www.mulesoft.org/schema/mule/netsuite/current/mule-netsuite.xsd
+http://www.mulesoft.org/schema/mule/ee/data-mapper http://www.mulesoft.org/schema/mule/ee/data-mapper/current/mule-data-mapper.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;netsuite:config name="Netsuite" email="${email}"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;password="${password}" account="${account}" connectionTimeout="50000"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;receiveTimeout="50000" doc:name="Netsuite" roleId="${RoleID}"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;netsuite:connection-pooling-profile
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;initialisationPolicy="INITIALISE_ONE" exhaustedAction="WHEN_EXHAUSTED_GROW" /&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/netsuite:config&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;data-mapper:config name="JSON_To___customRecordType__21____customrecord21" transformationGraphPath="json_to___customrecordtype__21____customrecord21.grf" doc:name="JSON_To___customRecordType__21____customrecord21"/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;data-mapper:config name="Map_To_EMPLOYEE" transformationGraphPath="map_to_employee.grf" doc:name="Map_To_EMPLOYEE"/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;http:listener-config name="HTTP_Listener_Configuration" host="localhost" port="8081" doc:name="HTTP Listener Configuration"/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;http:listener-config name="HTTP_Listener_Configuration1" host="localhost" port="8081" doc:name="HTTP Listener Configuration"/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;flow name="netsuite-demoFlow1" &gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;http:listener config-ref="HTTP_Listener_Configuration" path="accountWithCustomFields" doc:name="HTTP"/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;set-payload value="#[['name':message.inboundProperties['name'],'lastname':message.inboundProperties['lastname'],'e-mail':message.inboundProperties['email'],'externalId':message.inboundProperties['externalId']]]" doc:name="Set Payload"/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;data-mapper:transform config-ref="Map_To_EMPLOYEE" doc:name="Map To EMPLOYEE"/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;netsuite:add-record
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;config-ref="Netsuite" doc:name="Netsuite Add Record" recordType="EMPLOYEE"/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;json:object-to-json-transformer doc:name="Object to JSON"/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/flow&gt;
+&nbsp;&nbsp;&lt;flow name="netsuite-demoFlow2" &gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;http:listener config-ref="HTTP_Listener_Configuration1" path="customRecord" doc:name="HTTP"/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;data-mapper:transform config-ref="JSON_To___customRecordType__21____customrecord21" doc:name="JSON To __customRecordType__21____customrecord21"/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;netsuite:add-record config-ref="Netsuite" recordType="__customRecordType__21____customrecord21" doc:name="Netsuite"/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;json:object-to-json-transformer doc:name="Object to JSON"/&gt;
+&nbsp;&nbsp;&lt;/flow&gt;
+&lt;/mule&gt;
+----</pre> 
+     </div> 
+    </div> 
    </div> 
   </div> 
  </div> 
@@ -2091,7 +1785,7 @@
     <!-- END article-content -->
     <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
                 <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#prerequisites">Prerequisites</a></li><li><a class="scroll-menu-link" href="#installing-the-netsuite-connector-in-anypoint-studio">Installing the NetSuite Connector in Anypoint Studio</a></li><li><a class="scroll-menu-link" href="#configuring-the-netsuite-connector">Configuring the NetSuite Connector</a></li><li><a class="scroll-menu-link" href="#example-use-case">Example Use Case</a></li></ul></div></div><!-- /scroll-menu -->
+                <ul><li><a class="scroll-menu-link" href="#prerequisites">Prerequisites</a></li><li><a class="scroll-menu-link" href="#installing-the-netsuite-connector-in-anypoint-studio">Installing the NetSuite Connector in Anypoint Studio</a></li><li><a class="scroll-menu-link" href="#configuring-the-netsuite-connector">Configuring the NetSuite Connector</a></li></ul></div></div><!-- /scroll-menu -->
   </div>
 </div>
 <!-- START footer -->
