@@ -1040,7 +1040,10 @@
    <p>The Anypoint Connector for Workday is a closed source Enterprise connector which provides a connection between Workday and third party software. It interfaces with the Human Capital Management, Financial Management, Student, and System web services.</p> 
   </div> 
   <div class="paragraph"> 
-   <p><strong>Release Notes</strong>: <a href="/release-notes/workday-connector-release-notes#version-5-0-july-1-2015">Workday Connector Release Notes</a>.</p> 
+   <p><strong>Release Notes</strong>: <a href="/release-notes/workday-connector-release-notes#version-5-0-july-1-2015">Workday Connector Release Notes</a></p> 
+  </div> 
+  <div class="paragraph"> 
+   <p><strong>Reference:</strong> <a href="http://mulesoft.github.io/workday-connector">Workday Connector</a></p> 
   </div> 
  </div> 
 </div> 
@@ -1057,7 +1060,7 @@
    </ul> 
   </div> 
   <div class="paragraph"> 
-   <p>This document also assumes that you are familiar with Mule, <a href="/mule-user-guide/v/3.6/anypoint-connectors">Anypoint Connectors</a>, and the <a href="/anypoint-studio/v/6/index">Anypoint Studio interface</a>. To increase your familiarity with Studio, consider completing one or more Anypoint Studio Tutorials. Further, this page assumes that you have a basic understanding of <a href="/mule-user-guide/v/3.6/elements-in-a-mule-flow">Mule flows</a> and <a href="/mule-user-guide/v/3.6/global-elements">Mule Global Elements</a>. This document describes implementation examples within the context of Anypoint Studio, Mule ESB’s graphical user interface, and, in parallel, includes configuration details for doing the same in the XML Editor.</p> 
+   <p>This document also assumes that you are familiar with Mule, <a href="/mule-user-guide/v/3.6/anypoint-connectors">Anypoint Connectors</a>, and the <a href="/anypoint-studio/v/6/index">Anypoint Studio interface</a>. To increase your familiarity with Studio, consider completing one or more Anypoint Studio Tutorials. Further, this page assumes that you have a basic understanding of <a href="/mule-user-guide/v/3.6/elements-in-a-mule-flow">Mule flows</a> and <a href="/mule-user-guide/v/3.6/global-elements">Mule Global Elements</a>. This document describes implementation examples within the context of the Anypoint Studio Visual Editor and includes configuration details for doing the same in the XML Editor.</p> 
   </div> 
  </div> 
 </div> 
@@ -1131,7 +1134,7 @@
   <div class="sect2"> 
    <h3 id="installing"><a class="anchor" href="#installing"></a>Installing</h3> 
    <div class="paragraph"> 
-    <p>You can install a connector in Anypoint Studio using the instructions in <a href="/getting-started/anypoint-exchange#installing-a-connector-from-anypoint-exchange">Installing a Connector from Anypoint Exchange</a>. However, to use the Workday Connector in a production environment, you must have either:</p> 
+    <p>You can install a connector in Anypoint Studio using the instructions in <a href="/mule-user-guide/v/3.6/installing-connectors">To Install a Connector from Anypoint Exchange</a>. However, to use the Workday Connector in a production environment, you must have either:</p> 
    </div> 
    <div class="ulist"> 
     <ul> 
@@ -1140,7 +1143,10 @@
     </ul> 
    </div> 
    <div class="paragraph"> 
-    <p>Contact the <a href="/mule-user-guide/v/3.6/siebel-connector">MuleSoft Sales Team</a> to obtain either of these. (Read more about <a href="/mule-user-guide/v/3.6/installing-an-enterprise-license">Installing an Enterprise License</a>.) Click <strong>Restart Now</strong> to complete the installation. After you install the connector and restart Studio, you can see several new message processors available in the palette, all under the Connectors category.</p> 
+    <p>Contact the MuleSoft Sales Team to obtain either of these.</p> 
+   </div> 
+   <div class="paragraph"> 
+    <p>Click <strong>Restart Now</strong> to complete the installation. After you install the connector and restart Studio, you can see several new message processors available in the palette, all under the Connectors category.</p> 
    </div> 
    <div class="paragraph"> 
     <p><span class="image"><img src="./_images/wd_palette.png" alt="wd_palette"></span></p> 
@@ -2641,7 +2647,7 @@ return getWorkersType;
 43
 </pre></td> 
          <td class="code"><pre><span class="tag">&lt;mule</span> <span class="attribute-name">xmlns:data-mapper</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/ee/data-mapper</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:file</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/file</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:wd-hr</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/wd-hr</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:scripting</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/scripting</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:http</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/http</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:tracking</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/ee/tracking</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/core</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:doc</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/documentation</span><span class="delimiter">"</span></span>
-    <span class="attribute-name">xmlns:spring</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.springframework.org/schema/beans</span><span class="delimiter">"</span></span> <span class="attribute-name">version</span>=<span class="string"><span class="delimiter">"</span><span class="content">EE-3.6.0</span><span class="delimiter">"</span></span>
+    <span class="attribute-name">xmlns:spring</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.springframework.org/schema/beans</span><span class="delimiter">"</span></span>
     <span class="attribute-name">xmlns:xsi</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.w3.org/2001/XMLSchema-instance</span><span class="delimiter">"</span></span>
     <span class="attribute-name">xsi:schemaLocation</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd</span>
 <span class="content">http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd</span>
@@ -2694,7 +2700,7 @@ getWorkersType.setResponseFilter(responseFilterType);
   <div class="ulist"> 
    <ul> 
     <li> <p>Learn about the <a href="/mule-user-guide/v/3.6/datamapper-concepts">DataMapper transformer</a>.</p> </li> 
-    <li> <p>Read advanced information about the <a href="http://mulesoft.github.io/workday-connector/mule/modules.html">Workday Connector</a>, including schema, attributes and security details.</p> </li> 
+    <li> <p>Read advanced information about the <a href="http://mulesoft.github.io/workday-connector">Workday Connector</a>, including schema, attributes and security details.</p> </li> 
     <li> <p>Read more about <a href="/mule-user-guide/v/3.6/anypoint-connectors">Anypoint Connectors</a>.</p> </li> 
    </ul> 
   </div> 

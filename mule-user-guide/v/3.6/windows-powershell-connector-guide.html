@@ -1037,7 +1037,7 @@
    <p><strong>Standard</strong></p> 
   </div> 
   <div class="paragraph"> 
-   <p><a href="http://en.wikipedia.org/wiki/Windows_PowerShell">Windows PowerShell</a> lets you automate tasks and create configuration management scripts.&nbsp;The PowerShell connector enables Windows OS administration tasks to be integrated into Mule applications. PowerShell scripts may be executed on a remote Windows machine using the <a href="/mule-user-guide/v/3.6/windows-gateway-services-guide">Windows Gateway Service</a> and the result processed within Mule.&nbsp;</p> 
+   <p>Windows PowerShell lets you automate tasks and create configuration management scripts.&nbsp;The PowerShell connector enables Windows OS administration tasks to be integrated into Mule applications. PowerShell scripts may be executed on a remote Windows machine using the <a href="/mule-user-guide/v/3.6/windows-gateway-services-guide">Windows Gateway Service</a> and the result processed within Mule.&nbsp;</p> 
   </div> 
   <div class="paragraph"> 
    <p><strong>Questions</strong>? &nbsp;See the <a href="#frequently-asked-questions-faq">Frequently Asked Questions - FAQ</a>.</p> 
@@ -1101,7 +1101,7 @@
   <div class="olist arabic"> 
    <ol class="arabic"> 
     <li> <p>Download and install the <a href="https://repository-master.mulesoft.org/nexus/content/repositories/releases/org/mule/modules/anypoint-windows-gateway-service/1.4.0/anypoint-windows-gateway-service-1.4.0.zip">Windows Gateway Services software</a>.</p> </li> 
-    <li> <p>You can install a connector in Anypoint Studio using the instructions in&nbsp; <a href="/getting-started/anypoint-exchange#installing-a-connector-from-anypoint-exchange">Installing a Connector from Anypoint Exchange</a>.</p> </li> 
+    <li> <p>You can install a connector in Anypoint Studio using the instructions in&nbsp;<a href="/mule-user-guide/v/3.6/installing-connectors">To Install a Connector from Anypoint Exchange</a>.</p> </li> 
     <li> <p>Search for <strong>powershell</strong> and drag the <strong>Windows PowerShell</strong> connector to the Canvas to the right of the HTTP connector.&nbsp;</p> </li> 
     <li> <p>Click the <strong>Powershell</strong> connector, click the green plus symbol, and set these values:</p> 
      <div class="paragraph"> 
@@ -1167,7 +1167,7 @@
       </div> 
      </div> 
      <div class="paragraph"> 
-      <p>This command&nbsp;invokes the&nbsp; <strong>Get-Service</strong> &nbsp;command to return information about a Windows Service. The&nbsp; <strong>-Name</strong> &nbsp;argument resolves us ing the query string parameter name set by the HTTP Connector. For example, the following URL gets information about the ASP.NET Session State service:&nbsp; <a href="http://localhost:8081/?name=aspnet_state" class="bare">http://localhost:8081/?name=aspnet_state</a>[<a href="http://localhost:8081/?name=aspnet_state" class="bare">http://localhost:8081/?name=aspnet_state</a></p> 
+      <p>This command&nbsp;invokes the&nbsp; <strong>Get-Service</strong> &nbsp;command to return information about a Windows Service. The&nbsp; <strong>-Name</strong> &nbsp;argument resolves us ing the query string parameter name set by the HTTP Connector. For example, the following URL gets information about the ASP.NET Session State service:&nbsp; <code>http://localhost:8081/?name=aspnet_state</code></p> 
      </div> </li> 
     <li> <p>Search for&nbsp; <strong>object</strong> &nbsp;and drag the&nbsp; <strong>Object to JSON</strong> &nbsp;transformer to the Canvas to the right of the PowerShell connector icon. No settings are necessary. The Canvas appears as:</p> 
      <div class="paragraph"> 
@@ -1202,7 +1202,7 @@
 15
 </pre></td> 
          <td class="code"><pre><span class="tag">&lt;mule</span> <span class="attribute-name">xmlns:http</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/http</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:powershell</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/powershell</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/core</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:doc</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/documentation</span><span class="delimiter">"</span></span>
-    <span class="attribute-name">xmlns:spring</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.springframework.org/schema/beans</span><span class="delimiter">"</span></span> <span class="attribute-name">version</span>=<span class="string"><span class="delimiter">"</span><span class="content">CE-3.6.1</span><span class="delimiter">"</span></span>
+    <span class="attribute-name">xmlns:spring</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.springframework.org/schema/beans</span><span class="delimiter">"</span></span>
     <span class="attribute-name">xmlns:xsi</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.w3.org/2001/XMLSchema-instance</span><span class="delimiter">"</span></span>
     <span class="attribute-name">xsi:schemaLocation</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd</span>
 <span class="content">http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd</span>
@@ -1230,7 +1230,7 @@
    <ol class="arabic"> 
     <li> <p>Click <strong>Run</strong> &gt; <strong>Run As</strong> &gt; <strong>Mule Application</strong>.</p> </li> 
     <li> <p>Check the console to see that the application starts and that there are no errors.</p> </li> 
-    <li> <p>Open in a browser:&nbsp;<code><a href="http://localhost:8081/?name=aspnet_state" class="bare">http://localhost:8081/?name=aspnet_state</a></code></p> 
+    <li> <p>Open in a browser:&nbsp;<code>http://localhost:8081/?name=aspnet_state</code></p> 
      <div class="paragraph"> 
       <p><strong>Note</strong>: This sample assumes there is an <code>aspnet_state</code> windows service running on the host, but any other Windows service can also be used.</p> 
      </div> </li> 
@@ -1723,46 +1723,46 @@ param(
 <div class="sect1"> 
  <h2 id="frequently-asked-questions-faq"><a class="anchor" href="#frequently-asked-questions-faq"></a>Frequently Asked Questions - FAQ</h2> 
  <div class="sectionbody"> 
-  <div class="sect4"> 
-   <h5 id="what-can-i-do-with-the-powershell-connector"><a class="anchor" href="#what-can-i-do-with-the-powershell-connector"></a>What can I do with the PowerShell connector?</h5> 
+  <div class="sect2"> 
+   <h3 id="what-can-i-do-with-the-powershell-connector"><a class="anchor" href="#what-can-i-do-with-the-powershell-connector"></a>What can I do with the PowerShell connector?</h3> 
    <div class="paragraph"> 
     <p>Any arbitrary PowerShell script may be executed on a target Windows OS host, with the resultant object graph being returned to Mule for processing.</p> 
    </div> 
   </div> 
-  <div class="sect4"> 
-   <h5 id="can-i-use-the-powershell-connector-on-a-non-windows-platform"><a class="anchor" href="#can-i-use-the-powershell-connector-on-a-non-windows-platform"></a>Can I use the PowerShell connector on a non-Windows platform?</h5> 
+  <div class="sect2"> 
+   <h3 id="can-i-use-the-powershell-connector-on-a-non-windows-platform"><a class="anchor" href="#can-i-use-the-powershell-connector-on-a-non-windows-platform"></a>Can I use the PowerShell connector on a non-Windows platform?</h3> 
    <div class="paragraph"> 
     <p>Yes, the PowerShell connector passes the script contents to the <a href="/mule-user-guide/v/3.6/windows-gateway-services-guide">Windows Gateway Service</a> for execution so can be run on any platform.</p> 
    </div> 
   </div> 
-  <div class="sect4"> 
-   <h5 id="do-i-have-to-install-the-windows-gateway-service-on-each-machine-i-wish-to-run-powershell-scripts-on"><a class="anchor" href="#do-i-have-to-install-the-windows-gateway-service-on-each-machine-i-wish-to-run-powershell-scripts-on"></a>Do I have to install the Windows Gateway Service on each machine I wish to run PowerShell scripts on?</h5> 
+  <div class="sect2"> 
+   <h3 id="do-i-have-to-install-the-windows-gateway-service-on-each-machine-i-wish-to-run-powershell-scripts-on"><a class="anchor" href="#do-i-have-to-install-the-windows-gateway-service-on-each-machine-i-wish-to-run-powershell-scripts-on"></a>Do I have to install the Windows Gateway Service on each machine I wish to run PowerShell scripts on?</h3> 
    <div class="paragraph"> 
     <p>Yes, you must install the Windows Gateway Service on the machine you wish to execute PowerShell scripts on.</p> 
    </div> 
   </div> 
-  <div class="sect4"> 
-   <h5 id="how-do-i-consume-the-object-graph-returned-by-powershell-in-my-mule-application"><a class="anchor" href="#how-do-i-consume-the-object-graph-returned-by-powershell-in-my-mule-application"></a>How do I consume the object graph returned by PowerShell in my Mule application?</h5> 
+  <div class="sect2"> 
+   <h3 id="how-do-i-consume-the-object-graph-returned-by-powershell-in-my-mule-application"><a class="anchor" href="#how-do-i-consume-the-object-graph-returned-by-powershell-in-my-mule-application"></a>How do I consume the object graph returned by PowerShell in my Mule application?</h3> 
    <div class="paragraph"> 
     <p>Results from executing PowerShell scripts are serialized into a <code>Map&lt;string, string&gt;</code> making it simple to consume using MEL or DataMapper.</p> 
    </div> 
   </div> 
-  <div class="sect4"> 
-   <h5 id="can-i-use-parameterized-powershell-scripts-or-function-libraries"><a class="anchor" href="#can-i-use-parameterized-powershell-scripts-or-function-libraries"></a>Can I use parameterized PowerShell scripts or function libraries?</h5> 
+  <div class="sect2"> 
+   <h3 id="can-i-use-parameterized-powershell-scripts-or-function-libraries"><a class="anchor" href="#can-i-use-parameterized-powershell-scripts-or-function-libraries"></a>Can I use parameterized PowerShell scripts or function libraries?</h3> 
    <div class="paragraph"> 
     <p>Yes, parameters are supported and automatically map from the message properties if not manually supplied in the parameters collection.</p> 
    </div> 
   </div> 
-  <div class="sect4"> 
-   <h5 id="how-do-i-run-a-script-under-the-security-context-of-different-users"><a class="anchor" href="#how-do-i-run-a-script-under-the-security-context-of-different-users"></a>How do I run a script under the security context of different users?</h5> 
+  <div class="sect2"> 
+   <h3 id="how-do-i-run-a-script-under-the-security-context-of-different-users"><a class="anchor" href="#how-do-i-run-a-script-under-the-security-context-of-different-users"></a>How do I run a script under the security context of different users?</h3> 
    <div class="paragraph"> 
     <p>Specifying the username and password for impersonation lets you run a script as a specific user. By default, a script runs as the identity of the Windows Gateway Service agent.</p> 
    </div> 
-  </div> 
-  <div class="sect3"> 
-   <h4 id="how-do-i-specify-the-domain-of-the-provided-username"><a class="anchor" href="#how-do-i-specify-the-domain-of-the-provided-username"></a>How do I specify the domain of the provided username?</h4> 
-   <div class="paragraph"> 
-    <p>The proper way for specifying a fully-qualified domain user is using the username@domain syntax, at the username field.</p> 
+   <div class="sect3"> 
+    <h4 id="how-do-i-specify-the-domain-of-the-provided-username"><a class="anchor" href="#how-do-i-specify-the-domain-of-the-provided-username"></a>How do I specify the domain of the provided username?</h4> 
+    <div class="paragraph"> 
+     <p>The proper way for specifying a fully-qualified domain user is using the username@domain syntax, at the username field.</p> 
+    </div> 
    </div> 
   </div> 
  </div> 

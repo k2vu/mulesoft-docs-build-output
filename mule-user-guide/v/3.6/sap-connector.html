@@ -15,7 +15,7 @@
   <script src="/js/scripts.js?t=1495998692"></script>
 
   <link rel="canonical" href="https://docs.mulesoft.com/mule-user-guide/v/3.6/sap-connector" />
-  <meta name="description" content="Premium This connector requires a separate license. Contact MuleSoft to evaluate or use this connector in production. Mule ESB supports SAP integra..." />
+  <meta name="description" content="Premium This connector requires a separate license. Contact MuleSoft to evaluate or use this connector in production. Mule supports SAP integration..." />
   <meta class="swiftype" name="title" data-type="string" content="SAP Connector" />
   <meta class="swiftype" name="version" data-type="enum" content="3.6" />
 </head>
@@ -1036,18 +1036,8 @@
   <div class="paragraph"> 
    <p><strong><em>Premium</em></strong></p> 
   </div> 
-  <div class="admonitionblock note"> 
-   <table> 
-    <tbody> 
-     <tr> 
-      <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-      <td class="content"> 
-       <div class="paragraph"> 
-        <p>This connector requires a separate license. Contact <a href="mailto:sales@mulesoft.com">MuleSoft</a> to evaluate or use this connector in production.</p> 
-       </div> </td> 
-     </tr> 
-    </tbody> 
-   </table> 
+  <div class="paragraph"> 
+   <p>This connector requires a separate license. Contact <a href="mailto:sales@mulesoft.com">MuleSoft</a> to evaluate or use this connector in production.</p> 
   </div> 
  </div> 
 </div> 
@@ -1055,7 +1045,7 @@
  <h2 id="overview"><a class="anchor" href="#overview"></a>Overview</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>Mule ESB supports SAP integration through our <a href="/mule-user-guide/v/3.6/anypoint-connectors">Anypoint Connector</a> for SAP, which is an SAP-certified Java connector that leverages the SAP Java Connector (JCo) libraries. &nbsp;The SAP connector enables Mule applications to:</p> 
+   <p>Mule supports SAP integration through our <a href="/mule-user-guide/v/3.6/anypoint-connectors">Anypoint Connector</a> for SAP, which is an SAP-certified Java connector that leverages the SAP Java Connector (JCo) libraries. &nbsp;The SAP connector enables Mule applications to:</p> 
   </div> 
   <div class="ulist"> 
    <ul> 
@@ -1082,7 +1072,7 @@
  <h2 id="installation"><a class="anchor" href="#installation"></a>Installation</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>You can install a connector in Anypoint Studio using the instructions in&nbsp;<a href="/getting-started/anypoint-exchange#installing-a-connector-from-anypoint-exchange">Installing a Connector from Anypoint Exchange</a>. &nbsp;</p> 
+   <p>You can install a connector in Anypoint Studio using the instructions in&nbsp;<a href="/mule-user-guide/v/3.6/installing-connectors">To Install a Connector from Anypoint Exchange</a>.&nbsp;</p> 
   </div> 
  </div> 
 </div> 
@@ -1123,31 +1113,14 @@
      </div> </li> 
    </ul> 
   </div> 
-  <div class="admonitionblock warning"> 
-   <table> 
-    <tbody> 
-     <tr> 
-      <td class="icon"> <i class="fa icon-warning" title="Warning"></i> </td> 
-      <td class="content"> 
-       <div class="paragraph"> 
-        <p>Do not change the names of any of the SAP JCo library files from their original names, as they won’t be recognized by JCo. Because of this, Studio validates against unfamiliar JCo file names.</p> 
-       </div> </td> 
-     </tr> 
-    </tbody> 
-   </table> 
+  <div class="paragraph"> 
+   <p><strong>Important:</strong></p> 
   </div> 
-  <div class="admonitionblock warning"> 
-   <table> 
-    <tbody> 
-     <tr> 
-      <td class="icon"> <i class="fa icon-warning" title="Warning"></i> </td> 
-      <td class="content"> 
-       <div class="paragraph"> 
-        <p>If you deploy to a platform that is different from the one used for development, you <strong>must</strong> change the native library before generating the zip file.</p> 
-       </div> </td> 
-     </tr> 
-    </tbody> 
-   </table> 
+  <div class="ulist"> 
+   <ul> 
+    <li> <p>Do not change the names of any of the SAP JCo library files from their original names, as they won’t be recognized by JCo. Because of this, Studio validates against unfamiliar JCo file names.</p> </li> 
+    <li> <p>If you deploy to a platform that is different from the one used for development, you <strong>must</strong> change the native library before generating the zip file.</p> </li> 
+   </ul> 
   </div> 
   <div class="paragraph"> 
    <p>Download the requisite <a href="http://service.sap.com/connectors">SAP libraries</a>. To perform this download, you must have an SAP user ID.</p> 
@@ -1177,7 +1150,7 @@
    <p>Specifying the location of the SAP connector in your system <code>classpath</code> enables you to run/debug your project locally and to create custom Java code in your project that uses the classes.</p> 
   </div> 
   <div class="paragraph"> 
-   <p>The first time you try to add any of the SAP components to your Mule configuration file, the SAP dependencies that match the version of the project ESB runtime get added automatically. In case there is more than one SAP transport dependency for the ESB runtime configured in the project, then you will be prompted to select the one you want to use.</p> 
+   <p>The first time you try to add any of the SAP components to your Mule configuration file, the SAP dependencies that match the version of the project Mule runtime get added automatically. In case there is more than one SAP transport dependency for the ESB runtime configured in the project, then you will be prompted to select the one you want to use.</p> 
   </div> 
   <div class="paragraph"> 
    <p><span class="image"><img src="./_images/select-SAP-connector.png" alt="select-SAP-connector"></span></p> 
@@ -1356,7 +1329,7 @@
       <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
       <td class="content"> 
        <div class="paragraph"> 
-        <p>Since version 2.2.2 of the SAP connector (released with Mule ESB 3.5.0) it is no longer required to use the explicit transformers. The input to the outbound-endpoint can be both the SAP Object created by the <strong>XML to SAP Function (BAPI)</strong> or the <strong>XML to SAP IDoc</strong> as well as any type (String, byte[] or InputStream) that represents the XML document.</p> 
+        <p>Since version 2.2.2 of the SAP connector (released with Mule 3.5.0) it is no longer required to use the explicit transformers. The input to the outbound-endpoint can be both the SAP Object created by the <strong>XML to SAP Function (BAPI)</strong> or the <strong>XML to SAP IDoc</strong> as well as any type (String, byte[] or InputStream) that represents the XML document.</p> 
        </div> 
        <div class="paragraph"> 
         <p>As mentioned before, in order to avoid using the&nbsp;<strong>SAP Object to XML</strong> you can now use the <code>outputXML</code> attribute set to ` true ` at the endpoint level (works for both inbound and outbound SAP endpoints).</p> 
@@ -1401,7 +1374,7 @@
    </div> 
   </div> 
   <div class="paragraph"> 
-   <p>Port 3300 is predefined by SAP, so if you need to validate other port numbers based on your SAP instance number, you can check the complete list of <a href="http://www.mulesoft.org/documentation/display/MULE3USER/SAP+JCo+Server+Services+Configuration">service-to-port mappings</a>.</p> 
+   <p>Port 3300 is predefined by SAP, so if you need to validate other port numbers based on your SAP instance number, you can check the complete list of <a href="/mule-user-guide/v/3.6/sap-jco-server-services-configuration">service-to-port mappings</a>.</p> 
   </div> 
   <div class="paragraph"> 
    <p>This configuration can be avoided if using the port (for example 3300) as the value of the&nbsp; <code>jcoGwService</code> attribute (or <code>jco.server.gwserv /jco.client.gwserv</code> properties).</p> 
@@ -1476,7 +1449,7 @@
     <p>To provide additional configuration properties, you can define a Spring bean global element representing a Map (<code>java.util.Map</code>) instance. This can be used to configure, among other properties, SCN (Secure Connections), or advanced pooling capabilities.</p> 
    </div> 
    <div class="paragraph"> 
-    <p>In this case, you must know the configuration property <em>as defined by SAP</em>. You can check <a href="http://www.mulesoft.org/documentation/display/MULE3USER/SAP+JCo+Extended+Properties">the configuration properties list</a>.</p> 
+    <p>In this case, you must know the configuration property <em>as defined by SAP</em>. You can check <a href="/mule-user-guide/v/3.6/sap-jco-extended-properties">the configuration properties list</a>.</p> 
    </div> 
    <div class="paragraph"> 
     <p>To define extended properties for the <strong>SAP global connector</strong>, complete the following steps:</p> 
@@ -1549,25 +1522,11 @@
      </div> </li> 
    </ol> 
   </div> 
-  <div class="admonitionblock note"> 
-   <table> 
-    <tbody> 
-     <tr> 
-      <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-      <td class="content"> After selecting the Endpoint type, the properties editor will automatically enable or disable parameter input boxes according to the selected endpoint type. For example, after selecting <strong>IDoc</strong> as the Endpoint Type, function-related parameters such as the <strong>Function Name</strong> input box or the <strong>Evaluate Function Response</strong> checkbox will be disabled. </td> 
-     </tr> 
-    </tbody> 
-   </table> 
+  <div class="paragraph"> 
+   <p>After selecting the Endpoint type, the properties editor automatically enables or disables parameter input boxes according to the selected endpoint type. For example, after selecting <strong>IDoc</strong> as the Endpoint Type, function-related parameters such as the <strong>Function Name</strong> input box or the <strong>Evaluate Function Response</strong> checkbox are disabled.</p> 
   </div> 
-  <div class="admonitionblock warning"> 
-   <table> 
-    <tbody> 
-     <tr> 
-      <td class="icon"> <i class="fa icon-warning" title="Warning"></i> </td> 
-      <td class="content"> Since the JCo server needs to register with the SAP instance, you must specify <em>both</em> the <strong>client</strong> and <strong>server</strong> configuration attributes. </td> 
-     </tr> 
-    </tbody> 
-   </table> 
+  <div class="paragraph"> 
+   <p>Since the JCo server needs to register with the SAP instance, you must specify <em>both</em> the <strong>client</strong> and <strong>server</strong> configuration attributes.</p> 
   </div> 
   <div class="sect2"> 
    <h3 id="inbound-endpoint-properties"><a class="anchor" href="#inbound-endpoint-properties"></a>Inbound Endpoint Properties</h3> 
@@ -1617,7 +1576,7 @@
       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Type</strong></p></td> 
       <td class="tableblock halign-left valign-top"><p class="tableblock">type</p></td> 
       <td class="tableblock halign-left valign-top"><p class="tableblock">General</p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">The type of SAP object this endpoint will process (i.e., <strong>function</strong> or <strong>idoc</strong>)</p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">The type of SAP object this endpoint processes (that is, a <strong>function</strong> or <strong>idoc</strong>)</p></td> 
       <td class="tableblock halign-left valign-top"><p class="tableblock"><code>function</code></p></td> 
      </tr> 
      <tr> 
@@ -1631,7 +1590,7 @@
       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Object Name</strong></p></td> 
       <td class="tableblock halign-left valign-top"><p class="tableblock">functionName</p></td> 
       <td class="tableblock halign-left valign-top"><p class="tableblock">General</p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">If the type is <strong>function</strong> then this is the name of the BAPI function that will be handled. If no value is provided, then a generic handler is configured to receive all calls.</p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">If the type is <strong>function</strong> then this is the name of the BAPI function that’s handled. If no value is provided, then a generic handler is configured to receive all calls.</p></td> 
       <td class="tableblock halign-left valign-top"><p class="tableblock">&nbsp;</p></td> 
      </tr> 
      <tr> 
@@ -1736,7 +1695,7 @@
       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Extended Properties</strong></p></td> 
       <td class="tableblock halign-left valign-top"><p class="tableblock">jcoClientExtendedProperties-ref</p></td> 
       <td class="tableblock halign-left valign-top"><p class="tableblock">Advanced</p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">A Reference to <code>java.util.Map</code>, which contains additional JCo connection parameters. As necessary, consult the <a href="http://www.mulesoft.org/documentation/display/MULE3USER/SAP+JCo+Extended+Properties">complete list of parameters</a>.</p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">A Reference to <code>java.util.Map</code>, which contains additional JCo connection parameters. As necessary, consult the <a href="/mule-user-guide/v/3.6/sap-jco-extended-properties">complete list of parameters</a>.</p></td> 
       <td class="tableblock halign-left valign-top"><p class="tableblock">&nbsp;</p></td> 
      </tr> 
     </tbody> 
@@ -1835,21 +1794,11 @@
   </div> 
   <div class="sect2"> 
    <h3 id="advanced"><a class="anchor" href="#advanced"></a>Advanced</h3> 
-   <div class="admonitionblock caution"> 
-    <table> 
-     <tbody> 
-      <tr> 
-       <td class="icon"> <i class="fa icon-caution" title="Caution"></i> </td> 
-       <td class="content"> 
-        <div class="paragraph"> 
-         <p>The address attribute is supported by the SAP connector for compatibility with other Mule ESB endpoints.</p> 
-        </div> 
-        <div class="paragraph"> 
-         <p>MuleSoft recommends that you do not configure this attribute for the SAP connector.</p> 
-        </div> </td> 
-      </tr> 
-     </tbody> 
-    </table> 
+   <div class="paragraph"> 
+    <p>The address attribute is supported by the SAP connector for compatibility with other Mule endpoints.</p> 
+   </div> 
+   <div class="paragraph"> 
+    <p>MuleSoft recommends that you do not configure this attribute for the SAP connector.</p> 
    </div> 
    <div class="paragraph"> 
     <p>You can override all <strong>Connector</strong> properties by including a new reference to an <strong>Extended Properties</strong> map.</p> 
@@ -2076,7 +2025,7 @@
       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Extended Properties</strong></p></td> 
       <td class="tableblock halign-left valign-top"><p class="tableblock">jcoClientExtendedProperties-ref</p></td> 
       <td class="tableblock halign-left valign-top"><p class="tableblock">Advanced</p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">A Reference to <code>java.util.Map</code>, which contains additional JCo connection parameters. As necessary, consult the <a href="http://www.mulesoft.org/documentation/display/MULE3USER/SAP+JCo+Extended+Properties">complete list of parameters</a>.</p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">A Reference to <code>java.util.Map</code>, which contains additional JCo connection parameters. As necessary, consult the <a href="/mule-user-guide/v/3.6/sap-jco-extended-properties">complete list of parameters</a>.</p></td> 
       <td class="tableblock halign-left valign-top"><p class="tableblock">&nbsp;</p></td> 
      </tr> 
     </tbody> 
@@ -2121,7 +2070,7 @@
      <tr> 
       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Action</strong></p></td> 
       <td class="tableblock halign-left valign-top"><p class="tableblock">action</p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">The action attribute is part of the Mule ESB transaction standard and can have the following values: NONE, ALWAYS_BEGIN, BEGIN_OR_JOIN, ALWAYS_JOIN and JOIN_IF_POSSIBLE</p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">The action attribute is part of the Mule transaction standard and can have the following values: NONE, ALWAYS_BEGIN, BEGIN_OR_JOIN, ALWAYS_JOIN and JOIN_IF_POSSIBLE</p></td> 
       <td class="tableblock halign-left valign-top"><p class="tableblock">NONE</p></td> 
      </tr> 
      <tr> 
@@ -2135,16 +2084,20 @@
    <div class="paragraph"> 
     <p>Since version 2.1.0, the BAPI transaction attribute can be found in Client Settings pane in General options tab.</p> 
    </div> 
-   <div class="admonitionblock note"> 
-    <table> 
-     <tbody> 
-      <tr> 
-       <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-       <td class="content"> For additional information, consult the <a href="/mule-user-guide/v/3.8/mulesoft-enterprise-java-connector-for-sap-reference">Enterprise Java Connector for SAP Reference</a>. </td> 
-      </tr> 
-     </tbody> 
-    </table> 
+   <div class="paragraph"> 
+    <p>For additional information, consult the <a href="/mule-user-guide/v/3.8/mulesoft-enterprise-java-connector-for-sap-reference">Enterprise Java Connector for SAP Reference</a>.</p> 
    </div> 
+  </div> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="see-also"><a class="anchor" href="#see-also"></a>See Also</h2> 
+ <div class="sectionbody"> 
+  <div class="ulist"> 
+   <ul> 
+    <li> <p><a href="/mule-user-guide/v/3.6/sap-jco-server-services-configuration">SAP JCo Server Services Configuration</a></p> </li> 
+    <li> <p><a href="/mule-user-guide/v/3.6/sap-jco-extended-properties">SAP JCo Extended Properties</a></p> </li> 
+   </ul> 
   </div> 
  </div> 
 </div>
@@ -2152,7 +2105,7 @@
     <!-- END article-content -->
     <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
                 <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#overview">Overview</a></li><li><a class="scroll-menu-link" href="#installation">Installation</a></li><li><a class="scroll-menu-link" href="#assumptions">Assumptions</a></li><li><a class="scroll-menu-link" href="#adding-the-sap-connector-to-the-classpath">Adding the SAP Connector to the Classpath</a></li><li><a class="scroll-menu-link" href="#configuration">Configuration</a></li><li><a class="scroll-menu-link" href="#sap-connector-and-datasense">SAP Connector and DataSense</a></li><li><a class="scroll-menu-link" href="#sap-transformers">SAP Transformers</a></li><li><a class="scroll-menu-link" href="#sap-inbound-endpoint-requirements">SAP Inbound Endpoint Requirements</a></li><li><a class="scroll-menu-link" href="#connector-global-element">Connector Global Element</a></li><li><a class="scroll-menu-link" href="#prioritizing-connection-properties">Prioritizing Connection Properties</a></li><li><a class="scroll-menu-link" href="#xml-definition">XML Definition</a></li><li><a class="scroll-menu-link" href="#inbound-endpoint">Inbound Endpoint</a></li><li><a class="scroll-menu-link" href="#outbound-endpoint">Outbound Endpoint</a></li></ul></div></div><!-- /scroll-menu -->
+                <ul><li><a class="scroll-menu-link" href="#overview">Overview</a></li><li><a class="scroll-menu-link" href="#installation">Installation</a></li><li><a class="scroll-menu-link" href="#assumptions">Assumptions</a></li><li><a class="scroll-menu-link" href="#adding-the-sap-connector-to-the-classpath">Adding the SAP Connector to the Classpath</a></li><li><a class="scroll-menu-link" href="#configuration">Configuration</a></li><li><a class="scroll-menu-link" href="#sap-connector-and-datasense">SAP Connector and DataSense</a></li><li><a class="scroll-menu-link" href="#sap-transformers">SAP Transformers</a></li><li><a class="scroll-menu-link" href="#sap-inbound-endpoint-requirements">SAP Inbound Endpoint Requirements</a></li><li><a class="scroll-menu-link" href="#connector-global-element">Connector Global Element</a></li><li><a class="scroll-menu-link" href="#prioritizing-connection-properties">Prioritizing Connection Properties</a></li><li><a class="scroll-menu-link" href="#xml-definition">XML Definition</a></li><li><a class="scroll-menu-link" href="#inbound-endpoint">Inbound Endpoint</a></li><li><a class="scroll-menu-link" href="#outbound-endpoint">Outbound Endpoint</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
   </div>
 </div>
 <!-- START footer -->

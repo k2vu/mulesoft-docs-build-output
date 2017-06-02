@@ -15,7 +15,7 @@
   <script src="/js/scripts.js?t=1495998692"></script>
 
   <link rel="canonical" href="https://docs.mulesoft.com/mule-user-guide/v/3.6/quartz-connector" />
-  <meta name="description" content="The Quartz Connector supports the scheduling of programmatic events, both inside and outside your Mule flow. Through a quartz endpoint, you can tri..." />
+  <meta name="description" content="When scheduling tasks, it’s recommended that you instead resort to the Poll Scope. The Quartz Connector supports the scheduling of programmatic eve..." />
   <meta class="swiftype" name="title" data-type="string" content="Quartz Connector" />
   <meta class="swiftype" name="version" data-type="enum" content="3.6" />
 </head>
@@ -1033,15 +1033,8 @@
       <h1>Quartz Connector</h1>
       <div id="preamble"> 
  <div class="sectionbody"> 
-  <div class="admonitionblock tip"> 
-   <table> 
-    <tbody> 
-     <tr> 
-      <td class="icon"> <i class="fa icon-tip" title="Tip"></i> </td> 
-      <td class="content"> When scheduling tasks, it’s recommended that you instead resort to the <a href="https://developer.mulesoft.com/docs/display/current/Poll+Reference">Poll Scope</a> </td> 
-     </tr> 
-    </tbody> 
-   </table> 
+  <div class="paragraph"> 
+   <p>When scheduling tasks, it’s recommended that you instead resort to the <a href="/mule-user-guide/v/3.6/poll-reference">Poll Scope</a>.</p> 
   </div> 
   <div class="paragraph"> 
    <p>The Quartz Connector supports the scheduling of programmatic events, both inside and outside your Mule flow. Through a quartz endpoint, you can trigger flows that don’t depend on receiving any external input to execute at scheduled times.</p> 
@@ -1052,21 +1045,11 @@
   <div class="paragraph"> 
    <p>Outbound Quartz endpoints can delay otherwise imminent events. For example, you can prevent outgoing email from being sent as soon as it has completed processing in your Mule flow. Instead, you can use Quartz to delay sending it until the top of the next hour.</p> 
   </div> 
-  <div class="admonitionblock note"> 
-   <table> 
-    <tbody> 
-     <tr> 
-      <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-      <td class="content"> 
-       <div class="paragraph"> 
-        <p><strong>Polling</strong><br></p> 
-       </div> 
-       <div class="paragraph"> 
-        <p>Note that you also have the option to use a Poll scope at the beginning of a flow, which also supports Cron expressions and watermarks. Read more about the <a href="/mule-user-guide/v/3.6/poll-reference">Poll scope</a>.</p> 
-       </div> </td> 
-     </tr> 
-    </tbody> 
-   </table> 
+  <div class="paragraph"> 
+   <p><strong>Polling</strong></p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>Note that you also have the option to use a Poll scope at the beginning of a flow, which also supports Cron expressions and watermarks. Read more about the <a href="/mule-user-guide/v/3.6/poll-reference">Poll scope</a>.</p> 
   </div> 
  </div> 
 </div> 
@@ -1074,7 +1057,7 @@
  <h2 id="installation"><a class="anchor" href="#installation"></a>Installation</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>You can install a connector in Anypoint Studio using the instructions in&nbsp;<a href="/getting-started/anypoint-exchange#installing-a-connector-from-anypoint-exchange">Installing a Connector from Anypoint Exchange</a>.&nbsp;</p> 
+   <p>You can install a connector in Anypoint Studio using the instructions in&nbsp;<a href="/mule-user-guide/v/3.6/installing-connectors">To Install a Connector from Anypoint Exchange</a>.</p> 
   </div> 
  </div> 
 </div> 
@@ -1127,7 +1110,7 @@
      </tr> 
      <tr> 
       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cron Expression</strong></p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">Specify a <strong>cron</strong> expression for scheduling events, which are also referred to as "jobs". See the <a href="http://en.wikipedia.org/wiki/Cron">Wikipedia Cron</a> for an introduction to <strong>cron</strong> syntax. This property is required if the Repeat interval property is not specified.</p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">Specify a <strong>cron</strong> expression for scheduling events, which are also referred to as "jobs". This property is required if the Repeat interval property is not specified.</p></td> 
      </tr> 
      <tr> 
       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Repeat Interval</strong></p></td> 
@@ -1184,7 +1167,7 @@
     <tbody> 
      <tr> 
       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Address</strong></p></td> 
-      <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the address for this endpoint, such as, <code><a href="http://localhost:8081/file" class="bare">http://localhost:8081/file</a></code>.</p></td> 
+      <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the address for this endpoint, such as, <code>http://localhost:8081/file</code>.</p></td> 
      </tr> 
      <tr> 
       <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Response Timeout</strong></p></td> 

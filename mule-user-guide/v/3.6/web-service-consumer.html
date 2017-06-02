@@ -1044,7 +1044,7 @@
   </div> 
   <div class="ulist"> 
    <ul> 
-    <li> <p>Used in conjunction with a DataMapper transformer, the Web Service Consumer makes use of DataSense functionality to acquire information about the expected format and structure of the input or output, so as to eliminate the guesswork in trying to figure out what to send to, and what you’ll receive from, a SOAP Web service</p> </li> 
+    <li> <p>Used in conjunction with a DataMapper transformer, the Web Service Consumer makes use of DataSense functionality to acquire information about the expected format and structure of the input or output, so as to eliminate the guesswork in trying to figure out what to send to, and what you receive from a SOAP Web service</p> </li> 
     <li> <p>Used in conjunction with a DataMapper transformer, you can visually map the input you receive (SOAP header or body) into another data format or structure for further processing</p> </li> 
     <li> <p>Secure your Web service requests using the functionality embedded within the Web Service Consumer to add a username token to requests, and/or WS-Security timestamp</p> </li> 
    </ul> 
@@ -1058,15 +1058,8 @@
   <div class="paragraph"> 
    <p><span class="image"><img src="./_images/con+globitos+new+2.png" alt="con+globitos+new+2"></span></p> 
   </div> 
-  <div class="admonitionblock warning"> 
-   <table> 
-    <tbody> 
-     <tr> 
-      <td class="icon"> <i class="fa icon-warning" title="Warning"></i> </td> 
-      <td class="content"> The component formerly known as the <strong>SOAP Connector</strong> is now known as the <strong><a href="/mule-user-guide/v/3.6/cxf-component-reference">CXF Component</a></strong> . It should not be confused with the Web Service Consumer. </td> 
-     </tr> 
-    </tbody> 
-   </table> 
+  <div class="paragraph"> 
+   <p>The component formerly known as the <strong>SOAP Connector</strong> is now known as the <strong><a href="/mule-user-guide/v/3.6/cxf-component-reference">CXF Component</a></strong> . It should not be confused with the Web Service Consumer.</p> 
   </div> 
   <div class="paragraph"> 
    <p><a href="#complete-code-example">Complete Code Example</a></p> 
@@ -1085,7 +1078,7 @@
  <h2 id="installation"><a class="anchor" href="#installation"></a>Installation</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>You can install a connector in Anypoint Studio using the instructions in&nbsp;<a href="/getting-started/anypoint-exchange#installing-a-connector-from-anypoint-exchange">Installing a Connector from Anypoint Exchange</a>.</p> 
+   <p>You can install a connector in Anypoint Studio using the instructions in&nbsp;<a href="/mule-user-guide/v/3.6/installing-connectors">To Install a Connector from Anypoint Exchange</a>.</p> 
   </div> 
  </div> 
 </div> 
@@ -1095,13 +1088,17 @@
   <div class="ulist"> 
    <ul> 
     <li> <p>The Web Service Consumer interfaces only with SOAP Web services, not REST APIs. &nbsp;</p> </li> 
-    <li> <p>Within Mule, the Web Services Consumer is available for use only in conjunction with the following connectors:<br></p> </li> 
-    <li> <p>FTP</p> </li> 
-    <li> <p>File</p> </li> 
-    <li> <p>HTTP</p> </li> 
-    <li> <p>JMS</p> </li> 
-    <li> <p>SFTP</p> </li> 
-    <li> <p>HTTPS&nbsp;</p> </li> 
+    <li> <p>Within Mule, the Web Services Consumer is available for use only in conjunction with the following connectors:</p> 
+     <div class="ulist"> 
+      <ul> 
+       <li> <p>File</p> </li> 
+       <li> <p>FTP</p> </li> 
+       <li> <p>HTTP</p> </li> 
+       <li> <p>HTTPS&nbsp;</p> </li> 
+       <li> <p>JMS</p> </li> 
+       <li> <p>SFTP</p> </li> 
+      </ul> 
+     </div> </li> 
    </ul> 
   </div> 
  </div> 
@@ -1441,38 +1438,30 @@ doc:name="Property"/<span class="error">&gt;</span></pre></td>
   <div class="paragraph"> 
    <p>Depending upon the level of security employed by a SOAP Web service, you may need to correspondingly secure the requests your Web Service Consumer sends. In other words, any calls you send to a Web service have to adhere to the Web service provider’s security requirements. To comply with this requirement, you can configure security settings on your Global Web Service Consumer connector.</p> 
   </div> 
-  <div class="panel panel-default no-padding"> 
-   <div class="panel-heading no-padding"> 
-    <!-- Nav tabs --> 
-    <ul class="nav nav-tabs" role="tablist"> 
-     <li class="active"><a href="#tab-3_1" role="tab" data-toggle="tab">Studio Visual Editor</a></li> 
-     <li><a href="#tab-3_2" role="tab" data-toggle="tab">XML Editor or Standalone</a></li> 
-    </ul> 
-   </div> 
-   <div class="panel-body tab-content no-padding"> 
-    <div class="tab-pane in active fade no-padding" id="tab-3_1"> 
-     <div class="olist arabic"> 
-      <ol class="arabic"> 
-       <li> <p>Within the <strong>Global Web Service Consumer</strong> element’s <strong>Global Element Properties</strong> panel, click the <strong>Security</strong> tab<br> <br> <span class="image"><img src="./_images/wsc_security.png" alt="wsc_security"></span></p> </li> 
-       <li> <p>Based on the security requirements of the Web service provider, select to apply <strong>Username Token</strong> security, or a <strong>WS-Security Timestamp</strong> or both.</p> </li> 
-       <li> <p>Enter values in the required fields. For a full list of elements, attributes and default values, consult&nbsp; <a href="/mule-user-guide/v/3.6/web-service-consumer-reference">Web Service Consumer Reference</a> .</p> </li> 
-       <li> <p>Click <strong>OK</strong> to save your security settings.</p> </li> 
-      </ol> 
-     </div> 
-    </div> 
-    <div class="tab-pane fade no-padding" id="tab-3_2"> 
+  <div class="olist arabic"> 
+   <ol class="arabic"> 
+    <li> <p>In Anypoint Studio, within the <strong>Global Web Service Consumer</strong> element’s <strong>Global Element Properties</strong> panel, click the <strong>Security</strong> tab:</p> 
      <div class="paragraph"> 
-      <p>Add child elements to the global <strong>` ws:consumer-config `</strong> element you configured in your application. Configure the child elements' attributes according to the code sample below. For a full list of elements, attributes and default values, consult&nbsp; <a href="/mule-user-guide/v/3.6/web-service-consumer-reference">Web Service Consumer Reference</a> .</p> 
-     </div> 
-     <div class="listingblock"> 
-      <div class="content"> 
-       <pre class="CodeRay highlight"><code data-lang="code">
-    
-            
-         <table class="CodeRay"> 
-          <tbody> 
-           <tr> 
-            <td class="line-numbers"><pre>1
+      <p><span class="image"><img src="./_images/wsc_security.png" alt="wsc_security"></span></p> 
+     </div> </li> 
+    <li> <p>Based on the security requirements of the Web service provider, select to apply <strong>Username Token</strong> security, or a <strong>WS-Security Timestamp</strong> or both.</p> </li> 
+    <li> <p>Enter values in the required fields. For a full list of elements, attributes and default values, consult&nbsp; <a href="/mule-user-guide/v/3.6/web-service-consumer-reference">Web Service Consumer Reference</a> .</p> </li> 
+    <li> <p>Click <strong>OK</strong> to save your security settings.</p> </li> 
+   </ol> 
+  </div> 
+  <div class="sect2"> 
+   <h3 id="xml-editor-or-standalone"><a class="anchor" href="#xml-editor-or-standalone"></a>XML Editor or Standalone</h3> 
+   <div class="paragraph"> 
+    <p>Add child elements to the global <strong>` ws:consumer-config `</strong> element you configured in your application. Configure the child elements' attributes according to the code sample below. For a full list of elements, attributes and default values, consult&nbsp; <a href="/mule-user-guide/v/3.6/web-service-consumer-reference">Web Service Consumer Reference</a> .</p> 
+   </div> 
+   <div class="listingblock"> 
+    <div class="content"> 
+     <pre class="CodeRay highlight"><code data-lang="code">
+          
+       <table class="CodeRay"> 
+        <tbody> 
+         <tr> 
+          <td class="line-numbers"><pre>1
 2
 3
 4
@@ -1481,19 +1470,17 @@ doc:name="Property"/<span class="error">&gt;</span></pre></td>
 7
 8
 </pre></td> 
-            <td class="code"><pre>...
-&nbsp;&nbsp;&nbsp;&nbsp;&amp;lt;ws:consumer-config name="OrderWS" wsdlLocation="enterprise.wsdl.xml" service="OrderService" port="Soap" serviceAddress="https://login.orderservice.com/services/Soap/c/22.0" doc:name="Web Service Consumer"&amp;gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;lt;ws:security&amp;gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;lt;ws:wss-username-token username="test" password="test" passwordType="DIGEST" addCreated="true" addNonce="true"/&amp;gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;lt;ws:wss-timestamp expires="30000"/&amp;gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;lt;/ws:security&amp;gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&amp;lt;/ws:consumer-config&amp;gt;
-...</pre></td> 
-           </tr> 
-          </tbody> 
-         </table></code></pre> 
-      </div> 
-     </div> 
+          <td class="code"><pre> ...
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;ws:consumer-config name="OrderWS" wsdlLocation="enterprise.wsdl.xml" service="OrderService" port="Soap" serviceAddress="https://login.orderservice.com/services/Soap/c/22.0" doc:name="Web Service Consumer"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ws:security&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ws:wss-username-token username="test" password="test" passwordType="DIGEST" addCreated="true" addNonce="true"/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ws:wss-timestamp expires="30000"/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/ws:security&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/ws:consumer-config&gt;
+ ...</pre></td> 
+         </tr> 
+        </tbody> 
+       </table></code></pre> 
     </div> 
    </div> 
   </div> 
@@ -1510,143 +1497,108 @@ doc:name="Property"/<span class="error">&gt;</span></pre></td>
   </div> 
   <div class="listingblock"> 
    <div class="content"> 
-    <pre class="CodeRay highlight"><code data-lang="code">
+    <pre class="CodeRay highlight"><code data-lang="xml">http://myUserName:myPassword@hostService</code></pre> 
+   </div> 
+  </div> 
+  <div class="sect2"> 
+   <h3 id="studio-visual-editor"><a class="anchor" href="#studio-visual-editor"></a>Studio Visual Editor</h3> 
+   <div class="olist arabic"> 
+    <ol class="arabic"> 
+     <li> <p>In the Web Service Consumer’s Global Element, add a reference to an&nbsp;<code>http-request-config</code> element.</p> </li> 
+     <li> <p>Enter the Web Service Consumer’s global configuration element</p> </li> 
+     <li> <p>Open the <strong>References</strong> tab</p> </li> 
+     <li> <p>Create a new reference by clicking the green plus sign</p> </li> 
+    </ol> 
+   </div> 
+  </div> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="xml-editor"><a class="anchor" href="#xml-editor"></a>XML Editor</h2> 
+ <div class="sectionbody"> 
+  <div class="listingblock"> 
+   <div class="content"> 
+    <pre class="CodeRay highlight"><code data-lang="xml">
          
       <table class="CodeRay"> 
        <tbody> 
         <tr> 
          <td class="line-numbers"><pre>1
+2
+3
+4
+5
 </pre></td> 
-         <td class="code"><pre>http://myUserName:myPassword@hostService</pre></td> 
+         <td class="code"><pre><span class="tag">&lt;http:request-config</span> <span class="attribute-name">host</span>=<span class="string"><span class="delimiter">"</span><span class="content">localhost</span><span class="delimiter">"</span></span> <span class="attribute-name">port</span>=<span class="string"><span class="delimiter">"</span><span class="content">${port}</span><span class="delimiter">"</span></span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">customConfig</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;http:basic-authentication</span> <span class="attribute-name">username</span>=<span class="string"><span class="delimiter">"</span><span class="content">user</span><span class="delimiter">"</span></span> <span class="attribute-name">password</span>=<span class="string"><span class="delimiter">"</span><span class="content">pass</span><span class="delimiter">"</span></span> <span class="tag">/&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/http:request-config&gt;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;ws:consumer-config</span> <span class="attribute-name">wsdlLocation</span>=<span class="string"><span class="delimiter">"</span><span class="content">Test.wsdl</span><span class="delimiter">"</span></span> <span class="attribute-name">service</span>=<span class="string"><span class="delimiter">"</span><span class="content">TestService</span><span class="delimiter">"</span></span> <span class="attribute-name">port</span>=<span class="string"><span class="delimiter">"</span><span class="content">TestPort</span><span class="delimiter">"</span></span> <span class="attribute-name">serviceAddress</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://localhost:${port}/services/Test</span><span class="delimiter">"</span></span> <span class="attribute-name">connectorConfig</span>=<span class="string"><span class="delimiter">"</span><span class="content">customConfig</span><span class="delimiter">"</span></span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">globalConfig</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></pre></td> 
         </tr> 
        </tbody> 
       </table></code></pre> 
    </div> 
   </div> 
   <div class="paragraph"> 
-   <p>In the Web Service Consumer’s Global Element, add a reference to an&nbsp;<code>http-request-config</code> element:</p> 
-  </div> 
-  <div class="panel panel-default no-padding"> 
-   <div class="panel-heading no-padding"> 
-    <!-- Nav tabs --> 
-    <ul class="nav nav-tabs" role="tablist"> 
-     <li class="active"><a href="#tab-4_1" role="tab" data-toggle="tab">Studio Visual Editor</a></li> 
-     <li><a href="#tab-4_2" role="tab" data-toggle="tab">XML Editor</a></li> 
-    </ul> 
-   </div> 
-   <div class="panel-body tab-content no-padding"> 
-    <div class="tab-pane in active fade no-padding" id="tab-4_1"> 
-     <div class="olist arabic"> 
-      <ol class="arabic"> 
-       <li> <p>Enter the Web Service Consumer’s global configuration element</p> </li> 
-       <li> <p>Open the <strong>References</strong> tab</p> </li> 
-       <li> <p>Create a new reference by clicking the green plus sign</p> </li> 
-      </ol> 
-     </div> 
-    </div> 
-    <div class="tab-pane fade no-padding" id="tab-4_2"> 
-     <div class="listingblock"> 
-      <div class="content"> 
-       <pre class="CodeRay highlight"><code data-lang="xml">
-    
-            
-         <table class="CodeRay"> 
-          <tbody> 
-           <tr> 
-            <td class="line-numbers"><pre>1
-2
-3
-4
-5
-6
-</pre></td> 
-            <td class="code"><pre><span class="entity">&amp;lt;</span>http:request-config host="localhost" port="${port}" name="customConfig"<span class="entity">&amp;gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="entity">&amp;lt;</span>http:basic-authentication username="user" password="pass" /<span class="entity">&amp;gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="entity">&amp;lt;</span>/http:request-config<span class="entity">&amp;gt;</span>
-&nbsp;
-&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="entity">&amp;lt;</span>ws:consumer-config wsdlLocation="Test.wsdl" service="TestService" port="TestPort" serviceAddress="http://localhost:${port}/services/Test" connectorConfig="customConfig" name="globalConfig"/<span class="entity">&amp;gt;</span></pre></td> 
-           </tr> 
-          </tbody> 
-         </table></code></pre> 
-      </div> 
-     </div> 
-    </div> 
-   </div> 
-  </div> 
-  <div class="paragraph"> 
    <p>By default, the WSC consumer runs over a default configuration for the <a href="/mule-user-guide/v/3.6/http-request-connector">HTTP Request Connector</a>. If you need it to instead run over a configuration of the connector that uses HTTPS (or an HTTP configuration that is different from the default) follow the steps below:</p> 
   </div> 
-  <div class="panel panel-default no-padding"> 
-   <div class="panel-heading no-padding"> 
-    <!-- Nav tabs --> 
-    <ul class="nav nav-tabs" role="tablist"> 
-     <li class="active"><a href="#tab-5_1" role="tab" data-toggle="tab">Studio Visual Editor</a></li> 
-     <li><a href="#tab-5_2" role="tab" data-toggle="tab">XML Editor</a></li> 
-    </ul> 
-   </div> 
-   <div class="panel-body tab-content no-padding"> 
-    <div class="tab-pane in active fade no-padding" id="tab-5_1"> 
-     <div class="olist arabic"> 
-      <ol class="arabic"> 
-       <li> <p>Click the Global Elements tab, below the canvas and create a new Global Element<br> <span class="image"><img src="./_images/global+elements1.jpeg" alt="global+elements1"></span></p> </li> 
-       <li> <p>For the Global Element type, select <strong>HTTP Request Configuration</strong><br> <br> <span class="image"><img src="./_images/http+global+element.png" alt="http+global+element"></span></p> </li> 
-       <li> <p>Complete the required fields in the <strong>General</strong> tab (host and port)</p> </li> 
-       <li> <p>Then select the <strong>TLS/SSL</strong> tab and configure the fields related to the HTTPS authentication<br> <br> <span class="image"><img src="./_images/ssl+tls.png" alt="ssl+tls"></span></p> </li> 
-       <li> <p>In your instance of the Web Service Consumer in your flow, click on the green plus sign next to Connector Configuration<br> <span class="image"><img src="./_images/adding+https+ref.jpeg" alt="adding+https+ref"></span></p> </li> 
-       <li> <p>In the <strong>References</strong> tab, select your newly created HTTPS Global Element for the <strong>Connector Ref</strong> field<br> <span class="image"><img src="./_images/adding+https+ref2.jpeg" alt="adding+https+ref2"></span></p> </li> 
-      </ol> 
-     </div> 
-    </div> 
-    <div class="tab-pane fade no-padding" id="tab-5_2"> 
-     <div class="olist arabic"> 
-      <ol class="arabic"> 
-       <li> <p>Add an <a href="/mule-user-guide/v/3.6/http-connector">HTTP Connector</a> global element in your project, configure it with the necessary security attributes</p> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-       
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
+  <div class="sect2"> 
+   <h3 id="studio-visual-editor-2"><a class="anchor" href="#studio-visual-editor-2"></a>Studio Visual Editor</h3> 
+   <div class="olist arabic"> 
+    <ol class="arabic"> 
+     <li> <p>Click the Global Elements tab, below the canvas and create a new Global Element<br> <span class="image"><img src="./_images/global+elements1.jpeg" alt="global+elements1"></span></p> </li> 
+     <li> <p>For the Global Element type, select <strong>HTTP Request Configuration</strong><br> <br> <span class="image"><img src="./_images/http+global+element.png" alt="http+global+element"></span></p> </li> 
+     <li> <p>Complete the required fields in the <strong>General</strong> tab (host and port)</p> </li> 
+     <li> <p>Then select the <strong>TLS/SSL</strong> tab and configure the fields related to the HTTPS authentication<br> <br> <span class="image"><img src="./_images/ssl+tls.png" alt="ssl+tls"></span></p> </li> 
+     <li> <p>In your instance of the Web Service Consumer in your flow, click on the green plus sign next to Connector Configuration<br> <span class="image"><img src="./_images/adding+https+ref.jpeg" alt="adding+https+ref"></span></p> </li> 
+     <li> <p>In the <strong>References</strong> tab, select your newly created HTTPS Global Element for the <strong>Connector Ref</strong> field<br> <span class="image"><img src="./_images/adding+https+ref2.jpeg" alt="adding+https+ref2"></span></p> 
+      <div class="literalblock"> 
+       <div class="content"> 
+        <pre>=== XML Editor</pre> 
+       </div> 
+      </div> </li> 
+     <li> <p>Add an <a href="/mule-user-guide/v/3.6/http-connector">HTTP Connector</a> global element in your project, configure it with the necessary security attributes</p> 
+      <div class="listingblock"> 
+       <div class="content"> 
+        <pre class="CodeRay highlight"><code data-lang="xml">
+             
+          <table class="CodeRay"> 
+           <tbody> 
+            <tr> 
+             <td class="line-numbers"><pre>1
 2
 3
 4
 5
 6
 </pre></td> 
-               <td class="code"><pre><span class="entity">&amp;lt;</span>http:request-config name="HTTP_Request_Configuration" host="example.com" port="8081" protocol="HTTPS" doc:name="HTTP_Request_Configuration"/<span class="entity">&amp;gt;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="entity">&amp;lt;</span>tls:context<span class="entity">&amp;gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="entity">&amp;lt;</span>tls:trust-store path="your_truststore_path" password="your_truststore_password"/<span class="entity">&amp;gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="entity">&amp;lt;</span>tls:key-store path="your_keystore_path" password="your_keystore_path" keyPassword="your_keystore_keypass"/<span class="entity">&amp;gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="entity">&amp;lt;</span>/tls:context<span class="entity">&amp;gt;</span>
-<span class="entity">&amp;lt;</span>/http:request-config<span class="entity">&amp;gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
-        </div> </li> 
-       <li> <p>In your <code>ws:consumer-config</code> element, include a&nbsp;<code>connectorConfig</code> attribute to reference to this HTTP connector configuration element:</p> </li> 
-      </ol> 
-     </div> 
-     <div class="listingblock"> 
-      <div class="content"> 
-       <pre class="CodeRay highlight"><code data-lang="xml">
-    
-            
-         <table class="CodeRay"> 
-          <tbody> 
-           <tr> 
-            <td class="line-numbers"><pre>1
+             <td class="code"><pre><span class="tag">&lt;http:request-config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Request_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">host</span>=<span class="string"><span class="delimiter">"</span><span class="content">example.com</span><span class="delimiter">"</span></span> <span class="attribute-name">port</span>=<span class="string"><span class="delimiter">"</span><span class="content">8081</span><span class="delimiter">"</span></span> <span class="attribute-name">protocol</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTPS</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Request_Configuration</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;tls:context&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;tls:trust-store</span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">"</span><span class="content">your_truststore_path</span><span class="delimiter">"</span></span> <span class="attribute-name">password</span>=<span class="string"><span class="delimiter">"</span><span class="content">your_truststore_password</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;tls:key-store</span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">"</span><span class="content">your_keystore_path</span><span class="delimiter">"</span></span> <span class="attribute-name">password</span>=<span class="string"><span class="delimiter">"</span><span class="content">your_keystore_path</span><span class="delimiter">"</span></span> <span class="attribute-name">keyPassword</span>=<span class="string"><span class="delimiter">"</span><span class="content">your_keystore_keypass</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/tls:context&gt;</span>
+<span class="tag">&lt;/http:request-config&gt;</span></pre></td> 
+            </tr> 
+           </tbody> 
+          </table></code></pre> 
+       </div> 
+      </div> </li> 
+     <li> <p>In your <code>ws:consumer-config</code> element, include a&nbsp;<code>connectorConfig</code> attribute to reference to this HTTP connector configuration element:</p> </li> 
+    </ol> 
+   </div> 
+   <div class="listingblock"> 
+    <div class="content"> 
+     <pre class="CodeRay highlight"><code data-lang="xml">
+          
+       <table class="CodeRay"> 
+        <tbody> 
+         <tr> 
+          <td class="line-numbers"><pre>1
 </pre></td> 
-            <td class="code"><pre><span class="entity">&amp;lt;</span>ws:consumer-config name="Web_Service_Consumer" wsdlLocation="tshirt.wsdl.xml" service="TshirtService" port="TshirtServicePort" serviceAddress="http://tshirt-service.qa2.cloudhub.io/tshirt-service" connectorConfig="HTTP_Request_Configuration"/<span class="entity">&amp;gt;</span></pre></td> 
-           </tr> 
-          </tbody> 
-         </table></code></pre> 
-      </div> 
-     </div> 
+          <td class="code"><pre><span class="tag">&lt;ws:consumer-config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Web_Service_Consumer</span><span class="delimiter">"</span></span> <span class="attribute-name">wsdlLocation</span>=<span class="string"><span class="delimiter">"</span><span class="content">tshirt.wsdl.xml</span><span class="delimiter">"</span></span> <span class="attribute-name">service</span>=<span class="string"><span class="delimiter">"</span><span class="content">TshirtService</span><span class="delimiter">"</span></span> <span class="attribute-name">port</span>=<span class="string"><span class="delimiter">"</span><span class="content">TshirtServicePort</span><span class="delimiter">"</span></span> <span class="attribute-name">serviceAddress</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://tshirt-service.qa2.cloudhub.io/tshirt-service</span><span class="delimiter">"</span></span> <span class="attribute-name">connectorConfig</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Request_Configuration</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></pre></td> 
+         </tr> 
+        </tbody> 
+       </table></code></pre> 
     </div> 
    </div> 
   </div> 
@@ -1686,30 +1638,22 @@ doc:name="Property"/<span class="error">&gt;</span></pre></td>
 <div class="sect1"> 
  <h2 id="complete-code-example"><a class="anchor" href="#complete-code-example"></a>Complete Code Example</h2> 
  <div class="sectionbody"> 
-  <div class="panel panel-default no-padding"> 
-   <div class="panel-heading no-padding"> 
-    <!-- Nav tabs --> 
-    <ul class="nav nav-tabs" role="tablist"> 
-     <li class="active"><a href="#tab-6_1" role="tab" data-toggle="tab">STUDIO Visual Editor</a></li> 
-     <li><a href="#tab-6_2" role="tab" data-toggle="tab">XML Editor or Standalone</a></li> 
-    </ul> 
+  <div class="sect2"> 
+   <h3 id="studio-visual-editor-3"><a class="anchor" href="#studio-visual-editor-3"></a>Studio Visual Editor</h3> 
+   <div class="paragraph"> 
+    <p><span class="image"><img src="./_images/final+flow.png" alt="final+flow"></span></p> 
    </div> 
-   <div class="panel-body tab-content no-padding"> 
-    <div class="tab-pane in active fade no-padding" id="tab-6_1"> 
-     <div class="paragraph"> 
-      <p><span class="image"><img src="./_images/final+flow.png" alt="final+flow"></span></p> 
-     </div> 
-    </div> 
-    <div class="tab-pane fade no-padding" id="tab-6_2"> 
-     <div class="listingblock"> 
-      <div class="content"> 
-       <pre class="CodeRay highlight"><code data-lang="xml">
-    
-            
-         <table class="CodeRay"> 
-          <tbody> 
-           <tr> 
-            <td class="line-numbers"><pre>1
+  </div> 
+  <div class="sect2"> 
+   <h3 id="xml-editor-or-standalone-2"><a class="anchor" href="#xml-editor-or-standalone-2"></a>XML Editor or Standalone</h3> 
+   <div class="listingblock"> 
+    <div class="content"> 
+     <pre class="CodeRay highlight"><code data-lang="xml">
+          
+       <table class="CodeRay"> 
+        <tbody> 
+         <tr> 
+          <td class="line-numbers"><pre>1
 2
 3
 4
@@ -1754,57 +1698,73 @@ doc:name="Property"/<span class="error">&gt;</span></pre></td>
 43
 44
 45
+46
+47
+48
+49
+50
+51
+52
+53
+54
 </pre></td> 
-            <td class="code"><pre><span class="entity">&amp;lt;</span>mule xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:ws="http://www.mulesoft.org/schema/mule/ws" xmlns:data-mapper="http://www.mulesoft.org/schema/mule/ee/data-mapper" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+          <td class="code"><pre><span class="tag">&lt;mule</span> <span class="attribute-name">xmlns:tracking</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/ee/tracking</span><span class="delimiter">"</span></span>
+<span class="attribute-name">xmlns:ws</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/ws</span><span class="delimiter">"</span></span>
+<span class="attribute-name">xmlns:data-mapper</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/ee/data-mapper</span><span class="delimiter">"</span></span>
+<span class="attribute-name">xmlns:http</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/http</span><span class="delimiter">"</span></span>
+<span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/core</span><span class="delimiter">"</span></span>
+<span class="attribute-name">xmlns:doc</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/documentation</span><span class="delimiter">"</span></span>
+<span class="attribute-name">xmlns:spring</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.springframework.org/schema/beans</span><span class="delimiter">"</span></span>
+<span class="attribute-name">xmlns:xsi</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.w3.org/2001/XMLSchema-instance</span><span class="delimiter">"</span></span>
+<span class="attribute-name">xsi:schemaLocation</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.springframework.org/schema/beans</span>
+<span class="content">http://www.springframework.org/schema/beans/spring-beans-current.xsd</span>
+<span class="content">http://www.mulesoft.org/schema/mule/core</span>
+<span class="content">http://www.mulesoft.org/schema/mule/core/current/mule.xsd</span>
+<span class="content">http://www.mulesoft.org/schema/mule/ws</span>
+<span class="content">http://www.mulesoft.org/schema/mule/ws/current/mule-ws.xsd</span>
+<span class="content">http://www.mulesoft.org/schema/mule/http</span>
+<span class="content">http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd</span>
+<span class="content">http://www.mulesoft.org/schema/mule/ee/data-mapper</span>
+<span class="content">http://www.mulesoft.org/schema/mule/ee/data-mapper/current/mule-data-mapper.xsd</span>
+<span class="content">http://www.mulesoft.org/schema/mule/ee/tracking</span>
+<span class="content">http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
 &nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;xmlns:spring="http://www.springframework.org/schema/beans" version="EE-3.6.1"
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;ws:consumer-config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Web_Service_Consumer</span><span class="delimiter">"</span></span> <span class="attribute-name">wsdlLocation</span>=<span class="string"><span class="delimiter">"</span><span class="content">tshirt.wsdl.xml</span><span class="delimiter">"</span></span> <span class="attribute-name">service</span>=<span class="string"><span class="delimiter">"</span><span class="content">TshirtService</span><span class="delimiter">"</span></span> <span class="attribute-name">port</span>=<span class="string"><span class="delimiter">"</span><span class="content">TshirtServicePort</span><span class="delimiter">"</span></span> <span class="attribute-name">serviceAddress</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://tshirt-service.qa2.cloudhub.io/tshirt-service</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Web Service Consumer</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
 &nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-&nbsp;&nbsp;&nbsp;&nbsp;xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
-http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
-http://www.mulesoft.org/schema/mule/ws http://www.mulesoft.org/schema/mule/ws/current/mule-ws.xsd
-http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
-http://www.mulesoft.org/schema/mule/ee/data-mapper http://www.mulesoft.org/schema/mule/ee/data-mapper/current/mule-data-mapper.xsd
-http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd"<span class="entity">&amp;gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;data-mapper:config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">xml_listinventoryresponse__to_json</span><span class="delimiter">"</span></span> <span class="attribute-name">transformationGraphPath</span>=<span class="string"><span class="delimiter">"</span><span class="content">xml_listinventoryresponse__to_json.grf</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">xml_listinventoryresponse__to_json</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
 &nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="entity">&amp;lt;</span>ws:consumer-config name="Web_Service_Consumer" wsdlLocation="tshirt.wsdl.xml" service="TshirtService" port="TshirtServicePort" serviceAddress="http://tshirt-service.qa2.cloudhub.io/tshirt-service" doc:name="Web Service Consumer"/<span class="entity">&amp;gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;data-mapper:config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">json_to_xml_ordertshirt_</span><span class="delimiter">"</span></span> <span class="attribute-name">transformationGraphPath</span>=<span class="string"><span class="delimiter">"</span><span class="content">json_to_xml_ordertshirt_.grf</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">json_to_xml_ordertshirt_</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
 &nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="entity">&amp;lt;</span>data-mapper:config name="xml_listinventoryresponse__to_json" transformationGraphPath="xml_listinventoryresponse__to_json.grf" doc:name="xml_listinventoryresponse__to_json"/<span class="entity">&amp;gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;data-mapper:config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">xml_ordertshirtresponse__to_json</span><span class="delimiter">"</span></span> <span class="attribute-name">transformationGraphPath</span>=<span class="string"><span class="delimiter">"</span><span class="content">xml_ordertshirtresponse__to_json.grf</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">xml_ordertshirtresponse__to_json</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
 &nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="entity">&amp;lt;</span>data-mapper:config name="json_to_xml_ordertshirt_" transformationGraphPath="json_to_xml_ordertshirt_.grf" doc:name="json_to_xml_ordertshirt_"/<span class="entity">&amp;gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;data-mapper:config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">string_to_xml_authenticationheader_</span><span class="delimiter">"</span></span> <span class="attribute-name">transformationGraphPath</span>=<span class="string"><span class="delimiter">"</span><span class="content">string_to_xml_authenticationheader_.grf</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">string_to_xml_authenticationheader_</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
 &nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="entity">&amp;lt;</span>data-mapper:config name="xml_ordertshirtresponse__to_json" transformationGraphPath="xml_ordertshirtresponse__to_json.grf" doc:name="xml_ordertshirtresponse__to_json"/<span class="entity">&amp;gt;</span>
-&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="entity">&amp;lt;</span>data-mapper:config name="string_to_xml_authenticationheader_" transformationGraphPath="string_to_xml_authenticationheader_.grf" doc:name="string_to_xml_authenticationheader_"/<span class="entity">&amp;gt;</span>
-&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="entity">&amp;lt;</span>http:listener-config name="HTTP_Listener_Configuration" host="localhost" port="8081" doc:name="HTTP Listener Configuration"/<span class="entity">&amp;gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;http:listener-config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Listener_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">host</span>=<span class="string"><span class="delimiter">"</span><span class="content">localhost</span><span class="delimiter">"</span></span> <span class="attribute-name">port</span>=<span class="string"><span class="delimiter">"</span><span class="content">8081</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP Listener Configuration</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
 &nbsp;
 &nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="entity">&amp;lt;</span>flow name="orderTshirt" doc:name="orderTshirt"<span class="entity">&amp;gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="entity">&amp;lt;</span>http:listener config-ref="HTTP_Listener_Configuration" path="orders" doc:name="HTTP"<span class="entity">&amp;gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="entity">&amp;lt;</span>http:response-builder statusCode="200"/<span class="entity">&amp;gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="entity">&amp;lt;</span>/http:listener<span class="entity">&amp;gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="entity">&amp;lt;</span>data-mapper:transform config-ref="json_to_xml_ordertshirt_" doc:name="JSON To Xml<span class="entity">&amp;amp;</span>lt;OrderTshirt<span class="entity">&amp;amp;</span>gt;"/<span class="entity">&amp;gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="entity">&amp;lt;</span>set-variable variableName="apiKey" value="#['abc12345']" doc:name="Set API Key"/<span class="entity">&amp;gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="entity">&amp;lt;</span>data-mapper:transform config-ref="string_to_xml_authenticationheader_" input-ref="#[flowVars[<span class="entity">&amp;amp;</span>quot;apiKey<span class="entity">&amp;amp;</span>quot;]]" target="#[message.outboundProperties[<span class="entity">&amp;amp;</span>quot;soap.header<span class="entity">&amp;amp;</span>quot;]]" doc:name="String To Xml<span class="entity">&amp;amp;</span>lt;AuthenticationHeader<span class="entity">&amp;amp;</span>gt;"/<span class="entity">&amp;gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="entity">&amp;lt;</span>ws:consumer config-ref="Web_Service_Consumer" operation="OrderTshirt" doc:name="Order Tshirt"/<span class="entity">&amp;gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="entity">&amp;lt;</span>data-mapper:transform config-ref="xml_ordertshirtresponse__to_json" doc:name="Xml<span class="entity">&amp;amp;</span>lt;OrderTshirtResponse<span class="entity">&amp;amp;</span>gt; To JSON" returnClass="java.lang.String"/<span class="entity">&amp;gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="entity">&amp;lt;</span>/flow<span class="entity">&amp;gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;flow</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">orderTshirt</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">orderTshirt</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;http:listener</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Listener_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">"</span><span class="content">orders</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;http:response-builder</span> <span class="attribute-name">statusCode</span>=<span class="string"><span class="delimiter">"</span><span class="content">200</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/http:listener&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;data-mapper:transform</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">json_to_xml_ordertshirt_</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">JSON To Xml</span><span class="entity">&amp;lt;</span><span class="content">OrderTshirt</span><span class="entity">&amp;gt;</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;set-variable</span> <span class="attribute-name">variableName</span>=<span class="string"><span class="delimiter">"</span><span class="content">apiKey</span><span class="delimiter">"</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">"</span><span class="content">#['abc12345']</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Set API Key</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;data-mapper:transform</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">string_to_xml_authenticationheader_</span><span class="delimiter">"</span></span> <span class="attribute-name">input-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">#[flowVars[</span><span class="entity">&amp;quot;</span><span class="content">apiKey</span><span class="entity">&amp;quot;</span><span class="content">]]</span><span class="delimiter">"</span></span> <span class="attribute-name">target</span>=<span class="string"><span class="delimiter">"</span><span class="content">#[message.outboundProperties[</span><span class="entity">&amp;quot;</span><span class="content">soap.header</span><span class="entity">&amp;quot;</span><span class="content">]]</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">String To Xml</span><span class="entity">&amp;lt;</span><span class="content">AuthenticationHeader</span><span class="entity">&amp;gt;</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;ws:consumer</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">Web_Service_Consumer</span><span class="delimiter">"</span></span> <span class="attribute-name">operation</span>=<span class="string"><span class="delimiter">"</span><span class="content">OrderTshirt</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Order Tshirt</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;data-mapper:transform</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">xml_ordertshirtresponse__to_json</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Xml</span><span class="entity">&amp;lt;</span><span class="content">OrderTshirtResponse</span><span class="entity">&amp;gt;</span> <span class="content">To JSON</span><span class="delimiter">"</span></span> <span class="attribute-name">returnClass</span>=<span class="string"><span class="delimiter">"</span><span class="content">java.lang.String</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/flow&gt;</span>
 &nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="entity">&amp;lt;</span>flow name="listInventory" doc:name="listInventory"<span class="entity">&amp;gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="entity">&amp;lt;</span>http:listener config-ref="HTTP_Listener_Configuration" path="inventory" doc:name="HTTP"<span class="entity">&amp;gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="entity">&amp;lt;</span>http:response-builder statusCode="200"/<span class="entity">&amp;gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="entity">&amp;lt;</span>/http:listener<span class="entity">&amp;gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="entity">&amp;lt;</span>ws:consumer config-ref="Web_Service_Consumer" operation="ListInventory" doc:name="List Inventory"/<span class="entity">&amp;gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="entity">&amp;lt;</span>data-mapper:transform config-ref="xml_listinventoryresponse__to_json" returnClass="java.lang.String" doc:name="Xml<span class="entity">&amp;amp;</span>lt;ListInventoryResponse<span class="entity">&amp;amp;</span>gt; To JSON"/<span class="entity">&amp;gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="entity">&amp;lt;</span>/flow<span class="entity">&amp;gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;flow</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">listInventory</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">listInventory</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;http:listener</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Listener_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">"</span><span class="content">inventory</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;http:response-builder</span> <span class="attribute-name">statusCode</span>=<span class="string"><span class="delimiter">"</span><span class="content">200</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/http:listener&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;ws:consumer</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">Web_Service_Consumer</span><span class="delimiter">"</span></span> <span class="attribute-name">operation</span>=<span class="string"><span class="delimiter">"</span><span class="content">ListInventory</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">List Inventory</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;data-mapper:transform</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">xml_listinventoryresponse__to_json</span><span class="delimiter">"</span></span> <span class="attribute-name">returnClass</span>=<span class="string"><span class="delimiter">"</span><span class="content">java.lang.String</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Xml</span><span class="entity">&amp;lt;</span><span class="content">ListInventoryResponse</span><span class="entity">&amp;gt;</span> <span class="content">To JSON</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/flow&gt;</span>
 &nbsp;
-<span class="entity">&amp;lt;</span>/mule<span class="entity">&amp;gt;</span></pre></td> 
-           </tr> 
-          </tbody> 
-         </table></code></pre> 
-      </div> 
-     </div> 
+<span class="tag">&lt;/mule&gt;</span></pre></td> 
+         </tr> 
+        </tbody> 
+       </table></code></pre> 
     </div> 
    </div> 
   </div> 
@@ -1817,7 +1777,7 @@ http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/m
    <ul> 
     <li> <p>Learn more about how to use the&nbsp;<a href="/anypoint-studio/v/6/datamapper-user-guide-and-reference">DataMapper transformer</a>.</p> </li> 
     <li> <p>Learn how to publish a REST API in Mule using&nbsp;<a href="/apikit">APIkit</a>.</p> </li> 
-    <li> <p>Access the&nbsp;<a href="/mule-user-guide/v/3.7/mule-fundamentals">Mule Fundamentals</a>&nbsp;to learn the basics.</p> </li> 
+    <li> <p>Access the&nbsp;<a href="/mule-user-guide/v/3.6/mule-fundamentals">Mule Fundamentals</a>&nbsp;to learn the basics.</p> </li> 
    </ul> 
   </div> 
  </div> 
@@ -1826,7 +1786,7 @@ http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/m
     <!-- END article-content -->
     <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
                 <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#prerequisites">Prerequisites</a></li><li><a class="scroll-menu-link" href="#installation">Installation</a></li><li><a class="scroll-menu-link" href="#limitations">Limitations</a></li><li><a class="scroll-menu-link" href="#basic-anatomy">Basic Anatomy</a></li><li><a class="scroll-menu-link" href="#configuring-web-service-consumer">Configuring Web Service Consumer</a></li><li><a class="scroll-menu-link" href="#web-service-consumer-and-datamapper">Web Service Consumer and DataMapper</a></li><li><a class="scroll-menu-link" href="#web-service-consumer-and-datasense-explorer">Web Service Consumer and DataSense Explorer</a></li><li><a class="scroll-menu-link" href="#securely-connecting-to-a-soap-web-service">Securely Connecting to a SOAP Web Service</a></li><li><a class="scroll-menu-link" href="#using-basic-authentication-and-ssl">Using Basic Authentication and SSL</a></li><li><a class="scroll-menu-link" href="#complete-code-example">Complete Code Example</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
+                <ul><li><a class="scroll-menu-link" href="#prerequisites">Prerequisites</a></li><li><a class="scroll-menu-link" href="#installation">Installation</a></li><li><a class="scroll-menu-link" href="#limitations">Limitations</a></li><li><a class="scroll-menu-link" href="#basic-anatomy">Basic Anatomy</a></li><li><a class="scroll-menu-link" href="#configuring-web-service-consumer">Configuring Web Service Consumer</a></li><li><a class="scroll-menu-link" href="#web-service-consumer-and-datamapper">Web Service Consumer and DataMapper</a></li><li><a class="scroll-menu-link" href="#web-service-consumer-and-datasense-explorer">Web Service Consumer and DataSense Explorer</a></li><li><a class="scroll-menu-link" href="#securely-connecting-to-a-soap-web-service">Securely Connecting to a SOAP Web Service</a></li><li><a class="scroll-menu-link" href="#using-basic-authentication-and-ssl">Using Basic Authentication and SSL</a></li><li><a class="scroll-menu-link" href="#xml-editor">XML Editor</a></li><li><a class="scroll-menu-link" href="#complete-code-example">Complete Code Example</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
   </div>
 </div>
 <!-- START footer -->
