@@ -1097,7 +1097,7 @@
  <h2 id="faq-can-i-consume-mq-messages-in-batches"><a class="anchor" href="#faq-can-i-consume-mq-messages-in-batches"></a>FAQ: Can I consume MQ messages in batches?</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>Yes the REST API supports the <code>batchSize</code> query parameter which lets you retrieve up to 10 messages in a single call. If you need to fetch more than 10 messages in a single call, you can configure the Prefetch Config parameter in the Anypoint MQ Connector as described in <a href="/anypoint-mq/mq-studio#studio-prefetch-tab">Studio Prefetch Tab</a>.</p> 
+   <p>Yes, the REST API supports the <code>batchSize</code> query parameter which lets you retrieve up to 10 messages in a single call (default value). The maximum number that can be retrieved are 10 messages in a single call, you can configure a lower value with the Prefetch Config parameter in the Anypoint MQ Connector as described in <a href="/anypoint-mq/mq-studio#studio-prefetch-tab">Studio Prefetch Tab</a>. Note the number of messages retrieved by the connector can be less that the amount configured. A number higher that 10 can be configured but it will be overriden.</p> 
   </div> 
  </div> 
 </div> 
