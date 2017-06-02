@@ -1471,69 +1471,66 @@ port="8081"/<span class="entity">&amp;gt;</span>
   </div> 
   <div class="ulist"> 
    <ul> 
-    <li> <p>If you select any component in your flow that precedes the creation of the property, you will see it in the Metadata Explorer, under the <strong>Outbound Properties</strong> section.<br></p> 
+    <li> <p>If you select any component in your flow that precedes the creation of the property, you will see it in the Metadata Explorer, under the <strong>Outbound Properties</strong> section.</p> 
      <div class="paragraph"> 
-      <p><span class="image"><img src="./_images/properties+metadata+explorer.jpeg" alt="properties+metadata+explorer"></span><br></p> 
+      <p><span class="image"><img src="./_images/properties+metadata+explorer.jpeg" alt="properties+metadata+explorer"></span></p> 
      </div> </li> 
-    <li> <p>You can reference it in any field in any component that accepts <a href="/mule-user-guide/v/3.7/mule-expression-language-mel">Mule Expression Language (MEL)</a>, calling it through the following expression:</p> </li> 
-   </ul> 
-  </div> 
-  <div class="listingblock"> 
-   <div class="content"> 
-    <pre class="CodeRay highlight"><code data-lang="code">
-         
-      <table class="CodeRay"> 
+    <li> <p>You can reference it in any field in any component that accepts <a href="/mule-user-guide/v/3.7/mule-expression-language-mel">Mule Expression Language (MEL)</a>, calling it through the following expression:</p> 
+     <div class="listingblock"> 
+      <div class="content"> 
+       <pre class="CodeRay highlight"><code data-lang="code">
+            
+         <table class="CodeRay"> 
+          <tbody> 
+           <tr> 
+            <td class="line-numbers"><pre>1
+</pre></td> 
+            <td class="code"><pre>#[message.outboundProperties.propertyName]</pre></td> 
+           </tr> 
+          </tbody> 
+         </table></code></pre> 
+      </div> 
+     </div> 
+     <div class="admonitionblock tip"> 
+      <table> 
        <tbody> 
         <tr> 
-         <td class="line-numbers"><pre>1
-</pre></td> 
-         <td class="code"><pre>#[message.outboundProperties.propertyName]</pre></td> 
+         <td class="icon"> <i class="fa icon-tip" title="Tip"></i> </td> 
+         <td class="content"> In Studio, the autocomplete feature can help you out by displaying a list of available properties at that particular part of the flow. </td> 
         </tr> 
        </tbody> 
-      </table></code></pre> 
-   </div> 
-  </div> 
-  <div class="admonitionblock tip"> 
-   <table> 
-    <tbody> 
-     <tr> 
-      <td class="icon"> <i class="fa icon-tip" title="Tip"></i> </td> 
-      <td class="content"> In Studio, the autocomplete feature can help you out by displaying a list of available properties at that particular part of the flow.<br> <br> <span class="image"><img src="./_images/properties+autocomplete.jpeg" alt="properties+autocomplete"></span> </td> 
-     </tr> 
-    </tbody> 
-   </table> 
-  </div> 
-  <div class="ulist"> 
-   <ul> 
-    <li> <p>You can reference it inside any custom Java Class, calling it through the following:</p> </li> 
-   </ul> 
-  </div> 
-  <div class="listingblock"> 
-   <div class="content"> 
-    <pre class="CodeRay highlight"><code data-lang="code">
-         
-      <table class="CodeRay"> 
-       <tbody> 
-        <tr> 
-         <td class="line-numbers"><pre>1
+      </table> 
+     </div> 
+     <div class="paragraph"> 
+      <p><span class="image"><img src="./_images/properties+autocomplete.jpeg" alt="properties+autocomplete"></span></p> 
+     </div> </li> 
+    <li> <p>You can reference it inside any custom Java Class, calling it through the following:</p> 
+     <div class="listingblock"> 
+      <div class="content"> 
+       <pre class="CodeRay highlight"><code data-lang="code">
+            
+         <table class="CodeRay"> 
+          <tbody> 
+           <tr> 
+            <td class="line-numbers"><pre>1
 </pre></td> 
-         <td class="code"><pre>message.getOutboundProperty("propertyName");</pre></td> 
-        </tr> 
-       </tbody> 
-      </table></code></pre> 
-   </div> 
-  </div> 
-  <div class="paragraph"> 
-   <p>See a basic Java Class that implements this</p> 
-  </div> 
-  <div class="listingblock"> 
-   <div class="content"> 
-    <pre class="CodeRay highlight"><code data-lang="java">
-         
-      <table class="CodeRay"> 
-       <tbody> 
-        <tr> 
-         <td class="line-numbers"><pre>1
+            <td class="code"><pre>message.getOutboundProperty("propertyName");</pre></td> 
+           </tr> 
+          </tbody> 
+         </table></code></pre> 
+      </div> 
+     </div> 
+     <div class="paragraph"> 
+      <p>See a basic Java Class that implements this</p> 
+     </div> 
+     <div class="listingblock"> 
+      <div class="content"> 
+       <pre class="CodeRay highlight"><code data-lang="java">
+            
+         <table class="CodeRay"> 
+          <tbody> 
+           <tr> 
+            <td class="line-numbers"><pre>1
 2
 3
 4
@@ -1549,7 +1546,7 @@ port="8081"/<span class="entity">&amp;gt;</span>
 14
 15
 </pre></td> 
-         <td class="code"><pre><span class="keyword">package</span> <span class="namespace">org.mule.transformers</span>;
+            <td class="code"><pre><span class="keyword">package</span> <span class="namespace">org.mule.transformers</span>;
 <span class="keyword">import</span> <span class="include">org.mule.api.MuleMessage</span>;
 <span class="keyword">import</span> <span class="include">org.mule.api.transformer.TransformerException</span>;
 <span class="keyword">import</span> <span class="include">org.mule.transformer.AbstractMessageTransformer</span>;
@@ -1564,20 +1561,22 @@ port="8081"/<span class="entity">&amp;gt;</span>
 <span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="keyword">return</span> newPayload;
 <span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span>}
 }<span class="error">&nbsp;</span></pre></td> 
+           </tr> 
+          </tbody> 
+         </table></code></pre> 
+      </div> 
+     </div> 
+     <div class="admonitionblock tip"> 
+      <table> 
+       <tbody> 
+        <tr> 
+         <td class="icon"> <i class="fa icon-tip" title="Tip"></i> </td> 
+         <td class="content"> This Java Class takes an existing property named <code>myProperty</code> and makes it into the message payload. </td> 
         </tr> 
        </tbody> 
-      </table></code></pre> 
-   </div> 
-  </div> 
-  <div class="admonitionblock tip"> 
-   <table> 
-    <tbody> 
-     <tr> 
-      <td class="icon"> <i class="fa icon-tip" title="Tip"></i> </td> 
-      <td class="content"> This Java Class takes an existing property named <code>myProperty</code> and makes it into the message payload. </td> 
-     </tr> 
-    </tbody> 
-   </table> 
+      </table> 
+     </div> </li> 
+   </ul> 
   </div> 
  </div> 
 </div> 

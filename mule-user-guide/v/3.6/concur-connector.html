@@ -15,7 +15,7 @@
   <script src="/js/scripts.js?t=1495998692"></script>
 
   <link rel="canonical" href="https://docs.mulesoft.com/mule-user-guide/v/3.6/concur-connector" />
-  <meta name="description" content="Standard The Concur Anypoint connector for Mule ESB and CloudHub is used as a bidirectional gateway between Concur and Mule applications. To use th..." />
+  <meta name="description" content="Standard The Concur Anypoint connector for Mule and CloudHub is used as a bidirectional gateway between Concur and Mule applications. To use the Co..." />
   <meta class="swiftype" name="title" data-type="string" content="Concur Connector" />
   <meta class="swiftype" name="version" data-type="enum" content="3.6" />
 </head>
@@ -1037,7 +1037,7 @@
    <p><strong><em>Standard</em></strong></p> 
   </div> 
   <div class="paragraph"> 
-   <p>The Concur Anypoint connector for Mule ESB and CloudHub is used as a bidirectional gateway between Concur and Mule applications.</p> 
+   <p>The Concur Anypoint connector for Mule and CloudHub is used as a bidirectional gateway between Concur and Mule applications.</p> 
   </div> 
   <div class="paragraph"> 
    <p>To use the Concur connector, you must have, at minimum, the following requirements:</p> 
@@ -1068,7 +1068,7 @@
  <h2 id="installing-concur-connector-in-anypoint-studio"><a class="anchor" href="#installing-concur-connector-in-anypoint-studio"></a>Installing Concur Connector in Anypoint Studio</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>You can "test drive" a connector in Anypoint Studio using the instructions in&nbsp;<a href="/getting-started/anypoint-exchange#installing-a-connector-from-anypoint-exchange">Installing a Connector from Anypoint Exchange</a>.&nbsp;&nbsp;</p> 
+   <p>You can "test drive" a connector in Anypoint Studio using the instructions in&nbsp;<a href="/mule-user-guide/v/3.6/installing-connectors">To Install a Connector from Anypoint Exchange</a>.&nbsp;&nbsp;</p> 
   </div> 
   <div class="paragraph"> 
    <p>However, to use the&nbsp;Concur connector in a production environment, you must have either:</p> 
@@ -1096,341 +1096,330 @@
     <li> <p>Parameters of each Concur connector instance in the application.</p> </li> 
    </ul> 
   </div> 
-  <div class="panel panel-default no-padding"> 
-   <div class="panel-heading no-padding"> 
-    <!-- Nav tabs --> 
-    <ul class="nav nav-tabs" role="tablist"> 
-     <li class="active"><a href="#tab-1_1" role="tab" data-toggle="tab">Studio Visual Editor</a></li> 
-     <li><a href="#tab-1_2" role="tab" data-toggle="tab">XML Editor</a></li> 
-    </ul> 
+  <div class="sect2"> 
+   <h3 id="studio-visual-editor"><a class="anchor" href="#studio-visual-editor"></a>Studio Visual Editor</h3> 
+   <div class="paragraph"> 
+    <p>Follow these steps to create a global Concur configuration in a Mule application:</p> 
    </div> 
-   <div class="panel-body tab-content no-padding"> 
-    <div class="tab-pane in active fade no-padding" id="tab-1_1"> 
-     <div class="paragraph"> 
-      <p>Follow these steps to create a global Concur configuration in a Mule application:</p> 
-     </div> 
-     <div class="olist arabic"> 
-      <ol class="arabic"> 
-       <li> <p>Click the&nbsp;<strong>Global Elements</strong>&nbsp;tab at the base of the canvas, then click&nbsp;<strong>Create</strong>.</p> </li> 
-       <li> <p>In the <strong>Choose Global Type</strong> wizard, use the filter to locate, then select Concur<strong>,</strong> then click&nbsp;<strong>OK</strong>.</p> </li> 
-       <li> <p>Configure the parameters according to the table below.</p> 
-        <div class="paragraph"> 
-         <p><span class="image"><img src="./_images/ConcurGlobalElementProps.png" alt="ConcurGlobalElementProps"></span></p> 
-        </div> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col> 
-          <col> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Parameter</th> 
-           <th class="tableblock halign-left valign-top">Description</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Enter a name for the configuration so it can be referenced later by the <code>config-ref</code> parameter in the flow</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Username</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">A Username for connecting to the Concur instance</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Password</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Password associated with the username</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>API URL</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">The base URL to connect to the Concur API</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Consumer Key</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">The Consumer Key assigned to the account</p></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-       <li> <p>Access the&nbsp;<strong>Pooling Profile</strong>&nbsp;tab to configure any settings relevant to managing multiple connections via a connection pool.</p> </li> 
-       <li> <p>Access the&nbsp;<strong>Reconnection</strong>&nbsp;tab to configure any&nbsp;settings relevant to reconnection strategies that Mule should execute if it loses its connection to Concur.</p> </li> 
-       <li> <p>Click&nbsp;<strong>OK</strong>&nbsp;to save the global connector configurations.</p> </li> 
-       <li> <p>Return to the&nbsp;<strong>Message Flow</strong>&nbsp;tab in Studio.</p> </li> 
-      </ol> 
-     </div> 
-     <div class="paragraph"> 
-      <p>Follow these steps to configure the parameters of a Concur connector in the flow:</p> 
-     </div> 
-     <div class="olist arabic"> 
-      <ol class="arabic"> 
-       <li> <p>Drag the Concur connector&nbsp;onto the canvas, then select it to open the Properties Editor console.</p> </li> 
-       <li> <p>Configure the parameters of the connector according to the table below.</p> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col> 
-          <col> 
-          <col> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Field</th> 
-           <th class="tableblock halign-left valign-top">Description</th> 
-           <th class="tableblock halign-left valign-top">Default</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Enter a unique label for the connector in your application.</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Concur</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Connector Configuration</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Connect to a global element linked to this connector. Global elements encapsulate reusable data about the connection to the target resource or service. Select the global Concur connector element that you just created.</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">&nbsp;</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Operation</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Select the action this component must perform.</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Batch Attendee List</p></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-       <li> <p>Save your configurations.</p> </li> 
-      </ol> 
-     </div> 
-    </div> 
-    <div class="tab-pane fade no-padding" id="tab-1_2"> 
-     <div class="paragraph"> 
-      <p>First, ensure that you have included the Concur namespaces in your configuration file.</p> 
-     </div> 
-     <div class="listingblock"> 
-      <div class="content"> 
-       <pre class="CodeRay highlight"><code data-lang="xml">
-    
-            
-         <table class="CodeRay"> 
-          <tbody> 
-           <tr> 
-            <td class="line-numbers"><pre>1
+   <div class="olist arabic"> 
+    <ol class="arabic"> 
+     <li> <p>Click the&nbsp;<strong>Global Elements</strong>&nbsp;tab at the base of the canvas, then click&nbsp;<strong>Create</strong>.</p> </li> 
+     <li> <p>In the <strong>Choose Global Type</strong> wizard, use the filter to locate, then select Concur<strong>,</strong> then click&nbsp;<strong>OK</strong>.</p> </li> 
+     <li> <p>Configure the parameters according to the table below.</p> 
+      <div class="paragraph"> 
+       <p><span class="image"><img src="./_images/ConcurGlobalElementProps.png" alt="ConcurGlobalElementProps"></span></p> 
+      </div> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col> 
+        <col> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Parameter</th> 
+         <th class="tableblock halign-left valign-top">Description</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Enter a name for the configuration so it can be referenced later by the <code>config-ref</code> parameter in the flow</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Username</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">A Username for connecting to the Concur instance</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Password</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Password associated with the username</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>API URL</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">The base URL to connect to the Concur API</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Consumer Key</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">The Consumer Key assigned to the account</p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>Access the&nbsp;<strong>Pooling Profile</strong>&nbsp;tab to configure any settings relevant to managing multiple connections via a connection pool.</p> </li> 
+     <li> <p>Access the&nbsp;<strong>Reconnection</strong>&nbsp;tab to configure any&nbsp;settings relevant to reconnection strategies that Mule should execute if it loses its connection to Concur.</p> </li> 
+     <li> <p>Click&nbsp;<strong>OK</strong>&nbsp;to save the global connector configurations.</p> </li> 
+     <li> <p>Return to the&nbsp;<strong>Message Flow</strong>&nbsp;tab in Studio.</p> </li> 
+    </ol> 
+   </div> 
+   <div class="paragraph"> 
+    <p>Follow these steps to configure the parameters of a Concur connector in the flow:</p> 
+   </div> 
+   <div class="olist arabic"> 
+    <ol class="arabic"> 
+     <li> <p>Drag the Concur connector&nbsp;onto the canvas, then select it to open the Properties Editor console.</p> </li> 
+     <li> <p>Configure the parameters of the connector according to the table below.</p> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col> 
+        <col> 
+        <col> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Field</th> 
+         <th class="tableblock halign-left valign-top">Description</th> 
+         <th class="tableblock halign-left valign-top">Default</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Enter a unique label for the connector in your application.</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Concur</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Connector Configuration</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Connect to a global element linked to this connector. Global elements encapsulate reusable data about the connection to the target resource or service. Select the global Concur connector element that you just created.</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">&nbsp;</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Operation</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Select the action this component must perform.</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Batch Attendee List</p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>Save your configurations.</p> </li> 
+    </ol> 
+   </div> 
+  </div> 
+  <div class="sect2"> 
+   <h3 id="xml-editor"><a class="anchor" href="#xml-editor"></a>XML Editor</h3> 
+   <div class="paragraph"> 
+    <p>First, ensure that you have included the Concur namespaces in your configuration file.</p> 
+   </div> 
+   <div class="listingblock"> 
+    <div class="content"> 
+     <pre class="CodeRay highlight"><code data-lang="xml">
+          
+       <table class="CodeRay"> 
+        <tbody> 
+         <tr> 
+          <td class="line-numbers"><pre>1
 2
 </pre></td> 
-            <td class="code"><pre>http://www.mulesoft.org/schema/mule/concur
+          <td class="code"><pre>http://www.mulesoft.org/schema/mule/concur
 http://www.mulesoft.org/schema/mule/concur/current/mule-concur.xsd</pre></td> 
-           </tr> 
-          </tbody> 
-         </table></code></pre> 
-      </div> 
-     </div> 
-     <div class="paragraph"> 
-      <p>Follow these steps to configure a Concur connector in your application.</p> 
-     </div> 
-     <div class="olist arabic"> 
-      <ol class="arabic"> 
-       <li> <p>First,&nbsp;create a global Concur configuration outside and above your flows, using the following global configuration code.</p> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-       
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
-</pre></td> 
-               <td class="code"><pre><span class="entity">&amp;lt;</span>concur:config name="Concur" username="YOUR_USERNAME" password="YOUR_PASSWORD" apiUrl="YOUR_SERVICENOW_URI" consumerKey="YOUR_CONSUMER_KEY" doc:name="Concur"/<span class="entity">&amp;gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
-        </div> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col> 
-          <col> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Attribute</th> 
-           <th class="tableblock halign-left valign-top">Description</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Enter a name for the configuration so it can be referenced from within the flow.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>username</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Username for connecting to the Concur instance.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>password</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Password to log into the Concur instance.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>apiUrl</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">The URL of the Concur instance.&nbsp;</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>consumerKey</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">The consumer key associated with your Concur account</p></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-       <li> <p>Build your application flow, then add a Concur connector using one of the following operations. Follow the links in the table below to access detailed configuration reference for each of these operations.</p> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col> 
-          <col> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Operation</th> 
-           <th class="tableblock halign-left valign-top">Description</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/mule/concur-config.html#batch-attendee-list">&lt;concur:batch-attendee-list&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Make batch changes to attendee lists</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/mule/concur-config.html#batch-list-items">&lt;concur:batch-list-items&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Make batch changes to list items</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/mule/concur-config.html#close-payment-batch">&lt;concur:close-payment-batch&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">POST Payment Batch Close</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/mule/concur-config.html#create-or-update-users">&lt;concur:create-or-update-users&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Create or update users with batch of user profiles</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/mule/concur-config.html#create-receipt-image">&lt;concur:create-receipt-image&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Create a new image in the receipt store</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/mule/concur-config.html#get-attendee-details">&lt;concur:get-attendee-details&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">GET Attendee Details</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/mule/concur-config.html#get-expense-entry-details">&lt;concur:get-expense-entry-details&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">GET Expense Entry Details</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/mule/concur-config.html#get-expense-group-configuration">&lt;concur:get-expense-group-configuration&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Retrieve the expense group configuration</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/mule/concur-config.html#get-expense-report-detail">&lt;concur:get-expense-report-detail&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">GET Expense Report Detail</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/mule/concur-config.html#get-itinerary">&lt;concur:get-itinerary&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Get Itinerary Details</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/mule/concur-config.html#get-list-details">&lt;concur:get-list-details&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Get List Details</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/mule/concur-config.html#get-list-items">&lt;concur:get-list-items&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">GET List Items Request</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/mule/concur-config.html#get-list-of-attendees">&lt;concur:get-list-of-attendees&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">GET List of Attendees</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/mule/concur-config.html#get-list-of-expense-reports">&lt;concur:get-list-of-expense-reports&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">GET List of Expense Reports</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/mule/concur-config.html#get-list-of-form-fields">&lt;concur:get-list-of-form-fields&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Get List of Employee Form Fields</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/mule/concur-config.html#get-list-of-forms-of-payment">&lt;concur:get-list-of-forms-of-payment&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Retrieve the list of Forms of Payment</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/mule/concur-config.html#get-list-of-lists">&lt;concur:get-list-of-lists&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Get List of Lists</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/mule/concur-config.html#get-list-of-payment-batches">&lt;concur:get-list-of-payment-batches&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Get List of Payment Batches</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/mule/concur-config.html#get-list-of-receipts">&lt;concur:get-list-of-receipts&gt;</a><br></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Get a list of all receipt IDs owned by the user associated with the OAuth token</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/mule/concur-config.html#get-receipt-image-uri">&lt;concur:get-receipt-image-uri&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Get the URI of a Receipt Image for a given ID</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/mule/concur-config.html#get-travel-profile">&lt;concur:get-travel-profile&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Retrieve the travel profile</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/mule/concur-config.html#get-travel-requests-list">&lt;concur:get-travel-requests-list&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Retrieve the Travel requests list</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/mule/concur-config.html#get-updated-travel-profiles">&lt;concur:get-updated-travel-profiles&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Retrieve the list of updated travel profiles</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/mule/concur-config.html#get-user-profile">&lt;concur:get-user-profile&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Retrieve the user profile</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/mule/concur-config.html#list-itineraries">&lt;concur:list-itineraries&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Retrieve the List of Itineraries</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/mule/concur-config.html#post-expense-entry-attendee">&lt;concur:post-expense-entry-attendee&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">POST Expense Entry Attendee</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/mule/concur-config.html#post-expense-entry-request">&lt;concur:post-expense-entry-request&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">POST Expense Entry Request.<br> Note: Concur recommends that you post one expense entry per request.</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/mule/concur-config.html#post-expense-report-header">&lt;concur:post-expense-report-header&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">POST Expense Report Header</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/mule/concur-config.html#post-expense-report-header-batch">&lt;concur:post-expense-report-header-batch&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">POST Expense Report Header Batch</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/mule/concur-config.html#post-expense-report-submit-request">&lt;concur:post-expense-report-submit-request&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">POST Expense Report Submit Request</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/mule/concur-config.html#quick-expense">&lt;concur:quick-expense&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Post a new quick expense</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/mule/concur-config.html#quick-expense-list">&lt;concur:quick-expense-list&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Retrieve all quick expenses</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/mule/concur-config.html#trip-approval">&lt;concur:trip-approval&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Approve Trip Itinerary</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/mule/concur-config.html#update-loyalty-program">&lt;concur:update-loyalty-program&gt;</a></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Update the Loyalty Program</p></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-      </ol> 
-     </div> 
+         </tr> 
+        </tbody> 
+       </table></code></pre> 
     </div> 
+   </div> 
+   <div class="paragraph"> 
+    <p>Follow these steps to configure a Concur connector in your application.</p> 
+   </div> 
+   <div class="olist arabic"> 
+    <ol class="arabic"> 
+     <li> <p>First,&nbsp;create a global Concur configuration outside and above your flows, using the following global configuration code.</p> 
+      <div class="listingblock"> 
+       <div class="content"> 
+        <pre class="CodeRay highlight"><code data-lang="xml">
+             
+          <table class="CodeRay"> 
+           <tbody> 
+            <tr> 
+             <td class="line-numbers"><pre>1
+</pre></td> 
+             <td class="code"><pre><span class="tag">&lt;concur:config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Concur</span><span class="delimiter">"</span></span> <span class="attribute-name">username</span>=<span class="string"><span class="delimiter">"</span><span class="content">YOUR_USERNAME</span><span class="delimiter">"</span></span> <span class="attribute-name">password</span>=<span class="string"><span class="delimiter">"</span><span class="content">YOUR_PASSWORD</span><span class="delimiter">"</span></span> <span class="attribute-name">apiUrl</span>=<span class="string"><span class="delimiter">"</span><span class="content">YOUR_SERVICENOW_URI</span><span class="delimiter">"</span></span> <span class="attribute-name">consumerKey</span>=<span class="string"><span class="delimiter">"</span><span class="content">YOUR_CONSUMER_KEY</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Concur</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></pre></td> 
+            </tr> 
+           </tbody> 
+          </table></code></pre> 
+       </div> 
+      </div> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col> 
+        <col> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Attribute</th> 
+         <th class="tableblock halign-left valign-top">Description</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Enter a name for the configuration so it can be referenced from within the flow.</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>username</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Username for connecting to the Concur instance.</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>password</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Password to log into the Concur instance.</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>apiUrl</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">The URL of the Concur instance.&nbsp;</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>consumerKey</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">The consumer key associated with your Concur account</p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>Build your application flow, then add a Concur connector using one of the following operations. Follow the links in the table below to access detailed configuration reference for each of these operations.</p> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col> 
+        <col> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Operation</th> 
+         <th class="tableblock halign-left valign-top">Description</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/3.0.0/apidocs/3.0.0/apidocs/mule/concur-config.html#batch-attendee-list">&lt;concur:batch-attendee-list&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Make batch changes to attendee lists</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/3.0.0/apidocs/3.0.0/apidocs/mule/concur-config.html#batch-list-items">&lt;concur:batch-list-items&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Make batch changes to list items</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/3.0.0/apidocs/mule/concur-config.html#close-payment-batch">&lt;concur:close-payment-batch&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">POST Payment Batch Close</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/3.0.0/apidocs/mule/concur-config.html#create-or-update-users">&lt;concur:create-or-update-users&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Create or update users with batch of user profiles</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/3.0.0/apidocs/mule/concur-config.html#create-receipt-image">&lt;concur:create-receipt-image&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Create a new image in the receipt store</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/3.0.0/apidocs/mule/concur-config.html#get-attendee-details">&lt;concur:get-attendee-details&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">GET Attendee Details</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/3.0.0/apidocs/mule/concur-config.html#get-expense-entry-details">&lt;concur:get-expense-entry-details&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">GET Expense Entry Details</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/3.0.0/apidocs/mule/concur-config.html#get-expense-group-configuration">&lt;concur:get-expense-group-configuration&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Retrieve the expense group configuration</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/3.0.0/apidocs/mule/concur-config.html#get-expense-report-detail">&lt;concur:get-expense-report-detail&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">GET Expense Report Detail</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/3.0.0/apidocs/mule/concur-config.html#get-itinerary">&lt;concur:get-itinerary&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Get Itinerary Details</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/3.0.0/apidocs/mule/concur-config.html#get-list-details">&lt;concur:get-list-details&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Get List Details</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/3.0.0/apidocs/mule/concur-config.html#get-list-items">&lt;concur:get-list-items&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">GET List Items Request</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/3.0.0/apidocs/mule/concur-config.html#get-list-of-attendees">&lt;concur:get-list-of-attendees&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">GET List of Attendees</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/3.0.0/apidocs/mule/concur-config.html#get-list-of-expense-reports">&lt;concur:get-list-of-expense-reports&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">GET List of Expense Reports</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/3.0.0/apidocs/mule/concur-config.html#get-list-of-form-fields">&lt;concur:get-list-of-form-fields&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Get List of Employee Form Fields</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/3.0.0/apidocs/mule/concur-config.html#get-list-of-forms-of-payment">&lt;concur:get-list-of-forms-of-payment&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Retrieve the list of Forms of Payment</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/3.0.0/apidocs/mule/concur-config.html#get-list-of-lists">&lt;concur:get-list-of-lists&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Get List of Lists</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/3.0.0/apidocs/mule/concur-config.html#get-list-of-payment-batches">&lt;concur:get-list-of-payment-batches&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Get List of Payment Batches</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/3.0.0/apidocs/mule/concur-config.html#get-list-of-receipts">&lt;concur:get-list-of-receipts&gt;</a><br></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Get a list of all receipt IDs owned by the user associated with the OAuth token</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/3.0.0/apidocs/mule/concur-config.html#get-receipt-image-uri">&lt;concur:get-receipt-image-uri&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Get the URI of a Receipt Image for a given ID</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/3.0.0/apidocs/mule/concur-config.html#get-travel-profile">&lt;concur:get-travel-profile&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Retrieve the travel profile</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/3.0.0/apidocs/mule/concur-config.html#get-travel-requests-list">&lt;concur:get-travel-requests-list&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Retrieve the Travel requests list</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/3.0.0/apidocs/mule/concur-config.html#get-updated-travel-profiles">&lt;concur:get-updated-travel-profiles&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Retrieve the list of updated travel profiles</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/3.0.0/apidocs/mule/concur-config.html#get-user-profile">&lt;concur:get-user-profile&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Retrieve the user profile</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/3.0.0/apidocs/mule/concur-config.html#list-itineraries">&lt;concur:list-itineraries&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Retrieve the List of Itineraries</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/3.0.0/apidocs/mule/concur-config.html#post-expense-entry-attendee">&lt;concur:post-expense-entry-attendee&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">POST Expense Entry Attendee</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/3.0.0/apidocs/mule/concur-config.html#post-expense-entry-request">&lt;concur:post-expense-entry-request&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">POST Expense Entry Request.<br> Note: Concur recommends that you post one expense entry per request.</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/3.0.0/apidocs/mule/concur-config.html#post-expense-report-header">&lt;concur:post-expense-report-header&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">POST Expense Report Header</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/3.0.0/apidocs/mule/concur-config.html#post-expense-report-header-batch">&lt;concur:post-expense-report-header-batch&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">POST Expense Report Header Batch</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/3.0.0/apidocs/mule/concur-config.html#post-expense-report-submit-request">&lt;concur:post-expense-report-submit-request&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">POST Expense Report Submit Request</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/3.0.0/apidocs/mule/concur-config.html#quick-expense">&lt;concur:quick-expense&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Post a new quick expense</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/3.0.0/apidocs/mule/concur-config.html#quick-expense-list">&lt;concur:quick-expense-list&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Retrieve all quick expenses</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/3.0.0/apidocs/mule/concur-config.html#trip-approval">&lt;concur:trip-approval&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Approve Trip Itinerary</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://mulesoft.github.io/concur-connector/3.0.0/apidocs/mule/concur-config.html#update-loyalty-program">&lt;concur:update-loyalty-program&gt;</a></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Update the Loyalty Program</p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+    </ol> 
    </div> 
   </div> 
  </div> 
@@ -1441,500 +1430,197 @@ http://www.mulesoft.org/schema/mule/concur/current/mule-concur.xsd</pre></td>
   <div class="paragraph"> 
    <p>As a Concur administrator, I would like to create and submit expense reports to Concur.</p> 
   </div> 
-  <div class="panel panel-default no-padding"> 
-   <div class="panel-heading no-padding"> 
-    <!-- Nav tabs --> 
-    <ul class="nav nav-tabs" role="tablist"> 
-     <li class="active"><a href="#tab-2_1" role="tab" data-toggle="tab">Studio Visual Editor</a></li> 
-     <li><a href="#tab-2_2" role="tab" data-toggle="tab">XML Editor</a></li> 
-    </ul> 
-   </div> 
-   <div class="panel-body tab-content no-padding"> 
-    <div class="tab-pane in active fade no-padding" id="tab-2_1"> 
-     <div class="olist arabic"> 
-      <ol class="arabic"> 
-       <li> <p>Drag an HTTP Endpoint into a new flow. Open the connector’s properties editor and Create a new <strong>Connector Configuration</strong> element by clicking the green plus sign.<br> &nbsp;</p> </li> 
-       <li> <p>Fill in the two required fields: <strong>Host</strong> and <strong>Port</strong>. Set&nbsp;the host to&nbsp; <code>localhost</code> and leave the port as the default value <code>8081</code>.</p> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col> 
-          <col> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Field</th> 
-           <th class="tableblock halign-left valign-top">Value</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><code>HTTP_Listener_Configuration</code></p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Host</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><code>localhost</code></p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Port</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><code>8081</code></p></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-       <li> <p>Back in the connector’s properties editor, set the path to <code>submitreport</code><br> The new flow is then reachable through the path `http://localhost:8081/submitreport `</p> </li> 
-       <li> <p>Add a Set Payload transformer after the HTTP connector to set the payload to a predefined set of values that match the format that Concur expects</p> </li> 
-       <li> <p>Configure the Set Payload transformer according to the table below.</p> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col style="width: 50%;"> 
-          <col style="width: 50%;"> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Field</th> 
-           <th class="tableblock halign-left valign-top">Value</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Display Name</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">April Expenses</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Value</p></td> 
-           <td class="tableblock halign-left valign-top"> 
-            <div> 
-             <div class="paragraph"> 
-              <p>#[['name':'April Expenses','purpose':'All expenses for April','comment':'This is a comment.','orgUnit1':'US','orgUnit2':'NW','orgUnit3':'Redmond','custom1':'Client','custo</p> 
-             </div> 
-             <div class="paragraph"> 
-              <p>m2':'Local','userDefinedDate':'2014-03-26 15:15:07.0']]</p> 
-             </div> 
-            </div></td> 
-          </tr> 
-         </tbody> 
-        </table> 
-        <div class="paragraph"> 
-         <p><span class="image"><img src="./_images/ex2.png" alt="ex2"></span></p> 
-        </div> 
-        <div class="admonitionblock note"> 
-         <table> 
-          <tbody> 
-           <tr> 
-            <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-            <td class="content"> 
-             <div class="paragraph"> 
-              <p>You can configure an external source such as a .csv file instead of using the Set Payload transformer to supply values to the expense report.</p> 
-             </div> </td> 
-           </tr> 
-          </tbody> 
-         </table> 
-        </div> </li> 
-       <li> <p>Drag a Concur connector into the flow to post an expense report header.</p> </li> 
-       <li> <p>Add a new global element by clicking the plus sign next to the <strong>Connector Configuration</strong> field.</p> </li> 
-       <li> <p>Configure this Global Element according to the table below (Refer to Configuring the Concur Connector for more details).</p> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col> 
-          <col> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Property</th> 
-           <th class="tableblock halign-left valign-top">Description</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Name</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Enter a unique label for this global element to be referenced by connectors</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Username</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Enter a Username for connecting to the Concur instance</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Password</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the user password</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">API URL</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the base URL to connect to the Concur API</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Consumer Key</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the Consumer Key assigned to the user</p></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-       <li> <p>Click <strong>Test Connection</strong> to confirm that Mule can connect with your Concur instance. If the connection is successful, click <strong>OK</strong> to save the configurations of the global element. If unsuccessful, revise or correct any incorrect parameters, then test again.</p> </li> 
-       <li> <p>Back in the properties editor of the Concur connector, configure the remaining parameters according to the table below.</p> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col> 
-          <col> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Field</th> 
-           <th class="tableblock halign-left valign-top">Value</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Display Name</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Post Expense Report Header</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Connector Configuration</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Concur (the global element you have created)</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Operation</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Post Expense Report Header</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">General</p></td> 
-           <td class="tableblock halign-left valign-top"> 
-            <div> 
-             <div class="paragraph"> 
-              <p>Select <strong>Define Attributes</strong>, then enter the following:</p> 
-             </div> 
-             <div class="paragraph"> 
-              <p>Name: #[<strong>payload</strong>.name]</p> 
-             </div> 
-             <div class="paragraph"> 
-              <p>Purpose: #[<strong>payload</strong>.purpose]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p> 
-             </div> 
-             <div class="paragraph"> 
-              <p>Comment: #[<strong>payload</strong>.comment]</p> 
-             </div> 
-             <div class="paragraph"> 
-              <p>OrgUnit1: #[<strong>payload</strong>.orgUnit1]</p> 
-             </div> 
-             <div class="paragraph"> 
-              <p>OrgUnit2: #[<strong>payload</strong>.orgUnit2]</p> 
-             </div> 
-             <div class="paragraph"> 
-              <p>OrgUnit3: #[<strong>payload</strong>.orgUnit3]</p> 
-             </div> 
-             <div class="paragraph"> 
-              <p>Custom1: #[<strong>payload</strong>.custom1]</p> 
-             </div> 
-             <div class="paragraph"> 
-              <p>Custom2: #[<strong>payload</strong>.custom2]</p> 
-             </div> 
-             <div class="paragraph"> 
-              <p>User Defined Data: #[<strong>payload</strong>.userDefinedData]</p> 
-             </div> 
-            </div></td> 
-          </tr> 
-         </tbody> 
-        </table> 
-        <div class="paragraph"> 
-         <p><span class="image"><img src="./_images/conc1.png" alt="conc1"></span></p> 
-        </div> </li> 
-       <li> <p>Drag a DataMapper transformer between the Set Payload transformer and the Concur connector, then click on it to open its properties editor.</p> </li> 
-       <li> <p>Configure the properties of the DataMapper according to the steps below.</p> 
-        <div class="olist loweralpha"> 
-         <ol class="loweralpha" type="a"> 
-          <li> <p>In the <strong>Input type</strong>, select <strong>Map&lt;k,v&gt;</strong>, then select <strong>User Defined.</strong></p> </li> 
-          <li> <p>Click <strong>Create/Edit Structure</strong>. &nbsp;</p> </li> 
-          <li> <p>Enter a name for the Map, and under <strong>Type</strong>, select <strong>Element</strong>.</p> </li> 
-          <li> <p>Add fields to the input structure according to the table below.</p> 
-           <table class="tableblock frame-all grid-all spread"> 
-            <colgroup> 
-             <col> 
-             <col> 
-            </colgroup> 
-            <thead> 
-             <tr> 
-              <th class="tableblock halign-left valign-top">Name</th> 
-              <th class="tableblock halign-left valign-top">Type</th> 
-             </tr> 
-            </thead> 
-            <tbody> 
-             <tr> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">comment</p></td> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
-             </tr> 
-             <tr> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">custom1</p></td> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
-             </tr> 
-             <tr> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">custom2</p></td> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
-             </tr> 
-             <tr> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
-             </tr> 
-             <tr> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">orgUnit1</p></td> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
-             </tr> 
-             <tr> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">orgUnit2</p></td> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
-             </tr> 
-             <tr> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">orgUnit3</p></td> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
-             </tr> 
-             <tr> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">purpose</p></td> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
-             </tr> 
-             <tr> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">userDefinedData</p></td> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
-             </tr> 
-            </tbody> 
-           </table> </li> 
-          <li> <p>The Output properties are automatically configured to correspond to the Concur connector.</p> </li> 
-          <li> <p>Click <strong>Create Mapping</strong></p> </li> 
-          <li> <p>Drag each input data field to its corresponding output Concur field.</p> </li> 
-          <li> <p>Click the blank space on the Canvas to save the changes.</p> </li> 
-         </ol> 
-        </div> </li> 
-       <li> <p>Add a Variable transformer to preserve the Report ID from the message payload. Configure the transformer according to the table below.</p> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col> 
-          <col> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Field</th> 
-           <th class="tableblock halign-left valign-top">Value</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Display Name</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Extract Report ID (or any other name you prefer)</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Operation</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Set Variable</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Name</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Report ID</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Value</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">#[groovy:payload.reportDetailsUrl.tokenize('/')[-1]]</p></td> 
-          </tr> 
-         </tbody> 
-        </table> 
-        <div class="paragraph"> 
-         <p><span class="image"><img src="./_images/ex3.png" alt="ex3"></span></p> 
-        </div> </li> 
-       <li> <p>Add a Set Payload transformer, then configure it according to the table below.</p> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col> 
-          <col> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Field</th> 
-           <th class="tableblock halign-left valign-top">Value</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Display Name</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Set Payload</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Value</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><code>#[['crnCode':'US','expKey':'BUSPR','description':'Business Promotions','transactionDate':'2014-01-12', 'transactionAmount':'29', 'comment':'Brochure Sample', 'vendorDescription':'Kinkos','isPersonal':'N']]</code></p></td> 
-          </tr> 
-         </tbody> 
-        </table> 
-        <div class="paragraph"> 
-         <p><span class="image"><img src="./_images/ex4.png" alt="ex4"></span></p> 
-        </div> </li> 
-       <li> <p>Add another Concur connector to the flow to create a expense entry request.</p> </li> 
-       <li> <p>In the <strong>Connector Configuration</strong> field, select the global Concur element you have created.</p> </li> 
-       <li> <p>Configure the remaining parameters according to the table below.</p> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col> 
-          <col> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Field</th> 
-           <th class="tableblock halign-left valign-top">Value</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Display Name</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Post Expense Entry Request</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Config Reference</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Concur (the global element you have created)</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Operation</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Post expense entry request</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Report ID</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><code>#[flowVars['ReportID']]</code></p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">General</p></td> 
-           <td class="tableblock halign-left valign-top"> 
-            <div> 
-             <div class="paragraph"> 
-              <p>Select <strong>Define Attributes</strong>, then enter the following:</p> 
-             </div> 
-             <div class="paragraph"> 
-              <p>Crn Code: #[<strong>payload</strong>.expense.crnCode]</p> 
-             </div> 
-             <div class="paragraph"> 
-              <p>Exp Key: #[<strong>payload</strong>.expense.expKey]</p> 
-             </div> 
-             <div class="paragraph"> 
-              <p>Transaction Date: #[<strong>payload</strong>.expense.transactionDate]</p> 
-             </div> 
-             <div class="paragraph"> 
-              <p>Transaction Amount: #[<strong>payload</strong>.expense.transactionAmount]</p> 
-             </div> 
-             <div class="paragraph"> 
-              <p>Comment: #[<strong>payload</strong>.expense.comment]</p> 
-             </div> 
-             <div class="paragraph"> 
-              <p>Vendor Description: #[<strong>payload</strong>.expense.vendorDescription]</p> 
-             </div> 
-             <div class="paragraph"> 
-              <p>Is Personal: #[<strong>payload</strong>.expense.isPersonal]</p> 
-             </div> 
-            </div></td> 
-          </tr> 
-         </tbody> 
-        </table> 
-        <div class="paragraph"> 
-         <p><span class="image"><img src="./_images/conc2.png" alt="conc2"></span></p> 
-        </div> </li> 
-       <li> <p>Drag another DataMapper between the Set Payload transformer and the Post Expense Entry Request, then configure it according to the steps below.</p> 
-        <div class="olist loweralpha"> 
-         <ol class="loweralpha" type="a"> 
-          <li> <p>In the <strong>Input type</strong>, select <strong>Map&lt;k,v&gt;</strong>, then select <strong>User Defined.</strong></p> </li> 
-          <li> <p>Click <strong>Create/Edit Structure</strong>. &nbsp;</p> </li> 
-          <li> <p>Enter a name for the Map, then under <strong>Type</strong>, select <strong>Element</strong>.</p> </li> 
-          <li> <p>Add fields to the input structure according to the table below.</p> 
-           <table class="tableblock frame-all grid-all spread"> 
-            <colgroup> 
-             <col> 
-             <col> 
-            </colgroup> 
-            <thead> 
-             <tr> 
-              <th class="tableblock halign-left valign-top">Comment</th> 
-              <th class="tableblock halign-left valign-top">Type</th> 
-             </tr> 
-            </thead> 
-            <tbody> 
-             <tr> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">crnCode</p></td> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
-             </tr> 
-             <tr> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">description</p></td> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
-             </tr> 
-             <tr> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">expKey</p></td> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
-             </tr> 
-             <tr> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">isPersonal</p></td> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
-             </tr> 
-             <tr> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">transactionAmount</p></td> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
-             </tr> 
-             <tr> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">transactionDate</p></td> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
-             </tr> 
-             <tr> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">vendorDescription</p></td> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
-             </tr> 
-            </tbody> 
-           </table> </li> 
-          <li> <p>The Output properties are automatically configured to correspond to the Concur connector.</p> </li> 
-          <li> <p>Click <strong>Create Mapping</strong>.</p> </li> 
-          <li> <p>Drag each input data field to its corresponding output Concur field.</p> </li> 
-          <li> <p>Click the blank space on the Canvas to save the changes.</p> </li> 
-         </ol> 
-        </div> </li> 
-       <li> <p>Finally, add a Concur connector at the end of the flow to post the expense report to Concur.</p> </li> 
-       <li> <p>In the <strong>Connector Configuration</strong> field, select the Concur global element you created.</p> </li> 
-       <li> <p>Configure the remaining parameters according to the table below.</p> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col> 
-          <col> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Field</th> 
-           <th class="tableblock halign-left valign-top">Value</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Display Name</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Post Expense Report</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Operation</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Post expense repot submit request</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Report ID</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">#[flowVars['ReportID']]</p></td> 
-          </tr> 
-         </tbody> 
-        </table> 
-        <div class="paragraph"> 
-         <p><span class="image"><img src="./_images/conc3.png" alt="conc3"></span></p> 
-        </div> </li> 
-       <li> <p>Run the project as a Mule Application.</p> </li> 
-      </ol> 
+  <div class="olist arabic"> 
+   <ol class="arabic"> 
+    <li> <p>Drag an HTTP Endpoint into a new flow. Open the connector’s properties editor and Create a new <strong>Connector Configuration</strong> element by clicking the green plus sign.<br> &nbsp;</p> </li> 
+    <li> <p>Fill in the two required fields: <strong>Host</strong> and <strong>Port</strong>. Set&nbsp;the host to&nbsp; <code>localhost</code> and leave the port as the default value <code>8081</code>.</p> 
+     <table class="tableblock frame-all grid-all spread"> 
+      <colgroup> 
+       <col> 
+       <col> 
+      </colgroup> 
+      <thead> 
+       <tr> 
+        <th class="tableblock halign-left valign-top">Field</th> 
+        <th class="tableblock halign-left valign-top">Value</th> 
+       </tr> 
+      </thead> 
+      <tbody> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Name</strong></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>HTTP_Listener_Configuration</code></p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Host</strong></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>localhost</code></p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Port</strong></p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>8081</code></p></td> 
+       </tr> 
+      </tbody> 
+     </table> </li> 
+    <li> <p>Back in the connector’s properties editor, set the path to <code>submitreport</code><br> The new flow is then reachable through the path `http://localhost:8081/submitreport `</p> </li> 
+    <li> <p>Add a Set Payload transformer after the HTTP connector to set the payload to a predefined set of values that match the format that Concur expects</p> </li> 
+    <li> <p>Configure the Set Payload transformer according to the table below.</p> 
+     <table class="tableblock frame-all grid-all spread"> 
+      <colgroup> 
+       <col style="width: 50%;"> 
+       <col style="width: 50%;"> 
+      </colgroup> 
+      <thead> 
+       <tr> 
+        <th class="tableblock halign-left valign-top">Field</th> 
+        <th class="tableblock halign-left valign-top">Value</th> 
+       </tr> 
+      </thead> 
+      <tbody> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Display Name</p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">April Expenses</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Value</p></td> 
+        <td class="tableblock halign-left valign-top"> 
+         <div> 
+          <div class="paragraph"> 
+           <p>#[['name':'April Expenses','purpose':'All expenses for April','comment':'This is a comment.','orgUnit1':'US','orgUnit2':'NW','orgUnit3':'Redmond','custom1':'Client','custo</p> 
+          </div> 
+          <div class="paragraph"> 
+           <p>m2':'Local','userDefinedDate':'2014-03-26 15:15:07.0']]</p> 
+          </div> 
+         </div></td> 
+       </tr> 
+      </tbody> 
+     </table> 
+     <div class="paragraph"> 
+      <p><span class="image"><img src="./_images/ex2.png" alt="ex2"></span></p> 
      </div> 
-    </div> 
-    <div class="tab-pane fade no-padding" id="tab-2_2"> 
-     <div class="olist arabic"> 
-      <ol class="arabic"> 
-       <li> <p>Add a <strong>concur:config</strong> ** global element to your project, then configure its attributes according to the table below (see code below for a complete sample).</p> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-       
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
-</pre></td> 
-               <td class="code"><pre><span class="entity">&amp;lt;</span>concur:config name="Concur" username="<span class="entity">&amp;lt;</span>your username<span class="entity">&amp;gt;</span>" password="<span class="entity">&amp;lt;</span>your password<span class="entity">&amp;gt;</span>" apiUrl="<span class="entity">&amp;lt;</span>the API URL of your Concur instance<span class="entity">&amp;gt;</span>" consumerKey="<span class="entity">&amp;lt;</span>your Consumer Key<span class="entity">&amp;gt;</span>" doc:name="Concur"/<span class="entity">&amp;gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
-        </div> 
+     <div class="admonitionblock note"> 
+      <table> 
+       <tbody> 
+        <tr> 
+         <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
+         <td class="content"> 
+          <div class="paragraph"> 
+           <p>You can configure an external source such as a .csv file instead of using the Set Payload transformer to supply values to the expense report.</p> 
+          </div> </td> 
+        </tr> 
+       </tbody> 
+      </table> 
+     </div> </li> 
+    <li> <p>Drag a Concur connector into the flow to post an expense report header.</p> </li> 
+    <li> <p>Add a new global element by clicking the plus sign next to the <strong>Connector Configuration</strong> field.</p> </li> 
+    <li> <p>Configure this Global Element according to the table below (Refer to Configuring the Concur Connector for more details).</p> 
+     <table class="tableblock frame-all grid-all spread"> 
+      <colgroup> 
+       <col> 
+       <col> 
+      </colgroup> 
+      <thead> 
+       <tr> 
+        <th class="tableblock halign-left valign-top">Property</th> 
+        <th class="tableblock halign-left valign-top">Description</th> 
+       </tr> 
+      </thead> 
+      <tbody> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Name</p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Enter a unique label for this global element to be referenced by connectors</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Username</p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Enter a Username for connecting to the Concur instance</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Password</p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the user password</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">API URL</p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the base URL to connect to the Concur API</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Consumer Key</p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Enter the Consumer Key assigned to the user</p></td> 
+       </tr> 
+      </tbody> 
+     </table> </li> 
+    <li> <p>Click <strong>Test Connection</strong> to confirm that Mule can connect with your Concur instance. If the connection is successful, click <strong>OK</strong> to save the configurations of the global element. If unsuccessful, revise or correct any incorrect parameters, then test again.</p> </li> 
+    <li> <p>Back in the properties editor of the Concur connector, configure the remaining parameters according to the table below.</p> 
+     <table class="tableblock frame-all grid-all spread"> 
+      <colgroup> 
+       <col> 
+       <col> 
+      </colgroup> 
+      <thead> 
+       <tr> 
+        <th class="tableblock halign-left valign-top">Field</th> 
+        <th class="tableblock halign-left valign-top">Value</th> 
+       </tr> 
+      </thead> 
+      <tbody> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Display Name</p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Post Expense Report Header</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Connector Configuration</p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Concur (the global element you have created)</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Operation</p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Post Expense Report Header</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">General</p></td> 
+        <td class="tableblock halign-left valign-top"> 
+         <div> 
+          <div class="paragraph"> 
+           <p>Select <strong>Define Attributes</strong>, then enter the following:</p> 
+          </div> 
+          <div class="paragraph"> 
+           <p>Name: #[<strong>payload</strong>.name]</p> 
+          </div> 
+          <div class="paragraph"> 
+           <p>Purpose: #[<strong>payload</strong>.purpose]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p> 
+          </div> 
+          <div class="paragraph"> 
+           <p>Comment: #[<strong>payload</strong>.comment]</p> 
+          </div> 
+          <div class="paragraph"> 
+           <p>OrgUnit1: #[<strong>payload</strong>.orgUnit1]</p> 
+          </div> 
+          <div class="paragraph"> 
+           <p>OrgUnit2: #[<strong>payload</strong>.orgUnit2]</p> 
+          </div> 
+          <div class="paragraph"> 
+           <p>OrgUnit3: #[<strong>payload</strong>.orgUnit3]</p> 
+          </div> 
+          <div class="paragraph"> 
+           <p>Custom1: #[<strong>payload</strong>.custom1]</p> 
+          </div> 
+          <div class="paragraph"> 
+           <p>Custom2: #[<strong>payload</strong>.custom2]</p> 
+          </div> 
+          <div class="paragraph"> 
+           <p>User Defined Data: #[<strong>payload</strong>.userDefinedData]</p> 
+          </div> 
+         </div></td> 
+       </tr> 
+      </tbody> 
+     </table> 
+     <div class="paragraph"> 
+      <p><span class="image"><img src="./_images/conc1.png" alt="conc1"></span></p> 
+     </div> </li> 
+    <li> <p>Drag a DataMapper transformer between the Set Payload transformer and the Concur connector, then click on it to open its properties editor.</p> </li> 
+    <li> <p>Configure the properties of the DataMapper according to the steps below.</p> 
+     <div class="olist loweralpha"> 
+      <ol class="loweralpha" type="a"> 
+       <li> <p>In the <strong>Input type</strong>, select <strong>Map&lt;k,v&gt;</strong>, then select <strong>User Defined.</strong></p> </li> 
+       <li> <p>Click <strong>Create/Edit Structure</strong>. &nbsp;</p> </li> 
+       <li> <p>Enter a name for the Map, and under <strong>Type</strong>, select <strong>Element</strong>.</p> </li> 
+       <li> <p>Add fields to the input structure according to the table below.</p> 
         <table class="tableblock frame-all grid-all spread"> 
          <colgroup> 
           <col> 
@@ -1942,54 +1628,188 @@ http://www.mulesoft.org/schema/mule/concur/current/mule-concur.xsd</pre></td>
          </colgroup> 
          <thead> 
           <tr> 
-           <th class="tableblock halign-left valign-top">Attribute</th> 
-           <th class="tableblock halign-left valign-top">Value</th> 
+           <th class="tableblock halign-left valign-top">Name</th> 
+           <th class="tableblock halign-left valign-top">Type</th> 
           </tr> 
          </thead> 
          <tbody> 
+          <tr> 
+           <td class="tableblock halign-left valign-top"><p class="tableblock">comment</p></td> 
+           <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
+          </tr> 
+          <tr> 
+           <td class="tableblock halign-left valign-top"><p class="tableblock">custom1</p></td> 
+           <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
+          </tr> 
+          <tr> 
+           <td class="tableblock halign-left valign-top"><p class="tableblock">custom2</p></td> 
+           <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
+          </tr> 
           <tr> 
            <td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Concur</p></td> 
+           <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
           </tr> 
           <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">doc:name</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Concur</p></td> 
+           <td class="tableblock halign-left valign-top"><p class="tableblock">orgUnit1</p></td> 
+           <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
           </tr> 
           <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">username</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Your username</p></td> 
+           <td class="tableblock halign-left valign-top"><p class="tableblock">orgUnit2</p></td> 
+           <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
           </tr> 
           <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">password</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Your password</p></td> 
+           <td class="tableblock halign-left valign-top"><p class="tableblock">orgUnit3</p></td> 
+           <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
           </tr> 
           <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">apiUrl</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">the URL of your Concur instance</p></td> 
+           <td class="tableblock halign-left valign-top"><p class="tableblock">purpose</p></td> 
+           <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
           </tr> 
           <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">consumerKey</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">your Consumer Key</p></td> 
+           <td class="tableblock halign-left valign-top"><p class="tableblock">userDefinedData</p></td> 
+           <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
           </tr> 
          </tbody> 
         </table> </li> 
-       <li> <p>Create a flow and add an HTTP connector in it, configured as follows:</p> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-       
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
-</pre></td> 
-               <td class="code"><pre><span class="entity">&amp;lt;</span>http:listener config-ref="HTTP_Listener_Configuration" path="submitreport" doc:name="HTTP"/<span class="entity">&amp;gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
-        </div> 
+       <li> <p>The Output properties are automatically configured to correspond to the Concur connector.</p> </li> 
+       <li> <p>Click <strong>Create Mapping</strong></p> </li> 
+       <li> <p>Drag each input data field to its corresponding output Concur field.</p> </li> 
+       <li> <p>Click the blank space on the Canvas to save the changes.</p> </li> 
+      </ol> 
+     </div> </li> 
+    <li> <p>Add a Variable transformer to preserve the Report ID from the message payload. Configure the transformer according to the table below.</p> 
+     <table class="tableblock frame-all grid-all spread"> 
+      <colgroup> 
+       <col> 
+       <col> 
+      </colgroup> 
+      <thead> 
+       <tr> 
+        <th class="tableblock halign-left valign-top">Field</th> 
+        <th class="tableblock halign-left valign-top">Value</th> 
+       </tr> 
+      </thead> 
+      <tbody> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Display Name</p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Extract Report ID (or any other name you prefer)</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Operation</p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Set Variable</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Name</p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Report ID</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Value</p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">#[groovy:payload.reportDetailsUrl.tokenize('/')[-1]]</p></td> 
+       </tr> 
+      </tbody> 
+     </table> 
+     <div class="paragraph"> 
+      <p><span class="image"><img src="./_images/ex3.png" alt="ex3"></span></p> 
+     </div> </li> 
+    <li> <p>Add a Set Payload transformer, then configure it according to the table below.</p> 
+     <table class="tableblock frame-all grid-all spread"> 
+      <colgroup> 
+       <col> 
+       <col> 
+      </colgroup> 
+      <thead> 
+       <tr> 
+        <th class="tableblock halign-left valign-top">Field</th> 
+        <th class="tableblock halign-left valign-top">Value</th> 
+       </tr> 
+      </thead> 
+      <tbody> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Display Name</p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Set Payload</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Value</p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>#[['crnCode':'US','expKey':'BUSPR','description':'Business Promotions','transactionDate':'2014-01-12', 'transactionAmount':'29', 'comment':'Brochure Sample', 'vendorDescription':'Kinkos','isPersonal':'N']]</code></p></td> 
+       </tr> 
+      </tbody> 
+     </table> 
+     <div class="paragraph"> 
+      <p><span class="image"><img src="./_images/ex4.png" alt="ex4"></span></p> 
+     </div> </li> 
+    <li> <p>Add another Concur connector to the flow to create a expense entry request.</p> </li> 
+    <li> <p>In the <strong>Connector Configuration</strong> field, select the global Concur element you have created.</p> </li> 
+    <li> <p>Configure the remaining parameters according to the table below.</p> 
+     <table class="tableblock frame-all grid-all spread"> 
+      <colgroup> 
+       <col> 
+       <col> 
+      </colgroup> 
+      <thead> 
+       <tr> 
+        <th class="tableblock halign-left valign-top">Field</th> 
+        <th class="tableblock halign-left valign-top">Value</th> 
+       </tr> 
+      </thead> 
+      <tbody> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Display Name</p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Post Expense Entry Request</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Config Reference</p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Concur (the global element you have created)</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Operation</p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Post expense entry request</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Report ID</p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>#[flowVars['ReportID']]</code></p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">General</p></td> 
+        <td class="tableblock halign-left valign-top"> 
+         <div> 
+          <div class="paragraph"> 
+           <p>Select <strong>Define Attributes</strong>, then enter the following:</p> 
+          </div> 
+          <div class="paragraph"> 
+           <p>Crn Code: #[<strong>payload</strong>.expense.crnCode]</p> 
+          </div> 
+          <div class="paragraph"> 
+           <p>Exp Key: #[<strong>payload</strong>.expense.expKey]</p> 
+          </div> 
+          <div class="paragraph"> 
+           <p>Transaction Date: #[<strong>payload</strong>.expense.transactionDate]</p> 
+          </div> 
+          <div class="paragraph"> 
+           <p>Transaction Amount: #[<strong>payload</strong>.expense.transactionAmount]</p> 
+          </div> 
+          <div class="paragraph"> 
+           <p>Comment: #[<strong>payload</strong>.expense.comment]</p> 
+          </div> 
+          <div class="paragraph"> 
+           <p>Vendor Description: #[<strong>payload</strong>.expense.vendorDescription]</p> 
+          </div> 
+          <div class="paragraph"> 
+           <p>Is Personal: #[<strong>payload</strong>.expense.isPersonal]</p> 
+          </div> 
+         </div></td> 
+       </tr> 
+      </tbody> 
+     </table> 
+     <div class="paragraph"> 
+      <p><span class="image"><img src="./_images/conc2.png" alt="conc2"></span></p> 
+     </div> </li> 
+    <li> <p>Drag another DataMapper between the Set Payload transformer and the Post Expense Entry Request, then configure it according to the steps below.</p> 
+     <div class="olist loweralpha"> 
+      <ol class="loweralpha" type="a"> 
+       <li> <p>In the <strong>Input type</strong>, select <strong>Map&lt;k,v&gt;</strong>, then select <strong>User Defined.</strong></p> </li> 
+       <li> <p>Click <strong>Create/Edit Structure</strong>. &nbsp;</p> </li> 
+       <li> <p>Enter a name for the Map, then under <strong>Type</strong>, select <strong>Element</strong>.</p> </li> 
+       <li> <p>Add fields to the input structure according to the table below.</p> 
         <table class="tableblock frame-all grid-all spread"> 
          <colgroup> 
           <col> 
@@ -1997,467 +1817,615 @@ http://www.mulesoft.org/schema/mule/concur/current/mule-concur.xsd</pre></td>
          </colgroup> 
          <thead> 
           <tr> 
-           <th class="tableblock halign-left valign-top">Attribute</th> 
-           <th class="tableblock halign-left valign-top">Value</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><code>HTTP</code></p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>config-ref</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><code>HTTP_Listener_Configuration</code></p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>path</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><code>submitreport</code></p></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-       <li> <p>The&nbsp;<strong>config-ref</strong> attribute in the connector references a global element, you must now create this global element outside your flow.</p> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-       
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
-</pre></td> 
-               <td class="code"><pre><span class="entity">&amp;lt;</span>http:listener-config name="HTTP_Listener_Configuration" host="localhost" port="8081" doc:name="HTTP Listener Configuration"/<span class="entity">&amp;gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
-        </div> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col> 
-          <col> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Attribute</th> 
-           <th class="tableblock halign-left valign-top">Value</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><code>HTTP_Listener_Configuration</code></p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>host</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><code>localhost</code></p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>port</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><code>8081</code></p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><code>HTTP Listener Configuration</code></p></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-       <li> <p>After the HTTP connector, add a <strong>Set Payload transformer</strong> to set the payload into expense report header.&nbsp;</p> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-       
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
-</pre></td> 
-               <td class="code"><pre><span class="entity">&amp;lt;</span>set-payload doc:name="Set Payload" value="#[['name':'April Expenses','purpose':'All expenses for April','comment':'This is a comment.','orgUnit1':'US','orgUnit2':'NW','orgUnit3':'Redmond','custom1':'Client','custom2':'Local','userDefinedDate':'2014-03-26 15:15:07.0']]"/<span class="entity">&amp;gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
-        </div> </li> 
-       <li> <p>Add a <strong>concur:post-expense-report-header</strong> element to the flow. Configure the attributes according to the table below.</p> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-       
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
-</pre></td> 
-               <td class="code"><pre><span class="entity">&amp;lt;</span>concur:post-expense-report-header config-ref="Concur" doc:name="Post Expense Report Header"<span class="entity">&amp;gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
-        </div> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col> 
-          <col> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Attribute</th> 
-           <th class="tableblock halign-left valign-top">Value</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Name</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">#[<strong>payload</strong>.name]</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Purpose</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">#[<strong>payload</strong>.purpose]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Comment</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">#[<strong>payload</strong>.comment]</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">OrgUnit1</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">#[<strong>payload</strong>.orgUnit1]</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">OrgUnit2</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">#[<strong>payload</strong>.orgUnit2]</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">OrgUnit3</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">#[<strong>payload</strong>.orgUnit3]</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Custom1</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">#[<strong>payload</strong>.custom1]</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Custom2</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">#[<strong>payload</strong>.custom2]</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">User Defined Data</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">#[<strong>payload</strong>.userDefinedData]</p></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-       <li> <p>Add a <strong>DataMapper</strong> element between the Set Payload transformer and the Concur connector.</p> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-       
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
-</pre></td> 
-               <td class="code"><pre><span class="entity">&amp;lt;</span>data-mapper:transform config-ref="Map_To_Report" doc:name="Map To Report"/<span class="entity">&amp;gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
-        </div> </li> 
-       <li> <p>You must configure the <strong>DataMapper</strong> element through Studio Visual Editor. Switch the view to the <strong>Message Flow</strong> view, then click the DataMapper element to set its properties.<br></p> 
-        <div class="olist loweralpha"> 
-         <ol class="loweralpha" type="a"> 
-          <li> <p>In the <strong>Input type</strong>, select <strong>Map&lt;k,v&gt;</strong>, then select <strong>User Defined.</strong></p> </li> 
-          <li> <p>Click <strong>Create/Edit Structure</strong>. &nbsp;</p> </li> 
-          <li> <p>Enter a name for the Map, and under <strong>Type</strong>, select <strong>Element</strong>.</p> </li> 
-          <li> <p>Add fields to the input structure according to the table below.</p> 
-           <table class="tableblock frame-all grid-all spread"> 
-            <colgroup> 
-             <col> 
-             <col> 
-            </colgroup> 
-            <thead> 
-             <tr> 
-              <th class="tableblock halign-left valign-top">Name</th> 
-              <th class="tableblock halign-left valign-top">Type</th> 
-             </tr> 
-            </thead> 
-            <tbody> 
-             <tr> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">comment</p></td> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
-             </tr> 
-             <tr> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">custom1</p></td> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
-             </tr> 
-             <tr> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">custom2</p></td> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
-             </tr> 
-             <tr> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
-             </tr> 
-             <tr> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">orgUnit1</p></td> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
-             </tr> 
-             <tr> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">orgUnit2</p></td> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
-             </tr> 
-             <tr> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">OrgUnit3</p></td> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
-             </tr> 
-             <tr> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">userDefinedata</p></td> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
-             </tr> 
-            </tbody> 
-           </table> </li> 
-         </ol> 
-        </div> </li> 
-       <li> <p>Add a&nbsp;<strong>set-variable</strong> element in the flow after the DataMapper to save the Expense Report ID.</p> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-       
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
-</pre></td> 
-               <td class="code"><pre><span class="entity">&amp;lt;</span>set-variable variableName="ReportId" value="#[groovy:payload.reportDetailsUrl.tokenize('/')[-1]]" doc:name="Extract Report Id"/<span class="entity">&amp;gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
-        </div> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col> 
-          <col> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Attribute</th> 
-           <th class="tableblock halign-left valign-top">Value</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock"><code>variableName</code></p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">ReportId</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">value</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">#[groovy:payload.reportDetailsUrl.tokenize('/')[-1]]</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">doc:name</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Extract Report Id</p></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-       <li> <p>Now, add a <strong>set-payload</strong> element.</p> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-       
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
-</pre></td> 
-               <td class="code"><pre><span class="entity">&amp;lt;</span>set-payload value="#[['crnCode':'US','expKey':'BUSPR','description':'Business Promotions','transactionDate':'2014-01-12','transactionAmount':'29','comment':'Brochure Sample','vendorDescription':'Kinkos','isPersonal':'N']]" doc:name="Set Payload"/<span class="entity">&amp;gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
-        </div> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col style="width: 50%;"> 
-          <col style="width: 50%;"> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Attribute</th> 
-           <th class="tableblock halign-left valign-top">Value</th> 
-          </tr> 
-         </thead> 
-         <tbody> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">value</p></td> 
-           <td class="tableblock halign-left valign-top"> 
-            <div> 
-             <div class="listingblock"> 
-              <div class="content"> 
-               <pre class="CodeRay highlight"><code data-lang="xml">
-            
-                    
-                 <table class="CodeRay"> 
-                  <tbody> 
-                   <tr> 
-                    <td class="line-numbers"><pre>1
-</pre></td> 
-                    <td class="code"><pre>#[['crnCode':'US','expKey':'BUSPR','description':'Business Promotions','transactionDate':'2014-01-12','transactionAmount':'29','comment':'Brochure Sample','vendorDescription':'Kinkos','isPersonal':'N']]</pre></td> 
-                   </tr> 
-                  </tbody> 
-                 </table></code></pre> 
-              </div> 
-             </div> 
-            </div></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">doc:name</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">Set Payload</p></td> 
-          </tr> 
-         </tbody> 
-        </table> </li> 
-       <li> <p>Add a <strong>concur:post-expense-entry-request</strong> element to the flow.</p> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-       
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
-</pre></td> 
-               <td class="code"><pre><span class="entity">&amp;lt;</span>concur:post-expense-entry-request config-ref="Concur" reportId="#[flowVars['ReportID']]" doc:name="Post Expense Entry Request"<span class="entity">&amp;gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
-        </div> 
-        <div class="paragraph"> 
-         <p>Configure the attributes according to the table below.</p> 
-        </div> 
-        <table class="tableblock frame-all grid-all spread"> 
-         <colgroup> 
-          <col> 
-          <col> 
-         </colgroup> 
-         <thead> 
-          <tr> 
-           <th class="tableblock halign-left valign-top">Attribute</th> 
-           <th class="tableblock halign-left valign-top">Value</th> 
+           <th class="tableblock halign-left valign-top">Comment</th> 
+           <th class="tableblock halign-left valign-top">Type</th> 
           </tr> 
          </thead> 
          <tbody> 
           <tr> 
            <td class="tableblock halign-left valign-top"><p class="tableblock">crnCode</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">payload.expense.crnCode</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">expKey</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">payload.expense.expKey</p></td> 
+           <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
           </tr> 
           <tr> 
            <td class="tableblock halign-left valign-top"><p class="tableblock">description</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">payload.expense.description</p></td> 
+           <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
           </tr> 
           <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">transactionDate</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">payload.expense.transactionDate</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">transactionAmount</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">payload.expense.transactionAmount</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">comment</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">payload.expense.comment</p></td> 
-          </tr> 
-          <tr> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">VendorDescription</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">payload.expense.vendorDescription</p></td> 
+           <td class="tableblock halign-left valign-top"><p class="tableblock">expKey</p></td> 
+           <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
           </tr> 
           <tr> 
            <td class="tableblock halign-left valign-top"><p class="tableblock">isPersonal</p></td> 
-           <td class="tableblock halign-left valign-top"><p class="tableblock">payload.expense.isPersonal</p></td> 
+           <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
+          </tr> 
+          <tr> 
+           <td class="tableblock halign-left valign-top"><p class="tableblock">transactionAmount</p></td> 
+           <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
+          </tr> 
+          <tr> 
+           <td class="tableblock halign-left valign-top"><p class="tableblock">transactionDate</p></td> 
+           <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
+          </tr> 
+          <tr> 
+           <td class="tableblock halign-left valign-top"><p class="tableblock">vendorDescription</p></td> 
+           <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
           </tr> 
          </tbody> 
         </table> </li> 
-       <li> <p>Add a <strong>DataMapper</strong> element between the Set Payload transformer and the Concur connector.</p> </li> 
-       <li> <p>Configure the <strong>DataMapper</strong> element through Studio’s Visual Editor. Switch the view to&nbsp;<strong>Message Flow</strong> view, then click the DataMapper element to set its properties.<br></p> 
-        <div class="olist loweralpha"> 
-         <ol class="loweralpha" type="a"> 
-          <li> <p>In the <strong>Input type</strong>, select Map<strong>&lt;k,v&gt;</strong>, then select <strong>User Defined</strong>.</p> </li> 
-          <li> <p>Click <strong>Create/Edit Structure</strong>. &nbsp;</p> </li> 
-          <li> <p>Enter a name for the Map, then under <strong>Type</strong>, select <strong>Element</strong>.</p> </li> 
-          <li> <p>Add fields to the input structure according to the table below.</p> 
-           <table class="tableblock frame-all grid-all spread"> 
-            <colgroup> 
-             <col> 
-             <col> 
-            </colgroup> 
-            <thead> 
-             <tr> 
-              <th class="tableblock halign-left valign-top">Comment</th> 
-              <th class="tableblock halign-left valign-top">Type</th> 
-             </tr> 
-            </thead> 
-            <tbody> 
-             <tr> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">crnCode</p></td> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
-             </tr> 
-             <tr> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">description</p></td> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
-             </tr> 
-             <tr> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">expKey</p></td> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
-             </tr> 
-             <tr> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">isPersonal</p></td> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
-             </tr> 
-             <tr> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">transactionAmount</p></td> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
-             </tr> 
-             <tr> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">transactionDate</p></td> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
-             </tr> 
-             <tr> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">vendorDescription</p></td> 
-              <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
-             </tr> 
-            </tbody> 
-           </table> </li> 
-          <li> <p>The Output properties are automatically configured to correspond to the Concur connector.</p> </li> 
-          <li> <p>Click <strong>Create Mapping,</strong> then drag each input data field to its corresponding output Concur field. Click the blank space on the Canvas to save the changes.</p> </li> 
-         </ol> 
-        </div> </li> 
-       <li> <p>Add <strong>concur:post-expense-report-submit-request</strong> element to submit the expense report to concur.</p> </li> 
+       <li> <p>The Output properties are automatically configured to correspond to the Concur connector.</p> </li> 
+       <li> <p>Click <strong>Create Mapping</strong>.</p> </li> 
+       <li> <p>Drag each input data field to its corresponding output Concur field.</p> </li> 
+       <li> <p>Click the blank space on the Canvas to save the changes.</p> </li> 
       </ol> 
-     </div> 
-     <div class="listingblock"> 
-      <div class="content"> 
-       <pre class="CodeRay highlight"><code data-lang="xml">
-    
-            
-         <table class="CodeRay"> 
+     </div> </li> 
+    <li> <p>Finally, add a Concur connector at the end of the flow to post the expense report to Concur.</p> </li> 
+    <li> <p>In the <strong>Connector Configuration</strong> field, select the Concur global element you created.</p> </li> 
+    <li> <p>Configure the remaining parameters according to the table below.</p> 
+     <table class="tableblock frame-all grid-all spread"> 
+      <colgroup> 
+       <col> 
+       <col> 
+      </colgroup> 
+      <thead> 
+       <tr> 
+        <th class="tableblock halign-left valign-top">Field</th> 
+        <th class="tableblock halign-left valign-top">Value</th> 
+       </tr> 
+      </thead> 
+      <tbody> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Display Name</p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Post Expense Report</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Operation</p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Post expense repot submit request</p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Report ID</p></td> 
+        <td class="tableblock halign-left valign-top"><p class="tableblock">#[flowVars['ReportID']]</p></td> 
+       </tr> 
+      </tbody> 
+     </table> 
+     <div class="paragraph"> 
+      <p><span class="image"><img src="./_images/conc3.png" alt="conc3"></span></p> 
+     </div> </li> 
+    <li> <p>Run the project as a Mule Application.</p> </li> 
+   </ol> 
+  </div> 
+  <div class="sect2"> 
+   <h3 id="xml-editor-2"><a class="anchor" href="#xml-editor-2"></a>XML Editor</h3> 
+   <div class="olist arabic"> 
+    <ol class="arabic"> 
+     <li> <p>Add a <strong>concur:config</strong> ** global element to your project, then configure its attributes according to the table below (see code below for a complete sample).</p> 
+      <div class="listingblock"> 
+       <div class="content"> 
+        <pre class="CodeRay highlight"><code data-lang="xml">
+             
+          <table class="CodeRay"> 
+           <tbody> 
+            <tr> 
+             <td class="line-numbers"><pre>1
+</pre></td> 
+             <td class="code"><pre><span class="tag">&lt;concur:config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Concur</span><span class="delimiter">"</span></span> <span class="attribute-name">username</span>=<span class="string"><span class="delimiter">"</span><span class="content">&lt;your username</span></span><span class="error">&gt;</span>" password="<span class="tag">&lt;your</span> <span class="attribute-name">password</span><span class="tag">&gt;</span>" apiUrl="<span class="tag">&lt;the</span> <span class="attribute-name">API</span> <span class="attribute-name">URL</span> <span class="attribute-name">of</span> <span class="attribute-name">your</span> <span class="attribute-name">Concur</span> <span class="attribute-name">instance</span><span class="tag">&gt;</span>" consumerKey="<span class="tag">&lt;your</span> <span class="attribute-name">Consumer</span> <span class="attribute-name">Key</span><span class="tag">&gt;</span>" doc:name="Concur"/<span class="error">&gt;</span></pre></td> 
+            </tr> 
+           </tbody> 
+          </table></code></pre> 
+       </div> 
+      </div> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col> 
+        <col> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Attribute</th> 
+         <th class="tableblock halign-left valign-top">Value</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Concur</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">doc:name</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Concur</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">username</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Your username</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">password</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Your password</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">apiUrl</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">the URL of your Concur instance</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">consumerKey</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">your Consumer Key</p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>Create a flow and add an HTTP connector in it, configured as follows:</p> 
+      <div class="listingblock"> 
+       <div class="content"> 
+        <pre class="CodeRay highlight"><code data-lang="xml">
+             
+          <table class="CodeRay"> 
+           <tbody> 
+            <tr> 
+             <td class="line-numbers"><pre>1
+</pre></td> 
+             <td class="code"><pre><span class="tag">&lt;http:listener</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Listener_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">"</span><span class="content">submitreport</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></pre></td> 
+            </tr> 
+           </tbody> 
+          </table></code></pre> 
+       </div> 
+      </div> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col> 
+        <col> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Attribute</th> 
+         <th class="tableblock halign-left valign-top">Value</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>HTTP</code></p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>config-ref</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>HTTP_Listener_Configuration</code></p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>path</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>submitreport</code></p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>The&nbsp;<strong>config-ref</strong> attribute in the connector references a global element, you must now create this global element outside your flow.</p> 
+      <div class="listingblock"> 
+       <div class="content"> 
+        <pre class="CodeRay highlight"><code data-lang="xml">
+             
+          <table class="CodeRay"> 
+           <tbody> 
+            <tr> 
+             <td class="line-numbers"><pre>1
+</pre></td> 
+             <td class="code"><pre><span class="tag">&lt;http:listener-config</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP_Listener_Configuration</span><span class="delimiter">"</span></span> <span class="attribute-name">host</span>=<span class="string"><span class="delimiter">"</span><span class="content">localhost</span><span class="delimiter">"</span></span> <span class="attribute-name">port</span>=<span class="string"><span class="delimiter">"</span><span class="content">8081</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">HTTP Listener Configuration</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></pre></td> 
+            </tr> 
+           </tbody> 
+          </table></code></pre> 
+       </div> 
+      </div> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col> 
+        <col> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Attribute</th> 
+         <th class="tableblock halign-left valign-top">Value</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>HTTP_Listener_Configuration</code></p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>host</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>localhost</code></p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>port</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>8081</code></p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>doc:name</strong></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>HTTP Listener Configuration</code></p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>After the HTTP connector, add a <strong>Set Payload transformer</strong> to set the payload into expense report header.&nbsp;</p> 
+      <div class="listingblock"> 
+       <div class="content"> 
+        <pre class="CodeRay highlight"><code data-lang="xml">
+             
+          <table class="CodeRay"> 
+           <tbody> 
+            <tr> 
+             <td class="line-numbers"><pre>1
+</pre></td> 
+             <td class="code"><pre><span class="tag">&lt;set-payload</span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Set Payload</span><span class="delimiter">"</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">"</span><span class="content">#[['name':'April Expenses','purpose':'All expenses for April','comment':'This is a comment.','orgUnit1':'US','orgUnit2':'NW','orgUnit3':'Redmond','custom1':'Client','custom2':'Local','userDefinedDate':'2014-03-26 15:15:07.0']]</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></pre></td> 
+            </tr> 
+           </tbody> 
+          </table></code></pre> 
+       </div> 
+      </div> </li> 
+     <li> <p>Add a <strong>concur:post-expense-report-header</strong> element to the flow. Configure the attributes according to the table below.</p> 
+      <div class="listingblock"> 
+       <div class="content"> 
+        <pre class="CodeRay highlight"><code data-lang="xml">
+             
+          <table class="CodeRay"> 
+           <tbody> 
+            <tr> 
+             <td class="line-numbers"><pre>1
+</pre></td> 
+             <td class="code"><pre><span class="tag">&lt;concur:post-expense-report-header</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">Concur</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Post Expense Report Header</span><span class="delimiter">"</span></span><span class="tag">&gt;</span></pre></td> 
+            </tr> 
+           </tbody> 
+          </table></code></pre> 
+       </div> 
+      </div> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col> 
+        <col> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Attribute</th> 
+         <th class="tableblock halign-left valign-top">Value</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Name</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">#[<strong>payload</strong>.name]</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Purpose</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">#[<strong>payload</strong>.purpose]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Comment</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">#[<strong>payload</strong>.comment]</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">OrgUnit1</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">#[<strong>payload</strong>.orgUnit1]</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">OrgUnit2</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">#[<strong>payload</strong>.orgUnit2]</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">OrgUnit3</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">#[<strong>payload</strong>.orgUnit3]</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Custom1</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">#[<strong>payload</strong>.custom1]</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Custom2</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">#[<strong>payload</strong>.custom2]</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">User Defined Data</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">#[<strong>payload</strong>.userDefinedData]</p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>Add a <strong>DataMapper</strong> element between the Set Payload transformer and the Concur connector.</p> 
+      <div class="listingblock"> 
+       <div class="content"> 
+        <pre class="CodeRay highlight"><code data-lang="xml">
+             
+          <table class="CodeRay"> 
+           <tbody> 
+            <tr> 
+             <td class="line-numbers"><pre>1
+</pre></td> 
+             <td class="code"><pre><span class="tag">&lt;data-mapper:transform</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">Map_To_Report</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Map To Report</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></pre></td> 
+            </tr> 
+           </tbody> 
+          </table></code></pre> 
+       </div> 
+      </div> </li> 
+     <li> <p>You must configure the <strong>DataMapper</strong> element through Studio Visual Editor. Switch the view to the <strong>Message Flow</strong> view, then click the DataMapper element to set its properties.<br></p> 
+      <div class="olist loweralpha"> 
+       <ol class="loweralpha" type="a"> 
+        <li> <p>In the <strong>Input type</strong>, select <strong>Map&lt;k,v&gt;</strong>, then select <strong>User Defined.</strong></p> </li> 
+        <li> <p>Click <strong>Create/Edit Structure</strong>. &nbsp;</p> </li> 
+        <li> <p>Enter a name for the Map, and under <strong>Type</strong>, select <strong>Element</strong>.</p> </li> 
+        <li> <p>Add fields to the input structure according to the table below.</p> 
+         <table class="tableblock frame-all grid-all spread"> 
+          <colgroup> 
+           <col> 
+           <col> 
+          </colgroup> 
+          <thead> 
+           <tr> 
+            <th class="tableblock halign-left valign-top">Name</th> 
+            <th class="tableblock halign-left valign-top">Type</th> 
+           </tr> 
+          </thead> 
           <tbody> 
            <tr> 
-            <td class="line-numbers"><pre>1
-</pre></td> 
-            <td class="code"><pre><span class="entity">&amp;lt;</span>concur:post-expense-report-submit-request config-ref="Concur" reportId="#[flowVars['ReportID']]" doc:name="Post Expense Report"/<span class="entity">&amp;gt;</span></pre></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">comment</p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
+           </tr> 
+           <tr> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">custom1</p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
+           </tr> 
+           <tr> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">custom2</p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
+           </tr> 
+           <tr> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
+           </tr> 
+           <tr> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">orgUnit1</p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
+           </tr> 
+           <tr> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">orgUnit2</p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
+           </tr> 
+           <tr> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">OrgUnit3</p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
+           </tr> 
+           <tr> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">userDefinedata</p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
            </tr> 
           </tbody> 
-         </table></code></pre> 
+         </table> </li> 
+       </ol> 
+      </div> </li> 
+     <li> <p>Add a&nbsp;<strong>set-variable</strong> element in the flow after the DataMapper to save the Expense Report ID.</p> 
+      <div class="listingblock"> 
+       <div class="content"> 
+        <pre class="CodeRay highlight"><code data-lang="xml">
+             
+          <table class="CodeRay"> 
+           <tbody> 
+            <tr> 
+             <td class="line-numbers"><pre>1
+</pre></td> 
+             <td class="code"><pre><span class="tag">&lt;set-variable</span> <span class="attribute-name">variableName</span>=<span class="string"><span class="delimiter">"</span><span class="content">ReportId</span><span class="delimiter">"</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">"</span><span class="content">#[groovy:payload.reportDetailsUrl.tokenize('/')[-1]]</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Extract Report Id</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></pre></td> 
+            </tr> 
+           </tbody> 
+          </table></code></pre> 
+       </div> 
       </div> 
-     </div> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col> 
+        <col> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Attribute</th> 
+         <th class="tableblock halign-left valign-top">Value</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>variableName</code></p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">ReportId</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">value</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">#[groovy:payload.reportDetailsUrl.tokenize('/')[-1]]</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">doc:name</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Extract Report Id</p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>Now, add a <strong>set-payload</strong> element.</p> 
+      <div class="listingblock"> 
+       <div class="content"> 
+        <pre class="CodeRay highlight"><code data-lang="xml">
+             
+          <table class="CodeRay"> 
+           <tbody> 
+            <tr> 
+             <td class="line-numbers"><pre>1
+</pre></td> 
+             <td class="code"><pre><span class="tag">&lt;set-payload</span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">"</span><span class="content">#[['crnCode':'US','expKey':'BUSPR','description':'Business Promotions','transactionDate':'2014-01-12','transactionAmount':'29','comment':'Brochure Sample','vendorDescription':'Kinkos','isPersonal':'N']]</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Set Payload</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></pre></td> 
+            </tr> 
+           </tbody> 
+          </table></code></pre> 
+       </div> 
+      </div> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col style="width: 50%;"> 
+        <col style="width: 50%;"> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Attribute</th> 
+         <th class="tableblock halign-left valign-top">Value</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">value</p></td> 
+         <td class="tableblock halign-left valign-top"> 
+          <div> 
+           <div class="listingblock"> 
+            <div class="content"> 
+             <pre class="CodeRay highlight"><code data-lang="xml">
+                  
+               <table class="CodeRay"> 
+                <tbody> 
+                 <tr> 
+                  <td class="line-numbers"><pre>1
+</pre></td> 
+                  <td class="code"><pre>#[['crnCode':'US','expKey':'BUSPR','description':'Business Promotions','transactionDate':'2014-01-12','transactionAmount':'29','comment':'Brochure Sample','vendorDescription':'Kinkos','isPersonal':'N']]</pre></td> 
+                 </tr> 
+                </tbody> 
+               </table></code></pre> 
+            </div> 
+           </div> 
+          </div></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">doc:name</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">Set Payload</p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>Add a <strong>concur:post-expense-entry-request</strong> element to the flow.</p> 
+      <div class="listingblock"> 
+       <div class="content"> 
+        <pre class="CodeRay highlight"><code data-lang="xml">
+             
+          <table class="CodeRay"> 
+           <tbody> 
+            <tr> 
+             <td class="line-numbers"><pre>1
+</pre></td> 
+             <td class="code"><pre><span class="tag">&lt;concur:post-expense-entry-request</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">Concur</span><span class="delimiter">"</span></span> <span class="attribute-name">reportId</span>=<span class="string"><span class="delimiter">"</span><span class="content">#[flowVars['ReportID']]</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Post Expense Entry Request</span><span class="delimiter">"</span></span><span class="tag">&gt;</span></pre></td> 
+            </tr> 
+           </tbody> 
+          </table></code></pre> 
+       </div> 
+      </div> 
+      <div class="paragraph"> 
+       <p>Configure the attributes according to the table below.</p> 
+      </div> 
+      <table class="tableblock frame-all grid-all spread"> 
+       <colgroup> 
+        <col> 
+        <col> 
+       </colgroup> 
+       <thead> 
+        <tr> 
+         <th class="tableblock halign-left valign-top">Attribute</th> 
+         <th class="tableblock halign-left valign-top">Value</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">crnCode</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">payload.expense.crnCode</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">expKey</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">payload.expense.expKey</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">description</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">payload.expense.description</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">transactionDate</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">payload.expense.transactionDate</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">transactionAmount</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">payload.expense.transactionAmount</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">comment</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">payload.expense.comment</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">VendorDescription</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">payload.expense.vendorDescription</p></td> 
+        </tr> 
+        <tr> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">isPersonal</p></td> 
+         <td class="tableblock halign-left valign-top"><p class="tableblock">payload.expense.isPersonal</p></td> 
+        </tr> 
+       </tbody> 
+      </table> </li> 
+     <li> <p>Add a <strong>DataMapper</strong> element between the Set Payload transformer and the Concur connector.</p> </li> 
+     <li> <p>Configure the <strong>DataMapper</strong> element through Studio’s Visual Editor. Switch the view to&nbsp;<strong>Message Flow</strong> view, then click the DataMapper element to set its properties.<br></p> 
+      <div class="olist loweralpha"> 
+       <ol class="loweralpha" type="a"> 
+        <li> <p>In the <strong>Input type</strong>, select Map<strong>&lt;k,v&gt;</strong>, then select <strong>User Defined</strong>.</p> </li> 
+        <li> <p>Click <strong>Create/Edit Structure</strong>. &nbsp;</p> </li> 
+        <li> <p>Enter a name for the Map, then under <strong>Type</strong>, select <strong>Element</strong>.</p> </li> 
+        <li> <p>Add fields to the input structure according to the table below.</p> 
+         <table class="tableblock frame-all grid-all spread"> 
+          <colgroup> 
+           <col> 
+           <col> 
+          </colgroup> 
+          <thead> 
+           <tr> 
+            <th class="tableblock halign-left valign-top">Comment</th> 
+            <th class="tableblock halign-left valign-top">Type</th> 
+           </tr> 
+          </thead> 
+          <tbody> 
+           <tr> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">crnCode</p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
+           </tr> 
+           <tr> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">description</p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
+           </tr> 
+           <tr> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">expKey</p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
+           </tr> 
+           <tr> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">isPersonal</p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
+           </tr> 
+           <tr> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">transactionAmount</p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
+           </tr> 
+           <tr> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">transactionDate</p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
+           </tr> 
+           <tr> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">vendorDescription</p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td> 
+           </tr> 
+          </tbody> 
+         </table> </li> 
+        <li> <p>The Output properties are automatically configured to correspond to the Concur connector.</p> </li> 
+        <li> <p>Click <strong>Create Mapping,</strong> then drag each input data field to its corresponding output Concur field. Click the blank space on the Canvas to save the changes.</p> </li> 
+       </ol> 
+      </div> </li> 
+     <li> <p>Add <strong>concur:post-expense-report-submit-request</strong> element to submit the expense report to concur.</p> </li> 
+    </ol> 
+   </div> 
+   <div class="listingblock"> 
+    <div class="content"> 
+     <pre class="CodeRay highlight"><code data-lang="xml">
+          
+       <table class="CodeRay"> 
+        <tbody> 
+         <tr> 
+          <td class="line-numbers"><pre>1
+2
+</pre></td> 
+          <td class="code"><pre><span class="tag">&lt;concur:post-expense-report-submit-request</span> <span class="attribute-name">config-ref</span>=<span class="string"><span class="delimiter">"</span><span class="content">Concur</span><span class="delimiter">"</span></span>
+<span class="attribute-name">reportId</span>=<span class="string"><span class="delimiter">"</span><span class="content">#[flowVars['ReportID']]</span><span class="delimiter">"</span></span> <span class="attribute-name">doc:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Post Expense Report</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span></pre></td> 
+         </tr> 
+        </tbody> 
+       </table></code></pre> 
     </div> 
    </div> 
   </div> 
@@ -2509,7 +2477,7 @@ http://www.mulesoft.org/schema/mule/concur/current/mule-concur.xsd</pre></td>
 34
 </pre></td> 
          <td class="code"><pre><span class="tag">&lt;mule</span> <span class="attribute-name">xmlns:json</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/json</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:concur</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/concur</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:data-mapper</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/ee/data-mapper</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:http</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/http</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:file</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/file</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:tracking</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/ee/tracking</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/core</span><span class="delimiter">"</span></span> <span class="attribute-name">xmlns:doc</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.mulesoft.org/schema/mule/documentation</span><span class="delimiter">"</span></span>
-<span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="attribute-name">xmlns:spring</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.springframework.org/schema/beans</span><span class="delimiter">"</span></span> <span class="attribute-name">version</span>=<span class="string"><span class="delimiter">"</span><span class="content">EE-3.6.1</span><span class="delimiter">"</span></span>
+<span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="attribute-name">xmlns:spring</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.springframework.org/schema/beans</span><span class="delimiter">"</span></span>
 <span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="attribute-name">xmlns:xsi</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.w3.org/2001/XMLSchema-instance</span><span class="delimiter">"</span></span>
 <span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="error">&nbsp;</span><span class="attribute-name">xsi:schemaLocation</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd</span>
 <span class="content">http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd</span>
@@ -2554,7 +2522,7 @@ http://www.mulesoft.org/schema/mule/concur/current/mule-concur.xsd</pre></td>
  <div class="sectionbody"> 
   <div class="ulist"> 
    <ul> 
-    <li> <p>Learn more about working with <a href="http://www.mulesoft.org/documentation/display/current/Anypoint+Connectors">Anypoint Connectors</a>.</p> </li> 
+    <li> <p>Learn more about working with <a href="/mule-user-guide/v/3.6/anypoint-connectors">Anypoint Connectors</a>.</p> </li> 
     <li> <p>Access the <a href="/release-notes/concur-connector-release-notes">release notes</a> for the Concur Connector.</p> </li> 
    </ul> 
   </div> 
