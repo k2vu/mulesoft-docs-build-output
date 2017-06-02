@@ -15,7 +15,7 @@
   <script src="/js/scripts.js?t=1495998692"></script>
 
   <link rel="canonical" href="https://docs.mulesoft.com/mule-user-guide/v/3.6/installing-connectors" />
-  <meta name="description" content="This page explains how to install connectors, uninstall connectors, and work with connector dependencies in both Anypoint Studio and Maven. Yo..." />
+  <meta name="description" content="This page explains how to install connectors, uninstall connectors, and work with connector dependencies in both Anypoint Studio and Maven. An..." />
   <meta class="swiftype" name="title" data-type="string" content="Installing Connectors" />
   <meta class="swiftype" name="version" data-type="enum" content="3.6" />
 </head>
@@ -1039,138 +1039,131 @@
  </div> 
 </div> 
 <div class="sect1"> 
- <h2 id="installing-connectors"><a class="anchor" href="#installing-connectors"></a>Installing Connectors</h2> 
+ <h2 id="to-install-from-anypoint-exchange"><a class="anchor" href="#to-install-from-anypoint-exchange"></a>To Install From Anypoint Exchange</h2> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>You can install a connector in Anypoint Studio using the instructions in&nbsp;<a href="/getting-started/anypoint-exchange#installing-a-connector-from-anypoint-exchange">Installing a Connector from Anypoint Exchange</a>. &nbsp;</p> 
+   <p>Anypoint Exchange lets you view details on a connector. However to install a connector, you need to first open Anypoint Studio.</p> 
   </div> 
   <div class="paragraph"> 
-   <p>If a connector or connector version is not in Anypoint Exchange, you can install the connector using Anypoint Studio:</p> 
+   <p>In Anypoint Studio, click the <span class="image"><img src="./_images/exchange-icon-in-studio.png" alt="X"></span> Anypoint Exchange icon in the taskbar.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>When Exchange opens, search for the connector to install, click Install, and follow the prompts to install the connector.</p> 
+  </div> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="to-install-from-the-studio-help-menu"><a class="anchor" href="#to-install-from-the-studio-help-menu"></a>To Install From the Studio Help Menu</h2> 
+ <div class="sectionbody"> 
+  <div class="paragraph"> 
+   <p>If a connector or connector version is not available from Anypoint Exchange, you can install the connector using Anypoint Studio.</p> 
   </div> 
   <div class="olist arabic"> 
    <ol class="arabic"> 
-    <li> <p>Verify if a connector is already installed by clicking <strong>Help</strong> &gt; <strong>Installation Details</strong> and searching for the connector. Click <strong>Close</strong>.</p> </li> 
-    <li> <p>Click <strong>Help</strong> &gt; <strong>Install New Software</strong>.</p> </li> 
-    <li> <p>Set <strong>Work with</strong> to <strong>Anypoint Connectors Update Site</strong>.</p> </li> 
+    <li> <p>Verify if a connector is already installed by clicking Help &gt; Installation Details and searching for the connector. Click Close.</p> </li> 
+    <li> <p>Click Help &gt; Install New Software.</p> </li> 
+    <li> <p>Set Work With to Anypoint Connectors Update Site.</p> </li> 
     <li> <p>Expand a category and click the checkbox for the connector you want to install.</p> </li> 
-    <li> <p>Click <strong>Next</strong>, <strong>Next</strong>, <strong>I accept the terms of the license agreement</strong>, <strong>Finish</strong>, and restart Studio when prompted.</p> </li> 
-    <li> <p>From a Mule Project in Studio, search for the connector and drag it to the Canvas. <br></p> </li> 
+    <li> <p>Click Next, Next, I accept the terms of the license agreement, Finish, and restart Studio when prompted.</p> </li> 
+    <li> <p>From a Mule Project in Studio, search for the connector and drag it to the Canvas.</p> </li> 
    </ol> 
   </div> 
  </div> 
 </div> 
 <div class="sect1"> 
- <h2 id="uninstalling-connectors"><a class="anchor" href="#uninstalling-connectors"></a>Uninstalling Connectors</h2> 
+ <h2 id="to-uninstall-connectors-using-the-studio-visual-editor"><a class="anchor" href="#to-uninstall-connectors-using-the-studio-visual-editor"></a>To Uninstall Connectors Using the Studio Visual Editor</h2> 
  <div class="sectionbody"> 
-  <div class="panel panel-default no-padding"> 
-   <div class="panel-heading no-padding"> 
-    <!-- Nav tabs --> 
-    <ul class="nav nav-tabs" role="tablist"> 
-     <li class="active"><a href="#tab-1_1" role="tab" data-toggle="tab">STUDIO Visual Editor</a></li> 
-     <li><a href="#tab-1_2" role="tab" data-toggle="tab">Maven</a></li> 
-    </ul> 
-   </div> 
-   <div class="panel-body tab-content no-padding"> 
-    <div class="tab-pane in active fade no-padding" id="tab-1_1"> 
-     <div class="olist arabic"> 
-      <ol class="arabic"> 
-       <li> <p>Under the&nbsp;<strong>Anypoint Studio</strong>&nbsp;menu, select&nbsp;<strong>About Anypoint Studio</strong>.&nbsp;<br> <span class="image"><img src="./_images/AboutAnypointStudio.png" alt="AboutAnypointStudio"></span></p> </li> 
-       <li> <p>In the&nbsp;<strong>About Anypoint Studio</strong>&nbsp;window, click&nbsp;<strong>Installation Details</strong>&nbsp;to display a list of the connectors you have installed on your instance of Anypoint Studio.&nbsp;</p> 
-        <div class="paragraph"> 
-         <p><span class="image"><img src="./_images/AboutAnypointStudioMay2014-ed.png" alt="AboutAnypointStudioMay2014-ed"></span></p> 
-        </div> </li> 
-       <li> <p>In the&nbsp;<strong>Installed Software</strong>&nbsp;tab, select the line item you wish to uninstall, then click&nbsp;<strong>Uninstall…</strong>.&nbsp;</p> 
-        <div class="paragraph"> 
-         <p><span class="image"><img src="./_images/InstalledSoftware.png" alt="InstalledSoftware"></span></p> 
-        </div> 
-        <div class="admonitionblock tip"> 
-         <table> 
-          <tbody> 
-           <tr> 
-            <td class="icon"> <i class="fa icon-tip" title="Tip"></i> </td> 
-            <td class="content"> To uninstall more than one item, click to select the first line item, then hold down the <code>CRTL</code> key (PC) or <code>command</code> key (Mac) as you click other line items. </td> 
-           </tr> 
-          </tbody> 
-         </table> 
-        </div> </li> 
-       <li> <p>Click&nbsp;<strong>Finish</strong>&nbsp;to uninstall the item(s) you selected.&nbsp;</p> 
-        <div class="paragraph"> 
-         <p><span class="image"><img src="./_images/uninstalldetails.png" alt="uninstalldetails"></span></p> 
-        </div> </li> 
-      </ol> 
-     </div> 
-    </div> 
-    <div class="tab-pane fade no-padding" id="tab-1_2"> 
+  <div class="olist arabic"> 
+   <ol class="arabic"> 
+    <li> <p>Under the&nbsp;<strong>Anypoint Studio</strong>&nbsp;menu, select&nbsp;<strong>About Anypoint Studio</strong>.&nbsp;<br> <span class="image"><img src="./_images/AboutAnypointStudio.png" alt="AboutAnypointStudio"></span></p> </li> 
+    <li> <p>In the&nbsp;<strong>About Anypoint Studio</strong>&nbsp;window, click&nbsp;<strong>Installation Details</strong>&nbsp;to display a list of the connectors you have installed on your instance of Anypoint Studio.&nbsp;</p> 
      <div class="paragraph"> 
-      <p>To uninstall a connector, remove the Maven dependency for that connector from your <code>pom.xml</code> file.</p> 
+      <p><span class="image"><img src="./_images/AboutAnypointStudioMay2014-ed.png" alt="AboutAnypointStudioMay2014-ed"></span></p> 
+     </div> </li> 
+    <li> <p>In the&nbsp;<strong>Installed Software</strong>&nbsp;tab, select the line item you wish to uninstall, then click&nbsp;<strong>Uninstall…</strong>.&nbsp;</p> 
+     <div class="paragraph"> 
+      <p><span class="image"><img src="./_images/InstalledSoftware.png" alt="InstalledSoftware"></span></p> 
      </div> 
-    </div> 
+     <div class="admonitionblock tip"> 
+      <table> 
+       <tbody> 
+        <tr> 
+         <td class="icon"> <i class="fa icon-tip" title="Tip"></i> </td> 
+         <td class="content"> To uninstall more than one item, click to select the first line item, then hold down the <code>CRTL</code> key (PC) or <code>command</code> key (Mac) as you click other line items. </td> 
+        </tr> 
+       </tbody> 
+      </table> 
+     </div> </li> 
+    <li> <p>Click&nbsp;<strong>Finish</strong>&nbsp;to uninstall the item(s) you selected.&nbsp;</p> 
+     <div class="paragraph"> 
+      <p><span class="image"><img src="./_images/uninstalldetails.png" alt="uninstalldetails"></span></p> 
+     </div> </li> 
+   </ol> 
+  </div> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="to-uninstall-connectors-using-maven"><a class="anchor" href="#to-uninstall-connectors-using-maven"></a>To Uninstall Connectors Using Maven</h2> 
+ <div class="sectionbody"> 
+  <div class="paragraph"> 
+   <p>To uninstall a connector, remove the Maven dependency for that connector from your <code>pom.xml</code> file.</p> 
+  </div> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="dependencies-anypoint-studio"><a class="anchor" href="#dependencies-anypoint-studio"></a>Dependencies - Anypoint Studio</h2> 
+ <div class="sectionbody"> 
+  <div class="sect2"> 
+   <h3 id="automatic-dependency-management"><a class="anchor" href="#automatic-dependency-management"></a>Automatic Dependency Management</h3> 
+   <div class="paragraph"> 
+    <p>In an Anypoint Studio project that does <em>not</em> include Maven support, when you add a connector to your flow, Studio automatically adds all of its dependencies (including&nbsp;<code>.jar</code>&nbsp;files) to your project’s&nbsp;<a href="http://en.wikipedia.org/wiki/Classpath_(Java)">classpath</a>. Mule manages each connector’s dependencies as an Eclipse user library. Because Studio adds a connector’s dependencies to your project’s classpath, you can reference connector classes within other projects in your Anypoint Studio instance.</p> 
+   </div> 
+   <div class="paragraph"> 
+    <p>In an Anypoint Studio project that is built with Maven support, when you add a connector to your flow, Studio automatically adds the dependency (and the inclusion element to the maven-mule-plugin, if needed) to your pom file. Then, it refreshes your project dependencies based on the new contents of your pom file, and the connector (and its transitive dependencies) will appear referenced in your project’s "Referenced Libraries" section as a set of references to .jar files in your local m2 repository.</p> 
+   </div> 
+   <div class="paragraph"> 
+    <p>Refer to <a href="/getting-started/index">Deploying Mule Applications</a>&nbsp;for more information on managing your user libraries in Studio.</p> 
+   </div> 
+  </div> 
+  <div class="sect2"> 
+   <h3 id="manually-adding-connector-dependencies"><a class="anchor" href="#manually-adding-connector-dependencies"></a>Manually Adding Connector Dependencies</h3> 
+   <div class="paragraph"> 
+    <p>Complete the following procedure to manually add connector dependencies to your project’s classpath in Studio.</p> 
+   </div> 
+   <div class="olist arabic"> 
+    <ol class="arabic"> 
+     <li> <p>In the&nbsp;<strong>Package Explorer</strong>&nbsp;pane, right-click on your project’s name, then select&nbsp;<strong>Build Path</strong>&nbsp;&gt;&nbsp;<strong>Add Libraries</strong>.</p> </li> 
+     <li> <p>In the&nbsp;<strong>Add Libraries</strong>&nbsp;wizard, select&nbsp;<strong>Anypoint Connector Dependencies,</strong>&nbsp;then click&nbsp;<strong>Next</strong>.</p> 
+      <div class="paragraph"> 
+       <p><span class="image"><img src="./_images/AddLibrary1.png" alt="AddLibrary1"></span></p> 
+      </div> </li> 
+     <li> <p>Check the boxes associated with the connector dependencies you wish to add to your project’s classpath.</p> 
+      <div class="paragraph"> 
+       <p><span class="image"><img src="./_images/AddLibrary2.png" alt="AddLibrary2"></span></p> 
+      </div> </li> 
+     <li> <p>Click&nbsp;<strong>Finish</strong>&nbsp;to add the dependencies.</p> </li> 
+    </ol> 
    </div> 
   </div> 
  </div> 
 </div> 
 <div class="sect1"> 
- <h2 id="dependencies"><a class="anchor" href="#dependencies"></a>Dependencies</h2> 
+ <h2 id="dependencies-maven"><a class="anchor" href="#dependencies-maven"></a>Dependencies - Maven</h2> 
  <div class="sectionbody"> 
-  <div class="panel panel-default no-padding"> 
-   <div class="panel-heading no-padding"> 
-    <!-- Nav tabs --> 
-    <ul class="nav nav-tabs" role="tablist"> 
-     <li class="active"><a href="#tab-2_1" role="tab" data-toggle="tab">Anypoint Studio</a></li> 
-     <li><a href="#tab-2_2" role="tab" data-toggle="tab">Maven</a></li> 
-    </ul> 
-   </div> 
-   <div class="panel-body tab-content no-padding"> 
-    <div class="tab-pane in active fade no-padding" id="tab-2_1"> 
-     <div class="sect2"> 
-      <h3 id="automatic-dependency-management"><a class="anchor" href="#automatic-dependency-management"></a>Automatic Dependency Management</h3> 
-      <div class="paragraph"> 
-       <p>In an Anypoint Studio project that does <em>not</em> include Maven support, when you add a connector to your flow, Studio automatically adds all of its dependencies (including&nbsp;<code>.jar</code>&nbsp;files) to your project’s&nbsp;<a href="http://en.wikipedia.org/wiki/Classpath_(Java)">classpath</a>. Mule manages each connector’s dependencies as an Eclipse user library. Because Studio adds a connector’s dependencies to your project’s classpath, you can reference connector classes within other projects in your Anypoint Studio instance.</p> 
-      </div> 
-      <div class="paragraph"> 
-       <p>In an Anypoint Studio project that is built with Maven support, when you add a connector to your flow, Studio automatically adds the dependency (and the inclusion element to the maven-mule-plugin, if needed) to your pom file. Then, it refreshes your project dependencies based on the new contents of your pom file, and the connector (and its transitive dependencies) will appear referenced in your project’s "Referenced Libraries" section as a set of references to .jar files in your local m2 repository.</p> 
-      </div> 
-      <div class="paragraph"> 
-       <p>Refer to <a href="/getting-started/index">Deploying Mule Applications</a>&nbsp;for more information on managing your user libraries in Studio.</p> 
-      </div> 
-     </div> 
-     <div class="sect2"> 
-      <h3 id="manually-adding-connector-dependencies"><a class="anchor" href="#manually-adding-connector-dependencies"></a>Manually Adding Connector Dependencies</h3> 
-      <div class="paragraph"> 
-       <p>Complete the following procedure to manually add connector dependencies to your project’s classpath in Studio.</p> 
-      </div> 
-      <div class="olist arabic"> 
-       <ol class="arabic"> 
-        <li> <p>In the&nbsp;<strong>Package Explorer</strong>&nbsp;pane, right-click on your project’s name, then select&nbsp;<strong>Build Path</strong>&nbsp;&gt;&nbsp;<strong>Add Libraries</strong>.</p> </li> 
-        <li> <p>In the&nbsp;<strong>Add Libraries</strong>&nbsp;wizard, select&nbsp;<strong>Anypoint Connector Dependencies,</strong>&nbsp;then click&nbsp;<strong>Next</strong>.</p> 
-         <div class="paragraph"> 
-          <p><span class="image"><img src="./_images/AddLibrary1.png" alt="AddLibrary1"></span></p> 
-         </div> </li> 
-        <li> <p>Check the boxes associated with the connector dependencies you wish to add to your project’s classpath.</p> 
-         <div class="paragraph"> 
-          <p><span class="image"><img src="./_images/AddLibrary2.png" alt="AddLibrary2"></span></p> 
-         </div> </li> 
-        <li> <p>Click&nbsp;<strong>Finish</strong>&nbsp;to add the dependencies.</p> </li> 
-       </ol> 
-      </div> 
-     </div> 
-    </div> 
-    <div class="tab-pane fade no-padding" id="tab-2_2"> 
-     <div class="paragraph"> 
-      <p>If you are installing a connector as a Maven dependency, ensure that you complete the following three steps for each connector:</p> 
-     </div> 
-     <div class="olist arabic"> 
-      <ol class="arabic"> 
-       <li> <p>To make any connector module available to a Mavenized Mule application, first add the following repositories to your <code>pom.xml</code> file:</p> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-       
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
+  <div class="paragraph"> 
+   <p>If you are installing a connector as a Maven dependency, ensure that you complete the following three steps for each connector:</p> 
+  </div> 
+  <div class="olist arabic"> 
+   <ol class="arabic"> 
+    <li> <p>To make any connector module available to a Mavenized Mule application, first add the following repositories to your <code>pom.xml</code> file:</p> 
+     <div class="listingblock"> 
+      <div class="content"> 
+       <pre class="CodeRay highlight"><code data-lang="xml">
+            
+         <table class="CodeRay"> 
+          <tbody> 
+           <tr> 
+            <td class="line-numbers"><pre>1
 2
 3
 4
@@ -1185,60 +1178,58 @@
 13
 14
 </pre></td> 
-               <td class="code"><pre><span class="entity">&amp;lt;</span>repositories<span class="entity">&amp;gt;</span>
-    <span class="entity">&amp;lt;</span>repository<span class="entity">&amp;gt;</span>
-        <span class="entity">&amp;lt;</span>id<span class="entity">&amp;gt;</span>mulesoft-releases<span class="entity">&amp;lt;</span>/id<span class="entity">&amp;gt;</span>
-        <span class="entity">&amp;lt;</span>name<span class="entity">&amp;gt;</span>MuleSoft Repository<span class="entity">&amp;lt;</span>/name<span class="entity">&amp;gt;</span>
-        <span class="entity">&amp;lt;</span>url<span class="entity">&amp;gt;</span>https://repository.mulesoft.org/releases/<span class="entity">&amp;lt;</span>/url<span class="entity">&amp;gt;</span>
-        <span class="entity">&amp;lt;</span>layout<span class="entity">&amp;gt;</span>default<span class="entity">&amp;lt;</span>/layout<span class="entity">&amp;gt;</span>
-    <span class="entity">&amp;lt;</span>/repository<span class="entity">&amp;gt;</span>
-    <span class="entity">&amp;lt;</span>repository<span class="entity">&amp;gt;</span>
-        <span class="entity">&amp;lt;</span>id<span class="entity">&amp;gt;</span>mulesoft-snapshots<span class="entity">&amp;lt;</span>/id<span class="entity">&amp;gt;</span>
-        <span class="entity">&amp;lt;</span>name<span class="entity">&amp;gt;</span>MuleSoft Snapshot Repository<span class="entity">&amp;lt;</span>/name<span class="entity">&amp;gt;</span>
-        <span class="entity">&amp;lt;</span>url<span class="entity">&amp;gt;</span>https://repository.mulesoft.org/snapshots/<span class="entity">&amp;lt;</span>/url<span class="entity">&amp;gt;</span>
-        <span class="entity">&amp;lt;</span>layout<span class="entity">&amp;gt;</span>default<span class="entity">&amp;lt;</span>/layout<span class="entity">&amp;gt;</span>
-    <span class="entity">&amp;lt;</span>/repository<span class="entity">&amp;gt;</span>
-<span class="entity">&amp;lt;</span>/repositories<span class="entity">&amp;gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
-        </div> </li> 
-       <li> <p>Then add the module as a dependency to your project, replacing <code>insert-artifactId-here</code> with the artifactId of the specific module you are adding and replacing RELEASE with the version of this module.</p> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-       
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
+            <td class="code"><pre><span class="tag">&lt;repositories&gt;</span>
+    <span class="tag">&lt;repository&gt;</span>
+        <span class="tag">&lt;id&gt;</span>mulesoft-releases<span class="tag">&lt;/id&gt;</span>
+        <span class="tag">&lt;name&gt;</span>MuleSoft Repository<span class="tag">&lt;/name&gt;</span>
+        <span class="tag">&lt;url&gt;</span>https://repository.mulesoft.org/releases/<span class="tag">&lt;/url&gt;</span>
+        <span class="tag">&lt;layout&gt;</span>default<span class="tag">&lt;/layout&gt;</span>
+    <span class="tag">&lt;/repository&gt;</span>
+    <span class="tag">&lt;repository&gt;</span>
+        <span class="tag">&lt;id&gt;</span>mulesoft-snapshots<span class="tag">&lt;/id&gt;</span>
+        <span class="tag">&lt;name&gt;</span>MuleSoft Snapshot Repository<span class="tag">&lt;/name&gt;</span>
+        <span class="tag">&lt;url&gt;</span>https://repository.mulesoft.org/snapshots/<span class="tag">&lt;/url&gt;</span>
+        <span class="tag">&lt;layout&gt;</span>default<span class="tag">&lt;/layout&gt;</span>
+    <span class="tag">&lt;/repository&gt;</span>
+<span class="tag">&lt;/repositories&gt;</span></pre></td> 
+           </tr> 
+          </tbody> 
+         </table></code></pre> 
+      </div> 
+     </div> </li> 
+    <li> <p>Then add the module as a dependency to your project, replacing <code>insert-artifactId-here</code> with the artifactId of the specific module you are adding and replacing RELEASE with the version of this module.</p> 
+     <div class="listingblock"> 
+      <div class="content"> 
+       <pre class="CodeRay highlight"><code data-lang="xml">
+            
+         <table class="CodeRay"> 
+          <tbody> 
+           <tr> 
+            <td class="line-numbers"><pre>1
 2
 3
 4
 5
 </pre></td> 
-               <td class="code"><pre><span class="entity">&amp;lt;</span>dependency<span class="entity">&amp;gt;</span>
-    <span class="entity">&amp;lt;</span>groupId<span class="entity">&amp;gt;</span>org.mule.modules<span class="entity">&amp;lt;</span>/groupId<span class="entity">&amp;gt;</span>
-    <span class="entity">&amp;lt;</span>artifactId<span class="entity">&amp;gt;</span>insert-artifactId-here<span class="entity">&amp;lt;</span>/artifactId<span class="entity">&amp;gt;</span>
-    <span class="entity">&amp;lt;</span>version<span class="entity">&amp;gt;</span>RELEASE<span class="entity">&amp;lt;</span>/version<span class="entity">&amp;gt;</span>
-<span class="entity">&amp;lt;</span>/dependency<span class="entity">&amp;gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
-        </div> </li> 
-       <li> <p>If you plan to use this module inside a Mule application, you need to add it to the packaging process. As such, the final zip file which will contain your flows and Java code will also contain this module and its dependencies. Add a special inclusion to the configuration of the Mule-Maven plugin for this module, replacing <code>insert-artifactId-here</code> with the artifactId of the specific module you are adding.</p> 
-        <div class="listingblock"> 
-         <div class="content"> 
-          <pre class="CodeRay highlight"><code data-lang="xml">
-       
-               
-            <table class="CodeRay"> 
-             <tbody> 
-              <tr> 
-               <td class="line-numbers"><pre>1
+            <td class="code"><pre><span class="tag">&lt;dependency&gt;</span>
+    <span class="tag">&lt;groupId&gt;</span>org.mule.modules<span class="tag">&lt;/groupId&gt;</span>
+    <span class="tag">&lt;artifactId&gt;</span>insert-artifactId-here<span class="tag">&lt;/artifactId&gt;</span>
+    <span class="tag">&lt;version&gt;</span>RELEASE<span class="tag">&lt;/version&gt;</span>
+<span class="tag">&lt;/dependency&gt;</span></pre></td> 
+           </tr> 
+          </tbody> 
+         </table></code></pre> 
+      </div> 
+     </div> </li> 
+    <li> <p>If you plan to use this module inside a Mule application, you need to add it to the packaging process. As such, the final zip file which will contain your flows and Java code will also contain this module and its dependencies. Add a special inclusion to the configuration of the Mule-Maven plugin for this module, replacing <code>insert-artifactId-here</code> with the artifactId of the specific module you are adding.</p> 
+     <div class="listingblock"> 
+      <div class="content"> 
+       <pre class="CodeRay highlight"><code data-lang="xml">
+            
+         <table class="CodeRay"> 
+          <tbody> 
+           <tr> 
+            <td class="line-numbers"><pre>1
 2
 3
 4
@@ -1253,29 +1244,26 @@
 13
 14
 </pre></td> 
-               <td class="code"><pre><span class="entity">&amp;lt;</span>plugin<span class="entity">&amp;gt;</span>
-    <span class="entity">&amp;lt;</span>groupId<span class="entity">&amp;gt;</span>org.mule.tools<span class="entity">&amp;lt;</span>/groupId<span class="entity">&amp;gt;</span>
-    <span class="entity">&amp;lt;</span>artifactId<span class="entity">&amp;gt;</span>maven-mule-plugin<span class="entity">&amp;lt;</span>/artifactId<span class="entity">&amp;gt;</span>
-    <span class="entity">&amp;lt;</span>extensions<span class="entity">&amp;gt;</span>true<span class="entity">&amp;lt;</span>/extensions<span class="entity">&amp;gt;</span>
-    <span class="entity">&amp;lt;</span>configuration<span class="entity">&amp;gt;</span>
-        <span class="entity">&amp;lt;</span>excludeMuleDependencies<span class="entity">&amp;gt;</span>false<span class="entity">&amp;lt;</span>/excludeMuleDependencies<span class="entity">&amp;gt;</span>
-        <span class="entity">&amp;lt;</span>inclusions<span class="entity">&amp;gt;</span>
-            <span class="entity">&amp;lt;</span>inclusion<span class="entity">&amp;gt;</span>
-                <span class="entity">&amp;lt;</span>groupId<span class="entity">&amp;gt;</span>org.mule.modules<span class="entity">&amp;lt;</span>/groupId<span class="entity">&amp;gt;</span>
-                <span class="entity">&amp;lt;</span>artifactId<span class="entity">&amp;gt;</span>insert-artifactId-here<span class="entity">&amp;lt;</span>/artifactId<span class="entity">&amp;gt;</span>
-            <span class="entity">&amp;lt;</span>/inclusion<span class="entity">&amp;gt;</span>
-        <span class="entity">&amp;lt;</span>/inclusions<span class="entity">&amp;gt;</span>
-    <span class="entity">&amp;lt;</span>/configuration<span class="entity">&amp;gt;</span>
-<span class="entity">&amp;lt;</span>/plugin<span class="entity">&amp;gt;</span></pre></td> 
-              </tr> 
-             </tbody> 
-            </table></code></pre> 
-         </div> 
-        </div> </li> 
-      </ol> 
-     </div> 
-    </div> 
-   </div> 
+            <td class="code"><pre><span class="tag">&lt;plugin&gt;</span>
+    <span class="tag">&lt;groupId&gt;</span>org.mule.tools<span class="tag">&lt;/groupId&gt;</span>
+    <span class="tag">&lt;artifactId&gt;</span>maven-mule-plugin<span class="tag">&lt;/artifactId&gt;</span>
+    <span class="tag">&lt;extensions&gt;</span>true<span class="tag">&lt;/extensions&gt;</span>
+    <span class="tag">&lt;configuration&gt;</span>
+        <span class="tag">&lt;excludeMuleDependencies&gt;</span>false<span class="tag">&lt;/excludeMuleDependencies&gt;</span>
+        <span class="tag">&lt;inclusions&gt;</span>
+            <span class="tag">&lt;inclusion&gt;</span>
+                <span class="tag">&lt;groupId&gt;</span>org.mule.modules<span class="tag">&lt;/groupId&gt;</span>
+                <span class="tag">&lt;artifactId&gt;</span>insert-artifactId-here<span class="tag">&lt;/artifactId&gt;</span>
+            <span class="tag">&lt;/inclusion&gt;</span>
+        <span class="tag">&lt;/inclusions&gt;</span>
+    <span class="tag">&lt;/configuration&gt;</span>
+<span class="tag">&lt;/plugin&gt;</span></pre></td> 
+           </tr> 
+          </tbody> 
+         </table></code></pre> 
+      </div> 
+     </div> </li> 
+   </ol> 
   </div> 
  </div> 
 </div> 
@@ -1285,8 +1273,8 @@
   <div class="ulist"> 
    <ul> 
     <li> <p>Read more about using <a href="/mule-user-guide/v/3.6/anypoint-connectors">Anypoint Connectors</a>.&nbsp;</p> </li> 
-    <li> <p>Review full connector-specific documentation, including video demonstrations and complete code samples, on the&nbsp;http://www.mulesoft.org/connectors[connectors site].</p> </li> 
-    <li> <p>Learn how to build your own Mule extensions with&nbsp;<a href="/anypoint-connector-devkit/v/3.7">Anypoint Connector DevKit</a>.</p> </li> 
+    <li> <p>Review full connector-specific documentation, including video demonstrations and complete code samples, in <a href="https://www.mulesoft.com/exchange#!/">Anypoint Exchange</a>.</p> </li> 
+    <li> <p>Learn how to build your own Mule extensions with&nbsp;<a href="/anypoint-connector-devkit/v/3.6">Anypoint Connector DevKit</a>.</p> </li> 
     <li> <p>Learn how to <a href="/mule-user-guide/v/3.6/working-with-multiple-versions-of-connectors">work with multiple versions of connectors</a>.</p> </li> 
    </ul> 
   </div> 
@@ -1296,7 +1284,7 @@
     <!-- END article-content -->
     <!-- scroll-menu --><div class="col-md-2 scroll-menu-container" data-swiftype-index='false'><div class="scroll-menu">
                 <h4>In this topic:</h4>
-                <ul><li><a class="scroll-menu-link" href="#installing-connectors">Installing Connectors</a></li><li><a class="scroll-menu-link" href="#uninstalling-connectors">Uninstalling Connectors</a></li><li><a class="scroll-menu-link" href="#dependencies">Dependencies</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
+                <ul><li><a class="scroll-menu-link" href="#to-install-from-anypoint-exchange">To Install From Anypoint Exchange</a></li><li><a class="scroll-menu-link" href="#to-install-from-the-studio-help-menu">To Install From the Studio Help Menu</a></li><li><a class="scroll-menu-link" href="#to-uninstall-connectors-using-the-studio-visual-editor">To Uninstall Connectors Using the Studio Visual Editor</a></li><li><a class="scroll-menu-link" href="#to-uninstall-connectors-using-maven">To Uninstall Connectors Using Maven</a></li><li><a class="scroll-menu-link" href="#dependencies-anypoint-studio">Dependencies - Anypoint Studio</a></li><li><a class="scroll-menu-link" href="#dependencies-maven">Dependencies - Maven</a></li><li><a class="scroll-menu-link" href="#see-also">See Also</a></li></ul></div></div><!-- /scroll-menu -->
   </div>
 </div>
 <!-- START footer -->
