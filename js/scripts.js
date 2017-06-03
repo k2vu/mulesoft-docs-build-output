@@ -260,7 +260,7 @@ function initSiteNav() {
             var navHeight = Math.min(articleHeight, window.innerHeight - subHeader.height());
             // NOTE using height instead of max-height provides a slighly smoother experience
             // NOTE due to layout, height of sidebar column must exceed height of notification bar
-            nav.css('height', navHeight-350).parent().css('height', navHeight-350);
+            nav.css('height', navHeight).parent().css('height', navHeight);
         },
         updateNavWidth = function() {
             nav.css('width', Math.floor(nav.parent()[0].getBoundingClientRect().width)+15);
@@ -418,9 +418,11 @@ function scrolltoActive() {
     var navHeight_test = Math.min(divarticleheight, window.innerHeight - (sidebarnavheightnav.offset().top - $(window).scrollTop()));
 
     if(isNotSmallScreen()) {
-        $('div.sidebar-nav nav').animate({
-            scrollTop: ($('div.sidebar-nav nav ').find('li.active').position().top-200)
-        }, 'slow');
+        if ($('div.sidebar-nav nav ').find('li.active').length > 0) {
+            $('div.sidebar-nav nav').animate({
+                scrollTop: ($('div.sidebar-nav nav ').find('li.active').position().top - 200)
+            }, 'slow');
+        }
     }
 }
 
