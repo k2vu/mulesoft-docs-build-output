@@ -1148,6 +1148,35 @@
   <div class="paragraph"> 
    <p>This creates your alert. Now, trigger your notification again by going to your application’s URL, for example:&nbsp;<code><a href="http://YOURAPP.cloudhub.io/" class="bare">http://YOURAPP.cloudhub.io/</a></code>. You then receive an email with your notification in it!</p> 
   </div> 
+  <div class="paragraph"> 
+   <p>If <strong>Custom Properties</strong> where send with the notification. i.e:</p> 
+  </div> 
+  <div class="listingblock"> 
+   <div class="content"> 
+    <pre class="CodeRay highlight"><code data-lang="xml">
+         
+      <table class="CodeRay"> 
+       <tbody> 
+        <tr> 
+         <td class="line-numbers"><pre>1
+2
+3
+4
+5
+</pre></td> 
+         <td class="code"><pre><span class="tag">&lt;cloudhub:create-notification</span> <span class="attribute-name">message</span>=<span class="string"><span class="delimiter">"</span><span class="content">Error processing transaction.</span><span class="delimiter">"</span></span> <span class="attribute-name">priority</span>=<span class="string"><span class="delimiter">"</span><span class="content">ERROR</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+  <span class="tag">&lt;cloudhub:custom-properties</span> <span class="tag">&gt;</span>
+    <span class="tag">&lt;cloudhub:custom-property</span> <span class="attribute-name">key</span>=<span class="string"><span class="delimiter">"</span><span class="content">originalPayload</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>#[flowVars.originalPayload]<span class="tag">&lt;/cloudhub:custom-property&gt;</span>
+  <span class="tag">&lt;/cloudhub:custom-properties&gt;</span>
+<span class="tag">&lt;/cloudhub:create-notification&gt;</span></pre></td> 
+        </tr> 
+       </tbody> 
+      </table></code></pre> 
+   </div> 
+  </div> 
+  <div class="paragraph"> 
+   <p>Then, they can be accessed as normal properties in the message. i.e.: ${originalPayload}</p> 
+  </div> 
  </div> 
 </div> 
 <div class="sect1"> 
